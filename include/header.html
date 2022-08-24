@@ -1,0 +1,81 @@
+<h1><a href="">We've</a></h1>
+<div id="gnb">
+    <ul>
+        <li><a href="">브랜드</a></li>
+        <li><a href="">단지안내</a></li>
+        <li><a href="">고객서비스</a></li>
+        <li><a href="">마이위브</a></li>
+    </ul>
+</div>
+<div class="util_wrap">
+    <a href="" class="btn_doosanenc" target="_blank">두산건설</a>
+    <button type="button" class="allMenu"><span>전체메뉴</spa></button>
+</div>
+
+<div id="siteMap">
+    <div class="dep2_wrap">
+        <div class="dep2">
+            <ul>
+                <li><a href="">브랜드소개</a></li>
+                <li class="fm"><a href="">5 Concepts</a></li>
+                <li><a href="">위브뉴스</a></li>
+            </ul>
+            <ul>
+                <li><a href="">분양일정</a></li>
+                <li><a href="">분양단지</a></li>
+                <li><a href="">공사단지</a></li>
+                <li><a href="">입주단지</a></li>
+            </ul>
+            <ul>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">고객문의</a></li>
+            </ul>
+            <ul>
+                <li><a href="">분양정보</a></li>
+                <li><a href="">예약현황</a></li>
+                <li><a href="">고객문의</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        function nav(){
+            if ("matchMedia" in window) {
+                if (window.matchMedia("screen and (max-width:1024px)").matches) {
+                    $("body").addClass("mobile");
+                    $("body").removeClass("pc");
+                }
+                else {
+                    $("body").addClass("pc");
+                    $("body").removeClass("mobile");
+                }
+            }
+        }
+        nav();
+
+        window.addEventListener('resize', function() {
+            nav();
+        }, true);
+
+        // PC 메뉴
+        // $("header, #siteMap").hover(function(){
+        // 	$("body").addClass("menuOn");
+        // }, function(){
+        // 	$("body").removeClass("menuOn");
+        // });
+
+
+        $("#gnb ul, #siteMap").hover(function(){
+            $("body").addClass("menuOn");
+        }, function(){
+            $("body").removeClass("menuOn");
+        });
+
+
+        // $(document).on("mouseover" , ".menuOn header" , function(){
+        // 	$("body").addClass("menuOn");
+        // });
+    });
+</script>

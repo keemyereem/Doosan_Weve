@@ -1,0 +1,168 @@
+
+/* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
+/* ----------------------- Published by 4m Creative ------------------------ */
+
+@charset "utf-8";
+@media screen and (max-width:1440px) {
+	html {overflow-x: scroll; width: 1440px;}
+	#weve_wrap {overflow: auto; width: 100%;}
+	#main_container {width: 100%;}
+	header{border-color: blue;max-width:1440px;}
+
+	/* #gnb ul > li > a {width:1440px;}
+    #siteMap .dep2_wrap .dep2 > ul {width:1440px;} */
+}
+
+
+/* @media screen and (max-width:1300px) {
+	.contBox04 .noti_list li:nth-child(4) {display:none;}
+}
+
+@media screen and (max-width:1200px) {
+	#gnb ul > li > a {width:120px;}
+    #siteMap .dep2_wrap .dep2 > ul {width:120px;}
+}
+
+@media screen and (max-width:1150px) {
+	footer .family_site {position:static; margin-top:30px;}
+}
+
+@media screen and (max-width:1024px) {
+	.contBox05 .service_box .cs_info {display:none;}
+}
+
+@media screen and (max-width:900px) {
+	#gnb {display:none;}
+    #siteMap {display:none !important;}
+
+    .contBox04 .noti_list li:nth-child(3),
+	.contBox04 .noti_list li:nth-child(4) {display:none;}
+} */
+
+@media screen and (min-width:768px) {
+	.contBox03.motion3 .house_slider .swiper-slide:nth-child(1) .default {animation:mc1 1s ease 0s forwards;}
+	.contBox03.motion3 .house_slider .swiper-slide:nth-child(2) .default {animation:mc1 1s ease .3s forwards;}
+	.contBox03.motion3 .house_slider .swiper-slide:nth-child(3) .default {animation:mc1 1s ease .6s forwards;}
+	.contBox03.motion3 .house_slider .swiper-slide:nth-child(4) .default {animation:mc1 1s ease .9s forwards;}
+
+    .contBox04 .noti_list li:before,
+	.contBox04 .noti_list li:after {content:""; position:absolute; background:#005eb8; width:0; height:1px; transition:all .5s;}
+	.contBox04 .noti_list li:before {top:-1px; left:0;}
+	.contBox04 .noti_list li:after {bottom:-1px; right:0;}
+	.contBox04 .noti_list li:hover:before {width:100%;}
+	.contBox04 .noti_list li:hover:after {width:100%;}
+	.contBox04 .noti_list li a:before,
+	.contBox04 .noti_list li a:after {content:""; position:absolute; background:#005eb8; width:1px; height:0; transition:all .5s;}
+	.contBox04 .noti_list li a:after {top:0; left:-1px;}
+	.contBox04 .noti_list li a:before {bottom:0; right:-1px;}
+	.contBox04 .noti_list li:hover a:before {height:100%;}
+	.contBox04 .noti_list li:hover a:after {height:100%;}
+}
+
+@media screen and (max-width:767px) {
+    /* common */
+    body, button, input, select, table, textarea {font-family:"HelveticaNeue-Light";}
+	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
+
+    /* header */
+	header {height:55px; padding:0 10px 0 20px;}
+	.fp-viewing-section04 header h1 a,
+	.menuOn header h1 a {background:url(../images/logom_b.png) 50% 50% no-repeat; background-size:36.5px 24px;}
+	header h1 a {background:url(../images/logom.png) 50% 50% no-repeat; background-size:36.5px 24px; width:37px; height:55px;}
+	.menuOn header .util_wrap .btn_doosanenc,
+	header .util_wrap .btn_doosanenc {width:77px; height:25px; font-size:12px;}
+	header .util_wrap .allMenu {margin-left:0;}
+	.menuOn  header .util_wrap .allMenu span,
+	header .util_wrap .allMenu span,
+	.menuOn  header .util_wrap .allMenu span:before,
+	header .util_wrap .allMenu span:before,
+	.menuOn  header .util_wrap .allMenu span:after,
+	header .util_wrap .allMenu span:after {height:2px;}
+	header .util_wrap .allMenu {width:50px;}
+	header .util_wrap .allMenu span {right:10px; width:30px;}
+	header .util_wrap .allMenu span:before {top:-8px;}
+	header .util_wrap .allMenu span:after {top:8px;}
+	header .util_wrap .allMenu span:before,
+	header .util_wrap .allMenu span:after {width:20px;}
+	header .util_wrap .allMenu:hover span {width:20px;}
+	header .util_wrap .allMenu:hover span:before,
+	header .util_wrap .allMenu:hover span:after {width:30px;}
+
+    /* footer */
+    footer {padding:0 20px;}
+	footer .inner {padding:35px 0 100px;}
+	footer .logo {position:static;}
+	footer .f_menu {margin-top:25px;}
+	footer .f_menu a {font-size:13px;}
+	footer .f_menu a:before {height:12px; margin:0 20px;}
+	footer .addr {margin-top:25px;}
+	footer .addr p {font-size:13px;}
+	footer .addr p.a1 {width:100%; margin-bottom:10px;}
+	footer .addr p span {margin-right:10px;}
+	footer .copy {font-size:13px;}
+	footer .family_site {display:none;}
+
+    /* main */
+    .contBox01 .text_wrap .big {font-size:40px;}
+	.contBox01 .text_wrap .big strong {display:block;}
+	.contBox01 .text_wrap .desc {font-size:15px; line-height:1.5;}
+	.contBox01 .text_wrap .desc br {display:block;}
+	.contBox01 .scroll {display:none;}
+	.contBox01 .swiper-pagination > div {margin:0 10px !important;}
+	.contBox01 .swiper-pagination > div p {font-size:15px;}
+
+    .contBox02 {background:url(../images/main/imgm_02_01.jpg) 50% 50% no-repeat; background-size:cover;}
+
+    .contBox03 .house_slider .swiper-slide {overflow:hidden; padding-top:95px; border:0;}
+	.contBox03 .house_slider .swiper-button-prev,
+	.contBox03 .house_slider .swiper-button-next {bottom:35px; left:auto;}
+	.contBox03 .house_slider .swiper-button-prev {right:85px;}
+	.contBox03 .house_slider .swiper-button-next {right:20px;}
+	.contBox03 .house_slider .swiper-slide:before {background:url(../images/main/bgm_03_grad.png) 0 0 repeat-x; background-size:100% 100%; height:100%; opacity:.6 !important;}
+	.contBox03 .house_slider .swiper-slide .default,
+	.contBox03 .house_slider .swiper-slide .text_box {opacity:0;}
+	.contBox03 .house_slider .swiper-slide.swiper-slide-active .default {animation:mc1 1s ease .5s forwards;}
+	.contBox03 .house_slider .swiper-slide.swiper-slide-active .text_box {animation:mc1 1s ease .8s forwards;}
+	.contBox03 .bg_box.mbg1 .bg1,
+	.contBox03 .bg_box.mbg2 .bg2,
+	.contBox03 .bg_box.mbg3 .bg3 {opacity:1;}
+	.contBox03 .house_slider .default .ct {width:55px; height:22px; font-size:12px;}
+	.contBox03 .house_slider .default .tit {font-size:20px;}
+	.contBox03 .house_slider .default .date {margin-top:10px; font-size:14px;}
+	.contBox03 .house_slider .text_box li {margin-top:5px; font-size:13px;}
+	.contBox03 .house_slider .text_box .link {margin-top:30px; font-size:13px;}
+
+    .contBox04 {padding:0 20px;}
+	.contBox04 > div {padding:100px 0 60px;}
+	.contBox04 h2 {font-size:30px;}
+	.contBox04 .noti_list {display:block; margin-top:10px;}
+	.contBox04 .noti_list li {width:100%; min-height:auto; margin-left:0; padding:0; border:0; border-bottom:1px solid #e5e5e5;}
+	.contBox04 .noti_list li:nth-child(3),
+	.contBox04 .noti_list li:nth-child(4) {display:none;}
+	.contBox04 .noti_list li a {padding:25px 12px;}
+	.contBox04 .noti_list li .tit {font-size:17px;}
+	.contBox04 .noti_list li span {margin-top:15px; font-size:12px;}
+	.contBox04 .noti_list li .more {display:none;}
+	.contBox04 .sns_wrap {width:calc(100% + 20px); margin-top:40px; padding-bottom:30px;}
+	.contBox04 .sns_wrap .item a img {width:auto; height:150px;}
+	.contBox04 .sns_wrap .item.yt a:after {width:22px; height:22px;}
+	.contBox04 .sns_wrap .item.yt a:before {width:27px; height:27px;}
+	.contBox04 .sns_wrap .item.inst a:after {width:25px; height:25px;}
+	.contBox04 .sns_wrap .mCSB_scrollTools.mCSB_scrollTools_horizontal {right:20px;}
+
+    .contBox05 {padding:0 20px;}
+	.contBox05 > div {padding:120px 0;}
+	.contBox05 h2 {font-size:30px;}
+	.contBox05 .service_box {display:block; margin-top:35px;}
+	.contBox05 .service_box .list {display:block;}
+	.contBox05 .service_box .list li {display:flex; align-items:flex-start; width:100%; max-width:100%; min-height:auto; margin-top:20px; margin-left:0; padding:30px 20px;}
+	.contBox05 .service_box .list li:first-child {margin-top:0;}
+	.contBox05 .service_box .list li .tit {display:flex; align-items:center; font-size:20px;}
+	.contBox05 .service_box .list li .tit:before {width:40px;}
+	.contBox05 .service_box .list li.l1 .tit:before {background-size:25px 25px; height:25px;}
+	.contBox05 .service_box .list li.l2 .tit:before {background-size:26px 25.5px; height:25.5px;}
+	.contBox05 .service_box .list li.l3 .tit:before {background-size:18px 25px; height:25px;}
+	.contBox05 .service_box .list li .link {position:static; margin-left:45px;}
+	.contBox05 .service_box .list li .link a {font-size:13px;}
+	.contBox05 .service_box .link a:after {width:22.5px;}
+}

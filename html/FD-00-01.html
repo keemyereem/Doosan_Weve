@@ -31,12 +31,7 @@
     <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" />  
 	<link rel="shortcut icon" type="image/x-icon" href="#">
 
-	<!-- Library CSS -->
-	<link rel="stylesheet" type="text/css" href="css/lib/swiper-bundle.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/lib/fullpage.css"/>
-	<link rel="stylesheet" type="text/css" href="css/lib/jquery.mCustomScrollbar.css"/>
-
-	<link rel="stylesheet" type="text/css" href="css/weve.css?ver=2.0"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 	<!-- Library JS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -46,369 +41,232 @@
 	
 	<script src="js/front.js"></script>
 	<script>
-		$(function(){
-			$(".sns_wrap").mCustomScrollbar({
-				axis:"x",
-				advanced:{autoExpandHorizontalScroll:true}
-			});
-		});
+		$(document).ready( function() {
+            $('header').load("include/header.html");
+			mainEvent.init();
+        });
+		
 	</script>
 </head>
 
 <body class="fp-viewing-section01 ">
-<div id="weve_wrap" class="main">
-	<header>
-		<h1><a href="">We've</a></h1>
-		<div id="gnb">
-			<ul>
-				<li><a href="">브랜드</a></li>
-				<li><a href="">단지안내</a></li>
-				<li><a href="">고객서비스</a></li>
-				<li><a href="">마이위브</a></li>
-			</ul>
-		</div>
-		<div class="util_wrap">
-			<a href="" class="btn_doosanenc" target="_blank">두산건설</a>
-			<button type="button" class="allMenu"><span>전체메뉴</spa></button>
-		</div>
-	</header>
+	<div id="weve_wrap" class="main">
 
-	<div id="siteMap">
-		<div class="dep2_wrap">
-			<div class="dep2">
-				<ul>
-					<li><a href="">브랜드소개</a></li>
-					<li class="fm"><a href="">5 Concepts</a></li>
-					<li><a href="">위브뉴스</a></li>
-				</ul>
-				<ul>
-					<li><a href="">분양일정</a></li>
-					<li><a href="">분양단지</a></li>
-					<li><a href="">공사단지</a></li>
-					<li><a href="">입주단지</a></li>
-				</ul>
-				<ul>
-					<li><a href="">FAQ</a></li>
-					<li><a href="">고객문의</a></li>
-				</ul>
-				<ul>
-					<li><a href="">분양정보</a></li>
-					<li><a href="">예약현황</a></li>
-					<li><a href="">고객문의</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	
-	<article id="main_container">
-		<div class="section contBox01" tabindex="0">
-			<div class="main_visual">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide v01"><video id="visual_video_01" src="../images/main/video_01.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
-					<div class="swiper-slide v02"><video id="visual_video_02" src="../images/main/video_02.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
+<!-- HEADER -->
+		<header></header>
+
+
+		<article id="main_container">
+<!-- SECTION01 -->
+			<div class="section contBox01" tabindex="0">
+				<div class="main_visual">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide v01"><video id="visual_video_01" src="../images/main/video_01.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
+						<div class="swiper-slide v02"><video id="visual_video_02" src="../images/main/video_02.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
+					</div>
+					<div class="swiper-pagination"></div>
 				</div>
-				<div class="swiper-pagination"></div>
+				<div class="text_wrap">
+					<p class="big">마음속에 간직해온 <strong>나만의 공간</strong></p>
+					<span class="desc">아름다운 공간속에 편리함과<br> 건강한 삶을 담았습니다.</span>
+				</div>
+				<div class="scroll"><i class="bar"></i></div>
 			</div>
-			<div class="text_wrap">
-				<p class="big">마음속에 간직해온 <strong>나만의 공간</strong></p>
-				<span class="desc">아름다운 공간속에 편리함과<br> 건강한 삶을 담았습니다.</span>
+
+<!-- SECTION02 -->
+			<div class="section contBox02" tabindex="0">
+				<!-- 현재 이미지로 들어가있음 -->
 			</div>
-			<div class="scroll"><i class="bar"></i></div>
-			<script>
-				const video1 = document.querySelector("#visual_video_01");
-				const video2 = document.querySelector("#visual_video_02");
 
-				$(function(){
-					var slidemenu = ['We’ve', 'THE ZENITH']
-					var mySwiper = new Swiper(".main_visual", {
-						slidesPerView:1,
-						slidesPerGroup:1,
-						autoplay:{
-							delay: 15000,
-							disableOnInteraction: false
-						},
-						loop: true,
-						allowTouchMove: false,
-						pagination: {
-							el: '.swiper-pagination',
-							clickable: true,
-							renderBullet: function (index, className) {
-								return '<div class="' + className + '"><p>' + (slidemenu[index]) + '</p><em class="time"><i></i></em>' + '</div>';
-							},
-						},
-					});
+<!-- SECTION03 -->
+			<div class="section contBox03" tabindex="0">
+				<div class="house_slider">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="default">
+								<span class="ct">분양예정</span>
+								<p class="tit">인천 두산위브 더센트럴</p>
+								<em class="date">2022.11</em>
+							</div>
+							<div class="text_box">
+								<ul>
+									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
+									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
+									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
+									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
+								</ul>
+								<a href="" target="_blank" class="link">분양 홈페이지</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="default">
+								<span class="ct on">분양중</span>
+								<p class="tit">거제 두산위브 더 포레스트</p>
+								<em class="date">2022.07</em>
+							</div>
+							<div class="text_box">
+								<ul>
+									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
+									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
+									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
+									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
+								</ul>
+								<a href="" target="_blank" class="link">분양 홈페이지</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="default">
+								<span class="ct on">분양중</span>
+								<p class="tit">김해 율하 더스카이시티 제니스&프라우</p>
+								<em class="date">2022.06</em>
+							</div>
+							<div class="text_box">
+								<ul>
+									<li><span>위치</span><p>: 경상남도 김해시 신문동 699-1번지 일원</p></li>
+									<li><span>단지규모</span><p>: 지상 49층 (공동주택), 지상 39층 (오피스텔), 지상 4층 (지하주차장)</p></li>
+									<li><span>세대수</span><p>:4,393세대</p></li>
+									<li><span>부대시설</span><p>: 도서관, 독서실, 북카페, 영어마을 등</p></li>
+								</ul>
+								<a href="" target="_blank" class="link">분양 홈페이지</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="default">
+								<span class="ct on">분양중</span>
+								<p class="tit">거제 두산위브 더 포레스트</p>
+								<em class="date">2022.07</em>
+							</div>
+							<div class="text_box">
+								<ul>
+									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
+									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
+									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
+									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
+								</ul>
+								<a href="" target="_blank" class="link">분양 홈페이지</a>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="bg_box mbg1">
+					<img src="../images/main/img_03_01.jpg" alt="" class="bg1">
+					<img src="../images/main/img_03_02.jpg" alt="" class="bg2">
+					<img src="../images/main/img_03_03.jpg" alt="" class="bg3">
+				</div>
+			</div>
 
-					mySwiper.on("slideChange",function(){
-						if($(".swiper-slide.v01").hasClass("swiper-slide-active")){
-							video1.currentTime = 0;
-							video1.play();
-						}else if($(".swiper-slide.v02").hasClass("swiper-slide-active")){
-							video2.currentTime = 0;
-							video2.play();
-						}
-					});
+<!-- SECTION04 -->
+			<div class="section contBox04" tabindex="0"><div class="inner">
+				<h2>위브소식</h2>
+				<ul class="noti_list">
+					<li><a href="">
+						<p class="tit">두산건설, 경기 동남부 지역 취약계층 위해 7500만원 기부</p>
+						<span>2022.07.05</span>
+						<em class="more">View More</em>
+					</a></li>
+					<li><a href="">
+						<p class="tit">두산위브더제니스양산 2단지, xxx 특화설계 적용 1155세대 분양</p>
+						<span>2022.07.05</span>
+						<em class="more">View More</em>
+					</a></li>
+					<li><a href="">
+						<p class="tit">두산건설, 경기 동남부 지역 취약계층 위해 7500만원 기부</p>
+						<span>2022.07.05</span>
+						<em class="more">View More</em>
+					</a></li>
+					<li><a href="">
+						<p class="tit">두산위브더제니스양산 2단지, xxx 특화설계 적용 1155세대 분양</p>
+						<span>2022.07.05</span>
+						<em class="more">View More</em>
+					</a></li>
+				</ul>
 
-					video1.play();
-				});
-			</script>
-		</div>
-		
+				<div class="sns_wrap">
+					<div class="sns_scroll">
+						<div class="item yt"><a href=""><img src="../images/main/sample_sns_1.jpg" alt=""></a></div>
+						<div class="item inst"><a href=""><img src="../images/main/sample_sns_2.jpg" alt=""></a></div>
+						<div class="item inst"><a href=""><img src="../images/main/sample_sns_3.jpg" alt=""></a></div>
+						<div class="item yt"><a href=""><img src="../images/main/sample_sns_4.jpg" alt=""></a></div>
+						<div class="item yt"><a href=""><img src="../images/main/sample_sns_5.jpg" alt=""></a></div>
+						<div class="item inst"><a href=""><img src="../images/main/sample_sns_2.jpg" alt=""></a></div>
+						<div class="item inst"><a href=""><img src="../images/main/sample_sns_3.jpg" alt=""></a></div>
+						<div class="item yt"><a href=""><img src="../images/main/sample_sns_4.jpg" alt=""></a></div>
+						<div class="item yt"><a href=""><img src="../images/main/sample_sns_5.jpg" alt=""></a></div>
+					</div>
+				</div>
+			</div></div>
 
-		<div class="section contBox02" tabindex="0">
+			<div class="section contBox05" tabindex="0">
+				<h2>CUSTOMER SERVICE</h2>
+				<div class="service_box">
+					<ul class="list">
+						<li class="l1">
+							<p class="tit">관심고객</p>
+							<div class="link">
+								<a href="" target="_blank">분양일정 확인하기</a>
+								<a href="" target="_blank">분양단지 보기</a>
+							</div>
+						</li>
+						<li class="l2">
+							<p class="tit">계약고객</p>
+							<div class="link">
+								<a href="" target="_blank">분양대금조회</a>
+								<a href="" target="_blank">계약단지정보</a>
+							</div>
+						</li>
+						<li class="l3">
+							<p class="tit">입주고객</p>
+							<div class="link">
+								<a href="" target="_blank">입주 예약</a>
+								<a href="" target="_blank">입주 가이드</a>
+							</div>
+						</li>
+					</ul>
+
+					<div class="cs_info">
+						<dl>
+							<dt>AS문의</dt>
+							<dd><em>02-3441-1721</em></dd>
+						</dl>
+						<dl>
+							<dt>분양문의</dt>
+							<dd><em>02-3441-1700</em>
+								<span>평일 09시~17시, 토요일 및 공유일 휴무</span>
+							</dd>
+						</dl>
+						<div class="link">
+							<a href="" target="_blank">자주하는 질문</a>
+							<a href="" target="_blank">고객문의</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			
-		</div>
+<!-- FOOTER -->
+			<footer class="section fp-auto-height">
+				<div class="inner">
+					<p class="logo"><img src="../images/logo.png" alt="We've"></p>
+					<ul class="f_menu">
+						<li><a href="">이용약관</a></li>
+						<li><a href="">개인정보처리방침</a></li>
+						<li><a href="">이메일무단수집거부</a></li>
+					</ul>
+					<div class="addr">
+						<p class="a1"><span class="fm">Address</span> <em>서울특별시 강남구 언주로 726</em></p>
+						<p class="a2"><span><i class="fm">A/S</i>문의</span> <em class="fm">02-3441-1721</em></p>
+						<p class="a3"><span>분양문의</span><em class="fm"> 02-3441-1700</em></p>
+					</div>
+					<p class="copy">Copyright ©Doosan Engineering & Construction All rights reserved.</p>
 
-		<div class="section contBox03" tabindex="0">
-			<div class="house_slider">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="default">
-							<span class="ct">분양예정</span>
-							<p class="tit">인천 두산위브 더센트럴</p>
-							<em class="date">2022.11</em>
-						</div>
-						<div class="text_box">
-							<ul>
-								<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-								<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
-								<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-								<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
-							</ul>
-							<a href="" target="_blank" class="link">분양 홈페이지</a>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="default">
-							<span class="ct on">분양중</span>
-							<p class="tit">거제 두산위브 더 포레스트</p>
-							<em class="date">2022.07</em>
-						</div>
-						<div class="text_box">
-							<ul>
-								<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-								<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
-								<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-								<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
-							</ul>
-							<a href="" target="_blank" class="link">분양 홈페이지</a>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="default">
-							<span class="ct on">분양중</span>
-							<p class="tit">김해 율하 더스카이시티 제니스&프라우</p>
-							<em class="date">2022.06</em>
-						</div>
-						<div class="text_box">
-							<ul>
-								<li><span>위치</span><p>: 경상남도 김해시 신문동 699-1번지 일원</p></li>
-								<li><span>단지규모</span><p>: 지상 49층 (공동주택), 지상 39층 (오피스텔), 지상 4층 (지하주차장)</p></li>
-								<li><span>세대수</span><p>:4,393세대</p></li>
-								<li><span>부대시설</span><p>: 도서관, 독서실, 북카페, 영어마을 등</p></li>
-							</ul>
-							<a href="" target="_blank" class="link">분양 홈페이지</a>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="default">
-							<span class="ct on">분양중</span>
-							<p class="tit">거제 두산위브 더 포레스트</p>
-							<em class="date">2022.07</em>
-						</div>
-						<div class="text_box">
-							<ul>
-								<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-								<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
-								<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-								<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
-							</ul>
-							<a href="" target="_blank" class="link">분양 홈페이지</a>
-						</div>
-					</div>
+					<select name="" id="" class="family_site">
+						<option value="">관련사이트</option>
+					</select>
 				</div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-			</div>
-			<div class="bg_box mbg1">
-				<img src="../images/main/img_03_01.jpg" alt="" class="bg1">
-				<img src="../images/main/img_03_02.jpg" alt="" class="bg2">
-				<img src="../images/main/img_03_03.jpg" alt="" class="bg3">
-			</div>
-			<script>
-				$(function(){
-					var houseSlider = new Swiper(".house_slider", {
-						slidesPerView:1,
-						slidesPerGroup:1,
-						loop: false,
-						allowTouchMove: false,
-						navigation: {
-							nextEl: ".swiper-button-next",
-							prevEl: ".swiper-button-prev",
-						},
-						breakpoints: {
-							1024: {
-								slidesPerView: 3,
-							},
-							768: {
-								slidesPerView: 2,
-							},
-							320: {
-								slidesPerView: 1,
-							},
-						},
-						on: {
-							slideChange: function () {
-								_this = $(this)[0].activeIndex + 1;
-								$(".contBox03 .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
-							}
-						}
-					});
+			</footer>
 
-					$(".house_slider .swiper-slide").hover(function(){
-						_idx = $(this).index() + 1;
-						$(this).closest(".house_slider").attr("class" , "house_slider").addClass("bg" + _idx);
-					});
-				});
-			</script>
-		</div>
-		
-		<div class="section contBox04" tabindex="0"><div class="inner">
-			<h2>위브소식</h2>
-			<ul class="noti_list">
-				<li><a href="">
-					<p class="tit">두산건설, 경기 동남부 지역 취약계층 위해 7500만원 기부</p>
-					<span>2022.07.05</span>
-					<em class="more">View More</em>
-				</a></li>
-				<li><a href="">
-					<p class="tit">두산위브더제니스양산 2단지, xxx 특화설계 적용 1155세대 분양</p>
-					<span>2022.07.05</span>
-					<em class="more">View More</em>
-				</a></li>
-				<li><a href="">
-					<p class="tit">두산건설, 경기 동남부 지역 취약계층 위해 7500만원 기부</p>
-					<span>2022.07.05</span>
-					<em class="more">View More</em>
-				</a></li>
-				<li><a href="">
-					<p class="tit">두산위브더제니스양산 2단지, xxx 특화설계 적용 1155세대 분양</p>
-					<span>2022.07.05</span>
-					<em class="more">View More</em>
-				</a></li>
-			</ul>
-
-			<div class="sns_wrap">
-				<div class="sns_scroll">
-					<div class="item yt"><a href=""><img src="../images/main/sample_sns_1.jpg" alt=""></a></div>
-					<div class="item inst"><a href=""><img src="../images/main/sample_sns_2.jpg" alt=""></a></div>
-					<div class="item inst"><a href=""><img src="../images/main/sample_sns_3.jpg" alt=""></a></div>
-					<div class="item yt"><a href=""><img src="../images/main/sample_sns_4.jpg" alt=""></a></div>
-					<div class="item yt"><a href=""><img src="../images/main/sample_sns_5.jpg" alt=""></a></div>
-					<div class="item inst"><a href=""><img src="../images/main/sample_sns_2.jpg" alt=""></a></div>
-					<div class="item inst"><a href=""><img src="../images/main/sample_sns_3.jpg" alt=""></a></div>
-					<div class="item yt"><a href=""><img src="../images/main/sample_sns_4.jpg" alt=""></a></div>
-					<div class="item yt"><a href=""><img src="../images/main/sample_sns_5.jpg" alt=""></a></div>
-				</div>
-			</div>
-		</div></div>
-
-		<div class="section contBox05" tabindex="0">
-			<h2>CUSTOMER SERVICE</h2>
-			<div class="service_box">
-				<ul class="list">
-					<li class="l1">
-						<p class="tit">관심고객</p>
-						<div class="link">
-							<a href="" target="_blank">분양일정 확인하기</a>
-							<a href="" target="_blank">분양단지 보기</a>
-						</div>
-					</li>
-					<li class="l2">
-						<p class="tit">계약고객</p>
-						<div class="link">
-							<a href="" target="_blank">분양대금조회</a>
-							<a href="" target="_blank">계약단지정보</a>
-						</div>
-					</li>
-					<li class="l3">
-						<p class="tit">입주고객</p>
-						<div class="link">
-							<a href="" target="_blank">입주 예약</a>
-							<a href="" target="_blank">입주 가이드</a>
-						</div>
-					</li>
-				</ul>
-
-				<div class="cs_info">
-					<dl>
-						<dt>AS문의</dt>
-						<dd><em>02-3441-1721</em></dd>
-					</dl>
-					<dl>
-						<dt>분양문의</dt>
-						<dd><em>02-3441-1700</em>
-							<span>평일 09시~17시, 토요일 및 공유일 휴무</span>
-						</dd>
-					</dl>
-					<div class="link">
-						<a href="" target="_blank">자주하는 질문</a>
-						<a href="" target="_blank">고객문의</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<footer class="section fp-auto-height"><div class="inner">
-			<p class="logo"><img src="../images/logo.png" alt="We've"></p>
-			<ul class="f_menu">
-				<li><a href="">이용약관</a></li>
-				<li><a href="">개인정보처리방침</a></li>
-				<li><a href="">이메일무단수집거부</a></li>
-			</ul>
-			<div class="addr">
-				<p class="a1"><span class="fm">Address</span> <em>서울특별시 강남구 언주로 726</em></p>
-				<p class="a2"><span><i class="fm">A/S</i>문의</span> <em class="fm">02-3441-1721</em></p>
-				<p class="a3"><span>분양문의</span><em class="fm"> 02-3441-1700</em></p>
-			</div>
-			<p class="copy">Copyright ©Doosan Engineering & Construction All rights reserved.</p>
-
-			<select name="" id="" class="family_site">
-				<option value="">관련사이트</option>
-			</select>
-		</div></footer>
-	</article>
-</div>
+		</article>
+	</div>
 </body>
-<script type="text/javascript">
-$(document).ready(function(){
-	let _body = $("body");
-	$('#main_container').fullpage({
-		anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-		responsiveWidth:1200,
-		fitToSection: true,
-		fitToSectionDelay: 0,
-
-		animateAnchor :true,
-		scrollBar: false,
-		afterLoad: function(){
-			cls();
-		}
-	});
-	$(window).on("scroll" , function(){
-		cls();
-	});
-
-	function cls(){
-		if(_body.hasClass("fp-viewing-section02")){
-			$(".contBox02").addClass("motion2");
-		}else if(_body.hasClass("fp-viewing-section03")){
-			$(".contBox03").addClass("motion3");
-		}else if(_body.hasClass("fp-viewing-section04")){
-			$(".contBox04").addClass("motion4");
-		}else if(_body.hasClass("fp-viewing-section05")){
-			$(".contBox05").addClass("motion5");
-		}
-	}
-});
-</script>
 </html>

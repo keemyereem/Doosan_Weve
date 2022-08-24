@@ -1,0 +1,100 @@
+
+/* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
+/* ----------------------- Published by 4m Creative ------------------------ */
+
+@charset "utf-8";
+
+* {-webkit-text-size-adjust:none; -webkit-tap-highlight-color:transparent;}
+*::-webkit-scrollbar {background-color:transparent; width:8px; height:8px; border-radius:8px;}
+*::-webkit-scrollbar-thumb {background:#e4e4e4; border-radius:8px;}
+*::-webkit-scrollbar-track {background:transparent; border-radius:8px;}
+*:hover::-webkit-scrollbar-thumb {background:#bbb;}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-corner {display:none !important;}
+
+html , body , div , span , applet , object , iframe , h1 , h2 , h3 , h4 , h5 , h6 , p , blockquote , pre , a , abbr , acronym , address , big , cite , code , del , dfn , em , img , ins , kbd , q , s , samp , small , strike , strong , sub , sup , tt , var , b , u , i , center , dl , dt , dd , ol , ul , li , fieldset , form , label , legend , table , caption , tbody , tfoot , thead , tr , th , td , article , aside , canvas , details , embed , figure , figcaption , footer , header , hgroup , menu , nav , output , ruby , section , summary , time , mark , audio , video , textarea {margin:0; padding:0; border:0; box-sizing:border-box; -webkit-overflow-scrolling:touch; word-break:keep-all;}
+article , aside , details , figcaption , figure , footer , header , hgroup , menu , nav , section {display:block;}
+body {font-size:17px; line-height:1.2;}
+body, button, input, select, table, textarea {font-family:'Noto Sans KR',"HelveticaNeue-Light","AppleSDGothicNeo-Medium","Malgun Gothic","맑은 고딕","AppleGothic","Sans-serif","Dotum","Verdana",sans-serif; color:#666;}
+ol , ul {list-style:none;}
+em , i , u , b {font-style:normal; font-weight:normal; text-decoration:none;}
+a {color:#333; text-decoration:none;}
+img {max-width:100%;}
+table {width:100%; border:0; border-collapse:collapse; border-spacing:0; word-break:break-all; table-layout:fixed;}
+button {background-color:transparent; margin:0; padding:0; border:0; cursor:pointer; -webkit-appearance:button;}
+input::-webkit-input-placeholder {color:#999;}
+textarea::-webkit-input-placeholder {color:#999;}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {-webkit-appearance:none;}
+input[type=text],
+input[type=number],
+input[type=password] {background:none; margin:0; padding:0; border:1px solid #ccc; outline:none; -webkit-appearance:none; font-family:inherit; appearance:none; -webkit-appearance:none;}
+textarea {resize:none; appearance:none; -webkit-appearance:none;}
+select {background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13' height='7'%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M0 6.999V6h.999V4.999h1v-1h1V3h1V2h1V.999h1V0H7v.999h1V2h1v1h1v.999h1v1h1V6h1v.999H0Z'/%3e%3c/svg%3e") calc(100% - 20px) 50% no-repeat; background-size:13px 7px; padding-right:44px; border-width:1px; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
+select::-ms-expand {display:none;}
+caption, legend {position:absolute; top:0; left:-9999em;}
+.blind {position:absolute; top:0; left:-9999em; font:0/0 a; text-indent:-999em;}
+
+
+/* header */
+header {display:flex; align-items:center; position:fixed; top:0; left:0; width:100%; border: 1px solid red; height:100px; padding:0 40px; z-index:100; transition:all .2s;}
+header h1 {flex:0 0 auto;}
+header h1 a {display:block; background:url(../images/logo.png) 50% 50% no-repeat; width:109px; height:100px; font:0/0 a; transition:all .4s;}
+header .util_wrap {display:flex; align-items:center; flex:0 0 auto; margin-left:auto;}
+header .util_wrap .btn_doosanenc {display:flex; align-items:center; justify-content:center; width:140px; height:42px; border:1px solid #fff; border-radius:42px; color:#fff; font-size:17px; transition:all .4s;}
+header .util_wrap .allMenu {position:relative; width:76px; height:42px; margin-left:20px; font:0/0 a;}
+header .util_wrap .allMenu span {position:absolute; top:50%; right:20px; background:#fff; width:36px; height:3px; margin-top:-1px; transition:all .4s;}
+header .util_wrap .allMenu span:before,
+header .util_wrap .allMenu span:after {content:""; position:absolute; right:0; background:#fff; width:26px; height:3px; transition:all .4s;}
+header .util_wrap .allMenu span:before {top:-10px;}
+header .util_wrap .allMenu span:after {top:10px;}
+header .util_wrap .allMenu:hover span {width:26px;}
+header .util_wrap .allMenu:hover span:before,
+header .util_wrap .allMenu:hover span:after {width:36px;}
+
+.menuOn header h1 a,
+.fp-viewing-section04 header h1 a {background:url(../images/logo_b.png) 50% 50% no-repeat;}
+.menuOn #gnb ul > li > a,
+.fp-viewing-section04 #gnb ul > li > a {color:#000;}
+.menuOn header .util_wrap .btn_doosanenc,
+.fp-viewing-section04 header .util_wrap .btn_doosanenc {border-color:#005eb8; color:#005eb8;}
+.menuOn  header .util_wrap .allMenu span,
+.fp-viewing-section04 header .util_wrap .allMenu span,
+.menuOn  header .util_wrap .allMenu span:before,
+.fp-viewing-section04 header .util_wrap .allMenu span:before,
+.menuOn  header .util_wrap .allMenu span:after,
+.fp-viewing-section04 header .util_wrap .allMenu span:after {background:#000;}
+
+#gnb {display:flex; align-items:center; justify-content:center; width:100%; margin:0 auto;}
+#gnb ul {display:flex;}
+#gnb ul > li > a {display:flex; align-items:center; justify-content:center; width:160px; height:100px; color:#fff; font-size:18px; font-weight:bold; transition:all .4s;}
+
+/* header - 2depth */
+#siteMap {position:absolute; top:100px; left:0; right:0; background:#fff; width:100%; padding:0; z-index:50; opacity:0; visibility:hidden; transition:all .2s;}
+#siteMap .dep2_wrap {display:flex; align-items:center; padding:40px 40px 140px;}
+#siteMap .dep2_wrap .dep2 {display:flex; justify-content:center; margin:0 auto; padding:0 236px 0 109px;}
+#siteMap .dep2_wrap .dep2 > ul {width:160px; transition:all .2s;}
+#siteMap .dep2_wrap .dep2 > ul > li {margin-top:20px;}
+#siteMap .dep2_wrap .dep2 > ul > li:first-child {margin-top:0;}
+#siteMap .dep2_wrap .dep2 > ul > li > a {display:block; color:#222; font-size:16px; text-align:center; transition:all .2s;}
+#siteMap .dep2_wrap .dep2 > ul > li > a:hover {color:#005eb8; font-weight:bold;}
+#siteMap .dep2_wrap .dep2 .fm a {font-family:"Poppins";}
+
+.menuOn #siteMap {opacity:1; visibility:visible;}
+.menuOn header {background:#fff; border-bottom:1px solid #005eb8;}
+
+/* footer */
+footer {background:#030716; padding:0 40px; border-top:1px solid rgba(255,255,255,.1);}
+footer .inner {position:relative; max-width:1460px; margin:0 auto; padding:50px 0 80px 150px;}
+footer .logo {position:absolute; top:50px; left:0;}
+footer .f_menu {display:flex;}
+footer .f_menu a {display:flex; align-items:center; color:#fff; font-size:15px;}
+footer .f_menu a:before {content:""; display:block; background:#888; width:1px; height:14px; margin:0 40px;}
+footer .f_menu li:first-child a:before {display:none;}
+footer .addr {display:flex; flex-wrap:wrap; margin-top:30px;}
+footer .addr .fm {font-family:'Poppins';}
+footer .addr p {display:flex; align-items:center; margin-right:30px; color:#fff; font-size:15px;}
+footer .addr p:last-child {margin-left:0;}
+footer .addr p span {margin-right:10px; color:#888;}
+footer .copy {margin-top:20px; color:#555; font-size:14px; font-family:'Poppins';}
+footer .family_site {position:absolute; top:60px; right:0; min-width:215px; height:50px; padding-left:20px; border:1px solid rgba(255,255,255,.3); color:#fff; font-size:16px; outline:none;}

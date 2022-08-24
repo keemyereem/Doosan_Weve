@@ -3,41 +3,11 @@
 /* ----------------------- Published by 4m Creative ------------------------ */
 
 @charset "utf-8";
+
 @media screen and (max-width:1440px) {
-	html {overflow-x: scroll; width: 1440px;}
-	#weve_wrap {overflow: auto; width: 100%;}
-	#main_container {width: 100%;}
-	header{border-color: blue;max-width:1440px;}
-
-	/* #gnb ul > li > a {width:1440px;}
-    #siteMap .dep2_wrap .dep2 > ul {width:1440px;} */
+	html {overflow-x: scroll !important; width: 1440px;}
+	header, footer { width: 1440px; }
 }
-
-
-/* @media screen and (max-width:1300px) {
-	.contBox04 .noti_list li:nth-child(4) {display:none;}
-}
-
-@media screen and (max-width:1200px) {
-	#gnb ul > li > a {width:120px;}
-    #siteMap .dep2_wrap .dep2 > ul {width:120px;}
-}
-
-@media screen and (max-width:1150px) {
-	footer .family_site {position:static; margin-top:30px;}
-}
-
-@media screen and (max-width:1024px) {
-	.contBox05 .service_box .cs_info {display:none;}
-}
-
-@media screen and (max-width:900px) {
-	#gnb {display:none;}
-    #siteMap {display:none !important;}
-
-    .contBox04 .noti_list li:nth-child(3),
-	.contBox04 .noti_list li:nth-child(4) {display:none;}
-} */
 
 @media screen and (min-width:768px) {
 	.contBox03.motion3 .house_slider .swiper-slide:nth-child(1) .default {animation:mc1 1s ease 0s forwards;}
@@ -59,9 +29,11 @@
 	.contBox04 .noti_list li:hover a:after {height:100%;}
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
     /* common */
-    body, button, input, select, table, textarea {font-family:"HelveticaNeue-Light";}
+    html {overflow-x: auto !important; width: 100%;}
+	header, footer { width: 100%; }
+	header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
 
     /* header */
@@ -132,13 +104,12 @@
 	.contBox03 .house_slider .text_box li {margin-top:5px; font-size:13px;}
 	.contBox03 .house_slider .text_box .link {margin-top:30px; font-size:13px;}
 
-    .contBox04 {padding:0 20px;}
-	.contBox04 > div {padding:100px 0 60px;}
+    .contBox04,
+	.contBox04 > div {padding:0; }
+	.contBox04 .inner { padding: 100px 20px 60px; }
 	.contBox04 h2 {font-size:30px;}
 	.contBox04 .noti_list {display:block; margin-top:10px;}
 	.contBox04 .noti_list li {width:100%; min-height:auto; margin-left:0; padding:0; border:0; border-bottom:1px solid #e5e5e5;}
-	.contBox04 .noti_list li:nth-child(3),
-	.contBox04 .noti_list li:nth-child(4) {display:none;}
 	.contBox04 .noti_list li a {padding:25px 12px;}
 	.contBox04 .noti_list li .tit {font-size:17px;}
 	.contBox04 .noti_list li span {margin-top:15px; font-size:12px;}
@@ -148,10 +119,11 @@
 	.contBox04 .sns_wrap .item.yt a:after {width:22px; height:22px;}
 	.contBox04 .sns_wrap .item.yt a:before {width:27px; height:27px;}
 	.contBox04 .sns_wrap .item.inst a:after {width:25px; height:25px;}
-	.contBox04 .sns_wrap .mCSB_scrollTools.mCSB_scrollTools_horizontal {right:20px;}
+	.contBox04 .sns_wrap .mCSB_scrollTools.mCSB_scrollTools_horizontal {right:20px; display: block; }
 
-    .contBox05 {padding:0 20px;}
-	.contBox05 > div {padding:120px 0;}
+    .contBox05,
+	.contBox05 > div {padding:0; }
+	.contBox05 .inner { padding: 102px 20px; }
 	.contBox05 h2 {font-size:30px;}
 	.contBox05 .service_box {display:block; margin-top:35px;}
 	.contBox05 .service_box .list {display:block;}

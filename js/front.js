@@ -13,20 +13,28 @@ $(function(){
 var mainEvent = {
 	init:function(){
 		this.initFullpage();
+		this.headerEvent();
 		this.S1_videoVisual();
 		this.S3_contHover();
 		this.S4_snsScroll();
 	}, 
+
+	headerEvent: () => {
+		$(window).on('scroll',function(){
+            $("header").css("left",0-$(this).scrollLeft());
+        });
+
+	},
 
 	initFullpage: () => {
 		$(document).ready(function(){
 			let _body = $("body");
 			$('#main_container').fullpage({
 				anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-				responsiveWidth:1200,
+				// responsiveWidth:1200,
 				fitToSection: true,
 				fitToSectionDelay: 0,
-		
+				scrollOverflow: true,
 				animateAnchor :true,
 				scrollBar: false,
 				afterLoad: function(){

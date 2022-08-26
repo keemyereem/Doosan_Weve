@@ -5,10 +5,10 @@
 @charset "utf-8";
 
 * {-webkit-text-size-adjust:none; -webkit-tap-highlight-color:transparent;}
-*::-webkit-scrollbar {background-color:transparent; width:8px; height:8px; border-radius:8px;}
-*::-webkit-scrollbar-thumb {background:#e4e4e4; border-radius:8px;}
+*::-webkit-scrollbar {background-color:transparent; width:12px; height:8px; border-radius:8px;}
+*::-webkit-scrollbar-thumb {background:#005CAA; border-radius:8px;}
 *::-webkit-scrollbar-track {background:transparent; border-radius:8px;}
-*:hover::-webkit-scrollbar-thumb {background:#bbb;}
+*:hover::-webkit-scrollbar-thumb {background:#eee;}
 *::-webkit-scrollbar-button,
 *::-webkit-scrollbar-corner {display:none !important;}
 

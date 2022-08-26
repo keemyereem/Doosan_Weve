@@ -1,8 +1,10 @@
 
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
 /* ----------------------- Published by 4m Creative ------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 @font-face {font-family:"Noto Sans KR"; font-style:normal; font-weight:100; src:url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format("woff2"),
 	url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format("woff"),
 	url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format("opentype");

@@ -142,3 +142,13 @@ var mainEvent = {
 		});
 	},
 }
+
+//BI 팝업
+function popup(popConts) {
+	var popthis = $(".popup."+popConts);
+	popthis.fadeIn(300);
+
+	popthis.find(".pop_close").click(function(){
+		popthis.fadeOut(300);
+	});
+}

@@ -26,7 +26,7 @@
 	<meta name="twitter:title" content="We've" />
 	<meta name="twitter:description" content="마음속에 간직해온 나만의 공간. We've" />
 
-	<title>두산위브 - 브랜드스토리</title>
+	<title>두산위브 - 브랜드스토리 test</title>
 	<link rel="icon" href="images/favicon.png" sizes="32x32">
     <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" />  
 	<link rel="shortcut icon" type="image/x-icon" href="#">
@@ -35,332 +35,110 @@
 
 	<!-- Library JS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="js/lib/fullpage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <!-- <script src="js/lib/gsap-smoothwheel.js"></script> -->
 	<script src="js/lib/swiper-bundle.min.js"></script>
-	<script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
-	
-	<script src="js/front.js"></script>
+
+	<!-- <script src="js/front.js"></script> -->
+    <script src="js/test.js"></script>
 	<script>
         $(document).ready( function() {
             $('header').load("include/header.html");
+            test.init();
         });
     </script>
 
     <style>
-        :root {
-        font-family: Helvetica;
-        /*-------------Colors------------- */
-        --ColorDarkA: hsl(0, 0%, 0%);
-        --ColorDarkB: hsl(0, 0%, 18%);
-        --ColorWhiteA: hsl(0, 0%, 94%);
-        --ColorWhiteB: hsl(0, 0%, 90%);
-        /*-------------FontSize -- Golden Ratio (1.618) Base Size 13px------------- */
-        --FontH1: 233.25px;
-        --FontH2: 144.16px;
-        --FontH3: 89.10px;
-        --FontH4: 55.07px;
-        --FontH5: 34.03px;
-        --FontParagraph: 21.03px;
-        --FontSubtitle: 13px;
-        /*-------------GoldenRatio (1.618) (Viewport Width 1920px)------------- */
-        --GoldenRatio1: 1920px;
-        --GoldenRatio2: 1186.65px;
-        --GoldenRatio3: 733.41px;
-        --GoldenRatio4: 453.28px;
-        --GoldenRatio5: 280.15px;
-        --GoldenRatio6: 173.15px;
-        --GoldenRatio7: 107.01px;
-        --GoldenRatio8: 66.14px;
-        --GoldenRatio9: 40.88px;
-        --GoldenRatio10: 25.27px;
-        }
+        .scroll-container { opacity: 0; background: #000; }
+        .scroll-container header { position: absolute; -webkit-overflow-scrolling: touch; }
+        .scroll-container section { height:105vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
+        .scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
+        .scroll-container section h2 span { text-transform: uppercase; display: block; font-size: 24px; font-weight: 300; }
+        .scroll-container section img { position: absolute; width: 100%; height:100%; object-fit: cover; }
+        .scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
+        .scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
 
-        ::-webkit-scrollbar {
-        display: none;
-        }
+        .scroll-container .section1 { background: url(images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
+        .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; }
+        .scroll-container .section1 h2 span { font-size: 30px; }
+        .scroll-container .section1 .scroll {position:absolute; bottom:67px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
+        .scroll-container .section1 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
 
-        * {
-        margin: 0;
-        padding: 0;
-        color: var(--ColorDarkA);
-        }
+        .scroll-container .section2 { background: #fff; }
+        .scroll-container .section2 h2 { color: #222; }
+        .scroll-container .section2 .intro{ z-index:-1; width: 100%; height:100vh; transform: scale(.8); margin: auto; left: 0; right: 0; top: 68vh; }
 
-        body {
-        background: var(--ColorWhiteA);
-        opacity: 0;
-        }
+        .scroll-container .section3 { background: #000; position: relative; }
+        .scroll-container .section3 > div { position: absolute; top: 0; left: 0; right: 0; margin: auto; max-width: 1460px; height: 100vh; display:flex; justify-content: center; flex-direction: column; align-items: center; }
 
-        #wrapper {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        }
-
-        #wrapper h1 {
-        position: absolute;
-        left: var(--GoldenRatio7);
-        font-size: var(--FontH2);
-        }
-
-        #wrapper h1 span {
-        color: var(--ColorDarkB);
-        }
-
-        #wrapper p {
-        position: absolute;
-        bottom: var(--GoldenRatio7);
-        color: var(--ColorDarkB);
-        font-size: var(--FontParagraph);
-        }
-
-        #ImgWrapper {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        perspective: 2200px;
-        background: var(--ColorDarkA);
-        }
-
-        #ImgWrapper img {
-        position: absolute;
-        box-shadow: 0 0 31px black;
-        }
-
-        #ImgWrapper #img1 {
-        z-index: 1;
-        height: 50vh;
-        bottom: 15%;
-        left: 5%;
-        }
-
-        #ImgWrapper #img2 {
-        z-index: 2;
-        height: 45vh;
-        bottom: 40%;
-        right: 5%;
-        }
-
-        #ImgWrapper #img3 {
-        z-index: 3;
-        height: 40vh;
-        bottom: 22%;
-        right: 25%;
-        }
-
-        #ImgWrapper #img4 {
-        z-index: 4;
-        height: 31vh;
-        bottom: 55%;
-        left: 13%;
-        }
-
-        #ImgWrapper #img5 {
-        z-index: 5;
-        height: 50vh;
-        bottom: 22%;
-        left: 36%;
-        }
-
-        #ImgWrapper #img6 {
-        z-index: 6;
-        height: 31vh;
-        bottom: 13%;
-        left: 13%;
-        }
-
-        #ImgWrapper #img7 {
-        z-index: 7;
-        height: 31vh;
-        bottom: 10%;
-        right: 13%;
-        }
-
-        #codeby {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        }
-
-        #codeby a {
-        text-decoration: none;
-        font-size: var(--FontH5);
-        font-weight: 400;
-        color: var(--ColorWhiteB);
-        }
-
-        #codeby a span {
-        font-weight: 700;
-        display: inline-block;
-        color: var(--ColorWhiteA);
-        }
-
-        /*-------------@media (max-width: 1920px)------------- */
-
-        @media (max-width: 1920px) {
-        :root {
-            /*-------------FontSize (PX to VW Conversion With Viewport Width 1920px)------------- */
-            --FontH1: 12.148vw;
-            --FontH2: 7.508vw;
-            --FontH3: 4.641vw;
-            --FontH4: 2.868vw;
-            --FontH5: 1.772vw;
-            --FontParagraph: 1.095vw;
-            --FontSubtitle: 0.677vw;
-            /*-------------GoldenRatio (1.618) (Viewport Width 1920px)------------- */
-            --GoldenRatio1: 100vw;
-            --GoldenRatio2: 61.805vw;
-            --GoldenRatio3: 38.198vw;
-            --GoldenRatio4: 23.608vw;
-            --GoldenRatio5: 14.591vw;
-            --GoldenRatio6: 9.018vw;
-            --GoldenRatio7: 5.573vw;
-            --GoldenRatio8: 3.445vw;
-            --GoldenRatio9: 2.129vw;
-            --GoldenRatio10: 1.316vw;
-        }
-        }
-
-        /*-------------/@media (max-width: 1920px)------------- */
-
-        /*-------------@media (max-width: 400px)------------- */
-
-        @media (max-width: 400px) {
-        :root {
-            /*-------------GoldenRatio (1.618) (Viewport Width 400px) Base Size 13px------------- */
-            --FontH1: 58.313vw;
-            --FontH2: 36.040vw;
-            --FontH3: 22.275vw;
-            --FontH4: 13.768vw;
-            --FontH5: 8.508vw;
-            --FontParagraph: 5.258vw;
-            --FontSubtitle: 3.250vw;
-            /*-------------GoldenRatio (1.618) (Viewport Width 400px)------------- */
-            --GoldenRatio1: 100vw;
-            --GoldenRatio2: 61.805vw;
-            --GoldenRatio3: 38.197vw;
-            --GoldenRatio4: 23.608vw;
-            --GoldenRatio5: 14.590vw;
-            --GoldenRatio6: 9.018vw;
-            --GoldenRatio7: 5.572vw;
-            --GoldenRatio8: 3.445vw;
-            --GoldenRatio9: 2.130vw;
-            --GoldenRatio10: 1.317vw;
-        }
-        #wrapper h1 {
-            font-size: var(--FontH5);
-        }
-        #ImgWrapper #img1 {
-            height: 22vh;
-            bottom: 50%;
-            left: 7%;
-        }
-        #ImgWrapper #img2 {
-            height: 22vh;
-            bottom: 70%;
-            right: 7%;
-        }
-        #ImgWrapper #img3 {
-            height: 22vh;
-            bottom: 35%;
-            right: 35%;
-        }
-        #ImgWrapper #img4 {
-            height: 22vh;
-            bottom: 61.89%;
-            left: 13%;
-        }
-        #ImgWrapper #img5 {
-            height: 35vh;
-            left: 46%;
-            bottom: 31%;
-        }
-        #ImgWrapper #img6 {
-            height: 17vh;
-            bottom: 22%;
-        }
-        #ImgWrapper #img7 {
-            height: 18vh;
-            left: 22%;
-        }
-        #codeby a {
-            font-size: var(--FontParagraph);
-        }
-        }
-
-        /*-------------/@media (max-width: 400px)------------- */       
     </style>
 </head>
 
 <body>
+    <div class="scroll-container">
+        <header></header>
 
-<!----------------------------------------------------LandingPage Intro--------------------------------------------------->
-<div id="wrapper">
-    <h1>The Weeknd <br> <span>GSAP Scroll Effect</span></h1>
-    <p>Scroll Down</p>
-  </div>
-  <!----------------------------------------------------/LandingPage Intro--------------------------------------------------->
-  <!----------------------------------------------------LandingPage--------------------------------------------------->
-  <div id="ImgWrapper">
-    <img id="img1" src="https://icodeayush.github.io/TheWeekndGSAPScrollEffect/img/asset%207.jpeg" alt="">
+        <section class="section1">
+            <h2>
+                <span>brand story</span>
+                Like no other
+            </h2>
+            <div class="scroll">
+                <i class="bar"></i>
+            </div>
+        </section>
 
-    <!------------CodeBy------------>
-    <div id="codeby">
-      <a target="_blank" href="https://icodeayush.github.io/">Code By <span>iCodeAyush</span></a>
+        <section class="section2">
+            <h2>독창적인 주거문화의 완성</h2>
+            <img class="intro" src="images/brandstory/bg_sec01_img.png" alt="">
+            <p>
+                <span>집은 삶의 질과 개성을 나타내는 중요한 표현 수단이 되었습니다.</span>
+                <span>We’ve 만의 남다른 감각으로 독창적인 주거문화를 완성합니다.</span>
+            </p>
+        </section>
+
+        <section class="section3">
+            
+            <div class="card01">
+                <h2>
+                    <span>vision</span>
+                    세계적 수준의 주거문화 창조
+                </h2>
+                <div>
+                    <img src="images/brandstory/bg_sec01_img.png" alt="">
+                </div>
+                <p>
+                    <span>We’ve 는 남다는 감각과 최고의 기술을 바탕으로 설계에서 시공,</span>
+                    <span>A/S에 이르기까지 세계수준의 주거문화를 선도합니다.</span>
+                </p>
+            </div>
+
+            <div class="card02">
+                <h2>
+                    <span>essense</span>
+                    남다른 감각이 돋보이는 주거공간
+                </h2>
+                <img src="images/brandstory/bg_sec01_img.png" alt="">
+                <p>
+                    <span>두산위브는 세심한 설계와 시공, 편리한 아름다운 인테리어가 겸비된 주거공간으로,</span>
+                    <span>남다른 미적감각과 실용적 가치를 지향하는 전문가의 안목을 느낄 수 있는 앞선 주거공간을 고객에게 제공합니다.</span>
+                </p>
+            </div>
+
+            <div class="card03">
+                <h2>
+                    <span>meaning</span>
+                    We’ve got everything
+                </h2>
+                <img src="images/brandstory/bg_sec01_img.png" alt="">
+                <p>
+                    <span>[두산위브]는 가지고 싶고, 살고 싶은 모든 것을 다 가진 주거공간 입니다.</span>
+                </p>
+            </div>
+            
+        </section>
+
     </div>
-    <!------------/CodeBy------------>
-</div>
-
-<!----------------------------------------------------/LandingPage--------------------------------------------------->
-
-<!-- gsap-latest-beta.min.js -->
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426'></script>
-<!-- ScrollTrigger.min.js -->
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
-<script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    //---------------------Landing Page ScrollTrigger---------------------
-    function LandingPageScrollTrigger() {
-
-        gsap.to('body', { // LoadingAnimation---------------------
-            opacity: 1, duration: 1.3,
-        }) // /LoadingAnimation---------------------
-
-        $("#codeby a").mouseenter(function () { // HoverAnimation---------------------
-            gsap.to('#ImgWrapper', { backgroundColor: "#f0f0f0", })
-            gsap.to('#codeby a', { color: "#2e2e2e", })
-            gsap.to('#codeby a span', { color: "#000000", })
-        });
-        $("#codeby a").mouseout(function () {
-            gsap.to('#ImgWrapper', { backgroundColor: "#000000", })
-            gsap.to('#codeby a', { color: "#e6e6e6", })
-            gsap.to('#codeby a span', { color: "#f0f0f0", })
-        }); // /HoverAnimation---------------------
-
-        let LandingPageScrollTrigger = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#ImgWrapper",
-                start: "0% 0%",
-                end: "100% 0%",
-                pin: "#ImgWrapper",
-                scrub: 2.2,
-            }
-        })
-        LandingPageScrollTrigger
-            .to('#ImgWrapper #img1', { width: '50%', }, 0)
-            .from('#codeby a', { y: 130, opacity: 0 }, 0.31)
-    }
-    //---------------------/Landing Page ScrollTrigger---------------------
-
-    window.onload = () => {
-        LandingPageScrollTrigger()
-    }
-</script>
 </body>
 </html>

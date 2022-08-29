@@ -33,7 +33,6 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-
 	<!-- Library JS -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="js/lib/fullpage.js"></script>
@@ -44,6 +43,8 @@
 	<script>
         $(document).ready( function() {
             $('header').load("include/header.html");
+
+			brandStory.init();
         });
     </script>
 </head>
@@ -52,7 +53,7 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <!-- ///////////////////////////////////////////////////////////////////// 오띠에르 샘플 코드 ///////////////////////////////////////////////////////////////////// -->
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<body class="page-template-style-architecture">
+<body class="page-template-style-architecture" id="brandstory">
 
 	<!-- header -->
 	<header></header>
@@ -72,22 +73,28 @@
 							<div class="article-visual__inner">
 								<div class="wrap">
 									<span>BRANDSTORY</span>
-									<h1 lang="en" class="article-visual__title jt-en-text--02">LIKE NO OTHER</h1>
+									<h1 lang="en" class="article-visual__title jt-en-text--02">Like no other</h1>
 								</div><!-- .wrap -->
 							</div><!-- .article-visual__inner -->
 							
-							<a data-barba-prevent href="#scroll-down-target" class="go-down">
-								<div class="jt-guide--icon"><svg width="64" height="65" viewBox="0 0 64 65">
-				<path fill="#fff" d="M53,37.9l-0.2-1.2l-0.1-0.5l-0.1-0.5c-11.4,2.1-16.8,8.1-19.4,13.8V3.9h-0.5h-1.2h-0.5l0,45.7 c-2.6-5.9-8-12.3-19.4-14.1l-0.2,1.2l-0.1,0.6l-0.1,0.5c17.4,2.7,19.6,16.8,19.7,21.4c-0.1,1,0,1.6,0,1.7l0.5-0.1h0.3l1.5,0.1 c0,0,0-0.4,0-0.9v-1.5C33.6,53.4,36,40.9,53,37.9z"/>
-			</svg>
-			</div>
-								<span class="sr-only">다음으로</span>
-							</a><!-- .go-down --> 
 						</div><!-- .article-visual -->
 
 						<div class="article-body" id="scroll-down-target">
 							<div class="archt-intro">
+								<div class="section1" id="scroll-section-3">
+									<nav class="depth_tab">
+										<ul>
+											<li class="on"><a href="javascript:;" title="STORY 페이지 이동">STORY</a></li>
+											<li><a href="javascript:;" title="5 Concepts 페이지 이동">5 Concepts</a></li>
+											<li><a href="javascript:;" title="NEWS 페이지 이동">NEWS</a></li>
+										</ul>
+									</nav>
+									<h2>독창적인 주거문화의 완성</h2>
+									<!-- <div class="small-img"><img src="images/brandstory/bg_sec01_bg.png" alt="이미지"></div> -->
+									<canvas class="image-blend-canvas" width="1920" height="1080"></canvas>
+								</div>
 								<div class="wrap">
+
 									<div class="archt-intro__section">
 										<div class="archt-intro__content">
 											<div class="archt-intro__content-inner">
@@ -186,7 +193,7 @@
 								</div><!-- .wrap -->
 							</div><!-- .archt-intro -->
 
-							<div class="section5">
+							<section class="section5">
 								<img src="images/brandstory/bs_sec05_bg01.png" alt="Value Offering 이미지">
 								<img src="images/brandstory/bs_sec05_bg02.png" alt="High Quality 이미지">
 								<img src="images/brandstory/bs_sec05_bg03.png" alt="User Centric 이미지">
@@ -215,9 +222,9 @@
 									</li>
 								</ul>
 
-							</div><!-- .section5 -->
+							</section><!-- .section5 -->
 
-							<div class="section6">
+							<section class="section6">
 								<ul>
 									<li>
 										<a href="javascript:;" title="We've" onclick="popup('weve');">
@@ -235,120 +242,120 @@
 										</a>
 									</li>
 								</ul>
-							</div><!-- .archt-vision -->
+							</section><!-- .archt-vision -->
 							
 						</div><!-- .article-body -->
 					</div><!-- .article -->
 
-					            <!-- popup -->
-								<div class="popup bi_popup weve">
-									<div class="popup_inner">
-										<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-										<div class="info">
-											<div class="des">두산건설의 주거브랜드</div>
-											<div class="name">We've</div>
-											<p>
-												위브의 BI (Brand identity)는 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
-												사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love), 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
-												생활의 모든 문제가 해결되는 곳 (Solve)이라 두산건설의 약속을 형상화한 것입니다.																								
-											</p>
-										</div>
-										<div class="bi">
-											<div class="logo">
-												<img src="images/brandstory/bi01_logo.png" alt="위브 로고">
-											</div>
-											<div class="right">
-												<div class="color">
-													<ul>
-														<li><b>PANTONE</b><span>Blue 072 C</span></li>
-														<li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
-														<li><b>페인트도료</b><span>KCC VR131</span></li>
-													</ul>
-												</div>
-												<img src="images/brandstory/bi01_grayscale.png" alt="위브 로고 색상">
-											</div>
-										</div>
-										<div class="btn_download">
-											<a href="javascript:;" download="">BI 다운받기</a>
-										</div>
-									</div>
+					<!-- popup -->
+					<div class="popup bi_popup weve">
+						<div class="popup_inner">
+							<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+							<div class="info">
+								<div class="des">두산건설의 주거브랜드</div>
+								<div class="name">We've</div>
+								<p>
+									위브의 BI (Brand identity)는 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
+									사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love), 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
+									생활의 모든 문제가 해결되는 곳 (Solve)이라 두산건설의 약속을 형상화한 것입니다.																								
+								</p>
+							</div>
+							<div class="bi">
+								<div class="logo">
+									<img src="images/brandstory/bi01_logo.png" alt="위브 로고">
 								</div>
-
-								<div class="popup bi_popup zenith">
-									<div class="popup_inner">
-										<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-										<div class="info">
-											<div class="des">두산건설의 주상복합브랜드</div>
-											<div class="name">THE ZENITH</div>
-											<p>
-												두산건설의 주거브랜드 ‘위브’와 정점, 절정을 뜻하는 ‘제니스’의 합성어로 최고급 주거문화를 의미합니다.
-												르네상스 건축물을 본뜬 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.
-												르네상스 건축물을 본뜬 아이콘을 활용한 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.												
-											</p>
-										</div>
-										<div class="bi">
-											<div class="logo">
-												<img src="images/brandstory/bi02_logo.png" alt="제니스 로고">
-											</div>
-											<div class="right">
-												<div class="color">
-													<ul>
-														<li><b>PANTONE</b><span>448 C</span></li>
-														<li><b>CMYK</b><span>C65/M56/Y100/K35</span></li>
-														<li><b>페인트도료</b><span>KCC HD0036</span></li>
-													</ul>
-													<ul>
-														<li><b>PANTONE</b><span>130 2X C</span></li>
-														<li><b>CMYK</b><span>C0/M35/Y100/K11</span></li>
-														<li><b>페인트도료</b><span>KCC HS171</span></li>
-													</ul>
-												</div>
-												<img src="images/brandstory/bi02_grayscale.png" alt="제니스 로고 색상">
-											</div>
-										</div>
-										<div class="btn_download">
-											<a href="javascript:;" download="">BI 다운받기</a>
-										</div>
+								<div class="right">
+									<div class="color">
+										<ul>
+											<li><b>PANTONE</b><span>Blue 072 C</span></li>
+											<li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
+											<li><b>페인트도료</b><span>KCC VR131</span></li>
+										</ul>
 									</div>
+									<img src="images/brandstory/bi01_grayscale.png" alt="위브 로고 색상">
 								</div>
+							</div>
+							<div class="btn_download">
+								<a href="javascript:;" download="">BI 다운받기</a>
+							</div>
+						</div>
+					</div>
 
-								<div class="popup bi_popup centium">
-									<div class="popup_inner">
-										<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-										<div class="info">
-											<div class="des">두산건설의 오피스텔 브랜드</div>
-											<div class="name">Centi’um</div>
-											<p>
-												세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는 ‘-um’의 합성어로<br>
-												한 세대의 기준이 될 주거공간을 의미합니다.												
-											</p>
-										</div>
-										<div class="bi">
-											<div class="logo">
-												<img src="images/brandstory/bi03_logo.png" alt="위브 센티움 로고">
-											</div>
-											<div class="right">
-												<div class="color">
-													<ul>
-														<li><b>PANTONE</b><span>Blue 072 C</span></li>
-														<li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
-														<li><b>페인트도료</b><span>KCC VR131</span></li>
-													</ul>
-													<ul>
-														<li><b>PANTONE</b><span>Cool Gray 10 C</span></li>
-														<li><b>CMYK</b><span>C0/M1/Y0/K51</span></li>
-														<li><b>페인트도료</b><span>KCC HS171</span></li>
-													</ul>
-												</div>
-												<img src="images/brandstory/bi03_grayscale.png" alt="위브 센티움 로고 색상">
-											</div>
-										</div>
-										<div class="btn_download">
-											<a href="javascript:;" download="">BI 다운받기</a>
-										</div>
+					<div class="popup bi_popup zenith">
+						<div class="popup_inner">
+							<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+							<div class="info">
+								<div class="des">두산건설의 주상복합브랜드</div>
+								<div class="name">THE ZENITH</div>
+								<p>
+									두산건설의 주거브랜드 ‘위브’와 정점, 절정을 뜻하는 ‘제니스’의 합성어로 최고급 주거문화를 의미합니다.<br>
+									르네상스 건축물을 본뜬 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.<br>
+									르네상스 건축물을 본뜬 아이콘을 활용한 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.												
+								</p>
+							</div>
+							<div class="bi">
+								<div class="logo">
+									<img src="images/brandstory/bi02_logo.png" alt="제니스 로고">
+								</div>
+								<div class="right">
+									<div class="color">
+										<ul>
+											<li><b>PANTONE</b><span>448 C</span></li>
+											<li><b>CMYK</b><span>C65/M56/Y100/K35</span></li>
+											<li><b>페인트도료</b><span>KCC HD0036</span></li>
+										</ul>
+										<ul>
+											<li><b>PANTONE</b><span>130 2X C</span></li>
+											<li><b>CMYK</b><span>C0/M35/Y100/K11</span></li>
+											<li><b>페인트도료</b><span>KCC HS171</span></li>
+										</ul>
 									</div>
+									<img src="images/brandstory/bi02_grayscale.png" alt="제니스 로고 색상">
 								</div>
+							</div>
+							<div class="btn_download">
+								<a href="javascript:;" download="">BI 다운받기</a>
+							</div>
+						</div>
+					</div>
 
+					<div class="popup bi_popup centium">
+						<div class="popup_inner">
+							<div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+							<div class="info">
+								<div class="des">두산건설의 오피스텔 브랜드</div>
+								<div class="name">Centi’um</div>
+								<p>
+									세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는 ‘-um’의 합성어로<br>
+									한 세대의 기준이 될 주거공간을 의미합니다.												
+								</p>
+							</div>
+							<div class="bi">
+								<div class="logo">
+									<img src="images/brandstory/bi03_logo.png" alt="위브 센티움 로고">
+								</div>
+								<div class="right">
+									<div class="color">
+										<ul>
+											<li><b>PANTONE</b><span>Blue 072 C</span></li>
+											<li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
+											<li><b>페인트도료</b><span>KCC VR131</span></li>
+										</ul>
+										<ul>
+											<li><b>PANTONE</b><span>Cool Gray 10 C</span></li>
+											<li><b>CMYK</b><span>C0/M1/Y0/K51</span></li>
+											<li><b>페인트도료</b><span>KCC HS171</span></li>
+										</ul>
+									</div>
+									<img src="images/brandstory/bi03_grayscale.png" alt="위브 센티움 로고 색상">
+								</div>
+							</div>
+							<div class="btn_download">
+								<a href="javascript:;" download="">BI 다운받기</a>
+							</div>
+						</div>
+					</div>
+					<!-- .popup -->
 	
 				</main><!-- .main_container -->
 
@@ -359,31 +366,19 @@
 		</div><!-- .barba-container -->
 	</div><!-- #barba_wrapper -->
 
-	<div id="global-cursor">
-		<div class="global-cursor--circle"><span><i></i></span></div>
 
-		<div class="global-cursor--word">
-			<div class="global-cursor--text"><span lang="en"></span></div>
-		</div><!-- .global-cursor--word -->
-	</div><!-- #global-cursor -->
 
-		
-	<div class="jt-block-style-helper"></div><script  src='https://hauterre.co.kr/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js'></script>
 
-<script type='text/javascript' id='JTPOP-show-script-js-extra'>
-/* <![CDATA[ */
-var __JTPOP = {"home_url":"https:\/\/hauterre.co.kr","blog_id":"1","language":"ko_KR","is_home":""};
-/* ]]> */
-</script>
 
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/greensock/gsap.min.js?ver=3.10.3' id='gsap-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/greensock/ScrollToPlugin.min.js?ver=3.10.3' id='scrolltoplugin-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/greensock/ScrollTrigger.min.js?ver=3.10.3' id='scrolltrigger-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/modal/jquery.magnific-popup.min.js?ver=1.1.0' id='magnific-popup-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/jt/jt-unveil.js?ver=1.0.0' id='jtunveil-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/jt.js?ver=1.0' id='jt-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/jt-strap.js?ver=1.2.9' id='jt-strap-js'></script>
-<script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/main.js?ver=1.2.9' id='main-js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- <script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/vendors/jt/jt-unveil.js?ver=1.0.0' id='jtunveil-js'></script> -->
+<!-- <script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/jt.js?ver=1.0' id='jt-js'></script> -->
+<!-- <script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/jt-strap.js?ver=1.2.9' id='jt-strap-js'></script> -->
+<!-- <script  src='https://hauterre.co.kr/wp-content/themes/hauterre/js/main.js?ver=1.2.9' id='main-js'></script> -->
 
 
 </body>

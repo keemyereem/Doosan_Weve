@@ -6,11 +6,44 @@ $(function(){
 
 });
 
+function popup(popConts) {
+	var popthis = $(".popup."+popConts);
+    $('body').addClass('blockScroll');
+	popthis.fadeIn(300);
+
+	popthis.find(".pop_close").click(function(){
+        $('body').removeClass('blockScroll');
+		popthis.fadeOut(300);
+	});
+}
 
 var test = {
 	init:function(){
+        this.common();
         this.gsap();
+        this.section4();
 	}, 
+
+    common: () => {
+        const subMenu = document.querySelector(".section2");
+        const fixMenu = subMenu.offsetTop;
+
+        $(window).on('scroll', function() {
+            let st = $(window).scrollTop();
+            
+            if (st > fixMenu - 200) {
+              $('header').addClass('indentUp');
+            } else {
+                $('header').removeClass('indentUp');
+            }
+
+            if (st >= fixMenu) {  
+                $('nav').addClass('fixed');
+            } else {
+                $('nav').removeClass('fixed');
+            }
+        });
+    },
 
     gsap: () => {
 
@@ -31,8 +64,14 @@ var test = {
             pin: true,                                       // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
             pinSpacing: true,                                // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
             start: "0% 0%",                                  // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-            end: "+=100%",                                  // markers 옵션을 켜서 상세설정 확인 가능
+            end: "+=200%",                                  // markers 옵션을 켜서 상세설정 확인 가능
             scrub: 2,                                        // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
+
+            // toggleClass: {                                   // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
+            //     targets: 'nav li a',                         // 클래스를 부여할 태그 타겟 설정
+            //     className: "is-active"                       // 태그 타겟에 부여할 클래스 명
+            // },
+            
             // toggleClass: "active",                           // start 시점에서 class가 추가되고 end에서 class가 삭제된다.
             // markers: true,                                   // 스크롤이 시작되고 끝나는 시점을 마킹해준다/ true 입력 시, 기본 스타일로 마커가 생성된다.
             // {                                                // 마커 스타일 변경 시, 좌측의 예시처럼 변경 가능 (true 지우고 그 자리부터 괄호 시작)
@@ -44,15 +83,18 @@ var test = {
         })
 
         tl2
-            .to('.section2 h2', { transform: 'translateY(0)', opacity: '1', duration: 50, delay: 2, })
-            .to('.section2 .intro', { transform: 'scale(1)', top: '0', duration: 100, delay: 5, }, "<100")
-            .to('.section2 h2', { color: '#fff', duration: 50, }, "<0")
-            .to('.section2 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 50, delay: 5, })
-            .to('.section2 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 50, dealy: 2, })
+            .to('.section2 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 2, })
+            .to('.section2 .intro', { transform: 'scale(1)', top: '0', duration: 5, delay: 2, })
+            .to('.section2 h2', { color: '#fff', duration: 2, }, 7)
+            .to('nav, nav li.on', { borderBottom: '1px solid rgba(255, 255, 255, .6)', }, 9)
+            .to('nav li.on span', { background: '#fff', }, 9)
+            .to('nav li a', { color: 'rgba(255, 255, 255, .3)', }, 9.5)
+            .to('nav li.on a', { color: '#fff', }, 9.5)
+            .to('.section2 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 2, })
+            .to('.section2 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, dealy: 1, })
             .to('.section2', { background: '#000', duration: 2, })
-            .to('.section2 .intro', { opacity: '0', duration: 100, delay: 5, }, "<50")
-            .to('.section2 h2, .section2 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 50, }, "<150")
-            
+            .to('.section2 .intro', { opacity: '0', duration: 5, delay: 2, })
+            .to('.section2 h2, .section2 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, })
 
 
         // ************************************************** section3
@@ -63,13 +105,39 @@ var test = {
             pin: true,                                       
             pinSpacing: true,                                
             start: "0% 0%",                                  
-            end: "+=100%",                                 
+            end: "+=300%",                                 
             scrub: 2,                             
         })
 
         tl3
-            .to('.section3 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 50, delay: 2, })
+            .to('.section3 .card01 div', { top: '-100vh', duration: 10, })
+            .to('.section3 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, 0)
+            .to('.section3 .card01 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, 0.5)
+            .to('.section3 .card01 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+            .to('.section3 .card01 h2, .section3 .card01 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+
+            .to('.section3 .card02 div', { top: '-100vh', duration: 10, })
+            .to('.section3 .card02 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
+            .to('.section3 .card02 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
+            .to('.section3 .card02 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+            .to('.section3 .card02 h2, .section3 .card02 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+
+            .to('.section3 .card03 div', { top: '-100vh', duration: 10, })
+            .to('.section3 .card03 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
+            .to('.section3 .card03 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
+            .to('.section3 .card03 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+            .to('.section3 .card03 h2, .section3 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
                     
+    },
+
+    section4: () => {
+        $('.section4 > ul > li').each(function(i){
+            $('.section4 > ul > li').eq(i).hover(function(){
+                $('.section4').find('img').eq(i).css({'z-index': '1', 'opacity': '1'});
+            }, function(){
+                $('.section4').find('img').eq(i).css({'z-index': '-1', 'opacity': '0'});
+            });
+        });
     },
 
 }

@@ -51,33 +51,72 @@
 
     <style>
         .scroll-container { opacity: 0; background: #000; }
-        .scroll-container header { position: absolute; -webkit-overflow-scrolling: touch; }
-        .scroll-container section { height:105vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
+        .scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
         .scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
         .scroll-container section h2 span { text-transform: uppercase; display: block; font-size: 24px; font-weight: 300; }
         .scroll-container section img { position: absolute; width: 100%; height:100%; object-fit: cover; }
         .scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
         .scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
+        .scroll-container nav { border-bottom: 1px solid #e5e5e5; width: 100%; position: absolute; top: 100vh; z-index: 99; }
+        .scroll-container nav.fixed { position: fixed; left: 0; top: 0; }
+        .scroll-container nav ul { display: flex; max-width: 1460rem; margin: 0 auto; }
+        .scroll-container nav ul li { flex: 1; text-align: center; height: 100rem; line-height: 100rem; }
+        .scroll-container nav ul li > a { display: block; width: 100%; height: 100%; font-size: 20rem; font-weight: 500; color: #000; }
+        .scroll-container nav ul li.on > a,
+        .scroll-container nav ul li:hover a { color: #005eb8; }
+        .scroll-container nav ul li.on span { background: #005eb8; width: 100%; height: 3px; display: block; margin-top: -1px; }
 
-        .scroll-container .section1 { background: url(images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
+        .scroll-container .section1 { height: 100vh; background: url(images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
         .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; }
         .scroll-container .section1 h2 span { font-size: 30px; }
         .scroll-container .section1 .scroll {position:absolute; bottom:67px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
         .scroll-container .section1 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
 
-        .scroll-container .section2 { background: #fff; }
+        .scroll-container .section2 { background: #fff; height:110vh; }
         .scroll-container .section2 h2 { color: #222; }
         .scroll-container .section2 .intro{ z-index:-1; width: 100%; height:100vh; transform: scale(.8); margin: auto; left: 0; right: 0; top: 68vh; }
 
-        .scroll-container .section3 { background: #000; position: relative; }
-        .scroll-container .section3 > div { position: absolute; top: 0; left: 0; right: 0; margin: auto; max-width: 1460px; height: 100vh; display:flex; justify-content: center; flex-direction: column; align-items: center; }
+        .scroll-container .section3 { background: #000; position: relative; height:110vh; }
+        .scroll-container .section3 > div { position: absolute; top: 0; left: 0; right: 0; bottom: auto; margin: auto; max-width: 1460px; width: 100%; height: 100vh; display:flex; justify-content: center; flex-direction: column; align-items: center; }
+        .scroll-container .section3 > div h2 { z-index: 99; }
+        .scroll-container .section3 > div div { width: calc(50% + 90px); height: 100vh; position: absolute; right: 0; top: 110vh; }
+        .scroll-container .section3 > .card02 div { left: 0; }
+
+        .scroll-container .section4 { width: 100vw; height: 100vh; background: #fff; position: relative; background: url(../images/brandstory/bs_sec05_bg01.png) no-repeat 50% 50%; background-size: cover; }
+        .scroll-container .section4 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: all .2s; }
+        .scroll-container .section4 > ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
+        .scroll-container .section4 > ul li { flex:1; height: 100%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255,.2); padding-left: 70rem; transition: all .3s; }
+        .scroll-container .section4 > ul li:last-child {  border-right: 0; }
+        .scroll-container .section4 > ul li .tit { font-family: 'Poppins'; font-weight: 700; font-size: 41rem; letter-spacing: -1.025px; width: fit-content; opacity: .5; transition: opacity .3s; }
+        .scroll-container .section4 > ul li .tit::after { content: ''; display: block; width: 0; height: 6rem; background: #fff; margin-top: 10rem; transition: width .3s; }
+        .scroll-container .section4 > ul li p { font-size: 20rem; letter-spacing: -0.5rem; line-height: 1.8; margin-top: 40rem; opacity: 0; transform: translateX(-50rem); transition: all .3s; text-align: left; }
+        .scroll-container .section4 > ul li:hover { background: rgba(140, 139, 136,.85); }
+        .scroll-container .section4 > ul li:hover .tit { opacity: 1; }
+        .scroll-container .section4 > ul li:hover .tit::after { width: 100%; }
+        .scroll-container .section4 > ul li:hover p { opacity: 1; transform: translateX(0); }
 
     </style>
 </head>
 
 <body>
-    <div class="scroll-container">
+    <div class="scroll-container" id="intro_trigger">
         <header></header>
+        <nav>
+            <ul>
+                <li class="on">
+                    <a href="javascript:;" title="STORY 페이지 이동">STORY</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="javascript:;" title="5 Concepts 페이지 이동">5 Concepts</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="javascript:;" title="NEWS 페이지 이동">NEWS</a>
+                    <span></span>
+                </li>
+            </ul>
+        </nav>
 
         <section class="section1">
             <h2>
@@ -99,27 +138,27 @@
         </section>
 
         <section class="section3">
-            
             <div class="card01">
                 <h2>
                     <span>vision</span>
                     세계적 수준의 주거문화 창조
                 </h2>
                 <div>
-                    <img src="images/brandstory/bg_sec01_img.png" alt="">
+                    <img src="images/brandstory/bs_img02.png" alt="">
                 </div>
                 <p>
                     <span>We’ve 는 남다는 감각과 최고의 기술을 바탕으로 설계에서 시공,</span>
                     <span>A/S에 이르기까지 세계수준의 주거문화를 선도합니다.</span>
                 </p>
             </div>
-
             <div class="card02">
                 <h2>
                     <span>essense</span>
                     남다른 감각이 돋보이는 주거공간
                 </h2>
-                <img src="images/brandstory/bg_sec01_img.png" alt="">
+                <div>
+                    <img src="images/brandstory/bs_img03.png" alt="">
+                </div>
                 <p>
                     <span>두산위브는 세심한 설계와 시공, 편리한 아름다운 인테리어가 겸비된 주거공간으로,</span>
                     <span>남다른 미적감각과 실용적 가치를 지향하는 전문가의 안목을 느낄 수 있는 앞선 주거공간을 고객에게 제공합니다.</span>
@@ -131,13 +170,175 @@
                     <span>meaning</span>
                     We’ve got everything
                 </h2>
-                <img src="images/brandstory/bg_sec01_img.png" alt="">
+                <div>
+                    <img src="images/brandstory/bs_img04.png" alt="">
+                </div>
                 <p>
                     <span>[두산위브]는 가지고 싶고, 살고 싶은 모든 것을 다 가진 주거공간 입니다.</span>
                 </p>
             </div>
-            
         </section>
+
+        <section class="section4">
+            <img src="images/brandstory/bs_sec05_bg01.png" alt="Value Offering 이미지">
+            <img src="images/brandstory/bs_sec05_bg02.png" alt="High Quality 이미지">
+            <img src="images/brandstory/bs_sec05_bg03.png" alt="User Centric 이미지">
+            
+            <ul>
+                <li>
+                    <div class="tit">Value Offering</div>
+                    <p>
+                        미적감각과 섬세한 실용성을 <br>
+                        바탕으로 글로벌 주거문화 제공
+                    </p>
+                </li>
+                <li>
+                    <div class="tit">High Quality</div>
+                    <p>
+                        최고의 설계와 시공기술로 완성된 <br>
+                        고품격 주거공간 창조
+                    </p>
+                </li>
+                <li>
+                    <div class="tit">User Centric</div>
+                    <p>
+                        편안하고 행복한 생활공간 제공을 통해 <br>
+                        고객의 삶의 가치
+                    </p>
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="section6">
+            <ul>
+                <li>
+                    <a href="javascript:;" title="We've" onclick="popup('weve');">
+                        We've
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" title="THE ZENITH" onclick="popup('zenith');">
+                        THE ZENITH
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" title="Centi'um" onclick="popup('centium');">
+                        Centi'um
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- popup -->
+        <div class="popup bi_popup weve">
+            <div class="popup_inner">
+                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="info">
+                    <div class="des">두산건설의 주거브랜드</div>
+                    <div class="name">We've</div>
+                    <p>
+                        위브의 BI (Brand identity)는 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
+                        사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love), 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
+                        생활의 모든 문제가 해결되는 곳 (Solve)이라 두산건설의 약속을 형상화한 것입니다.																								
+                    </p>
+                </div>
+                <div class="bi">
+                    <div class="logo">
+                        <img src="images/brandstory/bi01_logo.png" alt="위브 로고">
+                    </div>
+                    <div class="right">
+                        <div class="color">
+                            <ul>
+                                <li><b>PANTONE</b><span>Blue 072 C</span></li>
+                                <li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
+                                <li><b>페인트도료</b><span>KCC VR131</span></li>
+                            </ul>
+                        </div>
+                        <img src="images/brandstory/bi01_grayscale.png" alt="위브 로고 색상">
+                    </div>
+                </div>
+                <div class="btn_download">
+                    <a href="javascript:;" download="">BI 다운받기</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup bi_popup zenith">
+            <div class="popup_inner">
+                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="info">
+                    <div class="des">두산건설의 주상복합브랜드</div>
+                    <div class="name">THE ZENITH</div>
+                    <p>
+                        두산건설의 주거브랜드 ‘위브’와 정점, 절정을 뜻하는 ‘제니스’의 합성어로 최고급 주거문화를 의미합니다.<br>
+                        르네상스 건축물을 본뜬 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.<br>
+                        르네상스 건축물을 본뜬 아이콘을 활용한 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.												
+                    </p>
+                </div>
+                <div class="bi">
+                    <div class="logo">
+                        <img src="images/brandstory/bi02_logo.png" alt="제니스 로고">
+                    </div>
+                    <div class="right">
+                        <div class="color">
+                            <ul>
+                                <li><b>PANTONE</b><span>448 C</span></li>
+                                <li><b>CMYK</b><span>C65/M56/Y100/K35</span></li>
+                                <li><b>페인트도료</b><span>KCC HD0036</span></li>
+                            </ul>
+                            <ul>
+                                <li><b>PANTONE</b><span>130 2X C</span></li>
+                                <li><b>CMYK</b><span>C0/M35/Y100/K11</span></li>
+                                <li><b>페인트도료</b><span>KCC HS171</span></li>
+                            </ul>
+                        </div>
+                        <img src="images/brandstory/bi02_grayscale.png" alt="제니스 로고 색상">
+                    </div>
+                </div>
+                <div class="btn_download">
+                    <a href="javascript:;" download="">BI 다운받기</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup bi_popup centium">
+            <div class="popup_inner">
+                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="info">
+                    <div class="des">두산건설의 오피스텔 브랜드</div>
+                    <div class="name">Centi’um</div>
+                    <p>
+                        세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는 ‘-um’의 합성어로<br>
+                        한 세대의 기준이 될 주거공간을 의미합니다.												
+                    </p>
+                </div>
+                <div class="bi">
+                    <div class="logo">
+                        <img src="images/brandstory/bi03_logo.png" alt="위브 센티움 로고">
+                    </div>
+                    <div class="right">
+                        <div class="color">
+                            <ul>
+                                <li><b>PANTONE</b><span>Blue 072 C</span></li>
+                                <li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
+                                <li><b>페인트도료</b><span>KCC VR131</span></li>
+                            </ul>
+                            <ul>
+                                <li><b>PANTONE</b><span>Cool Gray 10 C</span></li>
+                                <li><b>CMYK</b><span>C0/M1/Y0/K51</span></li>
+                                <li><b>페인트도료</b><span>KCC HS171</span></li>
+                            </ul>
+                        </div>
+                        <img src="images/brandstory/bi03_grayscale.png" alt="위브 센티움 로고 색상">
+                    </div>
+                </div>
+                <div class="btn_download">
+                    <a href="javascript:;" download="">BI 다운받기</a>
+                </div>
+            </div>
+        </div>
+        <!-- .popup -->
 
     </div>
 </body>

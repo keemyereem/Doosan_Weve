@@ -2,7 +2,9 @@
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
 /* ----------------------- Published by 4m Creative ------------------------ */
 
+
 $(function(){
+    
 
 });
 
@@ -17,7 +19,7 @@ function popup(popConts) {
 	});
 }
 
-var test = {
+var brandstory = {
 	init:function(){
         this.common();
         this.gsap();
@@ -93,6 +95,7 @@ var test = {
             .to('.section2 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 2, })
             .to('.section2 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, dealy: 1, })
             .to('.section2', { background: '#000', duration: 2, })
+            .to('body::-webkit-scrollbar', { backgroundColose: '#000', duration: 2, })
             .to('.section2 .intro', { opacity: '0', duration: 5, delay: 2, })
             .to('.section2 h2, .section2 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, })
 

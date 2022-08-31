@@ -7,6 +7,7 @@
 @media screen and (max-width:1440px) {
 	html {overflow-x: scroll !important; width: 1440px;}
 	header, footer { width: 1440px; }
+	.scroll-container nav ul li { flex: auto 0; }
 }
 
 @media screen and (min-width:768px) {
@@ -27,6 +28,7 @@
 	.contBox04 .noti_list li a:before {bottom:0; right:-1px;}
 	.contBox04 .noti_list li:hover a:before {height:100%;}
 	.contBox04 .noti_list li:hover a:after {height:100%;}
+
 }
 
 @media screen and (max-width:768px) {
@@ -35,6 +37,10 @@
 	header, footer { width: 100%; }
 	header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
+	.br_pc {display: none;}
+	.br_m {display: block;}
+	.img_pc {display: none;}
+	.img_m {display: block;}
 
     /* header */
 	header {height:55px; padding:0 10px 0 20px;}
@@ -137,4 +143,38 @@
 	.contBox05 .service_box .list li .link {position:static; margin-left:45px;}
 	.contBox05 .service_box .list li .link a {font-size:13px;}
 	.contBox05 .service_box .link a:after {width:22.5px;}
+
+
+
+
+
+
+	/* brandstory */
+	.scroll-container section h2 { font-size: 30px; padding: 0 20px; }
+	.scroll-container section h2 span { font-size: 17px; margin-bottom: 10px; }
+	.scroll-container section p{ padding: 0 20px; margin-top: 35px; }
+	.scroll-container section p span { font-size: 15px; }
+	.scroll-container .section1 { height: 275px; background: url(../images/brandstory/bs_visual_m.png) 50% 50% no-repeat; background-size: cover; }
+	.scroll-container .section1 h2 { font-size: 35px; }
+	.scroll-container .section1 h2 span { font-size: 12px; }
+	.scroll-container nav { border-bottom: 0; top: 276px; }
+	.scroll-container nav ul { flex-direction: column; }
+	.scroll-container nav ul li { height: 50px; line-height: 50px; }
+	.scroll-container nav ul li > a { font-size: 15px; }
+
+	.scroll-container .section4 { background: #000; /* padding-left: 20px; */ }
+	.scroll-container .section4 > div { width: calc(100% - 20px)!important; border: 1px solid red; margin: 0 0 0 20px; }
+	 .scroll-container .section4 > div ul { width: fit-content!important; border: 1px solid green; }
+	.scroll-container .section4 ul li { flex: unset; width: 68vw!important; height: 370px; border-right: 0; padding-left: 20px; box-sizing: border-box; }
+	.scroll-container .section4 ul li:nth-child(1) { background: url(../images/brandstory/bs_sec05_bg01_m.png) no-repeat 50% 50%; background-size: cover; }
+	.scroll-container .section4 ul li:nth-child(2) { background: url(../images/brandstory/bs_sec05_bg02_m.png) no-repeat 50% 50%; background-size: cover; }
+	.scroll-container .section4 ul li:nth-child(3) { background: url(../images/brandstory/bs_sec05_bg03_m.png) no-repeat 50% 50%; background-size: cover; }
+	.scroll-container .section4 ul li .tit { font-size: 20px; opacity: 1; }
+	.scroll-container .section4 ul li .tit::after { width: 100%; height: 3px; }
+	.scroll-container .section4 ul li p { opacity: 1; font-size: 13px; font-weight: 150; line-height: 1.61; margin-top: 14px; transform: translateX(0); padding: 0; }
+
+
+
+
+
 }

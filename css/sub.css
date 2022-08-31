@@ -3,8 +3,8 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container { opacity: 0; background: #000; }
 .scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
 .scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
-.scroll-container section h2 span { text-transform: uppercase; display: block; font-size: 24px; font-weight: 300; }
-.scroll-container section img { position: absolute; width: 100%; height:100%; object-fit: cover; }
+.scroll-container section h2 span { text-transform: uppercase; display: block; font-family: 'Poppins'; font-weight: 700; font-size: 24px; }
+.scroll-container section img { position: absolute; /* width: 100%; height:100%; object-fit: cover; */ }
 .scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
 .scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
 
@@ -12,13 +12,15 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); position: fixed; left: 0; top: 0; z-index: 9999; }
 .scroll-container nav ul { display: flex; max-width: 1460px; margin: 0 auto; }
 .scroll-container nav ul li { flex: 1; text-align: center; height: 100px; line-height: 100px; }
-.scroll-container nav ul li > a { display: block; width: 100%; height: 100%; font-size: 20px; font-weight: 500; color: #000; }
-.scroll-container nav ul li.on > a,
-.scroll-container nav ul li:hover a { color: #005eb8; }
+.scroll-container nav ul li > a { display: block; width: 100%; height: 100%; font-size: 20px; font-weight: 300; color: #000; }
+.scroll-container nav ul li.on > a { color: #005eb8; }
 .scroll-container nav ul li.on span { background: #005eb8; width: 100%; height: 3px; display: block; margin-top: -1px; }
+.scroll-container nav ul li.on_w > a { color: rgba(225,225,225,.3); }
+.scroll-container nav ul li.on_w.on > a { color: #fff; }
+.scroll-container nav ul li.on_w.on span { background: #fff; }
 
 .scroll-container .section1 { width: 100%; height: 100vh; background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
-.scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; }
+.scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 .scroll-container .section1 .scroll {position:absolute; bottom:67px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
 .scroll-container .section1 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
@@ -32,38 +34,27 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container .section3 > div h2 { z-index: 99; }
 .scroll-container .section3 > div div { width: calc(50% + 90px); height: 100vh; position: absolute; right: 0; top: 110vh; }
 .scroll-container .section3 > .card02 div { left: 0; }
+.scroll-container .section3 > .card03 h2 { font-family: 'Poppins'; font-weight: 700; }
 
 .scroll-container .section4 { width: 100vw; height: 100vh; background: #fff; position: relative; background: url(../images/brandstory/bs_sec05_bg01.png) no-repeat 50% 50%; background-size: cover; }
 .scroll-container .section4 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: all .2s; }
-.scroll-container .section4 > ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
-.scroll-container .section4 > ul li { flex:1; height: 100%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255,.2); padding-left: 70px; transition: all .3s; }
-.scroll-container .section4 > ul li:last-child {  border-right: 0; }
-.scroll-container .section4 > ul li .tit { font-family: 'Poppins'; font-weight: 700; font-size: 41px; letter-spacing: -1.025px; width: fit-content; opacity: .5; transition: opacity .3s; }
-.scroll-container .section4 > ul li .tit::after { content: ''; display: block; width: 0; height: 6px; background: #fff; margin-top: 10px; transition: width .3s; }
-.scroll-container .section4 > ul li p { font-size: 20px; letter-spacing: -0.5px; line-height: 1.8; margin-top: 40px; opacity: 0; transform: translateX(-50px); transition: all .3s; text-align: left; }
-.scroll-container .section4 > ul li:hover { background: rgba(140, 139, 136,.85); }
-.scroll-container .section4 > ul li:hover .tit { opacity: 1; }
-.scroll-container .section4 > ul li:hover .tit::after { width: 100%; }
-.scroll-container .section4 > ul li:hover p { opacity: 1; transform: translateX(0); }
+.scroll-container .section4 > div { width: 100%; height: 100%; }
+.scroll-container .section4 ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
+.scroll-container .section4 ul li { flex:1; height: 100%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255,.2); padding-left: 70px; transition: all .3s; }
+.scroll-container .section4 ul li:last-child {  border-right: 0; }
+.scroll-container .section4 ul li .tit { font-family: 'Poppins'; font-weight: 700; font-size: 41px; color: #fff; letter-spacing: -1.025px; width: fit-content; opacity: .5; transition: opacity .3s; }
+.scroll-container .section4 ul li .tit::after { content: ''; display: block; width: 0; height: 6px; background: #fff; margin-top: 10px; transition: width .3s; }
+.scroll-container .section4 ul li p { font-size: 20px; letter-spacing: -0.5px; line-height: 1.8; color: #fff; margin-top: 40px; opacity: 0; transform: translateX(-50px); transition: all .3s; text-align: left; }
+.scroll-container .section4 ul li:hover { background: rgba(140, 139, 136,.85); }
+.scroll-container .section4 ul li:hover .tit { opacity: 1; }
+.scroll-container .section4 ul li:hover .tit::after { width: 100%; }
+.scroll-container .section4 ul li:hover p { opacity: 1; transform: translateX(0); }
 
-.scroll-container .section5 { width: 100vw; height: 100vh; background: #fff; color: #fff; position: relative; background: url(../images/brandstory/bs_sec05_bg01.png) no-repeat 50% 50%; background-size: cover; }
-.scroll-container .section5 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1 }
-.scroll-container .section5 > ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
-.scroll-container .section5 > ul li { flex:1; height: 100%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255,.2); padding-left: 70rem; transition: all .3s; }
-.scroll-container .section5 > ul li:last-child {  border-right: 0; }
-.scroll-container .section5 > ul li .tit { font-family: 'Poppins'; font-weight: 700; font-size: 41px; letter-spacing: -1.025px; width: fit-content; opacity: .5; transition: opacity .3s; }
-.scroll-container .section5 > ul li .tit::after { content: ''; display: block; width: 0; height: 3px; background: #fff; margin-top: 10rem; transition: width .3s; }
-.scroll-container .section5 > ul li p { font-size: 2rem; letter-spacing: -0.5px; line-height: 1.8; margin-top: 40px; opacity: 0; transform: translateX(-50px); transition: all .3s; }
-.scroll-container .section5 > ul li:hover { background: rgba(140, 139, 136,.85); }
-.scroll-container .section5 > ul li:hover .tit { opacity: 1; }
-.scroll-container .section5 > ul li:hover .tit::after { width: 100%; }
-.scroll-container .section5 > ul li:hover p { opacity: 1; transform: translateX(0); }
-
-.scroll-container .section6 { width: 100vw; height: 100vh; }
-.scroll-container .section6 > ul { display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100%; }
-.scroll-container .section6 > ul li { font-family: 'Montserrat'; font-weight: 300; font-size: 70px; padding: 55px 0; opacity: .5; transition: opacity .3s; }
-.scroll-container .section6 > ul li a { color: #fff; }
-.scroll-container .section6 > ul li:hover { opacity: 1; }
+.scroll-container .section5 { width: 100vw; height: 100vh; }
+.scroll-container .section5 > ul { display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100%; }
+.scroll-container .section5 > ul li { font-family: 'Montserrat'; font-weight: 300; font-size: 70px; padding: 55px 0; opacity: .5; transition: opacity .3s; }
+.scroll-container .section5 > ul li a { color: #fff; }
+.scroll-container .section5 > ul li:hover { opacity: 1; }
 
 /* BI 팝업 */
 .bi_popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background:rgba(0,0,0,0.8); z-index: 1003; }
@@ -89,3 +80,15 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .bi_popup.centium .popup_inner .bi .color ul:first-child { background: #004098; }
 .bi_popup.centium .popup_inner .bi .color ul:last-child { background: #9d9d9e; }
 .bi_popup .popup_inner .btn_download > a { display: block; width: 220px; height: 50px; line-height: 50px; border-radius: 25px; background: #005eb8; text-align: center; margin: 70px auto 0; color: #fff; }
+
+
+/* 시안 B */
+body#brandstory.typeB { color: #222; }
+.typeB .scroll-container { background: #fff; }
+.typeB .scroll-container .section1 { background: url(../images/brandstory/bs_visual_B.png) 50% 50% no-repeat; }
+.typeB .scroll-container .section2 p { color: #fff; }
+.typeB .scroll-container section:not(.section1) h2 { color: #222; }
+.typeB .scroll-container .section3 { background: #fff; }
+.typeB .scroll-container .section4 > ul li:hover { background: rgba(0, 94, 184,.5); }
+.typeB .scroll-container .section5 { background: url(../images/brandstory/bs_sec06_bg_B.png) no-repeat 50% 50%; background-size: cover; }
+

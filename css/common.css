@@ -36,6 +36,8 @@ select::-ms-expand {display:none;}
 caption, legend {position:absolute; top:0; left:-9999em;}
 .indentUp { transform: translateY(-100px)!important; }
 .blockScroll { overflow: hidden; height: 100vh; }
+.br_m,
+.img_m {display: none;}
 
 /* header */
 header {display:flex; align-items:center; position:fixed; top:0; left:0; width:100%; height:100px; padding:0 40px; z-index:100; transition:all .2s;}

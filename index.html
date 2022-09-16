@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" /> 
+        <meta name="author" content="DoosanENC">
+        <meta name="robots" content="index, follow">
+        <meta name="title" content="두산건설">
+        <meta name="description" content="두산건설 리뉴얼 홈페이지입니다.">
+        <meta name="keywords" content="두산건설, 리뉴얼홈페이지, 포엠크리에이티브">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="두산건설" />
+        <meta property="og:description" content="두산건설 리뉴얼 홈페이지입니다." />
+        <meta property="og:site_name" content="DoosanENC">
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="두산건설" />
+        <meta name="twitter:description" content="두산건설 리뉴얼 홈페이지입니다." />
+
+        <title>두산건설 퍼블리싱 리스트</title>
+        <link rel="icon" href="admin/images/favicon.jpg" sizes="32x32">
+        <style>
+            body, td, th, div, span, p, a {font-size:12px; margin: 0; padding: 0; font-family: "Malgun Gothic", "맑은 고딕", "돋움", "dotum";}
+            body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, a, span, em, button, textarea, header, footer, nav, section, aside.all_menu, article {margin: 0; padding: 0; box-sizing: border-box;}
+            body {padding-bottom:20px;}
+            ul, ol, li {list-style: none;}
+
+            .hr { color:red; font-weight: bold; }
+            .ip { color:#FF9F29; background: #1A4D2E; font-weight: bold; }
+            .dev {background: rgba(0, 92, 170,.3);}
+            .blind {display:none;}
+            .header {position:relative; background:#005caa; padding:10px; color:#fff; font-size:20px; font-weight:bold;}
+            .content_tab {margin:15px 0 0 15px;}
+            .content_tab ul li {display:inline-block; *display:inline-block; margin-right:15px; zoom:1;}
+            .content_tab ul li a {margin:10px; text-decoration:none; outline-style:none; color:#787878; font-size:16px; font-weight:normal;}
+            .content_tab ul li a:hover, a:active, a:visited {text-decoration: none;}
+            .content_tab ul li.active a {color:#005caa;font-weight: bold;}
+
+            .content {padding:15px;}
+            .content table {width:100%; border-collapse:collapse; border-spacing:0;}
+            .content table.mt15 {margin-top:15px;}
+            .content th {background:#e3e3e3;}
+            .content th, .content td {border:1px solid #ddd; border-spacing:0; padding:5px; text-align:center;}
+
+            .th_width100 { width:100px; }
+            table tbody:nth-child(2n-1) tr {background: rgb(243, 243, 243);}
+
+        </style>
+        <script src="js/lib/jquery-1.12.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#tab_list").find("ul").find("li").find("a").on("click", function () {
+                    var currentIdx = $(this).parent().index();
+                    console.log(currentIdx);
+                    $('#tab_list ul li').removeClass("active");
+                    $(this).parent().addClass("active");
+                    $(".content").addClass("blind");
+                    $(".content").eq(currentIdx).removeClass("blind");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">두산위브 퍼블리싱 리스트</div>
+        <div id="tab_list" class="content_tab">
+            <ul style="float: left;">
+                <li class="active"><a href="javascript:;">사용자 국문</a></li>
+                <!-- <li><a href="javascript:;" onclick="alert('준비중');">사용자 영문</a></li> -->
+            </ul>  
+        </div>
+        <div style="float: right; padding: 0 15px 15px;">
+            <span style="display: inline-block;width: 60px;height:15px;background: rgba(0, 92, 170,.3);text-align: center;vertical-align: middle;">개발영역</span>
+            ○ : 작업 중 
+            ● : 작업 완료
+        </div>
+        <!-- 사용자 국문 -->
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>1depth</th>
+                        <th>2depth</th>
+                        <th>3depth</th>
+                        <th>4depth</th>
+                        <th>비고</th>
+                        <th>화면 ID</th>
+                        <th class="th_width100">PC</th>
+                        <th class="th_width100">Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="6">메인비주얼</td>
+                        <td>메인비주얼</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-01.html" target="_blank">FD-00-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Story</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-02.html" target="_blank">FD-00-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Essential</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-03.html" target="_blank">FD-00-03.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">분양단지 </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-04.html" target="_blank">FD-00-04.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">News</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-05.html" target="_blank">FD-00-05.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>고객서비스</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-00-06.html" target="_blank">FD-00-06.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td rowspan="7">브랜드</td>
+                        <td>Story</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-01-01.html" target="_blank">FD-01-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Essential</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-01-02.html" target="_blank">FD-01-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="dev">Channel</td>
+                        <td class="dev">위브뉴스</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-01-03-01.html" target="_blank">FD-01-03-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">SNS</td>
+                        <td></td>
+                        <td>오픈시 숨김처리</td>
+                        <td><a href="html/FD-01-03-02.html" target="_blank">FD-01-03-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">갤러리</td>
+                        <td></td>
+                        <td>오픈시 숨김처리</td>
+                        <td><a href="html/FD-01-03-03.html" target="_blank">FD-01-03-03.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">광고</td>
+                        <td></td>
+                        <td>오픈시 숨김처리</td>
+                        <td><a href="html/FD-01-03-04.html" target="_blank">FD-01-03-04.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">수상경력</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-01-03-05.html" target="_blank">FD-01-03-05.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="4" class="dev">단지안내</td>
+                        <td class="dev">분양일정</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-01.html" target="_blank">FD-02-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">분양단지</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-02.html" target="_blank">FD-02-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">공사단지</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-03.html" target="_blank">FD-02-03.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">입주단지</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-04.html" target="_blank">FD-02-04.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="3" class="dev">고객서비스</td>
+                        <td class="dev">FAQ</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-03-01.html" target="_blank">FD-03-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">고객문의</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-03-02.html" target="_blank">FD-03-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">A/S 신청</td>
+                        <td></td>
+                        <td></td>
+                        <td>오픈시 숨김처리</td>
+                        <td><a href="html/FD-03-03.html" target="_blank">FD-03-03.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="10">마이위브 (계약)</td>
+                        <td class="dev">로그인</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-01.html" target="_blank">FD-04-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6">분양정보<br>(iframe 방식)</td>
+                        <td>단지정보</td>
+                        <td></td>
+                        <td>iframe</td>
+                        <td><a href="html/FD-04-02-01.html" target="_blank">FD-04-02-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>분양금납부조회</td>
+                        <td></td>
+                        <td>iframe</td>
+                        <td><a href="html/FD-04-02-01.html" target="_blank">FD-04-02-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>옵션계약</td>
+                        <td></td>
+                        <td>iframe</td>
+                        <td><a href="html/FD-04-02-02.html" target="_blank">FD-04-02-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>권리의무승계</td>
+                        <td></td>
+                        <td>iframe</td>
+                        <td><a href="html/FD-04-02-03.html" target="_blank">FD-04-02-03.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">공기질테스트</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-02-04.html" target="_blank">FD-04-02-04.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">공사현황</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-02-05.html" target="_blank">FD-04-02-05.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="dev">예약현황</td>
+                        <td class="dev">사전방문행사 예약조회</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-03-01.html" target="_blank">FD-04-03-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">입주(이사) 예약조회</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-03-02.html" target="_blank">FD-04-03-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">고객문의 조회</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-04.html" target="_blank">FD-04-04.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="3" class="dev">마이위브<br>(관심)</td>
+                        <td class="dev">회원가입</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04A-01.html" target="_blank">FD-04A-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">로그인</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04A-02.html" target="_blank">FD-04A-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="dev">고객문의 조회</td>
+                        <td>문의 현황 조회</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04A-01.html" target="_blank">FD-04A-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Top Util Menu</td>
+                        <td>두산건설 홈페이지</td>
+                        <td></td>
+                        <td></td>
+                        <td>outlink</td>
+                        <td><a href="javascript:;" target="_blank"></a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>사이트맵(전체메뉴)</td>
+                        <td></td>
+                        <td></td>
+                        <td>popup</td>
+                        <td><a href="html/FD-T-01.html" target="_blank">FD-T-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">Bottom Service Menu</td>
+                        <td>이용약관</td>
+                        <td></td>
+                        <td></td>
+                        <td>popup</td>
+                        <td><a href="html/FD-B-01.html" target="_blank">FD-B-01.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>개인정보처리방침</td>
+                        <td></td>
+                        <td></td>
+                        <td>popup</td>
+                        <td><a href="html/FD-B-02.html" target="_blank">FD-B-02.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>관계 사이트</td>
+                        <td></td>
+                        <td></td>
+                        <td>outlink</td>
+                        <td><a href="javascript:;" target="_blank"></a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+        <!-- //////////////////////////////////////////////////////////////// 사용자 영문 //////////////////////////////////////////////////////////////// -->
+        <div class="content blind">
+            <table>
+                <thead>
+                    <tr>
+                        <th>1depth</th>
+                        <th>2depth</th>
+                        <th>3depth</th>
+                        <th>4depth</th>
+                        <th>5depth</th>
+                        <th>비고</th>
+                        <th>화면 ID</th>
+                        <th class="th_width100">PC</th>
+                        <th class="th_width100">Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Main</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-00-00-001.html" target="_blank">EN-00-00-001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>    
+                    <tr>
+                        <td rowspan="3">Common</td>
+                        <td>header</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="include/en/header.html" target="_blank">header.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>footer</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="include/en/footer.html" target="_blank">footer.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>sitemap</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="include/en/sitemap.html" target="_blank">sitemap.html</a></td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>About us</td>
+                        <td>About us</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-01-01-0001.html" target="_blank">EN-01-01-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Contact us</td>
+                        <td>Location</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-02-01-0001.html" target="_blank">EN-02-01-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">Solution</td>
+                        <td>Smart Traffic Enforcement</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-03-01-0001.html" target="_blank">EN-03-01-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Intelligent Traffic Management</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-03-01-0001.html#anchor_sol2" target="_blank">EN-03-02-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Industrial System</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-03-01-0001.html#anchor_sol3" target="_blank">EN-03-03-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Smart Traffic Management Platform </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/en/EN-03-01-0001.html#anchor_sol4" target="_blank">EN-03-04-0001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+
+
+
+            </table>
+        </div>
+
+
+
+    </body>
+
+</html>

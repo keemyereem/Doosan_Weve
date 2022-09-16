@@ -56,7 +56,7 @@
     src: local(※),
     /* url(../font/Poppins-Light.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Light.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -64,7 +64,7 @@
     src: local(※),
     /* url(../font/Poppins-Thin.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Thin.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -74,7 +74,7 @@
     src: local(※),
     /* url(../font/Poppins-Regular.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Regular.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -82,7 +82,7 @@
     src: local(※),
     /* url(../font/Poppins-Medium.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Medium.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -90,7 +90,7 @@
     src: local(※),
     /* url(../font/Poppins-Bold.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Bold.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -98,7 +98,7 @@
     src: local(※),
     /* url(../font/Poppins-Black.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-Black.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }
 @font-face {
     font-family: 'Poppins';
@@ -106,5 +106,5 @@
     src: local(※),
     /* url(../font/Poppins-ExtraBold.eot?#iefix) format('embedded-opentype'), */
     url(../font/Poppins-ExtraBold.ttf) format('truetype');
-	unicode-range: U+0041-005A, U+0061-007A;
+	/* unicode-range: U+0041-005A, U+0061-007A; */
 }

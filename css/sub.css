@@ -8,22 +8,11 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
 .scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
 
-.scroll-container nav { border-bottom: 1px solid #e5e5e5; width: 100%; position: absolute; top: 100vh; z-index: 99; }
-.scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); position: fixed; left: 0; top: 0; z-index: 9999; }
-.scroll-container nav ul { display: flex; max-width: 1460px; margin: 0 auto; }
-.scroll-container nav ul li { flex: 1; text-align: center; height: 100px; line-height: 100px; }
-.scroll-container nav ul li > a { display: block; width: 100%; height: 100%; font-size: 20px; font-weight: 300; color: #000; }
-.scroll-container nav ul li.on > a { color: #005eb8; }
-.scroll-container nav ul li.on span { background: #005eb8; width: 100%; height: 3px; display: block; margin-top: -1px; }
-.scroll-container nav ul li.on_w > a { color: rgba(225,225,225,.3); }
-.scroll-container nav ul li.on_w.on > a { color: #fff; }
-.scroll-container nav ul li.on_w.on span { background: #fff; }
+.scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
 
-.scroll-container .section1 { width: 100%; height: 100vh; background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
+.scroll-container .section1 { background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; }
 .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
 .scroll-container .section1 h2 span { font-size: 30px; }
-.scroll-container .section1 .scroll {position:absolute; bottom:67px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
-.scroll-container .section1 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
 
 .scroll-container .section2 { background: #fff; height:110vh; }
 .scroll-container .section2 h2 { color: #222; }
@@ -91,4 +80,102 @@ body#brandstory.typeB { color: #222; }
 .typeB .scroll-container .section3 { background: #fff; }
 .typeB .scroll-container .section4 > ul li:hover { background: rgba(0, 94, 184,.5); }
 .typeB .scroll-container .section5 { background: url(../images/brandstory/bs_sec06_bg_B.png) no-repeat 50% 50%; background-size: cover; }
+
+/* 리스트 & 상세페이지 */
+.total {font-size: 16px;color: #666;font-weight: 200;max-width: 1200px;margin: 0 auto;}
+.total b {font-size: 18px;color: #000;font-weight: 300;font-family: 'Poppins';}
+.tb_box {position: relative;border-top: 2px solid #000;max-width: 1200px;margin: 20px auto 0;}
+.tb_box .tb_row {display: table;table-layout: fixed;width: 100%;}
+.tb_box .tb_row.row_body {border-bottom: 1px solid #e8e8e8;}
+.tb_box .tb_row>div {display: table-cell;height: 100px;line-height: 100px;vertical-align: middle;text-align: center;}
+.tb_box .tb_row.row_body>div {font-size: 18px;font-weight: 200;color: #222;letter-spacing: -.45px;}
+.tb_box .tb_row.row_body .tit a {display: block;width: 100%;padding-left: 45px;text-align: left;color: #000;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.tb_box .tb_row.row_body .date {font-size: 16px;color: #666;}
+.tb_box .tb_row.none {display: none;}
+.tb_box .tb_row.null {font-size: 16px;color: #222;text-align: center;padding: 240px 0;}
+
+.tb_view {position: relative;margin-top: 10px;max-width: 1200px;margin: 0 auto;}
+.tb_view .tb_row.row_head {width: 100%;border-bottom: 1px solid #e8e8e8;}
+.tb_view .tb_row.row_head .tit {font-size: 40px;font-weight: 400;color: #222;}
+.tb_view .tb_row.row_head .date {font-size: 16px;font-weight: 200;color: #777;padding: 30px 0;}
+.tb_view .view_box {position: relative;}
+.tb_view .view_box .view_info {min-height: 200px; padding:50px 0 110px;font-size: 18px;color: #555;line-height: 2.1;letter-spacing: -.45px;}
+.tb_view .view_box .view_info img{max-width: 100%; object-fit: contain;display: block;margin: 20px 0;}
+/* .tb_view .view_box .file_box {padding: 90px 0 110px;}
+.tb_view .view_box .file_box .file_download:first-child {margin-top: 0;}
+.tb_view .view_box .file_box .file_download a {display: inline-block;padding: 5px 0 5px 35px;background: url(../images/common/icon_download.png) 0 50% no-repeat;background-size: 1.9rem 2rem;font-size: 1.8rem;font-weight: 400;color: #005eb8;} */
+.tb_view .view_nav {position: relative;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;}
+.tb_view .view_nav dl {display: flex;align-items: center;height: 70px;}
+.tb_view .view_nav dl:first-of-type {border-bottom: 1px solid #e8e8e8;}
+.tb_view .view_nav dl dt {width: 95px;font-size: 15px;font-weight: 400;letter-spacing: -.375px;color: #000;}
+.tb_view .view_nav dl dd {width: calc(100% - 95px);}
+.tb_view .view_nav dl dd a {display: block;width: 100%;font-size: 15px;color: #222;letter-spacing: -.375px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.tb_view .btn_box {margin-top: 120px;}
+.tb_view .btn_line {width:240px;height: 60px;line-height: 60px;border: 1px solid #005eb8;border-radius: 30px;text-align: center;margin: 0 auto;position: relative;overflow: hidden;}
+.tb_view .btn_line a {font-size: 18px;color: #005eb8;display: block;width: 100%;height: 100%;}
+.tb_view .btn_line:before {content: "";display: block;position: absolute;left: 0;top: 0;bottom: 0;right: 0;transform: scaleX(0);z-index: -1;background-color: #005eb8;transition:all .3s ease-out;transform-origin:0 50%;}
+.tb_view .btn_line:hover:before { transform:scaleX(1) }
+.tb_view .btn_line:hover a {color: #fff;}
+
+
+/* 브랜드 - Channel - 위브뉴스 */
+#channel .section1 { background: url(../images/brand/brand_visual.png) 50% 50% no-repeat; }
+#channel .weve_news .tb_box .tb_row.row_body .date {width: 14%;}
+
+/* 브랜드 - Channel - sns */
+#channel .sns .view_more+.sns_tit { margin-top: 120px; }
+#channel .sns .sns_tit { font-family: 'Poppins'; font-size: 34px; font-weight: 700; color: #222; letter-spacing: -.85px; margin-bottom: 30px; }
+#channel .sns > ul+ul { margin-top: 120px; }
+#channel .sns .sns_lists { width: 100%; display: flex; justify-content: space-between; }
+#channel .sns .sns_lists .img { position: relative; }
+#channel .sns .sns_lists .border { position: absolute; }
+#channel .sns .sns_lists .border.bdt,
+#channel .sns .sns_lists .border.bdb { width: 0; height: 5px; transition: width .3s; }
+#channel .sns .sns_lists .border.bdl,
+#channel .sns .sns_lists .border.bdr { height: 0; width: 5px; transition: height .3s; }
+#channel .sns .sns_lists li:hover .border.bdt,
+#channel .sns .sns_lists li:hover .border.bdb { width: 100%; height: 5px; }
+#channel .sns .sns_lists li:hover .border.bdl,
+#channel .sns .sns_lists li:hover .border.bdr { height: 100%; width: 5px; }
+#channel .sns .sns_lists .border.bdt { background: linear-gradient(to right, #005eb8 ,#00acc6); top:0; left:0; }
+#channel .sns .sns_lists .border.bdr { background: linear-gradient(to bottom, #00acc6 ,#00ad83); bottom:0; right:0; }
+#channel .sns .sns_lists .border.bdb { background: linear-gradient(to left, #00ad83 ,#0094d6); bottom:0; right:0; }
+#channel .sns .sns_lists .border.bdl { background: linear-gradient(to top, #0094d6 ,#005eb8); top:0; left:0; }
+#channel .sns .sns_lists .img { overflow: hidden; }
+#channel .sns .sns_lists .img img { width: 100%; object-fit: contain; transition: transform .8s ease-in-out; }
+#channel .sns .sns_lists:not(.youtube) li:hover .img img { transform: scale(1.1); }
+#channel .sns .sns_lists .txt { font-size: 22px; color: #222; font-weight: 300; letter-spacing: -.55px; margin-top: 20px; }
+#channel .sns .view_more { display: block; width: 90px; height: 90px; margin: 77px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
+#channel .sns .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
+
+.video-popup.reveal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index:9
+  }
+  
+  .video-popup .video-wrapper {
+    position: relative;
+    width: 80%;
+    padding-bottom: 45%;
+    z-index: 10
+  }
+#channel .sns .video_modal_popup .video-wrapper iframe { position: absolute; width: 100%; height: 100%; z-index: 100; }
+#channel .sns .video_modal_popup.reveal .video_modal_popup-closer { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .5); z-index: 99; }
+
+
+
+
+
+
+
+
+
+
 

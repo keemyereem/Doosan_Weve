@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" />
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="author" content="Doosan We've">
+	<meta name="robots" content="index, follow">
+	<meta name="title" content="We've">
+	<meta name="description" content="마음속에 간직해온 나만의 공간. We've">
+	<meta name="keywords" content="두산건설, Doosan We've, 두산위브. ">
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="We've" />
+	<meta property="og:description" content="마음속에 간직해온 나만의 공간. We've" />
+	<meta property="og:site_name" content="Doosan We've">
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="We've" />
+	<meta name="twitter:description" content="마음속에 간직해온 나만의 공간. We've" />
+
+	<title>두산위브 - 분양일정</title>
+	<link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" />  
+	<link rel="shortcut icon" type="image/x-icon" href="#">
+
+	<!-- Library CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+   
+	<!-- Library JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	<script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script src="js/common.js"></script>
+
+    <!-- Initialized Include Path -->
+    <script>
+        $(document).ready( function() {
+            // Including HTML
+            $("header").load("include/header.html");
+            $("footer").load("include/footer.html");
+
+            // JS importing
+            commonEvent.init();
+            estateEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <!-- header -->
+        <header></header>
+        <!-- //header -->
+
+        <!-- sitemap -->
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+
+        <div class="container estate">
+            <section class="section1">
+                <h2>
+                    단지안내
+                </h2>
+                <div class="scroll">
+                    <i class="bar"></i>
+                </div>
+            </section>   
+            <nav>
+                <ul>
+                    <li class="on">
+                        <a href="javascript:;" title="분양일정 페이지 이동">분양일정</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a href="javascript:;" title="분양단지 페이지 이동">분양단지</a>
+                        <span></span>
+                    </li>
+                    <li >
+                        <a href="javascript:;" title="공사단지 페이지 이동">공사단지</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a href="javascript:;" title="입주단지 페이지 이동">입주단지</a>
+                        <span></span>
+                    </li>
+                </ul>
+            </nav> 
+
+            <div class="contents">
+                <div class="estHistory">
+                    <div class="swiper estSlider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">2021</div>
+                            <div class="swiper-slide">2022</div>
+                            <div class="swiper-slide">2023</div>
+                            <div class="swiper-slide">2024</div>
+                        </div>
+                    </div>
+                    <div class="estNav swiper-button-next"></div>
+                    <div class="estNav swiper-button-prev"></div>
+                </div>
+
+                <ul class="estBoard">
+<!-- board 01 -->
+                    <li>
+                        <ul class="block_1depth">
+                            <li>01<span>January</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="0"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test</p>
+                                        <span>0000</span>
+                                    </li>
+                                    <li>1234-123-1234</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="block_1depth">
+                            <li>03<span>March</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="2"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test1</p>
+                                        <span>1111</span>
+                                    </li>
+                                    <li>123-1234-1234</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+<!-- board 02 -->
+                    <li>
+                        <ul class="block_1depth">
+                            <li>04<span>April</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="1"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>김해율하 더 스카이시티 제니스&프라우</p>
+                                        <span>경상남도 김해시 신문동 699-1번지 일원</span>
+                                    </li>
+                                    <li>1644-0074</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="block_1depth">
+                            <li>06<span>June</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="0"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>울진역 센트럴 두산위브</p>
+                                        <span>경상북도 울진군 울진읍 읍남리 산53-12번지 일대</span>
+                                    </li>
+                                    <li>054-782-8080</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <ul class="block_2depth">
+                                    <li data-process="2"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>거제 두산위브 더 포레스트</p>
+                                        <span>경상북도 울진군 울진읍 읍남리 산53-12번지 일대</span>
+                                    </li>
+                                    <li>1533-1390</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+<!-- board 03 -->
+                    <li>
+                        <ul class="block_1depth">
+                            <li>08<span>August</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="0"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test2</p>
+                                        <span>2222</span>
+                                    </li>
+                                    <li>1234-123-1234</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="block_2depth">
+                                    <li data-process="1"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test3</p>
+                                        <span>3333</span>
+                                    </li>
+                                    <li>123-1234-1234</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="block_2depth">
+                                    <li data-process="2"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test3-1</p>
+                                        <span>3333-1</span>
+                                    </li>
+                                    <li>123-1234-1234</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="block_1depth">
+                            <li>10<span>October</span></li>
+                            <li>
+                                <ul class="block_2depth">
+                                    <li data-process="1"><!-- [data-process] = 0 - 분양중/ 1 - 분양완료/ 2 - 분양예정 --></li>
+                                    <li>
+                                        <p>test4</p>
+                                        <span>4444</span>
+                                    </li>
+                                    <li>0000-0000</li>
+                                    <li>
+                                            <a href="javascript:;" title="해당 사이트로 이동">
+                                            <img class="on" src="../images/estate/hompage_icon.png" alt="hompage_icon">
+                                            <img src="../images/estate/hompage_icon_hover.png" alt="hompage_icon_hover">
+                                            홈페이지
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>   
+
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
+    </div>
+</body>
+</html>

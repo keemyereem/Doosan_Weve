@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" />
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="author" content="DoosanENC">
+    <meta name="robots" content="index, follow">
+    <meta name="title" content="두산위브">
+    <meta name="description" content="두산위브 리뉴얼 홈페이지입니다.">
+    <meta name="keywords" content="두산위브, 리뉴얼홈페이지, 포엠크리에이티브">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="두산위브" />
+    <meta property="og:description" content="두산위브 리뉴얼 홈페이지입니다." />
+    <meta property="og:site_name" content="DoosanENC">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="두산위브" />
+    <meta name="twitter:description" content="두산위브 리뉴얼 홈페이지입니다." />
+    
+    <title>두산위브</title>
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="http://dev.topes.4-m.co.kr/" />  
+
+    <!-- Library CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <!-- Library JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+    <script src="js/lib/aos.js"></script>
+    <script src="js/common.js?v=1.0"></script>
+    
+    <!-- Initialized Include Path -->
+    <script>
+        $(document).ready( function() {
+            // Including HTML
+            $("header").load("include/header.html?v=1.0");
+            $("footer").load("include/footer.html");
+
+            // JS importing
+            commonEvent.init();
+            csEvent.init();
+        });
+    </script>
+</head>
+
+<body id="">
+    <!-- wrap -->
+    <div id="wrap">
+
+        <!-- header -->
+        <header></header>
+        <!-- //header -->
+
+        <!-- sitemap -->
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+
+        <div class="container cs">   
+            <section class="section1">
+                <h2>
+                    고객서비스
+                </h2>
+                <div class="scroll">
+                    <i class="bar"></i>
+                </div>
+            </section>   
+            <nav>
+                <ul>
+                    <li class="on">
+                        <a href="javascript:;" title="FAQ 페이지 이동">FAQ</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a href="html/FD-03-02.html" title="문의하기 페이지 이동">문의하기</a>
+                        <span></span>
+                    </li>
+                </ul>
+            </nav> 
+
+            <div class="contents faq">
+                <div class="search" data-aos="fade-in">
+                    <div class="select_row">
+                        <label for="field">전체</label>
+                        <select id="field" class="selectBox">
+                            <option value="">전체</option>
+                            <option value="">계약관련</option>
+                            <option value="">분양관련</option>
+                            <option value="">입주관련</option>
+                            <option value="">사용관련</option>
+                            <option value="">기타</option>
+                        </select>
+                        </div>
+                    <div class="input_row input_search">
+                        <input type="text" id="" placeholder="검색어를 입력해주세요."/>
+                        <a href="javascript:;">검색</a>
+                    </div>
+                </div>
+                <div class="faq_box" data-aos="fade-up" data-aos-offset="400">
+                    <!-- Q1 -->
+                        <div class="que">
+                            <div class="class">입주관련</div>
+                            <p>잔금은 언제까지 납부하나요?</p>
+                        </div>
+                        <div class="ans">
+                            <p>
+                                입주하기 전까지 납부하시면 됩니다.<br>
+                                단 입주지정기간이 지날 경우 연체료가 가산됩니다.
+                            </p>
+                        </div>
+                    <!-- Q2 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>입주증 발급 전에 세대 방문이 가능한가요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            입주지정기간 이전에는 마무리 공사가 진행 중이므로 안전관리상 세대방문은 불가합니다.<br>
+                            단, 입주지정기간 개시부터는 계약자 신분 확인 후 세대 방문이 가능합니다.(신분증 지참)                            
+                        </p>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>관리비는 언제부터 부담하나요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            입주기간 중 실제 입주여부와 관계없이 입주증 발급일 부터 부과됩니다.<br>
+                            다만 입주지정기간 종료 후에는 열쇠인수 / 입주 여부와 관계없이 계약자에게 부과됩니다.                            
+                        </p>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>이사 당일에 전세금을 받아서 분양잔금을 치뤄야 할 경우에는 어떻게 하나요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            입주현장에서는 분양잔금을 직접 수납하지 않습니다.<br>
+                            이사당일에 분양잔금을 납부하셔야 한다면 은행입금이 가능한 평일로 이사일을 잡으셔야 합니다.                            
+                        </p>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>중도금 대출이 있는데, 분양 잔금만 완납하면 입주가 가능한 것 아닌가요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            잔금을 납부하셨더라도 중도금 대출금을 상환하시거나 담보대출 전환(근저당 설정)하셔야 입주가 가능합니다.<br>
+                            고객님의 중도금 대출금은 당사의 연대보증이 되어 있기 때문입니다.                            
+                        </p>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>대출을 신청하여 대출금으로 잔금을 처리하는 경우에는 대출신청만 하면 입주가 가능한가요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            대출이 실행되어 분양금 계좌로 입금된 것이 확인된 경우에 한하여 입주증 발급이 가능합니다.<br>
+                            이 경우 대출에 소요되는 시간을 감안하셔서 충분한 시일을 두고 부동산 담보대출을 해당은행에 신청하셔야 합니다.                            
+                        </p>
+                    </div>
+                    <!-- Q7 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>입주증을 대리인이 수령하고 싶을 때에는 어떻게 하나요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            원칙적으로 계약자 본인에게만 입주증 발급이 됩니다.<br>
+                            다만 가족의 경우에는 계약자의 신분증과 가족관계를 입증하는 서류, 그리고 오신 가족분의 신분증과 도장을 지참하고 오시면 됩니다.<br>
+                            가족이 아닌 경우 또는 가족임을 증명하기 어려운 경우에는 계약자의 인감이 날인된 위임장(첨부서류참조)과 인감증명서를 별도로 준비하셔야 합니다.                            
+                        </p>
+                    </div>
+                    <!-- Q8 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>관리비 예치금은 무엇인가요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            입주자께서 입주 후에 최초로 관리비를 납부하기 이전의 기간동안 단지관리에 소요되는 비용(인건비를 포함한 일반관리비 및 전기료, 수도료,
+                            난방비, 비품구입비 등)을 집행하기 위하여, 이 기간동안에 발생할 비용을 예상하여 입주시 징수하는 비용입니다. (근거:주택법 시행령 제49조)
+                            관리비 예치금은 퇴거시에 환불하거나, 새로운 입주자 등과 양도, 양수토록 하는 제도로서 1개월간 집행한 관리비를 익월에 부과하는 현재 관리비
+                            정산제(선집행 후정산 제도) 하에서 단지운영을 위하여 불가피한 제도입니다.                            
+                        </p>
+                    </div>
+                    <!-- Q9 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>입주 전 인테리어 공사를 할 수 있나요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            입주자께서 인테리어공사를 입주 전에 직접 공사하고자 하는 경우에는 입주개시일 이후 잔금납입 등 입주시와 동일한 소정의 절차를 거쳐
+                            입주증을 발급받아 열쇠를 수령 후 실시하여야 하며, 잔금납입을 완료하였더라도 사용승인 예정일 이전에 공사는 불가합니다.                            
+                        </p>
+                    </div>
+                    <!-- Q10 -->
+                    <div class="que">
+                        <div class="class">입주관련</div>
+                        <p>결로 현상은 무엇인가요?</p>
+                    </div>
+                    <div class="ans">
+                        <p>
+                            외기의 영향으로 물체의 표면온도가 낮아지고 실내온도 및 실내습도가 변화하게 되면
+                            대기중의 수증기가 이슬점 온도 이하로 떨어져서 물방울이 맺히는 현상을 결로라고 합니다.<br>
+                            예로 냉장고에서 찬 물병이나 음료수 병을 꺼내 놓으면 병 표면에 이슬이 맺히고 물방울이 생겨
+                            흐르는 현상은 실내에 있는 찬 공기가 벽 표면에 닿아 밖의 차가운 온도에 냉각되어 물방울이
+                            맺히는 원리와 같습니다. 이후 곰팡이가 발생되고 내부 마감재가 손상되며 악취가 발생합니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>

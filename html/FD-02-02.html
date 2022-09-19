@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" />
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="author" content="Doosan We've">
+	<meta name="robots" content="index, follow">
+	<meta name="title" content="We've">
+	<meta name="description" content="마음속에 간직해온 나만의 공간. We've">
+	<meta name="keywords" content="두산건설, Doosan We've, 두산위브. ">
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="We've" />
+	<meta property="og:description" content="마음속에 간직해온 나만의 공간. We've" />
+	<meta property="og:site_name" content="Doosan We've">
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="We've" />
+	<meta name="twitter:description" content="마음속에 간직해온 나만의 공간. We've" />
+
+	<title>두산위브 - 분양단지</title>
+	<link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" />  
+	<link rel="shortcut icon" type="image/x-icon" href="#">
+
+	<!-- Library CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+   
+	<!-- Library JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	<script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script src="js/common.js"></script>
+
+    <!-- Initialized Include Path -->
+    <script>
+        $(document).ready( function() {
+            // Including HTML
+            $("header").load("include/header.html");
+            $("footer").load("include/footer.html");
+
+            // JS importing
+            commonEvent.init();
+            estateEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <!-- header -->
+        <header></header>
+        <!-- //header -->
+
+        <!-- sitemap -->
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+
+        <div class="container estate">
+            <section class="section1">
+                <h2>
+                    단지안내
+                </h2>
+                <div class="scroll">
+                    <i class="bar"></i>
+                </div>
+            </section>   
+            <nav>
+                <ul>
+                    <li>
+                        <a href="javascript:;" title="분양일정 페이지 이동">분양일정</a>
+                        <span></span>
+                    </li>
+                    <li class="on">
+                        <a href="javascript:;" title="분양단지 페이지 이동">분양단지</a>
+                        <span></span>
+                    </li>
+                    <li >
+                        <a href="javascript:;" title="공사단지 페이지 이동">공사단지</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a href="javascript:;" title="입주단지 페이지 이동">입주단지</a>
+                        <span></span>
+                    </li>
+                </ul>
+            </nav> 
+
+            <div class="contents">
+                <div class="estSearch">
+                    <ul>
+                        <li>
+                            <p>분양전체</p>
+                            <ul>
+                                <li data-process="0">분양전체</li>
+                                <li data-process="1">분양예정</li>
+                                <li data-process="2">분양중</li>
+                                <li data-process="3">분양완료</li>
+                            </ul> 
+                        </li>
+                        <li>
+                            <p>지역전체</p>
+                            <ul>
+                                <li data-process="0">지역전체</li>
+                                <li data-process="1">서울 및 수도권</li>
+                                <li data-process="2">충남</li>
+                                <li data-process="3">충북</li>
+                                <li data-process="4">전북</li>
+                                <li data-process="5">전남</li>
+                                <li data-process="6">경남</li>
+                                <li data-process="7">경북</li>
+                                <li data-process="8">강원</li>
+                                <li data-process="9">제주</li>
+                            </ul> 
+                        </li>
+                    </ul>
+                    <div class="finder">
+                        <input type="text" placeholder="단지명 또는 위치를 입력하세요.">
+                        <button>검색</button>
+                    </div>
+                </div>
+
+
+
+
+                
+            </div>
+
+
+        </div>   
+
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
+    </div>
+</body>
+</html>

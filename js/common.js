@@ -27,6 +27,7 @@ var commonEvent = {
 	init:function(){
         this.subUI();
         this.iptEvent();
+        this.tabEvent();
 	}, 
 
     subUI: () => {
@@ -76,6 +77,65 @@ var commonEvent = {
             var cur =$ (".file_row input[type='file']").val();
             $(".upload_name").val(cur);
         });
+    
+    },
+    
+    tabEvent: () => {
+        if($(window).width() < 768){
+            const tabContainer = $('.tab_box > .inner')
+            const tabBox = tabContainer.find('> .tab_slide');
+            const tabButton = tabBox.find('> li');
+            let size = tabButton.length;
+            let tbIndex = 0;
+        
+            if (tabBox.length) {
+              $(document).ready(function(){
+                let tbOn = Math.floor(tabBox.find('> li.on').position().left);
+                let tbWidth = tabButton.width();
+        
+                tabContainer.animate({scrollLeft: tbOn - tbWidth}, 1000);
+              });
+        
+              tabContainer.on('load resize scroll', ()=> {
+                  tabBoxPosition = Math.abs(tabBox.position().left);
+        
+                  tabButton.each((index)=> {
+                    tabButtonPosition = Math.floor(tabButton.eq(index).position().left);
+        
+                    if (size !== index + 1) {
+                      nextIndexPosition = Math.floor(tabButton.eq(index).next().position().left);
+        
+                      if (tabBoxPosition > tabButtonPosition && tabBoxPosition <= nextIndexPosition) {
+                        tbIndex = index;
+                      }
+                    }
+        
+                  });
+        
+              });
+        
+              $('.control').on('click', function() {
+                if ($(this).hasClass('prev')) {
+                    tsMove = Math.floor(tabButton.eq(tbIndex).position().left);
+        
+                    tabContainer.animate({scrollLeft: tsMove}, 200)
+                } else {
+                    tsmoveTrigger = Math.abs(tabBox.position().left);
+                    
+                    if (Math.ceil(tsmoveTrigger) == Math.floor(tabButton.eq(tbIndex).next().position().left)) {
+                        tbIndex = tbIndex + 1;
+                    } else {
+                        tbIndex = tbIndex;
+                    }
+        
+                    tsMove = Math.floor(tabButton.eq(tbIndex).next().position().left);
+                    tabContainer.animate({scrollLeft: tsMove}, 200);
+                }
+              })
+            }
+        }
+
+    
     
       },
 }
@@ -222,12 +282,12 @@ var channelEvent = {
 var estateEvent = {
 	init: function(){
         this.historySlider();
-        
+        this.estList();
 	}, 
 
     historySlider: () => {
         const board = $('.estBoard').children('li');
-        const estAlert = board.find('.block_2depth li:first-child');
+        const estAlert01 = board.find('.block_2depth li:first-child');
         const estButton = board.find('.block_2depth li:last-child a');
 
         var estSlider = new Swiper(".estSlider", {
@@ -254,15 +314,15 @@ var estateEvent = {
             }
         });
 
-        estAlert.each((index) => {
-            let data = estAlert.eq(index).attr('data-process');
+        estAlert01.each((index) => {
+            let data = estAlert01.eq(index).attr('data-process');
 
             if (data == 0) {
-                estAlert.eq(index).css({'background': '#005eb8'}).text('분양중');
+                estAlert01.eq(index).css({'background': '#005eb8'}).text('분양중');
             } else if (data == 1) {
-                estAlert.eq(index).css({'background': '#888888'}).text('분양완료');
+                estAlert01.eq(index).css({'background': '#888888'}).text('분양완료');
             } else if (data == 2) {
-                estAlert.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('분양예정');
+                estAlert01.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('분양예정');
             }
         })
 
@@ -273,6 +333,33 @@ var estateEvent = {
         }, function() {
             $(this).find('img:last-child').removeClass('on');
             $(this).find('img:first-child').addClass('on');
+        })
+    },
+
+    estList: ()=> {
+        const list = $('.estList').find('> ul > li');
+        const estAlert02 = list.children('p');
+        const estSearchBar = $('.estSearch').children('ul');
+
+        estAlert02.each((index) => {
+            let data = estAlert02.eq(index).attr('data-process');
+
+            if (data == 0) {
+                estAlert02.eq(index).css({'background': '#005eb8', 'color': '#fff'}).text('분양중');
+            } else if (data == 1) {
+                estAlert02.eq(index).css({'border': '1px solid #888888', 'color': '#888888'}).text('분양완료');
+            } else if (data == 2) {
+                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('분양예정');
+            }
+        });
+
+        estSearchBar.find('> li p').click(() => {
+            estSearchBar.toggleClass('active');
+        })
+
+        $('.estSearch .block_2depth > li').on('click', () => {
+
+            alert($(this))
         })
     },
 }

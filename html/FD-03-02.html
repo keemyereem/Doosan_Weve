@@ -92,7 +92,7 @@
 
             <div class="contents inquiry">
                 <div class="inner">
-                    <div class="top">※ 질문분야를 알맞게 선택하셔야 빠른 상담이 가능합니다.</div>
+                    <div class="top"><span>※</span> 질문분야를 알맞게 선택하셔야 빠른 상담이 가능합니다.</div>
                     <div class="sec_tit">개인정보 수집 및 이용동의</div>
                     <div class="cont_box">
                         <div>
@@ -132,17 +132,42 @@
                         </div>
                     </div>  
                     <div class="row">
-                        <div class="tit_cell">질문분야 <span class="es">*</span></div>
-                        <div class="ipt_cell">
-                            <div class="select_row">
-                            <label for="sel03">분류를 선택해 주세요.</label>
-                            <select id="sel03" class="selectBox">
-                                <option value="">토목</option>
-                                <option value="">건축</option>
-                            </select>
+                        <div class="tit_cell">이메일 <span class="es">*</span></div>
+                        <div class="ipt_cell email_cell">
+                            <div class="input_row">
+                                <input type="text" id="email_front" />
+                            </div>
+                            <span>@</span>
+                            <div class="input_row">
+                                <input type="text" id="email_back" />
                             </div>
                         </div>
                     </div>  
+                    <div class="row">
+                        <div class="tit_cell">질문분야</div>
+                        <div class="ipt_cell">
+                            <div class="radio_row">
+                                <input type="radio" id="rd01" name="que_field">
+                                <label for="rd01">분양문의</label> 
+                            </div>
+                            <div class="radio_row">
+                                <input type="radio" id="rd02" name="que_field">
+                                <label for="rd02">계약문의</label>
+                            </div>
+                            <div class="radio_row">
+                                <input type="radio" id="rd03" name="que_field">
+                                <label for="rd03">현장문의</label>
+                            </div>
+                            <div class="radio_row">
+                                <input type="radio" id="rd04" name="que_field">
+                                <label for="rd04">입주문의</label>
+                            </div>
+                            <div class="radio_row">
+                                <input type="radio" id="rd05" name="que_field">
+                                <label for="rd05">일반문의</label>
+                            </div>
+                        </div>
+                    </div> 
                     <div class="row">
                         <div class="tit_cell">단지정보</div>
                         <div class="ipt_cell">
@@ -168,7 +193,7 @@
                         </div>
                     </div> 
                     <div class="row">
-                        <div class="tit_cell">파일첨부</div>
+                        <div class="tit_cell tit_file">파일첨부</div>
                         <div class="ipt_cell">
                             <div class="file_row">
                                 <input class="upload_name" value="" readonly>
@@ -178,9 +203,9 @@
                             <span class="info">첨부파일은 최대 5MB까지 가능합니다.</span>
                         </div>
                     </div>
-                    <div class="btn_box">
-                        <div class="btn_blk"><a href="javascript:;">접수</a></div>
-                    </div>
+                    
+                    <a href="javascript:;" class="btn" title="등록">등록</a>
+                    
                 </div>
 
             </div>

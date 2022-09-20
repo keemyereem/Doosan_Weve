@@ -9,6 +9,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
 
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
+.scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); position: fixed; left: 0; top: 0; z-index: 9999; }
 
 .scroll-container .section1 { background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; }
 .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
@@ -160,17 +161,27 @@ body#brandstory.typeB { color: #222; }
 
 /* 단지안내 - 분양단지 */
 .estate .contents .estSearch { width: 100%; position: relative; display:inline-block;  }
-.estate .contents .estSearch > ul { width: calc((100% / 3) * 2); display: flex; height: auto; max-height: 80px; border: 1px solid #005eb8; position: absolute; }
+.estate .contents .estSearch > ul { width: calc((100% / 3) * 2); background: #fff; z-index: 1; display: flex; height: auto; max-height: 80px; border: 1px solid #005eb8; position: absolute; overflow: hidden; transition: max-height ease .7s; }
 .estate .contents .estSearch > ul:hover { max-height: 500px; }
 .estate .contents .estSearch > ul > li { width: calc(100% / 2); font-size: 18px; letter-spacing: -1px; margin:0 38px; }
-.estate .contents .estSearch > ul > li p { height: 79px; line-height: 77px; font-weight: 400; color: #005eb8; border-bottom: 1px solid rgba(0, 94, 184, .2); }
-.estate .contents .estSearch > ul > li:last-child p:after { content:''; background: url(../images/esatate/search_arrow.png) 50% 50% no-repeat; }
-.estate .contents .estSearch .finder { width: calc(100% / 3); float: right; }
+.estate .contents .estSearch > ul > li p { height: 79px; line-height: 77px; font-weight: 400; color: #005eb8; border-bottom: 1px solid rgba(0, 94, 184, .2); position: relative; }
+.estate .contents .estSearch > ul > li:last-child p:after { content:''; width: 19px; height: 10px; display: inline-block; background: url(../images/estate/search_arrow.png) 50% 50% no-repeat; position: absolute; top: 50%; transform: translateY(-50%); right: 0; transition:transform ease .5s; }
+.estate .contents .estSearch > ul:hover > li:last-child p:after { transform: translateY(-50%) rotate3d(1, 0, 0, 180deg); }
+.estate .contents .estSearch > ul > li .block_2depth { display: flex; flex-wrap: wrap; padding:23px 0 42px; line-height: 2.5; }
+.estate .contents .estSearch > ul > li .block_2depth li { margin-right: 40px; cursor: pointer; position: relative; transition: color ease .3s; }
+.estate .contents .estSearch > ul > li .block_2depth li:last-child { margin-right: 0; }
+.estate .contents .estSearch > ul > li .block_2depth li:before { content: ''; width: 100%; max-width: 0; height: 2px; background: #005eb8; display: block; position: absolute; bottom: 10%; transition: max-width ease .3s; }
+.estate .contents .estSearch > ul > li .block_2depth li.on,
+.estate .contents .estSearch > ul > li .block_2depth li:hover,
+.estate .contents .estSearch > ul > li .block_2depth li.on:before,
+.estate .contents .estSearch > ul > li .block_2depth li:hover:before { font-weight: 400; color: #005eb8; max-width: 100%; }
+.estate .contents .estSearch .finder { width: calc(100% / 3); float: right; height: 80px; background: #005eb8; position: relative; }
+.estate .contents .estSearch .finder input { height: 100%; width: 100%; color: #fff; padding: 0 105px 0 36px; font-size: 18px; line-height: 1; outline: none; box-sizing: border-box; border: 1px solid #005eb8; }
+.estate .contents .estSearch .finder input::placeholder { color: rgba(255, 255, 255, .5); }
+.estate .contents .estSearch .finder button { width: 20px; height: 20px; position: absolute; right: 22px; top: 50%; transform: translateY(-50%); text-indent: -9999px; background: url(../images/estate/search.png) 50% 50% no-repeat; transition: all ease .3s; padding: 30px; }
+.estate .contents .estSearch .finder button:hover { background: url(../images/estate/search_hover.png) 50% 50% no-repeat; }
 
-
-
-
-
+.estate .contents .estList { margin-top: 80px; position: relative; }
 
 
 
@@ -284,7 +295,7 @@ body#brandstory.typeB { color: #222; }
 .cs .faq .faq_box .que.on { background: #005eb8; border-bottom: 0; color: #fff;}
 .cs .faq .faq_box .que.on > p:before { color: #fff; }
 .cs .faq .faq_box .que.on .class { color: #fff; }
-.cs .faq .faq_box .ans { display: none; overflow: hidden; padding: 40px 50px 50px 0; background: #e5e5e5; font-size: 16px; color: #222; line-height: 1.875; padding-left: 168px; }
+.cs .faq .faq_box .ans { display: none; overflow: hidden; padding: 40px 50px 50px 168px; background: #e5e5e5; font-size: 16px; color: #222; line-height: 1.875; }
 .cs .faq .faq_box .ans p { word-wrap: break-word; }
 
 /* 고객서비스 - 문의하기 */
@@ -300,17 +311,20 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .row+.row { margin-top: 20px; }
 .cs .inquiry .row .tit_cell { width: 118px; font-size: 18px; font-weight: 400; color: #222; }
 .cs .inquiry .row .tit_cell .es { color: #005eb8; }
-.cs .inquiry .row .ipt_cell { width: calc(100% - 118px); height: 100%; }
+.cs .inquiry .row .ipt_cell { width: calc(100% - 118px); height: 100%; vertical-align: middle; }
 .cs .inquiry .row .ipt_cell .input_row { height: 70px; }
+.cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 40px); height: 70px; padding-left: 40px; border: 0; }
 .cs .inquiry .row .ipt_cell .input_row #phone::placeholder { font-family: 'Poppins'; font-size: 20px; color: #555; }
-.cs .inquiry .row .ipt_cell input { height: 70px; padding-left: 40px; border: 0; }
-.cs .inquiry .row .file_row .upload_name {border: 1px solid #000;}
-
-
-
-
-
-
+.cs .inquiry .row .ipt_cell.email_cell { display: flex; align-items: center; }
+.cs .inquiry .row .ipt_cell.email_cell > div:first-child { width: 320px; }
+.cs .inquiry .row .ipt_cell.email_cell > div:last-child { width: 400px; }
+.cs .inquiry .row .ipt_cell.email_cell > span { display: inline-block; margin: 0 30px; }
+.cs .inquiry .row .file_row .upload_name { border-bottom: 1px solid #e8e8e8; width: 560px; height: 60px; margin-right: 30px; outline: 0; }
+.cs .inquiry .row .file_row+.info { font-size: 14px; color: #b2b2b2; margin-top: 18px; float: left; }
+.cs .inquiry .row .tit_file { margin-top: -35px; }
+.cs .inquiry .radio_row { height: 70px; line-height: 70px; margin-right: 40px; }
+.cs .inquiry .btn { display: block; width: 240px; height: 60px; border: 1px solid #005eb8; border-radius: 30px; text-align: center; line-height: 58px; font-size: 18px; color: #005eb8; margin: 120px auto 0; transition: all .5s; }
+.cs .inquiry .btn:hover { box-shadow: 240px 0 0 0 #005eb8 inset, -240px 0 0 0 #005eb8 inset; color: #fff; }
 
 
 

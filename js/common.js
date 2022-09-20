@@ -30,8 +30,8 @@ var commonEvent = {
 	}, 
 
     subUI: () => {
-        if ($('.section2').length) {
-            const subMenu = document.querySelector(".section2");
+        if ($('nav').length) {
+            const subMenu = document.querySelector("nav");
             const fixMenu = subMenu.offsetTop;
     
             $(window).on('scroll', function() {

@@ -83,7 +83,6 @@
 	.contents .paging .last {width: 9px;height: 10px; }
 	.contents .paging ul li a { height: 18px; line-height: 18px; font-size: 13px; }
 
-
 	/* tab_box */
 	.tab_box { position: relative; width: 100%; height: 50px; margin-bottom: 50px; padding-left: 20px; }
 	.tab_box > .inner { overflow-x: auto; height: 100%; position: relative; transition: all ease 1s; }
@@ -135,11 +134,14 @@
 	footer .copy {font-size:13px;}
 	footer .family_site {display:none;}
 
+	/* sub_visual */
 	.section1 { height: 275px; }
 	.section1 h2 { font-size: 35px; }
 	.section1 .scroll { display: none; }
-
-    /* main */
+	
+	nav ul li { height: 50px; line-height: 50px; }
+	nav ul li > a { font-size: 15px; }
+	    /* main */
     .contBox01 .text_wrap .big {font-size:40px;}
 	.contBox01 .text_wrap .big strong {display:block;}
 	.contBox01 .text_wrap .desc {font-size:15px; line-height:1.5;}
@@ -297,15 +299,24 @@
 	.channel .ad .channel_lists .txt_view,
 	.channel .ad .channel_lists .txt_date { font-size: 13px; margin-top: 20px; }
 
-	.channel .ad .big_video { width: calc(100% - 55px); height: 48vw; }
 	.channel .ad .big_video img { width: 100%; height: 100%; object-fit: contain; }
-	.channel .ad .video_modal_popup.reveal { position: absolute; top: 0; left: 0; z-index:9; width: 100%; }
-	.channel .ad .video-popup .video-wrapper { position: relative; z-index: 10; width: 100%; }
-	.channel .ad .video_modal_popup .video-wrapper iframe { position: absolute; max-width: 1280px; width: 100%; height: 48vw; /* width: 70vw; height: 39.4vw; */ top: 0; left: 0; z-index: 100; }
+	.channel .ad .video_modal_popup .video-wrapper iframe { height: 48vw; }
 
 	/* 브랜드 - Channel - 수상내역 */
+	.channel .awards .section-wrap { /* padding: 0 25px; */ }
+	.channel .awards .section-wrap .tab_contents .history-list { overflow: visible; }
+	.channel .awards .section-wrap .tab_contents .history-list .year-info { border: 1px solid green; background: #fff; width: 100%; height: 105px!important; overflow: hidden; z-index: 20; }
 	.channel .awards .section-wrap .tab_contents .history-list .year-info li span { font-size: 55px; line-height: 50px; }
-	.channel .awards .section-wrap .tab_contents .history-list .year-info .year-txt { font-size: 13px; }
+	.channel .awards .section-wrap .tab_contents .history-list .year-info .year-txt { font-size: 13px; top: 65px; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info { margin-left: 0; padding-left: 20px; width: calc(100% - 50px); margin: 0 auto; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul { padding: 50px 0; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 0 0 50px 0; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before { left: -26px; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .num { font-size: 14px; margin-bottom: 20px; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .num em { font-size: 20px; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .award_name { font-size: 15px; margin-bottom: 10px; }
+	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .desc { font-size: 15px;  }
+	
 
 
 	/* 단지안내 - 공통 */

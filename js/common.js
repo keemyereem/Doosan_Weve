@@ -188,14 +188,6 @@ var channelEvent = {
                      setHistoryScroll(section.eq(i));
                 }
 
-                // 반응형 연혁 하단 여백 생성
-                if($(window).width() > 1920){
-                    section.css('margin-bottom','350px');
-                } else if ($(window).width() < 768) {
-                    section.css('margin-bottom','200px');
-                } else {
-                    section.css('margin-bottom','0');
-                }
 
                 // 연혁 연도 마지막 active일 때, 내용 마지막 active 또는 스크롤 맨 끝 도달 시
                 if ($('.tab_contents.on .year-info').find('li:last-child').hasClass('active') || $(window).scrollTop() >= scrollEnd) {
@@ -222,7 +214,7 @@ var channelEvent = {
                     // 반응형 변수값 교체
                     if ($(window).width() < 768) {
                         gapYear = 50;
-                        currentPosition = $(window).scrollTop() + 110;
+                        currentPosition = $(window).scrollTop() + 50;
                         getFixedMargin = 12; 
                     }
 
@@ -342,7 +334,8 @@ var estateEvent = {
         const estSearchBar = $('.estSearch').children('ul');
 
         estAlert02.each((index) => {
-            let data = estAlert02.eq(index).attr('data-process');
+            data = estAlert02.eq(index).attr('data-process');
+            let dataButton =  estAlert02.eq(index).siblings('a');
 
             if (data == 0) {
                 estAlert02.eq(index).css({'background': '#005eb8', 'color': '#fff'}).text('분양중');
@@ -350,17 +343,49 @@ var estateEvent = {
                 estAlert02.eq(index).css({'border': '1px solid #888888', 'color': '#888888'}).text('분양완료');
             } else if (data == 2) {
                 estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('분양예정');
+            } else if (data == 3) {
+                estAlert02.eq(index).css({'background': '#888888', 'color': '#fff'}).text('공사중');
+            } else if (data == 4) {
+                estAlert02.eq(index).css({'background': '#005eb8', 'color': '#fff'}).text('입주중');
+            } else if (data == 5) {
+                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('입주예정');
             }
+
+            if (data >= 0 && data <= 2) {
+                dataButton.css({'background': '#f5f5f5 url(../images/estate/list_homepage_icon.png) 50% 50% no-repeat'});
+            } else {
+                dataButton.css({'background': '#f5f5f5 url(../images/estate/list_map_icon.png) 50% 50% no-repeat'});
+            }
+
+            list.hover(function() {
+                if (data >= 0 && data <= 2) {
+                    $(this).children('a').css({'background': '#005eb8 url(../images/estate/list_homepage_icon_hover.png) 50% 50% no-repeat'});
+                } else {
+                    $(this).children('a').css({'background': '#005eb8 url(../images/estate/list_map_icon_hover.png) 50% 50% no-repeat'});
+                }
+                
+            }, function() {
+                if (data >= 0 && data <= 2) {
+                    $(this).children('a').css({'background': '#f5f5f5 url(../images/estate/list_homepage_icon.png) 50% 50% no-repeat'});
+                } else {
+                    $(this).children('a').css({'background': '#f5f5f5 url(../images/estate/list_map_icon.png) 50% 50% no-repeat'});
+                }
+            });
         });
 
         estSearchBar.find('> li p').click(() => {
             estSearchBar.toggleClass('active');
         })
 
-        $('.estSearch .block_2depth > li').on('click', () => {
+        $('.estSearch .block_2depth > li').on('click', function() {
+            $(this).toggleClass('on');
 
-            alert($(this))
-        })
+            let data = $(this).attr('data-process');
+            console.log('data control | ' + data);
+        });
+
+        
+        
     },
 }
 

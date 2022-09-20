@@ -175,10 +175,10 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estSearch > ul > li .block_2depth li { margin-right: 40px; cursor: pointer; position: relative; transition: color ease .3s; }
 .estate .contents .estSearch > ul > li .block_2depth li:last-child { margin-right: 0; }
 .estate .contents .estSearch > ul > li .block_2depth li:before { content: ''; width: 100%; max-width: 0; height: 2px; background: #005eb8; display: block; position: absolute; bottom: 10%; transition: max-width ease .3s; }
+.estate .contents .estSearch > ul > li .block_2depth li:active { transform: scale(.95); }
 .estate .contents .estSearch > ul > li .block_2depth li.on,
-.estate .contents .estSearch > ul > li .block_2depth li:hover,
-.estate .contents .estSearch > ul > li .block_2depth li.on:before,
-.estate .contents .estSearch > ul > li .block_2depth li:hover:before { font-weight: 400; color: #005eb8; max-width: 100%; }
+.estate .contents .estSearch > ul > li .block_2depth li:hover { font-weight: 400; color: #005eb8; }
+.estate .contents .estSearch > ul > li .block_2depth li.on:before { max-width: 100%; }
 .estate .contents .estSearch .finder { width: calc(100% / 3); float: right; height: 80px; background: #005eb8; position: relative; }
 .estate .contents .estSearch .finder input { height: 100%; width: 100%; color: #fff; padding: 0 105px 0 36px; font-size: 18px; line-height: 1; outline: none; box-sizing: border-box; border: 1px solid #005eb8; }
 .estate .contents .estSearch .finder input::placeholder { color: rgba(255, 255, 255, .5); }
@@ -197,17 +197,21 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estList ul li p { margin: 35px 0 0 30px; width: 65px; height: 26px; text-align: center; line-height: 25px; font-weight: 400; font-size: 15px; letter-spacing: -.5px; }
 .estate .contents .estList ul li dl { padding: 17px 30px 8px; line-height: 1.2; }
 .estate .contents .estList ul li dl dt { font-size: 28px; color: #222222; font-weight: 400; padding-bottom: 30px; word-break: keep-all; line-height: 1.4; }
-.estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 15px; }
+.estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 15px; letter-spacing: -1px; }
 .estate .contents .estList ul li dl dd:last-child { padding-bottom: 0; }
 .estate .contents .estList ul li dl dd span { position: absolute; left: 0; font-weight: 400; }
-.estate .contents .estList ul li a { transition: all ease .3s; width: 61px; height: 61px; border-radius: 100%; display: block; float: right; margin: 0 31px 30px 0; border: 1px solid #f5f5f5; background:#f5f5f5 url(../images/estate/list_homepage_icon.png) 50% 50% no-repeat; }
-.estate .contents .estList ul li:hover a { background:#005eb8 url(../images/estate/list_homepage_icon_hover.png) 50% 50% no-repeat; }
+.estate .contents .estList ul li a { transition: all ease .3s; width: 61px; height: 61px; border-radius: 100%; display: block; float: right; margin: 0 31px 30px 0; }
 .estate .contents .estList .view_more { display: block; width: 90px; height: 90px; margin: 40px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
 .estate .contents .estList .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
+.estate .contents .empty { padding: 262px 0 183px; }
+.estate .contents .empty p { text-align: center; font-size: 28px; color: #888888; }
+.estate .contents .empty a { margin: 80px auto 0; width: 240px; height: 60px; font-size: 18px; letter-spacing: -1px; display: block; color: #005eb8; line-height: 58px; text-align: center; border: 1px solid #005eb8; border-radius: 30px; transition:background ease .3s; }
+.estate .contents .empty a:hover { color: #fff; background: #005eb8; }
 
+/* 단지안내 - 공사단지 */
+.estate .contents.construction .estSearch > ul > li { width: 100%; }
 
-
-
+/* 단지안내 - 입주단지 */
 
 
 

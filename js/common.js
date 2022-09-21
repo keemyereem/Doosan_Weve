@@ -4,9 +4,27 @@
 
 
 $(function(){
-    
+
+    const isMobile = () => {
+        const user = navigator.userAgent;
+        let isCheck = false;
+        if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+            isCheck = true;
+        }
+        return isCheck;
+    }
+
+    if (isMobile() == false) {
+        console.log('*PC environment')
+        $('html').attr('id', 'pc')
+    } else {
+        console.log('*Mobile environment')
+        $('html').attr('id', 'mobile')
+    }
 
 });
+
+
 
 function popup(popConts) {
 	var popthis = $(".popup."+popConts);
@@ -25,10 +43,26 @@ function popup(popConts) {
 
 var commonEvent = {
 	init:function(){
+        this.headerEvent();
         this.subUI();
         this.iptEvent();
         this.tabEvent();
 	}, 
+
+    headerEvent: () => {
+        if ($('#mobile').length) {
+            // 모바일 메뉴
+
+        } else {
+            // PC 메뉴
+            $("#gnb ul, #siteMap").hover(function(){
+                $("body").addClass("menuOn");
+            }, function(){
+                $("body").removeClass("menuOn");
+            });
+        }
+        
+    },
 
     subUI: () => {
         if ($('nav').length) {
@@ -51,11 +85,23 @@ var commonEvent = {
                 }
             });
     
-            $('nav ul li').on('click', function(){
-                $(this).siblings().removeClass('on');
-                $(this).addClass('on');
-            });
+
+            // $('nav ul li').on('click', function(){
+            //     $(this).siblings().removeClass('on');
+            //     $(this).addClass('on');
+            // });
+        }else {
+            
         }
+        
+        // if($('#mobile').length){
+            
+
+        // }
+        $(document).on('click', '#mobile nav ul li.on', function() {
+            $('nav ul').toggleClass('open');
+
+        });
         
     },
 
@@ -68,6 +114,7 @@ var commonEvent = {
             type.change(function () {
                 var select_name = $(this).children("option:selected").text();
                 $(this).siblings("label").text(select_name);
+
             });
         };
     
@@ -206,19 +253,20 @@ var channelEvent = {
                 let gap = 20; 
                 let gapYear = 120;
                 let currentPosition = $(window).scrollTop() + 175;
-                let getFixedMargin = 18;
+                let getFixedMargin = 180;
                 let lastUl = $information.find('.desc-info ul').last(); // 연혁 마지막 내용 위치값
                 let lastBottom = lastUl.offset().top + lastUl.height(); // 연혁 마지막 내용 끝 지점
 
                 $information.find('.year-info li').each(function (index) {
                     // 반응형 변수값 교체
                     if ($(window).width() < 768) {
-                        gapYear = 50;
+                        gap = 150;
+                        gapYear = 100;
                         currentPosition = $(window).scrollTop() + 50;
-                        getFixedMargin = 12; 
+                        getFixedMargin = 50; 
                     }
 
-                    if (currentPosition < sectionOffset - gap) {
+                    if (currentPosition < sectionOffset) {
                         //섹션 이전 화면에서는 absolute상태
                         $information.find('.year-info').css({'top' : 'auto', 'position' : 'absolute', 'margin-top': '0'});
                         $information.find('.year-info ul').css({'position': 'relative', 'margin-top': '0'});
@@ -246,17 +294,17 @@ var channelEvent = {
                         //섹션 안으로 들어오면 fixed 상태
                         if (size !== index + 1) {
                             if (currentPosition > $information.find('.desc-info ul').eq(index).offset().top - gap && currentPosition < $information.find('.desc-info ul').eq(index + 1).offset().top - gap) {
-                                $information.find('.year-info').css({'top': '80px', 'bottom': 'auto', 'position': 'fixed', 'margin-top': '' + getFixedMargin + 'px'});
+                                $information.find('.year-info').css({'top': '0px', 'bottom': 'auto', 'position': 'fixed', 'margin-top': '' + getFixedMargin + 'px'});
                                 $information.find('.year-info ul').css({'margin-top': '-' + (gapYear * index) + 'px', 'position': 'relative', 'bottom': 'unset'});
                                 $information.find('.year-info li').eq(index).addClass('active').siblings().removeClass('active');
                                 $information.find('.desc-info ul').eq(index).addClass('active').siblings().removeClass('active');
                             }
                             
                         } else {
-                            if (currentPosition > $information.find('.desc-info ul').eq(index).offset().top) {
+                            if (currentPosition > $information.find('.desc-info ul').eq(index).offset().top - gap) {
                                 // 연혁 내용 마지막 위치값 안으로 진입할 경우 연도 fixed
                                 if (currentPosition < lastBottom) {
-                                    $information.find('.year-info').css({'top': '80px', 'bottom': 'auto', 'position': 'fixed', 'margin-top': '' + getFixedMargin + 'px'});
+                                    $information.find('.year-info').css({'top': '0', 'bottom': 'auto', 'position': 'fixed', 'margin-top': '' + getFixedMargin + 'px'});
                                     $information.find('.year-info ul').css({'margin-top': '-' + (gapYear * index) + 'px', 'position': 'relative', 'bottom': 'unset'});
                                 }
                                 $information.find('.desc-info ul').eq(index).addClass('active').siblings().removeClass('active');
@@ -275,12 +323,13 @@ var estateEvent = {
 	init: function(){
         this.historySlider();
         this.estList();
+        this.estPopup();
 	}, 
 
     historySlider: () => {
-        const board = $('.estBoard').children('li');
-        const estAlert01 = board.find('.block_2depth li:first-child');
-        const estButton = board.find('.block_2depth li:last-child a');
+        const board = $('.estBoard').children('li'),
+              estAlert01 = board.find('.block_2depth li:first-child'),
+              estButton = board.find('.block_2depth li:last-child a');
 
         var estSlider = new Swiper(".estSlider", {
             slidesPerView: 3,
@@ -329,54 +378,45 @@ var estateEvent = {
     },
 
     estList: ()=> {
-        const list = $('.estList').find('> ul > li');
-        const estAlert02 = list.children('p');
-        const estSearchBar = $('.estSearch').children('ul');
+        const list = $('.estList').find('> ul > li'),
+              estAlert02 = list.children('p'),
+              estSearchBar = $('.estSearch').children('ul'),
+              personalColor = ['#005eb8', '#888888', '#f5f5f5', '#005eb8'],
+              icon = ['list_homepage_icon.png', 'list_homepage_icon_hover.png', 'list_map_icon.png', 'list_map_icon_hover.png'];
 
         estAlert02.each((index) => {
             data = estAlert02.eq(index).attr('data-process');
             let dataButton =  estAlert02.eq(index).siblings('a');
-
+            
+            // set process
             if (data == 0) {
-                estAlert02.eq(index).css({'background': '#005eb8', 'color': '#fff'}).text('분양중');
+                estAlert02.eq(index).css({'background': + '' + personalColor[0] + '', 'color': '#fff'}).text('분양중');
             } else if (data == 1) {
-                estAlert02.eq(index).css({'border': '1px solid #888888', 'color': '#888888'}).text('분양완료');
+                estAlert02.eq(index).css({'border': '1px solid ' + personalColor[1] + '', 'color': personalColor[1]}).text('분양완료');
             } else if (data == 2) {
-                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('분양예정');
+                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid ' + personalColor[0] + '', 'color': personalColor[0]}).text('분양예정');
             } else if (data == 3) {
-                estAlert02.eq(index).css({'background': '#888888', 'color': '#fff'}).text('공사중');
+                estAlert02.eq(index).css({'background': + '' + personalColor[1] + '', 'color': '#fff'}).text('공사중');
             } else if (data == 4) {
-                estAlert02.eq(index).css({'background': '#005eb8', 'color': '#fff'}).text('입주중');
+                estAlert02.eq(index).css({'background': + '' + personalColor[0] + '', 'color': '#fff'}).text('입주중');
             } else if (data == 5) {
-                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid #005eb8', 'color': '#005eb8'}).text('입주예정');
+                estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid ' + personalColor[0] + '', 'color': personalColor[0]}).text('입주예정');
             }
-
+            
+            // set icon
             if (data >= 0 && data <= 2) {
-                dataButton.css({'background': '#f5f5f5 url(../images/estate/list_homepage_icon.png) 50% 50% no-repeat'});
+                dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[0] + ') 50% 50% no-repeat'});
             } else {
-                dataButton.css({'background': '#f5f5f5 url(../images/estate/list_map_icon.png) 50% 50% no-repeat'});
+                dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[2] + ') 50% 50% no-repeat'});
             }
-
-            list.hover(function() {
-                if (data >= 0 && data <= 2) {
-                    $(this).children('a').css({'background': '#005eb8 url(../images/estate/list_homepage_icon_hover.png) 50% 50% no-repeat'});
-                } else {
-                    $(this).children('a').css({'background': '#005eb8 url(../images/estate/list_map_icon_hover.png) 50% 50% no-repeat'});
-                }
-                
-            }, function() {
-                if (data >= 0 && data <= 2) {
-                    $(this).children('a').css({'background': '#f5f5f5 url(../images/estate/list_homepage_icon.png) 50% 50% no-repeat'});
-                } else {
-                    $(this).children('a').css({'background': '#f5f5f5 url(../images/estate/list_map_icon.png) 50% 50% no-repeat'});
-                }
-            });
         });
 
+        // option spread
         estSearchBar.find('> li p').click(() => {
             estSearchBar.toggleClass('active');
         })
 
+        // option data getter
         $('.estSearch .block_2depth > li').on('click', function() {
             $(this).toggleClass('on');
 
@@ -384,14 +424,73 @@ var estateEvent = {
             console.log('data control | ' + data);
         });
 
-        
+        // effect chenge icon when each list hovering
+        list.each((index) => {
+            list.eq(index).hover(function() {
+                data = $(this).children('p').attr('data-process');
+                dataButton = $(this).children('p').siblings('a');
+
+                if (data >= 0 && data <= 2) {
+                    dataButton.css({'background': personalColor[3] + ' url(../images/estate/' + icon[1] + ') 50% 50% no-repeat'});
+                } else {
+                    dataButton.css({'background': personalColor[3] + ' url(../images/estate/' + icon[3] + ') 50% 50% no-repeat'});
+                }
+            }, function() {
+                if (data >= 0 && data <= 2) {
+                    dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[0] + ') 50% 50% no-repeat'});
+                } else {
+                    dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[2] + ') 50% 50% no-repeat'});
+                }
+            });
+        })
         
     },
+
+    estPopup: ()=> {
+        const list = $('.estList').find('> ul > li'),
+              popupUI = $('.popup > ul > li:last-child'),
+              popupClose = $('.popup > ul > li:first-child');
+
+        list.each((index) => {
+            list.eq(index).children('a').on('click', ()=> {
+                let data = list.eq(index).children('p').attr('data-process'),
+                    title = list.eq(index).find('dl dt').text();
+                    locate = list.eq(index).find('dl dd:first-of-type').text();
+                    
+                locate = locate.replace('위치', '');
+                
+                popupUI.find('dl dt').text(title);
+                popupUI.find('dl dd').text(locate);
+
+                if (data >= 0 && data <= 2) {
+                    return;
+                } else {
+                    $('.popup').fadeIn(300);
+                }
+                
+            });
+        });
+
+        popupUI.children('a').hover(function() {
+            $(this).find('img:first-child').removeClass('on');
+            $(this).find('img:last-child').addClass('on');
+            
+        }, function() {
+            $(this).find('img:last-child').removeClass('on');
+            $(this).find('img:first-child').addClass('on');
+        });
+
+        popupClose.on('click', ()=> {
+            $('.popup').fadeOut(300);
+        });
+    },
+
 }
 
 var csEvent = {
     init: function(){
         this.faqToggle();
+        this.inqEmail();
     },
     
     faqToggle: function(){
@@ -401,4 +500,26 @@ var csEvent = {
             $(this).next(".ans").siblings(".ans").slideUp(300);
          });
     },
+
+    inqEmail : function() {
+        //selectbox
+        var selectType = $(".select_row>select");
+        selectType.addClass("selectBox");
+        selectChange(selectType);
+        function selectChange(type) {
+            type.change(function () {
+                var select_name = $(this).children("option:selected").text();
+                $(this).siblings("label").text(select_name);
+
+                if(select_name === '직접입력') {
+                    $('.cs .inquiry .row .ipt_cell.email_cell > div:nth-of-type(2)').show();
+                }else {
+                    $('.cs .inquiry .row .ipt_cell.email_cell > div:nth-of-type(2)').hide();
+                }
+            });
+        };
+
+
+
+	},
 }

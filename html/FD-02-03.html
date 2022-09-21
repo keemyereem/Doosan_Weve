@@ -26,7 +26,7 @@
 	<meta name="twitter:title" content="We've" />
 	<meta name="twitter:description" content="마음속에 간직해온 나만의 공간. We've" />
 
-	<title>두산위브 - 분양단지</title>
+	<title>두산위브 - 공사단지</title>
 	<link rel="icon" href="images/favicon.png" sizes="32x32">
     <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" />  
 	<link rel="shortcut icon" type="image/x-icon" href="#">
@@ -39,6 +39,7 @@
     <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
     
 	<script src="js/common.js"></script>
 
@@ -97,7 +98,37 @@
                 </ul>
             </nav> 
 
-            <div class="contents construction">
+            <div class="contents">
+
+                <!-- 팝업창 -->
+                <div class="popup">
+                    <ul>
+                        <li><img src="../images/estate/popup_close.png" alt="close Popup"></li>
+                        <li class="map_loader">
+                            <!-- * 카카오맵 - 지도퍼가기 -->
+                            <div id="daumRoughmapContainer1663748187526" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+                            <script>
+                                new daum.roughmap.Lander({
+                                    "timestamp" : "1663748187526",
+                                    "key" : "2bsbj",
+                                }).render();
+                            </script>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt></dt>
+                                <dd></dd>
+                            </dl>
+                            <a href="http://kko.to/Q2YI9co00" target="_blank" title="지도 자세히 보기">
+                                <img class="on" src="../images/estate/popup_view_map.png" alt="view map">
+                                <img src="../images/estate/popup_view_map_hover.png" alt="view map">
+                                지도 자세히 보기
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //팝업창 -->
+
                 <div class="estSearch">
                     <ul>
                         <li>
@@ -137,7 +168,7 @@
                     <ul>
                         <li>
                             <img src="../images/estate/list_img10.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>두산위브 광주 센트럴파크</dt>
                                 <dd><span>위치</span>경기도 광주시 탄벌동 461-1번지 일원</dd>
@@ -151,7 +182,7 @@
 
                         <li>
                             <img src="../images/estate/list_img11.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>창원 두산위브 더센트럴</dt>
                                 <dd><span>위치</span>경남 창원시 마산회원구 합성2동 262-1 일원</dd>
@@ -165,7 +196,7 @@
 
                         <li>
                             <img src="../images/estate/list_img12.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>두산위브더제니스 센트럴 여의</dt>
                                 <dd><span>위치</span>인천광역시 미추홀구 숭의동 243-3번지 일원</dd>
@@ -179,7 +210,7 @@
 <!-- line 2 -->
                         <li>
                             <img src="../images/estate/list_img13.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>반월역 두산위브 더 센트럴</dt>
                                 <dd><span>위치</span>경기도 안산시 상록구 건건동 894-10 일원</dd>
@@ -193,7 +224,7 @@
 
                         <li>
                             <img src="../images/estate/list_img14.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>삼척 센트럴 두산위브</dt>
                                 <dd><span>위치</span>강원도 삼척시 정상동 351 일원</dd>
@@ -207,7 +238,7 @@
 
                         <li>
                             <img src="../images/estate/list_img15.png" alt="listImg">
-                            <p data-process="3"></p>
+                            <p data-process="3"><!-- [data-process] = 3 - 공사중 --></p>
                             <dl>
                                 <dt>두산위브더제니스 양산</dt>
                                 <dd><span>위치</span>경상남도 양산시 상북면 석계리 일원</dd>

@@ -88,7 +88,7 @@ header .util_wrap .allMenu:hover span:after {width:36px;}
 
 /* sub visual */
 nav { border-bottom: 1px solid #e5e5e5; width: 100%; }
-nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); background: #fff; position: fixed; left: 0; top: 0; z-index: 99; }
+nav.fixed { background: #fff; position: fixed; left: 0; top: 0; z-index: 99; }
 nav ul { display: flex; max-width: 1460px; margin: 0 auto; }
 nav ul li { flex: 1; text-align: center; height: 100px; line-height: 100px; }
 nav ul li > a { display: block; width: 100%; height: 100%; font-family: 'Poppins','NS'; font-size: 20px; font-weight: 300; color: #000; letter-spacing: -.5px; }
@@ -97,6 +97,7 @@ nav ul li.on span { background: #005eb8; width: 100%; height: 3px; display: bloc
 nav ul li.on_w > a { color: rgba(225,225,225,.3); }
 nav ul li.on_w.on > a { color: #fff; }
 nav ul li.on_w.on span { background: #fff; }
+nav ul li.mb { display: none; }
 
 .section1 { width: 100%; height: 100vh; background-size: cover; display: flex; align-items: center; justify-content: center; }
 .section1 h2 { font-size: 80px; font-weight: 400; color: #fff; }
@@ -146,10 +147,10 @@ nav ul li.on_w.on span { background: #fff; }
 
 /* radio box type */
 .radio_row {display: inline-block;position: relative;}
-.radio_row input[type="radio"] {display: none;}
-.radio_row input[type="radio"] + label {display: inline-block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
-.radio_row input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #e8e8e8;vertical-align: middle;box-sizing: border-box;}
-.radio_row input[type="radio"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+/* .radio_row */ input[type="radio"] {display: none;}
+/* .radio_row */ input[type="radio"] + label {display: inline-block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
+/* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #e8e8e8;vertical-align: middle;box-sizing: border-box;}
+/* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
 
 /* file */
 .file_row {width: 100%;display: flex;align-items: center;/* justify-content: space-between; */}

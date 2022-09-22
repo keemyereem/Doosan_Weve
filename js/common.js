@@ -489,10 +489,10 @@ var estateEvent = {
 
             // set icon
             if (data >= 0 && data <= 2) {
-                dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[0] + ') 50% 50% no-repeat'});   
+                dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});   
                 mobileIconSize();
             } else {
-                dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[2] + ') 50% 50% no-repeat'});
+                dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
                 mobileIconSize();
             }
 
@@ -542,17 +542,17 @@ var estateEvent = {
                 dataButton = $(this).children('p').siblings('a');
 
                 if (data >= 0 && data <= 2) {
-                    dataButton.css({'background': personalColor[3] + ' url(../images/estate/' + icon[1] + ') 50% 50% no-repeat'});
+                    dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[1] + ') 50% 50% no-repeat'});
                 } else {
-                    dataButton.css({'background': personalColor[3] + ' url(../images/estate/' + icon[3] + ') 50% 50% no-repeat'});
+                    dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[3] + ') 50% 50% no-repeat'});
                 }
                 mobileIconSize();
 
             }, function() {
                 if (data >= 0 && data <= 2) {
-                    dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[0] + ') 50% 50% no-repeat'});
+                    dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});
                 } else {
-                    dataButton.css({'background': personalColor[2] + ' url(../images/estate/' + icon[2] + ') 50% 50% no-repeat'});
+                    dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
                 }
                 mobileIconSize();
             });

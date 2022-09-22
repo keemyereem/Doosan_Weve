@@ -40,6 +40,7 @@ caption, legend {position:absolute; top:0; left:-9999em;}
 .br_m,
 .img_m ,
 .indent {display: none;}
+#wrap { position: relative; }
 
 /* header */
 header {display:flex; align-items:center; position:fixed; top:0; left:0; width:100%; height:100px; padding:0 40px; z-index:100; transition:all .2s;}
@@ -195,3 +196,7 @@ footer .addr p:last-child {margin-left:0;}
 footer .addr p span {margin-right:10px; color:#888;font-weight: 200;}
 footer .copy {margin-top:20px; color:#555; font-size:14px; font-family:'Poppins';}
 footer .family_site {position:absolute; top:60px; right:0; min-width:215px; height:50px; padding-left:20px; border:1px solid rgba(255,255,255,.3); color:#fff; font-family: 'Pretendard'; font-size:16px; font-weight: 300; outline:none;}
+
+#topButton { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 999; writing-mode: vertical-lr; }
+#topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }
+#topButton.on { position: absolute; }

@@ -48,6 +48,7 @@ var commonEvent = {
         this.iptEvent();
         this.tabEvent();
         this.popup();
+        this.goTopEvent();
 	}, 
 
     headerEvent: () => {
@@ -181,9 +182,9 @@ var commonEvent = {
               })
             }
         }
-      },
+    },
 
-      popup: ()=> {
+    popup: ()=> {
         const list = $('.list').find('> ul > li'),
               popupUI = $('.popup > ul > li:last-child'),
               popupClose = $('.popup > ul > li:first-child'),
@@ -252,6 +253,40 @@ var commonEvent = {
                 $('body').removeClass('blockScroll_pc');
             }
         }
+    },
+
+    goTopEvent:() => {
+        $(window).scroll(function() {
+            // top button controll
+            if ($(this).scrollTop() > 400) {
+                $('#topButton').fadeIn();
+            } else {
+                $('#topButton').fadeOut();
+            }
+            var footerTop = $('footer').offset().top - $(window).outerHeight();
+            var pos = $('footer').outerHeight() + Number(80);
+            var pos_m = $('footer').outerHeight() + Number(35);
+            
+            if($(this).scrollTop() > footerTop){
+                if($('#pc').length){
+                    $('#topButton').addClass('on').css({'bottom':pos});
+                }else {
+                    $('#topButton').addClass('on').css({'bottom':pos_m});
+                }
+    
+            }else {
+                if($('#pc').length){
+                    $('#topButton').removeClass('on').css({'bottom':'80px'});
+                }else {
+                    $('#topButton').removeClass('on').css({'bottom':'35px'});
+                }
+                
+            }
+        });
+    
+        $(document).on('click', '#topButton', function() {
+            $('html, body').animate({scrollTop:0}, '300');
+        });
     },
 }
 

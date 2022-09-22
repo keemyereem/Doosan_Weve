@@ -136,6 +136,9 @@
 	#mobile footer .copy {font-size:13px;}
 	#mobile footer .family_site {display:none;}
 
+	#mobile #topButton { font-size: 14px; right: 20px; bottom: 35px; }
+	#mobile #topButton::after { width: 18px; height: 23px; }
+
 	/* sub_visual */
 	#mobile .section1 { height: 275px; }
 	#mobile .section1 h2 { font-size: 35px; }

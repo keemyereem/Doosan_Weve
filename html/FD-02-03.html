@@ -80,19 +80,23 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="javascript:;" title="분양일정 페이지 이동">분양일정</a>
+                        <a href="html/FD-02-01.html" title="분양일정 페이지 이동">분양일정</a>
                         <span></span>
                     </li>
                     <li>
-                        <a href="javascript:;" title="분양단지 페이지 이동">분양단지</a>
+                        <a href="html/FD-02-02.html" title="분양단지 페이지 이동">분양단지</a>
                         <span></span>
                     </li>
                     <li class="on">
                         <a href="javascript:;" title="공사단지 페이지 이동">공사단지</a>
                         <span></span>
                     </li>
+                    <li class="mb">
+                        <a href="html/FD-02-03.html" title="공사단지 페이지 이동">공사단지</a>
+                        <span></span>
+                    </li>
                     <li>
-                        <a href="javascript:;" title="입주단지 페이지 이동">입주단지</a>
+                        <a href="html/FD-02-04.html" title="입주단지 페이지 이동">입주단지</a>
                         <span></span>
                     </li>
                 </ul>
@@ -113,6 +117,10 @@
                                     "key" : "2bsbj",
                                 }).render();
                             </script>
+
+                            <!-- * Google map - 지도퍼가기(컨트롤러 수정 시 api키 필요) -->
+                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.6105326223437!2d129.1776471155859!3d37.446304388761774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3561b7a7d39d86e3%3A0x1b6febf7b42774b0!2z7IK87LKZIOyEvO2KuOuftCDrkZDsgrDsnITruIw!5e0!3m2!1sko!2skr!4v1663813768667!5m2!1sko!2skr" style="border:0;" zoomControl="false" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                            
                         </li>
                         <li>
                             <dl>
@@ -148,7 +156,7 @@
                         </li>
                     </ul>
                     <div class="finder">
-                        <input type="text" placeholder="단지명 또는 위치를 입력하세요.">
+                        <input type="text" spellCheck="false" placeholder="단지명 또는 위치를 입력하세요.">
                         <button>
                             <img src="../images/estate/search.png" alt="search">
                             <img src="../images/estate/search_hover.png" alt="search_hover">
@@ -164,7 +172,7 @@
 
 
                 <!-- 검색결과가 없는 페이지일 경우 [ 삭제 ] -->
-                <div class="estList">
+                <div class="list estList">
                     <ul>
                         <li>
                             <img src="../images/estate/list_img10.png" alt="listImg">

@@ -107,7 +107,7 @@ nav ul li.mb { display: none; }
 .section1 .scroll {position:absolute; bottom:67px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
 .section1 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
 
-.contents { max-width: 1460px; margin: 150px auto 200px; }
+.contents { max-width: 1460px; margin: 100px auto 200px; }
 .inner1460 { max-width: 1460px; margin: 0 auto; }
 
 .tab_box ul { display: flex; margin-bottom: 80px; }

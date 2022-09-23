@@ -44,6 +44,7 @@ function popup(popConts) {
 var commonEvent = {
 	init:function(){
         this.headerEvent();
+        this.bgAni();
         this.subUI();
         this.iptEvent();
         this.tabEvent();
@@ -64,6 +65,15 @@ var commonEvent = {
             });
         }
         
+    },
+
+    bgAni: function() {
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.section1').addClass('ani');
+            }, 100)
+        })
+
     },
 
     subUI: () => {
@@ -545,6 +555,12 @@ var estateEvent = {
                 estSearchBar.toggleClass('active');
             })
         } else {
+
+            if(estSearchBar.hasClass('.active')){
+                $(this).css('transition-duration','.5s').addClass('dd');
+            }else {
+
+            }
             if($('#mobile .mob_select').length){
                 estSearchBar.find('.mob_select').click(() => {
                     estSearchBar.toggleClass('active');

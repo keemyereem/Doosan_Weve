@@ -138,7 +138,7 @@ body#brandstory.typeB { color: #222; }
 
 /* 단지안내 - 공통 */
 .estate { letter-spacing: -2.5px; }
-.estate .section1 { background: url(../images/estate/estate_visual.png) 50% 50% no-repeat; background-size: cover; }
+.estate .section1::after { background: url(../images/estate/estate_visual.png) 50% 50% no-repeat; background-size: cover; }
 .estate .contents .popup ul li:last-child { justify-content: space-between; }
 .estate .contents .popup ul li:last-child dl { width: calc(100% - 208px); padding-right: 20px; text-align: left; }
 
@@ -167,15 +167,15 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) span { color: #777777; font-size: 18px; padding-top: 16px; display: block; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(3) { width: 21.6%; text-align: center; color: #222222; font-size: 24px; font-weight: 300; letter-spacing: 0; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:last-child { padding: 0 .8%; }
-.estate .contents .estBoard .block_1depth .block_2depth > li:last-child a { width: 161px; height: 51px; display: block; color: #005eb8; line-height: 48px; text-align: center; border: 1px solid #005eb8; border-radius: 25px; transition:background ease .3s; }
+.estate .contents .estBoard .block_1depth .block_2depth > li:last-child a { width: 161px; height: 51px; display: block; color: #005eb8; line-height: 48px; text-align: center; border: 1px solid #005eb8; border-radius: 25px; transition: all .5s; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:last-child a img {  margin-right: 11px; position: relative; top: 2.5px; display: none; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:last-child a img.on { display: inline-block; }
-.estate .contents .estBoard .block_1depth .block_2depth > li:last-child a:hover { color: #fff; background: #005eb8; }
+.estate .contents .estBoard .block_1depth .block_2depth > li:last-child a:hover { box-shadow: 161px 0 0 0 #005eb8 inset, -161px 0 0 0 #005eb8 inset; color: #fff; }
 
 /* 단지안내 - 분양단지/ 공사단지/ 입주단지 */
 .estate .contents .estSearch { width: 100%; position: relative; display:inline-block;  }
-.estate .contents .estSearch > ul { width: calc((100% / 3) * 2); background: #fff; z-index: 1; display: flex; height: auto; max-height: 80px; border: 1px solid #005eb8; position: absolute; overflow: hidden; transition: max-height ease .7s; }
-.estate .contents .estSearch > ul.active { max-height: 500px; }
+.estate .contents .estSearch > ul { width: calc((100% / 3) * 2); background: #fff; z-index: 1; display: flex; height: auto; max-height: 80px; border: 1px solid #005eb8; position: absolute; overflow: hidden;}
+.estate .contents .estSearch > ul.active { max-height: 500px; transition: max-height ease .5s; }
 .estate .contents .estSearch > ul > li { width: 100%; font-size: 18px; letter-spacing: -1px; margin:0 38px; }
 .estate .contents .estSearch > ul > li.mob_select { display: none; }
 .estate .contents .estSearch > ul > li p { height: 79px; line-height: 77px; font-weight: 400; color: #005eb8; border-bottom: 1px solid rgba(0, 94, 184, .2); position: relative; cursor: pointer; }
@@ -192,22 +192,23 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estSearch .finder { width: calc(100% / 3); float: right; height: 80px; background: #005eb8; position: relative; }
 .estate .contents .estSearch .finder input { height: 100%; width: 100%; color: #fff; padding: 0 105px 0 36px; font-size: 18px; line-height: 1; outline: none; box-sizing: border-box; border: 1px solid #005eb8; }
 .estate .contents .estSearch .finder input::placeholder { color: rgba(255, 255, 255, .5); }
-.estate .contents .estSearch .finder button { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); text-indent: -9999px; transition: all ease .3s; padding: 30px; }
+.estate .contents .estSearch .finder button { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); text-indent: -9999px; transition: opacity ease .3s; padding: 30px; }
 .estate .contents .estSearch .finder button img { display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; transition: opacity ease .3s; }
 .estate .contents .estSearch .finder button img:last-child,
 .estate .contents .estSearch .finder button:hover img:first-child { opacity: 0; }
 .estate .contents .estSearch .finder button:hover img:last-child { opacity: 1; }
 .estate .contents .estList { margin-top: 80px; position: relative; }
-.estate .contents .estList ul { width: 100%; height: auto; display: flex; flex-wrap: wrap; justify-content: space-between; }
-.estate .contents .estList ul li { width: calc(100% / 3 - 64px); height: fit-content; margin-bottom: 80px; border: 1px solid #e8e8e8; transition: all ease .3s; position: relative; }
+.estate .contents .estList ul { width: 100%; height: auto; display: flex; flex-wrap: wrap; /* justify-content: space-between; */ }
+.estate .contents .estList ul li { width:calc((100% - 167px) / 3); height: fit-content; margin-bottom: 80px; margin-right: 83px; border: 1px solid #e8e8e8; transition: box-shadow ease .3s; position: relative; }
+.estate .contents .estList ul li:nth-child(3n) { margin-right: 0; }
 .estate .contents .estList ul li:after { content: ''; display: block; transition: all ease .3s; max-width: 0; width: calc(100% + 2px); height: 6px; position: absolute; bottom: -1px; left: -1px; background: linear-gradient(to left, #005eb8, #00a5d7, #00ad83); }
 .estate .contents .estList ul li:hover { box-shadow: 19px 10px 24px 0px rgba(0, 0, 0, 0.21); }
 .estate .contents .estList ul li:hover:after { max-width: calc(100% + 2px); }
 .estate .contents .estList ul li img { width: 100%; height: auto; object-fit: cover; }
 .estate .contents .estList ul li p { margin: 35px 0 0 30px; width: 65px; height: 26px; text-align: center; line-height: 25px; font-weight: 400; font-size: 15px; letter-spacing: -.5px; }
-.estate .contents .estList ul li dl { padding: 17px 30px 8px; line-height: 1.2; }
-.estate .contents .estList ul li dl dt { font-size: 28px; color: #222222; font-weight: 400; padding-bottom: 30px; word-break: keep-all; line-height: 1.4; }
-.estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 15px; letter-spacing: -1px; }
+.estate .contents .estList ul li dl { padding: 10px 30px 8px; line-height: 1.2; }
+.estate .contents .estList ul li dl dt { font-size: 28px; color: #222222; font-weight: 400; padding-bottom: 20px; word-break: keep-all; line-height: 1.4; }
+.estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 10px; letter-spacing: -1px; }
 .estate .contents .estList ul li dl dd:last-child { padding-bottom: 0; }
 .estate .contents .estList ul li dl dd span { position: absolute; left: 0; font-weight: 400; }
 .estate .contents .estList ul li a { transition: all ease .3s; width: 61px; height: 61px; border-radius: 100%; display: block; float: right; margin: 0 31px 30px 0; }
@@ -215,8 +216,8 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estList .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
 .estate .contents .empty { padding: 262px 0 183px; }
 .estate .contents .empty p { text-align: center; font-size: 28px; color: #888888; }
-.estate .contents .empty a { margin: 80px auto 0; width: 240px; height: 60px; font-size: 18px; letter-spacing: -1px; display: block; color: #005eb8; line-height: 58px; text-align: center; border: 1px solid #005eb8; border-radius: 30px; transition:background ease .3s; }
-.estate .contents .empty a:hover { color: #fff; background: #005eb8; }
+.estate .contents .empty a { margin: 80px auto 0; width: 240px; height: 60px; font-size: 18px; letter-spacing: -1px; display: block; color: #005eb8; line-height: 58px; text-align: center; border: 1px solid #005eb8; border-radius: 30px; transition: all .5s; }
+.estate .contents .empty a:hover { box-shadow: 240px 0 0 0 #005eb8 inset, -240px 0 0 0 #005eb8 inset; color: #fff; }
 
 
 /* 브랜드 - Channel - 공통 (list) */
@@ -246,7 +247,7 @@ body#brandstory.typeB { color: #222; }
 .channel .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
 
 /* 브랜드 - Channel - 위브뉴스 */
-.channel .section1 { background: url(../images/brand/brand_visual.png) 50% 50% no-repeat; background-size: cover; }
+.channel .section1::after { background: url(../images/brand/brand_visual.png) 50% 50% no-repeat; background-size: cover; }
 .channel .weve_news .tb_box .tb_row.row_body .date {width: 14%;}
 
 /* 브랜드 - Channel - sns */
@@ -307,9 +308,12 @@ body#brandstory.typeB { color: #222; }
 .channel .awards .section-wrap .tab_contents .history-list .year-info li span{position:relative;display:block;font-family: 'Poppins';font-weight:350;font-size:100px;color:#005eb8;line-height:120px;opacity: 0;}
 .channel .awards .section-wrap .tab_contents .history-list .year-info li.active span{opacity: 1;}
 
-.channel .awards .section-wrap .tab_contents .history-list .desc-info{margin-left: 600px;padding-left: 45px;border-left: 1px solid #e5e5e5;}
-.channel .awards .section-wrap .tab_contents .history-list .desc-info ul{ padding: 5rem 0; transition: background ease .3s;}
-.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 0px 0 80px 0; }
+.channel .awards .section-wrap .tab_contents .history-list .desc-info{margin-left: 600px;/* padding-left: 45px; *//* border-left: 1px solid #e5e5e5; */}
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul{ padding: 5rem 0; transition: background ease .3s; border-left: 1px solid #e5e5e5; padding-left: 45px;}
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child { border-left: 0; position: relative; } 
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { content:''; display: block; width: 1px; height: 160px; background: #e5e5e5; position: absolute; top: -80px; left: 0; } 
+: .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 0px 0 80px 0; border-left: 0!important; position: relative; }
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child::before { content:''; display: block; width: 1px; height: calc(100% - 80px); background: #e5e5e5; position: absolute; top: 0; left: 0; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul.active li .num { color:#005eb8; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li{position: relative;}
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before {content:'';display: inline-block;width: 9px;height: 9px;border: 2px solid #005eb8;border-radius: 50%;background: #fff;position: absolute;top: 5px;left: -52px;}
@@ -323,7 +327,7 @@ body#brandstory.typeB { color: #222; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .desc.desc-lg{line-height:30px}.macrogen.macrogen-history .section:last-child{padding-bottom:0}
 
 /* 고객서비스 - FAQ */
-.cs .section1 { background: url(../images/cs/cs_visual.png) 50% 50% no-repeat; background-size: cover; }
+.cs .section1::after { background: url(../images/cs/cs_visual.png) 50% 50% no-repeat; background-size: cover; }
 .cs .faq .search { width: 747px; height: 70px; display: flex; }
 .cs .faq .search .select_row { width: 260px; border-right: 0; }
 .cs .faq .search .select_row::after { content:''; width: 0; height: 0; border: 10px solid transparent; border-bottom-width: 0; border-top-color: #555; }

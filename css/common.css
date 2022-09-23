@@ -40,6 +40,7 @@ caption, legend {position:absolute; top:0; left:-9999em;}
 .br_m,
 .img_m ,
 .indent {display: none;}
+.indentUp { transform: translateY(-100px); }
 #wrap { position: relative; }
 
 /* header */
@@ -113,9 +114,9 @@ nav ul li.mb { display: none; }
 .inner1460 { max-width: 1460px; margin: 0 auto; }
 
 .tab_box ul { display: flex; margin-bottom: 80px; }
-.tab_box ul li { flex: 1; height: 80px; display: table; background: #fff; border: 1px solid #e5e5e5; transition: all .2s; }
+.tab_box ul li { flex: 1; height: 80px; display: table; background: #fff; border: 1px solid #e5e5e5; }
 .tab_box ul li:not(:first-child) { margin-left: -1px; }
-.tab_box ul li a { font-size: 18px; font-weight: 300; color: #222; display: table-cell; vertical-align: middle; text-align: center; transition: all .2s; }
+.tab_box ul li a { font-size: 18px; font-weight: 300; color: #222; display: table-cell; vertical-align: middle; text-align: center; transition: color .2s; }
 .tab_box ul li.on { background: #005eb8; border-color: #005eb8;/*  box-shadow: 0px 0px 32px 8px rgba(34, 34, 34, 0.2); */ }
 .tab_box ul li.on a { color: #fff; }
 .tab_box .control { display: none; }

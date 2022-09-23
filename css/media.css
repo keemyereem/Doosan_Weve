@@ -36,13 +36,14 @@
     /* common */
     #mobile {overflow-x: auto !important; width: 100%;}
 	#mobile header, 
-	#mobile footer { width: 100%; }
+	#mobile footer { width: 100%; transition: none; }
 	#mobile header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
 	.br_pc {display: none;}
 	.br_m {display: block;}
 	.img_pc {display: none;}
 	.img_m {display: block;}
+	.indentUp { transform: translateY(-55px); }
 
 
 	#mobile .contents { margin: 100px auto 150px; }
@@ -353,9 +354,16 @@
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .year-info li span { font-size: 55px; line-height: 100px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .year-info .year-txt { font-size: 13px; top: 90px; left: 20px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info { margin-left: 0; padding-left: 20px; width: calc(100% - 50px); margin: 0 auto 0; }
-	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul { padding: 50px 0; }
-	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 200px 0 50px 0; }
-	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before { left: -26px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul { padding: 50px 0 50px 22px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 200px 0 50px 22px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child::before { top: 205px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { height: 55px; } 
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before { left: -29px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child li::before,
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child li::before { left: -28px; }
+
+	
+
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .num { font-size: 14px; margin-bottom: 20px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .num em { font-size: 20px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .award_name { font-size: 15px; margin-bottom: 10px; }

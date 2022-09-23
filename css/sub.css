@@ -309,11 +309,15 @@ body#brandstory.typeB { color: #222; }
 .channel .awards .section-wrap .tab_contents .history-list .year-info li.active span{opacity: 1;}
 
 .channel .awards .section-wrap .tab_contents .history-list .desc-info{margin-left: 600px;/* padding-left: 45px; *//* border-left: 1px solid #e5e5e5; */}
-.channel .awards .section-wrap .tab_contents .history-list .desc-info ul{ padding: 5rem 0; transition: background ease .3s; border-left: 1px solid #e5e5e5; padding-left: 45px;}
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul{ padding: 80px 0 80px 45px; transition: background ease .3s; border-left: 1px solid #e5e5e5;}
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child { border-left: 0; position: relative; } 
-.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { content:''; display: block; width: 1px; height: 160px; background: #e5e5e5; position: absolute; top: -80px; left: 0; } 
-: .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 0px 0 80px 0; border-left: 0!important; position: relative; }
-.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child::before { content:''; display: block; width: 1px; height: calc(100% - 80px); background: #e5e5e5; position: absolute; top: 0; left: 0; }
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { content:''; display: block; width: 1px; height: 85px; background: #e5e5e5; position: absolute; top: 0; left: 0; } 
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 0px 0 80px 45px; border-left: 0!important; position: relative; }
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child::before { content:''; display: block; width: 1px; height: 100%; background: #e5e5e5; position: absolute; top: 5px; left: 0; }
+
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child li::before,
+.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child li::before { left: -51px; }
+
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul.active li .num { color:#005eb8; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li{position: relative;}
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before {content:'';display: inline-block;width: 9px;height: 9px;border: 2px solid #005eb8;border-radius: 50%;background: #fff;position: absolute;top: 5px;left: -52px;}

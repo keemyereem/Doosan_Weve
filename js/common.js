@@ -220,10 +220,11 @@ var commonEvent = {
                     return;
                 } else {
                     $('.popup').addClass('on');
-                    
+                                        
                     if ($('#mobile').length) {
                         body.style.top = `-${scrollPosition}px`;
                         $('body').addClass('blockScroll_m');
+                        $('header').hide();
                     } else {
                         $('body').addClass('blockScroll_pc');
                     }
@@ -259,6 +260,8 @@ var commonEvent = {
     
                 body.style.removeProperty('top');
                 window.scrollTo(0, -(scrollPosition));
+                $('header').show();
+                
             } else {
                 $('body').removeClass('blockScroll_pc');
             }

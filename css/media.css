@@ -169,6 +169,7 @@
 	#mobile .contents .popup ul li:last-child dl dt { font-size: 19px; }
 	#mobile .contents .popup ul li:last-child dl dd { padding-top: 10px; font-size: 13px; }
 	#mobile .contents .popup ul li:last-child a { width: 165.5px; height: 36.5px; line-height: 34.5px; border-radius: 18.5px; font-size: 13px; margin-top: 19px; }
+	#mobile .contents .popup ul li:last-child a:hover { box-shadow: 165px 0 0 0 #005eb8 inset, -165px 0 0 0 #005eb8 inset; }
 	#mobile .contents .popup ul li:last-child a img { margin-right: 7px; top: 2px; width: 16.5px; }
 
 
@@ -480,6 +481,7 @@
 	#mobile .cs .inquiry .row .ipt_cell.email_cell > span { margin: 0 10px; font-size: 15px; }
 	#mobile .cs .inquiry .row .radio_cell { display: flex; flex-wrap: wrap; }
 	#mobile .cs .inquiry .row .radio_row { height: 18px; line-height: 18px; margin-right: 0; margin: 5px 0 10px; width: calc(100% / 3); }
+	#mobile .cs .inquiry .row .ipt_cell input[type="radio"] + label { padding-left: 30px; }
 
 	#mobile .cs .inquiry .row .file_row .upload_name { width: calc(100% - 140px); height: 35px; margin-right: 14px; outline: 0; }
 	#mobile .cs .inquiry .row .file_row+.info { font-size: 12px; margin-top: 10px; }

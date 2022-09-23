@@ -151,7 +151,7 @@ var commonEvent = {
                 let tbOn = Math.floor(tabBox.find('> li.on').position().left);
                 let tbWidth = tabButton.width();
         
-                tabContainer.animate({scrollLeft: tbOn - tbWidth}, 1000);
+                tabContainer.animate({scrollLeft: tbOn - tbWidth}, 0);
               });
         
               tabContainer.on('load resize scroll', ()=> {

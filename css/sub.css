@@ -88,10 +88,10 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .contents .popup ul li:last-child dl { width: 100%; line-height: 1.4; text-align: center; }
 .contents .popup ul li:last-child dl dt { font-size: 28px; font-weight: 400; color: #222222; }
 .contents .popup ul li:last-child dl dd { padding-top: 11px; font-size: 16px; color: #555555; }
-.contents .popup ul li:last-child a { width: 208px; height: 51px; display: block; color: #005eb8; line-height: 48px; text-align: center; border: 1px solid #005eb8; border-radius: 25px; transition:background ease .3s; }
+.contents .popup ul li:last-child a { width: 208px; height: 51px; display: block; color: #005eb8; line-height: 48px; text-align: center; border: 1px solid #005eb8; border-radius: 25px; transition:all ease .5s; }
 .contents .popup ul li:last-child a img { margin-right: 11px; position: relative; top: 2.5px; display: none; }
 .contents .popup ul li:last-child a img.on { display: inline-block; }
-.contents .popup ul li:last-child a:hover { color: #fff; background: #005eb8; }
+.contents .popup ul li:last-child a:hover { box-shadow: 208px 0 0 0 #005eb8 inset, -208px 0 0 0 #005eb8 inset; color: #fff; }
 
 /* 시안 B */
 body#brandstory.typeB { color: #222; }
@@ -204,6 +204,7 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estList ul li:after { content: ''; display: block; transition: all ease .3s; max-width: 0; width: calc(100% + 2px); height: 6px; position: absolute; bottom: -1px; left: -1px; background: linear-gradient(to left, #005eb8, #00a5d7, #00ad83); }
 .estate .contents .estList ul li:hover { box-shadow: 19px 10px 24px 0px rgba(0, 0, 0, 0.21); }
 .estate .contents .estList ul li:hover:after { max-width: calc(100% + 2px); }
+.estate .contents .estList ul li .img { width: calc(100% + 2px); margin-left: -1px; }
 .estate .contents .estList ul li img { width: 100%; height: auto; object-fit: cover; }
 .estate .contents .estList ul li p { margin: 35px 0 0 30px; width: 65px; height: 26px; text-align: center; line-height: 25px; font-weight: 400; font-size: 15px; letter-spacing: -.5px; }
 .estate .contents .estList ul li dl { padding: 10px 30px 8px; line-height: 1.2; }
@@ -373,6 +374,10 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .row .ipt_cell { width: calc(100% - 118px); height: 100%; vertical-align: middle; }
 .cs .inquiry .row .ipt_cell .input_row { height: 70px; }
 .cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 40px); height: 70px; padding-left: 40px; border: 0; }
+
+.cs .inquiry .row .ipt_cell input[type="radio"] + label { padding-left: 40px; }
+.cs .inquiry .row .ipt_cell input[type="radio"] + label:before { position: absolute; left:0; top:50%; transform: translateY(-50%); /* vertical-align: top; */ }
+
 .cs .inquiry .row .ipt_cell .input_row #phone::placeholder { font-family: 'Poppins'; font-size: 20px; color: #555; }
 .cs .inquiry .row .ipt_cell.email_cell { display: flex; align-items: center; }
 .cs .inquiry .row .ipt_cell.email_cell > div:first-of-type { width: 320px; }

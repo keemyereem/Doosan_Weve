@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" >
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+    <meta charset="utf-8" > 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="author" content="DoosanENC">
+    <meta name="robots" content="index, follow">
+    <meta name="title" content="두산위브">
+    <meta name="description" content="두산위브 리뉴얼 홈페이지입니다.">
+    <meta name="keywords" content="두산위브, 리뉴얼홈페이지, 포엠크리에이티브">
+    <meta property="og:type" content="website" >
+    <meta property="og:title" content="두산위브" >
+    <meta property="og:description" content="두산위브 리뉴얼 홈페이지입니다." >
+    <meta property="og:site_name" content="DoosanENC">
+    <meta name="twitter:card" content="summary" >
+    <meta name="twitter:title" content="두산위브" >
+    <meta name="twitter:description" content="두산위브 리뉴얼 홈페이지입니다." >
+    
+    <title>두산위브</title>
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="http://dev.topes.4-m.co.kr/" >  
+
+    <!-- Library CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Library JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+    <script src="js/lib/aos.js"></script>
+    <script src="js/common.js?v=1.0"></script>
+    
+    <!-- Initialized Include Path -->
+    <script>
+        $(document).ready( function() {
+            // Including HTML
+            $("header").load("include/header.html?v=1.0");
+            $("footer").load("include/footer.html");
+
+            // JS importing
+            commonEvent.init();
+            csEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- wrap -->
+    <div id="wrap">
+
+        <!-- header -->
+        <header></header>
+        <!-- //header -->
+
+        <!-- sitemap -->
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+
+        <div class="container cs">   
+            <section class="section1">
+                <h2>
+                    고객서비스
+                </h2>
+                <div class="scroll">
+                    <i class="bar"></i>
+                </div>
+            </section>   
+            <nav>
+                <ul>
+                    <li>
+                        <a href="html/FD-03-01.html" title="FAQ 페이지 이동">FAQ</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a href="html/FD-03-02.html" title="문의하기 페이지 이동">문의하기</a>
+                        <span></span>
+                    </li>
+                    <li class="on">
+                        <a href="javascript:;" title="A/S 신청 페이지 이동">A/S 신청</a>
+                        <span></span>
+                    </li>
+                    <li class="mb">
+                        <a href="html/FD-03-03.html" title="A/S 신청 페이지 이동">A/S 신청</a>
+                        <span></span>
+                    </li>
+                </ul>
+            </nav> 
+
+            <div class="contents inquiry">
+                <div class="inner">
+                    <div class="sec_tit">개인정보 수집 및 이용동의</div>
+                    <div class="cont_box">
+                        <div>
+                            ■ 수집하는 개인정보 항목<br><br>
+ 
+                            회사는 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br><br>
+                             
+                            ○ 수집항목 : 성명, 연락처(자택, 핸드폰), 이메일, 세대주명, 관계, 동/호수, 단지명<br>
+                            ○ 개인정보 수집방법 : 홈페이지 (A/S 신청) 
+                        </div>
+                    </div>
+                    <ul>
+                        <li><span>※</span> 위의 수집 및 이용 목적에 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 상담을 진행할 수 없음을 알려드립니다.</li>
+                        <li><span>※</span> 상기 민원 상담을 위해 취득한 개인정보는 민원처리 목적 외의 마케팅 등에 활용되지 않습니다.</li>
+                        <li><span>※</span> 개인정보 수집 및 이용동의를 자세히 읽어 보신 후 동의해 주시기 바랍니다.</li>
+                    </ul>
+                    <div class="checkbox_row">
+                        <p>개인정보 수집 · 이용에 동의합니다.</p>
+                        <div class="agree_row">
+                            <input type="radio" id="chk01" name="agree">
+                            <label for="chk01">동의합니다</label>
+                            <input type="radio" id="chk02" name="agree">
+                            <label for="chk02">동의하지 않습니다<br class="br_m"><span>(동의하셔야 등록이 가능합니다)</span></label>
+                        </div>
+                    </div>
+
+                    <div class="sec_tit">신청자 정보</div>
+                    <ol class="applicant_info">
+                        <li>
+                            <dl>
+                                <dt>고객명</dt>
+                                <dd>오지혁</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>연락처</dt>
+                                <dd>010-5555-5555</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>이메일</dt>
+                                <dd>modelpolice2@icloud.com</dd>
+                            </dl>
+                        </li>
+                    </ol>
+
+                    <div class="sec_tit">A/S 신청 정보</div>
+                    <p><span class="es">*</span> 필수입력항목</p>
+                    <div class="row">
+                        <div class="tit_cell">계약단지 <span class="es">*</span></div>
+                        <div class="ipt_cell">
+                            <div class="select_row">
+                                <label for="sel01">계약단지를 선택해 주세요.</label>
+                                <select id="sel01" class="selectBox">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="row alignTop">
+                        <div class="tit_cell">A/S 공간 <span class="es">*</span></div>
+                        <div class="ipt_cell">
+                            <div class="select_row">
+                                <label for="sel02">A/S 공간을 선택해 주세요.</label>
+                                <select id="sel02" class="selectBox">
+                                    <option value="1">거실</option>
+                                    <option value="2">침실</option>
+                                    <option value="3">주방</option>
+                                    <option value="4">현관</option>
+                                    <option value="5">공용욕실</option>
+                                    <option value="6">부부욕실</option>
+                                    <option value="7">발코니</option>
+                                    <option value="8">드레스룸</option>
+                                    <option value="9">보일러실</option>
+                                    <option value="direct">직접입력</option>
+                                </select>
+                            </div>
+                            <input type="text" id="selboxDirect" name="selboxDirect">
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="tit_cell">A/S 대상 <span class="es">*</span></div>
+                        <div class="ipt_cell">
+                            <div class="select_row">
+                                <label for="sel03">A/S 대상을 선택해 주세요.</label>
+                                <select id="sel03" class="selectBox">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="row alignTop">
+                        <div class="tit_cell">A/S 내용 <span class="es">*</span></div>
+                        <div class="ipt_cell">
+                            <div class="area_row">
+                                <textarea placeholder="내용을 입력해 주세요."></textarea>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="tit_cell tit_file">파일첨부</div>
+                        <div class="ipt_cell">
+                            <div class="file_row">
+                                <input class="upload_name" value="" readonly>
+                                <label for="upload_file">찾아보기</label>
+                                <input type="file" id="upload_file" name="upload_file">
+                            </div>
+                            <span class="info">첨부파일은 하나에 10MB, 최대 5장 까지 첨부 가능합니다.<br>
+                                jpg, jpeg, png, gif 등 이미지파일만 업로드 가능합니다. </span>
+                        </div>
+                    </div>
+                    
+                    <div class="btn_color"><a href="javascript:;" title="A/S 신청하기">A/S 신청하기</a></div>
+                                        
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>

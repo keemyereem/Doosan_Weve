@@ -352,26 +352,32 @@ body#brandstory.typeB { color: #222; }
 .cs .faq .faq_box .ans { display: none; overflow: hidden; padding: 40px 50px 50px 168px; background: #e5e5e5; font-size: 16px; color: #222; line-height: 1.875; }
 .cs .faq .faq_box .ans p { word-wrap: break-word; }
 
-/* 고객서비스 - 문의하기 */
+/* 고객서비스 - 문의하기 & A/S 신청 */
 .cs .inquiry .inner { max-width: 1200px; margin: 0 auto; }
 .cs .inquiry .top { background: rgba(0, 94, 184,.05); font-size: 16px; color: #222; height: 100px; line-height: 100px; text-align: center; margin-bottom: 75px; }
 .cs .inquiry .inner > p { font-size: 14px; color: #777; float: right; margin-bottom: 10px; }
 .cs .inquiry .es { color: #005eb8; }
-.cs .inquiry .sec_tit { font-size: 34px; font-weight: 400; color: #222; }
+.cs .inquiry .sec_tit { font-family: 'Poppins','NS'; font-size: 34px; font-weight: 400; color: #222; margin-bottom: 40px; }
 .cs .inquiry .checkbox_row { margin: 35px 0 115px; }
 .cs .inquiry .checkbox_row p { font-size: 22px; font-weight: 400; color: #222; margin-bottom: 25px; }
 .cs .inquiry .checkbox_row input[type="radio"] + label { margin-right: 34px; }
 .cs .inquiry .checkbox_row input[type="radio"] + label span { color: #888; }
-.cs .inquiry .checkbox_row+.sec_tit { margin-bottom: 40px; }
+/* .cs .inquiry .checkbox_row+.sec_tit { margin-bottom: 40px; } */
 .cs .inquiry .cont_box { height: 240px; padding: 45px 50px; margin: 40px 0 20px; border: 1px solid #e8e8e8; line-height: 1.625; overflow-y: auto; color: #222; }
 .cs .inquiry ul li { font-size: 14px; color: #777; position: relative; padding-left: 15px; line-height: 1.71; }
 .cs .inquiry ul li span { position: absolute; top: 0; left: 0; }
+.cs .inquiry .applicant_info { margin-bottom: 120px; }
+.cs .inquiry .applicant_info li+li { margin-top: 40px; }
+.cs .inquiry .applicant_info li dl { display: flex; }
+.cs .inquiry .applicant_info li dt { font-size: 18px; font-weight: 400; color: #222; letter-spacing: -.18px; margin-right: 70px; }
+.cs .inquiry .applicant_info li dd { font-size: 18px; color: #555; letter-spacing: -.45px; }
 .cs .inquiry .row { display: flex; align-items: center; width: 100%; /* height: 70px; */ }
 .cs .inquiry .row+.row { margin-top: 20px; }
-.cs .inquiry .row.cont_row { align-items: flex-start; }
-.cs .inquiry .row.cont_row .tit_cell { margin-top: 30px; }
+.cs .inquiry .row.alignTop { align-items: flex-start; }
+.cs .inquiry .row.alignTop .tit_cell { margin-top: 20px; }
 .cs .inquiry .row .tit_cell { width: 118px; font-size: 18px; font-weight: 400; color: #222; }
 .cs .inquiry .row .ipt_cell { width: calc(100% - 118px); height: 100%; vertical-align: middle; }
+.cs .inquiry .row .ipt_cell .select_row label { color: #b2b2b2; padding: 0 40px; }
 .cs .inquiry .row .ipt_cell .input_row { height: 70px; }
 .cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 40px); height: 70px; padding-left: 40px; border: 0; }
 
@@ -385,15 +391,41 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .row .ipt_cell.email_cell > div:last-of-type { width: calc(100% / 3);/* width: 330px; */ }
 .cs .inquiry .row .ipt_cell.email_cell > .select_row::after { content:''; width: 0; height: 0; border: 9px solid transparent; border-bottom-width: 0; border-top-color: #777; }
 .cs .inquiry .row .ipt_cell.email_cell > span { display: inline-block; margin: 0 30px; font-family: 'Poppins'; }
-.cs .inquiry .row .file_row .upload_name { border-bottom: 1px solid #e8e8e8; width: 560px; height: 60px; margin-right: 30px; outline: 0; }
+.cs .inquiry .row .file_row .upload_name { border-bottom: 1px solid #e8e8e8; width: 100%; height: 60px; margin-right: 30px; outline: 0; }
 .cs .inquiry .row .file_row+.info { font-size: 14px; color: #b2b2b2; margin-top: 18px; float: left; }
 .cs .inquiry .row .tit_file { margin-top: -35px; }
 .cs .inquiry .row .radio_row { height: 70px; line-height: 70px; margin-right: 40px; }
+.cs .inquiry .red { font-size: 14px; color: #f00; margin-top: -20px; margin-bottom: 30px; }
 
-
-
-
-
+/* 고객서비스 - A/S 신청 */
+.cs .as { max-width: 100%; }
+.cs .as h2 { font-size: 34px; font-weight: 400; color: #222; letter-spacing: -.85px; font-family: 'Poppins','NS'; }
+.cs .as h3 { font-size: 24px; font-weight: 400; letter-spacing: -.6px; }
+.cs .as .section01 { width: 100%; height: 201px; background: url(../images/cs/as_banner.png) no-repeat 50% 50%; background-size: contain; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; }
+.cs .as .section01 a { display: block; width: 210px; height: 50px; border: 1px solid #fff; border-radius: 24.5px; color: #fff; font-size: 16px; text-align: center; line-height: 48px; margin-top: 25px; }
+.cs .as .section01 a:hover { border-color: #005eb8; }
+.cs .as .section02 { background: #f6f6f6; padding: 80px 0; margin-top: 80px; }
+.cs .as .section02 ul { display: flex; justify-content: space-between; margin-top: 40px; }
+.cs .as .section02 ul li { flex: 1; display: flex; }
+.cs .as .section02 ul li .icon { width: 90px; height: 90px; border-radius: 50%; background-color: #fff; background-repeat: no-repeat; background-position: 50% 50%; flex-shrink: 0; margin-right: 40px; }
+.cs .as .section02 ul li:nth-child(1) .icon { background-image: url(../images/cs/as_icon01.png); background-size: 37px 32px; }
+.cs .as .section02 ul li:nth-child(2) .icon { background-image: url(../images/cs/as_icon02.png); background-size: 32px 30px; }
+.cs .as .section02 ul li:nth-child(3) .icon { background-image: url(../images/cs/as_icon03.png); background-position: calc(50% + 3px) 50%; background-size: 31px 31px; }
+.cs .as .section02 h3 { color: #222; margin-bottom: 15px; }
+.cs .as .section02 p { font-size: 18px; color: #555; letter-spacing: -.45px; line-height: 1.55; }
+.cs .as .section02 p span { font-family: 'Poppins'; font-size: 30px; font-weight: 400; color: #005eb8; }
+.cs .as .section03 { padding: 120px 0 0; }
+.cs .as .section03 ul { display: flex; justify-content: space-between; margin-top: 40px; }
+.cs .as .section03 ul li { flex: 1; max-width: 170px; position: relative; }
+.cs .as .section03 ul li:not(:last-child)::after { content:''; display: inline-block; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 12px solid #ccdff1; position: absolute; top: 73px; right: -55px; }
+.cs .as .section03 ul li .icon { width: 170px; height: 170px; border: 1px solid #e5e5e5; border-radius: 50%; background-color: #fff; background-repeat: no-repeat; background-position: 50% 50%; box-shadow: 4px 7px 18px 0px rgba(0, 0, 0, 0.17); margin: 0 auto; }
+.cs .as .section03 ul li:nth-child(1) .icon { background-image: url(../images/cs/as_process_icon01.png); background-size: 57px 53px; }
+.cs .as .section03 ul li:nth-child(2) .icon { background-image: url(../images/cs/as_process_icon02.png); background-size: 51px 55px; }
+.cs .as .section03 ul li:nth-child(3) .icon { background-image: url(../images/cs/as_process_icon03.png); background-size: 70px 55px; }
+.cs .as .section03 ul li:nth-child(4) .icon { background-image: url(../images/cs/as_process_icon04.png); background-size: 54px 57px; }
+.cs .as .section03 ul li:nth-child(5) .icon { background-image: url(../images/cs/as_process_icon05.png); background-size: 61px 61px; }
+.cs .as .section03 h3 { color: #005eb8; text-align: center; margin: 30px 0 10px; }
+.cs .as .section03 p { font-size: 16px; color: #777; line-height: 1.5; text-align: center; }
 
 
 

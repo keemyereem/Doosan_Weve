@@ -135,6 +135,18 @@ var commonEvent = {
             var cur =$ (".file_row input[type='file']").val();
             $(".upload_name").val(cur);
         });
+
+        //직접입력
+        var selDirect = $('#selboxDirect');
+        $(selDirect).hide();
+        $('#sel02').on('change', function(){
+            if($("#sel02").val() == "direct") {
+                $(selDirect).show();
+                console.log(selDirect);
+            }  else {
+                $(selDirect).hide();
+            }
+        });
     
     },
     
@@ -629,6 +641,7 @@ var csEvent = {
     init: function(){
         this.faqToggle();
         this.inqEmail();
+        this.multiSelect();
     },
     
     faqToggle: function(){
@@ -656,8 +669,44 @@ var csEvent = {
                 }
             });
         };
-
-
-
 	},
+
+    multiSelect : function(){
+        var mainPlace = document.querySelector('#sel02');
+
+        mainPlace.onchange = function(){
+            var sub = document.querySelector('#subOption');
+            var mainOpt = mainPlace.options[mainPlace.selectedIndex].innerText;
+            console.log('mainOpt: '+ mainOpt);
+        }
+
+        var subOptions = {
+            livingroom : [ '걸레받이', '공청TV', '도배', '목재문(틀)', '몰딩' ],
+            bedroom : [ 'a', 'b', 'v', 'd', 'e' ],
+            kitchen : [ '1', '2', '3', '4', '5' ]
+        }
+
+        switch(mainOpt) {
+            case '거실':
+                var subOption = subOptions.livingroom;
+                console.log('거실고름')
+                break;
+            case '침실':
+                var subOption = subOptions.bedroom;
+                console.log('침실고름')
+
+                break;
+            case '주방':
+                var subOption = subOptions.kitchen;
+                break;
+        }
+
+        sub.options.length = 0;
+        for(var i = 0; i<subOption.length; i++){
+            var option = document.createElement('option');
+            option.innerText = subOption[i];
+            sub.append(option);
+        }
+
+    },
 }

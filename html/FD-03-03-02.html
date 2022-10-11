@@ -69,6 +69,33 @@
         <!-- //sitemap -->
 
         <div class="container cs">   
+            <div class="popup search">
+                <ul>
+                    <li><img src="images/estate/popup_close.png" alt="close Popup"></li>
+                    <li>
+                        <label>
+                            <input type="text" placeholder="단지이름 또는 주소로 검색">
+                            <button><img src="images/common/icon_search_gry.png" alt="searcg_gry"></button>
+                        </label>
+                        <p><span class="result"></span> 으로 총 <span class="num"></span>개의 단지 검색완료</p>
+                    </li>
+                    <li>
+                        <a class="result_box" href="javascript:;" title="자세히 보기">
+                            <dl>
+                                <dt>평촌 두산 위브 더 프라임</dt>
+                                <dd>경기도 안양시 동안구 호계동 일원</dd>
+                            </dl>
+                        </a>
+                        <a class="result_box" href="javascript:;" title="자세히 보기">
+                            <dl>
+                                <dt>평촌 두산 위브 더 프라임</dt>
+                                <dd>경기도 안양시 동안구 호계동 일원</dd>
+                            </dl>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <section class="section1">
                 <h2>
                     고객서비스
@@ -131,19 +158,19 @@
                         <li>
                             <dl>
                                 <dt>고객명</dt>
-                                <dd>오지혁</dd>
+                                <dd>김구남</dd>
                             </dl>
                         </li>
                         <li>
                             <dl>
                                 <dt>연락처</dt>
-                                <dd>010-5555-5555</dd>
+                                <dd>010-9999-9999</dd>
                             </dl>
                         </li>
                         <li>
                             <dl>
                                 <dt>이메일</dt>
-                                <dd>modelpolice2@icloud.com</dd>
+                                <dd>9son@yellowsea.com</dd>
                             </dl>
                         </li>
                     </ol>
@@ -152,14 +179,15 @@
                     <div class="red">* 임차인만 신청 가능하며 계약고객의 경우 계약고객으로 로그인 후 신청하시기 바랍니다.</div>
                     <p><span class="es">*</span> 필수입력항목</p>
                     <div class="row">
-                        <div class="tit_cell">계약단지 <span class="es">*</span></div>
+                        <div class="tit_cell tit_find">계약단지 <span class="es">*</span></div>
                         <div class="ipt_cell">
-                            <div class="select_row">
-                                <label for="sel01">계약단지를 선택해 주세요.</label>
-                                <select id="sel01" class="selectBox">
-                                    <option value=""></option>
-                                </select>
+                            <div class="finder_row">
+                                <input class="find_name" id="find_name" value="">
+                                <label for="name_find">단지검색</label>
+                                <button id="name_find" onclick="popup()"></button>
                             </div>
+                            <input class="detail_estate01" value="">동
+                            <input class="detail_estate02" value="">호
                         </div>
                     </div>  
                     <div class="row alignTop">

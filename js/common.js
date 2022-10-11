@@ -23,19 +23,37 @@ $(function(){
     }
 
 });
+ 
 
+function popup() {
+    let name = document.getElementById('find_name'),
+        count = $('.result_box').length;
+        
+    if (name != null) {
+        $('.popup.search > ul > li').eq(1).find('p .result').text("‘" + name.value + "’");
+        $('.popup.search > ul > li').eq(1).find('p .num').text(count);
+    }
 
-
-function popup(popConts) {
-	var popthis = $(".popup."+popConts);
+	$(".popup").addClass('on');
     $('body').addClass('blockScroll');
-	popthis.fadeIn(300);
 
-	popthis.find(".pop_close").click(function(){
+	$(".pop_close").click(function(){
+        $(".popup").removeClass('on');
         $('body').removeClass('blockScroll');
-		popthis.fadeOut(300);
 	});
 }
+
+// 기존 팝업 주석처리 2022.10.11
+// function popup(popConts) {
+// 	var popthis = $(".popup."+popConts);
+//     $('body').addClass('blockScroll');
+// 	popthis.fadeIn(300);
+
+// 	popthis.find(".pop_close").click(function(){
+//         $('body').removeClass('blockScroll');
+// 		popthis.fadeOut(300);
+// 	});
+// }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////                                                         **공통**                                                                   ///////
@@ -238,7 +256,7 @@ var commonEvent = {
                         $('body').addClass('blockScroll_m');
                         $('header').hide();
                     } else {
-                        $('body').addClass('blockScroll_pc');
+                        $('body').addClass('blockScroll');
                     }
                     
                 }
@@ -275,7 +293,7 @@ var commonEvent = {
                 $('header').show();
                 
             } else {
-                $('body').removeClass('blockScroll_pc');
+                $('body').removeClass('blockScroll');
             }
         }
     },
@@ -649,7 +667,7 @@ var csEvent = {
             $(this).next(".ans").stop().slideToggle(300);
             $(this).toggleClass('on').siblings().removeClass('on');
             $(this).next(".ans").siblings(".ans").slideUp(300);
-         });
+        });
     },
 
     inqEmail : function() {

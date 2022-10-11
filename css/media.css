@@ -78,8 +78,11 @@
 	#mobile /* .radio_row */ input[type="radio"]:checked + label:before { background-size: 8px 6px; }
 
 	/* file */
-	#mobile .file_row label {width: 110px;height: 35px;line-height: 33px;font-size: 13px;border-radius: 17px; }
-	#mobile .file_row .upload_name { height: 35px;font-size: 13px;padding: 0 10px; }
+	#mobile .file_row label,
+	#mobile .finder_row label {width: 110px;height: 35px;line-height: 33px;font-size: 13px;border-radius: 17px; }
+	#mobile .file_row .upload_name,
+	#mobile .finder_row .find_name { height: 35px;font-size: 13px;padding: 0 10px; }
+
 
 	/* paging */
 	#mobile .contents .paging { margin-top: 30px; }
@@ -176,6 +179,20 @@
 	#mobile .contents .popup ul li:last-child a:hover { box-shadow: 165px 0 0 0 #005eb8 inset, -165px 0 0 0 #005eb8 inset; }
 	#mobile .contents .popup ul li:last-child a img { margin-right: 7px; top: 2px; width: 16.5px; }
 
+	/* search poopup */
+	#mobile .popup.search ul { padding: 40px 17.5px; width: calc(100% - 40px); }
+	#mobile .popup.search ul li:nth-child(2) { padding-bottom: 42px; }
+	#mobile .popup.search ul li:nth-child(2) label input { width: auto; padding: 16px 30px 16px 20px; font-size: 13px; }
+	#mobile .popup.search ul li:nth-child(2) label button { position: absolute; right: 44px; top: 0; bottom: 0; margin: auto; }
+	#mobile .popup.search ul li:nth-child(2) p { display: block; font-size: 16px; color: #555555; margin-top: 21px; }
+	#mobile .popup.search ul li:nth-child(2) p .result,
+	#mobile .popup.search ul li:nth-child(2) p .num { color: #005eb8; font-weight: 400; }
+	#mobile .popup.search ul li:last-child { padding: 0; flex-direction: column; }
+	#mobile .popup.search ul li:last-child a { color: #222222; border: none; border-radius: 0; width: 100%; height: auto; border-bottom: 1px solid #e8e8e8; }
+	#mobile .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
+	#mobile .popup.search ul li:last-child a dl { text-align: left; padding: 32px; }
+	#mobile .popup.search ul li:last-child a dl dt { font-size: 20px; }
+	#mobile .popup.search ul li:last-child a dl dd { font-size: 16px; color: #888888; padding-top: 5px; }
 
 	/* main */
     #mobile .contBox01 .text_wrap .big {font-size:40px;}
@@ -458,11 +475,12 @@
 
 	/* 고객서비스 - 문의하기 & A/S 신청 */
 	#mobile .cs .inquiry .inner { padding: 0 20px; }
-	#mobile .cs .inquiry .inner > p { font-size: 12px; margin-bottom: 14px; }
+	#mobile .cs .inquiry .inner > p { font-size: 12px; margin-bottom: 122px; }
 	#mobile .cs .inquiry .top { font-size: 13px; height: auto; line-height: 1.38; text-align: left; padding: 27px 20px 27px 35px; margin-bottom: 70px; position: relative; }
 	#mobile .cs .inquiry .top span { position: absolute; top:27px; left:20px; }
 	#mobile .cs .inquiry .sec_tit { font-size: 22px; margin-bottom: 30px; }
 	#mobile .cs .inquiry .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
+	#mobile .cs .inquiry .red { margin-bottom: 15px; }
 	#mobile .cs .inquiry ul li { font-size: 12px; line-height: 1.41; }
 	#mobile .cs .inquiry .checkbox_row { margin: 27px 0 70px; width: 100%; }
 	#mobile .cs .inquiry .checkbox_row p { font-size: 16px; margin-bottom: 15px; }
@@ -479,7 +497,7 @@
 	#mobile .cs .inquiry .row+.row { margin-top: 30px; }
 	#mobile .cs .inquiry .row.alignTop .tit_cell { margin-top: 0; }
 	#mobile .cs .inquiry .row .tit_cell { width: 100%; font-size: 14px; margin-bottom: 10px; }
-	#mobile .cs .inquiry .row .ipt_cell { width: 100%; }
+	#mobile .cs .inquiry .row .ipt_cell { width: 100%; font-size: 14px; }
 	#mobile .cs .inquiry .row .ipt_cell .select_row label { color: #b2b2b2; font-size: 13px; }
 	#mobile .cs .inquiry .row .ipt_cell .input_row { height: 50px; }
 	#mobile .cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 20px); height: 50px; padding-left: 20px; }
@@ -491,8 +509,10 @@
 	#mobile .cs .inquiry .row .radio_cell { display: flex; flex-wrap: wrap; }
 	#mobile .cs .inquiry .row .radio_row { height: 18px; line-height: 18px; margin-right: 0; margin: 5px 0 10px; width: calc(100% / 3); }
 	#mobile .cs .inquiry .row .ipt_cell input[type="radio"] + label { padding-left: 30px; }
-
-	#mobile .cs .inquiry .row .file_row .upload_name { width: calc(100% - 140px); height: 35px; margin-right: 14px; outline: 0; }
+	#mobile .cs .inquiry .row .finder_row ~ input { width: calc(50% - 60px); height: 45px; margin-top: 28px; margin-right: 10px; font-size: 14px; padding: 0 15px; }
+	#mobile .cs .inquiry .row .finder_row ~ input:last-child { margin-left: 5px; }
+	#mobile .cs .inquiry .row .file_row .upload_name,
+	#mobile .cs .inquiry .row .finder_row .find_name { width: calc(100% - 140px); height: 35px; margin-right: 14px; outline: 0; }
 	#mobile .cs .inquiry .row .file_row+.info { font-size: 12px; margin-top: 10px; }
 	#mobile .cs .inquiry .row .tit_file { margin-top: 0; }
 

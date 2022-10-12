@@ -73,10 +73,10 @@
                 <ul>
                     <li><img src="images/estate/popup_close.png" alt="close Popup"></li>
                     <li>
-                        <label>
+                        <div class="input_row input_search">
                             <input type="text" placeholder="단지이름 또는 주소로 검색">
-                            <button><img src="images/common/icon_search_gry.png" alt="searcg_gry"></button>
-                        </label>
+                            <a href="javascript:;" title="검색"></a>
+                        </div>
                         <p><span class="result"></span> 으로 총 <span class="num"></span>개의 단지 검색완료</p>
                     </li>
                     <li>
@@ -157,7 +157,7 @@
                     <ol class="applicant_info">
                         <li>
                             <dl>
-                                <dt>고객명</dt>git
+                                <dt>고객명</dt>
                                 <dd>김구남</dd>
                             </dl>
                         </li>
@@ -178,7 +178,7 @@
                     <div class="sec_tit">A/S 신청 정보</div>
                     <div class="red">* 계약고객의 경우 계약고객으로 로그인 후 신청하시기 바랍니다.</div>
                     <p><span class="es">*</span> 필수입력항목</p>
-                    <div class="row">
+                    <div class="row alignTop">
                         <div class="tit_cell tit_find">계약단지 <span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="finder_row">
@@ -219,7 +219,6 @@
                             <div class="select_row">
                                 <label for="sel03">A/S 대상을 선택해 주세요.</label>
                                 <select id="sel03" class="selectBox">
-                                    <option value=""></option>
                                 </select>
                             </div>
                             <input type="text" id="sel03Direct" name="sel03Direct" class="selDirect">

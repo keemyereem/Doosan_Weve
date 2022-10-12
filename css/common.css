@@ -36,7 +36,7 @@ select::-ms-expand {display:none;}
 caption, legend {position:absolute; top:0; left:-9999em;}
 .indentUp { transform: translateY(-100px)!important; }
 .blockScroll { overflow: hidden; height: 100vh; }
-.blockScroll_m { overflow: hidden; position: fixed; }
+.blockScroll_m { overflow: hidden; }
 .br_m,
 .img_m ,
 .indent {display: none;}
@@ -161,12 +161,17 @@ nav ul li.mb { display: none; }
 /* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
 
 /* file/ seacrch */
-.file_row, .finder_row {width: 100%;display: flex;align-items: center;/* justify-content: space-between; */}
+.file_row, .file_row form, .finder_row {width: 100%;display: flex;align-items: center;}
 .file_row input[type="file"] {position: absolute;width: 0;height: 0;padding: 0;overflow: hidden;border: 0;}
 .file_row label,
-.finder_row label {display: block;/* float: left; */width: 210px;height: 60px;line-height: 60px;font-size: 18px;color: #005eb8;text-align: center;cursor: pointer;border: 1px solid #005eb8;border-radius: 30px;flex-shrink: 0;}
+.finder_row label {display: block;width: 210px;height: 60px;line-height: 60px;font-size: 18px;color: #005eb8;text-align: center;cursor: pointer;border: 1px solid #005eb8;border-radius: 30px;flex-shrink: 0;}
 .file_row .upload_name,
-.finder_row .find_name {display: block;/* float: left; */height: 46px;font-size: 16px;color: #b2b2b2;padding: 0 20px; border-bottom: 1px solid #e8e8e8;border-left: 0;border-right: 0;border-top: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.finder_row .find_name {display: block;width: 100%;height: 46px;font-size: 16px;color: #b2b2b2;padding: 0 20px; border-bottom: 1px solid #e8e8e8;border-left: 0;border-right: 0;border-top: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.file_row .file-list {display: flex; align-items: center; justify-content: flex-start; width: 100%;height: 60px; padding: 0 20px; border-bottom: 1px solid #e8e8e8;border-left: 0;border-right: 0;border-top: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.file-list .filebox {display: inline-flex; align-items: center; margin-right: 10px;}
+.file-list .filebox p {font-size: 14px; display: inline-block;}
+.file-list .filebox .delete {display: inline-block;width: 20px;height: 20px;background: url(../images/common/btn_del.png) no-repeat;background-size: contain;margin-left: 10px;}
+
 
 /* paging */
 .contents .paging {margin-top: 40px;position: relative;text-align: center;}

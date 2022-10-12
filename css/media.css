@@ -82,6 +82,10 @@
 	#mobile .finder_row label {width: 110px;height: 35px;line-height: 33px;font-size: 13px;border-radius: 17px; }
 	#mobile .file_row .upload_name,
 	#mobile .finder_row .find_name { height: 35px;font-size: 13px;padding: 0 10px; }
+	#mobile .file_row form { align-items: flex-end; }
+	#mobile .file_row .file-list { width: 100%; height: auto; min-height: 35px; flex-direction: column; align-items: flex-start; }
+	#mobile .file-list .filebox { display: flex; }
+	#mobile .file-list .filebox+.filebox { margin-top: 5px; }
 
 
 	/* paging */
@@ -180,16 +184,16 @@
 	#mobile .contents .popup ul li:last-child a img { margin-right: 7px; top: 2px; width: 16.5px; }
 
 	/* search poopup */
-	#mobile .popup.search ul { padding: 40px 17.5px; width: calc(100% - 40px); }
-	#mobile .popup ul li:first-child { top: -40px; width: 27px; height: 27px; }
-	#mobile .popup.search ul li:nth-child(2) { padding-bottom: 34px; }
-	#mobile .popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
-	#mobile .popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
-	#mobile .popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
-	#mobile .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
-	#mobile .popup.search ul li:last-child a dl { padding: 15px; }
-	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }
-	#mobile .popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
+	/* #mobile  */.popup.search ul { padding: 40px 17.5px; width: calc(100% - 40px); }
+	/* #mobile  */.popup ul li:first-child { top: -40px; width: 27px; height: 27px; }
+	/* #mobile  */.popup.search ul li:nth-child(2) { padding-bottom: 34px; }
+	/* #mobile  */.popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
+	/* #mobile  */.popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
+	/* #mobile  */.popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
+	/* #mobile  */.popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
+	/* #mobile  */.popup.search ul li:last-child a dl { padding: 15px; }
+	/* #mobile  */.popup.search ul li:last-child a dl dt { font-size: 15px; }
+	/* #mobile  */.popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
 
 	/* main */
     #mobile .contBox01 .text_wrap .big {font-size:40px;}

@@ -71,7 +71,7 @@
         <div class="container cs">   
             <div class="popup search">
                 <ul>
-                    <li><img src="images/estate/popup_close.png" alt="close Popup"></li>
+                    <li><img src="images/estate/popup_close.png" alt="close Popup" class="pop_close"></li>
                     <li>
                         <div class="input_row input_search">
                             <input type="text" placeholder="단지이름 또는 주소로 검색">
@@ -236,9 +236,11 @@
                         <div class="tit_cell tit_file">파일첨부</div>
                         <div class="ipt_cell">
                             <div class="file_row">
-                                <input class="upload_name" value="" readonly>
-                                <label for="upload_file">찾아보기</label>
-                                <input type="file" id="upload_file" name="upload_file">
+                                <form method="POST" onsubmit="return false;" enctype="multipart/form-data">
+                                    <div class="file-list"></div>
+                                    <input type="file" id="upload_file" name="upload_file" onchange="addFile(this);" multiple />
+                                    <label for="upload_file">찾아보기</label>
+                                </form>
                             </div>
                             <span class="info">첨부파일은 하나에 10MB, 최대 5장 까지 첨부 가능합니다.<br>
                                 jpg, jpeg, png, gif 등 이미지파일만 업로드 가능합니다. </span>

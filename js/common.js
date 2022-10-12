@@ -37,6 +37,11 @@ function popup() {
 	$(".popup").addClass('on');
     $('body').addClass('blockScroll');
 
+    var winX = window.scrollX;
+    console.log('winX'+ winX)
+
+
+
 	$(".pop_close").click(function(){
         $(".popup").removeClass('on');
         $('body').removeClass('blockScroll');
@@ -148,25 +153,14 @@ var commonEvent = {
         };
     
         //file
-        var fileTarget = $('#upload_file');
-        fileTarget.on('change', function(){
-            var cur =$ (".file_row input[type='file']").val();
-            $(".upload_name").val(cur);
-        });
-
-        //직접입력
-        // var selDirect = $('#selboxDirect');
-        // $(selDirect).hide();
-        // $('#sel02').on('change', function(){
-        //     if($("#sel02").val() == "direct") {
-        //         $(selDirect).show();
-        //         console.log(selDirect);
-        //     }  else {
-        //         $(selDirect).hide();
-        //     }
+        // var fileTarget = $('#upload_file');
+        // fileTarget.on('change', function(){
+        //     var cur =$ (".file_row input[type='file']").val();
+        //     $(".upload_name").val(cur);
         // });
     
     },
+    
     
     tabEvent: () => {
         if($(window).width() < 768){
@@ -746,6 +740,88 @@ function addressKindChange(e) {
         opt.value = d[x];
         opt.innerHTML = d[x];
         target.appendChild(opt);
+    }
+
+}
+
+var fileNo = 0;
+var filesArr = new Array();
+
+/* 첨부파일 추가 */
+function addFile(obj){
+    var maxFileCnt = 5;   // 첨부파일 최대 개수
+    var attFileCnt = document.querySelectorAll('.filebox').length;    // 기존 추가된 첨부파일 개수
+    var remainFileCnt = maxFileCnt - attFileCnt;    // 추가로 첨부가능한 개수
+    var curFileCnt = obj.files.length;  // 현재 선택된 첨부파일 개수
+
+    // 첨부파일 개수 확인
+    if (curFileCnt > remainFileCnt) {
+        alert("첨부파일은 최대 " + maxFileCnt + "개 까지 첨부 가능합니다.");
+    }
+
+    for (var i = 0; i < Math.min(curFileCnt, remainFileCnt); i++) {
+
+        const file = obj.files[i];
+
+        // 첨부파일 검증
+        if (validation(file)) {
+            // 파일 배열에 담기
+            var reader = new FileReader();
+            reader.onload = function () {
+                filesArr.push(file);
+            };
+            reader.readAsDataURL(file)
+
+            // 목록 추가
+            let htmlData = '';
+            htmlData += '<div id="file' + fileNo + '" class="filebox">';
+            htmlData += '   <p class="name">' + file.name + '</p>';
+            htmlData += '   <a class="delete" onclick="deleteFile(' + fileNo + ');"></a>';
+            htmlData += '</div>';
+            $('.file-list').append(htmlData);
+            fileNo++;
+        } else {
+            continue;
+        }
+    }
+    // 초기화
+    document.querySelector("input[type=file]").value = "";
+}
+
+/* 첨부파일 검증 */
+
+// 파일 사이즈 체크
+var maxSize = 10485760; //10MB
+
+function validation(obj){
+    const fileTypes = ['image/gif','image/jpg','image/jpeg','image/png','image/bmp','image/tif'];
+    if (obj.size > maxSize) {
+        alert("최대 파일 용량인 10MB를 초과한 파일은 제외되었습니다.");
+        return false;
+    } else if (!fileTypes.includes(obj.type)) {
+        alert("첨부가 불가능한 파일은 제외되었습니다.");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/* 첨부파일 삭제 */
+function deleteFile(num) {
+    document.querySelector("#file" + num).remove();
+    filesArr[num].is_delete = true;
+}
+
+/* 폼 전송 */
+function submitForm() {
+    // 폼데이터 담기
+    var form = document.querySelector("form");
+    var formData = new FormData(form);
+    for (var i = 0; i < filesArr.length; i++) {
+        // 삭제되지 않은 파일만 폼데이터에 담기
+        if (!filesArr[i].is_delete) {
+            formData.append("attach_file", filesArr[i]);
+        }
     }
 
 }

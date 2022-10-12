@@ -155,16 +155,16 @@ var commonEvent = {
         });
 
         //직접입력
-        var selDirect = $('#selboxDirect');
-        $(selDirect).hide();
-        $('#sel02').on('change', function(){
-            if($("#sel02").val() == "direct") {
-                $(selDirect).show();
-                console.log(selDirect);
-            }  else {
-                $(selDirect).hide();
-            }
-        });
+        // var selDirect = $('#selboxDirect');
+        // $(selDirect).hide();
+        // $('#sel02').on('change', function(){
+        //     if($("#sel02").val() == "direct") {
+        //         $(selDirect).show();
+        //         console.log(selDirect);
+        //     }  else {
+        //         $(selDirect).hide();
+        //     }
+        // });
     
     },
     
@@ -659,7 +659,7 @@ var csEvent = {
     init: function(){
         this.faqToggle();
         this.inqEmail();
-        this.multiSelect();
+        this.DirectSelect();
     },
     
     faqToggle: function(){
@@ -689,42 +689,63 @@ var csEvent = {
         };
 	},
 
-    multiSelect : function(){
-        var mainPlace = document.querySelector('#sel02');
-
-        mainPlace.onchange = function(){
-            var sub = document.querySelector('#subOption');
-            var mainOpt = mainPlace.options[mainPlace.selectedIndex].innerText;
-            console.log('mainOpt: '+ mainOpt);
-        }
-
-        var subOptions = {
-            livingroom : [ '걸레받이', '공청TV', '도배', '목재문(틀)', '몰딩' ],
-            bedroom : [ 'a', 'b', 'v', 'd', 'e' ],
-            kitchen : [ '1', '2', '3', '4', '5' ]
-        }
-
-        switch(mainOpt) {
-            case '거실':
-                var subOption = subOptions.livingroom;
-                console.log('거실고름')
-                break;
-            case '침실':
-                var subOption = subOptions.bedroom;
-                console.log('침실고름')
-
-                break;
-            case '주방':
-                var subOption = subOptions.kitchen;
-                break;
-        }
-
-        sub.options.length = 0;
-        for(var i = 0; i<subOption.length; i++){
-            var option = document.createElement('option');
-            option.innerText = subOption[i];
-            sub.append(option);
-        }
-
+    DirectSelect : function(){
+        //직접입력
+        var sel03Direct = $('#sel03Direct');
+        $(sel03Direct).hide();
+        $('#sel03').on('change', function(){
+            if($("#sel03").val() == "직접입력" || $("#sel03").val() == "기타") {
+                $(sel03Direct).show();
+                console.log(sel03Direct);
+            }  else {
+                $(sel03Direct).hide();
+            }
+        });
     },
+
+}
+
+function addressKindChange(e) {
+    var livingroom = [ "A/S 대상을 선택해 주세요.", "걸레받이", "공청TV", "도배", "목재문(틀)",  "몰딩", "홈네트워크(비디오폰)", "아트월", "유리", "전등",  "전화", "콘센트,스위치", "화재감지기", "PL창(틀)", "스피커", "기타" ];
+    var bedroom = [ "A/S 대상을 선택해 주세요.", "가구(붙박이장)", "걸레받이", "공청TV", "도배", "목재문(틀)", "몰딩", "바닥재(마루)", "아트월", "유리", "전등", "전화", "콘센트,스위치", "화재감지기", "AL창(틀)", "PL창(틀)", "기타" ];
+    var kitchen = [ "A/S 대상을 선택해 주세요.", "가스감지기", "걸레받이", "도배", "라디오/액정 TV", "렌지후드", "목재문(틀)", "몰딩", "바닥재(마루)", "수전류", "유리", "전등", "주방가구", "콘센트,스위치", "타일", "화재감지기", "AL창(틀)", "PL창(틀)", "빌트인 가스레인지", "빌트인 냉장고", "빌트인 세탁기", "빌트인 식기세척기", "빌트인 오븐렌지", "빌트인 잔반탈수기", "기타" ];
+    var entrance = [ "A/S 대상을 선택해 주세요.", "가구(신발장)", "걸레받이", "도배", "디지털 도아록", "몰딩", "바닥재(석재)", "바닥재(타일)", "실리콘(코킹)", "아트월", "유리", "일괄소등스위치", "전등", "철재문(틀)", "기타" ];
+    var sharedBathroom = [ "A/S 대상을 선택해 주세요.", "욕실장", "누수", "도배", "욕실문(틀)", "몰딩", "바닥 배수구", "비데", "샤워부스", "세면기", "수전류(샤워기 포함)", "실리콘(코킹)", "액세서리류", "양변기", "욕실폰", "욕조", "월풀욕조", "전등", "점검구", "콘센트,스위치", "타일", "천장 배기휀", "기타" ];
+    var coupleBathroom = [ "A/S 대상을 선택해 주세요.", "욕실장", "누수", "도배", "욕실문(틀)", "몰딩", "바닥 배수구", "비데", "샤워부스", "세면기", "수전류(샤워기 포함)", "실리콘(코킹)", "액세서리류", "양변기", "욕실폰", "욕조", "월풀욕조", "전등", "점검구", "콘센트,스위치", "타일", "천장 배기휀", "기타" ];
+    var balcony = [ "A/S 대상을 선택해 주세요.", "세탁선반", "난간대", "누수", "도장", "바닥 배수구", "선홈통", "수전류", "실리콘(코킹)", "전등", "콘센트,스위치", "타일", "균열", "PL창(틀)", "유리", "기타" ];
+    var dressroom = [ "A/S 대상을 선택해 주세요.", "문짝 및 문틀", "시스템 선반", "가구(화장대)", "도배", "목재문(틀)", "몰딩", "바닥재(마루)", "PL창(틀)", "유리", "전등", "콘센트,스위치", "기타" ];
+    var outdoorroom = [ "A/S 대상을 선택해 주세요.", "도장", "보일러", "실리콘(코킹)", "전등", "철재문(틀)", "콘센트,스위치", "AL창(틀)", "기타" ];
+    var laundryroom = [ "A/S 대상을 선택해 주세요.", "도장", "보일러", "실리콘(코킹)", "전등", "PL창(틀)", "유리", "콘센트,스위치", "기타" ];
+    var direct = [ "A/S 대상을 선택해 주세요.", "직접입력" ];
+
+    var target = document.getElementById("sel03");
+    var selDirect = document.getElementById("selboxDirect");
+    selDirect.style.display = 'none';
+
+    if(e.value == "1") var d = livingroom;
+    else if(e.value == "2") var d = bedroom;
+    else if(e.value == "3") var d = kitchen;
+    else if(e.value == "4") var d = entrance;
+    else if(e.value == "5") var d = sharedBathroom;
+    else if(e.value == "6") var d = coupleBathroom;
+    else if(e.value == "7") var d = balcony;
+    else if(e.value == "8") var d = dressroom;
+    else if(e.value == "9") var d = outdoorroom;
+    else if(e.value == "10") var d = laundryroom;
+    if(e.value == "direct") {
+        var d = direct;
+        selDirect.style.display = 'block';
+    }else {
+        selDirect.style.display = 'none';
+    }
+
+    target.options.length = 0;
+
+    for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+    }
+
 }

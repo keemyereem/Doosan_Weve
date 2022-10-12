@@ -166,7 +166,8 @@
                         <div class="ipt_cell">
                             <div class="select_row">
                                 <label for="sel02">A/S 공간을 선택해 주세요.</label>
-                                <select id="sel02" class="selectBox">
+                                <select id="sel02" class="selectBox" onchange="addressKindChange(this)">
+                                    <option>A/S 공간을 선택해 주세요.</option>
                                     <option value="1">거실</option>
                                     <option value="2">침실</option>
                                     <option value="3">주방</option>
@@ -175,14 +176,15 @@
                                     <option value="6">부부욕실</option>
                                     <option value="7">발코니</option>
                                     <option value="8">드레스룸</option>
-                                    <option value="9">보일러실</option>
+                                    <option value="9">실외기실</option>
+                                    <option value="10">세탁실</option>
                                     <option value="direct">직접입력</option>
                                 </select>
                             </div>
-                            <input type="text" id="selboxDirect" name="selboxDirect">
+                            <input type="text" id="selboxDirect" name="selboxDirect" class="selDirect">
                         </div>
                     </div>  
-                    <div class="row">
+                    <div class="row alignTop">
                         <div class="tit_cell">A/S 대상 <span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="select_row">
@@ -191,6 +193,7 @@
                                     <option value=""></option>
                                 </select>
                             </div>
+                            <input type="text" id="sel03Direct" name="sel03Direct" class="selDirect">
                         </div>
                     </div>   
                     <div class="row alignTop">

@@ -88,7 +88,7 @@
                         <span></span>
                     </li>
                     <li class="mb">
-                        <a href="html/FD-03-02.html" title="문의하기 페이지 이동">문의하기</a>
+                        <a href="html/FD-03-02-01.html" title="문의하기 페이지 이동">문의하기</a>
                         <span></span>
                     </li>
                     <li>
@@ -100,7 +100,12 @@
 
             <div class="contents inquiry">
                 <div class="inner">
-                    <div class="top"><span>※</span> 질문분야를 알맞게 선택하셔야 빠른 상담이 가능합니다.</div>
+                    <div class="top">
+                        <h3>문의 내역은 마이위브에서<br class="br_m"> 확인 가능합니다.</h3>
+                        <div class="btn_line">
+                            <a href="javascript:;" title="문의 내역 확인">문의 내역 확인</a>
+                        </div>
+                    </div>
                     <div class="sec_tit">개인정보 수집 및 이용동의</div>
                     <div class="cont_box">
                         <div>
@@ -127,93 +132,70 @@
                         </div>
                     </div>
 
-                    <div class="sec_tit">문의사항 입력</div>
+                    <div class="sec_tit">계약자 정보</div>
+                    <ol class="applicant_info">
+                        <li>
+                            <dl>
+                                <dt>고객명</dt>
+                                <dd>오지혁</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>연락처</dt>
+                                <dd>010-5555-5555</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>이메일</dt>
+                                <dd>modelpolice2@icloud.com</dd>
+                            </dl>
+                        </li>
+                    </ol>
+
+                    <div class="sec_tit">계약자 정보</div>
+                    <div class="row alignTop">
+                        <div class="tit_cell">계약단지</div>
+                        <div class="ipt_cell">
+                            <div class="select_row">
+                                <label for="find_complex">문의할 단지를 선택 해 주세요. (선택)</label>
+                                <select id="find_complex" class="selectBox">
+                                    <option value="">문의할 단지를 선택 해 주세요. (선택)</option>
+                                    <option value="direct">직접입력</option>
+                                </select>
+                            </div>
+                            <input type="text" id="selboxDirect" name="selboxDirect" class="selDirect">
+                        </div>
+                    </div>  
+
+                    <div class="sec_tit">문의 내용</div>
                     <p><span class="es">*</span> 필수입력항목</p>
                     <div class="row">
-                        <div class="tit_cell">고객명<span class="es">*</span></div>
+                        <div class="tit_cell">문의분야 <span class="es">*</span></div>
                         <div class="ipt_cell">
-                            <div class="input_row">
-                                <input type="text" id="name" placeholder="성명을 입력 하세요." >
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="row">
-                        <div class="tit_cell">연락처<span class="es">*</span></div>
-                        <div class="ipt_cell">
-                            <div class="input_row">
-                                <input type="text" id="phone" placeholder="0xx-xxxx-xxxx" >
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="row">
-                        <div class="tit_cell">이메일 <span class="es">*</span></div>
-                        <div class="ipt_cell email_cell">
-                            <div class="input_row">
-                                <input type="text" id="email_front" >
-                            </div>
-                            <span>@</span>
-                            <div class="input_row">
-                                <input type="text" id="email_address" >
-                            </div>
                             <div class="select_row">
-                                <label for="email_self">naver.com</label>
-                                <select id="email_self" class="selectBox">
-                                    <option value="">직접입력</option>
-                                    <option selected value="naver.com">naver.com</option>
-                                    <option value="daum.net">daum.net</option>
-                                    <option value="hanmail.net">hanmail.net</option>
-                                    <option value="nate.com">nate.com</option>
-                                    <option value="gmail.com">gmail.com</option>
-                                    <option value="empal.com">empal.com</option>
-                                    <option value="hotmail.com">hotmail.com</option>
-                                    <option value="korea.kr">korea.kr</option>
-                                    <option value="yahoo.com">yahoo.com</option>
+                                <label for="">문의 분야를 선택해 주세요.</label>
+                                <select name="" id="">
+                                    <option value="">문의 분야를 선택해 주세요.</option>
+                                    <option value="">분양문의</option>
+                                    <option value="">계약문의</option>
+                                    <option value="">현장문의</option>
+                                    <option value="">입주문의</option>
+                                    <option value="">일반문의</option>
                                 </select>
                             </div>
                         </div>
                     </div>  
                     <div class="row">
-                        <div class="tit_cell">질문분야</div>
-                        <div class="ipt_cell radio_cell">
-                            <div class="radio_row">
-                                <input type="radio" id="rd01" name="que_field">
-                                <label for="rd01">분양문의</label> 
-                            </div>
-                            <div class="radio_row">
-                                <input type="radio" id="rd02" name="que_field">
-                                <label for="rd02">계약문의</label>
-                            </div>
-                            <div class="radio_row">
-                                <input type="radio" id="rd03" name="que_field">
-                                <label for="rd03">현장문의</label>
-                            </div>
-                            <div class="radio_row">
-                                <input type="radio" id="rd04" name="que_field">
-                                <label for="rd04">입주문의</label>
-                            </div>
-                            <div class="radio_row">
-                                <input type="radio" id="rd05" name="que_field">
-                                <label for="rd05">일반문의</label>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="tit_cell">단지정보</div>
-                        <div class="ipt_cell">
-                            <div class="input_row">
-                                <input type="text" id="complex_info" >
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="row">
                         <div class="tit_cell">제목<span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="input_row">
-                                <input type="text" id="title" placeholder="제목을 입력 하세요." >
+                                <input type="text" id="title" placeholder="질문 제목을 입력하세요. (필수)" >
                             </div>
                         </div>
                     </div> 
-                    <div class="row cont_row">
+                    <div class="row alignTop">
                         <div class="tit_cell">질문내용<span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="area_row">
@@ -233,7 +215,7 @@
                         </div>
                     </div>
                     
-                    <div class="btn_line"><a href="javascript:;" title="등록">등록</a></div>
+                    <div class="btn_line"><a href="javascript:;" title="문의하기">문의하기</a></div>
                                         
                 </div>
 

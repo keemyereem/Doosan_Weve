@@ -4,7 +4,6 @@
 
 
 $(function(){
-
     const isMobile = () => {
         const user = navigator.userAgent;
         let isCheck = false;
@@ -22,43 +21,22 @@ $(function(){
         $('html').attr('id', 'mobile')
     }
 
+
+    // 팝업 데이터 가져오기 [ 미완성 코드 :: 팝업 내부 검색기능도 value값 인식하게 해야 함 ]
+    getVal = ()=> {
+        const body = document.querySelector('body');
+        let name = document.getElementById('find_name'),
+            count = $('.result_box').length;
+
+        
+        if (name != null) {
+            $('.popup.search > ul > li').eq(1).find('p .result').text("‘" + name.value + "’");
+            $('.popup.search > ul > li').eq(1).find('p .num').text(count);
+        }
+    };
 });
  
 
-function popup() {
-    let name = document.getElementById('find_name'),
-        count = $('.result_box').length;
-        
-    if (name != null) {
-        $('.popup.search > ul > li').eq(1).find('p .result').text("‘" + name.value + "’");
-        $('.popup.search > ul > li').eq(1).find('p .num').text(count);
-    }
-
-	$(".popup").addClass('on');
-    $('body').addClass('blockScroll');
-
-    var winX = window.scrollX;
-    console.log('winX'+ winX)
-
-
-
-	$(".pop_close").click(function(){
-        $(".popup").removeClass('on');
-        $('body').removeClass('blockScroll');
-	});
-}
-
-// 기존 팝업 주석처리 2022.10.11
-// function popup(popConts) {
-// 	var popthis = $(".popup."+popConts);
-//     $('body').addClass('blockScroll');
-// 	popthis.fadeIn(300);
-
-// 	popthis.find(".pop_close").click(function(){
-//         $('body').removeClass('blockScroll');
-// 		popthis.fadeOut(300);
-// 	});
-// }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////                                                         **공통**                                                                   ///////
@@ -153,11 +131,11 @@ var commonEvent = {
         };
     
         //file
-        // var fileTarget = $('#upload_file');
-        // fileTarget.on('change', function(){
-        //     var cur =$ (".file_row input[type='file']").val();
-        //     $(".upload_name").val(cur);
-        // });
+        var fileTarget = $('#upload_file');
+        fileTarget.on('change', function(){
+            var cur =$ (".file_row input[type='file']").val();
+            $(".upload_name").val(cur);
+        });
     
     },
     
@@ -219,15 +197,17 @@ var commonEvent = {
     },
 
     popup: ()=> {
-        const list = $('.list').find('> ul > li'),
-              popupUI = $('.popup > ul > li:last-child'),
-              popupClose = $('.popup > ul > li:first-child'),
-              body = document.querySelector('body');
-        
+        // 스크롤 값 추적
         let scrollPosition = 0;
         $(window).on('scroll', ()=> {
             scrollPosition = window.pageYOffset;
         });
+
+        // 분양안내용 팝업코드
+        const list = $('.list').find('> ul > li'),
+              popupUI = $('.popup > ul > li:last-child'),
+              popupClose = $('.pop_close'),
+              body = document.querySelector('body');
 
         list.each((index) => {
             list.eq(index).children('a').on('click', ()=> {
@@ -243,16 +223,7 @@ var commonEvent = {
                 if (data >= 0 && data <= 2) {
                     return;
                 } else {
-                    $('.popup').addClass('on');
-                                        
-                    if ($('#mobile').length) {
-                        body.style.top = `-${scrollPosition}px`;
-                        $('body').addClass('blockScroll_m');
-                        $('header').hide();
-                    } else {
-                        $('body').addClass('blockScroll');
-                    }
-                    
+                    openProcessor();
                 }
                 
             });
@@ -267,18 +238,39 @@ var commonEvent = {
             $(this).find('img:first-child').addClass('on');
         });
 
+        //공통 팝업코드
+        $('.openPopup').on('click', ()=> {
+            openProcessor();
+        });
+
+        // 팝업 닫기
         popupClose.on('click', ()=> {
             closeProcessor();
         });
 
+        // 팝업 열기 function
+        function openProcessor() {
+            scrollPosition = window.pageYOffset;
+
+            $(".popup").addClass('on');
+            $('html').addClass('blockScroll');
+
+            if ($('#mobile').length) {
+                body.style.top = `-${scrollPosition}px`;
+                $('header').hide();
+            }
+        }
+
+        // 팝업 닫기 function
         function closeProcessor() {
-            $('.popup').removeClass('on');
             if($('.gallery_swiper').length){
                 channelEvent.gallerySwiper();
             }
 
+            $('html').removeClass('blockScroll');
+            $('.popup').removeClass('on');
+            
             if ($('#mobile').length) { 
-                $('body').removeClass('blockScroll_m');
                 scrollPosition = body.style.top;
                 scrollPosition = scrollPosition.replace('px', '');
     
@@ -286,10 +278,9 @@ var commonEvent = {
                 window.scrollTo(0, -(scrollPosition));
                 $('header').show();
                 
-            } else {
-                $('body').removeClass('blockScroll');
             }
         }
+
     },
 
     goTopEvent:() => {
@@ -675,9 +666,10 @@ var csEvent = {
                 $(this).siblings("label").text(select_name);
 
                 if(select_name === '직접입력') {
-                    $('.cs .inquiry .row .ipt_cell.email_cell > div:nth-of-type(2)').show();
+                    $(this).parent().siblings($('#selboxDirect')).show();
+                    
                 }else {
-                    $('.cs .inquiry .row .ipt_cell.email_cell > div:nth-of-type(2)').hide();
+                    $(this).parent().siblings($('#selboxDirect')).hide();
                 }
             });
         };
@@ -695,6 +687,7 @@ var csEvent = {
                 $(sel03Direct).hide();
             }
         });
+
     },
 
 }

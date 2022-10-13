@@ -51,7 +51,7 @@
 
 	/* selectbox */
 	#mobile .select_row { height: 50px; }
-	#mobile .select_row:after { right: 10px; width: 9px; height: 5px; }
+	#mobile .select_row:after { right: 20px; width: 9px; height: 5px; }
 	#mobile .select_row label { height: 50px;line-height: 50px;padding: 0 20px;font-size: 14px;color: #222; }
 	#mobile .select_row select { height: 50px;line-height: 50px;padding: 0 0 0 10px;opacity: 0; }
 	#mobile .select_row select option { font-size: 14px;font-weight: 200; }
@@ -83,9 +83,11 @@
 	#mobile .file_row .upload_name,
 	#mobile .finder_row .find_name { height: 35px;font-size: 13px;padding: 0 10px; }
 	#mobile .file_row form { align-items: flex-end; }
-	#mobile .file_row .file-list { width: 100%; height: auto; min-height: 35px; flex-direction: column; align-items: flex-start; }
-	#mobile .file-list .filebox { display: flex; }
-	#mobile .file-list .filebox+.filebox { margin-top: 5px; }
+	#mobile .file_row .file-list { width: calc(100% - 110px); height: auto; min-height: 35px; padding: 0 10px; flex-direction: column; align-items: flex-start; justify-content: center; }
+	#mobile .file-list .filebox { display: flex; max-width: 100%; }
+	#mobile .file-list .filebox p { max-width: 100%; line-height: 1.8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+	/* #mobile .file-list .filebox+.filebox { margin-top: 5px; } */
+	#mobile .file-list .filebox .delete { flex-shrink: 0; }
 
 
 	/* paging */
@@ -184,16 +186,16 @@
 	#mobile .contents .popup ul li:last-child a img { margin-right: 7px; top: 2px; width: 16.5px; }
 
 	/* search poopup */
-	/* #mobile  */.popup.search ul { padding: 40px 17.5px; width: calc(100% - 40px); }
-	/* #mobile  */.popup ul li:first-child { top: -40px; width: 27px; height: 27px; }
-	/* #mobile  */.popup.search ul li:nth-child(2) { padding-bottom: 34px; }
-	/* #mobile  */.popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
-	/* #mobile  */.popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
-	/* #mobile  */.popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
-	/* #mobile  */.popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
-	/* #mobile  */.popup.search ul li:last-child a dl { padding: 15px; }
-	/* #mobile  */.popup.search ul li:last-child a dl dt { font-size: 15px; }
-	/* #mobile  */.popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
+	#mobile .popup.search ul { padding: 40px 17.5px; width: calc(100% - 40px); }
+	#mobile .popup ul li:first-child { top: -40px; width: 27px; height: 27px; }
+	#mobile .popup.search ul li:nth-child(2) { padding-bottom: 34px; }
+	#mobile .popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
+	#mobile .popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
+	#mobile .popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
+	#mobile .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
+	#mobile .popup.search ul li:last-child a dl { padding: 15px; }
+	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }
+	#mobile .popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
 
 	/* main */
     #mobile .contBox01 .text_wrap .big {font-size:40px;}
@@ -476,8 +478,10 @@
 	/* 고객서비스 - 문의하기 & A/S 신청 */
 	#mobile .cs .inquiry .inner { padding: 0 20px; }
 	#mobile .cs .inquiry .inner > p { font-size: 12px; margin-bottom: 12px; }
-	#mobile .cs .inquiry .top { font-size: 13px; height: auto; line-height: 1.38; text-align: left; padding: 27px 20px 27px 35px; margin-bottom: 70px; position: relative; }
-	#mobile .cs .inquiry .top span { position: absolute; top:27px; left:20px; }
+	#mobile .cs .inquiry .top { height: 140px; background: url(../images/cs/inquiry_banner_m.png) no-repeat 50% 50%; background-size: cover; margin-bottom: 50px; }
+	#mobile .cs .inquiry .top h3 { font-size: 17px; }
+	#mobile .cs .inquiry .top .btn_line a { width: 158px; height: 38px; line-height: 36px; border-radius: 18px; margin: 15px auto 0; }
+	
 	#mobile .cs .inquiry .sec_tit { font-size: 22px; margin-bottom: 30px; }
 	#mobile .cs .inquiry .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
 	#mobile .cs .inquiry .red { margin-bottom: 15px; margin-top: 0; }
@@ -495,6 +499,7 @@
 	#mobile .cs .inquiry .applicant_info li dd { font-size: 14px; }
 	#mobile .cs .inquiry .row { flex-direction: column; align-items: flex-start; }
 	#mobile .cs .inquiry .row+.row { margin-top: 30px; }
+	#mobile .cs .inquiry .row+.sec_tit { margin-top: 70px;}
 	#mobile .cs .inquiry .row.alignTop .tit_cell { margin-top: 0; }
 	#mobile .cs .inquiry .row .tit_cell { width: 100%; font-size: 14px; margin-bottom: 10px; }
 	#mobile .cs .inquiry .row .ipt_cell { width: 100%; font-size: 14px; }

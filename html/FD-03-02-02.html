@@ -95,7 +95,7 @@
                     </li>
                 </ul>
             </div>
-
+            
             <section class="section1">
                 <h2>
                     고객서비스
@@ -110,15 +110,15 @@
                         <a href="html/FD-03-01.html" title="FAQ 페이지 이동">FAQ</a>
                         <span></span>
                     </li>
-                    <li>
-                        <a href="html/FD-03-02.html" title="문의하기 페이지 이동">문의하기</a>
-                        <span></span>
-                    </li>
                     <li class="on">
-                        <a href="javascript:;" title="A/S 신청 페이지 이동">A/S 신청</a>
+                        <a href="javascript:;" title="문의하기 페이지 이동">문의하기</a>
                         <span></span>
                     </li>
                     <li class="mb">
+                        <a href="html/FD-03-02-01.html" title="문의하기 페이지 이동">문의하기</a>
+                        <span></span>
+                    </li>
+                    <li>
                         <a href="html/FD-03-03.html" title="A/S 신청 페이지 이동">A/S 신청</a>
                         <span></span>
                     </li>
@@ -127,6 +127,12 @@
 
             <div class="contents inquiry">
                 <div class="inner">
+                    <div class="top">
+                        <h3>문의 내역은 마이위브에서<br class="br_m"> 확인 가능합니다.</h3>
+                        <div class="btn_line">
+                            <a href="javascript:;" title="문의 내역 확인">문의 내역 확인</a>
+                        </div>
+                    </div>
                     <div class="sec_tit">개인정보 수집 및 이용동의</div>
                     <div class="cont_box">
                         <div>
@@ -153,101 +159,85 @@
                         </div>
                     </div>
 
-                    <div class="sec_tit">신청자 정보</div>
+                    <div class="sec_tit">계약자 정보</div>
                     <ol class="applicant_info">
                         <li>
                             <dl>
                                 <dt>고객명</dt>
-                                <dd>김구남</dd>
+                                <dd>오지혁</dd>
                             </dl>
                         </li>
                         <li>
                             <dl>
                                 <dt>연락처</dt>
-                                <dd>010-9999-9999</dd>
+                                <dd>010-5555-5555</dd>
                             </dl>
                         </li>
                         <li>
                             <dl>
                                 <dt>이메일</dt>
-                                <dd>9son@yellowsea.com</dd>
+                                <dd>modelpolice2@icloud.com</dd>
                             </dl>
                         </li>
                     </ol>
 
-                    <div class="sec_tit">A/S 신청 정보</div>
-                    <div class="red">* 계약고객의 경우 계약고객으로 로그인 후 신청하시기 바랍니다.</div>
+                    <div class="sec_tit">문의 내용</div>
                     <p><span class="es">*</span> 필수입력항목</p>
                     <div class="row alignTop">
-                        <div class="tit_cell tit_find">계약단지 <span class="es">*</span></div>
+                        <div class="tit_cell tit_find">문의단지</div>
                         <div class="ipt_cell">
                             <div class="finder_row">
                                 <input class="find_name" id="find_name" value="">
                                 <label for="name_find">단지검색</label>
                                 <button id="name_find" class="openPopup" onclick="getVal();"></button>
                             </div>
-                            <input class="detail_estate01" value="">동
-                            <input class="detail_estate02" value="">호
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="tit_cell">문의분야 <span class="es">*</span></div>
+                        <div class="ipt_cell">
+                            <div class="select_row">
+                                <label for="">문의 분야를 선택해 주세요.</label>
+                                <select name="" id="">
+                                    <option value="">문의 분야를 선택해 주세요.</option>
+                                    <option value="">분양문의</option>
+                                    <option value="">계약문의</option>
+                                    <option value="">현장문의</option>
+                                    <option value="">입주문의</option>
+                                    <option value="">일반문의</option>
+                                </select>
+                            </div>
                         </div>
                     </div>  
-                    <div class="row alignTop">
-                        <div class="tit_cell">A/S 공간 <span class="es">*</span></div>
+                    <div class="row">
+                        <div class="tit_cell">제목<span class="es">*</span></div>
                         <div class="ipt_cell">
-                            <div class="select_row">
-                                <label for="sel02">A/S 공간을 선택해 주세요.</label>
-                                <select id="sel02" class="selectBox" onchange="addressKindChange(this)">
-                                    <option>A/S 공간을 선택해 주세요.</option>
-                                    <option value="1">거실</option>
-                                    <option value="2">침실</option>
-                                    <option value="3">주방</option>
-                                    <option value="4">현관</option>
-                                    <option value="5">공용욕실</option>
-                                    <option value="6">부부욕실</option>
-                                    <option value="7">발코니</option>
-                                    <option value="8">드레스룸</option>
-                                    <option value="9">실외기실</option>
-                                    <option value="10">세탁실</option>
-                                    <option value="direct">직접입력</option>
-                                </select>
+                            <div class="input_row">
+                                <input type="text" id="title" placeholder="질문 제목을 입력하세요. (필수)" >
                             </div>
-                            <input type="text" id="selboxDirect" name="selboxDirect" class="selDirect">
                         </div>
-                    </div>   
+                    </div> 
                     <div class="row alignTop">
-                        <div class="tit_cell">A/S 대상 <span class="es">*</span></div>
-                        <div class="ipt_cell">
-                            <div class="select_row">
-                                <label for="sel03">A/S 대상을 선택해 주세요.</label>
-                                <select id="sel03" class="selectBox">
-                                </select>
-                            </div>
-                            <input type="text" id="sel03Direct" name="sel03Direct" class="selDirect">
-                        </div>
-                    </div>    
-                    <div class="row alignTop">
-                        <div class="tit_cell">A/S 내용 <span class="es">*</span></div>
+                        <div class="tit_cell">질문내용<span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="area_row">
-                                <textarea placeholder="내용을 입력해 주세요."></textarea>
-                            </div>
+                                <textarea placeholder="내용을 입력 하세요."></textarea>
+                              </div>
                         </div>
                     </div> 
                     <div class="row">
                         <div class="tit_cell tit_file">파일첨부</div>
                         <div class="ipt_cell">
                             <div class="file_row">
-                                <form method="POST" onsubmit="return false;" enctype="multipart/form-data">
-                                    <div class="file-list"></div>
-                                    <input type="file" id="upload_file" name="upload_file" onchange="addFile(this);" multiple />
-                                    <label for="upload_file">찾아보기</label>
-                                </form>
+                                <input class="upload_name" value="" readonly>
+                                <label for="upload_file">찾아보기</label>
+                                <input type="file" id="upload_file" name="upload_file">
                             </div>
-                            <span class="info">첨부파일은 하나에 10MB, 최대 5장 까지 첨부 가능합니다.<br>
-                                jpg, jpeg, png, gif 등 이미지파일만 업로드 가능합니다. </span>
+                            <span class="info">첨부파일은 최대 5MB까지 가능합니다.</span>
                         </div>
                     </div>
                     
-                    <div class="btn_color"><a href="javascript:;" title="A/S 신청하기">A/S 신청하기</a></div>
+                    <div class="btn_line"><a href="javascript:;" title="문의하기">문의하기</a></div>
                                         
                 </div>
 

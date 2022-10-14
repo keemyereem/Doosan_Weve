@@ -136,6 +136,7 @@
 	#mobile header .util_wrap .allMenu:hover span {width:20px;}
 	#mobile header .util_wrap .allMenu:hover span:before,
 	#mobile header .util_wrap .allMenu:hover span:after {width:30px;}
+	#mobile header.wht h1 a { background: url(../images/logom_b.png) 50% 50% no-repeat; background-size: contain; }
 
     /* footer */
     #mobile footer {padding:0 20px;}
@@ -551,6 +552,40 @@
 	#mobile .cs .as .section03 ul li:nth-child(5) .icon { background-size: 36px 36px; }
 	#mobile .cs .as .section03 h3 { margin: 0 0 10px; text-align: left; }
 	#mobile .cs .as .section03 p { font-size: 13px; line-height: 1.3; text-align: left; }
+
+	/* 이용약관 및 개인정보처리방침 */
+	#mobile .graybg { background: #fff; padding: 55px 0 0; }
+	#mobile .terms { box-shadow: none; padding: 60px 20px 150px; }
+	#mobile .terms .sec_tit { font-size: 25px; margin-bottom: 70px; }
+	#mobile .terms .checkbox_row p { font-size: 16px; margin-bottom: 23px; }
+	#mobile .terms .con_tit { font-size: 22px; padding: 70px 0 25px; }
+	#mobile .terms .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 33px 27px; margin-bottom: 25px; }
+	#mobile .terms .agree_row { display: flex; align-items: flex-start; }
+	#mobile .terms .agree_row label { letter-spacing: -.75px; }
+	#mobile .terms .agree_row label span { color: #888; display: inline-block; padding-left: 30px; }
+	#mobile .terms input[type="radio"] + label:first-of-type { margin-right: 2.8vw; }
+	#mobile .terms input[type="radio"] + label:last-of-type { flex-shrink: 1; }
+	#mobile .terms .btn_wrap { margin: 70px auto 0; }
+	#mobile .terms .btn_wrap a { width: 155px; height: 45px; line-height: 45px; border-radius: 22px; font-size: 13px; }
+	#mobile .terms .btn_wrap .cancel { margin-right: 25px; line-height: 43px; }
+
+	/* 로그인 */
+	.login { box-shadow: none; padding: 55px 20px 120px; flex-direction: column; }
+	.login > div { width: 100%; padding: 0; }
+	.login .general { border-right: 0; border-bottom: 1px solid #e5e5e5; padding-bottom: 67px; }
+	.login .contract { padding-top: 67px; }
+	.login .con_tit { font-size: 22px; }
+	.login .sub { font-size: 13px; line-height: 1.38; margin: 20px 0 30px; }
+	.login .btn_wrap a { height: 45px; line-height: 45px; font-size: 14px; }
+	.login .btn_wrap a::before { left: 18px; }
+	.login .btn_wrap .naver_login {margin: 0 auto 15px; }
+	.login .btn_wrap .naver_login::before { width: 15px; height: 13px; background-size: contain; }
+	.login .btn_wrap .kakao_login::before { width: 17px; height: 15px; background-size: contain; }
+	.login .join { font-size: 13px; margin-top: 20px; }
+	.login .input_row input { height: 45px; padding-left: 20px; }
+	.login .input_row+.input_row { margin-top: 15px; }
+	.login button { height: 45px; line-height: 45px; border-radius: 22px; font-size: 14px; }
+	.login .login_area { margin-top: 20px; }
 
 
 

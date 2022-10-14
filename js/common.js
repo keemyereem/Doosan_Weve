@@ -25,7 +25,7 @@ $(function(){
     // 팝업 데이터 가져오기 [ 미완성 코드 :: 팝업 내부 검색기능도 value값 인식하게 해야 함 ]
     getVal = ()=> {
         const body = document.querySelector('body');
-        let name = document.getElementById('find_name'),
+        let name = document.getElementById('searchComplex'),
             count = $('.result_box').length;
 
         
@@ -51,6 +51,8 @@ var commonEvent = {
         this.tabEvent();
         this.popup();
         this.goTopEvent();
+        this.checkAll();
+        // this.checkDisagree();
 	}, 
 
     headerEvent: () => {
@@ -316,6 +318,27 @@ var commonEvent = {
             $('html, body').animate({scrollTop:0}, '300');
         });
     },
+
+    checkAll:() => {
+        $('#chkAll').click(function(){
+            if($('#chkAll').is(':checked')){
+                $('input[class="agree"]').prop("checked", true);
+            }else {
+                $('input[class="agree"]').prop("checked", false);
+            }
+
+        });
+
+        $('input[type="radio"]').click(function(){
+            if($('input[class="disagree"]').is(':checked')){
+                $('#chkAll').prop("checked", false);
+            }else {
+
+            }
+        });
+
+    },
+
 }
 
 var channelEvent = {
@@ -692,6 +715,18 @@ var csEvent = {
 
 }
 
+var myWeveEvent = {
+    init:function(){
+        this.loginbtn();
+    },
+    loginbtn:() => {
+        $('.get_authenNumber').click(function(){
+            $(this).addClass('active');
+            $('.login_area').show(200);
+        });
+    },
+}
+
 function addressKindChange(e) {
     var livingroom = [ "A/S 대상을 선택해 주세요.", "걸레받이", "공청TV", "도배", "목재문(틀)",  "몰딩", "홈네트워크(비디오폰)", "아트월", "유리", "전등",  "전화", "콘센트,스위치", "화재감지기", "PL창(틀)", "스피커", "기타" ];
     var bedroom = [ "A/S 대상을 선택해 주세요.", "가구(붙박이장)", "걸레받이", "공청TV", "도배", "목재문(틀)", "몰딩", "바닥재(마루)", "아트월", "유리", "전등", "전화", "콘센트,스위치", "화재감지기", "AL창(틀)", "PL창(틀)", "기타" ];
@@ -818,3 +853,5 @@ function submitForm() {
     }
 
 }
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" >
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+    <meta charset="utf-8" > 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="author" content="DoosanENC">
+    <meta name="robots" content="index, follow">
+    <meta name="title" content="두산위브">
+    <meta name="description" content="두산위브 리뉴얼 홈페이지입니다.">
+    <meta name="keywords" content="두산위브, 리뉴얼홈페이지, 포엠크리에이티브">
+    <meta property="og:type" content="website" >
+    <meta property="og:title" content="두산위브" >
+    <meta property="og:description" content="두산위브 리뉴얼 홈페이지입니다." >
+    <meta property="og:site_name" content="DoosanENC">
+    <meta name="twitter:card" content="summary" >
+    <meta name="twitter:title" content="두산위브" >
+    <meta name="twitter:description" content="두산위브 리뉴얼 홈페이지입니다." >
+    
+    <title>두산위브</title>
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link rel="canonical" href="http://dev.topes.4-m.co.kr/" >  
+
+    <!-- Library CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Library JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+    <script src="js/lib/aos.js"></script>
+    <script src="js/common.js?v=1.0"></script>
+    
+    <!-- Initialized Include Path -->
+    <script>
+        $(document).ready( function() {
+            // Including HTML
+            $("header").load("include/header.html?v=1.0");
+            $("footer").load("include/footer.html");
+
+            // JS importing
+            commonEvent.init();
+            myWeveEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- wrap -->
+    <div id="wrap">
+
+        <!-- header -->
+        <header class="wht"></header>
+        <!-- //header -->
+
+        <!-- sitemap -->
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+
+        <div class="container graybg">   
+            <div class="content login">
+                <div class="general">
+                    <div class="con_tit">일반고객</div>
+                    <p class="sub">
+                        일반고객은 위브 홈페이지 이용을 위해<br>
+                        회원가입 하신 분을 의미하며 가입 후 로그인 하실 경우<br>
+                        다양한 정보 및 서비스를 이용하실 수 있습니다.                         
+                    </p>
+                    <div class="btn_wrap">
+                        <a href="javascript:;" class="naver_login" title="네이버 로그인">네이버 로그인</a>
+                        <a href="javascript:;" class="kakao_login" title="카카오 로그인">카카오 로그인</a>
+                    </div>
+                    <a href="javascript:;" class="join" title="회원가입">회원가입</a>
+                </div>
+
+                <div class="contract">
+                    <div class="con_tit">계약고객</div>
+                    <p class="sub">
+                        계약고객은 두산건설에서 분양한 주택을 분양받은<br>
+                        수분양자를 의미하며 로그인 하시면 계약정보, 예약현황 등<br>
+                        계약고객 전용 서비스를 이용하실 수 있습니다.                        
+                    </p>
+                    <div class="input_row">
+                        <input type="text" name="name" id="name" placeholder="이름">
+                    </div>
+                    <div class="input_row">
+                        <input type="text" name="phone" id="phone" placeholder="휴대폰 번호">
+                    </div>
+                    <button class="get_authenNumber">인증번호 받기</button>
+
+                    <div class="login_area">
+                        <div class="input_row">
+                            <input type="text" name="authenNum" id="authenNum" placeholder="인증번호">
+                        </div>
+                        <button>로그인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>

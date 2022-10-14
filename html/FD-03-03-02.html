@@ -74,7 +74,7 @@
                     <li><img src="images/estate/popup_close.png" alt="close Popup" class="pop_close"></li>
                     <li>
                         <div class="input_row input_search">
-                            <input type="text" placeholder="단지이름 또는 주소로 검색">
+                            <input type="text" placeholder="단지이름 또는 주소로 검색" id="searchComplex" onkeyup="getVal();">
                             <a href="javascript:;" title="검색"></a>
                         </div>
                         <p><span class="result"></span> 으로 총 <span class="num"></span>개의 단지 검색완료</p>
@@ -111,7 +111,7 @@
                         <span></span>
                     </li>
                     <li>
-                        <a href="html/FD-03-02.html" title="문의하기 페이지 이동">문의하기</a>
+                        <a href="html/FD-03-02-01.html" title="문의하기 페이지 이동">문의하기</a>
                         <span></span>
                     </li>
                     <li class="on">
@@ -182,9 +182,9 @@
                         <div class="tit_cell tit_find">계약단지 <span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="finder_row">
-                                <input class="find_name" id="find_name" value="">
+                                <input class="find_name" id="find_name" value="" readonly>
                                 <label for="name_find">단지검색</label>
-                                <button id="name_find" class="openPopup" onclick="getVal();"></button>
+                                <button id="name_find" class="openPopup"></button>
                             </div>
                             <input class="detail_estate01" value="">동
                             <input class="detail_estate02" value="">호

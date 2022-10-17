@@ -4,54 +4,100 @@
 
 
 $(function(){
-    
+    const isMobile = () => {
+        const user = navigator.userAgent;
+        let isCheck = false;
+        if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+            isCheck = true;
+        }
+        return isCheck;
+    }
+
+    if (isMobile() == false) {
+        console.log('*PC environment')
+        $('html').attr('id', 'pc')
+    } else {
+        console.log('*Mobile environment')
+        $('html').attr('id', 'mobile')
+    }
 
 });
 
 function popup(popConts) {
-	var popthis = $(".popup."+popConts);
+	var popthis = $(".bi_popup."+popConts);
     $('body').addClass('blockScroll');
-	popthis.fadeIn(300);
+	popthis.show();
 
 	popthis.find(".pop_close").click(function(){
         $('body').removeClass('blockScroll');
-		popthis.fadeOut(300);
+		popthis.hide();
 	});
 }
 
 var brandstory = {
 	init:function(){
-        this.common();
+        this.subUI();
         this.gsap();
         this.section4();
+        this.section5();
 	}, 
 
-    common: () => {
-        const subMenu = document.querySelector(".section2");
-        const fixMenu = subMenu.offsetTop;
+    // common: () => {
+    //     const subMenu = document.querySelector(".section2");
+    //     const fixMenu = subMenu.offsetTop;
 
-        $(window).on('scroll', function() {
-            let st = $(window).scrollTop();
+    //     $(window).on('scroll', function() {
+    //         let st = $(window).scrollTop();
             
-            if (st > fixMenu - 200) {
-              $('header').addClass('indentUp');
-            } else {
-                $('header').removeClass('indentUp');
+    //         if (st > fixMenu - 200) {
+    //           $('header').addClass('indentUp');
+    //         } else {
+    //             $('header').removeClass('indentUp');
+    //         }
+
+    //         if (st >= fixMenu) {  
+    //             $('nav').addClass('fixed');
+    //         } else {
+    //             $('nav').removeClass('fixed');
+    //         }
+    //     });
+
+    //     $('nav ul li').on('click', function(){
+    //         $(this).siblings().removeClass('on');
+    //         $(this).addClass('on');
+    //     });
+
+
+    // },
+
+    subUI: () => {
+        if ($('nav').length) {
+            const subMenu = document.querySelector("nav"),
+                  fixMenu = subMenu.offsetTop;
+
+            $(window).on('scroll', function() {
+                let st = $(window).scrollTop();
+                
+                if (st > fixMenu - 200) {
+                    $('header').addClass('indentUp');
+                } else {
+                    $('header').removeClass('indentUp');
+                }
+    
+                if (st >= fixMenu) {  
+                    $('nav').addClass('fixed');
+                } else {
+                    $('nav').removeClass('fixed');
+                }
+            });
+
+            if ($('#mobile').length) {
+                $('nav .on').on('click', ()=> {
+                    $('nav ul').toggleClass('open')
+                });
             }
 
-            if (st >= fixMenu) {  
-                $('nav').addClass('fixed');
-            } else {
-                $('nav').removeClass('fixed');
-            }
-        });
-
-        $('nav ul li').on('click', function(){
-            $(this).siblings().removeClass('on');
-            $(this).addClass('on');
-        });
-
-
+        }
     },
 
     
@@ -95,6 +141,7 @@ var brandstory = {
 
         // ************************************************** section2
         const tl2 = gsap.timeline();
+
         ScrollTrigger.create ({
             animation: tl2,
             trigger: ".section2",
@@ -125,14 +172,14 @@ var brandstory = {
         });
 
         function navChangeWhite() {
-            $('nav ul li').on('click', function(){
+            $('#pc nav ul li').on('click', function(){
                 $(this).siblings().find('a').css({'color':'rgba(225,225,225,.3)'});
                 $(this).find('a').css({'color':'#fff'});
                 $(this).find('span').css({'background':'#fff'});
             });
         };
         function navChangeBlue() {
-            $('nav ul li').on('click', function(){
+            $('#pc nav ul li').on('click', function(){
                 $(this).siblings().find('a').css({'color':'#000'});
                 $(this).find('a').css({'color':'#005eb8'});
                 $(this).find('span').css({'background':'#005eb8'});
@@ -144,9 +191,9 @@ var brandstory = {
             .to('.section2 .intro', { transform: 'scale(1)', top: '0', duration: 5, delay: 2, })
             .to('.section2 h2', { color: '#fff', duration: 2, }, 7)
             // .to('nav, nav li.on', { borderBottom: '1px solid rgba(255, 255, 255, .6)', }, 9)
-            .to('nav li.on span', { background: '#fff', }, 10)
-            .to('nav li a', { color: 'rgba(255, 255, 255, .3)', }, 10)
-            .to('nav li.on a', { color: '#fff', }, 10)
+            .to('#pc nav li.on span', { background: '#fff', }, 10)
+            .to('#pc nav li a', { color: 'rgba(255, 255, 255, .3)', }, 10)
+            .to('#pc nav li.on a', { color: '#fff', }, 10)
             .to('.section2 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 2, })
             .to('.section2 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, dealy: 1, })
             .to('.section2', { background: '#000', duration: 2, })
@@ -191,8 +238,8 @@ var brandstory = {
     },
 
     section4: () => {
-        $('.section4 > ul > li').each(function(i){
-            $('.section4 > ul > li').eq(i).hover(function(){
+        $('.section4 ul > li').each(function(i){
+            $('.section4 ul > li').eq(i).hover(function(){
                 $('.section4').find('img').eq(i).css({'z-index': '1', 'opacity': '1'});
             }, function(){
                 $('.section4').find('img').eq(i).css({'z-index': '-1', 'opacity': '0'});
@@ -202,14 +249,16 @@ var brandstory = {
         var ww = $(window).width();
         function initSwiper (){
 
-
             s4Swiper = new Swiper('.section4 .mswiper', {
                 slidesPerView: 1,
                 observer: true,
                 observeParents: true,
                 simulateTouch: true,
                 spaceBetween: 30,
-
+                navigation: {
+                    nextEl: ".section4 .swiper-button-next",
+                    prevEl: ".section4 .swiper-button-prev",
+                },
 
             });
 
@@ -228,6 +277,11 @@ var brandstory = {
                 initSwiper();
             }
         });
+    },
+
+    section5: () => {
+        $('#mobile .section5 .name').removeAttr("onclick");
+        // document.querySelector('#mobile .section5 .name').onclick = null;
     },
 
 }

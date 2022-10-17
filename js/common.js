@@ -24,7 +24,6 @@ $(function(){
 
     // 팝업 데이터 가져오기 [ 미완성 코드 :: 팝업 내부 검색기능도 value값 인식하게 해야 함 ]
     getVal = ()=> {
-        const body = document.querySelector('body');
         let name = document.getElementById('searchComplex'),
             count = $('.result_box').length;
 

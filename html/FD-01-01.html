@@ -46,6 +46,8 @@
 	<script>
         $(document).ready( function() {
             $('header').load("include/header.html");
+            $("footer").load("include/footer.html");
+
             brandstory.init();
 
         });
@@ -58,6 +60,10 @@
         <nav>
             <ul>
                 <li class="on">
+                    <a href="javascript:;" title="STORY 페이지 이동">STORY</a>
+                    <span></span>
+                </li>
+                <li class="mb">
                     <a href="javascript:;" title="STORY 페이지 이동">STORY</a>
                     <span></span>
                 </li>
@@ -84,10 +90,11 @@
 
         <section class="section2">
             <h2>독창적인<br class="br_m"> 주거문화의 완성</h2>
-            <img class="intro" src="images/brandstory/bg_sec01_img.png" alt="">
+            <img class="intro" src="images/brandstory/bg_sec01_img.png" alt="" class="img_pc">
+            <img class="intro" src="images/brandstory/bg_sec01_img_m.png" alt="" class="img_m">
             <p>
-                <span>집은 삶의 질과 개성을 나타내는 중요한 표현 수단이 되었습니다.</span>
-                <span>We’ve 만의 남다른 감각으로 독창적인 주거문화를 완성합니다.</span>
+                <span>집은 삶의 질과 개성을 나타내는 중요한<br class="br_m"> 표현 수단이 되었습니다.</span>
+                <span>We’ve 만의 남다른 감각으로 독창적인<br class="br_m"> 주거문화를 완성합니다.</span>
             </p>
         </section>
 
@@ -109,7 +116,7 @@
             <div class="card02">
                 <h2>
                     <span>essense</span>
-                    남다른 감각이 돋보이는 주거공간
+                    남다른 감각이<br class="br_m"> 돋보이는 주거공간
                 </h2>
                 <div>
                     <img src="images/brandstory/bs_img03.png" alt="" class="img_pc">
@@ -138,9 +145,9 @@
 
         <section class="section4">
             <h2 class="indent">Specification</h2>
-            <img src="images/brandstory/bs_sec05_bg01.png" alt="Value Offering 이미지" class="img_pc">
-            <img src="images/brandstory/bs_sec05_bg02.png" alt="High Quality 이미지" class="img_pc">
-            <img src="images/brandstory/bs_sec05_bg03.png" alt="User Centric 이미지" class="img_pc">
+            <img src="images/brandstory/bs_sec04_bg01.png" alt="Value Offering 이미지" class="img_pc">
+            <img src="images/brandstory/bs_sec04_bg02.png" alt="High Quality 이미지" class="img_pc">
+            <img src="images/brandstory/bs_sec04_bg03.png" alt="User Centric 이미지" class="img_pc">
             
             <div class="swiper mswiper">
                 <ul class="swiper-wrapper">
@@ -166,6 +173,10 @@
                         </p>
                     </li>
                 </ul>
+                <div class="swiper-nav">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
 
         </section>
@@ -174,34 +185,40 @@
             <h2 class="indent">Various Brands</h2>
             <ul>
                 <li>
-                    <a href="javascript:;" title="We've" onclick="popup('weve');">
+                    <p>두산건설의 주거 브랜드</p>
+                    <a href="javascript:;" title="We've" class="name" onclick="popup('weve');">
                         We've
                     </a>
+                    <a href="javascript:;" title="BI 확인하기" onclick="popup('weve');">BI 확인하기</a>
                 </li>
                 <li>
-                    <a href="javascript:;" title="THE ZENITH" onclick="popup('zenith');">
+                    <p>두산건설의 주상복합브랜드</p>
+                    <a href="javascript:;" title="THE ZENITH" class="name" onclick="popup('zenith');">
                         THE ZENITH
                     </a>
+                    <a href="javascript:;" title="BI 확인하기" onclick="popup('zenith');">BI 확인하기</a>
                 </li>
                 <li>
-                    <a href="javascript:;" title="Centi'um" onclick="popup('centium');">
+                    <p>두산건설의 오피스텔 브랜드</p>
+                    <a href="javascript:;" title="Centi'um" class="name" onclick="popup('centium');">
                         Centi'um
                     </a>
+                    <a href="javascript:;" title="BI 확인하기" onclick="popup('centium');">BI 확인하기</a>
                 </li>
             </ul>
         </section>
 
         <!-- popup -->
-        <div class="popup bi_popup weve">
+        <div class="bi_popup weve">
             <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="pop_close"><a href="javascript:;">닫기</a></div>
                 <div class="info">
                     <div class="des">두산건설의 주거브랜드</div>
                     <div class="name">We've</div>
                     <p>
-                        위브의 BI (Brand identity)는 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
-                        사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love), 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
-                        생활의 모든 문제가 해결되는 곳 (Solve)이라 두산건설의 약속을 형상화한 것입니다.																								
+                        위브의 BI (Brand identity)는<br class="br_m"> 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
+                        사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love),<br class="br_m"> 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
+                        생활의 모든 문제가 해결되는 곳 (Solve)이라<br class="br_m"> 두산건설의 약속을 형상화한 것입니다.																								
                     </p>
                 </div>
                 <div class="bi">
@@ -225,9 +242,9 @@
             </div>
         </div>
 
-        <div class="popup bi_popup zenith">
+        <div class="bi_popup zenith">
             <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="pop_close"><a href="javascript:;">닫기</a></div>
                 <div class="info">
                     <div class="des">두산건설의 주상복합브랜드</div>
                     <div class="name">THE ZENITH</div>
@@ -263,14 +280,14 @@
             </div>
         </div>
 
-        <div class="popup bi_popup centium">
+        <div class="bi_popup centium">
             <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
+                <div class="pop_close"><a href="javascript:;">닫기</a></div>
                 <div class="info">
                     <div class="des">두산건설의 오피스텔 브랜드</div>
                     <div class="name">Centi’um</div>
                     <p>
-                        세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는 ‘-um’의 합성어로<br>
+                        세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는<br class="br_m"> ‘-um’의 합성어로<br class="br_pc">
                         한 세대의 기준이 될 주거공간을 의미합니다.												
                     </p>
                 </div>
@@ -301,6 +318,9 @@
         </div>
         <!-- .popup -->
 
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
     </div>
 </body>
 </html>

@@ -30,6 +30,7 @@
 	#mobile .contBox04 .noti_list li:hover a:before {height:100%;}
 	#mobile .contBox04 .noti_list li:hover a:after {height:100%;}
 
+
 }
 
 @media screen and (max-width:768px) {
@@ -148,6 +149,8 @@
 	#mobile footer .addr {margin-top:25px;}
 	#mobile footer .addr p {font-size:13px;}
 	#mobile footer .addr p.a1 {width:100%; margin-bottom:10px;}
+	#mobile footer .addr p.a2 {margin-right: 4vw;}
+	#mobile footer .addr p.a3 {margin-right: 0;}
 	#mobile footer .addr p span {margin-right:10px;}
 	#mobile footer .copy {font-size:13px;}
 	#mobile footer .family_site {position: initial; width: 100%; height: 45px;margin-top: 25px;font-family: 'NS';font-size: 13px;}
@@ -276,20 +279,65 @@
 	#mobile .scroll-container .section1 h2 { font-size: 35px; }
 	#mobile .scroll-container .section1 h2 span { font-size: 12px; }
 	#mobile .scroll-container nav { border-bottom: 0; top: 276px; }
+	#mobile .scroll-container nav.fixed { top: 0; }
 	#mobile .scroll-container nav ul { flex-direction: column; }
 	#mobile .scroll-container nav ul li { height: 50px; line-height: 50px; }
 	#mobile .scroll-container nav ul li > a { font-size: 15px; }
 
-	#mobile .scroll-container .section4 { background: #000; padding-left: 20px; }
-	#mobile .scroll-container .section4 > div { width: calc(100% - 20px)!important; border: 1px solid red; margin: 0 0 0 20px; }
-	#mobile .scroll-container .section4 > div ul { width: fit-content!important; border: 1px solid green; }
+	#mobile .scroll-container .section4 { height: auto; background: #000; align-items: flex-start; padding-left: 20px; padding-bottom: 41px; }
+	#mobile .scroll-container .section4 > div { width: 68vw!important; overflow: visible; }
+	#mobile .scroll-container .section4 > div ul { width: fit-content!important; }
 	#mobile .scroll-container .section4 ul li { flex: unset; width: 68vw!important; height: 370px; border-right: 0; padding-left: 20px; box-sizing: border-box; }
-	#mobile .scroll-container .section4 ul li:nth-child(1) { background: url(../images/brandstory/bs_sec05_bg01_m.png) no-repeat 50% 50%; background-size: cover; }
-	#mobile .scroll-container .section4 ul li:nth-child(2) { background: url(../images/brandstory/bs_sec05_bg02_m.png) no-repeat 50% 50%; background-size: cover; }
-	#mobile .scroll-container .section4 ul li:nth-child(3) { background: url(../images/brandstory/bs_sec05_bg03_m.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section4 ul li:nth-child(1) { background: url(../images/brandstory/bs_sec04_bg01_m.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section4 ul li:nth-child(2) { background: url(../images/brandstory/bs_sec04_bg02_m.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section4 ul li:nth-child(3) { background: url(../images/brandstory/bs_sec04_bg03_m.png) no-repeat 50% 50%; background-size: cover; }
 	#mobile .scroll-container .section4 ul li .tit { font-size: 20px; opacity: 1; }
 	#mobile .scroll-container .section4 ul li .tit::after { width: 100%; height: 3px; }
 	#mobile .scroll-container .section4 ul li p { opacity: 1; font-size: 13px; font-weight: 150; line-height: 1.61; margin-top: 14px; transform: translateX(0); padding: 0; }
+
+	#mobile .scroll-container .section4 .swiper-nav { display: flex; margin-top: 31px; }
+	#mobile .scroll-container .section4 .swiper-nav > div { width: 36px; height: 26px; margin-top: 0; position: initial; background-size: contain; }
+	#mobile .scroll-container .section4 .swiper-button-next.swiper-button-disabled, #mobile .scroll-container .section4 .swiper-button-prev.swiper-button-disabled { opacity: 1; }
+	#mobile .scroll-container .section4 .swiper-button-prev { background-image: url(../images/brandstory/mswiper_prev.png); margin-right: 30px; }
+	#mobile .scroll-container .section4 .swiper-button-next { background-image: url(../images/brandstory/mswiper_next.png); }
+
+	#mobile .scroll-container .section5 { height: auto; }
+	#mobile .scroll-container .section5 > ul li { width: 100%; height: 222px; padding: 60px 0; opacity: 1; transition: none; text-align: center; }
+	#mobile .scroll-container .section5 > ul li:nth-child(1) { background: url(../images/brandstory/bs_sec05_img01.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section5 > ul li:nth-child(2) { background: url(../images/brandstory/bs_sec05_img02.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section5 > ul li:nth-child(3) { background: url(../images/brandstory/bs_sec05_img03.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .scroll-container .section5 > ul li .award_name { color: #fff; }
+	#mobile .scroll-container .section5 > ul li:hover { opacity: 1; }
+	#mobile .scroll-container .section5 > ul li p { display: block; font-size: 13px; font-weight: 300; margin-top: 0; }
+	#mobile .scroll-container .section5 > ul li .name { display: block; font-size: 35px; font-weight: 700; padding: 12px 0 15px; cursor: initial; }
+	#mobile .scroll-container .section5 > ul li a:last-of-type { display: flex; justify-content: space-between; align-items: center; width: 90px; padding: 0 7px; margin: 0 auto; font-size: 10px; color: #fff; line-height: 2.2; border-bottom: 1px solid #fff; opacity: .5; transition: opacity .3s }
+	#mobile .scroll-container .section5 > ul li a:last-of-type::after { content:''; display: inline-block; line-height: 2.2; width: 10px; height: 10px; background: url(../images/common/plus_33x33_w.png) 50% 50%; margin-bottom: 2px; }
+	#mobile .scroll-container .section5 > ul li a:last-of-type:hover { opacity: 1; }
+
+	/* BI 팝업 */
+	#mobile .bi_popup .popup_inner { width: calc(100% - 40px); padding-top: 50px; }
+	#mobile .bi_popup .popup_inner .pop_close { top: 60px; right: 0; width: 27px; height: 27px; background: url(../images/brandstory/close_button.png) no-repeat; background-size: contain;}
+	#mobile .bi_popup .popup_inner .info .des { font-size: 15px; }
+	#mobile .bi_popup .popup_inner .info .name { font-size: 30px; padding: 15px 0 18px; }
+	#mobile .bi_popup .popup_inner .info p { font-size: 12px; line-height: 1.4; letter-spacing: -.625px; margin-bottom: 35px; }
+	#mobile .bi_popup .popup_inner .bi { flex-direction: column; width: 100%; margin: 0 auto; }
+	#mobile .bi_popup .popup_inner .bi .logo { width: 100%; max-width: 280px; height: 121px; margin: 0 auto 20px; }
+	#mobile .bi_popup.weve .popup_inner .bi .logo img { height: 52px; }
+	#mobile .bi_popup.zenith .popup_inner .bi .logo img { height: 35px; }
+	#mobile .bi_popup.centium .popup_inner .bi .logo img { height: 52px; }
+	#mobile .bi_popup .popup_inner .bi .right { display: flex; flex-direction: column; justify-content: space-between;  }
+	#mobile .bi_popup .popup_inner .bi .color {  height: 75px; }
+	#mobile .bi_popup .popup_inner .bi .color ul { padding-left: 10px; }
+	#mobile .bi_popup .popup_inner .bi .color ul li { line-height: 1; display: flex; }
+	#mobile .bi_popup .popup_inner .bi .color ul li+li { margin-top: 5px; }
+	#mobile .bi_popup .popup_inner .bi .color ul li > b { width: 50px; font-size: 10px; flex-shrink: 0; }
+	#mobile .bi_popup .popup_inner .bi .color ul li > span { padding-left: 8px; font-size: 10px; display: inline-block; width: calc(100% - 50px); height: fit-content; white-space: pre-line; word-wrap: break-word; }
+	#mobile .bi_popup.weve .popup_inner .bi .color { background: #004098; }
+	#mobile .bi_popup .popup_inner .bi .color ul { width: 50%; }
+	#mobile .bi_popup.weve .popup_inner .bi .color ul { width: 100%; }
+	#mobile .bi_popup .popup_inner .bi .color+img { display: none; }
+	#mobile .bi_popup .popup_inner .btn_download > a { width: 165px; height: 38px; line-height: 38px; border-radius: 18px; margin: 40px auto 0; font-size: 13px; }
+
 
 	/* 리스트 & 상세페이지 */
 	#mobile .total { font-size: 13px; margin-left: 20px; }
@@ -334,12 +382,21 @@
 	#mobile .channel .weve_news .tb_box .tb_row.row_body .date { width: 100%; text-align: left; }
 
 	/* 브랜드 - Channel - sns */
-	#mobile .channel .sns .view_more+.sns_tit { margin-top: 55px; }
+	#mobile .channel .sns .sns_wrap { position: relative; padding-bottom: 110px; }
+	#mobile .channel .sns .sns_wrap:last-of-type { padding-bottom: 50px; }
+	#mobile .channel .sns .sns_wrap+.sns_wrap { margin-top: 0px; }
 	#mobile .channel .sns .sns_tit { font-size: 22px; margin-bottom: 20px; margin-left: 20px; }
+	#mobile .channel .sns .go_sns { position: absolute; left: 50%; bottom: 65px; transform: translateX(-50%); margin: 0; height: 37px; border-radius: 18px; padding: 0 25px; line-height: 35px; font-size: 13px; letter-spacing: -.65px; }
+	#mobile .channel .sns .go_insta { width: 205px; }
+	#mobile .channel .sns .go_fb { width: 194px; }
+	#mobile .channel .sns .go_yt { width: 210px; bottom: 0; }
+	#mobile .channel .sns .go_sns::before { margin-right: 8px; }
+	#mobile .channel .sns .go_insta::before { width: 13px; height: 13px; }
+	#mobile .channel .sns .go_fb::before { width: 13px; height: 13px; }
+	#mobile .channel .sns .go_yt::before { width: 18px; height: 13px; }
 	#mobile .channel .sns > ul+ul { margin-top: 65px; }
 	#mobile .channel .sns .channel_lists li { width: 100%;/*  margin-right: 0; */ margin-bottom: 0; }
 	#mobile .channel .sns .channel_lists li:nth-last-child(n+2):nth-last-child(-n+3) { margin-bottom: 0; }
-	/* #mobile .channel .sns .video_modal_popup .video-wrapper iframe { position: absolute; width: calc(100vw - 40px); height: 51vw; } */
 	#mobile .contents.sns .popup ul li:last-child { padding: 0; height: 51vw; }
 
 

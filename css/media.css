@@ -372,6 +372,7 @@
 
 	#mobile .channel .channel_lists .img { width: 100%; height: fit-content; overflow: hidden; }
 	#mobile .channel .channel_lists .img img { width: 100%; object-fit: contain; transition: transform .8s ease-in-out; }
+	#mobile .channel .channel_lists .img .btn_play { width: 13.6vw; }
 	#mobile .channel .channel_lists:not(.youtube) li:hover .img img { transform: scale(1.1); }
 	#mobile .channel .channel_lists .txt { font-size: 16px; }
 	#mobile .channel .view_more { display: none; }

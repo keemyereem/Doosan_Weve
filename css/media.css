@@ -210,9 +210,9 @@
 	#mobile .contBox01 .swiper-pagination > div {margin:0 10px !important;}
 	#mobile .contBox01 .swiper-pagination > div p {font-size:15px;}
 
-    #mobile .contBox02 {background:url(../images/main/imgm_02_01.jpg) 50% 50% no-repeat; background-size:cover;}
+	#mobile .contBox02 {background:url(../images/main/imgm_02_01.jpg) 50% 50% no-repeat; background-size:cover;}
 
-    #mobile .contBox03 .house_slider .swiper-slide {overflow:hidden; padding-top:95px; border:0;}
+  #mobile .contBox03 .house_slider .swiper-slide {overflow:hidden; padding-top:95px; border:0;}
 	#mobile .contBox03 .house_slider .swiper-button-prev,
 	#mobile .contBox03 .house_slider .swiper-button-next {bottom:35px; left:auto;}
 	#mobile .contBox03 .house_slider .swiper-button-prev {right:85px;}

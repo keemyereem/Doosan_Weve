@@ -201,75 +201,7 @@
 	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }
 	#mobile .popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
 
-	/* main */
-    #mobile .contBox01 .text_wrap .big {font-size:40px;}
-	#mobile .contBox01 .text_wrap .big strong {display:block;}
-	#mobile .contBox01 .text_wrap .desc {font-size:15px; line-height:1.5;}
-	#mobile .contBox01 .text_wrap .desc br {display:block;}
-	#mobile .contBox01 .scroll {display:none;}
-	#mobile .contBox01 .swiper-pagination > div {margin:0 10px !important;}
-	#mobile .contBox01 .swiper-pagination > div p {font-size:15px;}
-
-	#mobile .contBox02 {background:url(../images/main/imgm_02_01.jpg) 50% 50% no-repeat; background-size:cover;}
-
-  #mobile .contBox03 .house_slider .swiper-slide {overflow:hidden; padding-top:95px; border:0;}
-	#mobile .contBox03 .house_slider .swiper-button-prev,
-	#mobile .contBox03 .house_slider .swiper-button-next {bottom:35px; left:auto;}
-	#mobile .contBox03 .house_slider .swiper-button-prev {right:85px;}
-	#mobile .contBox03 .house_slider .swiper-button-next {right:20px;}
-	#mobile .contBox03 .house_slider .swiper-slide:before {background:url(../images/main/bgm_03_grad.png) 0 0 repeat-x; background-size:100% 100%; height:100%; opacity:.6 !important;}
-	#mobile .contBox03 .house_slider .swiper-slide .default,
-	#mobile .contBox03 .house_slider .swiper-slide .text_box {opacity:0;}
-	#mobile .contBox03 .house_slider .swiper-slide.swiper-slide-active .default {animation:mc1 1s ease .5s forwards;}
-	#mobile .contBox03 .house_slider .swiper-slide.swiper-slide-active .text_box {animation:mc1 1s ease .8s forwards;}
-	#mobile .contBox03 .bg_box.mbg1 .bg1,
-	#mobile .contBox03 .bg_box.mbg2 .bg2,
-	#mobile .contBox03 .bg_box.mbg3 .bg3 {opacity:1;}
-	#mobile .contBox03 .house_slider .default .ct {width:55px; height:22px; font-size:12px;}
-	#mobile .contBox03 .house_slider .default .tit {font-size:20px;}
-	#mobile .contBox03 .house_slider .default .date {margin-top:10px; font-size:14px;}
-	#mobile .contBox03 .house_slider .text_box li {margin-top:5px; font-size:13px;}
-	#mobile .contBox03 .house_slider .text_box .link {margin-top:30px; font-size:13px;}
-
-    #mobile .contBox04,
-	#mobile .contBox04 > div {padding:0; }
-	#mobile .contBox04 .inner { padding: 100px 20px 60px; }
-	#mobile .contBox04 h2 {font-size:30px;}
-	#mobile .contBox04 .noti_list {display:block; margin-top:10px;}
-	#mobile .contBox04 .noti_list li {width:100%; min-height:auto; margin-left:0; padding:0; border:0; border-bottom:1px solid #e5e5e5;}
-	#mobile .contBox04 .noti_list li a {padding:25px 12px;}
-	#mobile .contBox04 .noti_list li .tit {font-size:17px;}
-	#mobile .contBox04 .noti_list li span {margin-top:15px; font-size:12px;}
-	#mobile .contBox04 .noti_list li .more {display:none;}
-	#mobile .contBox04 .sns_wrap {width:calc(100% + 20px); margin-top:40px; padding-bottom:30px;}
-	#mobile .contBox04 .sns_wrap .item a img {width:auto; height:150px;}
-	#mobile .contBox04 .sns_wrap .item.yt a:after {width:22px; height:22px;}
-	#mobile .contBox04 .sns_wrap .item.yt a:before {width:27px; height:27px;}
-	#mobile .contBox04 .sns_wrap .item.inst a:after {width:25px; height:25px;}
-	#mobile .contBox04 .sns_wrap .mCSB_scrollTools.mCSB_scrollTools_horizontal {right:20px; display: block; }
-
-    #mobile .contBox05,
-	#mobile .contBox05 > div {padding:0; }
-	#mobile .contBox05 .inner { padding: 102px 20px; }
-	#mobile .contBox05 h2 {font-size:30px;}
-	#mobile .contBox05 .service_box {display:block; margin-top:35px;}
-	#mobile .contBox05 .service_box .list {display:block;}
-	#mobile .contBox05 .service_box .list li {display:flex; align-items:flex-start; width:100%; max-width:100%; min-height:auto; margin-top:20px; margin-left:0; padding:30px 20px;}
-	#mobile .contBox05 .service_box .list li:first-child {margin-top:0;}
-	#mobile .contBox05 .service_box .list li .tit {display:flex; align-items:center; font-size:20px;}
-	#mobile .contBox05 .service_box .list li .tit:before {width:40px;}
-	#mobile .contBox05 .service_box .list li.l1 .tit:before {background-size:25px 25px; height:25px;}
-	#mobile .contBox05 .service_box .list li.l2 .tit:before {background-size:26px 25.5px; height:25.5px;}
-	#mobile .contBox05 .service_box .list li.l3 .tit:before {background-size:18px 25px; height:25px;}
-	#mobile .contBox05 .service_box .list li .link {position:static; margin-left:45px;}
-	#mobile .contBox05 .service_box .list li .link a {font-size:13px;}
-	#mobile .contBox05 .service_box .link a:after {width:22.5px;}
-
-
-
-
-
-
+	
 	/* brandstory */
 	#mobile .scroll-container section h2 { font-size: 30px; padding: 0 20px; }
 	#mobile .scroll-container section h2 span { font-size: 17px; margin-bottom: 10px; }

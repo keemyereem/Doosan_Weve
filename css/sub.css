@@ -495,12 +495,92 @@ body#brandstory.typeB { color: #222; }
 .login .get_authenNumber.active { border: 1px solid #0e66bf; background: #fff; color: #0e66bf; }
 .login .login_area { margin-top: 40px; display: none; }
 
+/* 마이위브(계약) - 메인 */
+.my_contract .section1 { flex-direction: column; height: 460px; background: url(../images/myweve/my_contract_bg.png) no-repeat 50% 50%; background-size: cover; }
+.my_contract .section1 h2 { font-size: 50px; }
+.my_contract .section1 .myweve_info { display: flex; align-items: center; color: #fff; margin-top: 28px; }
+.my_contract .section1 .myweve_info .class { width: 100px; height: 34px; background: #005eb8; font-size: 16px; line-height: 32px; text-align: center; letter-spacing: -.4px; margin-right: 27px; }
+.my_contract .section1 .myweve_info p { font-size: 20px; }
+.my_contract .section1 .myweve_info p::before { content:''; display: inline-block; width: 16px; height: 17px; background: url(../images/common/myweve_profile.png) no-repeat 50% 50%; background-size: contain; margin-right: 14px; }
+.my_contract .section1 .myweve_info p b { font-weight: 400; }
+.my_contract .section1 .logout { max-width: 1200px; width: 100%; margin: 0 auto; position: absolute; bottom: 60px; }
+.my_contract .section1 .logout a { float: right; font-size: 16px; color: #fff; }
+.my_contract .sub_menu { width: 100%; max-width: 1200px; height: 80px; margin: -40px auto 0; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); position: relative; z-index: 10; }
+.my_contract .sub_menu li { flex:1; display: table; height: 100%; text-align: center; position: relative; }
+.my_contract .sub_menu li::after { content:''; display: block; width: 0; height: 3px; background: #005eb8; position: absolute; bottom: 0; left: 0; transition: width .3s; }
+.my_contract .sub_menu li:hover::after,
+.my_contract .sub_menu li.on::after { width: 100%; }
+.my_contract .sub_menu li a { display: table-cell; vertical-align: middle; width: 100%; height: 100%; font-size: 18px; font-weight: 300; color: #222; }
+.my_contract .contents { margin: 80px auto 200px; }
+.my_contract .section { max-width: 1200px; margin: 0 auto; }
+.my_contract .section+.section { margin-top: 80px; }
+.my_contract .section .sec_tit { font-size: 34px; letter-spacing: -.85px; color: #222; margin-bottom: 40px; }
+.my_contract .section .cont_wrap { display: flex; justify-content: space-between; }
+.my_contract .section .cont_wrap li { width: calc(50% - 31px); }
+.my_contract .section .cont_wrap .cont_tit { display: flex; align-items: center; height: 60px; border-radius: 10px; font-size: 20px; font-weight: 400; padding: 0 30px; margin-bottom: 9px; }
+.my_contract .section:nth-of-type(1) .cont_wrap .cont_tit { background: #e5eff8; color: #005eb8; }
+.my_contract .section:nth-of-type(2) .cont_wrap .cont_tit { background: rgba(0, 165, 215, .1); color: #00a5d7; }
+.my_contract .section:nth-of-type(3) .cont_wrap .cont_tit { background: rgba(0, 173, 131, .1); color: #00ad83; }
+.my_contract .section .cont_wrap .cont_tit::before { content:''; display: inline-block; margin-right: 10px; }
+.my_contract .section .cont_wrap .cont_tit .view_more { display: inline-block; margin-left: auto; width: 19px; height: 19px; }
+.my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(1) .cont_tit::before { width: 18px; height: 20px; background: url(../images/myweve/contract_icon01.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(2) .cont_tit::before { width: 21px; height: 21px; background: url(../images/myweve/contract_icon02.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(1) .cont_tit::before { width: 12px; height: 17px; background: url(../images/myweve/contract_icon03.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(2) .cont_tit::before { width: 23px; height: 14px; background: url(../images/myweve/contract_icon04.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(1) .cont_tit::before { width: 17px; height: 16px; background: url(../images/myweve/contract_icon05.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(2) .cont_tit::before { width: 20px; height: 20px; background: url(../images/myweve/contract_icon06.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(1) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus01.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(2) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus02.png) no-repeat; background-size: contain; }
+.my_contract .section:nth-of-type(3) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus03.png) no-repeat; background-size: contain; }
+.my_contract .section .cont_wrap ol,
+.my_contract .section .cont_wrap ol li { width: 100%; }
+.my_contract .section .cont_wrap ol li+li { margin-top: 9px; }
+.my_contract .section .cont_wrap ol li:hover a { font-weight: 400; }
+.my_contract .section:nth-of-type(1) .cont_wrap ol li:hover a { color: #005eb8; }
+.my_contract .section:nth-of-type(2) .cont_wrap ol li:hover a { color: #00a5d7; }
+.my_contract .section:nth-of-type(3) .cont_wrap ol li:hover a { color: #00ad83; }
+.my_contract .section .cont_wrap ol li a { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; border-radius: 10px; /* border: 1px solid #e8e8e8; */ background: #f4f4f4; padding: 0 30px; color: #555; }
+.my_contract .section .cont_wrap ol li .no_data { display: block; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
 
+/* 마이위브(계약) - 공기질테스트 */
+.my_contract .air_test .section h2 { font-size: 20px; font-weight: 200; color: #222; margin-bottom: 30px; }
+.my_contract .air_test .section h2 b { font-weight: 400; color: #005eb8; }
+.my_contract .air_test .section table th,
+.my_contract .air_test .section table td { height: 60px; text-align: center; }
+.my_contract .air_test .section table tbody tr td { font-size: 16px; color: #555; }
+.my_contract .air_test .section table tbody tr td.alignLeft { text-align: left; padding-left: 25px; }
+.my_contract .air_test .section table tbody tr td a { display: inline-block; height: 38px; line-height: 36px; background: #fff; border: 1px solid #005eb8; border-radius: 19px; font-size: 16px; color: #005eb8; text-align: center; transition: all .2s; }
+.my_contract .air_test .section table tbody tr td a:hover { background: #005eb8; color: #fff; }
+.my_contract .air_test .section table thead tr th { font-size: 16px; font-weight: 300; color: #222; }
 
+.my_contract .air_test .section2 table th,
+.my_contract .air_test .section2 table td { border: 1px solid #e5e5e5; }
+.my_contract .air_test .section2 table thead tr th { background: rgba(0, 94, 184, .2); }
+.my_contract .air_test .section2 table thead tr th:first-child { width: 6%; }
+.my_contract .air_test .section2 table thead tr th:nth-child(2) { width: 26%; }
+.my_contract .air_test .section2 table thead tr th:nth-child(3) { width: 10%; }
+.my_contract .air_test .section2 table thead tr th:nth-child(4) { width: 15%; }
+.my_contract .air_test .section2 table thead tr th:nth-child(5) { width: 16%; }
+.my_contract .air_test .section2 table thead tr th:last-child { width: 27%; }
+.my_contract .air_test .section2 table tbody tr.on { background: rgba(0, 94, 184, .05); }
+.my_contract .air_test .section2 table tbody tr .checkbox_row input[type="checkbox" ] + label:before { margin-right: 0; }
+.my_contract .air_test .section2 table tbody tr td:last-child { text-align: center; }
+.my_contract .air_test .section2 table tbody tr td a { width: 128px; margin-left: 20px; }
 
+.my_contract .air_test .sub_tab { max-width: 1200px; display: flex; align-items: center; margin: 120px auto 60px; }
+.my_contract .air_test .sub_tab li { flex:1; text-align: center; display: table; height: 70px; }
+.my_contract .air_test .sub_tab li.on { background: #005eb8; }
+.my_contract .air_test .sub_tab li a { display: table-cell; vertical-align: middle; border: 1px solid #e5e5e5; height: 100%; font-size: 16px; font-weight: 300; color: #000; }
+.my_contract .air_test .sub_tab li:not(:last-child) a { border-right: 0; }
+.my_contract .air_test .sub_tab li.on a { color: #fff; border-color: #005eb8 ; }
 
-
-
-
-
-
+.my_contract .air_test .section3 table thead tr { border-top: 2px solid #000; }
+.my_contract .air_test .section3 table tr { border-bottom: 1px solid #e5e5e5; }
+.my_contract .air_test .section3 table thead tr th:first-child { width: 30%; }
+.my_contract .air_test .section3 table thead tr th:nth-child(2) { width: 22%; }
+.my_contract .air_test .section3 table thead tr th:nth-child(3) { width: 12%; }
+.my_contract .air_test .section3 table thead tr th:nth-child(4) { width: 19%; }
+.my_contract .air_test .section3 table thead tr th:last-child { width: 17%; }
+.my_contract .air_test .section3 table tbody tr td:last-child { padding: 0 14px; text-align: left; }
+.my_contract .air_test .section3 table tbody tr td a { width: 80px; }
+.my_contract .air_test .section3 table tbody tr td a:first-child { margin-right: 10px; }

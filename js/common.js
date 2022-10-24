@@ -717,6 +717,8 @@ var csEvent = {
 var myWeveEvent = {
     init:function(){
         this.loginbtn();
+        // this.listNoData();
+        this.checkbox();
     },
     loginbtn:() => {
         $('.get_authenNumber').click(function(){
@@ -724,6 +726,25 @@ var myWeveEvent = {
             $('.login_area').show(200);
         });
     },
+
+    listNoData: () => {
+        if($(nodata).length){
+            changeColor();
+            alert('nodata');
+
+        }
+    },
+
+    checkbox: () => {
+        $('.air_test .checkbox input').change(function(){
+            $(this).closest('tr').toggleClass('on', this.checked);
+        });
+    },
+
+}
+function changeColor (){
+    let nodata = $('.my_contract .cont_wrap ol li a').text('');
+    $(nodata).css('background-color','pink');
 }
 
 function addressKindChange(e) {

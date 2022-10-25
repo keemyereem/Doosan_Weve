@@ -256,10 +256,12 @@ var commonEvent = {
             $(".popup").addClass('on');
             $('html').addClass('blockScroll');
 
-            if ($('#mobile').length) {
-                body.style.top = `-${scrollPosition}px`;
-                $('header').hide();
-            }
+            // if ($('#mobile').length) {
+            //     body.style.top = `-${scrollPosition}px`;
+            //     $('header').hide();
+            // }
+            body.style.top = `-${scrollPosition}px`;
+            $('header').hide();
         }
 
         // 팝업 닫기 function
@@ -271,15 +273,21 @@ var commonEvent = {
             $('html').removeClass('blockScroll');
             $('.popup').removeClass('on');
             
-            if ($('#mobile').length) { 
-                scrollPosition = body.style.top;
-                scrollPosition = scrollPosition.replace('px', '');
+            // if ($('#mobile').length) { 
+            //     scrollPosition = body.style.top;
+            //     scrollPosition = scrollPosition.replace('px', '');
     
-                body.style.removeProperty('top');
-                window.scrollTo(0, -(scrollPosition));
-                $('header').show();
+            //     body.style.removeProperty('top');
+            //     window.scrollTo(0, -(scrollPosition));
+            //     $('header').show();
                 
-            }
+            // }
+            scrollPosition = body.style.top;
+            scrollPosition = scrollPosition.replace('px', '');
+
+            body.style.removeProperty('top');
+            window.scrollTo(0, -(scrollPosition));
+            $('header').show();
         }
 
     },
@@ -719,6 +727,7 @@ var myWeveEvent = {
         this.loginbtn();
         // this.listNoData();
         this.checkbox();
+        this.const_popup();
     },
     loginbtn:() => {
         $('.get_authenNumber').click(function(){
@@ -727,17 +736,65 @@ var myWeveEvent = {
         });
     },
 
-    listNoData: () => {
-        if($(nodata).length){
-            changeColor();
-            alert('nodata');
+    // listNoData: () => {
+    //     if($(nodata).length){
+    //         changeColor();
+    //         alert('nodata');
 
-        }
-    },
+    //     }
+    // },
 
     checkbox: () => {
-        $('.air_test .checkbox input').change(function(){
+        $('.contract_info .checkbox input').change(function(){
             $(this).closest('tr').toggleClass('on', this.checked);
+        });
+    },
+
+    const_popup: () => {
+        var popTab = new Swiper(".const_status .pop_tab", {
+            slidesPerView: 6,
+            spaceBetween: 0,
+            initialSlide: 1,
+            speed: 500,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                nextEl: ".pop_tab_wrap .swiper-button-next",
+                prevEl: ".pop_tab_wrap .swiper-button-prev",
+            },
+        });
+
+        var popSwiper = new Swiper(".const_status .tab_contents .img_slide", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 500,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                nextEl: ".imgswiper_wrap .swiper-button-next",
+                prevEl: ".imgswiper_wrap .swiper-button-prev",
+            },
+            pagination: {
+                el: '.imgswiper_wrap .swiper-pagination',
+                type: 'fraction',
+                formatFractionCurrent: function (number) {
+                    return ('0' + number).slice(-2);
+                },
+                formatFractionTotal: function (number) {
+                    return ('0' + number).slice(-2);
+                },
+                renderFraction: function (currentClass, totalClass) {
+                    return '<span class="' + currentClass + '"></span>' +
+                           ' / ' +
+                           '<span class="' + totalClass + '"></span>';
+                }
+            },
+
+        });
+
+        $('.pop_tab ul li').click(function(){
+            $('.pop_tab ul li').removeClass('on');
+            $(this).addClass('on');
         });
     },
 

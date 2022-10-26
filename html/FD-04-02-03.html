@@ -31,6 +31,7 @@
     <link rel="canonical" href="http://dev.topes.4-m.co.kr/" >  
 
     <!-- Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Library JS -->
@@ -38,7 +39,8 @@
     <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-
+    
+    <script src="js/lib/jquery.datetimepicker.full.js"></script>
     <script src="js/lib/aos.js"></script>
     <script src="js/common.js?v=1.0"></script>
     
@@ -83,7 +85,7 @@
                     <a href="javascript:;" title="예약현황 페이지 이동">예약현황</a>
                 </li>
                 <li>
-                    <a href="javascript:;" title="고객문의 페이지 이동">고객문의</a>
+                    <a href="javascript:;" title="고객문의 조회 페이지 이동">고객문의 조회</a>
                 </li>
                 <li>
                     <a href="javascript:;" title="A/S 신청현황 페이지 이동">A/S 신청현황</a>
@@ -114,9 +116,9 @@
                                 </td>
                                 <td class="alignLeft">인천 두산위브 더 센트럴</td>
                                 <td>84A</td>
-                                <td>102동 1203호</td>
+                                <td>102동 1203호 <a href="javascript:;" title="공사현황" class="openPopup mobBtn">공사현황</a></td>
                                 <td>586,000,000</td>
-                                <td>2023년 12월 <a href="javascript:;" title="공사현황" class="openPopup">공사현황</a></td>
+                                <td>2023년 12월 <a href="javascript:;" title="공사현황" class="openPopup pcBtn">공사현황</a></td>
                             </tr>
                             <tr>
                                 <td class="checkbox">
@@ -127,70 +129,100 @@
                                 </td>
                                 <td class="alignLeft">평촌 두산위브 더 프라임</td>
                                 <td>84</td>
-                                <td>111동 1704호</td>
+                                <td>111동 1704호 <a href="javascript:;" title="공사현황" class="openPopup mobBtn">공사현황</a></td>
                                 <td>888,400,000</td>
-                                <td>2024년 01월 <a href="javascript:;" title="공사현황" class="openPopup">공사현황</a></td>
+                                <td>2024년 01월 <a href="javascript:;" title="공사현황" class="openPopup pcBtn">공사현황</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
-                <ul class="sub_tab">
-                    <li><a href="javascript:;" title="계약 및 납부 조회 페이지로 이동">계약 및 납부 조회</a></li>
-                    <li class="on"><a href="html/FD-04-02-03.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
-                    <li><a href="html/FD-04-02-04.html" title="공기질테스트 페이지로 이동">공기질테스트</a></li>
-                </ul>
-                <section class="section section3">
-                    <!-- 데이터 없음 -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>단지이름</th>
-                                <th>보고 유형</th>
-                                <th>공지일</th>
-                                <th>공지기간</th>
-                                <th>공고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="nodata">
-                                <td colspan="5">열람 가능한 공지가 없습니다.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- // 데이터 없음 -->
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>단지이름</th>
-                                <th>보고 유형</th>
-                                <th>공지일</th>
-                                <th>공지기간</th>
-                                <th>공고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="alignLeft">평촌 두산위브 더 프라임</td>
-                                <td>주택 공기질 측정결과 보고 (추가)</td>
-                                <td>22년 08월 27일</td>
-                                <td>09월 24일 ~ 12월 1일, 60일간</td>
-                                <td>
-                                    <a href="javascript:;" title="공고">공고1</a>
-                                    <a href="javascript:;" title="공고">공고</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="alignLeft">평촌 두산위브 더 프라임</td>
-                                <td>주택 공기질 측정결과 보고 (기존)</td>
-                                <td>22년 07월 30일</td>
-                                <td>09월 24일 ~ 12월 1일, 60일간</td>
-                                <td>
-                                    <a href="javascript:;" title="공고">공고</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tab_box">
+                    <div class="inner">
+                        <ul class="tab_slide">
+                            <li><a href="javascript:;" title="계약 및 납부 조회 페이지로 이동">계약 및 납부 조회</a></li>
+                            <li class="on"><a href="html/FD-04-02-03.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
+                            <li><a href="html/FD-04-02-04.html" title="공기질테스트 페이지로 이동">공기질테스트</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <section class="section section3 succession">
+                    <!-- 방문예약 목록 -->
+                    <div class="reservation_list">
+                        <button class="reservation">방문예약 신청</button>
+                        <!-- 데이터 없음 -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>단지이름</th>
+                                    <th>동/호수</th>
+                                    <th>방문예약 일정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="nodata">
+                                    <td colspan="3">권리의무승계 방문예약 내역이 없습니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- // 데이터 없음 -->
+    
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>단지이름</th>
+                                    <th>동/호수</th>
+                                    <th>방문예약 일정</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="alignLeft">인천 두산위브 더 센트럴</td>
+                                    <td>102동 1203호</td>
+                                    <td>
+                                        22년 12월 09일(금) 14:30
+                                        <a href="javascript:;" title="취소">취소</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 방문예약 신청 -->
+                    <div class="reservation_apply">
+                        <div class="sec_tit">권리의무승계 방문예약 신청</div>
+                        <div class="cont">
+                            <ul>
+                                <li>
+                                    <div class="tit">계약단지</div>
+                                    <p>인천 두산위브 더 센트럴 102동 1203호</p>
+                                </li>
+                                <li>
+                                    <div class="tit">예약일시</div>
+                                    <div class="input_row">
+                                        <input type="text" name="datepicker" id="datepicker">
+                                        <label for="datepicker" id="datepickerBtn"></label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <div class="tit">계약자</div>
+                                    <p>오지혁</p>
+                                </li>
+                                <li>
+                                    <div class="tit">연락처</div>
+                                    <p>010-5555-5555</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn_line">
+                            <a href="javascript:;" title="예약하기">예약하기</a>
+                        </div>
+                    </div>
+
+                    
                 </section>
 
                 <!-- 공사현황 팝업 -->
@@ -199,39 +231,37 @@
                         <button class="pop_close"><img src="images/common/btn_close.png" alt="닫기버튼"></button>
                         <div class="pop_cont">
                             <div class="top">
-                                <div class="txt">
-                                    <p><b>오지혁</b> 고객님의 계약 단지</p>
-                                    <h2 class="name">평촌 두산위브 더 프라임</h2>
-                                    <div class="progress_wrap">
-                                        <p>전체 공정률<b>72%</b></p>
-                                        <div class="progress_bar"><span class=""></span></div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <div class="tit">위치 </div>
-                                            <div class="des">경기도 안양시 동안구 호계동 651-1번지 외 30필지</div>
-                                        </li>
-                                        <li>
-                                            <div class="tit">전용면적</div>
-                                            <div class="des">84,102,143m²</div>
-                                        </li>
-                                        <li>
-                                            <div class="tit">세대 수</div>
-                                            <div class="des">총 1,067세대</div>
-                                        </li>
-                                        <li>
-                                            <div class="tit">주택형</div>
-                                            <div class="des">아파트</div>
-                                        </li>
-                                        <li>
-                                            <div class="tit">입주예정 </div>
-                                            <div class="des">2024년 1월</div>
-                                        </li>
-                                    </ul>
+                                <p><b>오지혁</b> 고객님의 계약 단지</p>
+                                <h2 class="name">평촌 두산위브 더 프라임</h2>
+                                <div class="progress_wrap">
+                                    <p>전체 공정률<b>72%</b></p>
+                                    <div class="progress_bar"><span class=""></span></div>
                                 </div>
                                 <div class="img">
                                     <img src="images/myweve/construct_pop_img01.png" alt="공사현황 이미지">
                                 </div>
+                                <ul>
+                                    <li>
+                                        <div class="tit">위치 </div>
+                                        <div class="des">경기도 안양시 동안구 호계동 651-1번지 외 30필지</div>
+                                    </li>
+                                    <li>
+                                        <div class="tit">전용면적</div>
+                                        <div class="des">84,102,143m²</div>
+                                    </li>
+                                    <li>
+                                        <div class="tit">세대 수</div>
+                                        <div class="des">총 1,067세대</div>
+                                    </li>
+                                    <li>
+                                        <div class="tit">주택형</div>
+                                        <div class="des">아파트</div>
+                                    </li>
+                                    <li>
+                                        <div class="tit">입주예정 </div>
+                                        <div class="des">2024년 1월</div>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="pop_tab_wrap">
                                 <div class="pop_tab swiper">

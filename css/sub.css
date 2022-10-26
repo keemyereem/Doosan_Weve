@@ -543,15 +543,15 @@ body#brandstory.typeB { color: #222; }
 .my_contract .section .cont_wrap ol li .no_data { display: block; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
 
 /* 마이위브(계약) - 계약정보 */
-.my_contract .contract_info .section h2 { font-size: 20px; font-weight: 200; color: #222; margin-bottom: 30px; }
-.my_contract .contract_info .section h2 b { font-weight: 400; color: #005eb8; }
-.my_contract .contract_info .section table th,
-.my_contract .contract_info .section table td { height: 60px; text-align: center; }
-.my_contract .contract_info .section table tbody tr td { font-size: 16px; color: #555; }
-.my_contract .contract_info .section table tbody tr td.alignLeft { text-align: left; padding-left: 25px; }
-.my_contract .contract_info .section table tbody tr td a { display: inline-block; height: 38px; line-height: 36px; background: #fff; border: 1px solid #005eb8; border-radius: 19px; font-size: 16px; color: #005eb8; text-align: center; transition: all .2s; }
-.my_contract .contract_info .section table tbody tr td a:hover { background: #005eb8; color: #fff; }
-.my_contract .contract_info .section table thead tr th { font-size: 16px; font-weight: 300; color: #222; }
+.my_contract/*  .contract_info */ .section h2 { font-size: 20px; font-weight: 200; color: #222; margin-bottom: 30px; }
+.my_contract/*  .contract_info */ .section h2 b { font-weight: 400; color: #005eb8; }
+.my_contract/*  .contract_info */ .section table th,
+.my_contract/*  .contract_info */ .section table td { height: 60px; text-align: center; }
+.my_contract/*  .contract_info */ .section table tbody tr td { font-size: 16px; color: #555; }
+.my_contract/*  .contract_info */ .section table tbody tr td.alignLeft { text-align: left; padding-left: 25px; }
+.my_contract/*  .contract_info */ .section table tbody tr td a { display: inline-block; height: 38px; line-height: 36px; border: 1px solid #005eb8; border-radius: 19px; font-size: 16px; color: #005eb8; text-align: center; transition: all .2s; }
+.my_contract/*  .contract_info */ .section table tbody tr td a:hover { background: #005eb8; color: #fff; }
+.my_contract/*  .contract_info */ .section table thead tr th { font-size: 16px; font-weight: 300; color: #222; }
 
 .my_contract .contract_info .section2 table th,
 .my_contract .contract_info .section2 table td { border: 1px solid #e5e5e5; }
@@ -568,25 +568,68 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .section2 table tbody tr td a { width: 128px; margin-left: 20px; }
 .my_contract .contract_info .section2 table tbody tr td a.mobBtn { display: none; }
 
-.my_contract .contract_info .sub_tab { max-width: 1200px; display: flex; align-items: center; margin: 120px auto 60px; }
-.my_contract .contract_info .sub_tab li { flex:1; text-align: center; display: table; height: 70px; }
-.my_contract .contract_info .sub_tab li.on { background: #005eb8; }
-.my_contract .contract_info .sub_tab li a { display: table-cell; vertical-align: middle; border: 1px solid #e5e5e5; height: 100%; font-size: 16px; font-weight: 300; color: #000; }
-.my_contract .contract_info .sub_tab li:not(:last-child) a { border-right: 0; }
-.my_contract .contract_info .sub_tab li.on a { color: #fff; border-color: #005eb8 ; }
+.my_contract .contract_info .tab_box,
+.my_contract .reservation_status .sub_tab { max-width: 1200px; margin: 120px auto 60px; }
+.my_contract .contract_info .tab_box ul { margin-bottom: 0; }
+.my_contract .reservation_status .sub_tab ul { display: flex; }
+.my_contract .contract_info .tab_box ul li,
+.my_contract .reservation_status .sub_tab ul li { flex:1; text-align: center; display: table; height: 70px; }
+.my_contract .contract_info .tab_box ul li.on,
+.my_contract .reservation_status .sub_tab ul li.on { background: #005eb8; }
+.my_contract .contract_info .tab_box ul li a,
+.my_contract .reservation_status .sub_tab ul li a { display: table-cell; vertical-align: middle; height: 100%; font-size: 16px; font-weight: 300; color: #000; }
+.my_contract .reservation_status .sub_tab ul li a { border: 1px solid #e5e5e5; }
+.my_contract .contract_info .tab_box ul li:not(:last-child) a,
+.my_contract .reservation_status .sub_tab ul li:not(:last-child) a { border-right: 0; }
+.my_contract .contract_info .tab_box ul li.on a,
+.my_contract .reservation_status .sub_tab ul li.on a { color: #fff; border-color: #005eb8 ; }
+
+/* 마이위브(계약) - 공통 테이블 */
+.my_contract/*  .contract_info */ .section3 table thead tr { border-top: 2px solid #000; }
+.my_contract/*  .contract_info */ .section3 table tr { border-bottom: 1px solid #e5e5e5; }
+.my_contract/*  .contract_info */ .section3 table tbody tr.nodata td { text-align: center; color: #888; padding: 0!important; }
 
 /* 마이위브(계약) - 공기질테스트 */
-.my_contract .contract_info .air_test table thead tr { border-top: 2px solid #000; }
-.my_contract .contract_info .air_test table tr { border-bottom: 1px solid #e5e5e5; }
 .my_contract .contract_info .air_test table thead tr th:first-child { width: 30%; }
 .my_contract .contract_info .air_test table thead tr th:nth-child(2) { width: 22%; }
-.my_contract .contract_info .air_test table thead tr th:nth-child(3) { width: 12%; }
+.my_contract .contract_info .air_test table thead tr th:nth-child(3) { width: 15%; }
 .my_contract .contract_info .air_test table thead tr th:nth-child(4) { width: 19%; }
 .my_contract .contract_info .air_test table thead tr th:last-child { width: 17%; }
 .my_contract .contract_info .air_test table tbody tr td:last-child { padding: 0 14px; text-align: left; }
 .my_contract .contract_info .air_test table tbody tr td a { width: 80px; }
-.my_contract .contract_info .air_test table tbody tr td a:first-child { margin-right: 10px; }
-.my_contract .contract_info .air_test table tbody tr.nodata td { text-align: center; color: #888; }
+/* .my_contract .contract_info .air_test table tbody tr td a:first-child { margin-right: 10px; } */
+
+/* 마이위브(계약) - 권리의무승계 - 방문예약목록 */
+.my_contract .contract_info .succession .reservation_list .reservation { display: flex; align-items: center; justify-content: center; width: 190px; height: 50px; background: #005eb8; border-radius: 25px; font-size: 16px; color: #fff; float: right; margin-bottom: 16px; }
+.my_contract .contract_info .succession .reservation_list .reservation::before { content:''; display: inline-block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal.png); background-size: contain; margin-right: 10px; }
+.my_contract .contract_info .succession .reservation_list table thead tr th:first-child { width: 47%; }
+.my_contract .contract_info .succession .reservation_list table thead tr th:nth-child(2) { width: 21%; }
+.my_contract .contract_info .succession .reservation_list table thead tr th:last-child { width: 32%; }
+.my_contract .contract_info .succession .reservation_list table tbody tr td:first-child { padding-left: 45px; }
+.my_contract .contract_info .succession .reservation_list table tbody tr td a { width: 100px; height: 38px; margin-left: 14px; }
+
+/* 마이위브(계약) - 권리의무승계 - 방문예약신청 */
+.my_contract .contract_info .succession .reservation_apply .sec_tit { font-weight: 400; }
+.my_contract .contract_info .succession .reservation_apply .cont { display: flex; }
+.my_contract .contract_info .succession .reservation_apply ul:first-child { width: 61%; }
+.my_contract .contract_info .succession .reservation_apply ul li { display: flex; align-items: center; font-size: 18px; height: 60px; }
+.my_contract .contract_info .succession .reservation_apply ul li+li { margin-top: 20px; }
+.my_contract .contract_info .succession .reservation_apply ul li .tit { color: #222; font-weight: 400; width: 115px; }
+.my_contract .contract_info .succession .reservation_apply ul li p { color: #555; }
+.my_contract .contract_info .succession .reservation_apply ul li .input_row { max-width: 520px; }
+.my_contract .contract_info .succession .reservation_apply ul li .input_row input { height: 60px; }
+.my_contract .contract_info .succession .reservation_apply ul li .input_row input+label { display: block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal_b.png); position: absolute; right: 40px; top: 20px; cursor: pointer; }
+
+/* 달력 */
+/* .xdsoft_datetimepicker { width: 800px; padding: 80px 70px; top: 50%!important; left: 50%!important; transform: translate(-50%,-50%); } */
+.xdsoft_datetimepicker .pop_close { display: block; position: absolute; top: 0; right: 0; border: 1px solid red; z-index: 1002; }
+.xdsoft_datetimepicker .pop_tit { font-family: 'NS'; font-size: 28px; font-weight: 400; color: #222; text-align: center; margin-bottom: 30px; }
+.xdsoft_datetimepicker .picker_tit { font-family: 'NS'; font-size: 16px; font-weight: 300; color: #222; margin-bottom: 15px; }
+.xdsoft_datetimepicker .picker_tit b { font-family: 'Poppins'; font-weight: 400; color: #005eb8; }
+.xdsoft_datetimepicker .datepicker_wrap { float: left; }
+.xdsoft_datetimepicker .timepicker_wrap { float: right; }
+.xdsoft_datetimepicker .xdsoft_datepicker { margin-left: 0; width: 424px; padding: 23px 20px; border: 1px solid #eee; }
+
 
 /* 공사현황 팝업 */
 .my_contract .contract_info .const_status { width: 100%; max-width: 1147px; color: #222; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
@@ -594,23 +637,23 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .const_status .pop_close:hover { transform: rotate(90deg); }
 .my_contract .contract_info .popup .pop_cont { width: 100%; height: 81vh; overflow: auto; background: #fff; padding: 80px 60px; position: relative; letter-spacing: -.15px; }
 
-.my_contract .contract_info .const_status .top { width: 100%; /* display: flex; */ }
-/* .my_contract .contract_info .const_status .top .txt { width: 48%; } */
-.my_contract .contract_info .const_status .top/*  .txt */ p { font-size: 18px; letter-spacing: -.45px; }
-.my_contract .contract_info .const_status .top/*  .txt */ p b { font-weight: 400; color: #005eb8; }
-.my_contract .contract_info .const_status .top/*  .txt */ .name { font-size: 34px; font-weight: 400; margin-top: 10px; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap { margin: 60px 0 30px; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap::after { clear: both; display: block; content:''; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap p { font-size: 16px; font-weight: 400; margin-bottom: 10px; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap p b { font-family: 'Poppins'; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap p b::before { content:''; display: inline-block; width: 1px; height: 10px; background: #e5e5e5; margin: 0 8px 0 3px; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap .progress_bar { width: 300px; height: 11px; background: #e5e5e5; position: relative; }
-.my_contract .contract_info .const_status .top/*  .txt */ .progress_wrap .progress_bar span { display: block; position: absolute; top: 0; left: 0; width: 72%; height: 100%; background: linear-gradient(90deg, #005eb8 0%, #00a5d7 50%, #00ad83 100%); border-radius: 0 5.5px 5.5px 0; }
+.my_contract .contract_info .const_status .top { width: 100%; }
+.my_contract .contract_info .const_status .top p { font-size: 18px; letter-spacing: -.45px; }
+.my_contract .contract_info .const_status .top p b { font-weight: 400; color: #005eb8; }
+.my_contract .contract_info .const_status .top .name { font-size: 34px; font-weight: 400; margin-top: 10px; }
+.my_contract .contract_info .const_status .top .progress_wrap { margin: 60px 0 30px; }
+.my_contract .contract_info .const_status .top .progress_wrap::after { clear: both; display: block; content:''; }
+.my_contract .contract_info .const_status .top .progress_wrap p { font-size: 16px; font-weight: 400; margin-bottom: 10px; }
+.my_contract .contract_info .const_status .top .progress_wrap p b { font-family: 'Poppins'; }
+.my_contract .contract_info .const_status .top .progress_wrap p b::before { content:''; display: inline-block; width: 1px; height: 10px; background: #e5e5e5; margin: 0 8px 0 3px; }
+.my_contract .contract_info .const_status .top .progress_wrap .progress_bar { width: 300px; height: 11px; background: #e5e5e5; position: relative; }
+.my_contract .contract_info .const_status .top .progress_wrap .progress_bar span { display: block; position: absolute; top: 0; left: 0; width: 0; height: 100%; background: linear-gradient(90deg, #005eb8 0%, #00a5d7 50%, #00ad83 100%); border-radius: 0 5.5px 5.5px 0; transition: width .5s .5s ease-in-out; }
+.my_contract .contract_info .popup.on .const_status .top .progress_wrap .progress_bar span { width: 72%; }
 
-.my_contract .contract_info .const_status .top/*  .txt */ ul li { display: flex; font-size: 15px; line-height: 1.73; font-family: 'Poppins','NS'; }
-.my_contract .contract_info .const_status .top/*  .txt */ ul li .tit { width: 95px; font-weight: 300; color: #005eb8; }
-.my_contract .contract_info .const_status .top/*  .txt */ ul li .des { color: #555; }
-.my_contract .contract_info .const_status .top .img { /* width: 52%; */ position: absolute; top: 80px; right: 60px; }
+.my_contract .contract_info .const_status .top ul li { display: flex; font-size: 15px; line-height: 1.73; font-family: 'Poppins','NS'; }
+.my_contract .contract_info .const_status .top ul li .tit { width: 95px; font-weight: 300; color: #005eb8; }
+.my_contract .contract_info .const_status .top ul li .des { color: #555; }
+.my_contract .contract_info .const_status .top .img { position: absolute; top: 80px; right: 60px; }
 .my_contract .contract_info .const_status .top .img img { width: 100%; object-fit: contain; }
 
 .my_contract .contract_info .const_status .pop_tab_wrap { width: 100%; position: relative; margin: 85px auto 60px; }
@@ -630,9 +673,12 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .const_status .swiper-button-prev.swiper-button-disabled { opacity: 1; }
 
 .my_contract .contract_info .const_status .tab_con .progress_bar { width: 100%; max-width: 820px; height: 45px; background: #f0f0f0; margin: 0 auto 40px; }
-.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; width: 72%; height: 100%; color: #fff; border-radius: 0 22.5px 22.5px 0; background: linear-gradient(90deg, #005eb8 0%, #00a5d7 50%, #00ad83 100%); }
-.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .date { font-size: 15px; }
-.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .num { font-family: 'Poppins'; font-size: 20px; font-weight: 400; }
+.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; width: 0; height: 100%; color: #fff; border-radius: 0 22.5px 22.5px 0; background: linear-gradient(90deg, #005eb8 0%, #00a5d7 50%, #00ad83 100%); transition: width .5s .5s ease-in-out; }
+.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .date { font-size: 15px; opacity: 0; }
+.my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .num { font-family: 'Poppins'; font-size: 20px; font-weight: 400; opacity: 0; }
+.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar { width: 72%; }
+.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar .date,
+.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar .num { opacity: 1; transition: opacity .3s 1s ease-in-out; }
 
 .my_contract .contract_info .const_status .tab_contents { position: relative; }
 .my_contract .contract_info .const_status .imgswiper_wrap { width: 100%; position: relative; }
@@ -649,9 +695,61 @@ body#brandstory.typeB { color: #222; }
 
 .my_contract .contract_info .const_status .map_wrap { width: 100%; max-width: 820px; margin: 60px auto 0; }
 .my_contract .contract_info .const_status .map { height: 400px; }
+.my_contract .contract_info .const_status .map img { width: 100%; height: 100%; background-size: contain; }
 .my_contract .contract_info .const_status .map_txt { display: flex; align-items: center; justify-content: space-between; margin-top: 36px; }
 .my_contract .contract_info .const_status .map_txt ul li:first-child { font-size: 24px; font-weight: 400; }
 .my_contract .contract_info .const_status .map_txt ul li:last-child { font-size: 16px; color: #555; margin-top: 15px; }
 .my_contract .contract_info .const_status .map_txt a { display: flex; align-items: center; justify-content: center; width: 207px; height: 50px; border: 1px solid #005eb8; border-radius: 25px; font-size: 16px; color: #005eb8; }
 .my_contract .contract_info .const_status .map_txt a::before { content:''; display: inline-block; width: 21px; height: 19px; background: url(../images/myweve/construct_icon_map.png); background-size: contain; margin-right: 10px; }
 
+/* 마이위브(계약) - 예약현황 */
+.my_contract .reservation_status .section2 { display: flex; align-items: center; padding: 46px 120px; background: #f2f7fb; }
+.my_contract .reservation_status .section2 p { font-size: 18px; color: #222; margin-left: 40px; line-height: 1.66; letter-spacing: -.45px; }
+.my_contract .reservation_status .section2 p b { font-weight: 400; color: #005eb8; }
+
+.my_contract .reservation_status .previsit table thead tr th:first-child { width: 23%; }
+.my_contract .reservation_status .previsit table thead tr th:nth-child(2) { width: 26%; }
+.my_contract .reservation_status .previsit table thead tr th:nth-child(3) { width: 15%; }
+.my_contract .reservation_status .previsit table thead tr th:last-child { width: 25%; }
+.my_contract .reservation_status .previsit table tbody tr td.alignLeft { padding-left: 45px; }
+
+.my_contract .reservation_status .move table thead tr th:first-child { width: 20%; }
+.my_contract .reservation_status .move table thead tr th:nth-child(2) { width: 42%; }
+.my_contract .reservation_status .move table thead tr th:nth-child(3) { width: 18%; }
+.my_contract .reservation_status .move table thead tr th:last-child { width:20%; }
+
+.my_contract .reservation_status .section3 table tbody tr td .mob_address { display: none; }
+
+
+
+/* 마이위브(계약) - 고객문의 & A/S 신청현황 */
+.my_contract .tbstyle .section2 h2 { display: inline-block; }
+.my_contract .tbstyle .section2 > a { display: block; width: 160px; height: 50px; line-height: 50px; background: #005eb8; border-radius: 25px; font-family: 'Poppins','NS'; font-size: 16px; color: #fff; text-align: center; float: right; margin-bottom: 15px; }
+
+.my_contract .tbstyle .section2 .tb_box { position: relative; border-top: 0; }
+.my_contract .tbstyle .section2 .tb_box .tb_row { display: table; table-layout: fixed; width: 100%; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_head { border-top: 1px solid #e5e5e5; background: rgba(0, 94, 184,.2); }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body { border-bottom: 1px solid #e5e5e5; }
+.my_contract .tbstyle .section2 .tb_box .tb_row>div { display: table-cell; height: 60px; line-height: initial; vertical-align: middle; text-align: center; border-right: 1px solid #e5e5e5; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_head>div { font-size: 16px; color: #222; font-weight: 300;} 
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div { font-size: 16px; color: #555; }
+.my_contract .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 1px solid #e5e5e5; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { text-align: left; padding-left: 30px; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div a { display: inline-block; width: 80px; height: 38px; line-height: 36px; border-radius: 19px; border: 1px solid #005eb8; font-size: 16px; color: #005eb8; text-align: center; margin-left: 10px; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body .mob_address { display: none; }
+.my_contract .tbstyle .section2 .tb_box .tb_row.row_body .registered { font-weight: 300; color: #005eb8; }
+
+/* 마이위브(계약) - A/S 신청현황 */
+.my_contract .as_status .section2 .tb_box .tb_row .cell01 {width: 30%;}
+.my_contract .as_status .section2 .tb_box .tb_row .cell02 {width: 14%;}
+.my_contract .as_status .section2 .tb_box .tb_row .cell03 {width: 15%;}
+.my_contract .as_status .section2 .tb_box .tb_row .cell04 {width: 15%;}
+.my_contract .as_status .section2 .tb_box .tb_row .cell05 {width: 13%;}
+.my_contract .as_status .section2 .tb_box .tb_row .cell06 {width: 13%;}
+
+/* 마이위브(계약) - 고객문의 */
+.my_contract .inquiry .section2 .tb_box .tb_row .cell01 {width: 10%;}
+.my_contract .inquiry .section2 .tb_box .tb_row .cell02 {width: 33%;}
+.my_contract .inquiry .section2 .tb_box .tb_row .cell03 {width: 27%;}
+.my_contract .inquiry .section2 .tb_box .tb_row .cell04 {width: 13%;}
+.my_contract .inquiry .section2 .tb_box .tb_row .cell05 {width: 17%;}

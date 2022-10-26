@@ -727,7 +727,9 @@ var myWeveEvent = {
         this.loginbtn();
         // this.listNoData();
         this.checkbox();
+        this.subTab();
         this.const_popup();
+        this.reservation();
     },
     loginbtn:() => {
         $('.get_authenNumber').click(function(){
@@ -750,9 +752,47 @@ var myWeveEvent = {
         });
     },
 
+    subTab: () => {
+        const tabContainer = $('#mobile .tab_box > .inner'),
+        tabBox = tabContainer.find('> .tab_slide'),
+        tabButton = tabBox.find('> li');
+
+        let size = tabButton.length,
+            tbIndex = 0;
+
+        if (tabBox.length) {
+            $(document).ready(function(){
+            let tbOn = Math.floor(tabBox.find('> li.on').position().left),
+                tbWidth = tabButton.width();
+
+            tabContainer.animate({scrollLeft: tbOn - tbWidth}, 1000);
+            });
+
+            tabContainer.on('load resize scroll', ()=> {
+                tabBoxPosition = Math.abs(tabBox.position().left);
+
+                tabButton.each((index)=> {
+                tabButtonPosition = Math.floor(tabButton.eq(index).position().left);
+
+                if (size !== index + 1) {
+                    nextIndexPosition = Math.floor(tabButton.eq(index).next().position().left);
+
+                    if (tabBoxPosition > tabButtonPosition && tabBoxPosition <= nextIndexPosition) {
+                    tbIndex = index;
+                    }
+                }
+
+                });
+
+            });
+
+        }
+    },
+
     const_popup: () => {
         var popTab = new Swiper(".const_status .pop_tab", {
             slidesPerView: 6,
+            slidesPerGroup : 6,
             spaceBetween: 0,
             initialSlide: 1,
             speed: 500,
@@ -762,6 +802,14 @@ var myWeveEvent = {
                 nextEl: ".pop_tab_wrap .swiper-button-next",
                 prevEl: ".pop_tab_wrap .swiper-button-prev",
             },
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    slidesPerGroup : 1,
+                    loopFillGroupWithBlank : true,
+                },
+            },
+
         });
 
         var popSwiper = new Swiper(".const_status .tab_contents .img_slide", {
@@ -795,7 +843,44 @@ var myWeveEvent = {
         $('.pop_tab ul li').click(function(){
             $('.pop_tab ul li').removeClass('on');
             $(this).addClass('on');
+            popSwiper.slideTo(0);
         });
+
+    },
+
+    reservation: () => {
+        $('#datepicker').datetimepicker({
+            // inline:true
+        });
+
+        $('#datepickerBtn').click(function(){
+            $('#datepicker').datetimepicker('show');
+            // $('.xdsoft_datetimepicker').wrap("<div class='popup on'></div>");
+            $('.xdsoft_datetimepicker').prepend("<button class='pop_close'>닫기</button>");
+            $('.xdsoft_datetimepicker').prepend("<div class='pop_tit'>방문예약 일시선택</div>");
+
+            $('.xdsoft_datepicker').wrap("<div class='datepicker_wrap'></div>");
+            $('.datepicker_wrap').prepend("<div class='picker_tit'><b>01.</b> 방문 희망일자 선택</div>");
+            $('.xdsoft_timepicker').wrap("<div class='timepicker_wrap'></div>");
+            $('.timepicker_wrap').prepend("<div class='picker_tit'><b>02.</b> 방문 희망시간 선택</div>");
+
+
+        });
+
+        $('.xdsoft_datetimepicker .pop_close').click(function(){
+            // $('#datepicker').datetimepicker('hide');
+            $('.xdsoft_datetimepicker').unwrap();
+            $('.xdsoft_datetimepicker').remove("<button class='pop_close'>닫기</button>");
+            $('.xdsoft_datetimepicker').remove("<div class='pop_tit'>방문예약 일시선택</div>");
+
+            $('.xdsoft_datepicker').unwrap();
+            $('.datepicker_wrap').remove("<div class='picker_tit'><b>01.</b> 방문 희망일자 선택</div>");
+            $('.xdsoft_timepicker').unwrap();
+            $('.timepicker_wrap').remove("<div class='picker_tit'><b>02.</b> 방문 희망시간 선택</div>");
+
+
+        });
+
     },
 
 }

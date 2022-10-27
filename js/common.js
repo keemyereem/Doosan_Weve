@@ -256,10 +256,6 @@ var commonEvent = {
             $(".popup").addClass('on');
             $('html').addClass('blockScroll');
 
-            // if ($('#mobile').length) {
-            //     body.style.top = `-${scrollPosition}px`;
-            //     $('header').hide();
-            // }
             body.style.top = `-${scrollPosition}px`;
             $('header').hide();
         }
@@ -273,15 +269,6 @@ var commonEvent = {
             $('html').removeClass('blockScroll');
             $('.popup').removeClass('on');
             
-            // if ($('#mobile').length) { 
-            //     scrollPosition = body.style.top;
-            //     scrollPosition = scrollPosition.replace('px', '');
-    
-            //     body.style.removeProperty('top');
-            //     window.scrollTo(0, -(scrollPosition));
-            //     $('header').show();
-                
-            // }
             scrollPosition = body.style.top;
             scrollPosition = scrollPosition.replace('px', '');
 
@@ -725,7 +712,7 @@ var csEvent = {
 var myWeveEvent = {
     init:function(){
         this.loginbtn();
-        // this.listNoData();
+        this.listNoData();
         this.checkbox();
         this.subTab();
         this.const_popup();
@@ -738,13 +725,26 @@ var myWeveEvent = {
         });
     },
 
-    // listNoData: () => {
-    //     if($(nodata).length){
-    //         changeColor();
-    //         alert('nodata');
+    listNoData: () => {
+        const contWrap = $('.cont_wrap').find('ol');
+            
+        contWrap.each((index)=> {
+            let contData = contWrap.eq(index).find('li a');
 
-    //     }
-    // },
+            contData.each((index)=> {
+                if(contData.eq(index).html() == '') {
+                    contData.eq(index).addClass('empty');
+                }
+            })
+
+            if (contWrap.eq(index).find('li a:not(.empty)').length === 0) {
+                contData.not(':eq(0)').parent().remove();
+                contData.eq(0).toggleClass('empty no_data');
+
+                contWrap.eq(index).find('.no_data').text('예약하신 내역이 없습니다.');
+            }
+        })
+    },
 
     checkbox: () => {
         $('.contract_info .checkbox input').change(function(){
@@ -846,49 +846,60 @@ var myWeveEvent = {
             popSwiper.slideTo(0);
         });
 
-        let 
-
     },
 
     reservation: () => {
         $('#datepicker').datetimepicker({
             // inline:true
+            // 팝업영역 외부 클릭시 꺼지는 현상 jquery.datetimepicker.full.js 파일 2319줄 주석처리
         });
+        
+        $(window).load(()=> {
+            const dateSheet =  $('.xdsoft_datetimepicker'),
+                  dateChildren = dateSheet.children('div');
 
-        $('#datepickerBtn').click(function(){
-            $('#datepicker').datetimepicker('show');
-            $('.xdsoft_datetimepicker').wrap("<div class='popup on'></div>");
-            $('.xdsoft_datetimepicker').prepend("<button class='pop_close'>닫기</button>");
-            $('.xdsoft_datetimepicker').prepend("<div class='pop_tit'>방문예약 일시선택</div>");
+            dateSheet.appendTo(".popup");
+            dateChildren.eq(0).wrap("<div class='datepicker_wrap'></div>");
+            dateChildren.eq(1).wrap("<div class='timepicker_wrap'></div>");
+            dateChildren.parent().prepend("<div class='picker_tit'></div>");
+            dateSheet.prepend("<h2 class='pop_tit'>방문예약 일시선택</h2>");
+            
+            let selection = $('.picker_tit');
+            selection.eq(0).html('<b>01.</b> 방문 희망일자 선택');
+            selection.eq(1).html('<b>02.</b> 방문 희망시간 선택');
 
-            $('.xdsoft_datepicker').wrap("<div class='datepicker_wrap'></div>");
-            $('.datepicker_wrap').prepend("<div class='picker_tit'><b>01.</b> 방문 희망일자 선택</div>");
-            $('.xdsoft_timepicker').wrap("<div class='timepicker_wrap'></div>");
-            $('.timepicker_wrap').prepend("<div class='picker_tit'><b>02.</b> 방문 희망시간 선택</div>");
+            $('#datepicker').on('click', function(){
+                dateSheet.show();
+                $('#datepicker').datetimepicker('show');
+                $('.popup').addClass('on');
+                $('.pop_close').appendTo(dateSheet);
+                $('.pop_close').addClass('mov_datepicker')
+                
+                $('.const_status').hide();
 
+            });
 
-        });
+            $('.pop_close').on('click', function(){
+                dateSheet.hide();
+                $('#datepicker').datetimepicker('hide');
+                $('.popup').removeClass('on');
+                $('.pop_close').prependTo($('.const_status'));
+                $('.pop_close').removeClass('mov_datepicker')
+                
+                setTimeout(()=> {
+                    $('.const_status').show();
+                }, 600)
+                
+            });
+    
+            
+        })
+        
 
-        $('.xdsoft_datetimepicker .pop_close').click(function(){
-            $('#datepicker').datetimepicker('hide');
-            $('.xdsoft_datetimepicker').unwrap();
-            $('.xdsoft_datetimepicker').remove("<button class='pop_close'>닫기</button>");
-            $('.xdsoft_datetimepicker').remove("<div class='pop_tit'>방문예약 일시선택</div>");
-
-            $('.xdsoft_datepicker').unwrap();
-            $('.datepicker_wrap').remove("<div class='picker_tit'><b>01.</b> 방문 희망일자 선택</div>");
-            $('.xdsoft_timepicker').unwrap();
-            $('.timepicker_wrap').remove("<div class='picker_tit'><b>02.</b> 방문 희망시간 선택</div>");
-
-
-        });
+        
 
     },
 
-}
-function changeColor (){
-    let nodata = $('.my_contract .cont_wrap ol li a').text('');
-    $(nodata).css('background-color','pink');
 }
 
 function addressKindChange(e) {

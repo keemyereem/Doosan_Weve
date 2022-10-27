@@ -1131,7 +1131,7 @@ var datetimepickerFactory = function ($) {
 						if (_xdsoft_datetime && _xdsoft_datetime.currentTime) {
 							_xdsoft_datetime.currentTime[$(this).parent().parent().hasClass('xdsoft_monthselect') ? 'setMonth' : 'setFullYear']($(this).data('value'));
 						}
-
+						
 						$(this).parent().parent().hide();
 
 						datetimepicker.trigger('xchange.xdsoft');
@@ -2097,6 +2097,7 @@ var datetimepickerFactory = function ($) {
 						_xdsoft_datetime.prevMonth();
 					}
 					return false;
+					
 				});
 
 			input
@@ -2295,8 +2296,11 @@ var datetimepickerFactory = function ($) {
 							.on('resize.xdsoft', setPos);
 
 						if (options.closeOnWithoutClick) {
+							
 							$([options.ownerDocument.body, options.contentWindow]).on('touchstart mousedown.xdsoft', function arguments_callee6() {
+								
 								datetimepicker.trigger('close.xdsoft');
+
 								$([options.ownerDocument.body, options.contentWindow]).off('touchstart mousedown.xdsoft', arguments_callee6);
 							});
 						}
@@ -2312,7 +2316,8 @@ var datetimepickerFactory = function ($) {
 						onClose = options.onClose.call(datetimepicker, _xdsoft_datetime.currentTime, datetimepicker.data('input'), event);
 					}
 					if (onClose !== false && !options.opened && !options.inline) {
-						datetimepicker.hide();
+						// datetimepicker.hide();
+						console.log('a')
 					}
 					event.stopPropagation();
 				})

@@ -536,12 +536,13 @@ body#brandstory.typeB { color: #222; }
 .my_contract .section .cont_wrap ol,
 .my_contract .section .cont_wrap ol li { width: 100%; }
 .my_contract .section .cont_wrap ol li+li { margin-top: 9px; }
-.my_contract .section .cont_wrap ol li:hover a { font-weight: 400; }
-.my_contract .section:nth-of-type(1) .cont_wrap ol li:hover a { color: #005eb8; }
-.my_contract .section:nth-of-type(2) .cont_wrap ol li:hover a { color: #00a5d7; }
-.my_contract .section:nth-of-type(3) .cont_wrap ol li:hover a { color: #00ad83; }
-.my_contract .section .cont_wrap ol li a { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; border-radius: 10px; /* border: 1px solid #e8e8e8; */ background: #f4f4f4; padding: 0 30px; color: #555; }
-.my_contract .section .cont_wrap ol li .no_data { display: block; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
+.my_contract .section .cont_wrap ol li:hover a:not(.no_data) { font-weight: 400; }
+.my_contract .section:nth-of-type(1) .cont_wrap ol li:hover a:not(.no_data) { color: #005eb8; }
+.my_contract .section:nth-of-type(2) .cont_wrap ol li:hover a:not(.no_data) { color: #00a5d7; }
+.my_contract .section:nth-of-type(3) .cont_wrap ol li:hover a:not(.no_data) { color: #00ad83; }
+.my_contract .section .cont_wrap ol li a { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; border-radius: 10px; border: 1px solid #e8e8e8; background: #fff; padding: 0 30px; color: #555; }
+.my_contract .section .cont_wrap ol li .no_data { display: block; cursor: auto; background: #fff; border: 1px solid #e8e8e8; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
+.my_contract .section .cont_wrap ol li .empty { background: #f4f4f4; border: none; cursor: auto; }
 
 /* 마이위브(계약) - 계약정보 */
 .my_contract/*  .contract_info */ .section h2 { font-size: 20px; font-weight: 200; color: #222; margin-bottom: 30px; }
@@ -634,8 +635,9 @@ body#brandstory.typeB { color: #222; }
 
 /* 공사현황 팝업 */
 .my_contract .contract_info .const_status { width: 100%; max-width: 1147px; color: #222; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.my_contract .contract_info .const_status .pop_close { float: right; margin-bottom: 18px; transition: transform .2s; }
-.my_contract .contract_info .const_status .pop_close:hover { transform: rotate(90deg); }
+.my_contract .contract_info .pop_close { float: right; margin-bottom: 18px; transition: transform .2s; }
+.my_contract .contract_info .pop_close:hover { transform: rotate(90deg); }
+.my_contract .contract_info .pop_close.mov_datepicker { float: unset; position: absolute; margin-bottom: unset; top: -4rem; }
 .my_contract .contract_info .popup .pop_cont { width: 100%; height: 81vh; overflow: auto; background: #fff; padding: 80px 60px; position: relative; letter-spacing: -.15px; }
 
 .my_contract .contract_info .const_status .top { width: 100%; }

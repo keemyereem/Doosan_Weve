@@ -41,6 +41,7 @@
 	<script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script> 
 	
 	<script src="js/main.js"></script>
+	<script src="js/common.js"></script>
 	<script>
 		$(document).ready( function() {
             $('header').load("include/header.html");
@@ -68,16 +69,97 @@
 					<div class="swiper-pagination"></div>
 				</div>
 				<div class="text_wrap">
-					<p class="big">마음속에 간직해온 <strong>나만의 공간</strong></p>
-					<span class="desc">아름다운 공간속에 편리함과<br> 건강한 삶을 담았습니다.</span>
+					<p class="big">차원이 다른 <strong>삶의 높이</strong></p>
+					<span class="desc">정점에 오른 당신의 클래스를 채워줄 유일한 존재</span>
 				</div>
 				<div class="scroll"><i class="bar"></i></div>
 			</div>
 
 <!-- SECTION02 -->
-			<div class="section contBox02" tabindex="0">
-				<!-- 현재 이미지로 들어가있음 -->
-			</div>
+			<div class="section contBox02" tabindex="0"><div class="inner">
+				<h2>Essential</h2>
+				<p class="desc">생활의 편리함을 더해주는 한 발 앞선 디지털라이프</p>
+				<div class="btn_detail">
+					<a href="">자세히 보기</a>
+				</div>
+
+				<div class="bs_banner">
+					<a href="" target="_blank"><span></span></a>
+				</div>
+
+				<div class="es_slider">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide s1" bg-type="bg1">
+							<em></em>
+							<p>We have</p>
+							<span>홈 네트워크 시스템</span>
+						</div>
+						<div class="swiper-slide s2" bg-type="bg2">
+							<em></em>
+							<p>We live</p>
+							<span>프리미엄 라이프</span>
+						</div>
+						<div class="swiper-slide s3" bg-type="bg3">
+							<em></em>
+							<p>We save</p>
+							<span>태양광 발전 시스템<br>
+								대기전력 차단 시스템<br>
+								ECO 에너지 절약수전</span>
+						</div>
+						<div class="swiper-slide s4" bg-type="bg4">
+							<em></em>
+							<p>We solve</p>
+							<span>층간소음저감<br>
+								공기정화시스템<br>
+								중앙 정수 시스템</span>
+						</div>
+						<div class="swiper-slide s5" bg-type="bg5">
+							<em></em>
+							<p>We love</p>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="bg_box">
+					<img src="images/main/bg_es_1.jpg" alt="" class="bg1">
+					<img src="images/main/bg_es_2.jpg" alt="" class="bg2">
+					<img src="images/main/bg_es_3.jpg" alt="" class="bg3">
+					<img src="images/main/bg_es_4.jpg" alt="" class="bg4">
+					<img src="images/main/bg_es_5.jpg" alt="" class="bg5">
+				</div>
+				<script>
+					$(function(){
+						var swiper = new Swiper("#pc .es_slider", {
+							slidesPerView: 5
+						});
+
+						var swiper = new Swiper("#mobile .es_slider", {
+							slidesPerView: 1,
+							pagination: {
+								el: ".es_slider .swiper-pagination"
+							},
+							on: {
+								slideChange: function () {
+									_this = $(this)[0].activeIndex + 1;
+									$(".contBox02 .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
+									$(".swiper-pagination span").removeClass("swiper-pagination-bullet-active");
+									$(".swiper-pagination span:nth-child(" + _this + ")").addClass("swiper-pagination-bullet-active");
+								}
+							}
+						});
+
+						let _bg;
+						$("#pc .es_slider .swiper-slide").hover(function(){
+							_bg = $(this).attr("bg-type");
+							$(".es_slider").attr("class" , "es_slider");
+							$(".es_slider").addClass(_bg);
+						}, function(){
+							$(".es_slider").attr("class" , "es_slider");
+						});
+					});
+				</script>
+			</div></div>
+			
 
 <!-- SECTION03 -->
 			<div class="section contBox03" tabindex="0">
@@ -92,9 +174,7 @@
 							<div class="text_box">
 								<ul>
 									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
 									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
 								</ul>
 								<a href="" target="_blank" class="link">분양 홈페이지</a>
 							</div>
@@ -108,9 +188,7 @@
 							<div class="text_box">
 								<ul>
 									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
 									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
 								</ul>
 								<a href="" target="_blank" class="link">분양 홈페이지</a>
 							</div>
@@ -118,15 +196,13 @@
 						<div class="swiper-slide">
 							<div class="default">
 								<span class="ct on">분양중</span>
-								<p class="tit">김해 율하 더스카이시티 제니스&프라우</p>
+								<p class="tit">김해 율하 더스카이시티<br> 제니스&프라우</p>
 								<em class="date">2022.06</em>
 							</div>
 							<div class="text_box">
 								<ul>
 									<li><span>위치</span><p>: 경상남도 김해시 신문동 699-1번지 일원</p></li>
-									<li><span>단지규모</span><p>: 지상 49층 (공동주택), 지상 39층 (오피스텔), 지상 4층 (지하주차장)</p></li>
 									<li><span>세대수</span><p>:4,393세대</p></li>
-									<li><span>부대시설</span><p>: 도서관, 독서실, 북카페, 영어마을 등</p></li>
 								</ul>
 								<a href="" target="_blank" class="link">분양 홈페이지</a>
 							</div>
@@ -140,9 +216,7 @@
 							<div class="text_box">
 								<ul>
 									<li><span>위치</span><p>: 인천광역시 동구 송림동 42-215번지 일원</p></li>
-									<li><span>단지규모</span><p>: 지하 3층 ~ 지상 29층 | 아파트 12개동, 부대복리시설, 근린생활시설</p></li>
 									<li><span>세대수</span><p>: 총 1,321세대(임대 88세대 포함) 중 일반분양 785세대</p></li>
-									<li><span>부대시설</span><p>: 휘트니스센터, 실내 골프연습장, 스크린 골프 연습장, 샤워실 등</p></li>
 								</ul>
 								<a href="" target="_blank" class="link">분양 홈페이지</a>
 							</div>
@@ -184,20 +258,6 @@
 							<em class="more">View More</em>
 						</a></li>
 					</ul>
-
-					<div class="sns_wrap">
-						<div class="sns_scroll">
-							<div class="item yt"><a href=""><img src="images/main/sample_sns_1.jpg" alt=""></a></div>
-							<div class="item inst"><a href=""><img src="images/main/sample_sns_2.jpg" alt=""></a></div>
-							<div class="item inst"><a href=""><img src="images/main/sample_sns_3.jpg" alt=""></a></div>
-							<div class="item yt"><a href=""><img src="images/main/sample_sns_4.jpg" alt=""></a></div>
-							<div class="item yt"><a href=""><img src="images/main/sample_sns_5.jpg" alt=""></a></div>
-							<div class="item inst"><a href=""><img src="images/main/sample_sns_2.jpg" alt=""></a></div>
-							<div class="item inst"><a href=""><img src="images/main/sample_sns_3.jpg" alt=""></a></div>
-							<div class="item yt"><a href=""><img src="images/main/sample_sns_4.jpg" alt=""></a></div>
-							<div class="item yt"><a href=""><img src="images/main/sample_sns_5.jpg" alt=""></a></div>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -207,7 +267,7 @@
 					<div class="service_box">
 						<ul class="list">
 							<li class="l1">
-								<p class="tit">관심고객</p>
+								<p class="tit">일반고객</p>
 								<div class="link">
 									<a href="" target="_blank">분양일정 확인하기</a>
 									<a href="" target="_blank">분양단지 보기</a>
@@ -216,14 +276,14 @@
 							<li class="l2">
 								<p class="tit">계약고객</p>
 								<div class="link">
-									<a href="" target="_blank">분양대금조회</a>
-									<a href="" target="_blank">계약단지정보</a>
+									<a href="" target="_blank">계약 및 납부조회</a>
+									<a href="" target="_blank">권리의무승계 방문 예약</a>
 								</div>
 							</li>
 							<li class="l3">
 								<p class="tit">입주고객</p>
 								<div class="link">
-									<a href="" target="_blank">입주 예약</a>
+									<a href="" target="_blank">입주 예약 조회</a>
 									<a href="" target="_blank">입주 가이드</a>
 								</div>
 							</li>
@@ -246,6 +306,8 @@
 							</div>
 						</div>
 					</div>
+
+					<a href="javascript:;" class="goTop" onclick="$.fn.fullpage.moveTo(1);">TOP</a>
 				</div>
 			</div>
 			

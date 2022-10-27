@@ -846,6 +846,8 @@ var myWeveEvent = {
             popSwiper.slideTo(0);
         });
 
+        let 
+
     },
 
     reservation: () => {
@@ -855,7 +857,7 @@ var myWeveEvent = {
 
         $('#datepickerBtn').click(function(){
             $('#datepicker').datetimepicker('show');
-            // $('.xdsoft_datetimepicker').wrap("<div class='popup on'></div>");
+            $('.xdsoft_datetimepicker').wrap("<div class='popup on'></div>");
             $('.xdsoft_datetimepicker').prepend("<button class='pop_close'>닫기</button>");
             $('.xdsoft_datetimepicker').prepend("<div class='pop_tit'>방문예약 일시선택</div>");
 
@@ -868,7 +870,7 @@ var myWeveEvent = {
         });
 
         $('.xdsoft_datetimepicker .pop_close').click(function(){
-            // $('#datepicker').datetimepicker('hide');
+            $('#datepicker').datetimepicker('hide');
             $('.xdsoft_datetimepicker').unwrap();
             $('.xdsoft_datetimepicker').remove("<button class='pop_close'>닫기</button>");
             $('.xdsoft_datetimepicker').remove("<div class='pop_tit'>방문예약 일시선택</div>");

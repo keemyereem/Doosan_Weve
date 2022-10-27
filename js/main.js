@@ -31,7 +31,7 @@ var mainEvent = {
 		this.headerEvent();
 		this.S1_videoVisual();
 		this.S3_contHover();
-		this.S4_snsScroll();
+	//	this.S4_snsScroll();
 	}, 
 
 	headerEvent: () => {
@@ -44,9 +44,9 @@ var mainEvent = {
 	initFullpage: () => {
 		$(document).ready(function(){
 			let _body = $("body");
-			$('#main_container').fullpage({
+			$('#pc #main_container').fullpage({
 				anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-				// responsiveWidth:1200,
+			//	responsiveWidth:1200,
 				fitToSection: true,
 				fitToSectionDelay: 0,
 				scrollOverflow: true,
@@ -56,6 +56,12 @@ var mainEvent = {
 					cls();
 				}
 			});
+
+			$('#mobile #main_container').fullpage({
+				anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+				responsiveWidth:1200,
+			});
+
 			$(window).on("scroll" , function(){
 				cls();
 			});
@@ -149,10 +155,12 @@ var mainEvent = {
 		});
 	},
 
+	/*
 	S4_snsScroll: () => {
 		$(".sns_wrap").mCustomScrollbar({
 			axis:"x",
 			advanced:{autoExpandHorizontalScroll:true}
 		});
 	},
+	*/
 }

@@ -777,6 +777,30 @@
     #mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell04 { width: 40%; order: 2; color: #888; text-align: right; }
 	#mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell05 { width: 40%; order: 4; margin-top: 7px; text-align: right; }
 
+	/* 마이위브(계약) - 고객문의 상세 */
+	#mobile .my_contract .inquiry_details { background: #fff; margin: -32px auto 0; padding: 83px 0 150px; }
+	#mobile .my_contract .inquiry_details .inner { padding: 0 20px; box-shadow: none; }
+	#mobile .my_contract .inquiry_details section+section { margin-top: 115px; }
+	#mobile .my_contract .inquiry_details .section3,
+	#mobile .my_contract .inquiry_details .section4 { margin-top: 65px; }
+	#mobile .my_contract .inquiry_details .section5 { margin-top: 57px; padding-top: 57px; }
+	#mobile .my_contract .inquiry_details .sec_tit { margin-bottom: 25px; }
+	#mobile .my_contract .inquiry_details ul li { font-size: 14px; }
+	#mobile .my_contract .inquiry_details ul li+li { margin-top: 27px; }
+	#mobile .my_contract .inquiry_details ul li .tit { width: 82px; }
+	#mobile .my_contract .inquiry_details ul li.inq_cont { flex-direction: column; }
+	#mobile .my_contract .inquiry_details ul li.inq_cont .txt { min-height: 174px; padding: 15px 18px; line-height: 1.5; margin-top: 15px; }
+
+	/* 마이위브(일반) - 회원가입 */
+	#mobile .my_general .join .section { padding: 60px 20px 150px; box-shadow: none; }
+	#mobile .my_general .join .section .sec_tit { font-size: 22px; }
+	#mobile .my_general .join .section p { font-size: 13px; margin: 22px 0 35px; }
+	#mobile .my_general .join .section .btn_wrap { width: 100%; }
+	#mobile .my_general .join .section .btn_wrap a { height: 45px; line-height: 45px; font-size: 14px; }
+	#mobile .my_general .join .section .btn_wrap .naver_join { margin-bottom: 15px; } 
+	#mobile .my_general .join .section .btn_wrap .naver_join::before { width: 15px; height: 13px; left: 18px; background-size: contain; }
+	#mobile .my_general .join .section .btn_wrap .kakao_join::before { width: 17px; height: 15px; left: 16px; background-size: contain; }
+
 
 }
 
@@ -786,6 +810,11 @@
 	#mobile .my_contract .as_status .section2 a  { float: none; }
 }
 
+@media screen and (min-height:1100px) {
+	.container { min-height: calc(100vh - 233px); }
+}
+
 @media screen and (max-height:1000px) {
 	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-of-type li span:nth-last-child(n+1):nth-last-child(-n+7) { display: none; }
 }
+

@@ -31,6 +31,7 @@
     <link rel="canonical" href="http://dev.topes.4-m.co.kr/" >  
 
     <!-- Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Library JS -->
@@ -38,7 +39,8 @@
     <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-
+    
+    <script src="js/lib/jquery.datetimepicker.full.js"></script>
     <script src="js/lib/aos.js"></script>
     <script src="js/common.js?v=1.0"></script>
     
@@ -139,64 +141,47 @@
                     <div class="inner">
                         <ul class="tab_slide">
                             <li><a href="html/FD-04-02-01.html" title="계약 및 납부 조회 페이지로 이동">계약 및 납부 조회</a></li>
-                            <li><a href="html/FD-04-02-03.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
-                            <li class="on"><a href="html/FD-04-02-04.html" title="공기질테스트 페이지로 이동">공기질테스트</a></li>
+                            <li class="on"><a href="html/FD-04-02-03.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
+                            <li><a href="html/FD-04-02-04.html" title="공기질테스트 페이지로 이동">공기질테스트</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <section class="section section3 air_test">
-                    <!-- 데이터 없음 -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>단지이름</th>
-                                <th>보고 유형</th>
-                                <th>공지일</th>
-                                <th>공지기간</th>
-                                <th>공고문</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="nodata">
-                                <td colspan="5">열람 가능한 공지가 없습니다.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- // 데이터 없음 -->
+                <section class="section section3 succession">
+                     <!-- 방문예약 신청 -->
+                    <div class="reservation_apply">
+                        <div class="sec_tit">권리의무승계 방문예약 신청</div>
+                        <div class="cont">
+                            <ul>
+                                <li>
+                                    <div class="tit">계약단지</div>
+                                    <p>인천 두산위브 더 센트럴 102동 1203호</p>
+                                </li>
+                                <li>
+                                    <div class="tit">예약일시</div>
+                                    <div class="input_row">
+                                        <input type="text" name="datepicker" id="datepicker">
+                                        <label for="datepicker" id="datepickerBtn"></label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <div class="tit">계약자</div>
+                                    <p>오지혁</p>
+                                </li>
+                                <li>
+                                    <div class="tit">연락처</div>
+                                    <p>010-5555-5555</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn_line">
+                            <a href="javascript:;" title="예약하기">예약하기</a>
+                        </div>
+                    </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>단지이름</th>
-                                <th>보고 유형</th>
-                                <th>공지일</th>
-                                <th>공지기간</th>
-                                <th>공고문</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="alignLeft">평촌 두산위브 더 프라임</td>
-                                <td>주택 공기질 측정결과 보고 (추가)</td>
-                                <td>22년 08월 27일</td>
-                                <td>09월 24일 ~ 12월 1일, 60일간</td>
-                                <td>
-                                    <a href="javascript:;" title="공고">공고1</a>
-                                    <a href="javascript:;" title="공고">공고</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="alignLeft">평촌 두산위브 더 프라임</td>
-                                <td>주택 공기질 측정결과 보고 (기존)</td>
-                                <td>22년 07월 30일</td>
-                                <td>09월 24일 ~ 12월 1일, 60일간</td>
-                                <td>
-                                    <a href="javascript:;" title="공고">공고</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
                 </section>
 
                 <!-- 공사현황 팝업 -->

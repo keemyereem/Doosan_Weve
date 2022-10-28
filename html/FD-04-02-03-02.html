@@ -54,6 +54,7 @@
             // JS importing
             commonEvent.init();
             myWeveEvent.init();
+            datepicker.init();
         });
     </script>
 </head>
@@ -141,7 +142,7 @@
                     <div class="inner">
                         <ul class="tab_slide">
                             <li><a href="html/FD-04-02-01.html" title="계약 및 납부 조회 페이지로 이동">계약 및 납부 조회</a></li>
-                            <li class="on"><a href="html/FD-04-02-03.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
+                            <li class="on"><a href="html/FD-04-02-03-01.html" title="권리의무승계 페이지로 이동">권리의무승계</a></li>
                             <li><a href="html/FD-04-02-04.html" title="공기질테스트 페이지로 이동">공기질테스트</a></li>
                         </ul>
                     </div>
@@ -160,8 +161,8 @@
                                 <li>
                                     <div class="tit">예약일시</div>
                                     <div class="input_row">
-                                        <input type="text" name="datepicker" id="datepicker" placeholder="날짜를 선택해주세요.">
-                                        <label for="datepicker"></label>
+                                        <input type="text" name="datepicker" id="datepicker">
+                                        <label for="datepicker" id="datepickerBtn"></label>
                                     </div>
                                 </li>
                             </ul>

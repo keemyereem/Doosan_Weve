@@ -1945,7 +1945,8 @@ var datetimepickerFactory = function ($) {
 							if (parseInt(today.getHours(), 10) === parseInt(h, 10) && parseInt(today.getMinutes(), 10) === parseInt(m, 10)) {
 								classes.push('xdsoft_today');
 							}
-							time += '<div class="xdsoft_time ' + classes.join(' ') + '" data-hour="' + h + '" data-minute="' + m + '">' + dateHelper.formatDate(now, options.formatTime) + '</div>';
+							time += '<div class="xdsoft_time ' + classes.join(' ') + '" data-hour="' + h + '" data-minute="' + m + '">' + dateHelper.formatDate(now, options.formatTime) + '<div class="book_tag"><span>예약가능</span><span>예약불가</span></div></div>';
+
 						};
 
 						if (!options.allowTimes || !Array.isArray(options.allowTimes) || !options.allowTimes.length) {

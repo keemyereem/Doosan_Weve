@@ -624,22 +624,52 @@ body#brandstory.typeB { color: #222; }
 
 /* 달력 */
 .my_contract .contract_info .datepicker { position: relative; height: fit-content; width: 800px; top: 50%; transform: translateY(-50%); margin: auto; }
-.my_contract .contract_info .pop_close.mov_datepicker { float: unset; position: absolute; margin-bottom: unset; top: -4rem; right: 0; }
+.my_contract .contract_info .pop_close.mov_datepicker { float: unset; position: absolute; margin-bottom: unset; top: -60px; right: 0; }
 .xdsoft_datetimepicker { width: 800px; padding: 80px 70px; top: 50%!important; left: 50%!important; transform: translate(-50%,-50%); }
 .xdsoft_datetimepicker .pop_close { display: block; position: absolute; top: 0; right: 0; border: 1px solid red; z-index: 1002; }
 .xdsoft_datetimepicker .pop_tit { font-family: 'NS'; font-size: 28px; font-weight: 400; color: #222; text-align: center; margin-bottom: 30px; }
 .xdsoft_datetimepicker .picker_tit { font-family: 'NS'; font-size: 16px; font-weight: 300; color: #222; margin-bottom: 15px; }
 .xdsoft_datetimepicker .picker_tit b { font-family: 'Poppins'; font-weight: 400; color: #005eb8; }
 .xdsoft_datetimepicker .datepicker_wrap { float: left; }
-.xdsoft_datetimepicker .timepicker_wrap { float: right; }
 .xdsoft_datetimepicker .xdsoft_datepicker { margin-left: 0; width: 424px; padding: 23px 20px; border: 1px solid #eee; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, 
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current { background: #005eb8; box-shadow: none; }
+.xdsoft_datetimepicker .xdsoft_calendar td, .xdsoft_datetimepicker .xdsoft_calendar th { text-align: center; color: #222; }
+.xdsoft_datetimepicker .xdsoft_calendar td { background: #fff; height: 40px; }
+.xdsoft_datetimepicker .xdsoft_calendar td > div { padding-right: 0; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today { color: #005eb8; font-weight: 300; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today.xdsoft_current { color: #fff; }
 
+.xdsoft_datetimepicker .btn_line { text-align: center; margin: 0 auto; }
+.xdsoft_datetimepicker .btn_line a { display: inline-block; margin: 30px auto 0; font-family: 'NS'; }
+
+/* 시간선택 */
+.xdsoft_datetimepicker .xdsoft_timepicker { width: 200px; }
+.xdsoft_datetimepicker .timepicker_wrap { float: right; width: 200px; }
+.xdsoft_datetimepicker .xdsoft_timepicker { margin-left: 0; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box { width: 200px; height: 305px; border: 1px solid #eee; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_next { display: none; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div { height: 35px; line-height: 35px; border: 0; font-family: 'Poppins'; font-size: 13px; text-align: left; padding: 0 20px; background: #fff; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, 
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current { font-weight: 200; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time { display: flex; align-items: center; justify-content: space-between; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag { width: 48px; height: 17px; line-height: 17px; background: #00a5d7; font-family: 'NS'; font-size: 11px; color: #fff; text-align: center; letter-spacing: -0.275px; position: relative; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag span { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag.disable { background: #888; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag span:last-of-type { display: none; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag.disable span:first-of-type { display: none; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box .xdsoft_time .book_tag.disable span:last-of-type { display: block; }
 
 /* 공사현황 팝업 */
 .my_contract .contract_info .const_status { width: 100%; max-width: 1147px; color: #222; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
 .my_contract .contract_info .pop_close { float: right; margin-bottom: 18px; transition: transform .2s; }
 .my_contract .contract_info .pop_close:hover { transform: rotate(90deg); }
 .my_contract .contract_info .popup .pop_cont { width: 100%; height: 81vh; overflow: auto; background: #fff; padding: 80px 60px; position: relative; letter-spacing: -.15px; }
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div:hover { background: #005eb8!important; }
 
 .my_contract .contract_info .const_status .top { width: 100%; }
 .my_contract .contract_info .const_status .top p { font-size: 18px; letter-spacing: -.45px; }

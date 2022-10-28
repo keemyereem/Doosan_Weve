@@ -717,7 +717,6 @@ var myWeveEvent = {
         this.checkbox();
         this.subTab();
         this.const_popup();
-        this.reservation();
     },
     loginbtn:() => {
         $('.get_authenNumber').click(function(){
@@ -841,25 +840,45 @@ var myWeveEvent = {
 
         });
 
-        $('.pop_tab ul li').click(function(){
+        $('.pop_tab ul li').on('click',function(){
             $('.pop_tab ul li').removeClass('on');
             $(this).addClass('on');
             popSwiper.slideTo(0);
         });
 
+        $('.contract_info .openPopup ').on('click',function(){
+            $('.contract_info .const_status').show();
+        });
+
+        let totalPercent = $('.top .progress_wrap p b').text(),
+            currPercent = $('.tab_con .progress_bar .current_bar .num').text();
+            console.log();
+
+        $('.popup .const_status .top .progress_wrap .progress_bar span').css('width',totalPercent);
+        $('.popup .const_status .tab_con .progress_bar .current_bar').css('width',currPercent);
+
     },
 
+
+
+}
+
+var datepicker = {
+    init: function() {
+        this.reservation();
+    },
     reservation: () => {
         "use strict"
         
         $('#datepicker').datetimepicker({
-            // inline:true
             // 팝업영역 외부 클릭시 꺼지는 현상 jquery.datetimepicker.full.js 파일 2319줄 주석처리
         });
         
         $(window).load(()=> {
+            // jquery.datetimepicker.full.js 파일 1948줄 .book_tag 추가
             const dateSheet =  $('.xdsoft_datetimepicker'),
-                  dateChildren = dateSheet.children('div');
+                  dateChildren = dateSheet.children('div'),
+                  booktag = $('.xdsoft_time_box .xdsoft_time .book_tag');
             
             dateSheet.appendTo(".popup");
             dateSheet.wrap("<div class='datepicker'></div>")
@@ -867,11 +886,15 @@ var myWeveEvent = {
             dateChildren.eq(1).wrap("<div class='timepicker_wrap'></div>");
             dateChildren.parent().prepend("<div class='picker_tit'></div>");
             dateSheet.prepend("<h2 class='pop_tit'>방문예약 일시선택</h2>");
-            
+            // booktag.hasClass('unavailable').text('예약불가');
+                        
             let selection = $('.picker_tit'),
                 dataWrap = $('.datepicker');
             selection.eq(0).html('<b>01.</b> 방문 희망일자 선택');
             selection.eq(1).html('<b>02.</b> 방문 희망시간 선택');
+
+            dateSheet.append('<div class="btn_line"><a href="javascript:;">예약일시 선택하기</a></div>');
+            
 
             dataWrap.css({'height': dateSheet.outerHeight(), 'width': dateSheet.outerWidth()});
 
@@ -886,26 +909,26 @@ var myWeveEvent = {
             });
 
             $('.pop_close').on('click', function(){
-                dataWrap.fadeOut(300);
+                dataWrap.hide();
                 $('#datepicker').datetimepicker('hide');
                 $('.popup').removeClass('on');
                 $('.pop_close').prependTo($('.const_status'));
                 $('.pop_close').removeClass('mov_datepicker')
-                
-                setTimeout(()=> {
-                    $('.const_status').show();
-                }, 600)
-                
+
             });
-    
+
+            $('.xdsoft_datetimepicker .btn_line > a').on('click', function(){
+                dataWrap.hide();
+                $('#datepicker').datetimepicker('hide');
+                $('.popup').removeClass('on');
+                $('.pop_close').prependTo($('.const_status'));
+                $('.pop_close').removeClass('mov_datepicker')
+
+            });
             
         })
-        
-
-        
-
+    
     },
-
 }
 
 function addressKindChange(e) {

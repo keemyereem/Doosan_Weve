@@ -846,17 +846,23 @@ var myWeveEvent = {
             popSwiper.slideTo(0);
         });
 
+
+
+
         $('.contract_info .openPopup ').on('click',function(){
             $('.contract_info .const_status').show();
-        });
-
-        let totalPercent = $('.top .progress_wrap p b').text(),
+            let totalPercent = $('.top .progress_wrap p b').text(),
             currPercent = $('.tab_con .progress_bar .current_bar .num').text();
             console.log();
 
-        $('.popup .const_status .top .progress_wrap .progress_bar span').css('width',totalPercent);
-        $('.popup .const_status .tab_con .progress_bar .current_bar').css('width',currPercent);
-
+            $('.popup .const_status .top .progress_wrap .progress_bar span').css('width',totalPercent);
+            $('.popup .const_status .tab_con .progress_bar .current_bar').css('width',currPercent);
+        });
+        
+        $('.contract_info .pop_close ').on('click',function(){
+            $('.popup .const_status .top .progress_wrap .progress_bar span').css('width','0');
+            $('.popup .const_status .tab_con .progress_bar .current_bar').css('width','0');
+        });
     },
 
 

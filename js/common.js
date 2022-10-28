@@ -258,6 +258,7 @@ var commonEvent = {
 
             body.style.top = `-${scrollPosition}px`;
             $('header').hide();
+            
         }
 
         // 팝업 닫기 function
@@ -849,6 +850,8 @@ var myWeveEvent = {
     },
 
     reservation: () => {
+        "use strict"
+        
         $('#datepicker').datetimepicker({
             // inline:true
             // 팝업영역 외부 클릭시 꺼지는 현상 jquery.datetimepicker.full.js 파일 2319줄 주석처리
@@ -857,30 +860,33 @@ var myWeveEvent = {
         $(window).load(()=> {
             const dateSheet =  $('.xdsoft_datetimepicker'),
                   dateChildren = dateSheet.children('div');
-
+            
             dateSheet.appendTo(".popup");
+            dateSheet.wrap("<div class='datepicker'></div>")
             dateChildren.eq(0).wrap("<div class='datepicker_wrap'></div>");
             dateChildren.eq(1).wrap("<div class='timepicker_wrap'></div>");
             dateChildren.parent().prepend("<div class='picker_tit'></div>");
             dateSheet.prepend("<h2 class='pop_tit'>방문예약 일시선택</h2>");
             
-            let selection = $('.picker_tit');
+            let selection = $('.picker_tit'),
+                dataWrap = $('.datepicker');
             selection.eq(0).html('<b>01.</b> 방문 희망일자 선택');
             selection.eq(1).html('<b>02.</b> 방문 희망시간 선택');
 
+            dataWrap.css({'height': dateSheet.outerHeight(), 'width': dateSheet.outerWidth()});
+
             $('#datepicker').on('click', function(){
-                dateSheet.show();
+                dataWrap.show();
                 $('#datepicker').datetimepicker('show');
                 $('.popup').addClass('on');
-                $('.pop_close').appendTo(dateSheet);
-                $('.pop_close').addClass('mov_datepicker')
-                
+                $('.pop_close').prependTo($('.datepicker'));
+                $('.pop_close').addClass('mov_datepicker');
                 $('.const_status').hide();
 
             });
 
             $('.pop_close').on('click', function(){
-                dateSheet.hide();
+                dataWrap.fadeOut(300);
                 $('#datepicker').datetimepicker('hide');
                 $('.popup').removeClass('on');
                 $('.pop_close').prependTo($('.const_status'));

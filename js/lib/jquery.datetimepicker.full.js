@@ -2317,7 +2317,6 @@ var datetimepickerFactory = function ($) {
 					}
 					if (onClose !== false && !options.opened && !options.inline) {
 						// datetimepicker.hide();
-						console.log('a')
 					}
 					event.stopPropagation();
 				})

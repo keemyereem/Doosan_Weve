@@ -697,10 +697,13 @@
 
 	/* 공사현황 팝업 */
 	#mobile .my_contract .contract_info .popup { height: 100vh; overflow: auto; }
+	#mobile .my_contract .contract_info .pop_close { width: 27px; height: 27px; margin-bottom: 16px; }
+	#mobile .my_contract .contract_info .pop_close:active { transform: rotate(90deg); }
+	#mobile .my_contract .contract_info .pop_close.mov_datepicker { margin-right: 2rem; top: 0rem; }
 	#mobile .my_contract .contract_info .const_status { width: calc(100% - 40px); height: auto; top:18px; left: 20px; transform: translate(0); }
-	#mobile .my_contract .contract_info .const_status .pop_close { width: 27px; height: 27px; margin-bottom: 16px; }
 	#mobile .my_contract .contract_info .popup .pop_cont { height: auto; padding: 40px 18px; }
 
+	
 	#mobile .my_contract .contract_info .const_status .top { flex-direction: column; }
 	#mobile .my_contract .contract_info .const_status .top { width: 100%; }
 	#mobile .my_contract .contract_info .const_status .top p { font-size: 14px; }

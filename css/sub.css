@@ -98,7 +98,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 
 /* 검색팝업 */
 /* .popup.search { border: 2px solid red; right: initial; bottom: initial; top: initial; left: initial; } */
-.popup.search ul { padding: 60px 100px 80px; }
+.popup.search ul { padding: 80px 100px; }
 .popup.search ul li:nth-child(2) { display: flex; align-items: center; justify-content: center; flex-direction: column; padding-bottom: 42px; border-bottom: 2px solid #000000; }
 .popup.search ul li:nth-child(2) .input_search { max-width: 488px; }
 .popup.search ul li:nth-child(2) p { display: block; font-size: 16px; color: #555555; margin-top: 21px; }

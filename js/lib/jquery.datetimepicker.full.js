@@ -1356,13 +1356,13 @@ var datetimepickerFactory = function ($) {
 
 			datetimepicker
 				.data('options', options)
-				.on('touchstart mousedown.xdsoft', function (event) {
-					event.stopPropagation();
-					event.preventDefault();
-					yearselect.hide();
-					monthselect.hide();
-					return false;
-				});
+				// .on('touchstart mousedown.xdsoft', function (event) {
+				// 	event.stopPropagation();
+				// 	event.preventDefault();
+				// 	yearselect.hide();
+				// 	monthselect.hide();
+				// 	return false;
+				// });
 
 			//scroll_element = timepicker.find('.xdsoft_time_box');
 			timeboxparent.append(timebox);
@@ -1933,6 +1933,7 @@ var datetimepickerFactory = function ($) {
 
 							if (!isALlowTimesInit) {
 								current_time.setMinutes(Math[options.roundTime](_xdsoft_datetime.currentTime.getMinutes() / options.step) * options.step);
+
 							}
 
 							if ((options.initTime || options.defaultSelect || datetimepicker.data('changed')) && current_time.getHours() === parseInt(h, 10) && ((!isALlowTimesInit && options.step > 59) || current_time.getMinutes() === parseInt(m, 10))) {
@@ -1941,13 +1942,15 @@ var datetimepickerFactory = function ($) {
 								} else if (options.initTime) {
 									classes.push('xdsoft_init_time');
 								}
+								
 							}
 							if (parseInt(today.getHours(), 10) === parseInt(h, 10) && parseInt(today.getMinutes(), 10) === parseInt(m, 10)) {
 								classes.push('xdsoft_today');
+								
 							}
 							time += '<div class="xdsoft_time ' + classes.join(' ') + '" data-hour="' + h + '" data-minute="' + m + '">' + dateHelper.formatDate(now, options.formatTime) + '<div class="book_tag"><span>예약가능</span><span>예약불가</span></div></div>';
-
 						};
+						
 
 						if (!options.allowTimes || !Array.isArray(options.allowTimes) || !options.allowTimes.length) {
 							for (i = 0, j = 0; i < (options.hours12 ? 12 : 24); i += 1) {
@@ -1958,6 +1961,7 @@ var datetimepickerFactory = function ($) {
 									h = (i < 10 ? '0' : '') + i;
 									m = (j < 10 ? '0' : '') + j;
 									line_time(h, m);
+									
 								}
 							}
 						} else {
@@ -1969,7 +1973,12 @@ var datetimepickerFactory = function ($) {
 						}
 
 						timebox.html(time);
-
+						timebox.find('.book_tag').each((index)=> {
+							if (timebox.find('.book_tag').hasClass('disable')) {
+								timebox.find('.book_tag').eq(index).parent().css({'color': '#b2b2b2', 'pointer-events': 'none'});
+							}
+						});
+						
 						opt = '';
 
 						for (i = parseInt(options.yearStart, 10); i <= parseInt(options.yearEnd, 10); i += 1) {
@@ -2201,6 +2210,10 @@ var datetimepickerFactory = function ($) {
 				windowWidth = $(options.contentWindow).width();
 				windowHeight = $(options.contentWindow).height();
 				windowScrollTop = $(options.contentWindow).scrollTop();
+
+				if ($('#mobile').length) {
+					position = "relative";
+				}
 
 				if ((options.ownerDocument.documentElement.clientWidth - dateInputOffset.left) < datepicker.parent().outerWidth(true)) {
 					var diff = datepicker.parent().outerWidth(true) - dateInputElem.offsetWidth;

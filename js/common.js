@@ -257,6 +257,7 @@ var commonEvent = {
             $('html').addClass('blockScroll');
 
             body.style.top = `-${scrollPosition}px`;
+            console.log(scrollPosition)
             $('header').hide();
             
         }
@@ -272,9 +273,11 @@ var commonEvent = {
             
             scrollPosition = body.style.top;
             scrollPosition = scrollPosition.replace('px', '');
-
-            body.style.removeProperty('top');
+            
             window.scrollTo(0, -(scrollPosition));
+            setTimeout(()=> {
+                body.style.removeProperty('top');
+            }, 300)
             $('header').show();
         }
 
@@ -790,27 +793,36 @@ var myWeveEvent = {
     },
 
     const_popup: () => {
-        var popTab = new Swiper(".const_status .pop_tab", {
-            slidesPerView: 6,
-            slidesPerGroup : 6,
-            spaceBetween: 0,
-            initialSlide: 1,
-            speed: 500,
-            observer: true,
-            observeParents: true,
-            navigation: {
-                nextEl: ".pop_tab_wrap .swiper-button-next",
-                prevEl: ".pop_tab_wrap .swiper-button-prev",
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 3,
-                    slidesPerGroup : 1,
-                    loopFillGroupWithBlank : true,
-                },
-            },
 
-        });
+        if($(window).width()>768){
+            var popTab = new Swiper(".const_status .pop_tab", {
+                slidesPerView: 6,
+                slidesPerGroup : 6,
+                spaceBetween: 0,
+                initialSlide: 1,
+                speed: 500,
+                observer: true,
+                observeParents: true,
+                navigation: {
+                    nextEl: ".pop_tab_wrap .swiper-button-next",
+                    prevEl: ".pop_tab_wrap .swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 3,
+                        slidesPerGroup : 1,
+                        loopFillGroupWithBlank: false,
+                        simulateTouch : true,
+                        touchStartPreventDefault: false,
+                    },
+                    
+                },
+    
+            });
+        }else {
+
+        }
+
 
         var popSwiper = new Swiper(".const_status .tab_contents .img_slide", {
             slidesPerView: 1,
@@ -875,9 +887,19 @@ var datepicker = {
     },
     reservation: () => {
         "use strict"
-        
+        // 팝업 스크롤 블록 개별 제어
+        let scrollPosition = 0;
+        $(window).on('scroll', ()=> {
+            scrollPosition = window.pageYOffset;
+        });
+
         $('#datepicker').datetimepicker({
-            // 팝업영역 외부 클릭시 꺼지는 현상 jquery.datetimepicker.full.js 파일 2319줄 주석처리
+            // **jquery.datetimepicker.full.js 파일
+
+            // 팝업영역 외부 클릭시 꺼지는 현상 2319줄 주석처리
+            // 모바일 드래그 및 버튼 클릭 불가 현상 1359~ 1365줄 주석처리
+            // 시간 선택박스 예약불가 클래스(disable) 걸려있을 경우 1976~ 1980 줄 코드 추가
+            // 모바일일 경우 팝업 박스 "position: relative" 2214~ 2216 줄 코드 추가
         });
         
         $(window).load(()=> {
@@ -887,50 +909,61 @@ var datepicker = {
                   booktag = $('.xdsoft_time_box .xdsoft_time .book_tag');
             
             dateSheet.appendTo(".popup");
-            dateSheet.wrap("<div class='datepicker'></div>")
             dateChildren.eq(0).wrap("<div class='datepicker_wrap'></div>");
             dateChildren.eq(1).wrap("<div class='timepicker_wrap'></div>");
             dateChildren.parent().prepend("<div class='picker_tit'></div>");
             dateSheet.prepend("<h2 class='pop_tit'>방문예약 일시선택</h2>");
-            // booktag.hasClass('unavailable').text('예약불가');
-                        
-            let selection = $('.picker_tit'),
-                dataWrap = $('.datepicker');
+            dateSheet.append('<div class="btn_line"><a href="javascript:;">예약일시 선택하기</a></div>');
+
+                                    
+            let selection = $('.picker_tit')
+                
             selection.eq(0).html('<b>01.</b> 방문 희망일자 선택');
             selection.eq(1).html('<b>02.</b> 방문 희망시간 선택');
 
-            dateSheet.append('<div class="btn_line"><a href="javascript:;">예약일시 선택하기</a></div>');
-            
-
-            dataWrap.css({'height': dateSheet.outerHeight(), 'width': dateSheet.outerWidth()});
-
             $('#datepicker').on('click', function(){
-                dataWrap.show();
-                $('#datepicker').datetimepicker('show');
-                $('.popup').addClass('on');
-                $('.pop_close').prependTo($('.datepicker'));
+                openProcessor();
+            });
+
+            $('.pop_close, .xdsoft_datetimepicker .btn_line > a').on('click', function(){
+                closeProcessor();
+            });
+
+            // 팝업 열기 function [ 팝업 스크롤 블록 개별 제어(2) ]
+            function openProcessor() {
+                scrollPosition = window.pageYOffset;
+
+                dateSheet.fadeIn(300);
+                $('.pop_close').prependTo(dateSheet);
                 $('.pop_close').addClass('mov_datepicker');
                 $('.const_status').hide();
 
-            });
+                $(".popup").addClass('on');
+                $('html').addClass('blockScroll');
 
-            $('.pop_close').on('click', function(){
-                dataWrap.hide();
-                $('#datepicker').datetimepicker('hide');
-                $('.popup').removeClass('on');
+                $('body').css({'top': `-${scrollPosition}px`});
+                $('header').hide();
+                
+            }
+
+            // 팝업 닫기 function
+            function closeProcessor() {
+                dateSheet.fadeOut(300);
                 $('.pop_close').prependTo($('.const_status'));
-                $('.pop_close').removeClass('mov_datepicker')
+                $('.pop_close').removeClass('mov_datepicker');
 
-            });
-
-            $('.xdsoft_datetimepicker .btn_line > a').on('click', function(){
-                dataWrap.hide();
-                $('#datepicker').datetimepicker('hide');
+                $('html').removeClass('blockScroll');
                 $('.popup').removeClass('on');
-                $('.pop_close').prependTo($('.const_status'));
-                $('.pop_close').removeClass('mov_datepicker')
-
-            });
+                
+                scrollPosition = $('body').css('top');
+                scrollPosition = scrollPosition.replace('px', '');
+                
+                window.scrollTo(0, -(scrollPosition));
+                setTimeout(()=> {
+                    $('body').removeProp('top');
+                }, 300)
+                $('header').show();
+            }
             
         })
     

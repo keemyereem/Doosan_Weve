@@ -280,8 +280,13 @@ var brandstory = {
     },
 
     section5: () => {
-        $('#mobile .section5 .name').removeAttr("onclick");
-        // document.querySelector('#mobile .section5 .name').onclick = null;
+        $('.section5 ul > li').each(function(i){
+            $('.section5 ul > li').eq(i).hover(function(){
+                $('.section5').find('img').eq(i).css({'z-index': '1'});
+            }, function(){
+                $('.section5').find('img').eq(i).css({'z-index': '-1'});
+            });
+        });
     },
 
 }

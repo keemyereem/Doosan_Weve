@@ -18,11 +18,15 @@
 .contBox01 .swiper-pagination > div.swiper-pagination-bullet-active p {color:#fff;}
 .contBox01 .swiper-pagination > div.swiper-pagination-bullet-active i {animation:prgressbar_event 15s ease-in-out .1s;}
 .contBox01 .text_wrap {position:absolute; top:50%; left:0; right:0; width:100%; text-align:center; transform:translateY(-50%); z-index:10;}
-.contBox01 .text_wrap .big {color:#fff; font-size:80px; font-weight:100; transition:all .2s; opacity:0; animation:mc1 1s ease .7s forwards;}
-.contBox01 .text_wrap .desc {display:block; margin-top:40px; color:#fff; font-size:20px; opacity:0; animation:mc1 1s ease 1.2s forwards;}
+.contBox01 .text_wrap .big {color:#fff; font-size:80px; font-weight:100; transition:all .2s; opacity:0;}
+.contBox01 .text_wrap .desc {display:block; margin-top:40px; color:#fff; font-size:20px; opacity:0;}
 .contBox01 .text_wrap .desc br {display:none;}
 .contBox01 .scroll {position:absolute; bottom:67px; right:160px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
 .contBox01 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
+
+.contBox01 .swiper-slide.swiper-slide-active .text_wrap .big {animation:mc1 1s ease .7s forwards;}
+.contBox01 .swiper-slide.swiper-slide-active .text_wrap .desc {animation:mc1 1s ease 1.2s forwards;}
+
 
 .contBox02 {position:relative; background:url(../images/main/bg_es.jpg) 50% 50% no-repeat; background-size:cover;}
 .contBox02 .inner {max-width:1460px; margin:0 auto;}
@@ -31,7 +35,7 @@
 @keyframes circle_motion{ 0% {transform:rotate(0);} 100% {transform:rotate(360deg);} }
 .contBox02 .bs_banner span {display:block; position:relative; overflow:hidden; background:rgba(0,94,184,.6); width:101px; height:101px; border-radius:50%;}
 .contBox02 .bs_banner span:after {content:""; position:absolute; top:50%; left:31px; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 27'%3e%3cpath fill-rule='evenodd' fill='%23F2F7FB' d='M30 7h2v1h-2V7ZM29 6h2v1h-2V6ZM28 5h2v1h-2V5ZM27 4h2v1h-2V4ZM26 3h2v1h-2V3ZM29 20h2v1h-2v-1ZM28 21h2v1h-2v-1ZM27 22h2v1h-2v-1ZM26 23h2v1h-2v-1ZM25 24h2v1h-2v-1ZM24 25h2v1h-2v-1ZM23 26h2v1h-2v-1ZM25 2h2v1h-2V2ZM24 1h2v1h-2V1ZM23 0h2v1h-2V0ZM31 8h2v1h-2V8ZM32 9h2v1h-2V9ZM33 10h2v1h-2v-1ZM34 11h2v1h-2v-1ZM35 12h2v1h-2v-1ZM0 13h38v1H0v-1ZM35 14h2v1h-2v-1ZM34 15h2v1h-2v-1ZM33 16h2v1h-2v-1ZM32 17h2v1h-2v-1ZM31 18h2v1h-2v-1ZM30 19h2v1h-2v-1Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; width:38px; height:27px; margin-top:-13px; transition:all .5s;}
-.contBox02 .bs_banner:hover span:after {left:40px;}
+.contBox02 .bs_banner:hover span:after {left:45px;}
 .contBox02 h2,
 .contBox02 p.desc,
 .contBox02 .btn_detail {position:relative; z-index:5;}
@@ -42,8 +46,9 @@
 .contBox02 .btn_detail a:hover {background:#005eb8; border-color:#005eb8;}
 .contBox02 .swiper-pagination {display:none;}
 .contBox02 .es_slider {position:relative; margin-top:70px; z-index:5;}
+.contBox02 .es_slider .swiper-wrapper {}
 .contBox02 .es_slider .swiper-slide {display:flex; flex-direction:column;}
-.contBox02 .es_slider .swiper-slide p {margin-top:25px; color:#fff; font-family:'Poppins'; text-align:center; font-size:24px;}
+.contBox02 .es_slider .swiper-slide p {margin-top:25px; color:#fff; font-family:'Poppins'; text-align:center; font-size:24px; font-weight:bold;}
 .contBox02 .es_slider .swiper-slide span {display:block; margin-top:20px; color:#fff; font-size:16px; text-align:center; line-height:1.6; transition:all .2s; opacity:0;}
 .contBox02 .es_slider .swiper-slide em {display:block; width:128px; height:128px; margin:0 auto; transition:all .2s;}
 .contBox02 .es_slider .swiper-slide.s1 em {background:url(../images/main/ico_es_1.png) 50% 50% no-repeat; background-size:100% 100%;}
@@ -51,6 +56,9 @@
 .contBox02 .es_slider .swiper-slide.s3 em {background:url(../images/main/ico_es_3.png) 50% 50% no-repeat; background-size:100% 100%;}
 .contBox02 .es_slider .swiper-slide.s4 em {background:url(../images/main/ico_es_4.png) 50% 50% no-repeat; background-size:100% 100%;}
 .contBox02 .es_slider .swiper-slide.s5 em {background:url(../images/main/ico_es_5.png) 50% 50% no-repeat; background-size:100% 100%;}
+
+#pc .contBox02 .es_slider .swiper-slide {opacity:.5; transition:opacity .3s;}
+#pc .contBox02 .es_slider .swiper-slide:hover {opacity:1;}
 
 .contBox02 .es_slider.bg1 .swiper-slide.s1 em {background:url(../images/main/ico_es_1_on.png) 50% 50% no-repeat; background-size:100% 100%;}
 .contBox02 .es_slider.bg2 .swiper-slide.s2 em {background:url(../images/main/ico_es_2_on.png) 50% 50% no-repeat; background-size:100% 100%;}
@@ -72,6 +80,7 @@
 .contBox02 .es_slider.bg4 ~ .bg_box .bg4,
 .contBox02 .es_slider.bg5 ~ .bg_box .bg5 {opacity:1;}
 
+#mobile .contBox02 {position:relative; background:url(../images/main/bg_es_1.jpg) 50% 50% no-repeat; background-size:cover;}
 
 
 .contBox03 {position:relative; background:url(../images/main/img_03.jpg) 50% 50% no-repeat; background-size:cover;}
@@ -107,27 +116,30 @@
 .contBox03 .house_slider.bg3 + .bg_box .bg3 {opacity:1;}
 
 @media screen and (min-width:768px) {
-	.motion3 .house_slider .swiper-slide:nth-child(1) .default {animation:mc1 1s ease 0s forwards;}
-	.motion3 .house_slider .swiper-slide:nth-child(2) .default {animation:mc1 1s ease .3s forwards;}
-	.motion3 .house_slider .swiper-slide:nth-child(3) .default {animation:mc1 1s ease .6s forwards;}
-	.motion3 .house_slider .swiper-slide:nth-child(4) .default {animation:mc1 1s ease .9s forwards;}
+	.motion3 .house_slider .swiper-slide:nth-child(1) .default {animation:mc1 .5s ease 0s forwards;}
+	.motion3 .house_slider .swiper-slide:nth-child(2) .default {animation:mc1 .5s ease .3s forwards;}
+	.motion3 .house_slider .swiper-slide:nth-child(3) .default {animation:mc1 .5s ease .6s forwards;}
+	.motion3 .house_slider .swiper-slide:nth-child(4) .default {animation:mc1 .5s ease .9s forwards;}
 }
 
 .contBox04 {position:relative; padding:0 40px;}
-.contBox04:before {content:""; position:absolute; bottom:0; left:0; background:#f2f7fb; width:100%; height:40%;}
+#pc .contBox04:before {content:""; position:absolute; bottom:0; left:0; background:#f2f7fb; width:100%; height:40%;}
 .contBox04 .inner {max-width:1400px; margin:0 auto;}
 .contBox04 h2 {color:#000; font-size:60px; text-align:center;}
 .contBox04 .noti_list {display:flex; margin-top:60px;}
 .contBox04 .noti_list li {position:relative; background:#fff; width:100%; margin-left:40px; border:1px solid #e5e5e5; opacity:0; transition:all .2s;}
 .contBox04 .noti_list li:first-child {margin-left:0;}
 .contBox04 .noti_list li a {display:block; padding:40px 30px; transition:all .2s;}
+#pc .contBox04 .noti_list li a {min-height:397px;}
 .contBox04 .noti_list li .tit {color:#222; font-size:24px; line-height:1.5; transition:all .2s;}
 .contBox04 .noti_list li span {display:block; margin-top:35px; color:#888; font-size:15px; font-family:'Poppins';}
 .contBox04 .noti_list li .more {display:flex; align-items:flex-end; position:absolute; bottom:40px; right:30px; color:#b1b1b1; font-size:15px; font-family:'Poppins'; transition:all .2s;}
 .contBox04 .noti_list li .more:after {content:""; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 5'%3e%3cpath fill-rule='evenodd' fill='%23b1b1b1' d='M0 5V4h20V0h1v1h1v1h1v1h1v1h1v1H0Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; width:25px; height:5px; margin:0 0 3px 7px; transition:all .4s;}
-.contBox04 .noti_list li a:hover {background:#005eb8;}
-.contBox04 .noti_list li a:hover .tit {color:#fff;}
-.contBox04 .noti_list li a:hover span {color:#fff;}
+#pc .contBox04 .noti_list li a:hover {background:#005eb8;}
+#pc .contBox04 .noti_list li a:hover .tit {color:#fff;}
+#pc .contBox04 .noti_list li a:hover span {color:#fff;}
+/* #mobile .contBox04 .noti_list li a:hover .tit {color:#005eb8;}
+#mobile .contBox04 .noti_list li a:hover span {color:#005eb8;} */
 .contBox04 .noti_list li a:hover .more {color:#fff;}
 .contBox04 .noti_list li a:hover .more:after {content:""; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 5'%3e%3cpath fill-rule='evenodd' fill='%23fff' d='M0 5V4h20V0h1v1h1v1h1v1h1v1h1v1H0Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; transform:translateX(3px);}
 .contBox04 .sns_wrap {position:relative; overflow:scroll; overflow-x:scroll; overflow-y:hidden; -webkit-overflow-scrolling:touch; margin-top:50px; padding-bottom:34px; opacity:0;}
@@ -171,7 +183,7 @@
 .contBox05 .service_box .list {display:flex; width:100%; max-width:1080px;}
 .contBox05 .service_box .list li {position:relative; background:#1d202e; width:100%; max-width:340px; min-height:340px; margin-left:30px; padding:60px 40px; transition:background .2s; transition:all .2s; opacity:0;}
 .contBox05 .service_box .list li:first-child {margin-left:0;}
-.contBox05 .service_box .list li:hover {transform:translateY(-10px);}
+#pc .contBox05 .service_box .list li:hover {transform:translateY(-10px);}
 .contBox05 .service_box .list li .tit {color:#fff; font-size:30px;}
 .contBox05 .service_box .list li .tit:before {content:""; display:block; width:70px; height:70px;}
 .contBox05 .service_box .list li.l1 .tit:before {background:url(../images/main/ico_cs_1.png) 0 0 no-repeat;}
@@ -179,22 +191,23 @@
 .contBox05 .service_box .list li.l3 .tit:before {background:url(../images/main/ico_cs_3.png) 0 0 no-repeat;}
 .contBox05 .service_box .list li .link {position:absolute; bottom:60px; left:40px;}
 .contBox05 .service_box .link a {display:flex; align-items:flex-end; color:#fff; font-size:15px;}
+#pc .contBox05 .service_box li:hover .link a {font-weight:bold;}
 .contBox05 .service_box .link a:first-child {margin-bottom:15px;}
 .contBox05 .service_box .link a:after {content:""; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 5'%3e%3cpath fill-rule='evenodd' fill='%23fff' d='M0 5V4h20V0h1v1h1v1h1v1h1v1h1v1H0Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; width:25px; height:5px; margin:0 0 3px 7px; transition:all .4s;}
-.contBox05 .service_box .link a:hover:after {transform:translateX(7px);}
-.contBox05 .service_box .list li:hover {background:#fff;}
-.contBox05 .service_box .list li:hover .tit,
-.contBox05 .service_box .list li:hover .link a {color:#030716;}
-.contBox05 .service_box .list li:hover .link a:after {background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 5'%3e%3cpath fill-rule='evenodd' fill='%23030716' d='M0 5V4h20V0h1v1h1v1h1v1h1v1h1v1H0Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%;}
-.contBox05 .service_box .list li.l1:hover .tit:before {background:url(../images/main/ico_cs_1_on.png) 0 0 no-repeat;}
-.contBox05 .service_box .list li.l2:hover .tit:before {background:url(../images/main/ico_cs_2_on.png) 0 0 no-repeat;}
-.contBox05 .service_box .list li.l3:hover .tit:before {background:url(../images/main/ico_cs_3_on.png) 0 0 no-repeat;}
+#pc .contBox05 .service_box .link a:hover:after {transform:translateX(7px);}
+#pc .contBox05 .service_box .list li:hover {background:#fff;}
+#pc .contBox05 .service_box .list li:hover .tit,
+#pc .contBox05 .service_box .list li:hover .link a {color:#030716;}
+#pc .contBox05 .service_box .list li:hover .link a:after {background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 5'%3e%3cpath fill-rule='evenodd' fill='%23030716' d='M0 5V4h20V0h1v1h1v1h1v1h1v1h1v1H0Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%;}
+#pc .contBox05 .service_box .list li.l1:hover .tit:before {background:url(../images/main/ico_cs_1_on.png) 0 0 no-repeat;}
+#pc .contBox05 .service_box .list li.l2:hover .tit:before {background:url(../images/main/ico_cs_2_on.png) 0 0 no-repeat;}
+#pc .contBox05 .service_box .list li.l3:hover .tit:before {background:url(../images/main/ico_cs_3_on.png) 0 0 no-repeat;}
 
 .contBox05 .service_box .cs_info {margin-left:70px; opacity:0;}
 .contBox05 .service_box .cs_info dl {margin-top:25px; color:#fff;}
 .contBox05 .service_box .cs_info dl dt {font-size:18px;}
 .contBox05 .service_box .cs_info dl dd {margin-top:10px; font-size:24px;}
-.contBox05 .service_box .cs_info dl dd em {display:block; font-family:'Poppins';}
+.contBox05 .service_box .cs_info dl dd em {display:block; color:#fff; font-family:'Poppins'; font-weight:300;}
 .contBox05 .service_box .cs_info dl dd span {display:block; margin-top:20px; color:rgba(255,255,255,.5); font-size:15px; font-weight:100;}
 .contBox05 .service_box .cs_info .link {margin-top:57px;}
 .contBox05.motion5 .service_box .list li:nth-child(1) {animation:mc1 .5s ease 0s forwards;}
@@ -217,18 +230,19 @@
 #mobile .contBox01 .swiper-pagination > div p {font-size:15px;}
 
 #mobile .contBox02 {background-size:cover;}
-#mobile .contBox02 .bs_banner {top:80px; right:40px;}
+#mobile .contBox02 .bs_banner {top:80px; right:35px;}
 #mobile .contBox02 .bs_banner:before {width:100px; height:100px; margin:-50px 0 0 -50px;}
 #mobile .contBox02 .bs_banner span {width:60px; height:60px;}
 #mobile .contBox02 .bs_banner span:after {left:18px; width:25px; height:17px; margin-top:-8px;}
 #mobile .contBox02 h2 {font-size:30px;}
-#mobile .contBox02 p.desc {margin-top:20px; font-size:15px;}
+#mobile .contBox02 p.desc {margin-top:15px; font-size:15px;}
 #mobile .contBox02 .btn_detail {margin-top:20px;}
 #mobile .contBox02 .btn_detail a {width:180px; height:45px; line-height:43px; font-size:14px;}
-#mobile .contBox02 .es_slider {margin-top:65px;}
-#mobile .contBox02 .es_slider .swiper-slide em {width:64px; height:64px;}
-#mobile .contBox02 .es_slider .swiper-slide span {margin-top:10px; opacity:1;}
-#mobile .contBox02 .swiper-pagination {display:flex; align-items:center; justify-content:center; position:static; width:100%; margin-top:50px;}
+#mobile .contBox02 .es_slider {margin-top:40px;}
+#mobile .contBox02 .es_slider .swiper-slide em {flex:0 0 auto; width:64px; height:64px;}
+#mobile .contBox02 .es_slider .swiper-slide p {margin-top:15px;}
+#mobile .contBox02 .es_slider .swiper-slide span {margin-top:10px; font-size:13px; line-height:1.3; opacity:1;}
+#mobile .contBox02 .swiper-pagination {display:flex; align-items:center; justify-content:center; position:static; width:100%; margin-top:20px;}
 #mobile .contBox02 .swiper-pagination span {background:#fff !important; margin:0 6px; opacity:.3;}
 #mobile .contBox02 .swiper-pagination span.swiper-pagination-bullet-active {opacity:1;}
 #mobile .contBox02 .bg_box .bg1 {opacity:1;}
@@ -287,18 +301,19 @@
 #mobile .contBox05 h2 {font-size:30px;}
 #mobile .contBox05 .service_box {display:block; margin-top:35px;}
 #mobile .contBox05 .service_box .list {display:block;}
-#mobile .contBox05 .service_box .list li {display:flex; align-items:flex-start; width:100%; max-width:100%; min-height:auto; margin-top:20px; margin-left:0; padding:30px 20px;}
+#mobile .contBox05 .service_box .list li {display:flex; align-items:center; width:100%; max-width:100%; min-height:auto; margin-top:20px; margin-left:0; padding:30px 20px;}
 #mobile .contBox05 .service_box .list li:first-child {margin-top:0;}
-#mobile .contBox05 .service_box .list li .tit {display:flex; align-items:flex-start; font-size:20px;}
-#mobile .contBox05 .service_box .list li .tit:before {width:40px;}
+#mobile .contBox05 .service_box .list li .tit {display:block; font-size:20px; text-align:center;}
+#mobile .contBox05 .service_box .list li .tit:before {width:40px; margin:0 auto; transform:translateX(10px);}
 #mobile .contBox05 .service_box .list li.l1 .tit:before,
 #mobile .contBox05 .service_box .list li.l2 .tit:before,
 #mobile .contBox05 .service_box .list li.l3 .tit:before {background-size:35px 35px; height:35px; margin-top:1px;}
-#mobile .contBox05 .service_box .list li .link {position:static; margin-left:45px;}
-#mobile .contBox05 .service_box .list li .link a {font-size:13px;}
+#mobile .contBox05 .service_box .list li .link {position:static; width:100%; margin-left:45px;}
+#mobile .contBox05 .service_box .list li .link a {width:100%; font-size:12px;}
+#mobile .contBox05 .service_box .list li .link a:after {flex:0 0 auto; margin-left:auto;}
 #mobile .contBox05 .service_box .link a:after {width:22.5px;}
 
-
-
+#mobile .contBox05.motion5 .service_box .cs_info {margin-left:0;}
+#mobile .contBox05 .goTop {bottom:30px; right:20px;}
 
 

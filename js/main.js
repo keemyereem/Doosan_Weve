@@ -30,6 +30,7 @@ var mainEvent = {
 		this.initFullpage();
 		this.headerEvent();
 		this.S1_videoVisual();
+		this.S2_videoVisual();
 		this.S3_contHover();
 	//	this.S4_snsScroll();
 	}, 
@@ -83,6 +84,7 @@ var mainEvent = {
 	S1_videoVisual: () => {
 		const video1 = document.querySelector("#visual_video_01");
 		const video2 = document.querySelector("#visual_video_02");
+    video1.load();
 
 		$(function(){
 			var slidemenu = ['We’ve', 'THE ZENITH']
@@ -115,6 +117,40 @@ var mainEvent = {
 			});
 
 			video1.play();
+		});
+	},
+
+	S2_videoVisual: () => {
+		$(function(){
+			var swiper = new Swiper("#pc .es_slider", {
+				slidesPerView: 5
+			});
+
+			var swiper = new Swiper("#mobile .es_slider", {
+				slidesPerView: 1,
+				pagination: {
+					el: ".es_slider .swiper-pagination"
+				},
+				on: {
+					slideChange: function () {
+						_this = $(this)[0].activeIndex + 1;
+						$(".es_slider .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
+						$(".es_slider .swiper-pagination span").removeClass(".es_slider swiper-pagination-bullet-active");
+						$(".es_slider .swiper-pagination span:nth-child(" + _this + ")").addClass(".es_slider swiper-pagination-bullet-active");
+						$(".es_slider").attr("class" , "es_slider");
+						$(".es_slider").addClass("bg" + _this);
+					}
+				}
+			});
+
+			let _bg;
+			$("#pc .es_slider .swiper-slide").hover(function(){
+				_bg = $(this).attr("bg-type");
+				$(".es_slider").attr("class" , "es_slider");
+				$(".es_slider").addClass(_bg);
+			}, function(){
+				$(".es_slider").attr("class" , "es_slider");
+			});
 		});
 	},
 

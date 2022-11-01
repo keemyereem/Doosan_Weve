@@ -13,6 +13,7 @@
 
   <meta charset="utf-8" > 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name = "format-detection" content = "telephone=no">
 	<meta name="author" content="Doosan We've">
 	<meta name="robots" content="index, follow">
 	<meta name="title" content="We've">
@@ -63,21 +64,34 @@
 			<div class="section contBox01" tabindex="0">
 				<div class="main_visual">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide v01"><video id="visual_video_01" src="images/main/video_01.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
-						<div class="swiper-slide v02"><video id="visual_video_02" src="images/main/video_02.mp4" playsinline autoplay muted loop data-keepplaying class="bg"></video></div>
+						<div class="swiper-slide v01">
+              <video id="visual_video_01" autoplay muted playsinline loop class="bg">
+                  <source src="images/main/video_01.mp4" type="video/mp4">
+              </video>
+							<div class="text_wrap">
+								<p class="big">마음속에 간직해온 <strong>나만의 공간</strong></p>
+								<span class="desc">아름다운 공간속에 편리함과 건강한 삶을 담았습니다.</span>
+							</div>
+						</div>
+						<div class="swiper-slide v02">
+              <video id="visual_video_02" autoplay muted playsinline loop class="bg">
+                <source src="images/main/video_02.mp4" type="video/mp4">
+              </video>
+							<div class="text_wrap">
+								<p class="big">차원이 다른 <strong>삶의 높이</strong></p>
+								<span class="desc">정점에 오른 당신의 클래스를 채워줄 유일한 존재</span>
+							</div>
+						</div>
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
-				<div class="text_wrap">
-					<p class="big">차원이 다른 <strong>삶의 높이</strong></p>
-					<span class="desc">정점에 오른 당신의 클래스를 채워줄 유일한 존재</span>
-				</div>
+				
 				<div class="scroll"><i class="bar"></i></div>
 			</div>
 
 <!-- SECTION02 -->
 			<div class="section contBox02" tabindex="0"><div class="inner">
-				<h2>Essential</h2>
+				<h2>ESSENTIAL</h2>
 				<p class="desc">생활의 편리함을 더해주는 한 발 앞선 디지털라이프</p>
 				<div class="btn_detail">
 					<a href="">자세히 보기</a>
@@ -127,37 +141,6 @@
 					<img src="images/main/bg_es_4.jpg" alt="" class="bg4">
 					<img src="images/main/bg_es_5.jpg" alt="" class="bg5">
 				</div>
-				<script>
-					$(function(){
-						var swiper = new Swiper("#pc .es_slider", {
-							slidesPerView: 5
-						});
-
-						var swiper = new Swiper("#mobile .es_slider", {
-							slidesPerView: 1,
-							pagination: {
-								el: ".es_slider .swiper-pagination"
-							},
-							on: {
-								slideChange: function () {
-									_this = $(this)[0].activeIndex + 1;
-									$(".contBox02 .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
-									$(".swiper-pagination span").removeClass("swiper-pagination-bullet-active");
-									$(".swiper-pagination span:nth-child(" + _this + ")").addClass("swiper-pagination-bullet-active");
-								}
-							}
-						});
-
-						let _bg;
-						$("#pc .es_slider .swiper-slide").hover(function(){
-							_bg = $(this).attr("bg-type");
-							$(".es_slider").attr("class" , "es_slider");
-							$(".es_slider").addClass(_bg);
-						}, function(){
-							$(".es_slider").attr("class" , "es_slider");
-						});
-					});
-				</script>
 			</div></div>
 			
 

@@ -396,7 +396,6 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .top .btn_line a { width: 210px; height: 50px; line-height: 48px; margin: 27px auto 0; border-color: #fff; font-size: 16px; color: #fff; }
 .cs .inquiry .top .btn_line a:hover { border-color: #005eb8; }
 .cs .inquiry .inner > p { font-size: 14px; color: #777; float: right; margin-bottom: 27px; }
-.cs .inquiry .es { color: #005eb8; }
 .cs .inquiry .sec_tit { font-family: 'Poppins','NS'; font-size: 34px; font-weight: 400; color: #222; margin-bottom: 40px; }
 .cs .inquiry .checkbox_row { margin: 35px 0 115px; }
 .cs .inquiry .checkbox_row p { font-size: 22px; font-weight: 400; color: #222; margin-bottom: 25px; }
@@ -506,54 +505,59 @@ body#brandstory.typeB { color: #222; }
 .login .get_authenNumber.active { border: 1px solid #0e66bf; background: #fff; color: #0e66bf; }
 .login .login_area { margin-top: 40px; display: none; }
 
-/* 마이위브(계약) - 메인 */
-.my_contract .section1 { flex-direction: column; height: 460px; background: url(../images/myweve/my_contract_bg.png) no-repeat 50% 50%; background-size: cover; }
-.my_contract .section1 h2 { font-size: 50px; }
-.my_contract .section1 .myweve_info { display: flex; align-items: center; color: #fff; margin-top: 28px; }
-.my_contract .section1 .myweve_info .class { width: 100px; height: 34px; background: #005eb8; font-size: 16px; line-height: 32px; text-align: center; letter-spacing: -.4px; margin-right: 27px; }
-.my_contract .section1 .myweve_info p { font-size: 20px; }
-.my_contract .section1 .myweve_info p::before { content:''; display: inline-block; width: 16px; height: 17px; background: url(../images/common/myweve_profile.png) no-repeat 50% 50%; background-size: contain; margin-right: 14px; }
-.my_contract .section1 .myweve_info p b { font-weight: 400; }
-.my_contract .section1 .logout { max-width: 1200px; width: 100%; margin: 0 auto; position: absolute; bottom: 60px; }
-.my_contract .section1 .logout a { float: right; font-size: 16px; color: #fff; }
-.my_contract .sub_menu { width: 100%; max-width: 1200px; height: 80px; margin: -40px auto 0; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); position: relative; z-index: 10; }
-.my_contract .sub_menu li { flex:1; display: table; height: 100%; text-align: center; position: relative; }
-.my_contract .sub_menu li::after { content:''; display: block; width: 0; height: 3px; background: #005eb8; position: absolute; bottom: 0; left: 0; }
-.my_contract .sub_menu li.on::after { width: 100%; }
-.my_contract .sub_menu li a { display: table-cell; vertical-align: middle; width: 100%; height: 100%; font-size: 18px; font-weight: 300; color: #222; transition: color .3s; }
-.my_contract .sub_menu li:hover a,
-.my_contract .sub_menu li.on a { color: #005eb8; }
-.my_contract .contents { margin: 80px auto 200px; }
-.my_contract .section { max-width: 1200px; margin: 0 auto; }
-.my_contract .section+.section { margin-top: 80px; }
-.my_contract .section .sec_tit { font-size: 34px; letter-spacing: -.85px; color: #222; margin-bottom: 40px; }
-.my_contract .section .cont_wrap { display: flex; justify-content: space-between; }
-.my_contract .section .cont_wrap li { width: calc(50% - 31px); }
-.my_contract .section .cont_wrap .cont_tit { display: flex; align-items: center; height: 60px; border-radius: 10px; font-size: 20px; font-weight: 400; padding: 0 30px; margin-bottom: 9px; }
-.my_contract .section:nth-of-type(1) .cont_wrap .cont_tit { background: #e5eff8; color: #005eb8; }
-.my_contract .section:nth-of-type(2) .cont_wrap .cont_tit { background: rgba(0, 165, 215, .1); color: #00a5d7; }
-.my_contract .section:nth-of-type(3) .cont_wrap .cont_tit { background: rgba(0, 173, 131, .1); color: #00ad83; }
-.my_contract .section .cont_wrap .cont_tit::before { content:''; display: inline-block; margin-right: 10px; }
-.my_contract .section .cont_wrap .cont_tit .view_more { display: inline-block; margin-left: auto; width: 19px; height: 19px; }
+/* 마이위브 - 메인 */
+.myweve .section1 { flex-direction: column; height: 460px; background: url(../images/myweve/myweve_bg.png) no-repeat 50% 50%; background-size: cover; }
+.myweve .section1 h2 { font-size: 50px; }
+.myweve .section1 .myweve_info { display: flex; align-items: center; color: #fff; margin-top: 28px; }
+.myweve .section1 .myweve_info .class { width: 100px; height: 34px; background: #005eb8; font-size: 16px; line-height: 32px; text-align: center; letter-spacing: -.4px; margin-right: 27px; }
+.myweve .section1 .myweve_info p { font-size: 20px; }
+.myweve .section1 .myweve_info p::before { content:''; display: inline-block; width: 16px; height: 17px; background: url(../images/common/myweve_profile.png) no-repeat 50% 50%; background-size: contain; margin-right: 14px; }
+.myweve .section1 .myweve_info p b { font-weight: 400; }
+.myweve .section1 .logout,
+.myweve .section1 .myinfo { max-width: 1200px; width: 100%; margin: 0 auto; position: absolute; bottom: 60px; }
+.myweve .section1 .logout a,
+.myweve .section1 .myinfo a { float: right; font-size: 16px; color: #fff; }
+.myweve .section1 .myinfo a { width: 90px; height: 32px; line-height: 30px; border: 1px solid #fff; background: rgba(0,0,0,.2); text-align: center; }
+.myweve .sub_menu { width: 100%; max-width: 1200px; height: 80px; margin: -40px auto 0; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); position: relative; z-index: 10; }
+.myweve .sub_menu li { flex:1; display: table; height: 100%; text-align: center; position: relative; }
+.myweve .sub_menu li::after { content:''; display: block; width: 0; height: 3px; background: #005eb8; position: absolute; bottom: 0; left: 0; }
+.myweve .sub_menu li.on::after { width: 100%; }
+.myweve .sub_menu li a { display: table-cell; vertical-align: middle; width: 100%; height: 100%; font-size: 18px; font-weight: 300; color: #222; transition: color .3s; }
+.myweve .sub_menu li:hover a,
+.myweve .sub_menu li.on a { color: #005eb8; }
+.myweve .contents { margin: 80px auto 200px; }
+.myweve .section { max-width: 1200px; margin: 0 auto; }
+.myweve .section+.section { margin-top: 80px; }
+.myweve .section .sec_tit { font-size: 34px; letter-spacing: -.85px; color: #222; margin-bottom: 40px; }
+.myweve .section .cont_wrap { display: flex; justify-content: space-between; }
+.myweve .section .cont_wrap li { width: calc(50% - 31px); }
+.myweve .section .cont_wrap .cont_tit { display: flex; align-items: center; height: 60px; border-radius: 10px; font-size: 20px; font-weight: 400; padding: 0 30px; margin-bottom: 9px; }
+.myweve .section:nth-of-type(1) .cont_wrap .cont_tit { background: #e5eff8; color: #005eb8; }
+.myweve .section:nth-of-type(2) .cont_wrap .cont_tit { background: rgba(0, 165, 215, .1); color: #00a5d7; }
+.myweve .section:nth-of-type(3) .cont_wrap .cont_tit { background: rgba(0, 173, 131, .1); color: #00ad83; }
+.myweve .section .cont_wrap .cont_tit::before { content:''; display: inline-block; margin-right: 10px; }
+.myweve .section .cont_wrap .cont_tit .view_more { display: inline-block; margin-left: auto; width: 19px; height: 19px; }
 .my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(1) .cont_tit::before { width: 18px; height: 20px; background: url(../images/myweve/contract_icon01.png) no-repeat; background-size: contain; }
 .my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(2) .cont_tit::before { width: 21px; height: 21px; background: url(../images/myweve/contract_icon02.png) no-repeat; background-size: contain; }
 .my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(1) .cont_tit::before { width: 12px; height: 17px; background: url(../images/myweve/contract_icon03.png) no-repeat; background-size: contain; }
 .my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(2) .cont_tit::before { width: 23px; height: 14px; background: url(../images/myweve/contract_icon04.png) no-repeat; background-size: contain; }
 .my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(1) .cont_tit::before { width: 17px; height: 16px; background: url(../images/myweve/contract_icon05.png) no-repeat; background-size: contain; }
 .my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(2) .cont_tit::before { width: 20px; height: 20px; background: url(../images/myweve/contract_icon06.png) no-repeat; background-size: contain; }
-.my_contract .section:nth-of-type(1) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus01.png) no-repeat; background-size: contain; }
-.my_contract .section:nth-of-type(2) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus02.png) no-repeat; background-size: contain; }
-.my_contract .section:nth-of-type(3) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus03.png) no-repeat; background-size: contain; }
-.my_contract .section .cont_wrap ol,
-.my_contract .section .cont_wrap ol li { width: 100%; }
-.my_contract .section .cont_wrap ol li+li { margin-top: 9px; }
-.my_contract .section .cont_wrap ol li:hover a:not(.no_data) { font-weight: 400; }
-.my_contract .section:nth-of-type(1) .cont_wrap ol li:hover a:not(.no_data) { color: #005eb8; }
-.my_contract .section:nth-of-type(2) .cont_wrap ol li:hover a:not(.no_data) { color: #00a5d7; }
-.my_contract .section:nth-of-type(3) .cont_wrap ol li:hover a:not(.no_data) { color: #00ad83; }
-.my_contract .section .cont_wrap ol li a { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; border-radius: 10px; border: 1px solid #e8e8e8; background: #fff; padding: 0 30px; color: #555; }
-.my_contract .section .cont_wrap ol li .no_data { display: block; cursor: auto; background: #fff; border: 1px solid #e8e8e8; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
-.my_contract .section .cont_wrap ol li .empty { background: #f4f4f4; border: none; cursor: auto; }
+.my_general .section .cont_wrap li:nth-child(1) .cont_tit::before { width: 17px; height: 16px; background: url(../images/myweve/general_icon01.png) no-repeat; background-size: contain; }
+.my_general .section .cont_wrap li:nth-child(2) .cont_tit::before { width: 20px; height: 20px; background: url(../images/myweve/general_icon02.png) no-repeat; background-size: contain; }
+.myweve .section:nth-of-type(1) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus01.png) no-repeat; background-size: contain; }
+.myweve .section:nth-of-type(2) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus02.png) no-repeat; background-size: contain; }
+.myweve .section:nth-of-type(3) .cont_wrap .cont_tit .view_more { background: url(../images/myweve/contract_plus03.png) no-repeat; background-size: contain; }
+.myweve .section .cont_wrap ol,
+.myweve .section .cont_wrap ol li { width: 100%; }
+.myweve .section .cont_wrap ol li+li { margin-top: 9px; }
+.myweve .section .cont_wrap ol li:hover a:not(.no_data) { font-weight: 400; }
+.myweve .section:nth-of-type(1) .cont_wrap ol li:hover a:not(.no_data) { color: #005eb8; }
+.myweve .section:nth-of-type(2) .cont_wrap ol li:hover a:not(.no_data) { color: #00a5d7; }
+.myweve .section:nth-of-type(3) .cont_wrap ol li:hover a:not(.no_data) { color: #00ad83; }
+.myweve .section .cont_wrap ol li a { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; border-radius: 10px; border: 1px solid #e8e8e8; background: #fff; padding: 0 30px; color: #555; }
+.myweve .section .cont_wrap ol li .no_data { display: block; cursor: auto; background: #fff; border: 1px solid #e8e8e8; width: 100%; height: 201px; line-height: 201px; text-align: center; font-size: 18px; color: #888; }
+.myweve .section .cont_wrap ol li .empty { background: #f4f4f4; border: none; cursor: auto; }
 
 /* 마이위브(계약) - 계약정보 */
 .my_contract/*  .contract_info */ .section h2 { font-size: 20px; font-weight: 200; color: #222; margin-bottom: 30px; }
@@ -600,7 +604,7 @@ body#brandstory.typeB { color: #222; }
 /* 마이위브(계약) - 공통 테이블 */
 .my_contract/*  .contract_info */ .section3 table thead tr { border-top: 2px solid #000; }
 .my_contract/*  .contract_info */ .section3 table tr { border-bottom: 1px solid #e5e5e5; }
-.my_contract/*  .contract_info */ .section3 table tbody tr.nodata td { text-align: center; color: #888; padding: 0!important; }
+.my_contract/*  .contract_info */ .section3 table tbody tr.nodata td { text-align: center!important; color: #888; padding: 0!important; }
 
 /* 마이위브(계약) - 공기질테스트 */
 .my_contract .contract_info .air_test table thead tr th:first-child { width: 30%; }
@@ -764,52 +768,52 @@ body#brandstory.typeB { color: #222; }
 
 .my_contract .reservation_status .section3 table tbody tr td .mob_address { display: none; }
 
-/* 마이위브(계약) - 고객문의 & A/S 신청현황 */
-.my_contract .tbstyle .section2 h2 { display: inline-block; }
-.my_contract .tbstyle .section2 > a { display: block; width: 160px; height: 50px; line-height: 50px; background: #005eb8; border-radius: 25px; font-family: 'Poppins','NS'; font-size: 16px; color: #fff; text-align: center; float: right; margin-bottom: 15px; }
+/* 마이위브 - 고객문의 & A/S 신청현황 */
+.myweve .tbstyle .section2 h2 { font-size: 20px; font-weight: 200; color: #222; display: inline-block; margin-bottom: 0; }
+.myweve .tbstyle .section2 h2 b { color: #005eb8; font-weight: 400; }
+.myweve .tbstyle .section2 > a { display: block; width: 160px; height: 50px; line-height: 51px; background: #005eb8; border-radius: 25px; font-family: 'Poppins','NS'; font-size: 16px; color: #fff; text-align: center; float: right; margin-bottom: 15px; }
+.myweve .tbstyle .section2 .tb_box { position: relative; border-top: 0; margin: 0 auto; }
+.myweve .tbstyle .section2 .tb_box .tb_row { display: table; table-layout: fixed; width: 100%; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_head { border-top: 1px solid #e5e5e5; background: rgba(0, 94, 184,.2); }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body { border-bottom: 1px solid #e5e5e5; }
+.myweve .tbstyle .section2 .tb_box .tb_row>div { display: table-cell; height: 60px; line-height: initial; vertical-align: middle; text-align: center; border-right: 1px solid #e5e5e5; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_head>div { font-size: 16px; color: #222; font-weight: 300;} 
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div { font-size: 16px; color: #555; }
+.myweve .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 1px solid #e5e5e5; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { text-align: left; padding-left: 30px; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div a { display: inline-block; width: 80px; height: 38px; line-height: 36px; border-radius: 19px; border: 1px solid #005eb8; font-size: 16px; color: #005eb8; text-align: center; margin-left: 10px; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body .mob_address { display: none; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body .registered { font-weight: 300; color: #005eb8; }
 
-.my_contract .tbstyle .section2 .tb_box { position: relative; border-top: 0; }
-.my_contract .tbstyle .section2 .tb_box .tb_row { display: table; table-layout: fixed; width: 100%; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_head { border-top: 1px solid #e5e5e5; background: rgba(0, 94, 184,.2); }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body { border-bottom: 1px solid #e5e5e5; }
-.my_contract .tbstyle .section2 .tb_box .tb_row>div { display: table-cell; height: 60px; line-height: initial; vertical-align: middle; text-align: center; border-right: 1px solid #e5e5e5; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_head>div { font-size: 16px; color: #222; font-weight: 300;} 
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div { font-size: 16px; color: #555; }
-.my_contract .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 1px solid #e5e5e5; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { text-align: left; padding-left: 30px; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div a { display: inline-block; width: 80px; height: 38px; line-height: 36px; border-radius: 19px; border: 1px solid #005eb8; font-size: 16px; color: #005eb8; text-align: center; margin-left: 10px; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body .mob_address { display: none; }
-.my_contract .tbstyle .section2 .tb_box .tb_row.row_body .registered { font-weight: 300; color: #005eb8; }
+/* 마이위브 - A/S 신청현황 */
+.myweve .as_status .section2 .tb_box .tb_row .cell01 {width: 30%;}
+.myweve .as_status .section2 .tb_box .tb_row .cell02 {width: 14%;}
+.myweve .as_status .section2 .tb_box .tb_row .cell03 {width: 15%;}
+.myweve .as_status .section2 .tb_box .tb_row .cell04 {width: 15%;}
+.myweve .as_status .section2 .tb_box .tb_row .cell05 {width: 13%;}
+.myweve .as_status .section2 .tb_box .tb_row .cell06 {width: 13%;}
 
-/* 마이위브(계약) - A/S 신청현황 */
-.my_contract .as_status .section2 .tb_box .tb_row .cell01 {width: 30%;}
-.my_contract .as_status .section2 .tb_box .tb_row .cell02 {width: 14%;}
-.my_contract .as_status .section2 .tb_box .tb_row .cell03 {width: 15%;}
-.my_contract .as_status .section2 .tb_box .tb_row .cell04 {width: 15%;}
-.my_contract .as_status .section2 .tb_box .tb_row .cell05 {width: 13%;}
-.my_contract .as_status .section2 .tb_box .tb_row .cell06 {width: 13%;}
+/* 마이위브 - 고객문의 */
+.myweve .inquiry .section2 .tb_box .tb_row .cell01 {width: 10%;}
+.myweve .inquiry .section2 .tb_box .tb_row .cell02 {width: 33%;}
+.myweve .inquiry .section2 .tb_box .tb_row .cell03 {width: 27%;}
+.myweve .inquiry .section2 .tb_box .tb_row .cell04 {width: 13%;}
+.myweve .inquiry .section2 .tb_box .tb_row .cell05 {width: 17%;}
 
-/* 마이위브(계약) - 고객문의 */
-.my_contract .inquiry .section2 .tb_box .tb_row .cell01 {width: 10%;}
-.my_contract .inquiry .section2 .tb_box .tb_row .cell02 {width: 33%;}
-.my_contract .inquiry .section2 .tb_box .tb_row .cell03 {width: 27%;}
-.my_contract .inquiry .section2 .tb_box .tb_row .cell04 {width: 13%;}
-.my_contract .inquiry .section2 .tb_box .tb_row .cell05 {width: 17%;}
-
-/* 마이위브(계약) - 고객문의 상세 */
-.my_contract .inquiry_details { background: #f6f6f6; max-width: 100%; margin: -40px auto 0; padding: 120px 0 200px; }
-.my_contract .inquiry_details .inner { background: #fff; max-width: 1200px; margin: 0 auto; padding: 80px 100px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
-.my_contract .inquiry_details section+section { margin-top: 115px; }
-.my_contract .inquiry_details .section3,
-.my_contract .inquiry_details .section4 { margin-top: 120px; }
-.my_contract .inquiry_details .section5 { border-top: 1px solid #e8e8e8; margin-top: 100px; padding-top: 100px; }
-.my_contract .inquiry_details .sec_tit { font-weight: 400; }
-.my_contract .inquiry_details ul li { display: flex; font-family: 'Poppins','NS'; font-size: 18px; }
-.my_contract .inquiry_details ul li+li { margin-top: 35px; }
-.my_contract .inquiry_details ul li .tit { font-weight: 400; color: #222; width: 120px; flex-shrink: 0; }
-.my_contract .inquiry_details ul li .txt { color: #555; }
-.my_contract .inquiry_details ul li .txt .dw { font-family: 'Poppins','NS'; font-weight: 300; color: #0000ff; }
-.my_contract .inquiry_details ul li.inq_cont .txt { background: #f6f6f6; width: 100%; min-height: 230px; padding: 30px; line-height: 1.78; }
+/* 마이위브 - 고객문의 상세 */
+.myweve .inquiry_details { background: #f6f6f6; max-width: 100%; margin: -40px auto 0; padding: 120px 0 200px; }
+.myweve .inquiry_details .inner { background: #fff; max-width: 1200px; margin: 0 auto; padding: 80px 100px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
+.myweve .inquiry_details section+section { margin-top: 115px; }
+.myweve .inquiry_details .section3,
+.myweve .inquiry_details .section4 { margin-top: 120px; }
+.myweve .inquiry_details .section5 { border-top: 1px solid #e8e8e8; margin-top: 100px; padding-top: 100px; }
+.myweve .inquiry_details .sec_tit { font-weight: 400; }
+.myweve .inquiry_details ul li { display: flex; font-family: 'Poppins','NS'; font-size: 18px; }
+.myweve .inquiry_details ul li+li { margin-top: 35px; }
+.myweve .inquiry_details ul li .tit { font-weight: 400; color: #222; width: 120px; flex-shrink: 0; }
+.myweve .inquiry_details ul li .txt { color: #555; }
+.myweve .inquiry_details ul li .txt .dw { font-family: 'Poppins','NS'; font-weight: 300; color: #0000ff; }
+.myweve .inquiry_details ul li.inq_cont .txt { background: #f6f6f6; width: 100%; min-height: 230px; padding: 30px; line-height: 1.78; }
 
 /* 마이위브(일반) - 회원가입 */
 .my_general .join .section { width: 100%; max-width: 1200px; background: #fff; margin: 0 auto; padding: 100px 0 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); text-align: center; }
@@ -822,3 +826,38 @@ body#brandstory.typeB { color: #222; }
 .my_general .join .section .btn_wrap a::before { content:''; display: block; position: absolute; top: 50%; transform: translateY(-50%); }
 .my_general .join .section .btn_wrap .naver_join::before { width: 19px; height: 17px; background: url(../images/common/naver.png) no-repeat; left: 28px; }
 .my_general .join .section .btn_wrap .kakao_join::before { width: 23px; height: 21px; background: url(../images/common/kakao.png) no-repeat; left: 26px; }
+
+/* 마이위브(일반) - 회원가입 */
+.my_general .withdraw .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 0 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); text-align: center; }
+.my_general .withdraw .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; }
+.my_general .withdraw .section p { max-width: 1200px; height: auto; margin: 60px auto 120px; padding: 60px 0; background: #f2f7fb; font-size: 20px; line-height: 1.7; color: #222; }
+.my_general .withdraw .section p b { font-weight: 400; color: #005eb8; }
+.my_general .withdraw .section .btn_wrap { display: flex; justify-content: center; align-items: center; }
+.my_general .withdraw .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; }
+.my_general .withdraw .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888; }
+.my_general .withdraw .section .btn_wrap .btn_withdraw { background: #005eb8; color: #fff; margin-left: 40px; }
+
+/* 마이위브(일반) - 내 정보 수정 */
+.my_general .modify .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 130px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
+.my_general .modify .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; margin-bottom: 110px; text-align: center; }
+.my_general .modify .section > ul li { display: flex; align-items: center; }
+.my_general .modify .section > ul li + li { margin-top: 40px; }
+.my_general .modify .section > ul li .tit_cell { width: 118px; font-size: 18px; color: #222; font-weight: 400; }
+.my_general .modify .section > ul li .ipt_cell { width: calc(100% - 118px); display: flex; align-items: center; }
+.my_general .modify .section > ul li .phone_cell { max-width: 744px; }
+.my_general .modify .section > ul li .ipt_cell p { font-size: 18px; color: #555; }
+.my_general .modify .section > ul li .ipt_cell span { display: inline-block; padding: 0 30px; font-size: 20px; color: #222; }
+.my_general .modify .section > ul li .ipt_cell .input_row input { padding-left: 30px; padding-right: 0; font-size: 20px; color: #555; }
+.my_general .modify .section > ul li .email_cell .input_row,
+.my_general .modify .section > ul li .email_cell .select_row  { max-width: 320px; height: 70px; }
+.my_general .modify .section > ul li .ipt_cell #selboxDirect { margin-right: 20px; }
+.my_general .modify .section > ul li .ipt_cell .select_row label { color: #b2b2b2; }
+.my_general .modify .section .check_wrap { padding: 60px 0 118px; margin-top: 60px; border-top: 1px solid #e8e8e8; }
+.my_general .modify .section .check_wrap .checkbox_row { display: block; }
+.my_general .modify .section .check_wrap .checkbox_row + .checkbox_row { margin-top: 20px; }
+.my_general .modify .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; }
+.my_general .modify .section .btn_wrap .btn_withdraw { background: #b2b2b2; color: #fff; }
+.my_general .modify .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888; float: right; }
+.my_general .modify .section .btn_wrap .btn_save { background: #005eb8; color: #fff; float: right; margin-left: 40px; }
+
+

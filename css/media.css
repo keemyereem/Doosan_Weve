@@ -152,7 +152,7 @@
 	#mobile footer .addr p.a2 {margin-right: 4vw;}
 	#mobile footer .addr p.a3 {margin-right: 0;}
 	#mobile footer .addr p span {margin-right:10px;}
-	#mobile footer .copy {font-size:13px;}
+	#mobile footer .copy {font-size:10px;letter-spacing: -.5px;}
 	#mobile footer .family_site {position: initial; width: 100%; height: 45px;margin-top: 25px;font-family: 'NS';font-size: 13px;}
 
 	#mobile #topButton { font-size: 14px; right: 20px; bottom: 35px; }
@@ -577,38 +577,45 @@
 	#mobile .login button { height: 45px; line-height: 45px; border-radius: 22px; font-size: 14px; }
 	#mobile .login .login_area { margin-top: 20px; }
 
-	/* 마이위브(계약) */
-	#mobile .my_contract .section1 { height: 275px; background: url(../images/myweve/my_contract_bg.png) no-repeat 50% 50%; background-size: cover; }
-	#mobile .my_contract .section1 h2 { font-size: 35px; }
-	#mobile .my_contract .section1 .myweve_info { margin-top: 25px; }
-	#mobile .my_contract .section1 .myweve_info .class { width: 75px; height: 25px;font-size: 13px; line-height: 25px; margin-right: 18px; }
-	#mobile .my_contract .section1 .myweve_info p { font-size: 15px; }
-	#mobile .my_contract .section1 .myweve_info p::before { width: 13px; height: 13px; margin-right: 10px; }
-	#mobile .my_contract .section1 .logout { bottom: 50px; right: 25px; }
-	#mobile .my_contract .section1 .logout a { font-size: 13px; }
-	#mobile .my_contract .sub_menu { width: calc(100% - 40px); height: 65px; margin: -33px auto 0; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
-	#mobile .my_contract .sub_menu li a { font-size: 14px;  }
-	#mobile .my_contract .contents { margin: 60px auto 150px; padding: 0 20px; }
-	#mobile .my_contract .section+.section { margin-top: 50px; }
-	#mobile .my_contract .section .sec_tit { font-size: 22px; margin-bottom: 17px; }
-	#mobile .my_contract .section .cont_wrap { flex-direction: column; }
-	#mobile .my_contract .section .cont_wrap li { width: 100%; }
-	#mobile .my_contract .section .cont_wrap > li+li { margin-top: 40px; }
-	#mobile .my_contract .section .cont_wrap .cont_tit {  height: 45px; border-radius: 5px; font-size: 15px; padding: 0 20px; margin-bottom: 10px; }
-	#mobile .my_contract .section .cont_wrap .cont_tit::before { margin-right: 7px; }
-	#mobile .my_contract .section .cont_wrap .cont_tit .view_more { width: 15px; height: 15px; }
-	#mobile .my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(1) .cont_tit::before { width: 14px; height: 16px; }
-	#mobile .my_contract .section:nth-of-type(1) .cont_wrap li:nth-child(2) .cont_tit::before { width: 17px; height: 17px; }
-	#mobile .my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(1) .cont_tit::before { width: 10px; height: 13px; }
-	#mobile .my_contract .section:nth-of-type(2) .cont_wrap li:nth-child(2) .cont_tit::before { width: 20px; height: 12px; }
-	#mobile .my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(1) .cont_tit::before { width: 16px; height: 15px; }
-	#mobile .my_contract .section:nth-of-type(3) .cont_wrap li:nth-child(2) .cont_tit::before { width: 18px; height: 18px; }
-	#mobile .my_contract .section .cont_wrap ol li+li { margin-top: 10px; }
-	#mobile .my_contract .section .cont_wrap ol li a { flex-direction: column; align-items: flex-start; justify-content: center; width: 100%; height: 45px; border-radius: 5px; /* border: 1px solid #e8e8e8; */  padding: 14px 20px; font-size: 14px; }
-	#mobile .my_contract .section .cont_wrap ol li a p { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width: 100%; }
-	#mobile .my_contract .section:nth-of-type(3) .cont_wrap ol li a:not(.no_data) { height: 70px; }
-	#mobile .my_contract .section .cont_wrap ol li a .date { display: inline-block; font-size: 12px; margin-top: 5px; }
-	#mobile .my_contract .section .cont_wrap ol li .no_data { height: 150px; line-height: 150px; padding: 0; font-size: 14px;}
+	/* 마이위브 - 메인 */
+	#mobile .myweve .section1 { height: 275px; background: url(../images/myweve/myweve_bg_m.png) no-repeat 50% 50%; background-size: cover; }
+	#mobile .myweve .section1 h2 { font-size: 35px; }
+	#mobile .myweve .section1 .myweve_info { margin-top: 25px; }
+	#mobile .myweve .section1 .myweve_info .class { width: 75px; height: 25px;font-size: 13px; line-height: 25px; margin-right: 18px; }
+	#mobile .myweve .section1 .myweve_info p { font-size: 15px; }
+	#mobile .myweve .section1 .myweve_info p::before { width: 13px; height: 13px; margin-right: 10px; }
+	#mobile .myweve .section1 .logout,
+	#mobile .myweve .section1 .myinfo { bottom: 50px; right: 25px; }
+	#mobile .myweve .section1 .logout a,
+	#mobile .myweve .section1 .myinfo a { font-size: 13px; }
+	#mobile .myweve .section1 .myinfo a { width: 67px; height: 24px; line-height: 22px; }
+	#mobile .my_general .section1 .myweve_info { display: none; }
+	#mobile .my_general.my_main .section1 .myweve_info { display: flex; }
+
+	#mobile .myweve .sub_menu { width: calc(100% - 40px); height: 65px; margin: -33px auto 0; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
+	#mobile .myweve .sub_menu li a { font-size: 14px;  }
+	#mobile .myweve .contents { margin: 60px auto 150px; padding: 0 20px; }
+	#mobile .myweve .section+.section { margin-top: 50px; }
+	#mobile .myweve .section .sec_tit { font-size: 22px; margin-bottom: 17px; }
+	#mobile .myweve .section .cont_wrap { flex-direction: column; }
+	#mobile .myweve .section .cont_wrap li { width: 100%; }
+	#mobile .myweve .section .cont_wrap > li+li { margin-top: 40px; }
+	#mobile .myweve .section .cont_wrap .cont_tit {  height: 45px; border-radius: 5px; font-size: 15px; padding: 0 20px; margin-bottom: 10px; }
+	#mobile .myweve .section .cont_wrap .cont_tit::before { margin-right: 7px; }
+	#mobile .myweve .section .cont_wrap .cont_tit .view_more { width: 15px; height: 15px; }
+	#mobile .myweve .section:nth-of-type(1) .cont_wrap li:nth-child(1) .cont_tit::before { width: 14px; height: 16px; }
+	#mobile .myweve .section:nth-of-type(1) .cont_wrap li:nth-child(2) .cont_tit::before { width: 17px; height: 17px; }
+	#mobile .myweve .section:nth-of-type(2) .cont_wrap li:nth-child(1) .cont_tit::before { width: 10px; height: 13px; }
+	#mobile .myweve .section:nth-of-type(2) .cont_wrap li:nth-child(2) .cont_tit::before { width: 20px; height: 12px; }
+	#mobile .myweve .section:nth-of-type(3) .cont_wrap li:nth-child(1) .cont_tit::before { width: 16px; height: 15px; }
+	#mobile .myweve .section:nth-of-type(3) .cont_wrap li:nth-child(2) .cont_tit::before { width: 18px; height: 18px; }
+	#mobile .myweve .section .cont_wrap ol li+li { margin-top: 10px; }
+	#mobile .myweve .section .cont_wrap ol li a { flex-direction: column; align-items: flex-start; justify-content: center; width: 100%; height: 45px; border-radius: 5px; /* border: 1px solid #e8e8e8; */  padding: 14px 20px; font-size: 14px; }
+	#mobile .myweve .section .cont_wrap ol li a p { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; width: 100%; }
+	#mobile .myweve .section:nth-of-type(3) .cont_wrap ol li a:not(.no_data) { height: 70px; }
+	#mobile .my_general .section .cont_wrap ol li a:not(.no_data) { height: 70px; }
+	#mobile .myweve .section .cont_wrap ol li a .date { display: inline-block; font-size: 12px; margin-top: 5px; }
+	#mobile .myweve .section .cont_wrap ol li .no_data { height: 150px; line-height: 150px; padding: 0; font-size: 14px;}
 
 	/* 마이위브(계약) - 계약정보 */
 	#mobile .my_contract/*  .contract_info */ .section h2 { font-size: 15px; margin-bottom: 25px; }
@@ -772,45 +779,47 @@
 	#mobile .my_contract .contract_info .const_status .map_txt a { width: 165px; height: 36px; border-radius: 18px; font-size: 13px; margin-top: 28px; }
 	#mobile .my_contract .contract_info .const_status .map_txt a::before { width: 16px; height: 14px; background-size: contain; margin-right: 7px; }
 
-	/* 마이위브(계약) - 고객문의 & A/S 신청현황 */
-	#mobile .my_contract .tbstyle .section2 > a { width: 120px; height: 38px; line-height: 38px; border-radius: 19px; font-size: 13px; margin-bottom: 13px; }
-    #mobile .my_contract .tbstyle .section2 .tb_box { width: 100%; border-top: 2px solid #005eb8; }
-    #mobile .my_contract .tbstyle .section2 .tb_box .tb_row { display: flex; flex-wrap: wrap; height: auto; width: 100%; padding:  17px; }
-    #mobile .my_contract .tbstyle .section2 .tb_box .tb_row.row_head { display: none; }
-    #mobile .my_contract .tbstyle .section2 .tb_box .tb_row>div { height: auto; line-height: 1.38; text-align: left; border-right: 0; font-size: 13px; }
-	#mobile .my_contract .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 0; }
-	#mobile .my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { padding-left: 0; }
-	#mobile .my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div a { width: 60px; height: 28px; line-height: 26px; border-radius: 14px; font-size: 13px;  }
-	#mobile .my_contract .tbstyle .section2 .tb_box .tb_row.row_body>div .mob_address { display: inline; }
+	/* 마이위브 - 고객문의 & A/S 신청현황 */
+	#mobile .myweve .tbstyle .section2 h2 { font-size: 15px; margin-bottom: 0; }
+	#mobile .myweve .tbstyle .section2 > a { width: 120px; height: 38px; line-height: 38px; border-radius: 19px; font-size: 13px; margin-bottom: 0; }
+	#mobile .myweve .tbstyle .section2 .tb_box { width: 100%; border-top: 2px solid #005eb8; padding: 0; margin: 35px auto 0; }
+    #mobile .myweve .tbstyle .section2 .tb_box .tb_row { display: flex; flex-wrap: wrap; justify-content: space-between; height: auto; width: 100%; padding: 17px; }
+    #mobile .myweve .tbstyle .section2 .tb_box .tb_row.row_head { display: none; }
+    #mobile .myweve .tbstyle .section2 .tb_box .tb_row>div { height: auto; line-height: 1.38; text-align: left; letter-spacing: -.65px; border-right: 0; font-size: 13px; }
+	#mobile .myweve .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 0; }
+	#mobile .myweve .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { padding-left: 0; }
+	#mobile .myweve .tbstyle .section2 .tb_box .tb_row.row_body>div a { width: 60px; height: 28px; line-height: 26px; border-radius: 14px; font-size: 13px;  }
+	#mobile .myweve .tbstyle .section2 .tb_box .tb_row.row_body>div .mob_address { display: inline; }
 
 	/* 마이위브(계약) - A/S 신청현황 */
-    #mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell04 { display: none; }
-    #mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell02 { display: none; }
-    #mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell01 { width: 70%; order: 3; margin-top: 7px; }
-    #mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell03 { width: 70%; order: 1; font-weight: 400; }
-    #mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell05 { width: 30%; order: 2; color: #888; text-align: right; }
-	#mobile .my_contract .as_status .section2 .tb_box .tb_row.row_body .cell06 { width: 30%; order: 5; margin-top: 7px; text-align: right; }
+    #mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell04 { display: none; }
+    #mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell02 { display: none; }
+    #mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell01 { width: 70%; order: 3; margin-top: 7px; }
+    #mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell03 { width: 70%; order: 1; font-weight: 400; }
+    #mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell05 { width: 30%; order: 2; color: #888; text-align: right; }
+	#mobile .myweve .as_status .section2 .tb_box .tb_row.row_body .cell06 { width: 30%; order: 5; margin-top: 7px; text-align: right; }
 
-	/* 마이위브(계약) - 고객문의 */
-    #mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell03 { display: none; }
-    #mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell01 { width: 60%; order: 1; font-weight: 400; }
-    #mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell02 { width: 60%; order: 3; margin-top: 7px; }
-    #mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell04 { width: 40%; order: 2; color: #888; text-align: right; }
-	#mobile .my_contract .inquiry .section2 .tb_box .tb_row.row_body .cell05 { width: 40%; order: 4; margin-top: 7px; text-align: right; }
+	/* 마이위브 - 고객문의 */
+    #mobile .myweve .inquiry .section2 .tb_box .tb_row.row_body .cell03 { display: none; }
+    #mobile .myweve .inquiry .section2 .tb_box .tb_row.row_body .cell01 { width: 60%; order: 1; font-weight: 400; }
+    #mobile .myweve .inquiry .section2 .tb_box .tb_row.row_body .cell02 { width: 55%; order: 3; margin-top: 7px; }
+    #mobile .myweve .inquiry .section2 .tb_box .tb_row.row_body .cell04 { width: 40%; order: 2; color: #888; text-align: right; }
+	#mobile .myweve .inquiry .section2 .tb_box .tb_row.row_body .cell05 { width: 45%; order: 4; margin-top: 7px; text-align: right; }
+
 
 	/* 마이위브(계약) - 고객문의 상세 */
-	#mobile .my_contract .inquiry_details { background: #fff; margin: -32px auto 0; padding: 83px 0 150px; }
-	#mobile .my_contract .inquiry_details .inner { padding: 0 20px; box-shadow: none; }
-	#mobile .my_contract .inquiry_details section+section { margin-top: 115px; }
-	#mobile .my_contract .inquiry_details .section3,
-	#mobile .my_contract .inquiry_details .section4 { margin-top: 65px; }
-	#mobile .my_contract .inquiry_details .section5 { margin-top: 57px; padding-top: 57px; }
-	#mobile .my_contract .inquiry_details .sec_tit { margin-bottom: 25px; }
-	#mobile .my_contract .inquiry_details ul li { font-size: 14px; }
-	#mobile .my_contract .inquiry_details ul li+li { margin-top: 27px; }
-	#mobile .my_contract .inquiry_details ul li .tit { width: 82px; }
-	#mobile .my_contract .inquiry_details ul li.inq_cont { flex-direction: column; }
-	#mobile .my_contract .inquiry_details ul li.inq_cont .txt { min-height: 174px; padding: 15px 18px; line-height: 1.5; margin-top: 15px; }
+	#mobile .myweve .inquiry_details { background: #fff; margin: -32px auto 0; padding: 83px 0 150px; }
+	#mobile .myweve .inquiry_details .inner { padding: 0 20px; box-shadow: none; }
+	#mobile .myweve .inquiry_details section+section { margin-top: 115px; }
+	#mobile .myweve .inquiry_details .section3,
+	#mobile .myweve .inquiry_details .section4 { margin-top: 65px; }
+	#mobile .myweve .inquiry_details .section5 { margin-top: 57px; padding-top: 57px; }
+	#mobile .myweve .inquiry_details .sec_tit { margin-bottom: 25px; }
+	#mobile .myweve .inquiry_details ul li { font-size: 14px; }
+	#mobile .myweve .inquiry_details ul li+li { margin-top: 27px; }
+	#mobile .myweve .inquiry_details ul li .tit { width: 82px; }
+	#mobile .myweve .inquiry_details ul li.inq_cont { flex-direction: column; }
+	#mobile .myweve .inquiry_details ul li.inq_cont .txt { min-height: 174px; padding: 15px 18px; line-height: 1.5; margin-top: 15px; }
 
 	/* 마이위브(일반) - 회원가입 */
 	#mobile .my_general .join .section { padding: 60px 20px 150px; box-shadow: none; }
@@ -822,13 +831,55 @@
 	#mobile .my_general .join .section .btn_wrap .naver_join::before { width: 15px; height: 13px; left: 18px; background-size: contain; }
 	#mobile .my_general .join .section .btn_wrap .kakao_join::before { width: 17px; height: 15px; left: 16px; background-size: contain; }
 
+	/* 마이위브(일반) - 회원가입 */
+	#mobile .my_general .withdraw .section { padding: 60px 20px 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
+	#mobile .my_general .withdraw .section .sec_tit { font-size: 22px; }
+	#mobile .my_general .withdraw .section p { margin: 70px auto; padding: 45px 0; font-size: 15px; line-height: 1.46; }
+	#mobile .my_general .withdraw .section .btn_wrap a { width: calc(100% - 12px); max-width: 155px; height: 45px; line-height: 45px; border-radius: 22px; font-size: 13px; }
+	#mobile .my_general .withdraw .section .btn_wrap .btn_withdraw { margin-left: 24px; }
+
+	/* 마이위브(일반) - 내 정보 수정 */
+	#mobile .my_general .modify .section { padding: 60px 20px 150px; box-shadow: none; }
+	#mobile .my_general .modify .section .sec_tit { font-size: 22px; margin-bottom: 70px; }
+	#mobile .my_general .modify .section > ul li { flex-wrap: wrap; }
+	#mobile .my_general .modify .section > ul li + li { margin-top: 30px; }
+	#mobile .my_general .modify .section > ul li:nth-child(n+3):nth-child(-n+4) .tit_cell { width: 100%; margin-bottom: 10px; }
+	#mobile .my_general .modify .section > ul li:nth-child(n+3):nth-child(-n+4) .ipt_cell { width: 100%; }
+	#mobile .my_general .modify .section > ul li .tit_cell { width: 80px; font-size: 14px; }
+	#mobile .my_general .modify .section > ul li .ipt_cell { width: calc(100% - 80px); }
+	#mobile .my_general .modify .section > ul li .phone_cell { max-width: 100%; }
+	#mobile .my_general .modify .section > ul li .email_cell { justify-content: space-between; }
+	#mobile .my_general .modify .section > ul li .ipt_cell p { font-size: 14px; }
+	#mobile .my_general .modify .section > ul li .ipt_cell span { padding: 0 9px; font-size: 15px; }
+	#mobile .my_general .modify .section > ul li .ipt_cell .input_row input { padding-left: 10px; font-size: 14px; height: 45px; }
+	#mobile .my_general .modify .section > ul li .email_cell.has_sel .input_row { width: 27%; }
+	#mobile .my_general .modify .section > ul li .email_cell.has_sel #selboxDirect { width: 36%; }
+	#mobile .my_general .modify .section > ul li .email_cell.has_sel .select_row { width: 26%; }
+	#mobile .my_general .modify .section > ul li .email_cell .input_row { /* width: 27%; */ height: 45px; }
+	#mobile .my_general .modify .section > ul li .email_cell #selboxDirect { /* width: 36%; */ margin-right: 6px; }
+	#mobile .my_general .modify .section > ul li .email_cell .select_row { /* width: 26%; */ height: 45px; }
+	#mobile .my_general .modify .section > ul li .email_cell .select_row select { height: 100%; }
+	#mobile .my_general .modify .section > ul li .email_cell .select_row::after { right: 10px; }
+	#mobile .my_general .modify .section > ul li .email_cell .select_row label { padding: 0 10px; height: 45px; line-height: 45px; color: #b2b2b2; }
+
+	#mobile .my_general .modify .section .check_wrap { padding: 40px 0 70px; margin-top: 40px; }
+	#mobile .my_general .modify .section .btn_wrap { display: flex; flex-wrap: wrap; justify-content: space-between; }
+	#mobile .my_general .modify .section .btn_wrap a { height: 45px; line-height: 45px; border-radius: 22px; font-size: 14px; }
+	#mobile .my_general .modify .section .btn_wrap .btn_withdraw { width: 100%; order: 3; margin-top: 70px; }
+	#mobile .my_general .modify .section .btn_wrap .btn_cancel { width: calc(50% - 13px); float: none; order: 1; }
+	#mobile .my_general .modify .section .btn_wrap .btn_save { width: calc(50% - 13px); float: none; margin-left: 0; order: 2; }
+
+
+
+
+
 
 }
 
 @media screen and (max-width:350px) {
 	#mobile footer .f_menu a:before { margin:0 3vw; }
-	#mobile .my_contract .inquiry .section2 a,
-	#mobile .my_contract .as_status .section2 a  { float: none; }
+	#mobile .myweve .inquiry .section2 a,
+	#mobile .myweve .as_status .section2 a  { float: none; }
 }
 
 @media screen and (min-height:1100px) {

@@ -720,6 +720,7 @@ var myWeveEvent = {
         this.checkbox();
         this.subTab();
         this.const_popup();
+        this.modEmail();
     },
     loginbtn:() => {
         $('.get_authenNumber').click(function(){
@@ -823,7 +824,6 @@ var myWeveEvent = {
 
         }
 
-
         var popSwiper = new Swiper(".const_status .tab_contents .img_slide", {
             slidesPerView: 1,
             spaceBetween: 0,
@@ -858,9 +858,6 @@ var myWeveEvent = {
             popSwiper.slideTo(0);
         });
 
-
-
-
         $('.contract_info .openPopup ').on('click',function(){
             $('.contract_info .const_status').show();
             let totalPercent = $('.top .progress_wrap p b').text(),
@@ -877,6 +874,29 @@ var myWeveEvent = {
         });
     },
 
+    modEmail: () => {
+        //selectbox
+        var selectType = $("#email_self");
+        // selectType.addClass("selectBox");
+        selectChange(selectType);
+        function selectChange(type) {
+            type.change(function () {
+                var select_name = selectType.children("option:selected").text();
+                console.log('select_name'+$(select_name));
+                $(this).siblings("label").text(select_name);
+
+                if(select_name === '직접입력') {
+                    $('#selboxDirect').show();
+                    $('.email_cell').addClass('has_sel');
+                    $('#email_self').siblings('label').css('color','#b2b2b2');
+                }else {
+                    $('#selboxDirect').hide();
+                    $('.email_cell').removeClass('has_sel');
+                    $('#email_self').siblings('label').css('color','#555');
+                }
+            });
+        };
+	},
 
 
 }

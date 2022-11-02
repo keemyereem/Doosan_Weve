@@ -36,6 +36,7 @@ function popup(popConts) {
 
 var brandstory = {
 	init:function(){
+        this.goTopEvent();
         this.subUI();
         this.gsap();
         this.section4();
@@ -69,6 +70,52 @@ var brandstory = {
 
 
     // },
+    goTopEvent:() => {
+        $(window).scroll(function() {
+            // top button controll
+            if ($(this).scrollTop() > 400) {
+                $('#topButton').fadeIn();
+            } else {
+                $('#topButton').fadeOut();
+            }
+            var footerTop = $('footer').offset().top - $(window).outerHeight(),
+                pos = $('footer').outerHeight() + Number(80),
+                pos_m = $('footer').outerHeight() + Number(35),
+                s2 = $('.section2').offset().top,
+                s3 = $('.section4').offset().top - $('.section4').outerHeight(),
+                s4 = $('.section4').offset().top;
+
+            if($(this).scrollTop() > s2 && $(this).scrollTop() < s3){
+                $('#topButton').addClass('wht')
+            }else if($(this).scrollTop() > s4 && $(this).scrollTop() < footerTop) {
+                $('#topButton').addClass('wht')
+                
+            }else {
+                $('#topButton').removeClass('wht')
+            }
+
+            if($(this).scrollTop() > footerTop){
+                if($('#pc').length){
+                    $('#topButton').addClass('bs').css({'bottom':pos});
+                }else {
+                    $('#topButton').addClass('bs').css({'bottom':pos_m});
+                }
+    
+            }else {
+                if($('#pc').length){
+                    $('#topButton').removeClass('bs').css({'bottom':'80px'});
+                }else {
+                    $('#topButton').removeClass('bs').css({'bottom':'35px'});
+                }
+                
+            }
+
+        });
+    
+        $(document).on('click', '#topButton', function() {
+            $('html, body').animate({scrollTop:0}, '300');
+        });
+    },
 
     subUI: () => {
         if ($('nav').length) {
@@ -148,7 +195,7 @@ var brandstory = {
             pin: true,                                       // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
             pinSpacing: true,                                // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
             start: "0% 0%",                                  // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-            end: "+=200%",                                  // markers 옵션을 켜서 상세설정 확인 가능
+            end: "+=150%",                                  // markers 옵션을 켜서 상세설정 확인 가능
             scrub: true,                                        // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
 
             // toggleClass: {                                   // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
@@ -201,6 +248,7 @@ var brandstory = {
             .to('body::-webkit-scrollbar', { backgroundColose: '#000', duration: 2, })
             .to('.section2 .intro', { opacity: '0', duration: 5, delay: 2, })
             .to('.section2 h2, .section2 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, })
+            
 
 
         // ************************************************** section3
@@ -236,6 +284,7 @@ var brandstory = {
             .to('.section3 .card03 h2, .section3 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
                     
     },
+
 
     section4: () => {
         $('.section4 ul > li').each(function(i){

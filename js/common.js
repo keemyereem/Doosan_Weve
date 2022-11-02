@@ -51,13 +51,21 @@ var commonEvent = {
         this.popup();
         this.goTopEvent();
         this.checkAll();
+        this.headerScroll();
         // this.checkDisagree();
 	}, 
 
     headerEvent: () => {
         if ($('#mobile').length) {
             // 모바일 메뉴
-
+            $('.allMenu').on('click',function(){
+                $("body").toggleClass("menuOn");
+                $("#gnb ul, #siteMap .dep1").removeClass('on');
+            })
+            $("#gnb ul, #siteMap .dep1 a").on('click',function(){
+                $(this).parents('.dep1').toggleClass('on');
+                $(this).parents('.dep1').siblings('.dep1').removeClass('on');
+            })
         } else {
             // PC 메뉴
             $("#gnb ul, #siteMap").hover(function(){
@@ -335,6 +343,26 @@ var commonEvent = {
             }
         });
 
+    },
+
+    headerScroll: () => {
+        let before = 0;
+
+        window.addEventListener('scroll',(ev)=>{
+            if(before < window.scrollY) {
+                $('header').addClass('indent');
+                before = window.scrollY;
+                console.log('scrollDown')
+            }
+            else if(before > window.scrollY) {
+                $('header').removeClass('indent').addClass('wht');
+                before = window.scrollY;
+                console.log('scrollUp')
+            }
+            if(window.scrollY==0) {
+                $('header').removeClass('indent').removeClass('wht');
+            }
+        });
     },
 
 }

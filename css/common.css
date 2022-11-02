@@ -41,6 +41,7 @@ caption, legend {position:absolute; top:0; left:-9999em;}
 .indent {display: none;}
 .indentUp { transform: translateY(-100px); }
 #wrap { position: relative; }
+.es {color: #005eb8;}
 
 /* header */
 header {display:flex; align-items:center; position:fixed; top:0; left:0; width:100%; height:100px; padding:0 40px; z-index:100; transition:all .2s;}
@@ -92,11 +93,12 @@ header .util_wrap .btn_logout {background:url("data:image/svg+xml,%3csvg xmlns='
 header.wht { background: #fff; }
 header.wht h1 a { background: url(../images/logo_b.png) 50% 50% no-repeat; }
 header.wht #gnb ul > li > a { font-weight: 400; color: #000; }
-header.wht .util_wrap .btn_doosanenc { border: 1px solid #005eb8; color: #005eb8; font-weight: 400; }
+header.wht .util_wrap .btn_doosanenc { border: 1px solid #005eb8; color: #005eb8; font-weight: 400; background: url(../images/logo_ds_b.png) 50% 50% no-repeat; }
 header.wht .util_wrap .allMenu span, 
 header.wht .util_wrap .allMenu span:before,
 header.wht .util_wrap .allMenu span:after { background: #000; }
-
+header.wht .util_wrap .btn_login { background: url(../images/ico_login_b.png) 50% 50% no-repeat; }
+header.wht .util_wrap .btn_logout {background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 20'%3e%3cpath fill-rule='evenodd' fill='%23005eb8' d='M.015 1h2v17h-2V1ZM12.015 18v2h-12v-2h12ZM18.015 9v2h-12V9h12ZM17.015 8v1h-3V8h3ZM16.015 7v1h-3V7h3ZM15.015 6v1h-3V6h3ZM17.015 11v1h-3v-1h3ZM16.015 12v1h-3v-1h3ZM15.015 13v1h-3v-1h3Z'/%3e%3cpath fill-rule='evenodd' fill='%23005eb8' d='M12.015 0v2h-12V0h12Z'/%3e%3cpath fill-rule='evenodd' fill='%23005eb8' d='M12.015 4h-2V0h2v4ZM12.015 20h-2v-4h2v4Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size: 18px 20px; }
 
 /* header - 2depth */
 #siteMap {position:absolute; top:100px; left:0; right:0; background:#fff; width:100%; padding:0; z-index:50; opacity:0; visibility:hidden; transition:all .2s;}
@@ -111,7 +113,6 @@ header.wht .util_wrap .allMenu span:after { background: #000; }
 #siteMap .dep2_wrap .dep2 .fm a {font-family:"Poppins";}
 
 #pc #siteMap .dep2_wrap .dep1 {display:none;}
-
 .menuOn #siteMap {opacity:1; visibility:visible;}
 .menuOn header {background:#fff; border-bottom:1px solid #005eb8;}
 
@@ -259,6 +260,11 @@ footer .addr p span {margin-right:10px; color:#888;font-weight: 200;}
 footer .copy {margin-top:20px; color:#555; font-size:14px; font-family:'Poppins';}
 footer .family_site {position:absolute; top:60px; right:0; min-width:215px; height:50px; padding-left:20px; border:1px solid rgba(255,255,255,.3); color:#fff; font-family: 'NS'; font-size:16px; font-weight: 300; outline:none;}
 
+
 #topButton { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 999; writing-mode: vertical-lr; }
 #topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }
+#topButton.wht { color: #fff; position: fixed; }
+#topButton.wht::after,
+#topButton.bs::after { background: url(../images/common/scrollTop_w.png) no-repeat; }
 #topButton.on { position: absolute; }
+#topButton.bs { position: absolute; color: #fff; }

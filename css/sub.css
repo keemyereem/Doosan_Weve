@@ -1,6 +1,6 @@
 body#brandstory { overflow-x: hidden; color: #fff; }
 .wrap { max-width: 1460px; margin: 0 auto; position: relative; }
-.scroll-container { opacity: 0; background: #000; }
+.scroll-container { opacity: 0; background: #000; position: relative; }
 .scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
 .scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
 .scroll-container section h2 span { text-transform: uppercase; display: block; font-family: 'Poppins'; font-weight: 700; font-size: 24px; }
@@ -11,7 +11,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
 .scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
 
-.scroll-container .section1 { background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; }
+.scroll-container .section1 { background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
 .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 
@@ -286,7 +286,8 @@ body#brandstory.typeB { color: #222; }
 /* 브랜드 - Channel - sns */
 .channel .sns .sns_wrap+.sns_wrap { margin-top: 120px; }
 .channel .sns .sns_tit { font-family: 'Poppins'; font-size: 34px; font-weight: 400; color: #222; letter-spacing: -.85px; /* margin-bottom: 30px; */ }
-.channel .sns .go_sns { float: right; margin-top: -40px; margin-bottom: 40px; display: flex; align-items: center; width: fit-content; height: 50px; border: 1px solid #005eb8; border-radius: 25px; padding: 0 40px; line-height: 48px; font-size: 16px; color: #005eb8; }
+.channel .sns .go_sns { float: right; margin-top: -40px; margin-bottom: 40px; display: flex; align-items: center; width: fit-content; height: 50px; border: 1px solid #005eb8; border-radius: 25px; padding: 0 40px; line-height: 48px; font-size: 16px; color: #005eb8; transition: all .5s; }
+.channel .sns .go_sns:hover { box-shadow: 290px 0 0 0 #005eb8 inset, -290px 0 0 0 #005eb8 inset; color: #fff; }
 .channel .sns .go_sns::before { content:''; display: inline-block; margin-right: 10px; }
 .channel .sns .go_insta:before { width: 20px; height: 20px; background: url(../images/brand/sns_icon_insta.png) no-repeat 50% 50%; background-size: contain; }
 .channel .sns .go_fb:before { width: 19px; height: 19px; background: url(../images/brand/sns_icon_fb.png) no-repeat 50% 50%; background-size: contain; }
@@ -481,10 +482,15 @@ body#brandstory.typeB { color: #222; }
 .terms .cont_box { height: 240px; font-size: 16px; color: #222; letter-spacing: -.16px; line-height: 1.625; padding: 40px 50px; border: 1px solid #e8e8e8; overflow-y: auto; margin-bottom: 40px; }
 .terms .agree_row label span { color: #888; }
 .terms input[type="radio"] + label:first-of-type { margin-right: 30px; }
+.terms .check_wrap { padding: 60px 0 118px; margin-top: 60px; border-top: 1px solid #e8e8e8; }
+.terms .check_wrap .checkbox_row { display: block; }
+.terms .check_wrap .checkbox_row + .checkbox_row { margin-top: 20px; }
 .terms .btn_wrap { display: flex; justify-content: center; margin: 120px auto 0; }
-.terms .btn_wrap a { display: block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; text-align: center; font-size: 18px; letter-spacing: -.45px; }
+.terms .btn_wrap a { display: block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; text-align: center; font-size: 18px; letter-spacing: -.45px; transition: all .5s; }
 .terms .btn_wrap .cancel { border: 1px solid #888; color: #888; margin-right: 40px; }
+.terms .btn_wrap .cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
 .terms .btn_wrap .signin { background: #005eb8; color: #fff; }
+.terms .btn_wrap .signin:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 
 /* 로그인 */
 .login { display: flex; background: #fff; max-width: 1200px; margin: 0 auto; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); padding: 100px 0 120px; }
@@ -517,7 +523,7 @@ body#brandstory.typeB { color: #222; }
 .myweve .section1 .myinfo { max-width: 1200px; width: 100%; margin: 0 auto; position: absolute; bottom: 60px; }
 .myweve .section1 .logout a,
 .myweve .section1 .myinfo a { float: right; font-size: 16px; color: #fff; }
-.myweve .section1 .myinfo a { width: 90px; height: 32px; line-height: 30px; border: 1px solid #fff; background: rgba(0,0,0,.2); text-align: center; }
+.myweve .section1 .myinfo a { width: 90px; height: 32px; line-height: 29px; border: 1px solid #fff; background: rgba(0,0,0,.2); text-align: center; }
 .myweve .sub_menu { width: 100%; max-width: 1200px; height: 80px; margin: -40px auto 0; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); position: relative; z-index: 10; }
 .myweve .sub_menu li { flex:1; display: table; height: 100%; text-align: center; position: relative; }
 .myweve .sub_menu li::after { content:''; display: block; width: 0; height: 3px; background: #005eb8; position: absolute; bottom: 0; left: 0; }
@@ -528,7 +534,7 @@ body#brandstory.typeB { color: #222; }
 .myweve .contents { margin: 80px auto 200px; }
 .myweve .section { max-width: 1200px; margin: 0 auto; }
 .myweve .section+.section { margin-top: 80px; }
-.myweve .section .sec_tit { font-size: 34px; letter-spacing: -.85px; color: #222; margin-bottom: 40px; }
+.myweve .section .sec_tit { font-size: 34px; font-weight: 400; letter-spacing: -.85px; color: #222; margin-bottom: 40px; }
 .myweve .section .cont_wrap { display: flex; justify-content: space-between; }
 .myweve .section .cont_wrap li { width: calc(50% - 31px); }
 .myweve .section .cont_wrap .cont_tit { display: flex; align-items: center; height: 60px; border-radius: 10px; font-size: 20px; font-weight: 400; padding: 0 30px; margin-bottom: 9px; }
@@ -771,7 +777,8 @@ body#brandstory.typeB { color: #222; }
 /* 마이위브 - 고객문의 & A/S 신청현황 */
 .myweve .tbstyle .section2 h2 { font-size: 20px; font-weight: 200; color: #222; display: inline-block; margin-bottom: 0; }
 .myweve .tbstyle .section2 h2 b { color: #005eb8; font-weight: 400; }
-.myweve .tbstyle .section2 > a { display: block; width: 160px; height: 50px; line-height: 51px; background: #005eb8; border-radius: 25px; font-family: 'Poppins','NS'; font-size: 16px; color: #fff; text-align: center; float: right; margin-bottom: 15px; }
+.myweve .tbstyle .section2 > a { display: block; width: 160px; height: 50px; line-height: 51px; background: #005eb8; border-radius: 25px; font-family: 'Poppins','NS'; font-size: 16px; color: #fff; text-align: center; float: right; margin-bottom: 15px; transition: all .5s; position: relative; z-index: 10; }
+.myweve .tbstyle .section2 > a:hover { box-shadow: 160px 0 0 0 #fff inset, -160px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 .myweve .tbstyle .section2 .tb_box { position: relative; border-top: 0; margin: 0 auto; }
 .myweve .tbstyle .section2 .tb_box .tb_row { display: table; table-layout: fixed; width: 100%; }
 .myweve .tbstyle .section2 .tb_box .tb_row.row_head { border-top: 1px solid #e5e5e5; background: rgba(0, 94, 184,.2); }
@@ -781,7 +788,8 @@ body#brandstory.typeB { color: #222; }
 .myweve .tbstyle .section2 .tb_box .tb_row.row_body>div { font-size: 16px; color: #555; }
 .myweve .tbstyle .section2 .tb_box .tb_row>div:first-of-type { border-left: 1px solid #e5e5e5; }
 .myweve .tbstyle .section2 .tb_box .tb_row.row_body>div.alignLeft { text-align: left; padding-left: 30px; }
-.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div a { display: inline-block; width: 80px; height: 38px; line-height: 36px; border-radius: 19px; border: 1px solid #005eb8; font-size: 16px; color: #005eb8; text-align: center; margin-left: 10px; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div a { display: inline-block; width: 80px; height: 38px; line-height: 36px; border-radius: 19px; border: 1px solid #005eb8; font-size: 16px; color: #005eb8; text-align: center; margin-left: 10px; transition: all .5s; }
+.myweve .tbstyle .section2 .tb_box .tb_row.row_body>div a:hover { box-shadow: 80px 0 0 0 #005eb8 inset, -80px 0 0 0 #005eb8 inset; color: #fff; }
 .myweve .tbstyle .section2 .tb_box .tb_row.row_body .mob_address { display: none; }
 .myweve .tbstyle .section2 .tb_box .tb_row.row_body .registered { font-weight: 300; color: #005eb8; }
 
@@ -833,9 +841,11 @@ body#brandstory.typeB { color: #222; }
 .my_general .withdraw .section p { max-width: 1200px; height: auto; margin: 60px auto 120px; padding: 60px 0; background: #f2f7fb; font-size: 20px; line-height: 1.7; color: #222; }
 .my_general .withdraw .section p b { font-weight: 400; color: #005eb8; }
 .my_general .withdraw .section .btn_wrap { display: flex; justify-content: center; align-items: center; }
-.my_general .withdraw .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; }
+.my_general .withdraw .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
 .my_general .withdraw .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888; }
 .my_general .withdraw .section .btn_wrap .btn_withdraw { background: #005eb8; color: #fff; margin-left: 40px; }
+.my_general .withdraw .section .btn_wrap .btn_cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
+.my_general .withdraw .section .btn_wrap .btn_withdraw:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 
 /* 마이위브(일반) - 내 정보 수정 */
 .my_general .modify .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 130px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
@@ -855,9 +865,12 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify .section .check_wrap { padding: 60px 0 118px; margin-top: 60px; border-top: 1px solid #e8e8e8; }
 .my_general .modify .section .check_wrap .checkbox_row { display: block; }
 .my_general .modify .section .check_wrap .checkbox_row + .checkbox_row { margin-top: 20px; }
-.my_general .modify .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; }
+.my_general .modify .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
 .my_general .modify .section .btn_wrap .btn_withdraw { background: #b2b2b2; color: #fff; }
 .my_general .modify .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888; float: right; }
 .my_general .modify .section .btn_wrap .btn_save { background: #005eb8; color: #fff; float: right; margin-left: 40px; }
+.my_general .modify .section .btn_wrap .btn_withdraw:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #b2b2b2; border: 1px solid #b2b2b2; }
+.my_general .modify .section .btn_wrap .btn_cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
+.my_general .modify .section .btn_wrap .btn_save:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 
 

@@ -250,6 +250,58 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .empty a { margin: 80px auto 0; width: 240px; height: 60px; font-size: 18px; letter-spacing: -1px; display: block; color: #005eb8; line-height: 58px; text-align: center; border: 1px solid #005eb8; border-radius: 30px; transition: all .5s; }
 .estate .contents .empty a:hover { box-shadow: 240px 0 0 0 #005eb8 inset, -240px 0 0 0 #005eb8 inset; color: #fff; }
 
+/* 브랜드 - Essential */
+.essential { overflow-x: hidden; }
+.essential .section1::after { background: url(../images/essential/essential_visual.png) 50% 50% no-repeat; }
+.essential .contents { max-width: 100%; }
+.essential .contents .inner { max-width: 1460px; margin: 0 auto; }
+.essential .section h3 { font-family: 'Poppins'; font-size: 100px; font-weight: 400; color: #005eb8; letter-spacing: -2.5px; }
+.essential .section .sub { font-size: 26px; font-weight: 400; color: #005eb8; letter-spacing: -.65px; margin-bottom: 30px; }
+.essential .section .text { font-size: 20px; color: #555; letter-spacing: -.5px; line-height: 1.6; }
+.essential .section .cont .text .tit { font-size: 24px; font-weight: 400; color: #005eb8; margin-top: 20px; }
+.essential .section .cont .text p { font-size: 18px; color: #555; line-height: 1.56; margin-top: 10px; }
+
+.essential .have { position: relative; }
+.essential .have .img { position: absolute; right: 0; top: 148px; } 
+.essential .have .info { background: #f9fafa; margin-top: 78px; max-width: 730px; padding: 75px 0 80px; text-align: center; }
+.essential .have .info dl { display: flex; margin-bottom: 55px; padding: 0 70px; letter-spacing: -.45px; text-align: left; }
+.essential .have .info dl dt { font-size: 24px; font-weight: 400; color: #005eb8; flex-shrink: 0; }
+.essential .have .info dl dd { font-size: 18px; color: #555; margin-left: 30px; line-height: 1.56; }
+.essential .have .info img { margin: 0; }
+.essential .live { display: flex; align-items: flex-end; padding: 120px 0; } 
+.essential .live .img { position: relative; }
+/* .essential .live .img img { position: absolute; top: 0; left: 0; } */
+
+.essential .save { background: #005eb8; text-align: center; padding: 100px 0 120px; }
+.essential .save h3,
+.essential .save .sub,
+.essential .save .text { color: #fff; }
+.essential .save .cont { max-width: 1460px; margin: 80px auto 0; }
+.essential .save .cont ul { display: flex; justify-content: space-between; }
+.essential .save .cont ul li { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 30px 50px; width: calc((100% - 60px) / 3); min-height: 510px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); }
+
+.essential .solve { position: relative; height: 100vh; }
+.essential .solve .cont { border: 1px solid green; }
+.essential .solve .cont ul { cursor: url(../images/essential/drag_mouse.png), auto; }
+.essential .solve .cont ul li { width: 465px; height: 510px; padding: 40px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); margin-right: 50px; position: relative; }
+.essential .solve .cont ul li:nth-child(1), 
+.essential .solve .cont ul li:nth-child(3) { margin-top: 107px; }
+.essential .solve .cont ul li:last-child { background: transparent; box-shadow: none; }
+.essential .solve .cont ul li:hover {  }
+.essential .solve .cont ul li .border { display: block; position: absolute; }
+.essential .solve .cont ul li .bdt,
+.essential .solve .cont ul li .bdb { width: 0; height: 5px; transition: width .3s; }
+.essential .solve .cont ul li .bdl,
+.essential .solve .cont ul li .bdr { height: 0; width: 5px; transition: height .3s; }
+.essential .solve .cont ul li:hover .bdt,
+.essential .solve .cont ul li:hover .bdb { width: 100%; }
+.essential .solve .cont ul li:hover .bdl,
+.essential .solve .cont ul li:hover .bdr { height: 100%; }
+.essential .solve .cont ul li .bdt { background: linear-gradient(to right, #005eb8, #00a3d7); top: 0; left: 0; }
+.essential .solve .cont ul li .bdr { background: linear-gradient(to bottom, #00a3d7, #00ad83); bottom: 0; right: 0; }
+.essential .solve .cont ul li .bdb { background: linear-gradient(to left, #00ad83, #00a7d6); bottom: 0; right: 0; }
+.essential .solve .cont ul li .bdl { background: linear-gradient(to top, #00a7d6, #005eb8); top: 0; left: 0; }
+.essential .solve .cont ul li .img { text-align: center; }
 
 /* 브랜드 - Channel - 공통 (list) */
 .channel .channel_lists { width: 100%; display: flex; flex-wrap: wrap; }
@@ -884,3 +936,10 @@ body#brandstory.typeB { color: #222; }
 .footer_conts .section .tab_box + .cont_wrap { padding-top: 10px; }
 .footer_conts .section ol li { position: relative; padding-left: 15px; }
 .footer_conts .section ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }
+.footer_conts .section .sel_wrap::after { content:''; display: block; clear: both; }
+.footer_conts .section .select_row { width: 280px; height: 48px; border: 1px solid #005eb8; float: right; margin-bottom: 40px; }
+.footer_conts .section .select_row select,
+.footer_conts .section .select_row label { height: 48px; line-height: 46px; }
+.footer_conts .section .select_row label { color: #005eb8; }
+.footer_conts .section .select_row::after { width: 9px; height: 5px; background: url(../images/common/select_arrow_b.png) no-repeat; right: 20px; }
+.footer_conts .section .download {color: #00f;}

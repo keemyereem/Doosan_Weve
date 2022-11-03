@@ -391,6 +391,89 @@ var commonEvent = {
       },
 }
 
+var essentialEvent = {
+    init:function(){
+        this.sectionOffset();
+        // this.solveSwiper();
+    },
+
+    sectionOffset : () => {
+        $(window).on('load scroll resize', ()=> {
+            const section = $('.essential .section');
+
+            section.each((index)=> {
+                let sectionTop = section.eq(index).offset().top - 200,
+                    sectionNextTop = section.eq(index).next().offset().top - 200,
+                    footerTop = $('footer').offset().top - 200,
+                    st = $(window).scrollTop();
+
+                if ( st < sectionNextTop && st > sectionTop ) {
+                    section.eq(index).addClass('active');
+
+                    if (index === 0) {
+
+                    } else {
+
+                    }
+
+                }else if (st < footerTop && st > sectionTop ){
+                    section.eq(3).addClass('active');
+                } else {
+                    section.eq(index).removeClass('active');
+                    
+
+                }
+            });
+        });
+    },
+   
+    solveSwiper : () => {
+        // let gallSlider = new Swiper(".solve_swiper", {
+        //     slidesPerView: 2,
+        //     initialSlide: 0,
+        //     observer: true,
+        //     observeParents: true,
+        // });
+
+        const tabContainer = $('.solve_swiper > .inner'),
+        tabBox = tabContainer.find('> .swiper-wrapper'),
+        tabButton = tabBox.find('> li');
+
+        let size = tabButton.length,
+            tbIndex = 0;
+
+        if (tabBox.length) {
+            $(document).ready(function(){
+            let tbOn = Math.floor(tabBox.find('> li.on').position().left),
+                tbWidth = tabButton.width();
+
+            tabContainer.animate({scrollLeft: tbOn - tbWidth}, 1000);
+            });
+
+            tabContainer.on('load resize scroll', ()=> {
+                tabBoxPosition = Math.abs(tabBox.position().left);
+
+                tabButton.each((index)=> {
+                tabButtonPosition = Math.floor(tabButton.eq(index).position().left);
+
+                if (size !== index + 1) {
+                    nextIndexPosition = Math.floor(tabButton.eq(index).next().position().left);
+
+                    if (tabBoxPosition > tabButtonPosition && tabBoxPosition <= nextIndexPosition) {
+                    tbIndex = index;
+                    }
+                }
+
+                });
+
+            });
+
+        }
+    },
+    
+    
+}
+
 var channelEvent = {
     init: function(){
         this.gallerySwiper();

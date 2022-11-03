@@ -873,4 +873,14 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify .section .btn_wrap .btn_cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
 .my_general .modify .section .btn_wrap .btn_save:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 
-
+/* 이용약관 / 개인정보처리방침 / 이메일무단수집거부 */
+.footer_conts .section { max-width: 1460px; margin: 0 auto; padding: 100px 130px 120px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
+.footer_conts .section .blue_box { background: #f2f7fb; text-align: center; font-size: 18px; line-height: 1.78; margin-bottom: 120px; padding: 40px 0; color: #222; }
+.footer_conts .section .cont_wrap ul li { font-size: 16px; letter-spacing: -.45px; line-height: 1.78; color: #555; }
+.footer_conts .section .cont_wrap ul > li+li { margin-top: 30px; }
+.footer_conts .section .cont_wrap ul li .tit { font-weight: 400; color: #222; }
+.footer_conts .section .cont_wrap ul li > p+p { margin-top: 30px; }
+.footer_conts .section .cont_wrap ul li .box { border: 1px solid #e8e8e8; padding: 40px 50px; margin: 23px 0; }
+.footer_conts .section .tab_box + .cont_wrap { padding-top: 10px; }
+.footer_conts .section ol li { position: relative; padding-left: 15px; }
+.footer_conts .section ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }

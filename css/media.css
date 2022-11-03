@@ -877,7 +877,17 @@
 	#mobile .my_general .modify .section .btn_wrap .btn_cancel { width: calc(50% - 13px); float: none; order: 1; }
 	#mobile .my_general .modify .section .btn_wrap .btn_save { width: calc(50% - 13px); float: none; margin-left: 0; order: 2; }
 
-
+	/* 이용약관 / 개인정보처리방침 / 이메일무단수집거부 */
+	#mobile .footer_conts .section {  padding: 59px 0 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
+	#mobile .footer_conts .section .blue_box { width: calc(100% - 40px); font-size: 14px; line-height: 1.5; margin: 0 auto 70px; padding: 37px 20px; }
+	#mobile .footer_conts .section .cont_wrap { padding: 0 20px; }
+	#mobile .footer_conts .section .cont_wrap ul li { font-size: 13px; line-height: 1.53; }
+	#mobile .footer_conts .section .cont_wrap ul > li+li { margin-top: 20px; }
+	#mobile .footer_conts .section .cont_wrap ul li > p+p { margin-top: 20px; }
+	#mobile .footer_conts .section .cont_wrap ul li .box { padding: 30px 20px; margin: 20px 0; }
+	#mobile .footer_conts .section .tab_box + .cont_wrap { padding-top: 0px; }
+	#mobile .footer_conts .section ol li { padding-left: 7px; }
+	#mobile .footer_conts .section ol li::before { top: -1.5px; }
 
 
 

@@ -357,8 +357,14 @@ var commonEvent = {
                 $('header').removeClass('indent').addClass('wht');
                 before = window.scrollY;
             }
+
             if(window.scrollY==0) {
-                $('header').removeClass('indent').removeClass('wht');
+                if($('.container').hasClass('graybg')){
+                    $('header').removeClass('indent').addClass('wht');
+                }else {
+                    $('header').removeClass('indent').removeClass('wht');
+                }
+                
             }
         });
     },

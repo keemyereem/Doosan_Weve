@@ -65,7 +65,7 @@ header .util_wrap .btn_logout {background:url("data:image/svg+xml,%3csvg xmlns='
 
 #pc header .util_wrap .allMenu {display:none;}
 #mobile header .util_wrap .btn_doosanenc {background:url(../images/logo_ds_m.png) 50% 50% no-repeat; background-size:33px auto; font:0/0 a !important;}
-
+#mobile header.wht .util_wrap .btn_doosanenc {background:url(../images/logo_ds_b_m.png) 50% 50% no-repeat; background-size:33px auto; font:0/0 a !important;}
 .menuOn header h1 a,
 .fp-viewing-3 header h1 a {background:url(../images/logo_b.png) 50% 50% no-repeat;}
 .menuOn #gnb ul > li > a,

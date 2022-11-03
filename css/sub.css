@@ -420,7 +420,7 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .row .ipt_cell { width: calc(100% - 118px); height: 100%; vertical-align: middle; }
 .cs .inquiry .row .ipt_cell .select_row label { color: #b2b2b2; padding: 0 40px; }
 .cs .inquiry .row .ipt_cell .input_row { height: 70px; }
-.cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 40px); height: 70px; padding-left: 40px; border: 0; }
+.cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 40px); height: 70px; padding-left: 40px; border: 0; font-size: 16px; }
 .cs .inquiry .row .ipt_cell input[type="radio"] + label { padding-left: 40px; }
 .cs .inquiry .row .ipt_cell input[type="radio"] + label:before { position: absolute; left:0; top:50%; transform: translateY(-50%); /* vertical-align: top; */ }
 

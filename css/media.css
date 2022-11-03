@@ -503,7 +503,7 @@
 	#mobile .cs .inquiry .row .ipt_cell { width: 100%; font-size: 14px; }
 	#mobile .cs .inquiry .row .ipt_cell .select_row label { color: #b2b2b2; font-size: 13px; }
 	#mobile .cs .inquiry .row .ipt_cell .input_row { height: 50px; }
-	#mobile .cs .inquiry .row .ipt_cell input[type="text"] { width: calc(100% - 20px); height: 50px; padding-left: 20px; }
+	#mobile .cs .inquiry .row .ipt_cell input[type="text"] { font-size: 13px; width: calc(100% - 20px); height: 50px; padding-left: 20px; padding-right: 0; }
 	#mobile .cs .inquiry .row .ipt_cell .input_row #phone::placeholder { font-size: 14px; }
 	#mobile .cs .inquiry .row .ipt_cell.email_cell > div:nth-of-type(2) { margin-right: 10px; }
 	#mobile .cs .inquiry .row .ipt_cell.email_cell > div:last-of-type label { padding: 0 0 0 10px; }

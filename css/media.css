@@ -116,7 +116,7 @@
 
     /* header */
 	#mobile header {height:55px; padding:0 10px 0 20px;}
-	#mobile .fp-viewing-section04 header h1 a,
+	#mobile .fp-viewing-3 header h1 a,
 	#mobile .menuOn header h1 a {background:url(../images/logom_b.png) 50% 50% no-repeat; background-size:36.5px 24px;}
 	#mobile header h1 a {background:url(../images/logom.png) 50% 50% no-repeat; background-size:36.5px 24px; width:37px; height:55px;}
 	#mobile .menuOn header .util_wrap .btn_doosanenc,
@@ -155,7 +155,11 @@
 	#mobile footer .addr p.a3 {margin-right: 0;}
 	#mobile footer .addr p span {margin-right:10px;}
 	#mobile footer .copy {font-size:10px;letter-spacing: -.5px;}
-	#mobile footer .family_site {position: initial; width: 100%; height: 45px;margin-top: 25px;font-family: 'NS';font-size: 13px;}
+	#mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
+
+	footer .family_site .site_selected { font-size: 13px; line-height: 43px; }
+	footer .family_site .site_list { bottom:45px; }
+	footer .family_site .site_list li a { font-size: 13px; }
 
 	#mobile #topButton { font-size: 14px; right: 20px; bottom: 35px; }
 	#mobile #topButton::after { width: 18px; height: 23px; }
@@ -401,12 +405,13 @@
 	#mobile .estate .contents .estHistory .estNav.swiper-button-next { right: 14.5px; }
 	#mobile .estate .contents .estHistory .estNav.swiper-button-prev { left: 14.5px; }
 	#mobile .estate .contents .estBoard { margin: 50px 20px 0; width: calc(100% - 40px); }
+	#mobile .estate .contents .estBoard > li { min-height: auto; }
 	#mobile .estate .contents .estBoard .block_1depth { align-items: flex-start; }
 	#mobile .estate .contents .estBoard .block_1depth > li:first-child { font-size: 30px; text-align: left; width: 27%; padding: 30px 0; }
 	#mobile .estate .contents .estBoard .block_1depth > li:first-child span { font-size: 14px; }
 	#mobile .estate .contents .estBoard .block_1depth > li:last-child { width: 73%; }
 	#mobile .estate .contents .estBoard .block_1depth .block_2depth { flex-direction: column; align-items: flex-start; letter-spacing: -1px; padding: 30px 0; overflow: hidden; }
-	#mobile .estate .contents .estBoard .block_1depth .block_2depth > li:first-child { margin: 0 0 15px; width: 82.5px; height: 30px; line-height: 27px; font-size: 13px; }
+	#mobile .estate .contents .estBoard .block_1depth .block_2depth > li:first-child { margin: 0 0 15px; width: 82.5px; height: 30px; line-height: 30px; font-size: 13px; }
 	#mobile .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) { width: 100%; padding-left: 0;  }
 	#mobile .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) p { font-size: 17px; line-height: 1.3; }
 	#mobile .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) span { font-size: 14px; padding-top: 13px; line-height: 1.4; }
@@ -626,7 +631,7 @@
 	#mobile .my_contract/*  .contract_info */ .section table td { height: auto; padding: 15px 0; }
 	#mobile .my_contract/*  .contract_info */ .section table tbody tr td { font-size: 13px; }
 	#mobile .my_contract/*  .contract_info */ .section table tbody tr td.alignLeft { padding-left: 12px; }
-	#mobile .my_contract/*  .contract_info */ .section table tbody tr td a { height: 28px; line-height: 26px; border-radius: 14px; font-size: 13px; }
+	#mobile .my_contract/*  .contract_info */ .section table tbody tr td a { height: 28px; line-height: 28px; border-radius: 14px; font-size: 13px; }
 	#mobile .my_contract/*  .contract_info */ .section table thead tr th { font-size: 13px; }
 
 	#mobile .my_contract .contract_info .section2 table thead tr th:first-child { width: 12%; }
@@ -640,7 +645,7 @@
 	#mobile .my_contract .contract_info .section2 table tbody tr td:last-child { display: none; }
 	#mobile .my_contract .contract_info .section2 table tbody tr td:last-child { text-align: center; }
 	#mobile .my_contract .contract_info .section2 table tbody tr td a { width: calc(100% - 9px); max-width: 105px; }
-	#mobile .my_contract .contract_info .section2 table tbody tr .checkbox_row input[type="checkbox" ] + label:before { margin-right: 0; }
+	#mobile .my_contract .contract_info .section2 table tbody tr .checkbox_row input + label:before { margin-right: 0; }
 	#mobile .my_contract .contract_info .section2 table tbody tr td a.pcBtn { display: none; }
 	#mobile .my_contract .contract_info .section2 table tbody tr td a.mobBtn { display: block; margin: 9px auto 0; }
 	#mobile .my_contract .section3 table tbody tr.nodata td { padding: 35px 0!important; }

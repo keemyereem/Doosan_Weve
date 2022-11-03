@@ -183,7 +183,7 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estSlider .swiper-slide {  font-family: 'Poppins'; text-align: center; color: #c2c2c2; font-size: 24px; font-weight: 400; height: auto; transition:all ease .3s; }
 .estate .contents .estSlider .swiper-slide-active { font-size: 60px; color: #005eb8; }
 .estate .contents .estBoard { width: 100%; height: auto; margin-top: 80px; border-top: 2px solid #005eb8; position: relative; }
-.estate .contents .estBoard > li { width: 100%; height: fit-content;  position: absolute; background: #fff; top: 0; opacity: 0; transition: all ease .3s; visibility: hidden;}
+.estate .contents .estBoard > li { width: 100%; height: fit-content; min-height: 220px; position: absolute; background: #fff; top: 0; opacity: 0; transition: all ease .3s; visibility: hidden;}
 .estate .contents .estBoard > li.active { position: relative; z-index: 1; opacity: 1; visibility: visible; }
 .estate .contents .estBoard .block_1depth { display: flex; align-items: center; position: relative; flex-wrap: wrap; border-bottom: 1px solid #d2d2d2; }
 .estate .contents .estBoard .block_1depth > li:first-child { font-family: 'Poppins'; font-size: 60px; color: #005eb8; font-weight: 400; text-align: center; line-height: 1; width: 12%; }
@@ -191,7 +191,7 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estBoard .block_1depth > li:last-child { width: 88%; }
 .estate .contents .estBoard .block_1depth .block_2depth { width: 100%; display: flex; align-items: center; }
 .estate .contents .estBoard .block_1depth .block_2depth:not(:first-of-type) { border-top: 1px solid #d2d2d2; }
-.estate .contents .estBoard .block_1depth .block_2depth > li:first-child { margin: 60px 2.3%; width: 110px; height: 40px; line-height: 37px; text-align: center; color: #fff; font-size: 16px; font-weight: 400; letter-spacing: -1px; }
+.estate .contents .estBoard .block_1depth .block_2depth > li:first-child { margin: 60px 2.3%; width: 110px; height: 40px; line-height: 38px; text-align: center; color: #fff; font-size: 16px; font-weight: 400; letter-spacing: -1px; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) { line-height: 1; display: block; width: 51.3%; padding-left: 20px;  }
 .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) p { color: #222222; font-size: 24px; font-weight: 400; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:nth-child(2) span { color: #777777; font-size: 18px; padding-top: 16px; display: block; }
@@ -572,8 +572,8 @@ body#brandstory.typeB { color: #222; }
 .my_contract/*  .contract_info */ .section table td { font-family: 'Poppins',"NS"; height: 60px; text-align: center; }
 .my_contract/*  .contract_info */ .section table tbody tr td { font-size: 16px; color: #555; }
 .my_contract/*  .contract_info */ .section table tbody tr td.alignLeft { text-align: left; padding-left: 25px; }
-.my_contract/*  .contract_info */ .section table tbody tr td a { display: inline-block; height: 38px; line-height: 38px; border: 1px solid #005eb8; border-radius: 19px; font-size: 16px; color: #005eb8; text-align: center; transition: all .2s; }
-.my_contract/*  .contract_info */ .section table tbody tr td a:hover { background: #005eb8; color: #fff; }
+.my_contract/*  .contract_info */ .section table tbody tr td a { display: inline-block; height: 38px; line-height: 38px; border: 1px solid #005eb8; border-radius: 19px; font-size: 16px; color: #005eb8; text-align: center; transition: all .5s; }
+.my_contract/*  .contract_info */ .section table tbody tr td a:hover { box-shadow: 128px 0 0 0 #005eb8 inset, -128px 0 0 0 #005eb8 inset; color: #fff; }
 .my_contract/*  .contract_info */ .section table thead tr th { font-size: 16px; font-weight: 300; color: #222; }
 
 .my_contract .contract_info .section2 table th,
@@ -586,7 +586,7 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .section2 table thead tr th:nth-child(5) { width: 16%; }
 .my_contract .contract_info .section2 table thead tr th:last-child { width: 27%; }
 .my_contract .contract_info .section2 table tbody tr.on { background: rgba(0, 94, 184, .05); }
-.my_contract .contract_info .section2 table tbody tr .checkbox_row input[type="checkbox" ] + label:before { margin-right: 0; }
+.my_contract .contract_info .section2 table tbody tr .checkbox_row input + label:before { margin-right: 0; }
 .my_contract .contract_info .section2 table tbody tr td:last-child { text-align: center; }
 .my_contract .contract_info .section2 table tbody tr td a { width: 128px; margin-left: 20px; }
 .my_contract .contract_info .section2 table tbody tr td a.mobBtn { display: none; }
@@ -671,7 +671,7 @@ body#brandstory.typeB { color: #222; }
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box { width: 200px; height: 305px; border: 1px solid #eee; }
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev, 
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_next { display: none; }
-.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div { height: 35px; line-height: 35px; border: 0; font-family: 'Poppins'; font-size: 13px; text-align: left; padding: 0 20px; background: #fff; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div { height: 38px; line-height: 38px; border: 0; font-family: 'Poppins'; font-size: 13px; text-align: left; padding: 0 20px; background: #fff; }
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, 
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current { font-weight: 200; }

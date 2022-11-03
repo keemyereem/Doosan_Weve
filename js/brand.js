@@ -34,7 +34,7 @@ function popup(popConts) {
 	});
 }
 
-var brandstory = {
+var commonEvent = {
 	init:function(){
         this.goTopEvent();
         this.subUI();
@@ -70,6 +70,45 @@ var brandstory = {
 
 
     // },
+
+    headerEvent: () => {
+        if ($('#mobile').length) {
+            // 모바일 메뉴
+            $('.allMenu').on('click',function(){
+                $("body").toggleClass("menuOn");
+                $("#gnb ul, #siteMap .dep1").removeClass('on');
+            })
+            $("#gnb ul, #siteMap .dep1 a").on('click',function(){
+                $(this).parents('.dep1').toggleClass('on');
+                $(this).parents('.dep1').siblings('.dep1').removeClass('on');
+            })
+        } else {
+            // PC 메뉴
+            $("#gnb ul, #siteMap").hover(function(){
+                $("body").addClass("menuOn");
+            }, function(){
+                $("body").removeClass("menuOn");
+            });
+        }
+
+        let before = 0;
+
+        window.addEventListener('scroll',(ev)=>{
+            if(before < window.scrollY) {
+                $('header').addClass('indent');
+                before = window.scrollY;
+            }
+            else if(before > window.scrollY) {
+                $('header').removeClass('indent').addClass('wht');
+                before = window.scrollY;
+            }
+            if(window.scrollY==0) {
+                $('header').removeClass('indent').removeClass('wht');
+            }
+        });
+        
+    },
+
     goTopEvent:() => {
         $(window).scroll(function() {
             // top button controll
@@ -117,6 +156,27 @@ var brandstory = {
         });
     },
 
+    footerEvent: () => {
+        $(document).on("click",".family_site .site_selected",function(){
+          var selElm = $(this).parent();
+          if(!selElm.hasClass("open")){
+              selElm.addClass("open");
+          }else{
+              selElm.removeClass("open");
+          }
+        });
+    
+        $(document).on("click",".family_site .site_list li a",function(){
+          var selected = this.innerText,
+              siteName = document.getElementsByClassName('site_selected')[0],
+              familySite = this.parentNode.parentNode.parentNode;
+    
+          siteName.innerText = selected;
+          familySite.classList.remove('open');
+        });
+    
+      },
+      
     subUI: () => {
         if ($('nav').length) {
             const subMenu = document.querySelector("nav"),

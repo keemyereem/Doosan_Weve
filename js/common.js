@@ -352,12 +352,10 @@ var commonEvent = {
             if(before < window.scrollY) {
                 $('header').addClass('indent');
                 before = window.scrollY;
-                console.log('scrollDown')
             }
             else if(before > window.scrollY) {
                 $('header').removeClass('indent').addClass('wht');
                 before = window.scrollY;
-                console.log('scrollUp')
             }
             if(window.scrollY==0) {
                 $('header').removeClass('indent').removeClass('wht');
@@ -365,6 +363,26 @@ var commonEvent = {
         });
     },
 
+    footerEvent: () => {
+        $(document).on("click",".family_site .site_selected",function(){
+          var selElm = $(this).parent();
+          if(!selElm.hasClass("open")){
+              selElm.addClass("open");
+          }else{
+              selElm.removeClass("open");
+          }
+        });
+    
+        $(document).on("click",".family_site .site_list li a",function(){
+          var selected = this.innerText,
+              siteName = document.getElementsByClassName('site_selected')[0],
+              familySite = this.parentNode.parentNode.parentNode;
+    
+          siteName.innerText = selected;
+          familySite.classList.remove('open');
+        });
+    
+      },
 }
 
 var channelEvent = {
@@ -529,6 +547,7 @@ var estateEvent = {
 
         var estSlider = new Swiper(".estSlider", {
             slidesPerView: 3,
+            initialSlide: 1,
             spaceBetween: 0,
             speed: 500,
             observer: true,
@@ -692,7 +711,7 @@ var estateEvent = {
 var csEvent = {
     init: function(){
         this.faqToggle();
-        this.inqEmail();
+        // this.inqEmail();
         this.DirectSelect();
     },
     
@@ -737,6 +756,22 @@ var csEvent = {
             }
         });
 
+        var selectType = $("#find_complex");
+        selectChange(selectType);
+        function selectChange(type) {
+            type.change(function () {
+                var select_name = $(this).children("option:selected").text();
+                $(this).siblings("label").text(select_name);
+
+                if(select_name === '직접입력') {
+                    $(this).parent().siblings($('#selboxDirect')).show();
+                    
+                }else {
+                    $(this).parent().siblings($('#selboxDirect')).hide();
+                }
+            });
+        };
+
     },
 
 }
@@ -780,7 +815,8 @@ var myWeveEvent = {
 
     checkbox: () => {
         $('.contract_info .checkbox input').change(function(){
-            $(this).closest('tr').toggleClass('on', this.checked);
+            $(this).closest('tr').siblings('tr').removeClass('on');
+            $(this).closest('tr').addClass('on');
         });
     },
 
@@ -948,6 +984,9 @@ var datepicker = {
             // 모바일 드래그 및 버튼 클릭 불가 현상 1359~ 1365줄 주석처리
             // 시간 선택박스 예약불가 클래스(disable) 걸려있을 경우 1976~ 1980 줄 코드 추가
             // 모바일일 경우 팝업 박스 "position: relative" 2214~ 2216 줄 코드 추가
+
+            allowTimes:['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00']
+
         });
         
         $(window).load(()=> {
@@ -1144,5 +1183,4 @@ function submitForm() {
     }
 
 }
-
 

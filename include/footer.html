@@ -11,10 +11,22 @@
         <p class="a3"><span>분양문의</span><em class="fm"> 02-3441-1700</em></p>
     </div>
     
-    <select name="" id="" class="family_site">
+    <!-- <select name="" id="" class="family_site">
         <option value="">관련사이트</option>
-    </select>
+    </select> -->
+    <div class="family_site">
+        <a href="javascript:;" title="관련사이트" class="site_selected">관련사이트<!-- <i class="ico select"></i> --></a>
+        <ul class="site_list">
+            <li class=""><a href="javascript:;" title=" 페이지로 이동">관련사이트</a></li>
+        </ul>
+    </div>
 
     <p class="copy">Copyright ©Doosan Engineering & Construction All rights reserved.</p>
 </div>
 <div id="topButton" style="cursor: pointer">TOP</div>
+
+<script>
+    $(function(){
+         commonEvent.footerEvent();
+    });
+</script>

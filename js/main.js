@@ -29,6 +29,8 @@ var mainEvent = {
 	init:function(){
 		this.initFullpage();
 		this.headerEvent();
+		this.footerEvent();
+		// this.goTopEvent();
 		this.S1_videoVisual();
 		this.S2_videoVisual();
 		this.S3_contHover();
@@ -42,11 +44,32 @@ var mainEvent = {
 
 	},
 
+	footerEvent: () => {
+        $(document).on("click",".family_site .site_selected",function(){
+          var selElm = $(this).parent();
+          if(!selElm.hasClass("open")){
+              selElm.addClass("open");
+          }else{
+              selElm.removeClass("open");
+          }
+        });
+    
+        $(document).on("click",".family_site .site_list li a",function(){
+          var selected = this.innerText,
+              siteName = document.getElementsByClassName('site_selected')[0],
+              familySite = this.parentNode.parentNode.parentNode;
+    
+          siteName.innerText = selected;
+          familySite.classList.remove('open');
+        });
+    
+    },
+
 	initFullpage: () => {
 		$(document).ready(function(){
 			let _body = $("body");
 			$('#pc #main_container').fullpage({
-				anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+				// anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
 			//	responsiveWidth:1200,
 				fitToSection: true,
 				fitToSectionDelay: 0,
@@ -59,7 +82,7 @@ var mainEvent = {
 			});
 
 			$('#mobile #main_container').fullpage({
-				anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+				// anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
 				responsiveWidth:1200,
 			});
 
@@ -68,14 +91,25 @@ var mainEvent = {
 			});
 		
 			function cls(){
-				if(_body.hasClass("fp-viewing-section02")){
+				if(_body.hasClass("fp-viewing-1")){
 					$(".contBox02").addClass("motion2");
-				}else if(_body.hasClass("fp-viewing-section03")){
+					$(".goTop").addClass("on");
+				}else if(_body.hasClass("fp-viewing-2")){
 					$(".contBox03").addClass("motion3");
-				}else if(_body.hasClass("fp-viewing-section04")){
+					if($('#mobile').length){
+						$(".goTop").removeClass("on");
+					}else {
+						$(".goTop").addClass("on");
+					}
+					
+				}else if(_body.hasClass("fp-viewing-3")){
 					$(".contBox04").addClass("motion4");
-				}else if(_body.hasClass("fp-viewing-section05")){
+					$(".goTop").addClass("on");
+				}else if(_body.hasClass("fp-viewing-4")){
 					$(".contBox05").addClass("motion5");
+					$(".goTop").addClass("on");
+				}else{
+					$(".goTop").removeClass("on");
 				}
 			}
 		});
@@ -180,6 +214,7 @@ var mainEvent = {
 					slideChange: function () {
 						_this = $(this)[0].activeIndex + 1;
 						$(".contBox03 .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
+						console.log(_this);
 					}
 				}
 			});

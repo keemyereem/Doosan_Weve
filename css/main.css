@@ -4,7 +4,7 @@
 
 @charset "utf-8";
 
-#weve_wrap {overflow:hidden;}
+#weve_wrap {overflow:hidden;position: relative;}
 
 .contBox01 {position:relative; }
 .contBox01 .main_visual {position:absolute; top:0; bottom:0; left:0; right:0; width:100%; height:100%;}
@@ -113,7 +113,8 @@
 .contBox03 .bg_box img {position:absolute; top:0; bottom:0; left:0; right:0; width:100%; height:100%; object-fit:cover; z-index:1; opacity:0; transition:all .4s;}
 .contBox03 .house_slider.bg1 + .bg_box .bg1,
 .contBox03 .house_slider.bg2 + .bg_box .bg2,
-.contBox03 .house_slider.bg3 + .bg_box .bg3 {opacity:1;}
+.contBox03 .house_slider.bg3 + .bg_box .bg3,
+.contBox03 .house_slider.bg4 + .bg_box .bg4 {opacity:1;}
 
 @media screen and (min-width:768px) {
 	.motion3 .house_slider .swiper-slide:nth-child(1) .default {animation:mc1 .5s ease 0s forwards;}
@@ -219,6 +220,10 @@
 .contBox05 .goTop:before {content:""; position:absolute; top:-5px; left:-45px; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 30'%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M22 13v-1h-1v-1h-1v-1h-1V9h-1V8h-1V7h-1V6h-1V5h-1V4h-1V3h-1V2h-1v1h-1v1H9v1H8v1H7v1H6v1H5v1H4v1H3v1H2v1H1v1H0v-2h1v-1h1V9h1V8h1V7h1V6h1V5h1V4h1V3h1V2h1V1h1V0h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v2h-1Z'/%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M12 30h-1V0h1v30Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; width:23px; height:30px; transform:rotate(-90deg); transition:all .5s;}
 .contBox05 .goTop:hover:before {left:-50px;}
 
+.goTop {display: none;position:fixed; bottom:80px; right:80px; color:#fff; font-size:18px; transform:rotate(90deg);}
+.goTop:before {content:""; position:absolute; top:-5px; left:-45px; background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 30'%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M22 13v-1h-1v-1h-1v-1h-1V9h-1V8h-1V7h-1V6h-1V5h-1V4h-1V3h-1V2h-1v1h-1v1H9v1H8v1H7v1H6v1H5v1H4v1H3v1H2v1H1v1H0v-2h1v-1h1V9h1V8h1V7h1V6h1V5h1V4h1V3h1V2h1V1h1V0h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v2h-1Z'/%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M12 30h-1V0h1v30Z'/%3e%3c/svg%3e") 50% 50% no-repeat; background-size:100% 100%; width:23px; height:30px; transform:rotate(-90deg); transition:all .5s;}
+.goTop:hover:before {left:-50px;}
+.goTop.on { display: block; }
 
 /* main */
 #mobile .contBox01 .text_wrap .big {font-size:40px;}
@@ -271,7 +276,8 @@
 #mobile .contBox03 .house_slider .swiper-slide.swiper-slide-active .text_box {animation:mc1 1s ease .8s forwards;}
 #mobile .contBox03 .bg_box.mbg1 .bg1,
 #mobile .contBox03 .bg_box.mbg2 .bg2,
-#mobile .contBox03 .bg_box.mbg3 .bg3 {opacity:1;}
+#mobile .contBox03 .bg_box.mbg3 .bg3,
+#mobile .contBox03 .bg_box.mbg4 .bg4 {opacity:1;}
 #mobile .contBox03 .house_slider .default .ct {width:55px; height:22px; font-size:12px;}
 #mobile .contBox03 .house_slider .default .tit {font-size:20px;}
 #mobile .contBox03 .house_slider .default .date {margin-top:10px; font-size:14px;}
@@ -314,6 +320,9 @@
 #mobile .contBox05 .service_box .link a:after {width:22.5px;}
 
 #mobile .contBox05.motion5 .service_box .cs_info {margin-left:0;}
-#mobile .contBox05 .goTop {bottom:30px; right:20px;}
+/* #mobile .contBox05 .goTop {bottom:30px; right:20px;} */
 
-
+#mobile .goTop {bottom:35px; right:20px; font-size:14px;}
+#mobile .goTop:before { top:-3px; left:-33px;  width:18px; height:23px;}
+#mobile .goTop:hover:before {left:-33px;}
+#mobile .goTop.on {  }

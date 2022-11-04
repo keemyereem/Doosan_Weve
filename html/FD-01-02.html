@@ -38,6 +38,8 @@
     <script src="https://code.jquery.com/jquery-migrate-3.3.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
 
     <script src="js/lib/aos.js"></script>
     <script src="js/common.js?v=1.0"></script>
@@ -88,7 +90,7 @@
                         <span></span>
                     </li>
                     <li class="mb">
-                        <a href="javascript:;" title="CHANNEL 페이지 이동">CHANNEL</a>
+                        <a href="javascript:;" title="ESSENTIAL 페이지 이동">ESSENTIAL</a>
                         <span></span>
                     </li>
                     <li>
@@ -102,37 +104,41 @@
             <div class="contents">
                 <div class="section have">
                     <div class="inner">
-                        <h3>have</h3>
-                        <div class="sub">꼭 갖고 싶은 공간</div>
-                        <p class="text">
+                        <h3 data-aos="fade-up">have</h3>
+                        <div class="sub" data-aos="fade-up">꼭 갖고 싶은 공간</div>
+                        <p class="text" data-aos="fade-up">
                             독보적인 기술과 탁월한 시공으로<br>
                             우리가 꿈꾸고 갖고 싶었던 세상을 만들어 갑니다.
                         </p>
                     </div>
-                    <div class="img"><img src="images/essential/have_img.png" alt="이미지"></div>
+                    <div class="img" data-aos="fade-left" data-aos-delay="700">
+                        <img src="images/essential/have_img.png" alt="이미지" class="img_pc">
+                        <img src="images/essential/have_img_m.png" alt="이미지" class="img_m">
+                    </div>
                     <div class="inner">
-                        <div class="info">
-                            <dl>
+                        <div class="info" data-aos="fade-in">
+                            <dl data-aos="fade-up" data-aos-delay="100" >
                                 <dt>홈네트워크 시스템</dt>
-                                <dd>월패드 및 스마트폰 어플리케이션을 통한 가스, 난방,<br class="br_pc">
-                                    조명 등의 제어는 물론 부재시 방문자 화면 확인 등이 <br class="br_pc">
+                                <dd>월패드 및 스마트폰 어플리케이션을 통한 가스, 난방,<br>
+                                    조명 등의 제어는 물론 부재시 방문자 화면 확인 등이 <br>
                                     가능한 첨단 시스템입니다.
                                 </dd>
                             </dl>
-                            <img src="images/essential/have_graphic.png" alt="홈네트워크 시스템">
+                            <img src="images/essential/have_graphic.png" alt="홈네트워크 시스템" data-aos="fade-up" data-aos-delay="100" class="img_pc">
+                            <img src="images/essential/have_graphic_m.png" alt="홈네트워크 시스템" data-aos="fade-up" data-aos-delay="100" class="img_m">
                         </div>
                     </div>
                 </div>
 
                 <div class="section live">
                     <div class="img">
-                        <div class="img"><img src="images/essential/live_img01.png" alt="이미지"></div>
-                        <div class="img"><img src="images/essential/live_img02.png" alt="이미지"></div>
+                        <img src="images/essential/live_img01.png" alt="이미지" class="img01">
+                        <img src="images/essential/live_img02.png" alt="이미지" class="img02">
                     </div>
                     <div class="txt">
-                        <h3>live</h3>
-                        <div class="sub">기쁨이 있는 공간</div>
-                        <p class="text">
+                        <h3 data-aos="fade-up">live</h3>
+                        <div class="sub" data-aos="fade-up">기쁨이 있는 공간</div>
+                        <p class="text" data-aos="fade-up">
                             보다 안락한 생활환경을 창조해 쾌적하고<br>
                             편안한 삶을 누립니다.
                         </p>
@@ -140,16 +146,16 @@
                 </div>
 
                 <div class="section save">
-                    <h3>save</h3>
-                    <div class="sub">알뜰한 생활이 있는 공간</div>
-                    <p class="text">
-                        위브의 지속가능한 환경에 대한 고민은 에너지 소비를 줄이고 비용을 절감하여 고객에게 알뜰함을 선사합니다. 
+                    <h3 data-aos="fade-up">save</h3>
+                    <div class="sub" data-aos="fade-up">알뜰한 생활이 있는 공간</div>
+                    <p class="text" data-aos="fade-up">
+                        위브의 지속가능한 환경에 대한 고민은<br class="br_m"> 에너지 소비를 줄이고 비용을 절감하여<br class="br_m"> 고객에게 알뜰함을 선사합니다. 
                     </p>
-                    <div class="cont">
-                        <ul>
-                            <li>
-                                <div class="img"><img src="images/essential/save_img01.png" alt=""></div>
-                                <div class="text">
+                    <div class="cont swiper save_swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide" data-aos="fade-up" data-aos-delay="200">
+                                <div class="img"><img src="images/essential/save_img01.png" alt="태양광 발전 시스템"></div>
+                                <div class="txt">
                                     <div class="tit">태양광 발전 시스템</div>
                                     <p>
                                         태양광 발전설비를 통해 생산된 전기를<br class="br_pc">
@@ -158,9 +164,9 @@
                                     </p>
                                 </div>
                             </li>
-                            <li>
-                                <div class="img"><img src="images/essential/save_img02.png" alt=""></div>
-                                <div class="text">
+                            <li class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
+                                <div class="img"><img src="images/essential/save_img02.png" alt="대기전력 차단 시스템"></div>
+                                <div class="txt">
                                     <div class="tit">대기전력 차단 시스템</div>
                                     <p>
                                         각 세대 내에 사용하지 않는 대기전력을<br class="br_pc">
@@ -169,14 +175,14 @@
                                     </p>
                                 </div>
                             </li>
-                            <li>
-                                <div class="img"><img src="images/essential/save_img03.png" alt=""></div>
-                                <div class="text">
+                            <li class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
+                                <div class="img"><img src="images/essential/save_img03.png" alt="ECO 에너지 절약수전"></div>
+                                <div class="txt">
                                     <div class="tit">ECO 에너지 절약수전</div>
                                     <p>
                                         레버의 위치가 오른쪽부터 중앙까지<br class="br_pc">
                                         완전 냉수 구각으로 설정되어 무의식중에 낭비되는<br class="br_pc">
-                                        온수의 사용을  제한하는 에너지 절약 수전을 적용합니다.                                        
+                                        온수의 사용을 제한하는 에너지 절약 수전을 적용합니다.                                        
                                     </p>
                                 </div>
                             </li>
@@ -194,53 +200,70 @@
                         </p>
                     </div>
                     <div class="cont swiper solve_swiper">
-                        <div class="inner">
-                            <ul class="swiper-wrapper">
-                                <li class="swiper-slide">
-                                    <span class="border bdt"></span>
-                                    <span class="border bdl"></span>
-                                    <span class="border bdr"></span>
-                                    <span class="border bdb"></span>
-                                    
-                                    <div class="img"><img src="images/essential/solve_img01.png" alt="층간소음저감"></div>
-                                    <div class="text">
-                                        <div class="tit">층간소음저감</div>
-                                        <p>기준 이상의 소음차단 설계와 고기능성 마감재를<br>
-                                            적용, 사회적 문제가 되고 있는 층간 소음을<br>
-                                            확실하게 잡았습니다.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="swiper-slide">
-                                    <span class="border bdt"></span>
-                                    <span class="border bdl"></span>
-                                    <span class="border bdr"></span>
-                                    <span class="border bdb"></span>
-                                    
-                                    <div class="img"><img src="images/essential/solve_img02.png" alt="공기정화시스템(전열교환기)"></div>
-                                    <div class="text">
-                                        <div class="tit">공기정화시스템(전열교환기)</div>
-                                    </div>
-                                </li>
-                                <li class="swiper-slide">
-                                    <span class="border bdt"></span>
-                                    <span class="border bdl"></span>
-                                    <span class="border bdr"></span>
-                                    <span class="border bdb"></span>
-                                    
-                                    <div class="img"><img src="images/essential/solve_img03.png" alt="중앙 정수 시스템"></div>
-                                    <div class="text">
-                                        <div class="tit">중앙 정수 시스템</div>
-                                        <p>바이러스 살균 과정을 거쳐, 맑고 깨끗하며<br>
-                                            미네랄과 용존 산소가 풍부한 음용수를 공급<br>
-                                            (공동주택만 적용)
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="swiper-slide"></li>
-                            </ul>
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <span class="border bdt"></span>
+                                <span class="border bdl"></span>
+                                <span class="border bdr"></span>
+                                <span class="border bdb"></span>
+                                
+                                <div class="img"><img src="images/essential/solve_img01.png" alt="층간소음저감"></div>
+                                <div class="txt">
+                                    <div class="tit">층간소음저감</div>
+                                    <p>기준 이상의 소음차단 설계와 고기능성 마감재를<br class="br_pc">
+                                        적용, 사회적 문제가 되고 있는 층간 소음을<br class="br_pc">
+                                        확실하게 잡았습니다.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span class="border bdt"></span>
+                                <span class="border bdl"></span>
+                                <span class="border bdr"></span>
+                                <span class="border bdb"></span>
+                                
+                                <div class="img">
+                                    <img src="images/essential/solve_img02.png" alt="공기정화시스템(전열교환기)" class="img_pc">
+                                    <img src="images/essential/solve_img02_m.png" alt="공기정화시스템(전열교환기)" class="img_m">
+                                </div>
+                                <div class="txt">
+                                    <div class="tit">공기정화시스템(전열교환기)</div>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span class="border bdt"></span>
+                                <span class="border bdl"></span>
+                                <span class="border bdr"></span>
+                                <span class="border bdb"></span>
+                                
+                                <div class="img">
+                                    <img src="images/essential/solve_img03.png" alt="중앙 정수 시스템" class="img_pc">
+                                    <img src="images/essential/solve_img03_m.png" alt="중앙 정수 시스템" class="img_m">
+                                </div>
+                                <div class="txt">
+                                    <div class="tit">중앙 정수 시스템</div>
+                                    <p>바이러스 살균 과정을 거쳐, 맑고 깨끗하며<br class="br_pc">
+                                        미네랄과 용존 산소가 풍부한 음용수를 공급<br class="br_pc">
+                                        (공동주택만 적용)
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="section love">
+                    <div class="txt">
+                        <h3>love</h3>
+                        <div class="sub">사랑과 행복이 있는 공간</div>
+                        <div class="weve_tit">We've</div>
+                        <div class="weve_sub">
+                            위브는 첨단기술을 바탕으로<br class="br_m"> 안락한 생활이 깃든<br class="br_pc">
+                            세상을 실현해<br class="br_m"> 인류의 행복을 추구합니다.
                         </div>
                     </div>
+                    <img src="images/essential/love_bg.png" alt="love 이미지" class="intro img_pc">
+                    <img src="images/essential/love_bg_m.png" alt="love 이미지" class="intro img_m">
                 </div>
             </div>
         </div>

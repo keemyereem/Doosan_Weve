@@ -242,7 +242,8 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 10px; letter-spacing: -1px; }
 .estate .contents .estList ul li dl dd:last-child { padding-bottom: 0; }
 .estate .contents .estList ul li dl dd span { position: absolute; left: 0; font-weight: 400; }
-.estate .contents .estList ul li a { transition: all ease .3s; width: 61px; height: 61px; border-radius: 100%; display: block; float: right; margin: 0 31px 30px 0; }
+.estate .contents .estList ul li a { transition: all ease .3s; width: 61px; height: 61px; border-radius: 100%; display: block; float: right; margin: 0 31px 30px 0; background: #f5f5f5 url(../images/estate/list_map_icon.png) no-repeat 50% 50%; background-size: 28px 25px; }
+.estate .contents .estList ul li:hover a { background: #005eb8 url(../images/estate/list_map_icon_hover.png) no-repeat 50% 50%; background-size: 28px 25px; } 
 .estate .contents .estList .view_more { display: block; width: 90px; height: 90px; margin: 40px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
 .estate .contents .estList .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
 .estate .contents .empty { padding: 262px 0 183px; }
@@ -252,14 +253,14 @@ body#brandstory.typeB { color: #222; }
 
 /* 브랜드 - Essential */
 .essential { overflow-x: hidden; }
-.essential .section1::after { background: url(../images/essential/essential_visual.png) 50% 50% no-repeat; }
-.essential .contents { max-width: 100%; }
+.essential .section1::after { background: url(../images/essential/essential_visual.png) 50% 50% no-repeat; background-size: cover; }
+.essential .contents { max-width: 100%; margin: 100px auto 0; }
 .essential .contents .inner { max-width: 1460px; margin: 0 auto; }
 .essential .section h3 { font-family: 'Poppins'; font-size: 100px; font-weight: 400; color: #005eb8; letter-spacing: -2.5px; }
 .essential .section .sub { font-size: 26px; font-weight: 400; color: #005eb8; letter-spacing: -.65px; margin-bottom: 30px; }
 .essential .section .text { font-size: 20px; color: #555; letter-spacing: -.5px; line-height: 1.6; }
-.essential .section .cont .text .tit { font-size: 24px; font-weight: 400; color: #005eb8; margin-top: 20px; }
-.essential .section .cont .text p { font-size: 18px; color: #555; line-height: 1.56; margin-top: 10px; }
+.essential .section .cont .txt .tit { font-size: 24px; font-weight: 400; color: #005eb8; margin-top: 20px; }
+.essential .section .cont .txt p { font-size: 18px; color: #555; line-height: 1.56; margin-top: 10px; }
 
 .essential .have { position: relative; }
 .essential .have .img { position: absolute; right: 0; top: 148px; } 
@@ -268,26 +269,27 @@ body#brandstory.typeB { color: #222; }
 .essential .have .info dl dt { font-size: 24px; font-weight: 400; color: #005eb8; flex-shrink: 0; }
 .essential .have .info dl dd { font-size: 18px; color: #555; margin-left: 30px; line-height: 1.56; }
 .essential .have .info img { margin: 0; }
+
 .essential .live { display: flex; align-items: flex-end; padding: 120px 0; } 
-.essential .live .img { position: relative; }
-/* .essential .live .img img { position: absolute; top: 0; left: 0; } */
+.essential .live .img { position: relative; width: 60vw; height: 773px; overflow: hidden; }
+.essential .live .img img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.essential .live .img02 { z-index: -1; }
+.essential .live .txt { padding-left: 90px; }
 
 .essential .save { background: #005eb8; text-align: center; padding: 100px 0 120px; }
 .essential .save h3,
 .essential .save .sub,
 .essential .save .text { color: #fff; }
+.essential .save .text { opacity: .5; }
 .essential .save .cont { max-width: 1460px; margin: 80px auto 0; }
 .essential .save .cont ul { display: flex; justify-content: space-between; }
 .essential .save .cont ul li { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 30px 50px; width: calc((100% - 60px) / 3); min-height: 510px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); }
 
-.essential .solve { position: relative; height: 100vh; }
-.essential .solve .cont { border: 1px solid green; }
-.essential .solve .cont ul { cursor: url(../images/essential/drag_mouse.png), auto; }
-.essential .solve .cont ul li { width: 465px; height: 510px; padding: 40px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); margin-right: 50px; position: relative; }
-.essential .solve .cont ul li:nth-child(1), 
-.essential .solve .cont ul li:nth-child(3) { margin-top: 107px; }
-.essential .solve .cont ul li:last-child { background: transparent; box-shadow: none; }
-.essential .solve .cont ul li:hover {  }
+.essential .solve { position: relative; min-height: 100vh; padding: 100px 0 120px; }
+.essential .solve .cont { position: absolute; top: 270px; left: 37vw; width: 1350px!important; padding-bottom: 30px; overflow: hidden; }
+.essential .solve .cont ul { width: 1395px!important; cursor: url(../images/essential/drag_mouse.png), auto; padding-left: 330px;}
+.essential .solve .cont ul li { width: 465px!important; height: 510px; padding: 40px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); position: relative; user-select: none; }
+.essential .solve .cont ul li:nth-child(2n-1) { margin-top: 107px; }
 .essential .solve .cont ul li .border { display: block; position: absolute; }
 .essential .solve .cont ul li .bdt,
 .essential .solve .cont ul li .bdb { width: 0; height: 5px; transition: width .3s; }
@@ -302,6 +304,14 @@ body#brandstory.typeB { color: #222; }
 .essential .solve .cont ul li .bdb { background: linear-gradient(to left, #00ad83, #00a7d6); bottom: 0; right: 0; }
 .essential .solve .cont ul li .bdl { background: linear-gradient(to top, #00a7d6, #005eb8); top: 0; left: 0; }
 .essential .solve .cont ul li .img { text-align: center; }
+
+.essential .love { height: 100vh; position: relative; overflow: hidden; }
+.essential .love .txt { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 10; text-align: center; width: 100%; }
+.essential .love .txt h3 { line-height: 1; opacity: 0; }
+.essential .love .txt .sub { opacity: 0; transform: translateY(30px); }
+.essential .love .txt .weve_tit { display: none; opacity: 0; font-family: 'Poppins'; font-size: 120px; font-weight: 400; color: #fff; line-height: 1; }
+.essential .love .txt .weve_sub { display: none; opacity: 0; font-size: 20px; color: #fff; margin-top: 20px; line-height: 1.6; }
+.essential .love .intro{ z-index:-1; width: 100%; height:100vh; transform: scale(.8); position: absolute; margin: auto; left: 0; right: 0; top:68vh; }
 
 /* 브랜드 - Channel - 공통 (list) */
 .channel .channel_lists { width: 100%; display: flex; flex-wrap: wrap; }

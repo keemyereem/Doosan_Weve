@@ -53,6 +53,8 @@ var commonEvent = {
         this.checkAll();
         this.headerScroll();
         // this.checkDisagree();
+        this.policyEvent();
+        
 	}, 
 
     headerEvent: () => {
@@ -127,18 +129,18 @@ var commonEvent = {
     },
 
     iptEvent: () => {
-        //selectbox
+        // selectbox
         var selectType = $(".select_row>select");
         selectType.addClass("selectBox");
         selectChange(selectType);
         function selectChange(type) {
             type.change(function () {
-                var select_name = $(this).children("option:selected").text();
-                $(this).siblings("label").text(select_name);
-
+                // let select_name = $(this).children("option:selected").text();
+                // $(this).siblings("label").text(select_name);
+                $(this).children("option:selected").prop('selected', false);
             });
         };
-    
+
         //file
         var fileTarget = $('#upload_file');
         fileTarget.on('change', function(){
@@ -388,89 +390,143 @@ var commonEvent = {
           familySite.classList.remove('open');
         });
     
-      },
+    },
+
+    policyEvent: () => {
+
+        // $('#privacy_laws').on('change',function(){
+        //     let Page = $('#privacy_laws option:selected').text();
+        //     console.log('value'+Page);
+        //     $(location).attr('href',Page);
+        // })
+    },
 }
 
 var essentialEvent = {
     init:function(){
-        this.sectionOffset();
-        // this.solveSwiper();
+        this.saveSwiper();
+        this.solveSwiper();
+        this.gsap();
+
+        AOS.init({
+            // 핸들링 참고: https://github.com/michalsnik/aos
+            // disable: 'mobile',
+            once : true,
+            throttleDelay : 99,
+            duration: 1000,
+            anchorPlacement: 'center-bobttom',
+            startEvent: "load",
+        
+        });
     },
 
-    sectionOffset : () => {
-        $(window).on('load scroll resize', ()=> {
-            const section = $('.essential .section');
-
-            section.each((index)=> {
-                let sectionTop = section.eq(index).offset().top - 200,
-                    sectionNextTop = section.eq(index).next().offset().top - 200,
-                    footerTop = $('footer').offset().top - 200,
-                    st = $(window).scrollTop();
-
-                if ( st < sectionNextTop && st > sectionTop ) {
-                    section.eq(index).addClass('active');
-
-                    if (index === 0) {
-
-                    } else {
-
-                    }
-
-                }else if (st < footerTop && st > sectionTop ){
-                    section.eq(3).addClass('active');
-                } else {
-                    section.eq(index).removeClass('active');
-                    
-
-                }
+    saveSwiper : () => {
+        if($('#mobile').length){
+            let saveSlider = new Swiper(".save_swiper", {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 25,
+                speed: 500,
+                observer: true,
+                observeParents: true,
             });
-        });
+        }else {
+
+        }
+
+        
     },
    
     solveSwiper : () => {
-        // let gallSlider = new Swiper(".solve_swiper", {
-        //     slidesPerView: 2,
-        //     initialSlide: 0,
-        //     observer: true,
-        //     observeParents: true,
-        // });
-
-        const tabContainer = $('.solve_swiper > .inner'),
-        tabBox = tabContainer.find('> .swiper-wrapper'),
-        tabButton = tabBox.find('> li');
-
-        let size = tabButton.length,
-            tbIndex = 0;
-
-        if (tabBox.length) {
-            $(document).ready(function(){
-            let tbOn = Math.floor(tabBox.find('> li.on').position().left),
-                tbWidth = tabButton.width();
-
-            tabContainer.animate({scrollLeft: tbOn - tbWidth}, 1000);
-            });
-
-            tabContainer.on('load resize scroll', ()=> {
-                tabBoxPosition = Math.abs(tabBox.position().left);
-
-                tabButton.each((index)=> {
-                tabButtonPosition = Math.floor(tabButton.eq(index).position().left);
-
-                if (size !== index + 1) {
-                    nextIndexPosition = Math.floor(tabButton.eq(index).next().position().left);
-
-                    if (tabBoxPosition > tabButtonPosition && tabBoxPosition <= nextIndexPosition) {
-                    tbIndex = index;
-                    }
-                }
-
-                });
-
-            });
-
-        }
+        let solveSlider = new Swiper(".solve_swiper", {
+            // width: 600,
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 50,
+            speed: 1000,
+            allowTouchMove : true,
+            initialSlide: 1,
+            loop: true,
+            loopAdditionalSlides: 0,
+            observer: true,
+            observeParents: true,
+            freeMode: true,
+            centeredSlides: false,
+            breakpoints: {
+        
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    initialSlide: 0,
+                },
+            },
+        });
+        
     },
-    
+    gsap: () => {
+        
+        // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ************************************************** 초기 시작 값
+
+
+        gsap.to('.scroll-container', { 
+            opacity: 1, duration: 1, delay: 1,
+        }) 
+
+
+        // ************************************************** live
+        const tl1 = gsap.timeline();
+
+        ScrollTrigger.create ({
+            animation: tl1,
+            trigger: ".live",
+            pin: true,                                       
+            pinSpacing: true,                           
+            start: "0% 0%",                     
+            end: "+=100%",                       
+            scrub: true,                      
+
+        });
+
+        tl1
+            .to('.live .img01', { top: '-100%', opacity:'0', duration: .2, delay: 2, })
+            .to('.live .img01', { display: 'none', duration: .2, delay: 2, })
+
+
+        // ************************************************** love
+        const tl2 = gsap.timeline();
+
+        ScrollTrigger.create ({
+            animation: tl2,
+            trigger: ".love",
+            pin: true,                                       
+            pinSpacing: true,                           
+            start: "100% 100%",                     
+            end: "+=400%",                       
+            scrub: true,                      
+
+        });
+
+        tl2
+            .to('#pc .love h3', { transform: 'scale(10)', opacity: '.1', duration: 4, })
+            .to('#mobile .love h3', { transform: 'scale(4)', opacity: '.1', duration: 4, })
+            .to('.love h3', { transform: 'scale(1)', opacity: '.1', duration: 2, })
+            .to('.love h3', { opacity: '1', duration: 2, delay: 2, })
+            .to('.love .sub', { opacity: '1', transform: 'translateY(0)', duration: 2, delay: 1,})
+            .to('.love .intro', { transform: 'scale(1)', top: '0', duration: 3, delay: 3, })
+            .to('.love h3', { opacity: '0', transform: 'translateY(-50px)', duration: 2, delay: 2, })
+            .to('.love .sub', { opacity: '0', transform: 'translateY(-50px)', duration: 2, delay: 1, })
+            .to('.love h3, .love .sub', { display: 'none', duration: 1, })
+
+            .to('.love .weve_tit, .love .weve_sub', { display: 'block', duration: 1, })
+
+            .to('.love .weve_tit, .love .weve_sub', { opacity: '1', transform: 'translateY(0)', duration: 2, })
+            .to('.love .intro', { opacity: '1', delay: 3, })
+
+
+    },
     
 }
 
@@ -685,8 +741,8 @@ var estateEvent = {
         const estlist = $('.estList').find('> ul > li'),
               estAlert02 = estlist.children('p'),
               estSearchBar = $('.estSearch').children('ul'),
-              personalColor = ['#005eb8', '#888888', '#f5f5f5', '#005eb8'],
-              icon = ['list_homepage_icon.png', 'list_homepage_icon_hover.png', 'list_map_icon.png', 'list_map_icon_hover.png'];
+              personalColor = ['#005eb8', '#888888', '#f5f5f5', '#005eb8'];
+            //   icon = [/* 'list_homepage_icon.png', 'list_homepage_icon_hover.png',  */'list_map_icon.png', 'list_map_icon_hover.png'];
               
         estAlert02.each((index) => {
             data = estAlert02.eq(index).attr('data-process');
@@ -707,21 +763,21 @@ var estateEvent = {
                 estAlert02.eq(index).css({'background': '#fff', 'border': '1px solid ' + personalColor[0] + '', 'color': personalColor[0]}).text('입주예정');
             }
 
-            // set icon
-            if (data >= 0 && data <= 2) {
-                dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});   
-                mobileIconSize();
-            } else {
-                dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
-                mobileIconSize();
-            }
+            // // set icon
+            // if (data >= 0 && data <= 2) {
+            //     dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});   
+            //     mobileIconSize();
+            // } else {
+            //     dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
+            //     mobileIconSize();
+            // }
 
-            // mobile icon size adjustment
-            function mobileIconSize() {
-                if ($('#mobile').length) {
-                    dataButton.css({'background-size': '40%'});
-                }
-            }
+            // // mobile icon size adjustment
+            // function mobileIconSize() {
+            //     if ($('#mobile').length) {
+            //         dataButton.css({'background-size': '40%'});
+            //     }
+            // }
         });
 
         // option spread

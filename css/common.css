@@ -162,7 +162,7 @@ nav ul li.mb { display: none; }
 .inner1460 { max-width: 1460px; margin: 0 auto; }
 .inner1200 { max-width: 1200px; margin: 0 auto; }
 
-.tab_box ul { display: flex; margin-bottom: 80px; }
+.tab_box ul { display: flex; margin-bottom: 80px; width: 100%; }
 .tab_box ul li { flex: 1; height: 80px; display: table; background: #fff; border: 1px solid #e5e5e5; }
 .tab_box ul li:not(:first-child) { margin-left: -1px; }
 .tab_box ul li a { font-size: 18px; font-weight: 300; color: #222; display: table-cell; vertical-align: middle; text-align: center; transition: color .2s; }

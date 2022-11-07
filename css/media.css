@@ -111,6 +111,10 @@
 	#mobile .tab_box ul { width: fit-content; position: absolute; left: 0; top: 0; transition: left .5s ease-out; margin-bottom: 0; padding-right: 20px; }
 	#mobile .tab_box ul li { flex: initial; flex-shrink: 0!important; width: calc(100% / 3); height: 50px; display: table; }
 	#mobile .tab_box ul.tab_slide li { width: 150px; }
+	/* channel sns,갤러리,광고 노출시 삭제 */
+	#mobile .channel .tab_box ul.tab_slide { width: 100%; }
+	#mobile .channel .tab_box ul.tab_slide li { width: 50%; }
+	/* --channel sns,갤러리,광고 노출시 삭제-- */
 	#mobile .tab_box ul li:not(:last-child) { border-right: 0; }
 	#mobile .tab_box ul li a { font-size: 14px; }
 

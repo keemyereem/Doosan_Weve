@@ -70,7 +70,7 @@ var commonEvent = {
             })
         } else {
             // PC 메뉴
-            $("#gnb ul, #siteMap").hover(function(){
+            $("#gnb ul, #siteMap, .btn_doosan").hover(function(){
                 $("body").addClass("menuOn");
             }, function(){
                 $("body").removeClass("menuOn");
@@ -504,14 +504,14 @@ var essentialEvent = {
             pin: true,                                       
             pinSpacing: true,                           
             start: "100% 100%",                     
-            end: "+=400%",                       
+            end: "+=300%",                       
             scrub: true,                      
 
         });
 
         tl2
-            .to('#pc .love h3', { transform: 'scale(10)', opacity: '.1', duration: 4, })
-            .to('#mobile .love h3', { transform: 'scale(4)', opacity: '.1', duration: 4, })
+            .to('#pc .love h3', { transform: 'scale(10)', opacity: '.1', duration: 2, })
+            .to('#mobile .love h3', { transform: 'scale(4)', opacity: '.1', duration: 2, })
             .to('.love h3', { transform: 'scale(1)', opacity: '.1', duration: 2, })
             .to('.love h3', { opacity: '1', duration: 2, delay: 2, })
             .to('.love .sub', { opacity: '1', transform: 'translateY(0)', duration: 2, delay: 1,})

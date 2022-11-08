@@ -91,6 +91,12 @@ var commonEvent = {
             });
         }
 
+        $('.btn_doosanenc').hover(function(){
+            $(this).addClass('hover')
+        }, function(){
+            $(this).removeClass('hover')
+        });
+        
         let before = 0;
 
         window.addEventListener('scroll',(ev)=>{

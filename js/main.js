@@ -142,11 +142,13 @@ var mainEvent = {
 
 			mySwiper.on("slideChange",function(){
 				if($(".swiper-slide.v01").hasClass("swiper-slide-active")){
+					video1.pause();
 					video1.currentTime = 0;
-					video1.play();
+					video2.load();
 				}else if($(".swiper-slide.v02").hasClass("swiper-slide-active")){
+					video2.pause();
 					video2.currentTime = 0;
-					video2.play();
+					video1.load();
 				}
 			});
 

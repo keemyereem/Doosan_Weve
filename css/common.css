@@ -50,7 +50,8 @@ header h1 {flex:0 0 auto;}
 header h1 a {display:block; background:url(../images/logo.png) 50% 50% no-repeat; width:109px; height:100px; font:0/0 a; transition:all .4s;}
 header .util_wrap {display:flex; align-items:center; flex:0 0 auto; height:100%; margin-left:auto;}
 header .util_wrap .btn_doosan {display:flex; align-items:center; height:100%;}
-header .util_wrap .btn_doosanenc {display:flex; align-items:center; justify-content:center; background:url(../images/logo_ds.png) 50% 50% no-repeat; width:140px; height:42px; border:1px solid #fff; border-radius:42px; transition:all .4s; font:0/0 a;}
+header .util_wrap .btn_doosanenc {display:flex; align-items:center; justify-content:center; background:url(../images/logo_ds.png) 50% 50% no-repeat; width:140px; height:42px; border:1px solid #fff; border-radius:42px; transition:all .3s; font:0/0 a;}
+header .util_wrap .btn_doosanenc.hover { background: #fff url(../images/logo_ds_b.png) 50% 50% no-repeat; }
 header .util_wrap .allMenu {position:relative; width:76px; height:42px; margin-left:20px; font:0/0 a;}
 header .util_wrap .allMenu span {position:absolute; top:50%; right:20px; background:#fff; width:36px; height:3px; margin-top:-1px; transition:all .4s;}
 header .util_wrap .allMenu span:before,
@@ -66,7 +67,9 @@ header .util_wrap .btn_logout {background:url("data:image/svg+xml,%3csvg xmlns='
 
 #pc header .util_wrap .allMenu {display:none;}
 #mobile header .util_wrap .btn_doosanenc {background:url(../images/logo_ds_m.png) 50% 50% no-repeat; background-size:33px auto; font:0/0 a !important;}
+#mobile header .util_wrap .btn_doosanenc.hover {background:#fff url(../images/logo_ds_b_m.png) 50% 50% no-repeat;background-size:33px auto;}
 #mobile header.wht .util_wrap .btn_doosanenc {background:url(../images/logo_ds_b_m.png) 50% 50% no-repeat; background-size:33px auto; font:0/0 a !important;}
+#mobile header.wht .util_wrap .btn_doosanenc.hover {background:#005eb8 url(../images/logo_ds_m.png) 50% 50% no-repeat;background-size:33px auto;}
 .menuOn header h1 a,
 .fp-viewing-3 header h1 a {background:url(../images/logo_b.png) 50% 50% no-repeat;}
 .menuOn #gnb ul > li > a,
@@ -95,6 +98,7 @@ header.wht { background: #fff; }
 header.wht h1 a { background: url(../images/logo_b.png) 50% 50% no-repeat; }
 header.wht #gnb ul > li > a { font-weight: 400; color: #000; }
 header.wht .util_wrap .btn_doosanenc { border: 1px solid #005eb8; color: #005eb8; font-weight: 400; background: url(../images/logo_ds_b.png) 50% 50% no-repeat; }
+header.wht .util_wrap .btn_doosanenc.hover { background: #005eb8 url(../images/logo_ds.png) 50% 50% no-repeat; }
 header.wht .util_wrap .allMenu span, 
 header.wht .util_wrap .allMenu span:before,
 header.wht .util_wrap .allMenu span:after { background: #000; }
@@ -104,7 +108,7 @@ header.wht .util_wrap .btn_logout {background: url("data:image/svg+xml,%3csvg xm
 /* header - 2depth */
 #siteMap {position:absolute; top:100px; left:0; right:0; background:#fff; width:100%; padding:0; z-index:50; opacity:0; visibility:hidden; transition:all .2s;}
 #siteMap .dep2_wrap {display:flex; align-items:center; padding:40px 40px 140px;}
-#siteMap .dep2_wrap .dep2 {display:flex; justify-content:center; margin:0 auto; padding:0 236px 0 87px;}
+#siteMap .dep2_wrap .dep2 {display:flex; justify-content:center; margin:0 auto; /* padding:0 236px 0 87px; */ padding: 0 178px 0 87px; }
 #siteMap .dep2_wrap .dep2 > ul {width:160px; transition:all .2s;}
 #siteMap .dep2_wrap .dep2 > ul > li {margin-top:20px;}
 #siteMap .dep2_wrap .dep2 > ul > li:first-child {margin-top:0;}

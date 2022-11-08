@@ -70,12 +70,18 @@ var commonEvent = {
             })
         } else {
             // PC 메뉴
-            $("#gnb ul, #siteMap, .btn_doosan").hover(function(){
+            $("#gnb ul, #siteMap").hover(function(){
                 $("body").addClass("menuOn");
             }, function(){
                 $("body").removeClass("menuOn");
             });
         }
+
+        $('.btn_doosanenc').hover(function(){
+            $(this).addClass('hover')
+        }, function(){
+            $(this).removeClass('hover')
+        });
         
     },
 
@@ -135,8 +141,8 @@ var commonEvent = {
         selectChange(selectType);
         function selectChange(type) {
             type.change(function () {
-                // let select_name = $(this).children("option:selected").text();
-                // $(this).siblings("label").text(select_name);
+                let select_name = $(this).children("option:selected").text();
+                $(this).siblings("label").text(select_name);
                 $(this).children("option:selected").prop('selected', false);
             });
         };
@@ -394,11 +400,23 @@ var commonEvent = {
 
     policyEvent: () => {
 
-        // $('#privacy_laws').on('change',function(){
-        //     let Page = $('#privacy_laws option:selected').text();
-        //     console.log('value'+Page);
-        //     $(location).attr('href',Page);
-        // })
+        $(document).on("click",".terms_site .site_selected",function(){
+            var selElm = $(this).parent();
+            if(!selElm.hasClass("open")){
+                selElm.addClass("open");
+            }else{
+                selElm.removeClass("open");
+            }
+          });
+      
+          $(document).on("click",".terms_site .site_list li a",function(){
+            var selected = this.innerText,
+                siteName = document.getElementsByClassName('site_selected')[0],
+                familySite = this.parentNode.parentNode.parentNode;
+      
+            siteName.innerText = selected;
+            familySite.classList.remove('open');
+          });
     },
 }
 
@@ -889,28 +907,14 @@ var csEvent = {
 	},
 
     DirectSelect : function(){
-        //직접입력
-        var sel03Direct = $('#sel03Direct');
-        $(sel03Direct).hide();
-        $('#sel03').on('change', function(){
-            if($("#sel03").val() == "직접입력" || $("#sel03").val() == "기타") {
-                $(sel03Direct).show();
-                console.log(sel03Direct);
-            }  else {
-                $(sel03Direct).hide();
-            }
-        });
 
         var selectType = $("#find_complex");
         selectChange(selectType);
         function selectChange(type) {
             type.change(function () {
-                var select_name = $(this).children("option:selected").text();
-                $(this).siblings("label").text(select_name);
-
+                var select_name = $(this).siblings("label").text();
                 if(select_name === '직접입력') {
                     $(this).parent().siblings($('#selboxDirect')).show();
-                    
                 }else {
                     $(this).parent().siblings($('#selboxDirect')).hide();
                 }
@@ -1244,7 +1248,16 @@ function addressKindChange(e) {
         opt.innerHTML = d[x];
         target.appendChild(opt);
     }
-
+    var sel03Direct = $('#sel03Direct');
+    $(sel03Direct).hide();
+    $('#sel03').on('change', function(){
+        if($("#sel03").siblings('label').text() == "직접입력" || $("#sel03").siblings('label').text() == "기타") {
+            $(sel03Direct).show();
+            console.log('sel03Direct : '+sel03Direct);
+        }else {
+            $(sel03Direct).hide();
+        }
+    });
 }
 
 var fileNo = 0;

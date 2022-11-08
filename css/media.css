@@ -536,6 +536,14 @@
 	
 	#mobile .cs .inquiry .sec_tit { font-size: 22px; margin-bottom: 30px; }
 	#mobile .cs .inquiry .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
+
+	#mobile .cs .inquiry .cont_box .cont_wrap ul li { font-size: 13px; line-height: 1.53; }
+	#mobile .cs .inquiry .cont_box .cont_wrap ul > li+li { margin-top: 20px; }
+	#mobile .cs .inquiry .cont_box .cont_wrap ul li > p+p { margin-top: 20px; }
+	#mobile .cs .inquiry .cont_box .tab_box + .cont_wrap { padding-top: 0px; }
+	#mobile .cs .inquiry .cont_box ol li { padding-left: 7px; }
+	#mobile .cs .inquiry .cont_box ol li::before { top: -1.5px; }
+
 	#mobile .cs .inquiry .red { margin-bottom: 15px; margin-top: 0; }
 	#mobile .cs .inquiry ul li { font-size: 12px; line-height: 1.41; }
 	#mobile .cs .inquiry .checkbox_row { margin: 27px 0 70px; width: 100%; }
@@ -609,6 +617,12 @@
 	#mobile .terms { box-shadow: none; padding: 60px 20px 150px; }
 	#mobile .terms .sec_tit { font-size: 25px; margin-bottom: 70px; }
 	#mobile .terms .checkbox_row p { font-size: 16px; margin-bottom: 23px; }
+	#mobile .terms .cont_wrap ul li { font-size: 12px; line-height: 1.53; }
+	#mobile .terms .cont_wrap ul > li+li { margin-top: 20px; }
+	#mobile .terms .cont_wrap ul li > p+p { margin-top: 20px; }
+	#mobile .terms .tab_box + .cont_wrap { padding-top: 0px; }
+	#mobile .terms ol li { padding-left: 7px; }
+	#mobile .terms ol li::before { top: -1.5px; }
 	#mobile .terms .con_tit { font-size: 22px; padding: 70px 0 25px; }
 	#mobile .terms .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 33px 27px; margin-bottom: 25px; }
 	#mobile .terms .agree_row { display: flex; align-items: flex-start; }
@@ -942,10 +956,15 @@
 	#mobile .footer_conts .section .tab_box + .cont_wrap { padding-top: 0px; }
 	#mobile .footer_conts .section ol li { padding-left: 7px; }
 	#mobile .footer_conts .section ol li::before { top: -1.5px; }
-	#mobile .footer_conts .section .select_row { width: 200px; height: 45px; margin-bottom: 20px; margin-right: 20px; }
-	#mobile .footer_conts .section .select_row select,
-	#mobile .footer_conts .section .select_row label { height: 45px; line-height: 43px; padding: 0 10px; }
-	#mobile .footer_conts .section .select_row::after { right: 10px; }
+
+	#mobile .footer_conts .section .sel_wrap { height: 45px; margin-bottom: 20px; }
+	#mobile .footer_conts .section .terms_site { width: 200px; right: 20px; border: 1px solid #005eb8; }
+	#mobile .footer_conts .section .terms_site .site_selected { font-size: 13px; padding: 0 10px; line-height: 43px; }
+	#mobile .footer_conts .section .terms_site.open .site_selected::after { right: 10px; }
+	#mobile .footer_conts .section .terms_site.open .site_list { min-width: auto; }
+	#mobile .footer_conts .section .terms_site .site_list,
+	#mobile .footer_conts .section .terms_site .site_list li { width: 100%; }
+	#mobile .footer_conts .section .terms_site .site_list li a { font-size: 13px; width: 100%; padding: 10px; }
 
 
 

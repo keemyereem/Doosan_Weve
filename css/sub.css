@@ -707,14 +707,24 @@ body#brandstory.typeB { color: #222; }
 /* 마이위브(계약) - 권리의무승계 - 방문예약신청 */
 .my_contract .contract_info .succession .reservation_apply .sec_tit { font-weight: 400; margin-bottom: 15px; }
 .my_contract .contract_info .succession .reservation_apply .cont { display: flex; }
-.my_contract .contract_info .succession .reservation_apply ul:first-child { width: 61%; }
-.my_contract .contract_info .succession .reservation_apply ul li { display: flex; align-items: center; font-size: 18px; height: 60px; }
-.my_contract .contract_info .succession .reservation_apply ul li+li { margin-top: 20px; }
-.my_contract .contract_info .succession .reservation_apply ul li .tit { color: #222; font-weight: 400; width: 115px; }
-.my_contract .contract_info .succession .reservation_apply ul li p { color: #555; }
-.my_contract .contract_info .succession .reservation_apply ul li .input_row { max-width: 520px; }
-.my_contract .contract_info .succession .reservation_apply ul li .input_row input { height: 60px; }
-.my_contract .contract_info .succession .reservation_apply ul li .input_row input+label { display: block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal_b.png); position: absolute; right: 40px; top: 20px; cursor: pointer; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:first-child { width: 61%; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li { display: flex; align-items: center; font-size: 18px; height: 60px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li+li { margin-top: 20px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li .tit { color: #222; font-weight: 400; width: 115px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li p { color: #555; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li .input_row { max-width: 520px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input { height: 60px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input+label { display: block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal_b.png); position: absolute; right: 40px; top: 20px; cursor: pointer; }
+.my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 80px; }
+.my_contract .contract_info .succession .reservation_apply .cont_box+ul li { font-size: 14px; color: #777; position: relative; padding-left: 15px; line-height: 1.71; }
+.my_contract .contract_info .succession .reservation_apply .cont_box+ul li span { position: absolute; top: 0; left: 0; }
+.my_contract .contract_info .succession .reservation_apply .checkbox_row { margin: 35px 0 0; }
+.my_contract .contract_info .succession .reservation_apply .checkbox_row p { font-size: 22px; font-weight: 400; color: #222; margin-bottom: 25px; }
+.my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label { margin-right: 34px; }
+.my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label span { color: #888; }
+.my_contract .contract_info .succession .reservation_apply .cont_box { height: 240px; padding: 45px 50px; margin: 40px 0 20px; border: 1px solid #e8e8e8; font-size: 16px; line-height: 1.625; overflow-y: auto; color: #222; }
+.my_contract .contract_info .succession .reservation_apply input[type="radio"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+
 
 /* 달력 */
 .my_contract .contract_info .pop_close.mov_datepicker { float: unset; position: absolute; margin-bottom: unset; top: -60px; right: 0; }

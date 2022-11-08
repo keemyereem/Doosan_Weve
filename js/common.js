@@ -701,6 +701,7 @@ var estateEvent = {
 	init: function(){
         this.historySlider();
         this.estList();
+        this.estTab();
 	}, 
 
     historySlider: () => {
@@ -867,6 +868,12 @@ var estateEvent = {
 
         
         
+    },
+
+    estTab: () => {
+        $('.estate nav li a').on('click', function(){
+            $('header').addClass('indent');
+        })
     },
 
 }

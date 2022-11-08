@@ -467,17 +467,6 @@ body#brandstory.typeB { color: #222; }
 /* .cs .inquiry .checkbox_row+.sec_tit { margin-bottom: 40px; } */
 .cs .inquiry .cont_box { height: 240px; padding: 45px 50px; margin: 40px 0 20px; border: 1px solid #e8e8e8; font-size: 16px; line-height: 1.625; overflow-y: auto; color: #222; }
 
-.cs .inquiry .cont_box .cont_wrap ul li { font-size: 16px; letter-spacing: -.45px; line-height: 1.78; color: #555; }
-.cs .inquiry .cont_box .cont_wrap ul > li+li { margin-top: 30px; }
-.cs .inquiry .cont_box .cont_wrap ul li .tit { font-weight: 400; color: #222; }
-.cs .inquiry .cont_box .cont_wrap ul li .terms_tit { font-size: 20px; font-weight: 400; color: #222; }
-.cs .inquiry .cont_box .cont_wrap ul li .terms_tit:last-of-type { margin-top: 30px; }
-.cs .inquiry .cont_box .cont_wrap ul li > p+p { margin-top: 30px; }
-.cs .inquiry .cont_box .cont_wrap ul li .box { margin: 23px 0; }
-.cs .inquiry .cont_box .tab_box + .cont_wrap { padding-top: 10px; }
-.cs .inquiry .cont_box ol li { position: relative; padding-left: 15px; }
-.cs .inquiry .cont_box ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }
-
 .cs .inquiry .cont_box+ul li { font-size: 14px; color: #777; position: relative; padding-left: 15px; line-height: 1.71; }
 .cs .inquiry .cont_box+ul li span { position: absolute; top: 0; left: 0; }
 .cs .inquiry .applicant_info { margin-bottom: 120px; }

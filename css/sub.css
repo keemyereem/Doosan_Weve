@@ -251,6 +251,11 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .empty a { margin: 80px auto 0; width: 240px; height: 60px; font-size: 18px; letter-spacing: -1px; display: block; color: #005eb8; line-height: 58px; text-align: center; border: 1px solid #005eb8; border-radius: 30px; transition: all .5s; }
 .estate .contents .empty a:hover { box-shadow: 240px 0 0 0 #005eb8 inset, -240px 0 0 0 #005eb8 inset; color: #fff; }
 
+/* 단지안내 - 분양단지/ 공사단지/ 입주단지 */
+.estate .apt_complex .estList ul li a { background: #f5f5f5 url(../images/estate/list_homepage_icon.png) no-repeat 50% 50%; background-size: 24px 22px; }
+.estate .apt_complex .estList ul li:hover a { background: #005eb8 url(../images/estate/list_homepage_icon_hover.png) no-repeat 50% 50%; background-size: 24px 22px; }
+
+
 /* 브랜드 - Essential */
 .essential { overflow-x: hidden; }
 .essential .section1::after { background: url(../images/essential/essential_visual.png) 50% 50% no-repeat; background-size: cover; }
@@ -262,9 +267,19 @@ body#brandstory.typeB { color: #222; }
 .essential .section .cont .txt .tit { font-size: 24px; font-weight: 400; color: #005eb8; margin-top: 20px; }
 .essential .section .cont .txt p { font-size: 18px; color: #555; line-height: 1.56; margin-top: 10px; }
 
-.essential .have { position: relative; }
-.essential .have .img { position: absolute; right: 0; top: 148px; } 
-.essential .have .info { background: #f9fafa; margin-top: 78px; max-width: 730px; padding: 75px 0 80px; text-align: center; }
+.essential .section:not(.love) { position: relative; }
+.essential .section:not(.love) h3,
+.essential .section:not(.love) .sub,
+.essential .section:not(.love) .text { transform: translateY(70px); opacity: 0; }
+.essential .section:not(.love).active h3,
+.essential .section:not(.love).active .sub,
+.essential .section:not(.love).active .text { transform: translateY(0); opacity: 1; transition: all .5s; }
+.essential .section:not(.love).active .sub { transition-delay: .2s; }
+.essential .section:not(.love).active .text { transition-delay: .4s; }
+.essential .have .img { position: absolute; right: 0; top: 148px; max-width: 50%; transform: translatex(300px); opacity: 0; } 
+.essential .have.active .img { transform: translatex(0); opacity: 1; transition: all .6s; transition-delay: 1s; } 
+.essential .have .info { background: #f9fafa; margin-top: 78px; max-width: 730px; padding: 75px 0 80px; text-align: center; transform: translatex(-300px); opacity: 0;}
+.essential .have.active .info { transform: translatex(0); opacity: 1; transition: all .6s; transition-delay: .8s; }
 .essential .have .info dl { display: flex; margin-bottom: 55px; padding: 0 70px; letter-spacing: -.45px; text-align: left; }
 .essential .have .info dl dt { font-size: 24px; font-weight: 400; color: #005eb8; flex-shrink: 0; }
 .essential .have .info dl dd { font-size: 18px; color: #555; margin-left: 30px; line-height: 1.56; }
@@ -275,6 +290,14 @@ body#brandstory.typeB { color: #222; }
 .essential .live .img img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 .essential .live .img02 { z-index: -1; }
 .essential .live .txt { padding-left: 90px; }
+/* .essential .live h3,
+.essential .live .sub,
+.essential .live .text { transform: translateY(70px); opacity: 0; }
+.essential .live.active h3,
+.essential .live.active .sub,
+.essential .live.active .text { transform: translateY(0); opacity: 1; transition: all .5s; }
+.essential .live.active .sub { transition-delay: .2s; }
+.essential .live.active .text { transition-delay: .4s; } */
 
 .essential .save { background: #005eb8; text-align: center; padding: 100px 0 120px; }
 .essential .save h3,

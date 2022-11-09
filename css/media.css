@@ -509,7 +509,9 @@
 	#mobile .estate .contents .estList .view_more { width: 67px; height: 67px; background-size: 25px; margin: 30px auto 0; }
 	#mobile .estate .contents .estList .view_more:hover { background-size: 25px; }
 
-
+	/* 단지안내 - 분양단지/ 공사단지/ 입주단지 */
+	#mobile .estate .apt_complex .estList ul li a { background: #f5f5f5 url(../images/estate/list_homepage_icon_m.png) no-repeat 50% 50%; background-size: 18px 16px; }
+	#mobile .estate .apt_complex .estList ul li:hover a { background: #005eb8 url(../images/estate/list_homepage_icon_hover_m.png) no-repeat 50% 50%; background-size: 18px 16px; }
 
 
 

@@ -425,17 +425,18 @@ var essentialEvent = {
         this.saveSwiper();
         this.solveSwiper();
         this.gsap();
+        this.sectionOffset();
 
-        AOS.init({
-            // 핸들링 참고: https://github.com/michalsnik/aos
-            // disable: 'mobile',
-            once : true,
-            throttleDelay : 99,
-            duration: 1000,
-            anchorPlacement: 'center-bobttom',
-            startEvent: "load",
+        // AOS.init({
+        //     // 핸들링 참고: https://github.com/michalsnik/aos
+        //     // disable: 'mobile',
+        //     once : true,
+        //     throttleDelay : 99,
+        //     duration: 1000,
+        //     anchorPlacement: 'center-bobttom',
+        //     startEvent: "load",
         
-        });
+        // });
     },
 
     saveSwiper : () => {
@@ -452,7 +453,6 @@ var essentialEvent = {
 
         }
 
-        
     },
    
     solveSwiper : () => {
@@ -546,6 +546,33 @@ var essentialEvent = {
 
     },
     
+    sectionOffset: () => {
+        $(window).on('scroll', ()=> {
+            const have = $('.have').offset().top - 500,
+                  live = $('.live').offset().top,
+                  save = $('.save').offset().top - 500,
+                  solve = $('.solve').offset().top - 500,
+                  st = $(window).scrollTop();
+            console.log('st : '+st);
+            console.log('have : '+have);
+            console.log('live : '+live);
+            console.log('save : '+save);
+
+            if(st > have){
+                $('.have').addClass('active');
+            }
+            if(st > live){
+                $('.live').addClass('active');
+            }
+            if(st > save){
+                $('.save').addClass('active');
+            }
+            if(st > solve){
+                $('.solve').addClass('active');
+            }
+
+        });
+    },
 }
 
 var channelEvent = {

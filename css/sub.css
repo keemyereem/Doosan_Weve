@@ -155,6 +155,7 @@ body#brandstory.typeB { color: #222; }
 .tb_view .view_box {position: relative;}
 .tb_view .view_box .view_info {min-height: 200px; padding:50px 0 110px;font-size: 18px;color: #555;line-height: 2.1;letter-spacing: -.45px;}
 .tb_view .view_box .view_info img{max-width: 100%; object-fit: contain;display: block;margin: 20px 0;}
+.tb_view .view_box .view_info b { font-weight: 400; }
 .tb_view .view_nav {position: relative;border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;}
 .tb_view .view_nav dl {display: flex;align-items: center;height: 70px;}
 .tb_view .view_nav dl:first-of-type {border-bottom: 1px solid #e8e8e8;}
@@ -203,6 +204,7 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estBoard .block_1depth .block_2depth > li:last-child a:hover { box-shadow: 161px 0 0 0 #005eb8 inset, -161px 0 0 0 #005eb8 inset; color: #fff; }
 
 /* 단지안내 - 분양단지/ 공사단지/ 입주단지 */
+/* #estate_top { display: block; border: 1px solid #000; padding-top: 10px; } */
 .estate .contents .estSearch { width: 100%; position: relative; display:inline-block;  }
 .estate .contents .estSearch > ul { width: calc((100% / 3) * 2); background: #fff; z-index: 1; display: flex; height: auto; max-height: 80px; border: 1px solid #005eb8; position: absolute; overflow: hidden;}
 .estate .contents .estSearch > ul.active { max-height: 500px; transition: max-height ease .5s; }

@@ -34,12 +34,12 @@ textarea {resize:none; appearance:none; -webkit-appearance:none;}
 select {background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13' height='7'%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M0 6.999V6h.999V4.999h1v-1h1V3h1V2h1V.999h1V0H7v.999h1V2h1v1h1v.999h1v1h1V6h1v.999H0Z'/%3e%3c/svg%3e") calc(100% - 20px) 50% no-repeat; background-size:13px 7px; padding-right:44px; border-width:1px; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
 select::-ms-expand {display:none;}
 caption, legend {position:absolute; top:0; left:-9999em;}
-.indentUp { transform: translateY(-100px)!important; }
+.indentUp { transform: translateY(-110px)!important; }
 .blockScroll { overflow-y: hidden; }
 .br_m,
 .img_m ,
 .indent {display: none;}
-.indentUp { transform: translateY(-100px); }
+.indentUp { transform: translateY(-150px); }
 #wrap { position: relative; }
 .es {color: #005eb8;}
 img { -webkit-user-drag: none; }
@@ -143,8 +143,8 @@ header.wht .util_wrap .btn_logout {background: url("data:image/svg+xml,%3csvg xm
 
 
 /* sub visual */
-nav { border-bottom: 1px solid #e5e5e5; width: 100%; }
-nav.fixed { background: #fff; position: fixed; left: 0; top: 0; z-index: 98; }
+nav { border-bottom: 1px solid #e5e5e5; width: 100%; position: relative; z-index: 101; }
+nav.fixed { background: #fff; position: fixed; left: 0; top: 0; z-index: 101; }
 nav ul { display: flex; max-width: 1460px; margin: 0 auto; width: 100%; }
 nav ul li { flex: 1; text-align: center; height: 100px; line-height: 100px; }
 nav ul li > a { display: block; width: 100%; height: 100%; font-family: 'Poppins','NS'; font-size: 20px; font-weight: 300; color: #000; letter-spacing: -.5px; }
@@ -273,6 +273,7 @@ footer .family_site.open .site_selected::after { transform: rotate3d(1, 0, 0, 18
 footer .family_site .site_list {display: block;position: absolute;bottom:50px;left: 0; overflow: hidden;width: 100%; min-width:215px; height: 0; background: #fff; box-sizing: border-box; transition: height .3s;}
 footer .family_site.open .site_list {height: auto;border: 1px solid #808080;}
 footer .family_site .site_list li a {display: block;font-size: 16px; color: #222;padding: 10px 20px; }
+footer .family_site .site_list li a:hover { background: #030716; color: #fff; }
 
 
 #topButton { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 999; writing-mode: vertical-lr; }

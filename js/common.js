@@ -360,8 +360,7 @@ var commonEvent = {
             if(before < window.scrollY) {
                 $('header').addClass('indent');
                 before = window.scrollY;
-            }
-            else if(before > window.scrollY) {
+            }else if(before > window.scrollY) {
                 $('header').removeClass('indent').addClass('wht');
                 before = window.scrollY;
             }
@@ -864,34 +863,34 @@ var estateEvent = {
         });
 
         // effect chenge icon when each list hovering
-        estlist.each((index) => {
-            estlist.eq(index).hover(function() {
-                data = $(this).children('p').attr('data-process');
-                dataButton = $(this).children('p').siblings('a');
+        // estlist.each((index) => {
+        //     estlist.eq(index).hover(function() {
+        //         data = $(this).children('p').attr('data-process');
+        //         dataButton = $(this).children('p').siblings('a');
 
-                if (data >= 0 && data <= 2) {
-                    dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[1] + ') 50% 50% no-repeat'});
-                } else {
-                    dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[3] + ') 50% 50% no-repeat'});
-                }
-                mobileIconSize();
+        //         if (data >= 0 && data <= 2) {
+        //             dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[1] + ') 50% 50% no-repeat'});
+        //         } else {
+        //             dataButton.css({'background': personalColor[3] + ' url(images/estate/' + icon[3] + ') 50% 50% no-repeat'});
+        //         }
+        //         mobileIconSize();
 
-            }, function() {
-                if (data >= 0 && data <= 2) {
-                    dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});
-                } else {
-                    dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
-                }
-                mobileIconSize();
-            });
+        //     }, function() {
+        //         if (data >= 0 && data <= 2) {
+        //             dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[0] + ') 50% 50% no-repeat'});
+        //         } else {
+        //             dataButton.css({'background': personalColor[2] + ' url(images/estate/' + icon[2] + ') 50% 50% no-repeat'});
+        //         }
+        //         mobileIconSize();
+        //     });
 
-            // mobile icon size adjustment
-            function mobileIconSize() {
-                if ($('#mobile').length) {
-                    dataButton.css({'background-size': '40%'});
-                }
-            }
-        })
+        //     // mobile icon size adjustment
+        //     function mobileIconSize() {
+        //         if ($('#mobile').length) {
+        //             dataButton.css({'background-size': '40%'});
+        //         }
+        //     }
+        // })
 
         
         

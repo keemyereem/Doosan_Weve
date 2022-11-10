@@ -121,6 +121,8 @@ var mainEvent = {
     // video1.load();
 
 		$(function(){
+
+
 			var slidemenu = ['We’ve', 'THE ZENITH']
 			var mySwiper = new Swiper(".main_visual", {
 				slidesPerView:1,
@@ -140,17 +142,21 @@ var mainEvent = {
 				},
 			});
 
-			// mySwiper.on("slideChange",function(){
-			// 	if($(".swiper-slide.v01").hasClass("swiper-slide-active")){
-			// 		video1.pause();
-			// 		video1.currentTime = 0;
-			// 		video2.load();
-			// 	}else if($(".swiper-slide.v02").hasClass("swiper-slide-active")){
-			// 		video2.pause();
-			// 		video2.currentTime = 0;
-			// 		video1.load();
-			// 	}
-			// });
+			mySwiper.on("slideChange",function(){
+				if($(".swiper-slide.v01").hasClass("swiper-slide-active")){
+					// video1.pause();
+					// video1.currentTime = 0;
+					// video2.load();
+                    // alert('2')
+
+
+				}else if($(".swiper-slide.v02").hasClass("swiper-slide-active")){
+                    // alert('1')
+					// video2.pause();
+					// video2.currentTime = 0;
+					// video1.load();
+				}
+			});
 
 			// video1.play();
 		});

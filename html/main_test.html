@@ -40,7 +40,8 @@
 	<script src="js/lib/fullpage.js"></script>
 	<script src="js/lib/swiper-bundle.min.js"></script>
 	<script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.1/jquery.mb.YTPlayer.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.1/jquery.mb.YTPlayer.min.js"></script> -->
+    <script src="https://unpkg.com/youtube-background@1.0.14/jquery.youtube-background.min.js"></script>
 	
 	<script src="js/main_test.js"></script>
 	<script src="js/common.js"></script>
@@ -48,11 +49,11 @@
 		$(document).ready( function() {
             $('header').load("include/header.html");
 			mainEvent.init();
-
+            $('[data-vbg]').youtube_background();
         });
-		jQuery( function() {
-			jQuery( '.main_visual .swiper-slide' ).YTPlayer();
-		} );
+		// jQuery( function() {
+		// 	jQuery( '.main_visual .youtube' ).YTPlayer();
+		// } );
 		
 	</script>
 </head>
@@ -69,49 +70,45 @@
 			<div class="section contBox01" tabindex="0">
 				<div class="main_visual">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide v01" data-property="{
-							videoURL:'https://youtu.be/KKjuRJh_3LY',
-							mute: true,
-							showControls: false,
-							useOnMobile: true,
-							quality: 'highres',
-							containment: 'body',
-							loop: true,
-							autoPlay: true,
-							stopMovieOnBlur: false,
-							startAt: 0,
-							opacity: 1
-						  }">
-							<!-- <video id="visual_video_01" autoplay muted playsinline loop class="bg">
-								<source src="images/main/video_01.mp4" type="video/mp4">
-								<source src="images/main/video_01.webm" type="video/webm">
-							</video> -->
+						<div class="swiper-slide v01">
 							<div class="text_wrap">
 								<p class="big">마음속에 간직해온 <strong>나만의 공간</strong></p>
 								<span class="desc">아름다운 공간속에 편리함과 건강한 삶을 담았습니다.</span>
 							</div>
+                            <!-- <div id="yt01" class="youtube" data-property="{
+                                videoURL:'https://www.youtube.com/watch?v=9MqQBH9Inao',
+                                mute: true,
+                                showControls: false,
+                                useOnMobile: true,
+                                quality: 'highres',
+                                containment: 'body',
+                                loop: true,
+                                autoPlay: true,
+                                stopMovieOnBlur: false,
+                                startAt: 0,
+                                opacity: 1
+                              }"></div> -->
+                              <div data-vbg-autoplay="true" data-vbg="https://www.youtube.com/watch?v=kJ7CfWNXqQ8" data-vbg-start-at="0" data-vbg-loop="true" data-vbg-autoplay="true" data-vbg-load-background="true"></div>
 						</div>
-						<div class="swiper-slide v02" data-property="{
-							videoURL:'https://youtu.be/hqNkGnR4Lz8',
-							mute: true,
-							showControls: false,
-							useOnMobile: true,
-							quality: 'highres',
-							containment: 'body',
-							loop: true,
-							autoPlay: true,
-							stopMovieOnBlur: false,
-							startAt: 0,
-							opacity: 1
-						  }">
-							<!-- <video id="visual_video_02" autoplay muted playsinline loop class="bg">
-								<source src="images/main/video_02.mp4" type="video/mp4">
-								<source src="images/main/video_02.webm" type="video/webm">
-							</video> -->
+						<div class="swiper-slide v02">
 							<div class="text_wrap">
 								<p class="big">차원이 다른 <strong>삶의 높이</strong></p>
 								<span class="desc">정점에 오른 당신의 클래스를 채워줄 유일한 존재</span>
 							</div>
+                            <!-- <div id="yt02" class="youtube" data-property="{
+                                videoURL:'https://www.youtube.com/watch?v=9MqQBH9Inao',
+                                mute: true,
+                                showControls: false,
+                                useOnMobile: true,
+                                quality: 'highres',
+                                containment: 'body',
+                                loop: true,
+                                autoPlay: true,
+                                stopMovieOnBlur: false,
+                                startAt: 0,
+                                opacity: 1
+                              }"></div> -->
+                              <div data-vbg-autoplay="true" data-vbg="https://www.youtube.com/watch?v=9MqQBH9Inao" data-vbg-start-at="0" data-vbg-loop="true" data-vbg-autoplay="true" data-vbg-load-background="true"></div>
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>

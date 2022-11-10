@@ -27,6 +27,9 @@
 .contBox01 .swiper-slide.swiper-slide-active .text_wrap .big {animation:mc1 1s ease .7s forwards;}
 .contBox01 .swiper-slide.swiper-slide-active .text_wrap .desc {animation:mc1 1s ease 1.2s forwards;}
 
+/* ------------------------ */
+.contBox01 .swiper-slide .youtube { width: 100vw; height: 100vh; border: 5px solid #000; }
+/* ------------------------ */
 
 .contBox02 {position:relative; background:url(../images/main/bg_es.jpg) 50% 50% no-repeat; background-size:cover;}
 .contBox02 .inner {max-width:1460px; margin:0 auto;}

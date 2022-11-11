@@ -63,24 +63,27 @@ var mainEvent = {
 
   initFullpage: () => {
     $(document).ready(function () {
-      let _body = $("body");
-      $("#pc #main_container").fullpage({
-        // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-        //	responsiveWidth:1200,
-        fitToSection: true,
-        fitToSectionDelay: 0,
-        scrollOverflow: true,
-        animateAnchor: true,
-        scrollBar: false,
-        afterLoad: function () {
-          cls();
-        },
-      });
+      if ($("#pc").length) {
+        $("#pc #main_container").fullpage({
+          // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+          //	responsiveWidth:1200,
+          fitToSection: true,
+          fitToSectionDelay: 0,
+          scrollOverflow: true,
+          animateAnchor: true,
+          scrollBar: false,
+          afterLoad: function () {
+            cls();
+          },
+        });
+      } else {
+        $("#mobile #main_container").fullpage({
+          // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+          responsiveWidth: 1200,
+        });
+      }
 
-      $("#mobile #main_container").fullpage({
-        // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-        responsiveWidth: 1200,
-      });
+      let _body = $("body");
 
       $(window).on("scroll", function () {
         cls();
@@ -111,17 +114,31 @@ var mainEvent = {
   },
 
   S1_videoVisual: () => {
-    const video1 = document.querySelector("#visual_video_01");
-    const video2 = document.querySelector("#visual_video_02");
-    video1.load();
+    // 다 갈아 엎고싶네 
+    const video1 = document.querySelector("#visual_video_01"),
+      video2 = document.querySelector("#visual_video_02");
 
-    $(function () {
+    $(document).ready(() => {
+      setTimeout(() => {
+        video1.parentNode.setAttribute(
+          "data-swiper-autoplay",
+          Math.floor(video1.duration) * 1000
+        );
+        video2.parentNode.setAttribute(
+          "data-swiper-autoplay",
+          Math.floor(video2.duration) * 1000
+        );
+
+        onSwiper();
+      }, 500);
+    });
+
+    function onSwiper() {
       var slidemenu = ["We’ve", "THE ZENITH"];
       var mySwiper = new Swiper(".main_visual", {
         slidesPerView: 1,
         slidesPerGroup: 1,
         autoplay: {
-          delay: 15000,
           disableOnInteraction: false,
         },
         loop: true,
@@ -140,22 +157,33 @@ var mainEvent = {
             );
           },
         },
+        on: {
+          init: function () {
+            $(".contBox01 .main_visual").addClass("on");
+            $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '100%' }, video1.duration * 1000)
+          },
+        },
       });
+      // |||||||||||||||||||||||||||||||||||||||||||||||||||| 참고참고참고참고 https://swiperjs.com/swiper-api#events
+      mySwiper.on("realIndexChange", function () {
+        //console.log(mySwiper.realIndex)
 
-      mySwiper.on("slideChange", function () {
+        $('.swiper-pagination-bullet').find('i').stop(true).css('width', 0);
+
         if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
+          $('.swiper-pagination-bullet').eq($(".swiper-slide.v01").index() - 2).find('i').animate({ width: '100%' }, video2.duration * 1000);
           video1.pause();
           video1.currentTime = 0;
           video2.load();
         } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
+          $('.swiper-pagination-bullet').eq($(".swiper-slide.v02").index() - 2).find('i').animate({ width: '100%' }, video1.duration * 1000);
           video2.pause();
           video2.currentTime = 0;
           video1.load();
         }
-      });
 
-      video1.play();
-    });
+      });
+    }
   },
 
   S2_videoVisual: () => {
@@ -245,11 +273,11 @@ var mainEvent = {
   },
 
   /*
-	S4_snsScroll: () => {
-		$(".sns_wrap").mCustomScrollbar({
-			axis:"x",
-			advanced:{autoExpandHorizontalScroll:true}
-		});
-	},
-	*/
+  S4_snsScroll: () => {
+    $(".sns_wrap").mCustomScrollbar({
+      axis:"x",
+      advanced:{autoExpandHorizontalScroll:true}
+    });
+  },
+  */
 };

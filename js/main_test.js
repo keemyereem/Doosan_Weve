@@ -1,45 +1,46 @@
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
 /* ----------------------- Published by 4m Creative ------------------------ */
 
-$(function () {
-  const isMobile = () => {
-    const user = navigator.userAgent;
-    let isCheck = false;
-    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
-      isCheck = true;
-    }
-    return isCheck;
-  };
+$(function(){
+	const isMobile = () => {
+			const user = navigator.userAgent;
+			let isCheck = false;
+			if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+					isCheck = true;
+			}
+			return isCheck;
+	}
 
-  if (isMobile() == false) {
-    console.log("*PC environment");
-    $("html").attr("id", "pc");
-  } else {
-    console.log("*Mobile environment");
-    $("html").attr("id", "mobile");
-  }
+	if (isMobile() == false) {
+			console.log('*PC environment')
+			$('html').attr('id', 'pc')
+	} else {
+			console.log('*Mobile environment')
+			$('html').attr('id', 'mobile')
+	}
 });
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////                                                         **메인**                                                                   ///////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var mainEvent = {
-  init: function () {
-    this.initFullpage();
-    this.headerEvent();
-    this.footerEvent();
-    // this.goTopEvent();
-    this.S1_videoVisual();
-    // this.S2_videoVisual();
-    this.S3_contHover();
-    //	this.S4_snsScroll();
-  },
+	init:function(){
+		this.initFullpage();
+		this.headerEvent();
+		this.footerEvent();
+		this.S1_videoVisual();
+		this.S2_videoVisual();
+		this.S3_contHover();
+	//	this.S4_snsScroll();
+	}, 
 
-  headerEvent: () => {
-    $(window).on("scroll", function () {
-      $("header").css("left", 0 - $(this).scrollLeft());
-    });
-  },
+	headerEvent: () => {
+		$(window).on('scroll',function(){
+            $("header").css("left",0-$(this).scrollLeft());
+        });
+
+	},
 
   footerEvent: () => {
     $(document).on("click", ".family_site .site_selected", function () {
@@ -63,24 +64,27 @@ var mainEvent = {
 
   initFullpage: () => {
     $(document).ready(function () {
-      let _body = $("body");
-      $("#pc #main_container").fullpage({
-        // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-        //	responsiveWidth:1200,
-        fitToSection: true,
-        fitToSectionDelay: 0,
-        scrollOverflow: true,
-        animateAnchor: true,
-        scrollBar: false,
-        afterLoad: function () {
-          cls();
-        },
-      });
+      if ($("#pc").length) {
+        $("#pc #main_container").fullpage({
+          // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+          //	responsiveWidth:1200,
+          fitToSection: true,
+          fitToSectionDelay: 0,
+          scrollOverflow: true,
+          animateAnchor: true,
+          scrollBar: false,
+          afterLoad: function () {
+            cls();
+          },
+        });
+      } else {
+        $("#mobile #main_container").fullpage({
+          // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+          responsiveWidth: 1200,
+        });
+      }
 
-      $("#mobile #main_container").fullpage({
-        // anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
-        responsiveWidth: 1200,
-      });
+      let _body = $("body");
 
       $(window).on("scroll", function () {
         cls();
@@ -110,131 +114,162 @@ var mainEvent = {
     });
   },
 
-	S1_videoVisual: () => {
-		const video1 = document.querySelector("#visual_video_01");
-		const video2 = document.querySelector("#visual_video_02");
+  S1_videoVisual: () => {
 
-		$(function(){
-			var slidemenu = ['We’ve', 'THE ZENITH']
-			var mySwiper = new Swiper(".main_visual", {
-				slidesPerView:1,
-				slidesPerGroup:1,
-				autoplay:{
-					delay: 15000,
-					disableOnInteraction: false
-				},
-				loop: true,
-				allowTouchMove: false,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true,
-					renderBullet: function (index, className) {
-						return '<div class="' + className + '"><p>' + (slidemenu[index]) + '</p><em class="time"><i></i></em>' + '</div>';
-					},
-				},
-			});
+    const video1 = document.querySelector("#visual_video_01"),
+      video2 = document.querySelector("#visual_video_02");
 
-			mySwiper.on("slideChange",function(){
-				if($(".swiper-slide.v01").hasClass("swiper-slide-active")){
-					video1.currentTime = 0;
-					video1.play();
-				}else if($(".swiper-slide.v02").hasClass("swiper-slide-active")){
-					video2.currentTime = 0;
-					video2.play();
-				}
-			});
+    $(document).ready(() => {
+      setTimeout(() => {
+        video1.parentNode.setAttribute(
+          "data-swiper-autoplay",
+          Math.floor(video1.duration) * 1000
+        );
+        video2.parentNode.setAttribute(
+          "data-swiper-autoplay",
+          Math.floor(video2.duration) * 1000
+        );
 
-			video1.play();
-		});
-	},
+        onSwiper();
+      }, 500);
+    });
 
-  // S2_videoVisual: () => {
-  //   $(function () {
-  //     var swiper = new Swiper("#pc .es_slider", {
-  //       slidesPerView: 5,
-  //     });
-
-  //     var swiper = new Swiper("#mobile .es_slider", {
-  //       slidesPerView: 1,
-  //       pagination: {
-  //         el: ".es_slider .swiper-pagination",
-  //       },
-  //       on: {
-  //         slideChange: function () {
-  //           _this = $(this)[0].activeIndex + 1;
-  //           $(".es_slider .bg_box")
-  //             .attr("class", "bg_box")
-  //             .addClass("mbg" + _this);
-  //           $(".es_slider .swiper-pagination span").removeClass(
-  //             ".es_slider swiper-pagination-bullet-active"
-  //           );
-  //           $(
-  //             ".es_slider .swiper-pagination span:nth-child(" + _this + ")"
-  //           ).addClass(".es_slider swiper-pagination-bullet-active");
-  //           $(".es_slider").attr("class", "es_slider");
-  //           $(".es_slider").addClass("bg" + _this);
-  //         },
-  //       },
-  //     });
-
-  //     let _bg;
-  //     $("#pc .es_slider .swiper-slide").hover(
-  //       function () {
-  //         _bg = $(this).attr("bg-type");
-  //         $(".es_slider").attr("class", "es_slider");
-  //         $(".es_slider").addClass(_bg);
-  //       },
-  //       function () {
-  //         $(".es_slider").attr("class", "es_slider");
-  //       }
-  //     );
-  //   });
-  // },
-
-  S3_contHover: () => {
-    $(function () {
-      var houseSlider = new Swiper(".house_slider", {
+    function onSwiper() {
+      var slidemenu = ["We’ve", "THE ZENITH"];
+      var mySwiper = new Swiper(".main_visual", {
         slidesPerView: 1,
         slidesPerGroup: 1,
-        loop: false,
-        allowTouchMove: false,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+        autoplay: {
+          disableOnInteraction: false,
         },
-        breakpoints: {
-          1024: {
-            slidesPerView: 3,
+        loop: true,
+        allowTouchMove: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return (
+              '<div class="' +
+              className +
+              '"><p>' +
+              slidemenu[index] +
+              '</p><em class="time"><i></i></em>' +
+              "</div>"
+            );
           },
-          768: {
-            slidesPerView: 2,
+        },
+        on: {
+          init: function () {
+            $(".contBox01 .main_visual").addClass("on");
+            $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '100%' }, video1.duration * 1000)
           },
-          320: {
-            slidesPerView: 1,
-          },
+        },
+      });
+      // |||||||||||||||||||||||||||||||||||||||||||||||||||| 참고참고참고참고 https://swiperjs.com/swiper-api#events
+      mySwiper.on("realIndexChange", function () {
+        //console.log(mySwiper.realIndex)
+        console.log('video2.duration:'+video2.duration);
+        console.log('video1.duration:'+video1.duration);
+
+        $('.swiper-pagination-bullet').find('i').stop(true).css('width', 0);
+
+        if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
+          $('.swiper-pagination-bullet').eq($(".swiper-slide.v01").index() - 2).find('i').animate({ width: '100%' }, video2.duration * 1000);
+          video1.pause();
+          video1.currentTime = 0;
+          video2.load();
+        } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
+          $('.swiper-pagination-bullet').eq($(".swiper-slide.v02").index() - 2).find('i').animate({ width: '100%' }, video1.duration * 1000);
+          video2.pause();
+          video2.currentTime = 0;
+          video1.load();
+        }
+
+      });
+    }
+  },
+
+  S2_videoVisual: () => {
+    $(function () {
+      var swiper = new Swiper("#pc .es_slider", {
+        slidesPerView: 5,
+      });
+
+      var swiper = new Swiper("#mobile .es_slider", {
+        slidesPerView: 1,
+        pagination: {
+          el: ".es_slider .swiper-pagination",
         },
         on: {
           slideChange: function () {
             _this = $(this)[0].activeIndex + 1;
-            $(".contBox03 .bg_box")
+            $(".es_slider .bg_box")
               .attr("class", "bg_box")
               .addClass("mbg" + _this);
-            console.log(_this);
+            $(".es_slider .swiper-pagination span").removeClass(
+              ".es_slider swiper-pagination-bullet-active"
+            );
+            $(
+              ".es_slider .swiper-pagination span:nth-child(" + _this + ")"
+            ).addClass(".es_slider swiper-pagination-bullet-active");
+            $(".es_slider").attr("class", "es_slider");
+            $(".es_slider").addClass("bg" + _this);
           },
         },
       });
 
-      $(".house_slider .swiper-slide").hover(function () {
-        _idx = $(this).index() + 1;
-        $(this)
-          .closest(".house_slider")
-          .attr("class", "house_slider")
-          .addClass("bg" + _idx);
-      });
+      let _bg;
+      $("#pc .es_slider .swiper-slide").hover(
+        function () {
+          _bg = $(this).attr("bg-type");
+          $(".es_slider").attr("class", "es_slider");
+          $(".es_slider").addClass(_bg);
+        },
+        function () {
+          $(".es_slider").attr("class", "es_slider");
+        }
+      );
     });
   },
 
-  /*
+	S3_contHover: () => {
+		$(function(){
+			var houseSlider = new Swiper(".house_slider", {
+				slidesPerView:1,
+				slidesPerGroup:1,
+				loop: false,
+				allowTouchMove: false,
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				breakpoints: {
+					1024: {
+						slidesPerView: 3,
+					},
+					768: {
+						slidesPerView: 2,
+					},
+					320: {
+						slidesPerView: 1,
+					},
+				},
+				on: {
+					slideChange: function () {
+						_this = $(this)[0].activeIndex + 1;
+						$(".contBox03 .bg_box").attr("class" , "bg_box").addClass("mbg" + _this);
+					}
+				}
+			});
+
+			$(".house_slider .swiper-slide").hover(function(){
+				_idx = $(this).index() + 1;
+				$(this).closest(".house_slider").attr("class" , "house_slider").addClass("bg" + _idx);
+			});
+		});
+	},
+
+	/*
 	S4_snsScroll: () => {
 		$(".sns_wrap").mCustomScrollbar({
 			axis:"x",
@@ -242,4 +277,4 @@ var mainEvent = {
 		});
 	},
 	*/
-};
+}

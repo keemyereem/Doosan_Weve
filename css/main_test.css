@@ -3,28 +3,118 @@
 
 @charset "utf-8";
 
-#weve_wrap {
-  overflow: hidden;
-  position: relative;
-}
+#weve_wrap {overflow:hidden;}
 
-.contBox01 {position:relative; }
-.contBox01 .main_visual {position:absolute; top:0; bottom:0; left:0; right:0; width:100%; height:100%;}
-.contBox01 .swiper-slide {position:relative; height:100%;}
-.contBox01 video {position:absolute; top:50%; left:50%; width:100%; height:100%; transform:translate(-50%, -50%); object-fit:cover; z-index:5;}
-.contBox01 .swiper-pagination {display:flex; justify-content:center; bottom:84px !important; width:100%;}
-.contBox01 .swiper-pagination > div {background:none !important; width:160px; height:auto; margin:0 25px !important; border-radius:0;}
-.contBox01 .swiper-pagination > div p {color:rgba(255,255,255,.5); font-size:20px; font-weight:bold; font-family:'Poppins';}
-.contBox01 .swiper-pagination > div .time {display:block; background:rgba(255,255,255,.5); width:100%; height:2px; margin-top:10px;}
-.contBox01 .swiper-pagination > div .time i {display:block; background:#fff; width:0px; height:2px;}
-.contBox01 .swiper-pagination > div.swiper-pagination-bullet-active p {color:#fff;}
-.contBox01 .swiper-pagination > div.swiper-pagination-bullet-active i {animation:prgressbar_event 15s ease-in-out .1s;}
-.contBox01 .text_wrap {position:absolute; top:50%; left:0; right:0; width:100%; text-align:center; transform:translateY(-50%); z-index:10;}
-.contBox01 .text_wrap .big {color:#fff; font-size:80px; font-weight:100; transition:all .2s; opacity:0; animation:mc1 1s ease .7s forwards;}
-.contBox01 .text_wrap .desc {display:block; margin-top:40px; color:#fff; font-size:20px; opacity:0; animation:mc1 1s ease 1.2s forwards;}
-.contBox01 .text_wrap .desc br {display:none;}
-.contBox01 .scroll {position:absolute; bottom:67px; right:160px; overflow:hidden; background:rgba(255,255,255,.2); width:1px; height:110px; z-index:10;}
-.contBox01 .scroll .bar {position:absolute; top:-100%; left:0; background:#fff; width:1px; height:40px; animation:prg 1.5s ease-in-out .1s infinite;}
+.contBox01 {
+  position:relative; 
+}
+.contBox01 .main_visual {
+  position:absolute; 
+  top:0; 
+  bottom:0; 
+  left:0; 
+  right:0; 
+  width:100%; 
+  height:100%;
+}
+.contBox01 .swiper-slide {
+  position:relative;
+   height:100%;
+}
+.contBox01 video {
+  position:absolute; 
+  top:50%; 
+  left:50%; 
+  width:100%; 
+  height:100%; 
+  transform:translate(-50%, -50%); 
+  object-fit:cover; 
+  z-index:5;
+}
+.contBox01 .swiper-pagination {
+  display:flex; 
+  justify-content:center; 
+  bottom:84px !important; 
+  width:100%;
+}
+.contBox01 .swiper-pagination > div {
+  background:none !important; 
+  width:160px; 
+  height:auto; 
+  margin:0 25px !important; 
+  border-radius:0;
+}
+.contBox01 .swiper-pagination > div p {
+  color:rgba(255,255,255,.5); 
+  font-size:20px; 
+  font-weight:bold; 
+  font-family:'Poppins';
+}
+.contBox01 .swiper-pagination > div .time {
+  display:block; 
+  background:rgba(255,255,255,.5); 
+  width:100%; 
+  height:2px; 
+  margin-top:10px;
+}
+.contBox01 .swiper-pagination > div .time i {
+  display:block; 
+  background:#fff; 
+  width:0px; 
+  height:2px;
+}
+.contBox01 .swiper-pagination > div.swiper-pagination-bullet-active p {
+  color:#fff;
+}
+/* .contBox01 .swiper-pagination > div.swiper-pagination-bullet-active i {animation:prgressbar_event 15s ease-in-out .1s;} */
+.contBox01 .text_wrap {
+  position:absolute; 
+  top:50%; 
+  left:0; 
+  right:0; 
+  width:100%; 
+  text-align:center; 
+  transform:translateY(-50%); 
+  z-index:10;
+}
+.contBox01 .text_wrap .big {
+  color:#fff; 
+  font-size:80px; 
+  font-weight:100; 
+  transition:all .2s; 
+  opacity:0; 
+  animation:mc1 1s ease .7s forwards;
+}
+.contBox01 .text_wrap .desc {
+  display:block; 
+  margin-top:40px; 
+  color:#fff; 
+  font-size:20px; 
+  opacity:0; 
+  animation:mc1 1s ease 1.2s forwards;
+}
+.contBox01 .text_wrap .desc br {
+  display:none;
+}
+.contBox01 .scroll {
+  position:absolute; 
+  bottom:67px; 
+  right:160px; 
+  overflow:hidden; 
+  background:rgba(255,255,255,.2); 
+  width:1px; 
+  height:110px; 
+  z-index:10;
+}
+.contBox01 .scroll .bar {
+  position:absolute; 
+  top:-100%; 
+  left:0; 
+  background:#fff; 
+  width:1px; 
+  height:40px; 
+  animation:prg 1.5s ease-in-out .1s infinite;
+}
 
 .contBox02 {
   position: relative;
@@ -1085,7 +1175,7 @@
 }
 #mobile .contBox04 .noti_list li span {
   margin-top: 15px;
-  font-size: 12px;
+  font-size: 12px; 
 }
 #mobile .contBox04 .noti_list li .more {
   display: none;

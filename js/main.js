@@ -114,7 +114,6 @@ var mainEvent = {
   },
 
   S1_videoVisual: () => {
-    // 다 갈아 엎고싶네 
     const video1 = document.querySelector("#visual_video_01"),
       video2 = document.querySelector("#visual_video_02");
 
@@ -166,17 +165,17 @@ var mainEvent = {
       });
       // |||||||||||||||||||||||||||||||||||||||||||||||||||| 참고참고참고참고 https://swiperjs.com/swiper-api#events
       mySwiper.on("realIndexChange", function () {
-        //console.log(mySwiper.realIndex)
+        const eachProgress = $('.swiper-pagination-bullet').eq(mySwiper.realIndex).find('i');
 
         $('.swiper-pagination-bullet').find('i').stop(true).css('width', 0);
 
         if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
-          $('.swiper-pagination-bullet').eq($(".swiper-slide.v01").index() - 2).find('i').animate({ width: '100%' }, video2.duration * 1000);
+          eachProgress.animate({ width: '100%' }, video2.duration * 1000);
           video1.pause();
           video1.currentTime = 0;
           video2.load();
         } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
-          $('.swiper-pagination-bullet').eq($(".swiper-slide.v02").index() - 2).find('i').animate({ width: '100%' }, video1.duration * 1000);
+          eachProgress.animate({ width: '100%' }, video1.duration * 1000);
           video2.pause();
           video2.currentTime = 0;
           video1.load();

@@ -32,7 +32,7 @@ var mainEvent = {
     this.S1_videoVisual();
     this.S2_videoVisual();
     this.S3_contHover();
-    //	this.S4_snsScroll();
+    // this.S4_snsScroll();
   },
 
   headerEvent: () => {

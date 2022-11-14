@@ -36,6 +36,7 @@ function popup(popConts) {
 
 var commonEvent = {
     init: function () {
+        this.headerEvent();
         this.goTopEvent();
         this.subUI();
         this.gsap();
@@ -74,26 +75,27 @@ var commonEvent = {
     headerEvent: () => {
         if ($('#mobile').length) {
             // 모바일 메뉴
-            $('.allMenu').on('click', function () {
+            $('.allMenu').on('click',function(){
                 $("body").toggleClass("menuOn");
                 $("#gnb ul, #siteMap .dep1").removeClass('on');
             })
-            $("#gnb ul, #siteMap .dep1 a").on('click', function () {
+            $("#gnb ul, #siteMap .dep1 a").on('click',function(){
                 $(this).parents('.dep1').toggleClass('on');
                 $(this).parents('.dep1').siblings('.dep1').removeClass('on');
             })
         } else {
             // PC 메뉴
-            $("#gnb ul, #siteMap").hover(function () {
+            $("#gnb ul, #siteMap").hover(function(){
+                alert('A')
                 $("body").addClass("menuOn");
-            }, function () {
+            }, function(){
                 $("body").removeClass("menuOn");
             });
         }
 
-        $('.btn_doosanenc').hover(function () {
+        $('.btn_doosanenc').hover(function(){
             $(this).addClass('hover')
-        }, function () {
+        }, function(){
             $(this).removeClass('hover')
         });
 

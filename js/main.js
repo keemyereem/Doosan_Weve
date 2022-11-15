@@ -115,22 +115,22 @@ var mainEvent = {
 
   S1_videoVisual: () => {
     const video1 = document.querySelector("#visual_video_01"),
-      video2 = document.querySelector("#visual_video_02");
+          video2 = document.querySelector("#visual_video_02");
+      onSwiper();
+    // $(document).ready(() => {
+    //   setTimeout(() => {
+    //     video1.parentNode.setAttribute(
+    //       "data-swiper-autoplay",
+    //       Math.floor(video1.duration) * 1000
+    //     );
+    //     video2.parentNode.setAttribute(
+    //       "data-swiper-autoplay",
+    //       Math.floor(video2.duration) * 1000
+    //     );
 
-    $(document).ready(() => {
-      setTimeout(() => {
-        video1.parentNode.setAttribute(
-          "data-swiper-autoplay",
-          Math.floor(video1.duration) * 1000
-        );
-        video2.parentNode.setAttribute(
-          "data-swiper-autoplay",
-          Math.floor(video2.duration) * 1000
-        );
-
-        onSwiper();
-      }, 500);
-    });
+    //     onSwiper();
+    //   }, 500);
+    // });
 
     function onSwiper() {
       var slidemenu = ["We’ve", "THE ZENITH"];
@@ -138,6 +138,7 @@ var mainEvent = {
         slidesPerView: 1,
         slidesPerGroup: 1,
         autoplay: {
+          delay: 20220,
           disableOnInteraction: false,
         },
         loop: true,
@@ -159,7 +160,17 @@ var mainEvent = {
         on: {
           init: function () {
             $(".contBox01 .main_visual").addClass("on");
-            $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '100%' }, video1.duration * 1000)
+            if($('.swiper-pagination-bullet').eq(0).hasClass('swiper-pagination-bullet-active')){
+              $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '100%' }, 20000)
+            }else {
+              $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '0' }, 0)
+            }
+            if($('.swiper-pagination-bullet').eq(1).hasClass('swiper-pagination-bullet-active')){
+              $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '100%' }, 9000)
+            }else {
+              $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '0' }, 0)
+            }            
+            // $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '100%' }, 9000)
           },
         },
       });
@@ -170,12 +181,12 @@ var mainEvent = {
         $('.swiper-pagination-bullet').find('i').stop(true).css('width', 0);
 
         if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: '100%' }, video2.duration * 1000);
+          eachProgress.animate({ width: '100%' }, 9000);
           video1.pause();
           video1.currentTime = 0;
           video2.load();
         } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: '100%' }, video1.duration * 1000);
+          eachProgress.animate({ width: '100%' }, 20000);
           video2.pause();
           video2.currentTime = 0;
           video1.load();

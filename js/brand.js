@@ -86,7 +86,6 @@ var commonEvent = {
         } else {
             // PC 메뉴
             $("#gnb ul, #siteMap").hover(function(){
-                alert('A')
                 $("body").addClass("menuOn");
             }, function(){
                 $("body").removeClass("menuOn");
@@ -410,7 +409,7 @@ var commonEvent = {
         });
     },
 
-    section5: () => {
+    section4: () => {
         $('.section4 ul > li').each(function (i) {
             $('.section4 ul > li').eq(i).hover(function () {
                 $('.section4').find('img').eq(i).css({ 'z-index': '1' });

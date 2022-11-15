@@ -315,6 +315,10 @@
 	#mobile .essential .section .cont .txt .tit { font-size: 17px; margin-top: 20px; }
 	#mobile .essential .section .cont .txt p { font-size: 14px; line-height: 1.35; margin-top: 10px; letter-spacing: -.7px; }
 	
+	#mobile .essential .section.have h3,
+	#mobile .essential .section.have .sub,
+	#mobile .essential .section.have .text { opacity: 1; transform: translateY(0); }
+
 	#mobile .essential .have .inner:first-of-type { padding: 0 20px; }
 	#mobile .essential .have .img { position: initial; right: 0; top: 148px; width: 73vw; margin-left: auto; margin-top: 50px; max-width: 73vw; } 
 	#mobile .essential .have .info {margin-top: 50px; max-width: 100%; padding: 50px 20px; }
@@ -329,10 +333,13 @@
 	#mobile .essential .save { padding: 70px 0; }
 	#mobile .essential .save .cont { margin: 50px auto 0; width: 72vw!important; }
 	#mobile .essential .save .cont ul { width: fit-content!important; }
-	#mobile .essential .save .cont ul li { padding: 0 30px 50px; width: 72vw!important; min-height: 342px; box-shadow: 4px 5px 9px 0px rgba(0, 0, 0, 0.21); }
+	#mobile .essential .save .cont ul li { padding: 35px 19px 30px; width: 72vw!important; min-height: 342px; box-shadow: 4px 5px 9px 0px rgba(0, 0, 0, 0.21); }
+	#mobile .essential .save .cont ul li .img { height: 136px; }
 	#mobile .essential .save .cont ul li:nth-child(1) img { max-width: 185px; }
 	#mobile .essential .save .cont ul li:nth-child(2) img { max-width: 147px; }
 	#mobile .essential .save .cont ul li:nth-child(3) img { max-width: 183px; }
+	#mobile .essential .save .cont ul li:nth-child(4) img { max-width: 120px; }
+	#mobile .essential .save .cont ul li .txt .tit { margin-top: 30px; }
 
 	#mobile .essential .solve { min-height: 100vh; padding: 70px 0; }
 	#mobile .essential .solve .inner { padding: 0 20px; }

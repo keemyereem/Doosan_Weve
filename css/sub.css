@@ -276,6 +276,7 @@ body#brandstory.typeB { color: #222; }
 .essential .section:not(.love).active h3,
 .essential .section:not(.love).active .sub,
 .essential .section:not(.love).active .text { transform: translateY(0); opacity: 1; transition: all .5s; }
+.essential .section.save.active .text { opacity: .5; }
 .essential .section:not(.love).active .sub { transition-delay: .2s; }
 .essential .section:not(.love).active .text { transition-delay: .4s; }
 .essential .have .img { position: absolute; right: 0; top: 148px; max-width: 50%; transform: translatex(300px); opacity: 0; } 
@@ -301,20 +302,24 @@ body#brandstory.typeB { color: #222; }
 .essential .live.active .sub { transition-delay: .2s; }
 .essential .live.active .text { transition-delay: .4s; } */
 
-.essential .save { background: #005eb8; text-align: center; padding: 100px 0 120px; }
+.essential .save { background: #005eb8; text-align: center; padding: 80px 0 120px; }
 .essential .save h3,
 .essential .save .sub,
 .essential .save .text { color: #fff; }
-.essential .save .text { opacity: .5; }
-.essential .save .cont { max-width: 1460px; margin: 80px auto 0; }
+.essential .save .cont { max-width: 1460px; margin: 75px auto 0; }
 .essential .save .cont ul { display: flex; justify-content: space-between; }
-.essential .save .cont ul li { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 30px 50px; width: calc((100% - 60px) / 3); min-height: 510px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); }
+.essential .save .cont ul li { display: flex; flex-direction: column; padding: 60px 25px 50px; width: calc((100% - 75px) / 4); min-height: 498px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); }
+.essential .save .cont ul li .img { height: 200px; }
+.essential .save .cont ul li .txt .tit { margin-top: 32px; }
+.essential .save .cont ul li .txt p { letter-spacing: -.45px; }
 
 .essential .solve { position: relative; min-height: 100vh; padding: 100px 0 120px; }
 .essential .solve .cont { position: absolute; top: 270px; left: 37vw; width: 1350px!important; padding-bottom: 30px; overflow: hidden; }
 .essential .solve .cont ul { width: 1395px!important; cursor: url(../images/essential/drag_mouse.png), auto; padding-left: 330px;}
 .essential .solve .cont ul li { width: 465px!important; height: 510px; padding: 40px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.21); position: relative; user-select: none; }
 .essential .solve .cont ul li:nth-child(2n-1) { margin-top: 107px; }
+.essential .solve .cont ul li.no_txt { padding-top: 65px; }
+.essential .solve .cont ul li.no_txt .txt .tit { margin-top: 75px; }
 .essential .solve .cont ul li .border { display: block; position: absolute; }
 .essential .solve .cont ul li .bdt,
 .essential .solve .cont ul li .bdb { width: 0; height: 5px; transition: width .3s; }

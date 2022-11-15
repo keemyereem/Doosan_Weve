@@ -552,10 +552,6 @@ var essentialEvent = {
                   save = $('.save').offset().top - 500,
                   solve = $('.solve').offset().top - 500,
                   st = $(window).scrollTop();
-            console.log('st : '+st);
-            console.log('have : '+have);
-            console.log('live : '+live);
-            console.log('save : '+save);
 
             if(st > have){
                 $('.have').addClass('active');

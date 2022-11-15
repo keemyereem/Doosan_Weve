@@ -73,6 +73,10 @@ var commonEvent = {
     // },
 
     headerEvent: () => {
+        $(window).on('scroll',function(){
+            $("header").css("left",0-$(this).scrollLeft());
+        });
+
         if ($('#mobile').length) {
             // 모바일 메뉴
             $('.allMenu').on('click',function(){
@@ -287,6 +291,7 @@ var commonEvent = {
 
         function navChangeWhite() {
             $('#pc nav ul li').on('click', function () {
+                // $('#pc nav').css({ 'background': '#000' });
                 $(this).siblings().find('a').css({ 'color': 'rgba(225,225,225,.3)' });
                 $(this).find('a').css({ 'color': '#fff' });
                 $(this).find('span').css({ 'background': '#fff' });
@@ -313,6 +318,7 @@ var commonEvent = {
             .to('.section2 .intro', { opacity: '0', duration: .5, })
             .to('.section2 > h2, .section2 > p span', { opacity: '0', transform: 'translateY(-50px)', duration: .5, })
 
+            .to('#pc nav', { background: '#000', duration: .5, }, "-=.5")
             .to('.section2 .wave2', { opacity: 1, duration: 0, delay: 1 }, "-=1")
             .to('.section2 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 1, delay: 1 })
             .to('.section2 .card01 div', { top: '-100vh', duration: 9, })

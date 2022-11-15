@@ -11,7 +11,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
 .scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
 
-.scroll-container .section1 { background: url(../images/brandstory/bs_visual.png) 50% 50% no-repeat; background-size: cover; }
+.scroll-container .section1 { background: url(../images/brandstory/bs_visual_B.png) 50% 50% no-repeat; background-size: cover; }
 .scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 

@@ -1,5 +1,6 @@
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
-/* ----------------------- Published by 4m Creative dd------------------------ */
+/* ----------------------- Published by 4m Creative ------------------------ */
+>>>>>>> whm
 
 $(function () {
   const isMobile = () => {

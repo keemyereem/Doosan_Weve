@@ -1,5 +1,5 @@
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
-/* ----------------------- Published by 4m Creative okay------------------------ */
+/* ----------------------- Published by 4m Creative ------------------------ */
 
 $(function () {
   const isMobile = () => {
@@ -115,8 +115,8 @@ var mainEvent = {
 
   S1_videoVisual: () => {
     const video1 = document.querySelector("#visual_video_01"),
-          video2 = document.querySelector("#visual_video_02");
-      onSwiper();
+      video2 = document.querySelector("#visual_video_02");
+    onSwiper();
     // $(document).ready(() => {
     //   setTimeout(() => {
     //     video1.parentNode.setAttribute(
@@ -160,38 +160,59 @@ var mainEvent = {
         on: {
           init: function () {
             $(".contBox01 .main_visual").addClass("on");
-            if($('.swiper-pagination-bullet').eq(0).hasClass('swiper-pagination-bullet-active')){
-              $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '100%' }, 20000)
-            }else {
-              $('.swiper-pagination-bullet').eq(0).find('i').animate({ width: '0' }, 0)
+            if (
+              $(".swiper-pagination-bullet")
+                .eq(0)
+                .hasClass("swiper-pagination-bullet-active")
+            ) {
+              $(".swiper-pagination-bullet")
+                .eq(0)
+                .find("i")
+                .animate({ width: "100%" }, 20000);
+            } else {
+              $(".swiper-pagination-bullet")
+                .eq(0)
+                .find("i")
+                .animate({ width: "0" }, 0);
             }
-            if($('.swiper-pagination-bullet').eq(1).hasClass('swiper-pagination-bullet-active')){
-              $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '100%' }, 9000)
-            }else {
-              $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '0' }, 0)
-            }            
+            if (
+              $(".swiper-pagination-bullet")
+                .eq(1)
+                .hasClass("swiper-pagination-bullet-active")
+            ) {
+              $(".swiper-pagination-bullet")
+                .eq(1)
+                .find("i")
+                .animate({ width: "100%" }, 9000);
+            } else {
+              $(".swiper-pagination-bullet")
+                .eq(1)
+                .find("i")
+                .animate({ width: "0" }, 0);
+            }
             // $('.swiper-pagination-bullet').eq(1).find('i').animate({ width: '100%' }, 9000)
           },
         },
       });
       // |||||||||||||||||||||||||||||||||||||||||||||||||||| 참고참고참고참고 https://swiperjs.com/swiper-api#events
       mySwiper.on("realIndexChange", function () {
-        const eachProgress = $('.swiper-pagination-bullet').eq(mySwiper.realIndex).find('i');
+        const eachProgress = $(".swiper-pagination-bullet")
+          .eq(mySwiper.realIndex)
+          .find("i");
 
-        $('.swiper-pagination-bullet').find('i').stop(true).css('width', 0);
+        $(".swiper-pagination-bullet").find("i").stop(true).css("width", 0);
 
         if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: '100%' }, 9000);
+          eachProgress.animate({ width: "100%" }, 9000);
           video1.pause();
           video1.currentTime = 0;
           video2.load();
         } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: '100%' }, 20000);
+          eachProgress.animate({ width: "100%" }, 20000);
           video2.pause();
           video2.currentTime = 0;
           video1.load();
         }
-
       });
     }
   },

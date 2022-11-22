@@ -38,7 +38,7 @@
     /* common */
     #mobile {overflow-x: auto !important; width: 100%;}
 	#mobile header, 
-	#mobile footer { width: 100%; transition: none; }
+	#mobile footer { width: 100%; }
 	#mobile header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
 	.br_pc {display: none;}
@@ -218,7 +218,7 @@
 	#mobile .scroll-container section h2 span { font-size: 17px; margin-bottom: 10px; }
 	#mobile .scroll-container section p{ padding: 0 20px; margin-top: 35px; }
 	#mobile .scroll-container section p span { font-size: 15px; }
-	#mobile .scroll-container .section1 { height: 275px; background: url(../images/brandstory/bs_visual_m.png) 50% 50% no-repeat; background-size: cover; }
+	#mobile .scroll-container .section1 { height: 275px; background: url(../images/brandstory/bs_visual_B_m.png) 50% 50% no-repeat; background-size: cover; }
 	#mobile .scroll-container .section1 h2 { font-size: 35px; }
 	#mobile .scroll-container .section1 h2 span { font-size: 12px; }
 	#mobile .scroll-container nav { border-bottom: 0; top: 276px; }
@@ -508,7 +508,7 @@
 	#mobile .estate .contents .estList ul { flex-direction: column; flex-wrap: nowrap; }
 	#mobile .estate .contents .estList ul li { width: 100%; margin-bottom: 40px; margin-right: 0; }
 	#mobile .estate .contents .estList ul li:hover { box-shadow: 10px 5px 12px 0px rgba(0, 0, 0, 0.21); }
-	#mobile .estate .contents .estList ul li p { margin: 28px 0 0 25px; width: 55px; height: 22px; line-height: 20px; font-size: 13px; }
+	#mobile .estate .contents .estList ul li p { margin: 28px 0 0 25px; width: 55px; height: 22px; line-height: 22px; font-size: 13px; }
 	#mobile .estate .contents .estList ul li dl { padding: 18px 25px 6px; }
 	#mobile .estate .contents .estList ul li dl dt { font-size: 19px; padding-bottom: 25px; line-height: 1.26; }
 	#mobile .estate .contents .estList ul li dl dd { font-size: 13px; padding-left: 66px; padding-bottom: 10px; letter-spacing: -.32px; }

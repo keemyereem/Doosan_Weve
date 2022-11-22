@@ -61,8 +61,23 @@ var commonEvent = {
         if ($('#mobile').length) {
             // 모바일 메뉴
             $('.allMenu').on('click',function(){
-                $("body").toggleClass("menuOn");
-                $("#gnb ul, #siteMap .dep1").removeClass('on');
+                // $("body").toggleClass("menuOn");
+                // $("#gnb ul, #siteMap .dep1").removeClass('on');
+
+                if(!$('body').hasClass('menuOn')){
+                    $('body').addClass('menuOn');
+                    
+                }else {
+                    $('body').removeClass('menuOn');
+                    $("#gnb ul, #siteMap .dep1").removeClass('on');
+                    $(window).on('scroll',function(){
+                    
+                        scrollPosition = window.pageYOffset;
+                        document.querySelector('html').style.top = `-${scrollPosition}px`;
+                        console.log(scrollPosition)
+                    })
+                }
+
             })
             $("#gnb ul, #siteMap .dep1 a").on('click',function(){
                 $(this).parents('.dep1').toggleClass('on');
@@ -502,14 +517,14 @@ var essentialEvent = {
             pin: true,                                       
             pinSpacing: true,                           
             start: "0% 0%",                     
-            end: "+=100%",                       
+            end: "+=110%",                       
             scrub: true,                      
 
         });
 
         tl1
-            .to('.live .img01', { top: '-100%', opacity:'0', duration: .2, delay: 2, })
-            .to('.live .img01', { display: 'none', duration: .2, delay: 2, })
+            .to('.live .img01', { top: '-100%', opacity:'0', duration: 35, delay: 50, })
+            .to('.live .img01', {/*  display: 'none', */ duration: 20, delay: 20, })
 
 
         // ************************************************** love

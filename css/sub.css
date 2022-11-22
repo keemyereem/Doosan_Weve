@@ -184,8 +184,8 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estSlider .swiper-slide {  font-family: 'Poppins'; text-align: center; color: #c2c2c2; font-size: 24px; font-weight: 400; height: auto; transition:all ease .3s; }
 .estate .contents .estSlider .swiper-slide-active { font-size: 60px; color: #005eb8; }
 .estate .contents .estBoard { width: 100%; height: auto; margin-top: 80px; border-top: 2px solid #005eb8; position: relative; }
-.estate .contents .estBoard > li { width: 100%; height: fit-content; min-height: 220px; position: absolute; background: #fff; top: 0; opacity: 0; transition: all ease .3s; visibility: hidden;}
-.estate .contents .estBoard > li.active { position: relative; z-index: 1; opacity: 1; visibility: visible; }
+.estate .contents .estBoard > li { width: 100%; height: fit-content; min-height: 220px; position: absolute; background: #fff; top: 0; display: none;}
+.estate .contents .estBoard > li.active { position: relative; z-index: 1; display: block; }
 .estate .contents .estBoard .block_1depth { display: flex; align-items: center; position: relative; flex-wrap: wrap; border-bottom: 1px solid #d2d2d2; }
 .estate .contents .estBoard .block_1depth > li:first-child { font-family: 'Poppins'; font-size: 60px; color: #005eb8; font-weight: 400; text-align: center; line-height: 1; width: 12%; }
 .estate .contents .estBoard .block_1depth > li:first-child span { display: block; font-size: 18px; color: #9a9a9a; font-weight: 200; letter-spacing: -1px; }

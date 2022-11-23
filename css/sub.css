@@ -1,4 +1,4 @@
-body#brandstory { overflow-x: hidden; color: #fff; }
+body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .wrap { max-width: 1460px; margin: 0 auto; position: relative; }
 .scroll-container { opacity: 0; background: #000; position: relative; }
 .scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
@@ -26,7 +26,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container .section2 .wave2 > .card02 div { left: 0; }
 .scroll-container .section2 .wave2 > .card03 h2 { font-family: 'Poppins'; font-weight: 700; }
 
-.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; background: url(../images/brandstory/bs_sec04_bg01.png) no-repeat 50% 50%; background-size: cover; }
+.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; background: url(../images/brandstory/bs_sec04_bg01.png) no-repeat 50% 50%; background-size: cover; overflow: hidden; }
 .scroll-container .section3 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: all .2s; }
 .scroll-container .section3 > div { width: 100%; height: 100%; }
 .scroll-container .section3 ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }

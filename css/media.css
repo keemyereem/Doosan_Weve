@@ -36,7 +36,7 @@
 
 @media screen and (max-width:768px) {
     /* common */
-    #mobile {overflow-x: auto !important; width: 100%;}
+  #mobile { width: 100%;}
 	#mobile header, 
 	#mobile footer { width: 100%; }
 	#mobile header #gnb { display: none; }

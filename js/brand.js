@@ -1,428 +1,518 @@
-
 /* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
 /* ----------------------- Published by 4m Creative ------------------------ */
 
-
 $(function () {
-    const isMobile = () => {
-        const user = navigator.userAgent;
-        let isCheck = false;
-        if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
-            isCheck = true;
-        }
-        return isCheck;
-    }
+  $(function () {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    if (isMobile() == false) {
-        console.log('*PC environment')
-        $('html').attr('id', 'pc')
-    } else {
-        console.log('*Mobile environment')
-        $('html').attr('id', 'mobile')
-    }
+    //resize
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  });
 
+  const isMobile = () => {
+    const user = navigator.userAgent;
+    let isCheck = false;
+    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+      isCheck = true;
+    }
+    return isCheck;
+  };
+
+  if (isMobile() == false) {
+    console.log("*PC environment");
+    $("html").attr("id", "pc");
+  } else {
+    console.log("*Mobile environment");
+    $("html").attr("id", "mobile");
+  }
 });
 
 function popup(popConts) {
-    var popthis = $(".bi_popup." + popConts);
-    $('body').addClass('blockScroll');
-    popthis.show();
+  var popthis = $(".bi_popup." + popConts);
+  $("body").addClass("blockScroll");
+  popthis.show();
 
-    popthis.find(".pop_close").click(function () {
-        $('body').removeClass('blockScroll');
-        popthis.hide();
-    });
+  popthis.find(".pop_close").click(function () {
+    $("body").removeClass("blockScroll");
+    popthis.hide();
+  });
 }
 
 var commonEvent = {
-    init: function () {
-        this.headerEvent();
-        this.goTopEvent();
-        this.subUI();
-        this.gsap();
-        this.section3();
-        this.section4();
-    },
+  init: function () {
+    this.headerEvent();
+    this.goTopEvent();
+    this.subUI();
+    this.gsap();
+    this.section3();
+    this.section4();
+  },
 
-    // common: () => {
-    //     const subMenu = document.querySelector(".section2");
-    //     const fixMenu = subMenu.offsetTop;
+  headerEvent: () => {
+    const body = $("body");
+    let scrollPosition = 0;
 
-    //     $(window).on('scroll', function() {
-    //         let st = $(window).scrollTop();
+    $(window).on("scroll", function () {
+      $("header").css("left", 0 - $(this).scrollLeft());
+      scrollPosition = window.pageYOffset;
+    });
 
-    //         if (st > fixMenu - 200) {
-    //           $('header').addClass('indentUp');
-    //         } else {
-    //             $('header').removeClass('indentUp');
-    //         }
-
-    //         if (st >= fixMenu) {  
-    //             $('nav').addClass('fixed');
-    //         } else {
-    //             $('nav').removeClass('fixed');
-    //         }
-    //     });
-
-    //     $('nav ul li').on('click', function(){
-    //         $(this).siblings().removeClass('on');
-    //         $(this).addClass('on');
-    //     });
-
-
-    // },
-
-    headerEvent: () => {
-        $(window).on('scroll',function(){
-            $("header").css("left",0-$(this).scrollLeft());
-        });
-
-        if ($('#mobile').length) {
-            // 모바일 메뉴
-            $('.allMenu').on('click',function(){
-                $("body").toggleClass("menuOn");
-                $("#gnb ul, #siteMap .dep1").removeClass('on');
-            })
-            $("#gnb ul, #siteMap .dep1 a").on('click',function(){
-                $(this).parents('.dep1').toggleClass('on');
-                $(this).parents('.dep1').siblings('.dep1').removeClass('on');
-            })
+    if ($("#mobile").length) {
+      // 모바일 메뉴
+      $(".allMenu").on("click", function () {
+        if (!$("body").hasClass("menuOn")) {
+          $("body").addClass("menuOn");
+          openProcessor();
         } else {
-            // PC 메뉴
-            $("#gnb ul, #siteMap").hover(function(){
-                $("body").addClass("menuOn");
-            }, function(){
-                $("body").removeClass("menuOn");
-            });
+          $("body").removeClass("menuOn");
+          $("#gnb ul, #siteMap .dep1").removeClass("on");
+          closeProcessor();
+        }
+      });
+
+      $("#gnb ul, #siteMap .dep1 a").on("click", function () {
+        $(this).parents(".dep1").toggleClass("on");
+        $(this).parents(".dep1").siblings(".dep1").removeClass("on");
+      });
+    } else {
+      // PC 메뉴
+      $("#gnb ul, #siteMap").hover(
+        function () {
+          $("body").addClass("menuOn");
+        },
+        function () {
+          $("body").removeClass("menuOn");
+        }
+      );
+    }
+
+    $(".btn_doosanenc").hover(
+      function () {
+        $(this).addClass("hover");
+      },
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+
+    // 팝업 열기 function
+    function openProcessor() {
+      scrollPosition = window.pageYOffset;
+      $("html").addClass("blockScroll");
+      console.log("open : " + scrollPosition);
+      if ($("#mobile").length) {
+        body.css("top", `-${scrollPosition}px`);
+      }
+    }
+
+    // 팝업 닫기 function
+    function closeProcessor() {
+      $("html").removeClass("blockScroll");
+      $(".popup").removeClass("on");
+
+      if ($("#mobile").length) {
+        scrollPosition = body.css("top");
+        scrollPosition = scrollPosition.replace("px", "");
+
+        body.removeProp("top");
+        window.scrollTo(0, -scrollPosition);
+      }
+    }
+
+    let before = 0;
+
+    window.addEventListener("scroll", (ev) => {
+      if (before < window.scrollY) {
+        $("header").addClass("indent");
+        before = window.scrollY;
+      } else if (before > window.scrollY) {
+        $("header").removeClass("indent").addClass("wht");
+        before = window.scrollY;
+      }
+      if (window.scrollY == 0) {
+        $("header").removeClass("indent").removeClass("wht");
+      }
+    });
+  },
+
+  goTopEvent: () => {
+    $(window).scroll(function () {
+      // top button controll
+      if ($(this).scrollTop() > 400) {
+        $("#topButton").fadeIn();
+      } else {
+        $("#topButton").fadeOut();
+      }
+      var footerTop = $("footer").offset().top - $(window).outerHeight(),
+        pos = $("footer").outerHeight() + Number(80),
+        pos_m = $("footer").outerHeight() + Number(35),
+        s2 = $(".section2").offset().top,
+        s3 = $(".section4").offset().top - $(".section4").outerHeight(),
+        s4 = $(".section4").offset().top;
+
+      if ($(this).scrollTop() > s2 && $(this).scrollTop() < s3) {
+        $("#topButton").addClass("wht");
+      } else if ($(this).scrollTop() > s4 && $(this).scrollTop() < footerTop) {
+        $("#topButton").addClass("wht");
+      } else {
+        $("#topButton").removeClass("wht");
+      }
+
+      if ($(this).scrollTop() > footerTop) {
+        if ($("#pc").length) {
+          $("#topButton").addClass("bs").css({ bottom: pos });
+        } else {
+          $("#topButton").addClass("bs").css({ bottom: pos_m });
+        }
+      } else {
+        if ($("#pc").length) {
+          $("#topButton").removeClass("bs").css({ bottom: "80px" });
+        } else {
+          $("#topButton").removeClass("bs").css({ bottom: "35px" });
+        }
+      }
+    });
+
+    $(document).on("click", "#topButton", function () {
+      $("html, body").animate({ scrollTop: 0 }, "300");
+    });
+  },
+
+  footerEvent: () => {
+    $(document).on("click", ".family_site .site_selected", function () {
+      var selElm = $(this).parent();
+      if (!selElm.hasClass("open")) {
+        selElm.addClass("open");
+      } else {
+        selElm.removeClass("open");
+      }
+    });
+
+    $(document).on("click", ".family_site .site_list li a", function () {
+      var selected = this.innerText,
+        siteName = document.getElementsByClassName("site_selected")[0],
+        familySite = this.parentNode.parentNode.parentNode;
+
+      siteName.innerText = selected;
+      familySite.classList.remove("open");
+    });
+  },
+
+  subUI: () => {
+    if ($("nav").length) {
+      const subMenu = document.querySelector("nav"),
+        fixMenu = subMenu.offsetTop;
+
+      $(window).on("scroll", function () {
+        let st = $(window).scrollTop();
+
+        if (st > fixMenu - 200) {
+          $("header").addClass("indentUp");
+        } else {
+          $("header").removeClass("indentUp");
         }
 
-        $('.btn_doosanenc').hover(function(){
-            $(this).addClass('hover')
-        }, function(){
-            $(this).removeClass('hover')
-        });
-
-        let before = 0;
-
-        window.addEventListener('scroll', (ev) => {
-            if (before < window.scrollY) {
-                $('header').addClass('indent');
-                before = window.scrollY;
-            }
-            else if (before > window.scrollY) {
-                $('header').removeClass('indent').addClass('wht');
-                before = window.scrollY;
-            }
-            if (window.scrollY == 0) {
-                $('header').removeClass('indent').removeClass('wht');
-            }
-        });
-
-    },
-
-    goTopEvent: () => {
-        $(window).scroll(function () {
-            // top button controll
-            if ($(this).scrollTop() > 400) {
-                $('#topButton').fadeIn();
-            } else {
-                $('#topButton').fadeOut();
-            }
-            var footerTop = $('footer').offset().top - $(window).outerHeight(),
-                pos = $('footer').outerHeight() + Number(80),
-                pos_m = $('footer').outerHeight() + Number(35),
-                s2 = $('.section2').offset().top,
-                s3 = $('.section4').offset().top - $('.section4').outerHeight(),
-                s4 = $('.section4').offset().top;
-
-            if ($(this).scrollTop() > s2 && $(this).scrollTop() < s3) {
-                $('#topButton').addClass('wht')
-            } else if ($(this).scrollTop() > s4 && $(this).scrollTop() < footerTop) {
-                $('#topButton').addClass('wht')
-
-            } else {
-                $('#topButton').removeClass('wht')
-            }
-
-            if ($(this).scrollTop() > footerTop) {
-                if ($('#pc').length) {
-                    $('#topButton').addClass('bs').css({ 'bottom': pos });
-                } else {
-                    $('#topButton').addClass('bs').css({ 'bottom': pos_m });
-                }
-
-            } else {
-                if ($('#pc').length) {
-                    $('#topButton').removeClass('bs').css({ 'bottom': '80px' });
-                } else {
-                    $('#topButton').removeClass('bs').css({ 'bottom': '35px' });
-                }
-
-            }
-
-        });
-
-        $(document).on('click', '#topButton', function () {
-            $('html, body').animate({ scrollTop: 0 }, '300');
-        });
-    },
-
-    footerEvent: () => {
-        $(document).on("click", ".family_site .site_selected", function () {
-            var selElm = $(this).parent();
-            if (!selElm.hasClass("open")) {
-                selElm.addClass("open");
-            } else {
-                selElm.removeClass("open");
-            }
-        });
-
-        $(document).on("click", ".family_site .site_list li a", function () {
-            var selected = this.innerText,
-                siteName = document.getElementsByClassName('site_selected')[0],
-                familySite = this.parentNode.parentNode.parentNode;
-
-            siteName.innerText = selected;
-            familySite.classList.remove('open');
-        });
-
-    },
-
-    subUI: () => {
-        if ($('nav').length) {
-            const subMenu = document.querySelector("nav"),
-                fixMenu = subMenu.offsetTop;
-
-            $(window).on('scroll', function () {
-                let st = $(window).scrollTop();
-
-                if (st > fixMenu - 200) {
-                    $('header').addClass('indentUp');
-                } else {
-                    $('header').removeClass('indentUp');
-                }
-
-                if (st >= fixMenu) {
-                    $('nav').addClass('fixed');
-                } else {
-                    $('nav').removeClass('fixed');
-                }
-            });
-
-            if ($('#mobile').length) {
-                $('nav .on').on('click', () => {
-                    $('nav ul').toggleClass('open')
-                });
-            }
-
+        if (st >= fixMenu) {
+          $("nav").addClass("fixed");
+        } else {
+          $("nav").removeClass("fixed");
         }
-    },
+      });
 
-
-    gsap: () => {
-
-        // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
-
-        // ************************************************** 초기 시작 값
-
-
-        gsap.to('.scroll-container', {
-            opacity: 1, duration: 1, delay: 1,
-            // yPercent: -100,
-            // y: "100vh",
-            // scrollTrigger: {
-            //   scrub: 1,
-            //   trigger: ".scroll-container",
-            //   start: "top top",
-            //   end: document.querySelector(".scroll-container").clientHeight,
-            // }
-        })
-
-        // ************************************************** section1
-        // const tl1 = gsap.timeline();
-        // ScrollTrigger.create ({
-        //     animation: tl1,
-        //     trigger: ".section1",
-        //     pin: true,                                     
-        //     pinSpacing: true,                          
-        //     start: "0% 0%",                                
-        //     end: "+=200%",                                 
-        //     scrub: 2,                                        
-
-
-        // })
-
-        // tl1
-        //     .to('.section1', { top: '0', duration: 10, })
-
-
-        // ************************************************** section2
-        const tl2 = gsap.timeline();
-
-        ScrollTrigger.create({
-            animation: tl2,
-            trigger: ".section2",
-            pin: true,                                      // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
-            pinSpacing: true,                               // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
-            start: "0% 0%",                                 // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-            end: "+=1000%",                                 // markers 옵션을 켜서 상세설정 확인 가능
-            scrub: 2,                                       // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
-
-            // toggleClass: {                               // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
-            // targets: '.section2',                        // 클래스를 부여할 태그 타겟 설정
-            // className: "active",                         // 태그 타겟에 부여할 클래스 명
-            // },
-
-            // toggleClass: "active",                       // start 시점에서 class가 추가되고 end에서 class가 삭제된다.
-            // markers: true,                               // 스크롤이 시작되고 끝나는 시점을 마킹해준다/ true 입력 시, 기본 스타일로 마커가 생성된다.
-            // {                                            // 마커 스타일 변경 시, 좌측의 예시처럼 변경 가능 (true 지우고 그 자리부터 괄호 시작)
-            // startColor: 'yellow', 
-            // endColor: 'black',
-            // fontSize: '32px',
-            // indent: 200
-            // }
-
-            onLeave: () => navChangeWhite(),
-            onLeaveBack: () => navChangeBlue(),
-
-
+      if ($("#mobile").length) {
+        $("nav .on").on("click", () => {
+          $("nav ul").toggleClass("open");
         });
+      }
+    }
+  },
 
-        function navChangeWhite() {
-            $('#pc nav ul li').on('click', function () {
-                // $('#pc nav').css({ 'background': '#000' });
-                $(this).siblings().find('a').css({ 'color': 'rgba(225,225,225,.3)' });
-                $(this).find('a').css({ 'color': '#fff' });
-                $(this).find('span').css({ 'background': '#fff' });
-            });
-        };
-        function navChangeBlue() {
-            $('#pc nav ul li').on('click', function () {
-                $(this).siblings().find('a').css({ 'color': '#000' });
-                $(this).find('a').css({ 'color': '#005eb8' });
-                $(this).find('span').css({ 'background': '#005eb8' });
-            });
-        };
+  gsap: () => {
+    // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
-        tl2
-            .to('.section2 > h2', { transform: 'translateY(0)', opacity: '1', duration: 1, delay: 1 })
-            .to('.section2 .intro', { transform: 'scale(1)', top: '0', duration: 1.2, delay: 1 })
-            .to('.section2 > h2', { color: '#fff', duration: 1, }, "-=1.2")
-            .to('#pc nav li a', { color: 'rgba(255, 255, 255, .3)', duration: .5, }, "-=.5")
-            .to('#pc nav li.on span', { background: '#fff', duration: .5, }, "-=.5")
-            .to('#pc nav li.on a', { color: '#fff', duration: .5, }, "-=.5")
-            .to('.section2 > p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: .5, })
-            .to('.section2 > p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: .5, })
-            .to('.section2', { background: '#000', duration: .5 })
-            .to('.section2 .intro', { opacity: '0', duration: .5, })
-            .to('.section2 > h2, .section2 > p span', { opacity: '0', transform: 'translateY(-50px)', duration: .5, })
+    // ************************************************** 초기 시작 값
 
-            .to('#pc nav', { background: '#000', duration: .5, }, "-=.5")
-            .to('.section2 .wave2', { opacity: 1, duration: 0, delay: 1 }, "-=1")
-            .to('.section2 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 1, delay: 1 })
-            .to('.section2 .card01 div', { top: '-100vh', duration: 9, })
-            .to('.section2 .card01 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: .5 }, "-=5")
-            .to('.section2 .card01 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: .5 }, "-=4.5")
-            .to('.section2 .card01 h2, .section2 .card01 p span', { opacity: '0', transform: 'translateY(-50px)', duration: .5, }, "-=3")
+    gsap.to(".scroll-container", {
+      opacity: 1,
+      duration: 1,
+      delay: 1,
+      // yPercent: -100,
+      // y: "100vh",
+      // scrollTrigger: {
+      //   scrub: 1,
+      //   trigger: ".scroll-container",
+      //   start: "top top",
+      //   end: document.querySelector(".scroll-container").clientHeight,
+      // }
+    });
 
-            .to('.section2 .card02 h2', { transform: 'translateY(0)', opacity: '1', duration: 1, }, "-=2")
-            .to('.section2 .card02 div', { top: '-100vh', duration: 9, })
-            .to('.section2 .card02 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: .5, }, "-=5")
-            .to('.section2 .card02 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: .5, }, "-=4.5")
-            .to('.section2 .card02 h2, .section2 .card02 p span', { opacity: '0', transform: 'translateY(-50px)', duration: .5, }, "-=3")
+    // ************************************************** section1
+    // const tl1 = gsap.timeline();
+    // ScrollTrigger.create ({
+    //     animation: tl1,
+    //     trigger: ".section1",
+    //     pin: true,
+    //     pinSpacing: true,
+    //     start: "0% 0%",
+    //     end: "+=200%",
+    //     scrub: 2,
 
-            .to('.section2 .card03 h2', { transform: 'translateY(0)', opacity: '1', duration: 1, }, "-=2")
-            .to('.section2 .card03 div', { top: '-100vh', duration: 9, })
-            .to('.section2 .card03 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: .5}, "-=3")
-            .to('.section2 .card03 h2, .section2 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: .5, delay: 1 }, "-=2")
+    // })
 
+    // tl1
+    //     .to('.section1', { top: '0', duration: 10, })
 
-        // ************************************************** section3 == 합침(section2)
-        // const tl3 = gsap.timeline();
-        // ScrollTrigger.create({
-        //     animation: tl3,
-        //     trigger: ".section3",
-        //     pin: true,
-        //     pinSpacing: true,
-        //     start: "0% 0%",
-        //     end: "+=300%",
-        //     scrub: 2,
+    // ************************************************** section2
+    const tl2 = gsap.timeline();
 
-        // });
+    ScrollTrigger.create({
+      animation: tl2,
+      trigger: ".section2",
+      pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
+      pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
+      start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
+      end: "+=1000%", // markers 옵션을 켜서 상세설정 확인 가능
+      scrub: 2, // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
 
-        // tl3
-        //     .to('.section3 .card01 div', { top: '-100vh', duration: 10, })
-        //     .to('.section3 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, 0)
-        //     .to('.section3 .card01 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, 0.5)
-        //     .to('.section3 .card01 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-        //     .to('.section3 .card01 h2, .section3 .card01 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+      // toggleClass: {                               // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
+      // targets: '.section2',                        // 클래스를 부여할 태그 타겟 설정
+      // className: "active",                         // 태그 타겟에 부여할 클래스 명
+      // },
 
-        //     .to('.section3 .card02 div', { top: '-100vh', duration: 10, })
-        //     .to('.section3 .card02 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
-        //     .to('.section3 .card02 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
-        //     .to('.section3 .card02 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-        //     .to('.section3 .card02 h2, .section3 .card02 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+      // toggleClass: "active",                       // start 시점에서 class가 추가되고 end에서 class가 삭제된다.
+      // markers: true,                               // 스크롤이 시작되고 끝나는 시점을 마킹해준다/ true 입력 시, 기본 스타일로 마커가 생성된다.
+      // {                                            // 마커 스타일 변경 시, 좌측의 예시처럼 변경 가능 (true 지우고 그 자리부터 괄호 시작)
+      // startColor: 'yellow',
+      // endColor: 'black',
+      // fontSize: '32px',
+      // indent: 200
+      // }
 
-        //     .to('.section3 .card03 div', { top: '-100vh', duration: 10, })
-        //     .to('.section3 .card03 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
-        //     .to('.section3 .card03 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
-        //     .to('.section3 .card03 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-        //     .to('.section3 .card03 h2, .section3 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+      onLeave: () => navChangeWhite(),
+      onLeaveBack: () => navChangeBlue(),
+    });
 
-    },
+    function navChangeWhite() {
+      $("#pc nav ul li").on("click", function () {
+        // $('#pc nav').css({ 'background': '#000' });
+        $(this).siblings().find("a").css({ color: "rgba(225,225,225,.3)" });
+        $(this).find("a").css({ color: "#fff" });
+        $(this).find("span").css({ background: "#fff" });
+      });
+    }
+    function navChangeBlue() {
+      $("#pc nav ul li").on("click", function () {
+        $(this).siblings().find("a").css({ color: "#000" });
+        $(this).find("a").css({ color: "#005eb8" });
+        $(this).find("span").css({ background: "#005eb8" });
+      });
+    }
 
+    tl2
+      .to(".section2 > h2", {
+        transform: "translateY(0)",
+        opacity: "1",
+        duration: 1,
+        delay: 1,
+      })
+      .to(".section2 .intro", {
+        transform: "scale(1)",
+        top: "0",
+        duration: 1.2,
+        delay: 1,
+      })
+      .to(".section2 > h2", { color: "#fff", duration: 1 }, "-=1.2")
+      .to(
+        "#pc nav li a",
+        { color: "rgba(255, 255, 255, .3)", duration: 0.5 },
+        "-=.5"
+      )
+      .to("#pc nav li.on span", { background: "#fff", duration: 0.5 }, "-=.5")
+      .to("#pc nav li.on a", { color: "#fff", duration: 0.5 }, "-=.5")
+      .to(".section2 > p span:first-child", {
+        transform: "translateY(0)",
+        opacity: "1",
+        duration: 0.5,
+      })
+      .to(".section2 > p span:last-child", {
+        transform: "translateY(0)",
+        opacity: "1",
+        duration: 0.5,
+      })
+      .to(".section2", { background: "#000", duration: 0.5 })
+      .to(".section2 .intro", { opacity: "0", duration: 0.5 })
+      .to(".section2 > h2, .section2 > p span", {
+        opacity: "0",
+        transform: "translateY(-50px)",
+        duration: 0.5,
+      })
 
-    section3: () => {
-        $('.section3 ul > li').each(function (i) {
-            $('.section3 ul > li').eq(i).hover(function () {
-                $('.section3').find('img').eq(i).css({ 'z-index': '1', 'opacity': '1' });
-            }, function () {
-                $('.section3').find('img').eq(i).css({ 'z-index': '-1', 'opacity': '0' });
-            });
-        });
+      .to("#pc nav", { background: "#000", duration: 0.5 }, "-=.5")
+      .to(".section2 .wave2", { opacity: 1, duration: 0, delay: 1 }, "-=1")
+      .to(".section2 .card01 h2", {
+        transform: "translateY(0)",
+        opacity: "1",
+        duration: 1,
+        delay: 1,
+      })
+      .to(".section2 .card01 div", { top: "-100vh", duration: 9 })
+      .to(
+        ".section2 .card01 p span:first-child",
+        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
+        "-=5"
+      )
+      .to(
+        ".section2 .card01 p span:last-child",
+        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
+        "-=4.5"
+      )
+      .to(
+        ".section2 .card01 h2, .section2 .card01 p span",
+        { opacity: "0", transform: "translateY(-50px)", duration: 0.5 },
+        "-=3"
+      )
 
-        var ww = $(window).width();
-        function initSwiper() {
+      .to(
+        ".section2 .card02 h2",
+        { transform: "translateY(0)", opacity: "1", duration: 1 },
+        "-=2"
+      )
+      .to(".section2 .card02 div", { top: "-100vh", duration: 9 })
+      .to(
+        ".section2 .card02 p span:first-child",
+        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
+        "-=5"
+      )
+      .to(
+        ".section2 .card02 p span:last-child",
+        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
+        "-=4.5"
+      )
+      .to(
+        ".section2 .card02 h2, .section2 .card02 p span",
+        { opacity: "0", transform: "translateY(-50px)", duration: 0.5 },
+        "-=3"
+      )
 
-            s4Swiper = new Swiper('.section3 .mswiper', {
-                slidesPerView: 1,
-                observer: true,
-                observeParents: true,
-                simulateTouch: true,
-                spaceBetween: 30,
-                navigation: {
-                    nextEl: ".section3 .swiper-button-next",
-                    prevEl: ".section3 .swiper-button-prev",
-                },
+      .to(
+        ".section2 .card03 h2",
+        { transform: "translateY(0)", opacity: "1", duration: 1 },
+        "-=2"
+      )
+      .to(".section2 .card03 div", { top: "-100vh", duration: 9 })
+      .to(
+        ".section2 .card03 p span:first-child",
+        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
+        "-=3"
+      )
+      .to(
+        ".section2 .card03 h2, .section2 .card03 p span",
+        {
+          opacity: "0",
+          transform: "translateY(-50px)",
+          duration: 0.5,
+          delay: 1,
+        },
+        "-=2"
+      );
 
-            });
+    // ************************************************** section3 == 합침(section2)
+    // const tl3 = gsap.timeline();
+    // ScrollTrigger.create({
+    //     animation: tl3,
+    //     trigger: ".section3",
+    //     pin: true,
+    //     pinSpacing: true,
+    //     start: "0% 0%",
+    //     end: "+=300%",
+    //     scrub: 2,
 
+    // });
 
-        }
-        if (ww < 769) {
-            initSwiper();
+    // tl3
+    //     .to('.section3 .card01 div', { top: '-100vh', duration: 10, })
+    //     .to('.section3 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, 0)
+    //     .to('.section3 .card01 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, 0.5)
+    //     .to('.section3 .card01 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+    //     .to('.section3 .card01 h2, .section3 .card01 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
 
-        } else if (ww >= 769) {
+    //     .to('.section3 .card02 div', { top: '-100vh', duration: 10, })
+    //     .to('.section3 .card02 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
+    //     .to('.section3 .card02 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
+    //     .to('.section3 .card02 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+    //     .to('.section3 .card02 h2, .section3 .card02 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
 
-        }
+    //     .to('.section3 .card03 div', { top: '-100vh', duration: 10, })
+    //     .to('.section3 .card03 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
+    //     .to('.section3 .card03 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
+    //     .to('.section3 .card03 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
+    //     .to('.section3 .card03 h2, .section3 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+  },
 
-        $(window).on('resize', function () {
-            ww = $(window).width();
-            if (ww < 769) {
-                initSwiper();
-            }
-        });
-    },
+  section3: () => {
+    $(".section3 ul > li").each(function (i) {
+      $(".section3 ul > li")
+        .eq(i)
+        .hover(
+          function () {
+            $(".section3")
+              .find("img")
+              .eq(i)
+              .css({ "z-index": "1", opacity: "1" });
+          },
+          function () {
+            $(".section3")
+              .find("img")
+              .eq(i)
+              .css({ "z-index": "-1", opacity: "0" });
+          }
+        );
+    });
 
-    section4: () => {
-        $('.section4 ul > li').each(function (i) {
-            $('.section4 ul > li').eq(i).hover(function () {
-                $('.section4').find('img').eq(i).css({ 'z-index': '1' });
-            }, function () {
-                $('.section4').find('img').eq(i).css({ 'z-index': '-1' });
-            });
-        });
-    },
+    var ww = $(window).width();
+    function initSwiper() {
+      s4Swiper = new Swiper(".section3 .mswiper", {
+        slidesPerView: 1,
+        observer: true,
+        observeParents: true,
+        simulateTouch: true,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".section3 .swiper-button-next",
+          prevEl: ".section3 .swiper-button-prev",
+        },
+      });
+    }
+    if (ww < 769) {
+      initSwiper();
+    } else if (ww >= 769) {
+    }
 
-}
+    $(window).on("resize", function () {
+      ww = $(window).width();
+      if (ww < 769) {
+        initSwiper();
+      }
+    });
+  },
+
+  section4: () => {
+    $(".section4 ul > li").each(function (i) {
+      $(".section4 ul > li")
+        .eq(i)
+        .hover(
+          function () {
+            $(".section4").find("img").eq(i).css({ "z-index": "1" });
+          },
+          function () {
+            $(".section4").find("img").eq(i).css({ "z-index": "-1" });
+          }
+        );
+    });
+  },
+};

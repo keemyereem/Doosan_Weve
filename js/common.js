@@ -2,6 +2,17 @@
 /* ----------------------- Published by 4m Creative ------------------------ */
 
 $(function () {
+  $(function () {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    //resize
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  });
+
   const isMobile = () => {
     const user = navigator.userAgent;
     let isCheck = false;
@@ -59,15 +70,11 @@ var commonEvent = {
 
     $(window).on("scroll", function () {
       scrollPosition = window.pageYOffset;
-      console.log(scrollPosition);
     });
 
     if ($("#mobile").length) {
       // 모바일 메뉴
       $(".allMenu").on("click", function () {
-        // $("body").toggleClass("menuOn");
-        // $("#gnb ul, #siteMap .dep1").removeClass('on');
-
         if (!$("body").hasClass("menuOn")) {
           $("body").addClass("menuOn");
           openProcessor();

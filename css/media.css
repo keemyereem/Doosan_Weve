@@ -36,9 +36,9 @@
 
 @media screen and (max-width:768px) {
     /* common */
-    #mobile {overflow-x: auto !important; width: 100%;}
+  #mobile { width: 100%;}
 	#mobile header, 
-	#mobile footer { width: 100%; transition: none; }
+	#mobile footer { width: 100%; }
 	#mobile header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
 	.br_pc {display: none;}
@@ -107,7 +107,7 @@
 	#mobile .btn_color a:hover { box-shadow: 180px 0 0 0 #fff inset, -180px 0 0 0 #fff inset; }
 
 	/* tab_box */
-	#mobile .tab_box { position: relative; width: 100%; height: 50px; margin-bottom: 50px; padding-left: 20px; }
+	#mobile .tab_box { position: relative; width: 100%; height: 60px; margin-bottom: 40px; padding-left: 20px; }
 	#mobile .tab_box > .inner { overflow-x: auto; height: 100%; position: relative; transition: all ease 1s; }
 	#mobile .tab_box ul { width: fit-content; position: absolute; left: 0; top: 0; transition: left .5s ease-out; margin-bottom: 0; padding-right: 20px; }
 	#mobile .tab_box ul li { flex: initial; flex-shrink: 0!important; width: calc(100% / 3); height: 50px; display: table; }
@@ -218,7 +218,7 @@
 	#mobile .scroll-container section h2 span { font-size: 17px; margin-bottom: 10px; }
 	#mobile .scroll-container section p{ padding: 0 20px; margin-top: 35px; }
 	#mobile .scroll-container section p span { font-size: 15px; }
-	#mobile .scroll-container .section1 { height: 275px; background: url(../images/brandstory/bs_visual_m.png) 50% 50% no-repeat; background-size: cover; }
+	#mobile .scroll-container .section1 { height: 275px; background: url(../images/brandstory/bs_visual_B_m.png) 50% 50% no-repeat; background-size: cover; }
 	#mobile .scroll-container .section1 h2 { font-size: 35px; }
 	#mobile .scroll-container .section1 h2 span { font-size: 12px; }
 	#mobile .scroll-container nav { border-bottom: 0; top: 276px; }
@@ -508,7 +508,7 @@
 	#mobile .estate .contents .estList ul { flex-direction: column; flex-wrap: nowrap; }
 	#mobile .estate .contents .estList ul li { width: 100%; margin-bottom: 40px; margin-right: 0; }
 	#mobile .estate .contents .estList ul li:hover { box-shadow: 10px 5px 12px 0px rgba(0, 0, 0, 0.21); }
-	#mobile .estate .contents .estList ul li p { margin: 28px 0 0 25px; width: 55px; height: 22px; line-height: 20px; font-size: 13px; }
+	#mobile .estate .contents .estList ul li p { margin: 28px 0 0 25px; width: 55px; height: 22px; line-height: 22px; font-size: 13px; }
 	#mobile .estate .contents .estList ul li dl { padding: 18px 25px 6px; }
 	#mobile .estate .contents .estList ul li dl dt { font-size: 19px; padding-bottom: 25px; line-height: 1.26; }
 	#mobile .estate .contents .estList ul li dl dd { font-size: 13px; padding-left: 66px; padding-bottom: 10px; letter-spacing: -.32px; }

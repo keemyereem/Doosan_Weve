@@ -1,4 +1,4 @@
-body#brandstory { overflow-x: hidden; color: #fff; }
+body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .wrap { max-width: 1460px; margin: 0 auto; position: relative; }
 .scroll-container { opacity: 0; background: #000; position: relative; }
 .scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
@@ -26,7 +26,7 @@ body#brandstory { overflow-x: hidden; color: #fff; }
 .scroll-container .section2 .wave2 > .card02 div { left: 0; }
 .scroll-container .section2 .wave2 > .card03 h2 { font-family: 'Poppins'; font-weight: 700; }
 
-.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; background: url(../images/brandstory/bs_sec04_bg01.png) no-repeat 50% 50%; background-size: cover; }
+.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; background: url(../images/brandstory/bs_sec04_bg01.png) no-repeat 50% 50%; background-size: cover; overflow: hidden; }
 .scroll-container .section3 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: all .2s; }
 .scroll-container .section3 > div { width: 100%; height: 100%; }
 .scroll-container .section3 ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
@@ -184,8 +184,8 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estSlider .swiper-slide {  font-family: 'Poppins'; text-align: center; color: #c2c2c2; font-size: 24px; font-weight: 400; height: auto; transition:all ease .3s; }
 .estate .contents .estSlider .swiper-slide-active { font-size: 60px; color: #005eb8; }
 .estate .contents .estBoard { width: 100%; height: auto; margin-top: 80px; border-top: 2px solid #005eb8; position: relative; }
-.estate .contents .estBoard > li { width: 100%; height: fit-content; min-height: 220px; position: absolute; background: #fff; top: 0; opacity: 0; transition: all ease .3s; visibility: hidden;}
-.estate .contents .estBoard > li.active { position: relative; z-index: 1; opacity: 1; visibility: visible; }
+.estate .contents .estBoard > li { width: 100%; height: fit-content; min-height: 220px; position: absolute; background: #fff; top: 0; display: none;}
+.estate .contents .estBoard > li.active { position: relative; z-index: 1; display: block; }
 .estate .contents .estBoard .block_1depth { display: flex; align-items: center; position: relative; flex-wrap: wrap; border-bottom: 1px solid #d2d2d2; }
 .estate .contents .estBoard .block_1depth > li:first-child { font-family: 'Poppins'; font-size: 60px; color: #005eb8; font-weight: 400; text-align: center; line-height: 1; width: 12%; }
 .estate .contents .estBoard .block_1depth > li:first-child span { display: block; font-size: 18px; color: #9a9a9a; font-weight: 200; letter-spacing: -1px; }
@@ -238,7 +238,7 @@ body#brandstory.typeB { color: #222; }
 .estate .contents .estList ul li:hover:after { max-width: calc(100% + 2px); }
 .estate .contents .estList ul li .img { width: calc(100% + 2px); margin-left: -1px; }
 .estate .contents .estList ul li img { width: 100%; height: auto; object-fit: cover; }
-.estate .contents .estList ul li p { margin: 35px 0 0 30px; width: 65px; height: 26px; text-align: center; line-height: 25px; font-weight: 400; font-size: 15px; letter-spacing: -.5px; }
+.estate .contents .estList ul li p { margin: 35px 0 0 30px; width: 65px; height: 26px; text-align: center; line-height: 26px; font-weight: 400; font-size: 15px; letter-spacing: -.5px; }
 .estate .contents .estList ul li dl { padding: 10px 30px 8px; line-height: 1.2; }
 .estate .contents .estList ul li dl dt { font-size: 28px; color: #222222; font-weight: 400; padding-bottom: 20px; word-break: keep-all; line-height: 1.4; }
 .estate .contents .estList ul li dl dd { font-size: 16px; color: #555555; padding-left: 75px; position: relative; padding-bottom: 10px; letter-spacing: -1px; }
@@ -727,7 +727,7 @@ body#brandstory.typeB { color: #222; }
 
 /* 마이위브(계약) - 권리의무승계 - 방문예약목록 */
 .my_contract .contract_info .succession .reservation_list .reservation { display: flex; align-items: center; justify-content: center; width: 190px; height: 50px; background: #005eb8; border-radius: 25px; font-size: 16px; color: #fff; float: right; margin-bottom: 16px; }
-.my_contract .contract_info .succession .reservation_list .reservation::before { content:''; display: inline-block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal.png); background-size: contain; margin-right: 10px; }
+.my_contract .contract_info .succession .reservation_list .reservation::before { content:''; display: inline-block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal.png)50% 50% no-repeat; background-size: contain; margin-right: 10px; }
 .my_contract .contract_info .succession .reservation_list table thead tr th:first-child { width: 47%; }
 .my_contract .contract_info .succession .reservation_list table thead tr th:nth-child(2) { width: 21%; }
 .my_contract .contract_info .succession .reservation_list table thead tr th:last-child { width: 32%; }

@@ -133,7 +133,6 @@ var mainEvent = {
     //     onSwiper();
     //   }, 500);
     // });
-
     function onSwiper() {
       // ########################## VIMEO 연동 변수 정의입니다
       var arrVods = []; // ##### vod 객체가 배열로 저장될 예정입니다.
@@ -148,6 +147,10 @@ var mainEvent = {
         },
         loop: true,
         allowTouchMove: false,
+        effect : 'fade',
+        fadeEffect: { crossFade: true },
+        speed : 2000,
+        rewind : true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -224,7 +227,7 @@ var mainEvent = {
                 objVod.on('loaded', function() {
                   $('#'+vodId).append('<div style="width: 100%; height: 100%; top: 0; left: 0; position: absolute;"></div>'); // iframe event 방지용 (scroll event)
                   this.getDuration().then(function(duration) {
-                    var slideDuration = duration * 1000;
+                    var slideDuration = duration * 1000 - mySwiper.params.speed;
                     $swiperList.attr('data-swiper-autoplay', slideDuration);
                   });
 
@@ -237,45 +240,23 @@ var mainEvent = {
                   });
                 });
                 
+                /*
+                objVod.on('seeked', function() {
+                  var nextIdx = 0;
+                  if (mySwiper.slides.length - 1 > ~~mySwiper.activeIndex) {
+                    nextIdx = ~~mySwiper.activeIndex + 1;
+                  }
+                  console.log('seeked v2', nextIdx, mySwiper);
+                  mySwiper.slideTo(nextIdx, 3000, false);
+                });
+                */
+
                 arrVods.push(objVod);
               } else{
                 // ########################## Swiper 숫자와 맞추는게 개발에 편하기 때문에 vod가 없을 경우애도 배열은 채워줍니다. 
                 arrVods.push(null);
               }
             });
-
-            /*
-            if (
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .hasClass("swiper-pagination-bullet-active")
-            ) {
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .find("i")
-                .animate({ width: "100%" }, 20000);
-            } else {
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .find("i")
-                .animate({ width: "0" }, 0);
-            }
-            if (
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .hasClass("swiper-pagination-bullet-active")
-            ) {
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .find("i")
-                .animate({ width: "100%" }, 9000);
-            } else {
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .find("i")
-                .animate({ width: "0" }, 0);
-            }
-            */
           },
         },
       });
@@ -298,22 +279,6 @@ var mainEvent = {
             }
           }
         });
-        //eachProgress.animate({ width: "100%" }, slideDuration);
-
-        /*
-        if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: "100%" }, 9000);
-          video1.pause();
-          video1.currentTime = 0;
-          video2.load();
-        } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: "100%" }, 20000);
-          /*
-          video2.pause();
-          video2.currentTime = 0;
-          video1.load();
-        }
-        */
       });
     }
   },

@@ -33,11 +33,11 @@ $(function () {
 
 function popup(popConts) {
   var popthis = $(".bi_popup." + popConts);
-  $("body").addClass("blockScroll");
+  $("body").css({'height':'100vh','overflow':'hidden'});
   popthis.show();
 
   popthis.find(".pop_close").click(function () {
-    $("body").removeClass("blockScroll");
+    $("body").css({'height':'auto','overflow':'initial'});
     popthis.hide();
   });
 }

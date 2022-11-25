@@ -8,6 +8,12 @@
   position: relative;
 }
 
+#main_container {
+  background-image: url(https://i.vimeocdn.com/video/1553982370-422827c760a21eb62636d94d6490099e2302dd267dca759ee5c763ea61eaa76d-d_1920); 
+  background-size: 100%; 
+  background-repeat: no-repeat;
+}
+
 .contBox01 {
   position: relative;
 }
@@ -28,7 +34,8 @@
 .contBox01 .swiper-slide {
   position: relative;
   height: 100%;
-}
+  overflow-y: hidden;
+} 
 .contBox01 video {
   position: absolute;
   width: 100%;

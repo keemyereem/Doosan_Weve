@@ -18,6 +18,30 @@ $(function () {
     console.log("*Mobile environment");
     $("html").attr("id", "mobile");
   }
+
+  var timeoutId;
+  var $videoBgAspect = $(".videobg-aspect");
+  var $videoBgWidth = $(".videobg-width");
+  var videoAspect = $videoBgAspect.outerHeight() / $videoBgAspect.outerWidth();
+
+  function videobgEnlarge() {
+    console.log("resize");
+    windowAspect = $(window).height() / $(window).width();
+    if (windowAspect > videoAspect) {
+      $videoBgWidth.width((windowAspect / videoAspect) * 100 + "%");
+    } else {
+      $videoBgWidth.width(100 + "%");
+    }
+  }
+
+  $(window).resize(function () {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(videobgEnlarge, 100);
+  });
+
+  $(function () {
+    videobgEnlarge();
+  });
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,7 +136,7 @@ var mainEvent = {
       }
     });
   },
-  
+
   S1_videoVisual: () => {
     /*
     const video1 = document.querySelector("#visual_video_01"),
@@ -137,7 +161,7 @@ var mainEvent = {
     function onSwiper() {
       // ########################## VIMEO 연동 변수 정의입니다
       var arrVods = []; // ##### vod 객체가 배열로 저장될 예정입니다.
-      
+
       var slidemenu = ["We’ve", "THE ZENITH"];
       var mySwiper = new Swiper(".main_visual", {
         slidesPerView: 1,
@@ -165,9 +189,11 @@ var mainEvent = {
         on: {
           init: function () {
             $(".contBox01 .main_visual").addClass("on");
-            $('.main_visual .swiper-pagination-bullet').find('i').animate({ width: '100%' }, 0);
-            
-            // ########################## VIMEO 연동 시작입니다. (https://developer.vimeo.com/player/sdk/basics) 
+            $(".main_visual .swiper-pagination-bullet")
+              .find("i")
+              .animate({ width: "100%" }, 0);
+
+            // ########################## VIMEO 연동 시작입니다. (https://developer.vimeo.com/player/sdk/basics)
             // ########################## 메인에 <script src="https://player.vimeo.com/api/player.js"></script> 추가가 필요합니다.
             var vodPlayerDefaultOption = {
               /*
@@ -175,8 +201,8 @@ var mainEvent = {
               height: '100%',
               */
               transparent: true,
-              autoplay : false,
-              autopause : 1,
+              autoplay: false,
+              autopause: 1,
               muted: 1,
               controls: 0,
               controls: 0,
@@ -184,62 +210,96 @@ var mainEvent = {
               responsive: 1,
               dnt: 1,
               playsinline: 1,
-              loop: 1
+              loop: 1,
             };
 
             $(".swiper-pagination-bullet").find("i").stop(true).css("width", 0);
-            $('[data-event-handler-id="swiperWrap"] [data-event-handler-id="swiperList"]').each(function(idx) {
+            $(
+              '[data-event-handler-id="swiperWrap"] [data-event-handler-id="swiperList"]'
+            ).each(function (idx) {
               // ########################## swiper에 동영상이 존재하는지에 따라 객체를 생성해줍니다
               var $swiperList = $(this);
-              var isFirst = ~~$(this).hasClass('swiper-slide-active') ? true : false;
-              
-              $vodWraper = $(this).find('[data-event-handler-id="swiperListVod"]'); // ##### 변수 앞에 $를 붙이는 경우는 그냥 제 개인적인 네이밍 슥봔 이구요. jquery select dom이 들어있는 경우 사용합니다.
+              var isFirst = ~~$(this).hasClass("swiper-slide-active")
+                ? true
+                : false;
+
+              $vodWraper = $(this).find(
+                '[data-event-handler-id="swiperListVod"]'
+              ); // ##### 변수 앞에 $를 붙이는 경우는 그냥 제 개인적인 네이밍 슥봔 이구요. jquery select dom이 들어있는 경우 사용합니다.
               if ($vodWraper.length > 0) {
                 // ########################## 썸네일 BG 처리
                 $.ajax({
-                  url: 'https://vimeo.com/api/oembed.json?url=https://vimeo.com/' + $vodWraper.data('vimeo-id') + '&callback=callbackFn&background=true',
-                  dataType: 'jsonp',
-                  success: function(data) {
-                    $swiperList.css('background-image', 'url(' + data.thumbnail_url.replace('295x166','1920') + ')');
-                    $swiperList.css('background-size', '100%');
-                    $swiperList.css('background-repeat', 'no-repeat');
+                  url:
+                    "https://vimeo.com/api/oembed.json?url=https://vimeo.com/" +
+                    $vodWraper.data("vimeo-id") +
+                    "&callback=callbackFn&background=true",
+                  dataType: "jsonp",
+                  success: function (data) {
+                    $swiperList.css(
+                      "background-image",
+                      "url(" +
+                        data.thumbnail_url.replace("295x166", "1920") +
+                        ")"
+                    );
+                    $swiperList.css("background-size", "cover");
+                    $swiperList.css("background-repeat", "no-repeat");
                   },
-                  error: function(xhr) {
+                  error: function (xhr) {
                     //console.log('실패 - ', xhr);
-                  }
+                  },
                 });
 
                 // ########################## 플레이어 생성
-                var vodId = 'mainVisualVod_' + idx;
+                var vodId = "mainVisualVod_" + idx;
                 var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption); // ##### 기존 변수를 복사합니다 vodPlayerOption = vodPlayerDefaultOption로 정의하면 값 저장시 원본 값이 같이 변경되기 때문에 사용하지 않습니다.
 
                 // 첫슬라이드에 영상만 자동 재생 시켜주세요
-                if (isFirst== true){
+                if (isFirst == true) {
                   vodPlayerOption.autoplay = 1;
                 }
-                
-                $vodWraper.attr('id',vodId);
-                var objVod = new Vimeo.Player(vodId, vodPlayerOption);
-                
-                objVod.on('loaded', function() {
-                  $('#'+vodId).append('<div style="width: 100%; height: 100%; top: 0; left: 0; position: absolute;"></div>'); // iframe event 방지용 (scroll event)
-                  this.getDuration().then(function(duration) {
-                    var slideDuration = duration * 1000;
-                    $swiperList.attr('data-swiper-autoplay', slideDuration);
-                  });
 
-                });
-                objVod.on('play', function() {
-                  this.getDuration().then(function(duration) {
+                $vodWraper.attr("id", vodId);
+                var objVod = new Vimeo.Player(vodId, vodPlayerOption);
+
+                objVod.on("loaded", function () {
+                  $("#" + vodId).append(
+                    '<div style="width: 100%; height: 100vh; top: 0; left: 0; position: absolute;"></div>'
+                  ); // iframe event 방지용 (scroll event)
+
+                  // $(".epd").siblings().css({
+                  //   padding: "0",
+                  //   width: "100vw",
+                  //   height: "100vh",
+                  // });
+                  // $(".epd").siblings().find("iframe").css({
+                  //   padding: "0",
+                  //   position: "absolute",
+                  //   top: "50%",
+                  //   left: "50%",
+                  //   transform: "translate(-50%, -50%)",
+                  //   maxWidth: "150vw",
+                  //   height: "100vh",
+                  // });
+
+                  this.getDuration().then(function (duration) {
                     var slideDuration = duration * 1000;
-                    var pgIdx = $swiperList.data('swiper-slide-index');
-                    $('.swiper-pagination-bullet:eq('+ pgIdx +') i').animate({ width: '100%' }, slideDuration);
+                    $swiperList.attr("data-swiper-autoplay", slideDuration);
                   });
                 });
-                
+                objVod.on("play", function () {
+                  this.getDuration().then(function (duration) {
+                    var slideDuration = duration * 1000;
+                    var pgIdx = $swiperList.data("swiper-slide-index");
+                    $(".swiper-pagination-bullet:eq(" + pgIdx + ") i").animate(
+                      { width: "100%" },
+                      slideDuration
+                    );
+                  });
+                });
+
                 arrVods.push(objVod);
-              } else{
-                // ########################## Swiper 숫자와 맞추는게 개발에 편하기 때문에 vod가 없을 경우애도 배열은 채워줍니다. 
+              } else {
+                // ########################## Swiper 숫자와 맞추는게 개발에 편하기 때문에 vod가 없을 경우애도 배열은 채워줍니다.
                 arrVods.push(null);
               }
             });
@@ -282,15 +342,17 @@ var mainEvent = {
       // |||||||||||||||||||||||||||||||||||||||||||||||||||| 참고참고참고참고 https://swiperjs.com/swiper-api#events
       mySwiper.on("realIndexChange", function (e) {
         var idx = e.activeIndex;
-        var $slide = $('.main_visual [data-event-handler-id="swiperList"]:eq(' + idx + ')');
-        var pgIdx = $slide.data('swiper-slide-index');
-        
+        var $slide = $(
+          '.main_visual [data-event-handler-id="swiperList"]:eq(' + idx + ")"
+        );
+        var pgIdx = $slide.data("swiper-slide-index");
+
         $(".swiper-pagination-bullet").find("i").stop(true).css("width", 0);
-        
+
         // vod play & stop
-        $.each(arrVods, function(k,v){
-          if (v != null){
-            if (k==idx) {
+        $.each(arrVods, function (k, v) {
+          if (v != null) {
+            if (k == idx) {
               v.play();
             } else {
               v.pause();

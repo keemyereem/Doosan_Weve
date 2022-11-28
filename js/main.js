@@ -212,6 +212,21 @@ var mainEvent = {
               playsinline: 1,
               loop: 1,
             };
+            // var vodPlayerDefaultOptionM = {
+            //   width: '100%',
+            //   height: '100%',
+            //   transparent: true,
+            //   autoplay: false,
+            //   autopause: 1,
+            //   muted: 1,
+            //   controls: 0,
+            //   controls: 0,
+            //   loop: 0,
+            //   responsive: 1,
+            //   dnt: 1,
+            //   playsinline: 1,
+            //   loop: 1,
+            // };
 
             $(".swiper-pagination-bullet").find("i").stop(true).css("width", 0);
             $(
@@ -241,7 +256,13 @@ var mainEvent = {
                         data.thumbnail_url.replace("295x166", "1920") +
                         ")"
                     );
-                    $swiperList.css("background-size", "cover");
+                    
+                    // if(!$('#mobile').length){
+                    //   $swiperList.css("background-size", "100%");
+                    // }else {
+                    //   $swiperList.css("background-size", "auto 100%");
+                    // }
+                    $swiperList.css("background-size", "100%");
                     $swiperList.css("background-repeat", "no-repeat");
                   },
                   error: function (xhr) {
@@ -253,6 +274,11 @@ var mainEvent = {
                 var vodId = "mainVisualVod_" + idx;
                 var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption); // ##### 기존 변수를 복사합니다 vodPlayerOption = vodPlayerDefaultOption로 정의하면 값 저장시 원본 값이 같이 변경되기 때문에 사용하지 않습니다.
 
+                // if(!$('#mobile').length){
+                //   var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption);
+                // }else {
+                //   var vodPlayerOption = Object.assign({}, vodPlayerDefaultOptionM);
+                // }
                 // 첫슬라이드에 영상만 자동 재생 시켜주세요
                 if (isFirst == true) {
                   vodPlayerOption.autoplay = 1;

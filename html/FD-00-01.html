@@ -52,8 +52,18 @@
 
 
 		});
-
 	</script>
+  <style>
+  .contBox01 .swiper-slide .vod_wrap{
+    overflow: hidden;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .main_visual .swiper-slide iframe {
+    width: 178vh !important;
+    height: 100% !important;
+  }
+  </style>
 </head>
 
 <body class="fp-viewing-0">
@@ -63,13 +73,13 @@
 		<header></header>
 
 
-		<article id="main_container" style="background-image: url(https://i.vimeocdn.com/video/1553982370-422827c760a21eb62636d94d6490099e2302dd267dca759ee5c763ea61eaa76d-d_1920); background-size: 100%; background-repeat: no-repeat;">
+		<article id="main_container">
 			<!-- SECTION01 -->
-			<div class="section contBox01" tabindex="0">
+			<div class="section contBox01" tabindex="0" style="background-image: url(https://i.vimeocdn.com/video/1553982370-422827c760a21eb62636d94d6490099e2302dd267dca759ee5c763ea61eaa76d-d_1920); background-size: auto 100%; background-repeat: no-repeat;">
 				<div class="main_visual" data-event-handler-id="swiperWrap">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide v01" data-event-handler-id="swiperList">
-							<div data-event-handler-id="swiperListVod" data-vimeo-id="774524249"></div>
+							<div data-event-handler-id="swiperListVod" data-vimeo-id="774524249" class="vod_wrap"></div>
 							<!--
 							<video id="visual_video_01" playsinline autoplay muted loop data-keepplaying class="bg">
 								<source src="images/main/video_01.mp4" type="video/mp4">
@@ -82,7 +92,7 @@
 							</div>
 						</div>
 						<div class="swiper-slide v02" data-event-handler-id="swiperList">
-							<div data-event-handler-id="swiperListVod" data-vimeo-id="774524496"></div>
+							<div data-event-handler-id="swiperListVod" data-vimeo-id="774524496" class="vod_wrap"></div>
 							<!--
 							<video id="visual_video_02" playsinline autoplay muted loop data-keepplaying class="bg">
 								<source src="images/main/video_02.mp4" type="video/mp4">

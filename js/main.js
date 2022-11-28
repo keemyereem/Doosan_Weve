@@ -170,10 +170,7 @@ var mainEvent = {
             // ########################## VIMEO 연동 시작입니다. (https://developer.vimeo.com/player/sdk/basics) 
             // ########################## 메인에 <script src="https://player.vimeo.com/api/player.js"></script> 추가가 필요합니다.
             var vodPlayerDefaultOption = {
-              /*
-              width: '100%',
               height: '100%',
-              */
               transparent: true,
               autoplay : false,
               autopause : 1,
@@ -181,7 +178,7 @@ var mainEvent = {
               controls: 0,
               controls: 0,
               loop: 0,
-              responsive: 1,
+              //responsive: 1,
               dnt: 1,
               playsinline: 1,
               loop: 1
@@ -201,7 +198,7 @@ var mainEvent = {
                   dataType: 'jsonp',
                   success: function(data) {
                     $swiperList.css('background-image', 'url(' + data.thumbnail_url.replace('295x166','1920') + ')');
-                    $swiperList.css('background-size', '100%');
+                    $swiperList.css('background-size', 'auto 100%');
                     $swiperList.css('background-repeat', 'no-repeat');
                   },
                   error: function(xhr) {

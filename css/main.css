@@ -18,9 +18,9 @@
 .videobg {
   position: relative;
   width: 100%; /* Set video container element width here */
-  height: 100%; /* Set video container element height here */
+  height: 100vh; /* Set video container element height here */
   overflow: hidden;
-  background: #111; /* bg color, if video is not high enough */
+  background: #000;
 }
 
 /* horizontally center the video */

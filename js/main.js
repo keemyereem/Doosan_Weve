@@ -18,30 +18,6 @@ $(function () {
     console.log("*Mobile environment");
     $("html").attr("id", "mobile");
   }
-
-  var timeoutId;
-  var $videoBgAspect = $(".videobg-aspect");
-  var $videoBgWidth = $(".videobg-width");
-  var videoAspect = $videoBgAspect.outerHeight() / $videoBgAspect.outerWidth();
-
-  function videobgEnlarge() {
-    console.log("resize");
-    windowAspect = $(window).height() / $(window).width();
-    if (windowAspect > videoAspect) {
-      $videoBgWidth.width((windowAspect / videoAspect) * 100 + "%");
-    } else {
-      $videoBgWidth.width(100 + "%");
-    }
-  }
-
-  $(window).resize(function () {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(videobgEnlarge, 100);
-  });
-
-  $(function () {
-    videobgEnlarge();
-  });
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,6 +164,17 @@ var mainEvent = {
         },
         on: {
           init: function () {
+            // 추가1) loop 구동 시, duplicate slide를 건너뛰기 (duplicate slides는 cover사이즈 이벤트를 무시하기 때문) - 2022.11.29
+            var swiper = this;
+            if (
+              swiper.originalParams.loop &&
+              swiper.loopedSlides < swiper.originalParams.slidesPerView
+            ) {
+              swiper.params.slidesPerView = swiper.loopedSlides;
+              swiper.destroy(false, false);
+              swiper.init();
+            }
+
             $(".contBox01 .main_visual").addClass("on");
             $(".main_visual .swiper-pagination-bullet")
               .find("i")
@@ -212,21 +199,6 @@ var mainEvent = {
               playsinline: 1,
               loop: 1,
             };
-            // var vodPlayerDefaultOptionM = {
-            //   width: '100%',
-            //   height: '100%',
-            //   transparent: true,
-            //   autoplay: false,
-            //   autopause: 1,
-            //   muted: 1,
-            //   controls: 0,
-            //   controls: 0,
-            //   loop: 0,
-            //   responsive: 1,
-            //   dnt: 1,
-            //   playsinline: 1,
-            //   loop: 1,
-            // };
 
             $(".swiper-pagination-bullet").find("i").stop(true).css("width", 0);
             $(
@@ -256,13 +228,8 @@ var mainEvent = {
                         data.thumbnail_url.replace("295x166", "1920") +
                         ")"
                     );
-                    
-                    // if(!$('#mobile').length){
-                    //   $swiperList.css("background-size", "100%");
-                    // }else {
-                    //   $swiperList.css("background-size", "auto 100%");
-                    // }
-                    $swiperList.css("background-size", "100%");
+
+                    $swiperList.css("background-size", "cover");
                     $swiperList.css("background-repeat", "no-repeat");
                   },
                   error: function (xhr) {
@@ -274,11 +241,6 @@ var mainEvent = {
                 var vodId = "mainVisualVod_" + idx;
                 var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption); // ##### 기존 변수를 복사합니다 vodPlayerOption = vodPlayerDefaultOption로 정의하면 값 저장시 원본 값이 같이 변경되기 때문에 사용하지 않습니다.
 
-                // if(!$('#mobile').length){
-                //   var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption);
-                // }else {
-                //   var vodPlayerOption = Object.assign({}, vodPlayerDefaultOptionM);
-                // }
                 // 첫슬라이드에 영상만 자동 재생 시켜주세요
                 if (isFirst == true) {
                   vodPlayerOption.autoplay = 1;
@@ -291,21 +253,6 @@ var mainEvent = {
                   $("#" + vodId).append(
                     '<div style="width: 100%; height: 100vh; top: 0; left: 0; position: absolute;"></div>'
                   ); // iframe event 방지용 (scroll event)
-
-                  // $(".epd").siblings().css({
-                  //   padding: "0",
-                  //   width: "100vw",
-                  //   height: "100vh",
-                  // });
-                  // $(".epd").siblings().find("iframe").css({
-                  //   padding: "0",
-                  //   position: "absolute",
-                  //   top: "50%",
-                  //   left: "50%",
-                  //   transform: "translate(-50%, -50%)",
-                  //   maxWidth: "150vw",
-                  //   height: "100vh",
-                  // });
 
                   this.getDuration().then(function (duration) {
                     var slideDuration = duration * 1000;
@@ -329,39 +276,6 @@ var mainEvent = {
                 arrVods.push(null);
               }
             });
-
-            /*
-            if (
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .hasClass("swiper-pagination-bullet-active")
-            ) {
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .find("i")
-                .animate({ width: "100%" }, 20000);
-            } else {
-              $(".swiper-pagination-bullet")
-                .eq(0)
-                .find("i")
-                .animate({ width: "0" }, 0);
-            }
-            if (
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .hasClass("swiper-pagination-bullet-active")
-            ) {
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .find("i")
-                .animate({ width: "100%" }, 9000);
-            } else {
-              $(".swiper-pagination-bullet")
-                .eq(1)
-                .find("i")
-                .animate({ width: "0" }, 0);
-            }
-            */
           },
         },
       });
@@ -386,23 +300,32 @@ var mainEvent = {
             }
           }
         });
-        //eachProgress.animate({ width: "100%" }, slideDuration);
-
-        /*
-        if ($(".swiper-slide.v01").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: "100%" }, 9000);
-          video1.pause();
-          video1.currentTime = 0;
-          video2.load();
-        } else if ($(".swiper-slide.v02").hasClass("swiper-slide-active")) {
-          eachProgress.animate({ width: "100%" }, 20000);
-          /*
-          video2.pause();
-          video2.currentTime = 0;
-          video1.load();
-        }
-        */
       });
+
+      // 추가2) 창 사이즈 조절 시 비율 계산 후 동영상의 width값을 증가 > cover사이즈로 최적화 - 2022.11.29
+      let timeoutId;
+      let $videoBgAspect = $(".videobg-aspect");
+      let $videoBgWidth = $(".videobg-width");
+      let videoAspect =
+        $videoBgAspect.outerHeight() / $videoBgAspect.outerWidth();
+
+      function videobgEnlarge() {
+        windowAspect = $(window).height() / $("html").width(); // 추가3) window 창 사이즈가 아닌 내부 html사이즈로 대체 (1440이하 반응형 스크롤 때문) - 2022.11.29
+        if (windowAspect > videoAspect) {
+          $videoBgWidth.width((windowAspect / videoAspect) * 100 + "%");
+        } else {
+          $videoBgWidth.width(100 + "%");
+        }
+      }
+
+      //  추가2-2) 가변형 리사이즈 조절시 즉각 인식 및 변경 - 2022.11.29
+      $(window).resize(function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(videobgEnlarge);
+      });
+
+      // 추가2-3) 리사이즈 프로세스 실행 - 2022.11.29
+      videobgEnlarge();
     }
   },
 

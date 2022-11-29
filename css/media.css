@@ -243,8 +243,10 @@
 	#mobile .scroll-container .section3 .swiper-nav { display: flex; margin-top: 31px; }
 	#mobile .scroll-container .section3 .swiper-nav > div { width: 36px; height: 26px; margin-top: 0; position: initial; background-size: contain; }
 	#mobile .scroll-container .section3 .swiper-button-next.swiper-button-disabled, #mobile .scroll-container .section3 .swiper-button-prev.swiper-button-disabled { opacity: 1; }
-	#mobile .scroll-container .section3 .swiper-button-prev { background-image: url(../images/brandstory/mswiper_prev.png); margin-right: 30px; }
-	#mobile .scroll-container .section3 .swiper-button-next { background-image: url(../images/brandstory/mswiper_next.png); }
+	#mobile .scroll-container .section3 .swiper-button-prev { background-image: url(../images/brandstory/mswiper_prev.png); margin-right: 30px; background-repeat: no-repeat; }
+	#mobile .scroll-container .section3 .swiper-button-next { background-image: url(../images/brandstory/mswiper_next.png); background-repeat: no-repeat; }
+	#mobile .scroll-container .section3 .swiper-button-next:after, 
+	#mobile .scroll-container .section3 .swiper-button-prev:after { display: none; }
 
 	#mobile .scroll-container .section4 { height: auto; }
 	#mobile .scroll-container .section4 > ul li { width: 100%; height: 222px; padding: 60px 0; opacity: 1; transition: none; text-align: center; }

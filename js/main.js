@@ -302,7 +302,7 @@ var mainEvent = {
         });
       });
 
-      // 추가2) 창 사이즈 조절 시 비율 계산 후 동영상의 width값을 증가 > cover사이즈로 최적화 - 2022.11.29
+      // 추가2) [리사이즈 프로세스] - 창 사이즈 조절 시 비율 계산 후 동영상의 width값을 증가 > cover사이즈로 최적화 - 2022.11.29
       let timeoutId;
       let $videoBgAspect = $(".videobg-aspect");
       let $videoBgWidth = $(".videobg-width");
@@ -324,7 +324,7 @@ var mainEvent = {
         timeoutId = setTimeout(videobgEnlarge);
       });
 
-      // 추가2-3) 리사이즈 프로세스 실행 - 2022.11.29
+      // 추가2-3) [리사이즈 프로세스] 실행 - 2022.11.29
       videobgEnlarge();
     }
   },

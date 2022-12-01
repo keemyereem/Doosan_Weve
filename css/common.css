@@ -80,7 +80,7 @@ header .util_wrap .btn_logout {background:url("data:image/svg+xml,%3csvg xmlns='
 .menuOn #gnb ul > li > a,
 .fp-viewing-3 #gnb ul > li > a {color:#000;}
 .menuOn header .util_wrap .btn_doosanenc,
-.fp-viewing-3 header .util_wrap .btn_doosanenc {background:url(../images/logo_ds_b.png) 50% 50% no-repeat; border-color:#005eb8;}
+.fp-viewing-3 header .util_wrap .btn_doosanenc {background:url(../images/logo_ds_b.png) 50% 50% no-repeat; border-color:#004098;}
 .menuOn  header .util_wrap .allMenu span,
 .fp-viewing-3 header .util_wrap .allMenu span,
 .menuOn  header .util_wrap .allMenu span:before,
@@ -102,8 +102,8 @@ header .util_wrap .btn_logout {background:url("data:image/svg+xml,%3csvg xmlns='
 header.wht { background: #fff; }
 header.wht h1 a { background: url(../images/logo_b.png) 50% 50% no-repeat; }
 header.wht #gnb ul > li > a { font-weight: 400; color: #000; }
-header.wht .util_wrap .btn_doosanenc { border: 1px solid #005eb8; color: #005eb8; font-weight: 400; background: url(../images/logo_ds_b.png) 50% 50% no-repeat; }
-header.wht .util_wrap .btn_doosanenc.hover { background: #005eb8 url(../images/logo_ds.png) 50% 50% no-repeat; }
+header.wht .util_wrap .btn_doosanenc { border: 1px solid #004098; color: #004098; font-weight: 400; background: url(../images/logo_ds_b.png) 50% 50% no-repeat; }
+header.wht .util_wrap .btn_doosanenc.hover { background: #004098 url(../images/logo_ds.png) 50% 50% no-repeat; }
 header.wht .util_wrap .allMenu span, 
 header.wht .util_wrap .allMenu span:before,
 header.wht .util_wrap .allMenu span:after { background: #000; }
@@ -250,7 +250,8 @@ nav ul li.mb { display: none; }
 .btn_line a:hover { box-shadow: 240px 0 0 0 #005eb8 inset, -240px 0 0 0 #005eb8 inset; color: #fff; }
 .btn_color a{ display: block; width: 240px; height: 60px; border: 1px solid #005eb8; border-radius: 30px; text-align: center; line-height: 58px; font-size: 18px; color: #fff; background: #005eb8; margin: 120px auto 0; transition: all .5s; }
 .btn_color a:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; }
-
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after { display: none; }
 
 /* footer */
 footer {background:#030716; padding:0 40px; border-top:1px solid rgba(255,255,255,.1);}

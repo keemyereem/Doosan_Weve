@@ -20,7 +20,6 @@
   width: 100%; /* Set video container element width here */
   height: 100vh; /* Set video container element height here */
   overflow: hidden;
-  background: #000;
 }
 
 /* horizontally center the video */
@@ -74,6 +73,9 @@
 
 .contBox01 {
   position: relative;
+  background-image: url(https://i.vimeocdn.com/video/1553982370-422827c760a21eb62636d94d6490099e2302dd267dca759ee5c763ea61eaa76d-d_1920); 
+  background-size: auto 100%; 
+  background-repeat: no-repeat;
 }
 .contBox01 .main_visual {
   position: absolute;

@@ -33,11 +33,11 @@ $(function () {
 
 function popup(popConts) {
   var popthis = $(".bi_popup." + popConts);
-  $("body").css({'height':'100vh','overflow':'hidden'});
+  $("body").css({ height: "100vh", overflow: "hidden" });
   popthis.show();
 
   popthis.find(".pop_close").click(function () {
-    $("body").css({'height':'auto','overflow':'initial'});
+    $("body").css({ height: "auto", overflow: "" });
     popthis.hide();
   });
 }
@@ -251,42 +251,25 @@ var commonEvent = {
       // }
     });
 
-    // ************************************************** section1
-    // const tl1 = gsap.timeline();
-    // ScrollTrigger.create ({
-    //     animation: tl1,
-    //     trigger: ".section1",
-    //     pin: true,
-    //     pinSpacing: true,
-    //     start: "0% 0%",
-    //     end: "+=200%",
-    //     scrub: 2,
-
-    // })
-
-    // tl1
-    //     .to('.section1', { top: '0', duration: 10, })
-
-    // ************************************************** section2
-    const tl2 = gsap.timeline();
+    const tl1 = gsap.timeline();
 
     ScrollTrigger.create({
-      animation: tl2,
+      animation: tl1,
       trigger: ".section2",
       pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
       pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
       start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-      end: "+=1000%", // markers 옵션을 켜서 상세설정 확인 가능
+      end: "+=300%", // markers 옵션을 켜서 상세설정 확인 가능
       scrub: 2, // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
 
-      // toggleClass: {                               // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
-      // targets: '.section2',                        // 클래스를 부여할 태그 타겟 설정
-      // className: "active",                         // 태그 타겟에 부여할 클래스 명
+      // toggleClass: {                                 // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
+      // targets: '.section2',                          // 클래스를 부여할 태그 타겟 설정
+      // className: "active",                           // 태그 타겟에 부여할 클래스 명
       // },
 
-      // toggleClass: "active",                       // start 시점에서 class가 추가되고 end에서 class가 삭제된다.
-      // markers: true,                               // 스크롤이 시작되고 끝나는 시점을 마킹해준다/ true 입력 시, 기본 스타일로 마커가 생성된다.
-      // {                                            // 마커 스타일 변경 시, 좌측의 예시처럼 변경 가능 (true 지우고 그 자리부터 괄호 시작)
+      // toggleClass: "active",                         // start 시점에서 class가 추가되고 end에서 class가 삭제된다.
+      // markers: true,                                 // 스크롤이 시작되고 끝나는 시점을 마킹해준다/ true 입력 시, 기본 스타일로 마커가 생성된다.
+      // {                                              // 마커 스타일 변경 시, 좌측의 예시처럼 변경 가능 (true 지우고 그 자리부터 괄호 시작)
       // startColor: 'yellow',
       // endColor: 'black',
       // fontSize: '32px',
@@ -313,145 +296,237 @@ var commonEvent = {
       });
     }
 
-    tl2
-      .to(".section2 > h2", {
+    tl1
+      .to(".gsap1-1", {
         transform: "translateY(0)",
         opacity: "1",
-        duration: 1,
-        delay: 1,
+        duration: 0.3,
+        delay: 0.3,
       })
-      .to(".section2 .intro", {
-        transform: "scale(1)",
-        top: "0",
-        duration: 1.2,
-        delay: 1,
-      })
-      .to(".section2 > h2", { color: "#fff", duration: 1 }, "-=1.2")
       .to(
-        "#pc nav li a",
-        { color: "rgba(255, 255, 255, .3)", duration: 0.5 },
-        "-=.5"
-      )
-      .to("#pc nav li.on span", { background: "#fff", duration: 0.5 }, "-=.5")
-      .to("#pc nav li.on a", { color: "#fff", duration: 0.5 }, "-=.5")
-      .to(".section2 > p span:first-child", {
-        transform: "translateY(0)",
-        opacity: "1",
-        duration: 0.5,
-      })
-      .to(".section2 > p span:last-child", {
-        transform: "translateY(0)",
-        opacity: "1",
-        duration: 0.5,
-      })
-      .to(".section2", { background: "#000", duration: 0.5 })
-      .to(".section2 .intro", { opacity: "0", duration: 0.5 })
-      .to(".section2 > h2, .section2 > p span", {
-        opacity: "0",
-        transform: "translateY(-50px)",
-        duration: 0.5,
-      })
-
-      .to("#pc nav", { background: "#000", duration: 0.5 }, "-=.5")
-      .to(".section2 .wave2", { opacity: 1, duration: 0, delay: 1 }, "-=1")
-      .to(".section2 .card01 h2", {
-        transform: "translateY(0)",
-        opacity: "1",
-        duration: 1,
-        delay: 1,
-      })
-      .to(".section2 .card01 div", { top: "-100vh", duration: 9 })
-      .to(
-        ".section2 .card01 p span:first-child",
-        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
-        "-=5"
-      )
-      .to(
-        ".section2 .card01 p span:last-child",
-        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
-        "-=4.5"
-      )
-      .to(
-        ".section2 .card01 h2, .section2 .card01 p span",
-        { opacity: "0", transform: "translateY(-50px)", duration: 0.5 },
-        "-=3"
-      )
-
-      .to(
-        ".section2 .card02 h2",
-        { transform: "translateY(0)", opacity: "1", duration: 1 },
-        "-=2"
-      )
-      .to(".section2 .card02 div", { top: "-100vh", duration: 9 })
-      .to(
-        ".section2 .card02 p span:first-child",
-        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
-        "-=5"
-      )
-      .to(
-        ".section2 .card02 p span:last-child",
-        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
-        "-=4.5"
-      )
-      .to(
-        ".section2 .card02 h2, .section2 .card02 p span",
-        { opacity: "0", transform: "translateY(-50px)", duration: 0.5 },
-        "-=3"
-      )
-
-      .to(
-        ".section2 .card03 h2",
-        { transform: "translateY(0)", opacity: "1", duration: 1 },
-        "-=2"
-      )
-      .to(".section2 .card03 div", { top: "-100vh", duration: 9 })
-      .to(
-        ".section2 .card03 p span:first-child",
-        { transform: "translateY(0)", opacity: "1", duration: 0.5 },
-        "-=3"
-      )
-      .to(
-        ".section2 .card03 h2, .section2 .card03 p span",
+        ".gsap1-2",
         {
-          opacity: "0",
-          transform: "translateY(-50px)",
-          duration: 0.5,
-          delay: 1,
+          transform: "translateY(0)",
+          opacity: "1",
+          duration: 0.3,
         },
-        "-=2"
-      );
-
-    // ************************************************** section3 == 합침(section2)
-    // const tl3 = gsap.timeline();
-    // ScrollTrigger.create({
-    //     animation: tl3,
-    //     trigger: ".section3",
-    //     pin: true,
-    //     pinSpacing: true,
-    //     start: "0% 0%",
-    //     end: "+=300%",
-    //     scrub: 2,
-
-    // });
-
-    // tl3
-    //     .to('.section3 .card01 div', { top: '-100vh', duration: 10, })
-    //     .to('.section3 .card01 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, 0)
-    //     .to('.section3 .card01 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, 0.5)
-    //     .to('.section3 .card01 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-    //     .to('.section3 .card01 h2, .section3 .card01 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
-
-    //     .to('.section3 .card02 div', { top: '-100vh', duration: 10, })
-    //     .to('.section3 .card02 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
-    //     .to('.section3 .card02 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
-    //     .to('.section3 .card02 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-    //     .to('.section3 .card02 h2, .section3 .card02 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
-
-    //     .to('.section3 .card03 div', { top: '-100vh', duration: 10, })
-    //     .to('.section3 .card03 h2', { transform: 'translateY(0)', opacity: '1', duration: 2, }, "<0")
-    //     .to('.section3 .card03 p span:first-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, '<.5')
-    //     .to('.section3 .card03 p span:last-child', { transform: 'translateY(0)', opacity: '1', duration: 2, delay: 1, }, "<0")
-    //     .to('.section3 .card03 h2, .section3 .card03 p span', { opacity: '0', transform: 'translateY(-50px)', duration: 2, }, '<5')
+        "-=.1"
+      )
+      .to(".gsap1-3", {
+        color: "#005eb8",
+        duration: 0.1,
+      })
+      .to(".gsap1", {
+        transform: "translateY(-20px)",
+        opacity: "0",
+        duration: 0.3,
+        delay: 0.3,
+      })
+      .to(".gsap2", {
+        top: 0,
+        duration: 0.3,
+      })
+      .to(".gsap2-3", {
+        width: "50%",
+        duration: 0,
+      })
+      .to(".gsap2-9 span", {
+        maxWidth: 0,
+        duration: 0,
+      })
+      .to(".gsap2-1", {
+        width: "50%",
+        transform: "translateY(0)",
+        opacity: "1",
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(".gsap2-4", {
+        // 루프1) 우측 폰트 올라오기
+        bottom: "0",
+        opacity: "1",
+        duration: 0.1,
+      })
+      .to(".gsap2-2", {
+        // 루프2) 좌측 슬로건 전환
+        top: -160,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        ".gsap2-4",
+        {
+          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+          bottom: 30,
+          opacity: "0",
+          duration: 0.1,
+        },
+        "-=.2"
+      )
+      .to(
+        ".gsap2-5",
+        {
+          // 루프1) 우측 폰트 올라오기
+          bottom: "0",
+          opacity: "1",
+          duration: 0.1,
+        },
+        "-=.1"
+      )
+      .to(".gsap2-2", {
+        // 루프2) 좌측 슬로건 전환
+        top: -320,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        ".gsap2-5",
+        {
+          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+          bottom: 30,
+          opacity: "0",
+          duration: 0.1,
+        },
+        "-=.2"
+      )
+      .to(
+        ".gsap2-6",
+        {
+          // 루프1) 우측 폰트 올라오기
+          bottom: "0",
+          opacity: "1",
+          duration: 0.1,
+        },
+        "-=.1"
+      )
+      .to(".gsap2-2", {
+        // 루프2) 좌측 슬로건 전환
+        top: -480,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        ".gsap2-6",
+        {
+          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+          bottom: 30,
+          opacity: "0",
+          duration: 0.1,
+        },
+        "-=.2"
+      )
+      .to(
+        ".gsap2-7",
+        {
+          // 루프1) 우측 폰트 올라오기
+          bottom: "0",
+          opacity: "1",
+          duration: 0.1,
+        },
+        "-=.1"
+      )
+      .to(".gsap2-2", {
+        // 루프2) 좌측 슬로건 전환
+        top: -640,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        ".gsap2-7",
+        {
+          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+          bottom: 30,
+          opacity: "0",
+          duration: 0.1,
+        },
+        "-=.2"
+      )
+      .to(
+        ".gsap2-8",
+        {
+          // 루프1) 우측 폰트 올라오기
+          bottom: "0",
+          opacity: "1",
+          duration: 0.1,
+        },
+        "-=.1"
+      )
+      .to(".gsap2-2", {
+        // 루프2) 좌측 슬로건 전환
+        top: -800,
+        duration: 0.2,
+        delay: 0.1,
+      })
+      .to(
+        ".gsap2-8",
+        {
+          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+          bottom: 30,
+          opacity: "0",
+          duration: 0.1,
+        },
+        "-=.2"
+      )
+      .to(".gsap2", {
+        background: "#fff",
+        duration: 0.3,
+      })
+      .to(
+        ".gsap2-9",
+        {
+          color: "#005eb8",
+          duration: 0.3,
+        },
+        "-=.3"
+      )
+      .to(".gsap2-9", {
+        fontSize: "120px",
+        display: "flex",
+        duration: 0.3,
+      })
+      .to(
+        ".gsap2",
+        {
+          justifyContent: "center",
+          duration: 0,
+        },
+        "-=.3"
+      )
+      .to(
+        ".gsap2-1",
+        {
+          width: "30%",
+          marginRight: 0,
+          duration: 0.3,
+        },
+        "-=.3"
+      )
+      .to(
+        ".gsap2-3",
+        {
+          width: "70%",
+          marginLeft: 0,
+          duration: 0.3,
+        },
+        "-=.3"
+      )
+      .to(
+        ".gsap2-2",
+        {
+          width: 0,
+          duration: 0.1,
+        },
+        "-=.3"
+      )
+      .to(".gsap2-10", {
+        display: "block",
+        duration: 0,
+      })
+      .to(".gsap2-9 span", {
+        position: "relative",
+        maxWidth: "500px",
+        duration: 0.6,
+      });
   },
 
   section3: () => {

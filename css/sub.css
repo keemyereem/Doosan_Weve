@@ -1,23 +1,30 @@
 body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .wrap { max-width: 1460px; margin: 0 auto; position: relative; }
 .scroll-container { opacity: 0; background: #000; position: relative; }
-.scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
-.scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
-.scroll-container section h2 span { text-transform: uppercase; display: block; font-family: 'Poppins'; font-weight: 700; font-size: 24px; }
-.scroll-container section img { position: absolute; /* width: 100%; height:100%; object-fit: cover; */ }
-.scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
-.scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
+.scroll-container section { height:100vh; width:100%; display:flex; justify-content: center; flex-direction: column; align-items: center; }
 
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
 .scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
 
 .scroll-container .section1 { background: url(../images/brandstory/bs_visual_B.png) 50% 50% no-repeat; background-size: cover; }
-.scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
+.scroll-container .section1 h2 { font-size: 80px; opacity: 1; font-family: 'Poppins'; font-weight: 400; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 
 .scroll-container .section2 { background: #fff; height:110vh; }
-.scroll-container .section2 > h2 { color: #222; }
-.scroll-container .section2 .intro{ z-index:-1; width: 100%; height:100vh; transform: scale(.8); margin: auto; left: 0; right: 0; top: 68vh; }
+.scroll-container .section2 article h2 { text-align: center; font-family: 'NS'; opacity: 0; transform: translateY(20px); font-weight: 400; }
+
+.scroll-container .section2 .gsap1 { margin-bottom: 10vh; }
+.scroll-container .section2 .gsap1 h2 { color: #222; font-size: 70px; line-height: 1.42; }
+.scroll-container .section2 .gsap2 { background: #005eb8; font-weight: 400; position: absolute; top: 110vh; z-index: 1; width: 100%; height: 100vh; display: flex; align-items: center; }
+.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 140px; width: 50%; overflow: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
+.scroll-container .section2 .gsap2-1 p { color: #95b9db; }
+.scroll-container .section2 .gsap2-1 p span { display: inline-block; position: absolute; overflow: hidden; }
+.scroll-container .section2 .gsap2-2 { text-align: right; position: relative; }
+.scroll-container .section2 .gsap2-3 { width: 50%; height: 140px; font-size: 42px; display: flex; align-items: flex-end; margin-left: 100px; position: relative; }
+.scroll-container .section2 .gsap2-3 li { position: absolute; line-height: 1; bottom: -20px; opacity: 0; }  
+.scroll-container .section2 .gsap2-10 { font-size: 120px; color: #005eb8; display: none; }
+
+
 
 .scroll-container .section2 .wave2 { position: absolute; width: 100%; top: 0; height:100vh; opacity: 0; }
 .scroll-container .section2 .wave2 > div { position: absolute; top: 0; left: 0; right: 0; bottom: auto; margin: auto; max-width: 1460px; width: 100%; height: 100vh; display:flex; justify-content: center; flex-direction: column; align-items: center; }

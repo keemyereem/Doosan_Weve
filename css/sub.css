@@ -18,15 +18,17 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .scroll-container .section2 .gsap1-3::before { content: attr(data-fill-text); position: absolute; width: 100%; height: 0%; color: #005eb8; -webkit-text-stroke: 0 #fff; overflow: hidden; transition: height 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
 .scroll-container .section2 .gsap1-3.on::before { height: 100%; }
 .scroll-container .section2 .gsap2 { background: #005eb8; font-weight: 400; position: absolute; top: 110vh; z-index: 1; width: 100%; height: 100vh; display: flex; align-items: center; }
-.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 140px; width: 50%; overflow: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
+.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 140px; width: 50%; overflow-y: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
 .scroll-container .section2 .gsap2-1 p { color: #95b9db; }
 .scroll-container .section2 .gsap2-1 p span { display: inline-block; position: absolute; overflow: hidden; }
 .scroll-container .section2 .gsap2-2 { text-align: right; position: relative; }
+.scroll-container .section2 .gsap2-2 li { width: 240px; }
 .scroll-container .section2 .gsap2-3 { width: 50%; height: 140px; font-size: 42px; display: flex; align-items: flex-end; margin-left: 100px; position: relative; overflow: hidden; }
 .scroll-container .section2 .gsap2-3 li { position: absolute; line-height: 1; bottom: -20px; opacity: 0; }  
 .scroll-container .section2 .gsap3 { width: 100%; height: 110vh; position: absolute; top: 0; z-index: -1; display: flex; justify-content: center; align-items: center; }
 .scroll-container .section2 .gsap3-1 { font-family: 'Poppins'; font-size: 120px; color: #005eb8; margin-bottom: 10vh; line-height: 1; height: 140px; }
 .scroll-container .section2 .gsap3-2 { max-width: 5000px; height: inherit; line-height: 1; overflow: hidden; display: inline-flex; white-space: nowrap; padding-left: 20px; }
+.scroll-container .section2 .gsap3-3 { position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; transform: translateY(-5vh); opacity: 0; }
 
 .scroll-container .section3 { width: 100vw; height: 100vh; position: relative; }
 .scroll-container .section3 > img { position: absolute; top:0; left:0; z-index: -1; width: 100%; height: 100%; object-fit: cover; transition: all .2s; }

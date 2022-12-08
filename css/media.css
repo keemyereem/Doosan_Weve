@@ -224,12 +224,16 @@
 	#mobile .scroll-container .section2 h2 { font-size: 35px; padding: 0 20px; }
 	#mobile .scroll-container .section2 h2 span { margin-bottom: 10px; }
 	#mobile .scroll-container .section2 .gsap1 { margin-bottom: calc(var(--vh, 1vh) * 10);; }
-	#mobile .scroll-container .section2 .gsap2-1 { font-size: 55px; margin-right: 15px; height: 50px; }
-	#mobile .scroll-container .section2 .gsap2-3 { margin-left: 15px; font-size: 16px; height: 55px; }
-	#mobile .scroll-container .section2 .gsap2-3 li { line-height: 1.3; }
-	#mobile .scroll-container .section2 .gsap3-1 { font-size: 45px; margin-bottom: calc(var(--vh, 1vh) * 10);; }
+	#mobile .scroll-container .section2 .gsap2 { flex-direction: column; justify-content: center; }
+	#mobile .scroll-container .section2 .gsap2-1 { font-size: 55px; margin-right: 0; height: 50px; width: 100%; justify-content: center; }
+	#mobile .scroll-container .section2 .gsap2-2 { display: flex; flex-direction: column; align-items: flex-end; margin-left: 10px; }
+	#mobile .scroll-container .section2 .gsap2-2 li { width: auto; }
+	#mobile .scroll-container .section2 .gsap2-3 { margin-left: 0; font-size: 6.7vw; height: 35px; margin-top: 34px; width: calc(100% - 40px); }
+	#mobile .scroll-container .section2 .gsap2-3 li { line-height: 1.3; right: 0; left: 0; margin: auto; text-align: center; }
+	#mobile .scroll-container .section2 .gsap3-1 { font-size: 55px; margin-bottom: calc(var(--vh, 1vh) * 10); height: 185px; }
 	#mobile .scroll-container .section2 .gsap3-2 { display: block; margin: auto; line-height: 1.1; padding-left: 0; max-height: 5000px; }
-	
+	#mobile .scroll-container .section2 .gsap3-3 { width: 154px; }
+
 	#mobile .scroll-container .section3 { height: auto; }
 	#mobile .scroll-container .section3 > ul li { width: 100%; height: 222px; padding: 60px 0; opacity: 1; transition: none; text-align: center; }
 	#mobile .scroll-container .section3 > ul li:nth-child(1) { background: url(../images/brandstory/bs_sec05_img01.png) no-repeat 50% 50%; background-size: cover; }

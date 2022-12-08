@@ -49,7 +49,6 @@ var commonEvent = {
     this.subUI();
     this.gsap();
     this.section3();
-    this.section4();
   },
 
   headerEvent: () => {
@@ -151,16 +150,18 @@ var commonEvent = {
         pos = $("footer").outerHeight() + Number(80),
         pos_m = $("footer").outerHeight() + Number(35),
         s2 = $(".section2").offset().top,
-        s3 = $(".section4").offset().top - $(".section4").outerHeight(),
-        s4 = $(".section4").offset().top;
+        s3 = $(".gsap2").offset().top;
 
-      if ($(this).scrollTop() > s2 && $(this).scrollTop() < s3) {
-        $("#topButton").addClass("wht");
-      } else if ($(this).scrollTop() > s4 && $(this).scrollTop() < footerTop) {
-        $("#topButton").addClass("wht");
-      } else {
-        $("#topButton").removeClass("wht");
-      }
+        if ($(window).outerHeight() + $(this).scrollTop() > footerTop) {
+          $("#topButton").addClass('wht');
+        } else if ($(this).scrollTop() === s3) {
+          $("#topButton").addClass('wht');
+          if ($(".gsap2").css('opacity') == 0) {
+            $("#topButton").removeClass('wht');
+          }
+        }else {
+          $("#topButton").removeClass('wht');
+        }
 
       if ($(this).scrollTop() > footerTop) {
         if ($("#pc").length) {
@@ -232,6 +233,11 @@ var commonEvent = {
   },
 
   gsap: () => {
+    // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
+    $(window).on("scroll", function () {
+      $(".section2").css("left", 0 - $(this).scrollLeft());
+    });
+
     // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
@@ -259,7 +265,7 @@ var commonEvent = {
       pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
       pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
       start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-      end: "+=300%", // markers 옵션을 켜서 상세설정 확인 가능
+      end: "+=400%", // markers 옵션을 켜서 상세설정 확인 가능
       scrub: 2, // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
 
       // toggleClass: {                                 // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
@@ -296,237 +302,62 @@ var commonEvent = {
       });
     }
 
+    let gsap2_1 = $('.gsap2-2').children().outerHeight(),
+        maxW = 5000,
+        maxH = 5000;
+
+    if ($('#pc').length) {
+      maxW = 0;
+      maxH = 5000;
+    } else if ($('#mobile').length) {
+      maxW = 5000;
+      maxH = 0;
+    }
+    console.log(gsap2_1)
+
     tl1
-      .to(".gsap1-1", {
-        transform: "translateY(0)",
-        opacity: "1",
-        duration: 0.3,
-        delay: 0.3,
-      })
-      .to(
-        ".gsap1-2",
-        {
-          transform: "translateY(0)",
-          opacity: "1",
-          duration: 0.3,
-        },
-        "-=.1"
-      )
-      .to(".gsap1-3", {
-        color: "#005eb8",
-        duration: 0.1,
-      })
-      .to(".gsap1", {
-        transform: "translateY(-20px)",
-        opacity: "0",
-        duration: 0.3,
-        delay: 0.3,
-      })
-      .to(".gsap2", {
-        top: 0,
-        duration: 0.3,
-      })
-      .to(".gsap2-3", {
-        width: "50%",
-        duration: 0,
-      })
-      .to(".gsap2-9 span", {
-        maxWidth: 0,
-        duration: 0,
-      })
-      .to(".gsap2-1", {
-        width: "50%",
-        transform: "translateY(0)",
-        opacity: "1",
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(".gsap2-4", {
-        // 루프1) 우측 폰트 올라오기
-        bottom: "0",
-        opacity: "1",
-        duration: 0.1,
-      })
-      .to(".gsap2-2", {
-        // 루프2) 좌측 슬로건 전환
-        top: -160,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        ".gsap2-4",
-        {
-          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
-          bottom: 30,
-          opacity: "0",
-          duration: 0.1,
-        },
-        "-=.2"
-      )
-      .to(
-        ".gsap2-5",
-        {
-          // 루프1) 우측 폰트 올라오기
-          bottom: "0",
-          opacity: "1",
-          duration: 0.1,
-        },
-        "-=.1"
-      )
-      .to(".gsap2-2", {
-        // 루프2) 좌측 슬로건 전환
-        top: -320,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        ".gsap2-5",
-        {
-          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
-          bottom: 30,
-          opacity: "0",
-          duration: 0.1,
-        },
-        "-=.2"
-      )
-      .to(
-        ".gsap2-6",
-        {
-          // 루프1) 우측 폰트 올라오기
-          bottom: "0",
-          opacity: "1",
-          duration: 0.1,
-        },
-        "-=.1"
-      )
-      .to(".gsap2-2", {
-        // 루프2) 좌측 슬로건 전환
-        top: -480,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        ".gsap2-6",
-        {
-          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
-          bottom: 30,
-          opacity: "0",
-          duration: 0.1,
-        },
-        "-=.2"
-      )
-      .to(
-        ".gsap2-7",
-        {
-          // 루프1) 우측 폰트 올라오기
-          bottom: "0",
-          opacity: "1",
-          duration: 0.1,
-        },
-        "-=.1"
-      )
-      .to(".gsap2-2", {
-        // 루프2) 좌측 슬로건 전환
-        top: -640,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        ".gsap2-7",
-        {
-          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
-          bottom: 30,
-          opacity: "0",
-          duration: 0.1,
-        },
-        "-=.2"
-      )
-      .to(
-        ".gsap2-8",
-        {
-          // 루프1) 우측 폰트 올라오기
-          bottom: "0",
-          opacity: "1",
-          duration: 0.1,
-        },
-        "-=.1"
-      )
-      .to(".gsap2-2", {
-        // 루프2) 좌측 슬로건 전환
-        top: -800,
-        duration: 0.2,
-        delay: 0.1,
-      })
-      .to(
-        ".gsap2-8",
-        {
-          // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
-          bottom: 30,
-          opacity: "0",
-          duration: 0.1,
-        },
-        "-=.2"
-      )
-      .to(".gsap2", {
-        background: "#fff",
-        duration: 0.3,
-      })
-      .to(
-        ".gsap2-9",
-        {
-          color: "#005eb8",
-          duration: 0.3,
-        },
-        "-=.3"
-      )
-      .to(".gsap2-9", {
-        fontSize: "120px",
-        display: "flex",
-        duration: 0.3,
-      })
-      .to(
-        ".gsap2",
-        {
-          justifyContent: "center",
-          duration: 0,
-        },
-        "-=.3"
-      )
-      .to(
-        ".gsap2-1",
-        {
-          width: "30%",
-          marginRight: 0,
-          duration: 0.3,
-        },
-        "-=.3"
-      )
-      .to(
-        ".gsap2-3",
-        {
-          width: "70%",
-          marginLeft: 0,
-          duration: 0.3,
-        },
-        "-=.3"
-      )
-      .to(
-        ".gsap2-2",
-        {
-          width: 0,
-          duration: 0.1,
-        },
-        "-=.3"
-      )
-      .to(".gsap2-10", {
-        display: "block",
-        duration: 0,
-      })
-      .to(".gsap2-9 span", {
-        position: "relative",
-        maxWidth: "500px",
-        duration: 0.6,
-      });
+      .to(".gsap1-1", { transform: "translateY(0)", opacity: "1", duration: 0.3, delay: 0.3, })
+      .to(".gsap1-2", { transform: "translateY(0)", opacity: "1", duration: 0.3, }, "-=.1")
+      .to(".gsap1-3", { css:{className:'gsap1-3 on'}, duration: 0.1, })
+      .to(".gsap1", {transform: "translateY(-20px)", opacity: "0", duration: 0.3, delay: 0.3, })
+
+      .to(".gsap2", { top: 0, duration: 0.3, })
+      .to("#pc nav li:not(.on) a", { color: "rgba(255, 255, 255, .3)", duration: 0.2 }, "-=.1")
+      .to("#pc nav li.on span", { background: "#fff", duration: 0.2 }, "-=.2")
+      .to("#pc nav li.on a", { color: "#fff", duration: 0.2 }, "-=.2")
+
+      .to(".gsap2-1", { transform: "translateY(0)", opacity: "1", duration: 0.2, delay: 0.1, })
+      // 루프1) 우측 폰트 올라오기
+      .to(".gsap2-4", { bottom: "0", opacity: "1", duration: 0.1, })
+      // 루프2) 좌측 슬로건 전환
+      .to(".gsap2-2", { top: -(gsap2_1), duration: 0.2, delay: 0.1, })
+      // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
+      .to(".gsap2-4", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
+
+      // 루프1, 2, 3) 반복
+      .to(".gsap2-5", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
+      .to(".gsap2-2", { top: -(gsap2_1) * 2, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-5", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
+      // 루프1, 2, 3) 반복
+      .to(".gsap2-6", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
+      .to(".gsap2-2", { top: -(gsap2_1) * 3, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-6", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
+      // 루프1, 2, 3) 반복
+      .to(".gsap2-7", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
+      .to(".gsap2-2", { top: -(gsap2_1) * 4, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-7", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
+      .to(".gsap2-8", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
+
+      .to(".gsap2-1, .gsap2-3", { transform: "translateY(-20px)", opacity: "0", duration: 0.3, delay: 0.3, })
+      .to(".gsap2", { opacity: 0, duration: 0.3, })
+      .to("#pc nav li:not(.on) a", { color: "#000", duration: 0.2 }, "-=.1")
+      .to("#pc nav li.on span", { background: "#005eb8", duration: 0.2 }, "-=.3")
+      .to("#pc nav li.on a", { color: "#005eb8", duration: 0.2 }, "-=.3")
+
+      .to(".gsap3", { zIndex: 0, }, "-=.3")
+      .to(".gsap3-1", { opacity: 1, transform: "translateY(0)", duration: 0.3, })
+      .to(".gsap3-2", { maxWidth: maxW, maxHeight: maxH, duration: 0.6, })
+      .to(".gsap3", { zIndex: 1, delay: .5, })
   },
 
   section3: () => {
@@ -535,57 +366,10 @@ var commonEvent = {
         .eq(i)
         .hover(
           function () {
-            $(".section3")
-              .find("img")
-              .eq(i)
-              .css({ "z-index": "1", opacity: "1" });
+            $(".section3").find("img").eq(i).css({ "z-index": "1" });
           },
           function () {
-            $(".section3")
-              .find("img")
-              .eq(i)
-              .css({ "z-index": "-1", opacity: "0" });
-          }
-        );
-    });
-
-    var ww = $(window).width();
-    function initSwiper() {
-      s4Swiper = new Swiper(".section3 .mswiper", {
-        slidesPerView: 1,
-        observer: true,
-        observeParents: true,
-        simulateTouch: true,
-        spaceBetween: 30,
-        navigation: {
-          nextEl: ".section3 .swiper-button-next",
-          prevEl: ".section3 .swiper-button-prev",
-        },
-      });
-    }
-    if (ww < 769) {
-      initSwiper();
-    } else if (ww >= 769) {
-    }
-
-    $(window).on("resize", function () {
-      ww = $(window).width();
-      if (ww < 769) {
-        initSwiper();
-      }
-    });
-  },
-
-  section4: () => {
-    $(".section4 ul > li").each(function (i) {
-      $(".section4 ul > li")
-        .eq(i)
-        .hover(
-          function () {
-            $(".section4").find("img").eq(i).css({ "z-index": "1" });
-          },
-          function () {
-            $(".section4").find("img").eq(i).css({ "z-index": "-1" });
+            $(".section3").find("img").eq(i).css({ "z-index": "-1" });
           }
         );
     });

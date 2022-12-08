@@ -286,6 +286,6 @@ footer .family_site .site_list li a:hover { background: #030716; color: #fff; }
 #topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }
 #topButton.wht { color: #fff; position: fixed; }
 #topButton.wht::after,
-#topButton.bs::after { background: url(../images/common/scrollTop_w.png) no-repeat; }
+#topButton.bs::after { background: url(../images/common/scrollTop_w.png) no-repeat; background-size: contain; }
 #topButton.on { position: absolute; }
 #topButton.bs { position: absolute; color: #fff; }

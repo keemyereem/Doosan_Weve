@@ -35,7 +35,7 @@ select {background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000
 select::-ms-expand {display:none;}
 caption, legend {position:absolute; top:0; left:-9999em;}
 .indentUp { transform: translateY(-110px)!important; }
-.blockScroll { height: calc(var(--vh, 1vh) * 100); overflow: hidden; position: fixed; }
+.blockScroll { height: calc(var(--vh, 1vh) * 100); overflow: hidden; }
 .br_m,
 .img_m ,
 .indent {display: none;}

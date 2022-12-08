@@ -219,13 +219,15 @@
 	#mobile .scroll-container nav ul { flex-direction: column; }
 	#mobile .scroll-container nav ul li { height: 50px; line-height: 50px; }
 	#mobile .scroll-container nav ul li > a { font-size: 15px; }
-
+	
+	#mobile .scroll-container .section2 { height: calc(var(--vh, 1vh) * 110); }
 	#mobile .scroll-container .section2 h2 { font-size: 35px; padding: 0 20px; }
 	#mobile .scroll-container .section2 h2 span { margin-bottom: 10px; }
+	#mobile .scroll-container .section2 .gsap1 { margin-bottom: calc(var(--vh, 1vh) * 10);; }
 	#mobile .scroll-container .section2 .gsap2-1 { font-size: 55px; margin-right: 15px; height: 50px; }
 	#mobile .scroll-container .section2 .gsap2-3 { margin-left: 15px; font-size: 16px; height: 55px; }
 	#mobile .scroll-container .section2 .gsap2-3 li { line-height: 1.3; }
-	#mobile .scroll-container .section2 .gsap3-1 { font-size: 45px; }
+	#mobile .scroll-container .section2 .gsap3-1 { font-size: 45px; margin-bottom: calc(var(--vh, 1vh) * 10);; }
 	#mobile .scroll-container .section2 .gsap3-2 { display: block; margin: auto; line-height: 1.1; padding-left: 0; max-height: 5000px; }
 	
 	#mobile .scroll-container .section3 { height: auto; }

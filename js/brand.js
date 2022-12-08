@@ -154,10 +154,12 @@ var commonEvent = {
 
         if ($(window).outerHeight() + $(this).scrollTop() > footerTop) {
           $("#topButton").addClass('wht');
-        } else if ($(this).scrollTop() === s3) {
+        } else if ($(this).scrollTop() + $(window).outerHeight() > s3) {
           $("#topButton").addClass('wht');
-          if ($(".gsap2").css('opacity') == 0) {
+          if ($(".gsap2").css('opacity') < 0.5) {
             $("#topButton").removeClass('wht');
+          } else {
+            $("#topButton").addClass('wht');
           }
         }else {
           $("#topButton").removeClass('wht');
@@ -316,7 +318,7 @@ var commonEvent = {
     console.log(gsap2_1)
 
     tl1
-      .to(".gsap1-1", { transform: "translateY(0)", opacity: "1", duration: 0.3, delay: 0.3, })
+      .to(".gsap1-1", { transform: "translateY(0)", opacity: "1", duration: 0.3, })
       .to(".gsap1-2", { transform: "translateY(0)", opacity: "1", duration: 0.3, }, "-=.1")
       .to(".gsap1-3", { css:{className:'gsap1-3 on'}, duration: 0.1, })
       .to(".gsap1", {transform: "translateY(-20px)", opacity: "0", duration: 0.3, delay: 0.3, })

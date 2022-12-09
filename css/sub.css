@@ -5,12 +5,16 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
 .scroll-container nav.fixed { background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
+.scroll-container nav.wht { background: rgba(255, 255, 255, .3); }
+.scroll-container nav.wht ul li > a { color: rgba(255, 255, 255, 0.3) !important; }
+.scroll-container nav.wht ul li.on > a { color: #fff !important; }
+.scroll-container nav.wht ul li.on > span { background: #fff !important; }
 
 .scroll-container .section1 { background: url(../images/brandstory/bs_visual_B.png) 50% 50% no-repeat; background-size: cover; }
 .scroll-container .section1 h2 { font-size: 80px; opacity: 1; font-family: 'Poppins'; font-weight: 400; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 
-.scroll-container .section2 { background: #fff; height:110vh; }
+.scroll-container .section2 { background: #fff; height:110vh; overflow: hidden; }
 .scroll-container .section2 article h2 { text-align: center; font-family: 'NS'; opacity: 0; transform: translateY(20px); font-weight: 400; }
 .scroll-container .section2 .gsap1 { margin-bottom: 10vh; }
 .scroll-container .section2 .gsap1 h2 { color: #222; font-size: 70px; line-height: 1.42; }

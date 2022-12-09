@@ -150,7 +150,8 @@ var commonEvent = {
         pos = $("footer").outerHeight() + Number(80),
         pos_m = $("footer").outerHeight() + Number(35),
         s2 = $(".section2").offset().top,
-        s3 = $(".gsap2").offset().top;
+        s3 = $(".gsap2").offset().top,
+        s4 = $(".section3").offset().top;
 
         if ($(window).outerHeight() + $(this).scrollTop() > footerTop) {
           $("#topButton").addClass('wht');
@@ -177,6 +178,14 @@ var commonEvent = {
         } else {
           $("#topButton").removeClass("bs").css({ bottom: "35px" });
         }
+      }
+
+      if ($(this).scrollTop() + $('nav').outerHeight() > s4 && $('.scroll-container').length) {
+        if ($("#pc").length) {
+          $('nav').addClass('wht');
+        }
+      } else {
+        $('nav').removeClass('wht');
       }
     });
 
@@ -267,8 +276,8 @@ var commonEvent = {
       pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
       pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
       start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
-      end: "+=720%", // markers 옵션을 켜서 상세설정 확인 가능
-      scrub: 1.9, // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
+      end: "+=700%", // markers 옵션을 켜서 상세설정 확인 가능
+      scrub: 1.5, // 스크롤에 따른 민감도 조절/ trigger 지정태그를 벗어날 경우, 모든 이벤트를 원상복귀함
 
       // toggleClass: {                                 // pin 도달시 클래스를 부여/ pin 이탈시 클래스를 삭제
       // targets: '.section2',                          // 클래스를 부여할 태그 타겟 설정
@@ -336,21 +345,21 @@ var commonEvent = {
       // 루프1) 우측 폰트 올라오기
       .to(".gsap2-4", { bottom: "0", opacity: "1", duration: 0.1, })
       // 루프2) 좌측 슬로건 전환
-      .to(".gsap2-2", { width: gsap2_1_child.eq(1).width(), top: -(gsap2_1), duration: 0.2, delay: 0.1, })
+      .to(".gsap2-2", { width: gsap2_1_child.eq(1).width(), top: -(gsap2_1), duration: 0.2, delay: 0.3, })
       // 루프3) 좌측 슬로건 전환 -> 우측 폰트 같이 사라짐
       .to(".gsap2-4", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
 
       // 루프1, 2, 3) 반복
       .to(".gsap2-5", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
-      .to(".gsap2-2", { width: gsap2_1_child.eq(2).width(), top: -(gsap2_1) * 2, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-2", { width: gsap2_1_child.eq(2).width(), top: -(gsap2_1) * 2, duration: 0.2, delay: 0.3, })
       .to(".gsap2-5", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
       // 루프1, 2, 3) 반복
       .to(".gsap2-6", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
-      .to(".gsap2-2", { width: gsap2_1_child.eq(3).width(), top: -(gsap2_1) * 3, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-2", { width: gsap2_1_child.eq(3).width(), top: -(gsap2_1) * 3, duration: 0.2, delay: 0.3, })
       .to(".gsap2-6", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
       // 루프1, 2, 3) 반복
       .to(".gsap2-7", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
-      .to(".gsap2-2", { width: gsap2_1_child.eq(4).width(), top: -(gsap2_1) * 4, duration: 0.2, delay: 0.1, })
+      .to(".gsap2-2", { width: gsap2_1_child.eq(4).width(), top: -(gsap2_1) * 4, duration: 0.2, delay: 0.3, })
       .to(".gsap2-7", { bottom: 30, opacity: "0", duration: 0.1, }, "-=.2")
       .to(".gsap2-8", { bottom: "0", opacity: "1", duration: 0.1, }, "-=.1")
 
@@ -367,7 +376,7 @@ var commonEvent = {
       .to(".gsap3-1", { opacity: 0, duration: 0.2, })
       .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
-      .to(".gsap3", { zIndex: 1, delay: 0.1, })
+      .to(".gsap3", { zIndex: 1, delay: 0.1, });
   },
 
   section3: () => {

@@ -1,64 +1,57 @@
 body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .wrap { max-width: 1460px; margin: 0 auto; position: relative; }
 .scroll-container { opacity: 0; background: #000; position: relative; }
-.scroll-container section { height:100vh; width:100vw; display:flex; justify-content: center; flex-direction: column; align-items: center; }
-.scroll-container section h2 { text-align: center; font-size: 80px; font-family: 'NS'; color: #fff; opacity: 0; transform: translateY(20px); font-weight: 400; line-height: 1.2; }
-.scroll-container section h2 span { text-transform: uppercase; display: block; font-family: 'Poppins'; font-weight: 700; font-size: 24px; }
-.scroll-container section img { position: absolute; /* width: 100%; height:100%; object-fit: cover; */ }
-.scroll-container section p { margin-top: 60px; text-align: center; line-height: 1.7; font-family: 'NS'; font-weight: 200; }
-.scroll-container section p span { display: block; transform: translateY(10px); opacity: 0; }
+.scroll-container section { height:100vh; width:100%; display:flex; justify-content: center; flex-direction: column; align-items: center; }
 
 .scroll-container nav { position: absolute; top: 100vh; z-index: 99; }
-.scroll-container nav.fixed { border-bottom: 1px solid rgba(255, 255, 255,.5); background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
+.scroll-container nav.fixed { background: transparent; position: fixed; left: 0; top: 0; z-index: 9999; }
+.scroll-container nav.wht { background: rgba(255, 255, 255, .3); }
+.scroll-container nav.wht ul li > a { color: rgba(255, 255, 255, 0.3) !important; }
+.scroll-container nav.wht ul li.on > a { color: #fff !important; }
+.scroll-container nav.wht ul li.on > span { background: #fff !important; }
 
 .scroll-container .section1 { background: url(../images/brandstory/bs_visual_B.png) 50% 50% no-repeat; background-size: cover; }
-.scroll-container .section1 h2 { font-size: 100px; opacity: 1; font-family: 'Poppins'; font-weight: 700; }
+.scroll-container .section1 h2 { font-size: 80px; opacity: 1; font-family: 'Poppins'; font-weight: 400; }
 .scroll-container .section1 h2 span { font-size: 30px; }
 
-.scroll-container .section2 { background: #fff; height:110vh; }
-.scroll-container .section2 > h2 { color: #222; }
-.scroll-container .section2 .intro{ z-index:-1; width: 100%; height:100vh; transform: scale(.8); margin: auto; left: 0; right: 0; top: 68vh; }
+.scroll-container .section2 { background: #fff; height:110vh; overflow: hidden; }
+.scroll-container .section2 article h2 { text-align: center; font-family: 'NS'; opacity: 0; transform: translateY(20px); font-weight: 400; }
+.scroll-container .section2 .gsap1 { margin-bottom: 10vh; }
+.scroll-container .section2 .gsap1 h2 { color: #222; font-size: 70px; line-height: 1.42; }
+.scroll-container .section2 .gsap1-3 { position: relative; }
+.scroll-container .section2 .gsap1-3::before { content: attr(data-fill-text); position: absolute; width: 100%; height: 0%; color: #005eb8; -webkit-text-stroke: 0 #fff; overflow: hidden; transition: height 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.scroll-container .section2 .gsap1-3.on::before { height: 100%; }
+.scroll-container .section2 .gsap2 { background: #005eb8; font-weight: 400; position: absolute; top: 110vh; z-index: 1; width: 100%; height: 100vh; display: flex; align-items: center; }
+.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 140px; width: 50%; overflow-y: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
+.scroll-container .section2 .gsap2-1 p { color: #95b9db; }
+.scroll-container .section2 .gsap2-1 p span { display: inline-block; position: absolute; overflow: hidden; }
+.scroll-container .section2 .gsap2-2 { text-align: right; position: relative; }
+.scroll-container .section2 .gsap2-2 li { width: 240px; }
+.scroll-container .section2 .gsap2-3 { width: 50%; height: 140px; font-size: 42px; display: flex; align-items: flex-end; margin-left: 100px; position: relative; overflow: hidden; }
+.scroll-container .section2 .gsap2-3 li { position: absolute; line-height: 1; bottom: -20px; opacity: 0; }  
+.scroll-container .section2 .gsap3 { width: 100%; height: 110vh; position: absolute; top: 0; z-index: -1; display: flex; justify-content: center; align-items: center; }
+.scroll-container .section2 .gsap3-1 { font-family: 'Poppins'; font-size: 120px; color: #005eb8; margin-bottom: 10vh; line-height: 1; height: 140px; }
+.scroll-container .section2 .gsap3-2 { max-width: 5000px; height: inherit; line-height: 1; overflow: hidden; display: inline-flex; white-space: nowrap; padding-left: 20px; }
+.scroll-container .section2 .gsap3-3 { position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; transform: translateY(-5vh); opacity: 0; }
 
-.scroll-container .section2 .wave2 { position: absolute; width: 100%; top: 0; height:100vh; opacity: 0; }
-.scroll-container .section2 .wave2 > div { position: absolute; top: 0; left: 0; right: 0; bottom: auto; margin: auto; max-width: 1460px; width: 100%; height: 100vh; display:flex; justify-content: center; flex-direction: column; align-items: center; }
-.scroll-container .section2 .wave2 > div h2 { z-index: 99; }
-.scroll-container .section2 .wave2 > div div { width: calc(50% + 90px); height: 100vh; position: absolute; right: 0; top: 110vh; }
-.scroll-container .section2 .wave2 > .card02 div { left: 0; }
-.scroll-container .section2 .wave2 > .card03 h2 { font-family: 'Poppins'; font-weight: 700; }
-
-.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; background: url(../images/brandstory/bs_sec04_bg01.png) no-repeat 50% 50%; background-size: cover; overflow: hidden; }
-.scroll-container .section3 > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: all .2s; }
-.scroll-container .section3 > div { width: 100%; height: 100%; }
-.scroll-container .section3 ul { width: 100%; height: 100%; display: flex; position: relative; z-index: 2; }
-.scroll-container .section3 ul li { flex:1; height: 100%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255,.2); padding-left: 70px; transition: all .3s; }
-.scroll-container .section3 ul li:last-child {  border-right: 0; }
-.scroll-container .section3 ul li .tit { font-family: 'Poppins'; font-weight: 400; font-size: 41px; color: #fff; letter-spacing: -1.025px; width: fit-content; opacity: .5; transition: opacity .3s; }
-.scroll-container .section3 ul li .tit::after { content: ''; display: block; width: 0; height: 6px; background: #fff; margin-top: 10px; transition: width .3s; }
-.scroll-container .section3 ul li p { font-size: 20px; letter-spacing: -0.5px; line-height: 1.8; color: #fff; margin-top: 40px; opacity: 0; transform: translateX(-50px); transition: all .3s; text-align: left; }
-.scroll-container .section3 ul li:hover { background: rgba(140, 139, 136,.85); }
-.scroll-container .section3 ul li:hover .tit { opacity: 1; }
-.scroll-container .section3 ul li:hover .tit::after { width: 100%; }
-.scroll-container .section3 ul li:hover p { opacity: 1; transform: translateX(0); }
-.scroll-container .section3 .swiper-nav { display: none; }
-
-.scroll-container .section4 { width: 100vw; height: 100vh; position: relative; }
-.scroll-container .section4 > img { position: absolute; top:0; left:0; z-index: -1; width: 100%; height: 100%; object-fit: cover; transition: all .2s; }
-.scroll-container .section4 > ul { display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100%; position: relative; z-index: 10; }
-.scroll-container .section4 > ul li { display: flex; flex-direction: column; align-items: center; opacity: .5; transition: opacity .3s; cursor: default; }
-.scroll-container .section4 > ul li:hover { opacity: 1; }
-.scroll-container .section4 > ul li .name { font-family: 'Poppins'; font-weight: 100; font-size: 50px; color: #fff; transition: font-size .3s; }
-.scroll-container .section4 > ul li:hover .name { font-size: 100px; font-weight: 400; }
-.scroll-container .section4 > ul li p {opacity: 0; font-size: 20px; font-size: 300; margin: 0 0 10px; }
-.scroll-container .section4 > ul li a {opacity: 0; height: 30px; line-height: 30px; font-size: 14px; color: #fff; position: relative; padding: 0 10px; margin-top: 20px; }
-.scroll-container .section4 > ul li:hover p,
-.scroll-container .section4 > ul li:hover a:last-of-type { opacity: 1; }
-.scroll-container .section4 > ul li a::before,
-.scroll-container .section4 > ul li a::after { content:''; display: inline-block; opacity: .5; }
-.scroll-container .section4 > ul li a::before { width: 0; height: 1px; background: #fff; position: absolute; bottom: 0; left: 0; transition: width .3s; }
-.scroll-container .section4 > ul li a::after { width: 13px; height: 13px; background: url(../images/common/plus_33x33_w.png) 50% 50%; margin-left: 23px; transition: opacity .3s; }
-.scroll-container .section4 > ul li a:hover::after,
-.scroll-container .section4 > ul li a:hover { opacity: 1; }
-.scroll-container .section4 > ul li a:hover::before { width: 100%; }
+.scroll-container .section3 { width: 100vw; height: 100vh; position: relative; }
+.scroll-container .section3 > img { position: absolute; top:0; left:0; z-index: -1; width: 100%; height: 100%; object-fit: cover; transition: all .2s; }
+.scroll-container .section3 > ul { display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; height: 100%; position: relative; z-index: 10; }
+.scroll-container .section3 > ul li { display: flex; flex-direction: column; align-items: center; opacity: .5; transition: opacity .3s; cursor: default; }
+.scroll-container .section3 > ul li:hover { opacity: 1; }
+.scroll-container .section3 > ul li .name { font-family: 'Poppins'; font-weight: 100; font-size: 50px; color: #fff; transition: font-size .3s; }
+.scroll-container .section3 > ul li:hover .name { font-size: 100px; font-weight: 400; }
+.scroll-container .section3 > ul li p {opacity: 0; font-size: 20px; font-size: 300; margin: 0 0 10px; }
+.scroll-container .section3 > ul li a {opacity: 0; height: 30px; line-height: 30px; font-size: 14px; color: #fff; position: relative; padding: 0 10px; margin-top: 20px; }
+.scroll-container .section3 > ul li:hover p,
+.scroll-container .section3 > ul li:hover a:last-of-type { opacity: 1; }
+.scroll-container .section3 > ul li a::before,
+.scroll-container .section3 > ul li a::after { content:''; display: inline-block; opacity: .5; }
+.scroll-container .section3 > ul li a::before { width: 0; height: 1px; background: #fff; position: absolute; bottom: 0; left: 0; transition: width .3s; }
+.scroll-container .section3 > ul li a::after { width: 13px; height: 13px; background: url(../images/common/plus_33x33_w.png) 50% 50%; margin-left: 23px; transition: opacity .3s; }
+.scroll-container .section3 > ul li a:hover::after,
+.scroll-container .section3 > ul li a:hover { opacity: 1; }
+.scroll-container .section3 > ul li a:hover::before { width: 100%; }
 
 /* BI 팝업 */
 .bi_popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background:rgba(0,0,0,0.8); z-index: 10000; }
@@ -86,7 +79,7 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .bi_popup .popup_inner .btn_download > a { display: block; width: 220px; height: 50px; line-height: 50px; border-radius: 25px; background: #005eb8; text-align: center; margin: 70px auto 0; color: #fff; }
 
 /* 리스트팝업 */
-.popup { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .8); z-index: 1000; opacity: 0; visibility: hidden; transition:all ease .6s; }
+.popup { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .8); z-index: 1000; opacity: 0; visibility: hidden; transition:all ease .6s; }
 .popup.on { opacity: 1; visibility: visible; }
 .popup>ul { width: 900px; height: fit-content; background: #fff; position: fixed; top: 0; bottom: 0; right: 0; left: 0; margin: auto; }
 .popup>ul li:first-child { position: absolute; width: 40px; height: 40px; right: 0; top: -60px; transition: transform ease .3s; cursor: pointer; }

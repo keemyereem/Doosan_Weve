@@ -14,7 +14,7 @@
 
 html , body , div , span , applet , object , iframe , h1 , h2 , h3 , h4 , h5 , h6 , p , blockquote , pre , a , abbr , acronym , address , big , cite , code , del , dfn , em , img , ins , kbd , q , s , samp , small , strike , strong , sub , sup , tt , var , b , u , i , center , dl , dt , dd , ol , ul , li , fieldset , form , label , legend , table , caption , tbody , tfoot , thead , tr , th , td , article , aside , canvas , details , embed , figure , figcaption , footer , header , hgroup , menu , nav , output , ruby , section , summary , time , mark , audio , video , textarea {margin:0; padding:0; border:0; box-sizing:border-box; -webkit-overflow-scrolling:touch; word-break:keep-all;}
 article , aside , details , figcaption , figure , footer , header , hgroup , menu , nav , section {display:block;}
-body {font-size:17px; line-height:1.2;}
+body {font-size:17px; line-height:1.2; overflow: overlay;}
 body, button, input, select, table, textarea {font-family:'NS',"HelveticaNeue-Light","AppleSDGothicNeo-Medium","Malgun Gothic","맑은 고딕","AppleGothic","Sans-serif","Dotum","Verdana",sans-serif; color:#666;font-weight: 200;}
 body#brandstory { font-family: 'Poppins','NS'; font-weight: 200; }
 ol , ul {list-style:none;}
@@ -35,7 +35,7 @@ select {background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000
 select::-ms-expand {display:none;}
 caption, legend {position:absolute; top:0; left:-9999em;}
 .indentUp { transform: translateY(-110px)!important; }
-.blockScroll { height: calc(var(--vh, 1vh) * 100); overflow: hidden; position: fixed; }
+.blockScroll { height: calc(var(--vh, 1vh) * 100); overflow: hidden; }
 .br_m,
 .img_m ,
 .indent {display: none;}
@@ -43,7 +43,7 @@ caption, legend {position:absolute; top:0; left:-9999em;}
 #wrap { position: relative; }
 .es {color: #005eb8;}
 img { -webkit-user-drag: none; }
-::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar { width: 5px; height: 5px; background: transparent; }
 ::-webkit-scrollbar-track { border:5px solid transparent; background: transparent; }
 ::-webkit-scrollbar-thumb { background: #005eb8; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #014099; }
@@ -286,6 +286,6 @@ footer .family_site .site_list li a:hover { background: #030716; color: #fff; }
 #topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }
 #topButton.wht { color: #fff; position: fixed; }
 #topButton.wht::after,
-#topButton.bs::after { background: url(../images/common/scrollTop_w.png) no-repeat; }
+#topButton.bs::after { background: url(../images/common/scrollTop_w.png) no-repeat; background-size: contain; }
 #topButton.on { position: absolute; }
 #topButton.bs { position: absolute; color: #fff; }

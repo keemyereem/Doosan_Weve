@@ -207,6 +207,7 @@
 	#mobile .popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
 	#mobile .popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
 	#mobile .popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
+	#mobile .popup.search ul li:last-child { height: 30vh; }
 	#mobile .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
 	#mobile .popup.search ul li:last-child a dl { padding: 15px; }
 	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }

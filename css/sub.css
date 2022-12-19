@@ -108,7 +108,8 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .popup.search ul li:nth-child(2) p { display: block; font-size: 16px; color: #555555; margin-top: 21px; }
 .popup.search ul li:nth-child(2) p .result,
 .popup.search ul li:nth-child(2) p .num { color: #005eb8; font-weight: 400; }
-.popup.search ul li:last-child { padding: 0; flex-direction: column; }
+.popup.search ul li:last-child { padding: 0; flex-direction: column; height: 250px; overflow: scroll; }
+.popup.search ul li:last-child .search_scroll_wrap { width: 100%; height: auto; }
 .popup.search ul li:last-child a { color: #222222; border: none; border-radius: 0; width: 100%; height: auto; border-bottom: 1px solid #e8e8e8; }
 .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
 .popup.search ul li:last-child a dl { text-align: left; padding: 32px; }

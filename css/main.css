@@ -614,10 +614,8 @@
   opacity: 0;
   transition: all 0.4s;
 }
-.contBox03 .house_slider.bg1 + .bg_box .bg1,
-.contBox03 .house_slider.bg2 + .bg_box .bg2,
-.contBox03 .house_slider.bg3 + .bg_box .bg3,
-.contBox03 .house_slider.bg4 + .bg_box .bg4 {
+
+.contBox03 .house_slider + .bg_box .on {
   opacity: 1;
 }
 
@@ -630,9 +628,6 @@
   }
   .motion3 .house_slider .swiper-slide:nth-child(3) .default {
     animation: mc1 0.5s ease 0.6s forwards;
-  }
-  .motion3 .house_slider .swiper-slide:nth-child(4) .default {
-    animation: mc1 0.5s ease 0.9s forwards;
   }
 }
 

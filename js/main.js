@@ -395,12 +395,27 @@ var mainEvent = {
           },
         },
         on: {
+          init: function() {
+            _this = $(this)[0].activeIndex;
+            
+          },
+
           slideChange: function () {
             _this = $(this)[0].activeIndex + 1;
-            $(".contBox03 .bg_box")
-              .attr("class", "bg_box")
-              .addClass("mbg" + _this);
-            console.log(_this);
+            $(".contBox03 .bg_box").attr("class", "bg_box").addClass("mbg" + _this);
+
+            if ($('#pc').length && _this > 1) {
+              $('.motion3 .house_slider .swiper-slide')
+              .eq(_this + 1)
+              .children('.default')
+              .css({
+                'animation': 'mc1 0.5s ease 0.3s forwards'
+              })
+            } else if ($('#mobile').length) {
+              $('.bg_box').children('.bg' + _this).addClass('on');
+              $('.bg_box').children('.bg' + _this).siblings().removeClass('on');
+            }
+            
           },
         },
       });
@@ -408,10 +423,14 @@ var mainEvent = {
       $(".house_slider .swiper-slide").hover(function () {
         _idx = $(this).index() + 1;
         $(this)
-          .closest(".house_slider")
-          .attr("class", "house_slider")
-          .addClass("bg" + _idx);
+        .closest(".house_slider")
+        .attr("class", "house_slider")
+        .addClass("bg" + _idx);
+
+        $('.bg_box').children('.bg' + _idx).addClass('on');
+        $('.bg_box').children('.bg' + _idx).siblings().removeClass('on');
       });
+
     });
   },
 

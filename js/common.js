@@ -283,26 +283,45 @@ var commonEvent = {
       popupClose = $(".pop_close"),
       body = document.querySelector("body");
 
-    list.each((index) => {
-      list
-        .eq(index)
-        .children("a")
-        .on("click", () => {
-          let data = list.eq(index).children("p").attr("data-process"),
-              title = list.eq(index).find("dl dt").text();
+    // list.each((index) => {
+    //   list
+    //     .eq(index)
+    //     .children("a")
+    //     .on("click", () => {
+    //       let data = list.eq(index).children("p").attr("data-process"),
+    //           title = list.eq(index).find("dl dt").text();
 
-          locate = list.eq(index).find("dl dd:first-of-type").text();
-          locate = locate.replace("위치", "");
+    //       locate = list.eq(index).find("dl dd:first-of-type").text();
+    //       locate = locate.replace("위치", "");
 
-          popupUI.find("dl dt").text(title);
-          popupUI.find("dl dd").text(locate);
+    //       popupUI.find("dl dt").text(title);
+    //       popupUI.find("dl dd").text(locate);
 
-          if (data >= 0 && data <= 2) {
-            return;
-          } else {
-            openProcessor();
-          }
-        });
+    //       if (data >= 0 && data <= 2) {
+    //         return;
+    //       } else {
+    //         openProcessor();
+    //       }
+    //     });
+    // });
+    
+    // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 290~304과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
+    $(document).on('click','.list > ul > li a', function(){
+	  const li = $(this).parents('li');
+        let data = li.children("p").attr("data-process"),
+        title = li.find("dl dt").text();
+              
+        locate = li.find("dl dd:first-of-type").text();
+        locate = locate.replace("위치", "");
+
+        popupUI.find("dl dt").text(title);
+        popupUI.find("dl dd").text(locate);
+
+        if (data >= 0 && data <= 2) {
+          return;
+        } else {
+          openProcessor();
+        }
     });
 
     popupUI.children("a").hover(
@@ -318,6 +337,11 @@ var commonEvent = {
 
     //공통 팝업코드
     $(".openPopup").on("click", () => {
+      openProcessor();
+    });
+    
+    // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 339~341과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
+    $(document).on("click",".openPopup", () => {
       openProcessor();
     });
 

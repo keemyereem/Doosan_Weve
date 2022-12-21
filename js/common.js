@@ -289,9 +289,9 @@ var commonEvent = {
         .children("a")
         .on("click", () => {
           let data = list.eq(index).children("p").attr("data-process"),
-            title = list.eq(index).find("dl dt").text();
-          locate = list.eq(index).find("dl dd:first-of-type").text();
+              title = list.eq(index).find("dl dt").text();
 
+          locate = list.eq(index).find("dl dd:first-of-type").text();
           locate = locate.replace("위치", "");
 
           popupUI.find("dl dt").text(title);

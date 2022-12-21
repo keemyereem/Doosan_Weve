@@ -826,10 +826,10 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .const_status .pop_tab ul li:not(:last-child) { border-right: 0; }
 .my_contract .contract_info .const_status .pop_tab_wrap .swiper-button { width: 30px; height: 30px; border: 1px solid #c2c2c2; border-radius: 50%; background-color: #fff; margin-top: 0; transform: translateY(-50%); }
 .my_contract .contract_info .const_status .pop_tab_wrap .swiper-button:hover { border-color: #005eb8; }
-.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-prev { background-image: url(../images/common/prev_6x9_g.png); background-size: 6px 9px; left: 0 }
-.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-prev:hover { background-image: url(../images/common/prev_6x9_b.png); background-size: 6px 9px; }
-.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-next { background-image: url(../images/common/next_6x9_g.png); background-size: 6px 9px; right: 0; }
-.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-next:hover { background-image: url(../images/common/next_6x9_b.png); background-size: 6px 9px; }
+.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-prev { background:#fff url(../images/common/prev_6x9_g.png)50% 50% no-repeat; background-size: 6px 9px; left: 0 }
+.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-prev:hover { background:#fff url(../images/common/prev_6x9_b.png)50% 50% no-repeat; background-size: 6px 9px; }
+.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-next { background:#fff url(../images/common/next_6x9_g.png)50% 50% no-repeat; background-size: 6px 9px; right: 0; }
+.my_contract .contract_info .const_status .pop_tab_wrap .swiper-button-next:hover { background:#fff url(../images/common/next_6x9_b.png)50% 50% no-repeat; background-size: 6px 9px; }
 .my_contract .contract_info .const_status .swiper-button-next.swiper-button-disabled, 
 .my_contract .contract_info .const_status .swiper-button-prev.swiper-button-disabled { opacity: 1; }
 

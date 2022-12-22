@@ -500,7 +500,7 @@
 	#mobile .estate .contents .estList ul li:hover { box-shadow: 10px 5px 12px 0px rgba(0, 0, 0, 0.21); }
 	#mobile .estate .contents .estList ul li p { margin: 28px 0 0 25px; width: 55px; height: 22px; line-height: 22px; font-size: 13px; }
 	#mobile .estate .contents .estList ul li dl { padding: 18px 25px 6px; }
-	#mobile .estate .contents .estList ul li dl dt { font-size: 19px; padding-bottom: 25px; line-height: 1.26; }
+	#mobile .estate .contents .estList ul li dl dt { font-size: 19px; padding-bottom: 25px; line-height: 1.26; height: 80px; }
 	#mobile .estate .contents .estList ul li dl dd { font-size: 13px; padding-left: 66px; padding-bottom: 10px; letter-spacing: -.32px; }
 	#mobile .estate .contents .estList ul li a { width: 45px; height: 45px; margin: 0 25px 24px 0; background: #f5f5f5 url(../images/estate/list_map_icon_m.png) no-repeat 50% 50%; background-size: 18px 16px; }
 	#mobile .estate .contents .estList ul li:hover a { background: #005eb8 url(../images/estate/list_map_icon_hover_m.png) no-repeat 50% 50%; background-size: 18px 16px; } 

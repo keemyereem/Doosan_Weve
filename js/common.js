@@ -307,21 +307,81 @@ var commonEvent = {
     
     // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 290~304과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
     $(document).on('click','.list > ul > li a', function(){
-	  const li = $(this).parents('li');
-        let data = li.children("p").attr("data-process"),
-        title = li.find("dl dt").text();
+	    const li = $(this).parents('li');
+      let data = li.children("p").attr("data-process"),
+      title = li.find("dl dt").text();
+            
+      locate = li.find("dl dd:first-of-type").text();
+      locate = locate.replace("위치", "");
+
+      popupUI.find("dl dt").text(title);
+      popupUI.find("dl dd").text(locate);
+
+      if (data >= 0 && data <= 2) {
+        return;
+      } else {
+        openProcessor();
+      }
+    });
+
+    // 카카오 지도 연동
+    $(document).on('click','.list > ul > li a', function(){
+      var searchKey = $(this).data('addr');
+      var markerTit = $(this).data('tit');
+      // 페이지 초기화
+      $('#kakaoMap').html('loading...');
+      $('[data-handler="btn-map-detail"]').attr('href','javascript:alert("잠시만 기다려주세요.")');
+      
+      $.ajax({
+        type : "get",
+        url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(searchKey),
+        headers: {'Authorization' : 'KakaoAK e907ed20e50441767ce164877793fe6d'},
+        success : function(data) {
+          if( data !=null ){
+            if( data.meta.total_count > 0 ){
+              addr_y = data.documents[0].y;
+              addr_x = data.documents[0].x;
               
-        locate = li.find("dl dd:first-of-type").text();
-        locate = locate.replace("위치", "");
+              // randering map
+                var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div 
+                    var coords = new kakao.maps.LatLng(addr_y, addr_x);
+                  mapOption = {
+                      center: coords,
+                      level: 3
+                  };
+                  
+                // 지도를 생성합니다    
+                var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-        popupUI.find("dl dt").text(title);
-        popupUI.find("dl dd").text(locate);
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
 
-        if (data >= 0 && data <= 2) {
-          return;
-        } else {
-          openProcessor();
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    /*  221222: 기획팀 요청으로 장소설명 삭제
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: '<div style="min-width:150px;text-align:center;padding:6px 2px;">'+markerTit+'</div>'
+                        });
+                        infowindow.open(map, marker);
+                    */
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                  $('[data-handler="btn-map-detail"]').attr('href','https://map.kakao.com/?map_type=TYPE_MAP&q='+ encodeURIComponent(searchKey) + '&urlLevel=2');
+            } else {
+              console.log(searchKey +"..............no data...............");	
+            }
+          } else {
+            console.log("..............no data...............");
+          }
+          
+        },
+        error : function(error) {
+          console.log('kakao map',error.responseText);
         }
+      });
     });
 
     popupUI.children("a").hover(
@@ -1408,7 +1468,10 @@ var datepicker = {
       ],
     });
 
-    $(window).load(() => {
+    $(document).ready(() => {
+      // 기존 datepikcer 삭제 (중복 방지)
+	    $('.popup .xdsoft_datetimepicker').remove();
+
       // jquery.datetimepicker.full.js 파일 1948줄 .book_tag 추가
       const dateSheet = $(".xdsoft_datetimepicker"),
         dateChildren = dateSheet.children("div"),

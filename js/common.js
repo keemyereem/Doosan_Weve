@@ -1466,7 +1466,10 @@ var datepicker = {
       ],
     });
 
-    $(window).load(() => {
+    $(document).ready(() => {
+      // 기존 datepikcer 삭제 (중복 방지)
+	    $('.popup .xdsoft_datetimepicker').remove();
+	    
       // jquery.datetimepicker.full.js 파일 1948줄 .book_tag 추가
       const dateSheet = $(".xdsoft_datetimepicker"),
         dateChildren = dateSheet.children("div"),

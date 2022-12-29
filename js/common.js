@@ -1236,7 +1236,7 @@ var estateEvent = {
   },
 
   estTab: () => {
-    $(".estate nav li a").on("click", function () {
+    $("#pc .estate nav li a").on("click", function () {
       $("header").addClass("indent");
     });
   },

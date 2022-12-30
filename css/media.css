@@ -979,7 +979,8 @@
 }
 
 @media screen and (max-width:369px) {
-	#mobile .contents .paging ul li {margin: 0 11px;}
+	#mobile .contents .paging ul { margin: 0 12px; }
+	#mobile .contents .paging ul li {margin: 0 9px;}
 }
 
 @media screen and (min-height:1100px) {

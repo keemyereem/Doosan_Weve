@@ -972,9 +972,14 @@
 }
 
 @media screen and (max-width:350px) {
+
 	#mobile footer .f_menu a:before { margin:0 3vw; }
 	#mobile .myweve .inquiry .section2 a,
 	#mobile .myweve .as_status .section2 a  { float: none; }
+}
+
+@media screen and (max-width:369px) {
+	#mobile .contents .paging ul li {margin: 0 11px;}
 }
 
 @media screen and (min-height:1100px) {

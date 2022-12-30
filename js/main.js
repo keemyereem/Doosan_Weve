@@ -179,9 +179,11 @@ var mainEvent = {
             $(".main_visual .swiper-pagination-bullet")
               .find("i")
               .animate({ width: "100%" }, 0);
-
-            // ########################## VIMEO 연동 시작입니다. (https://developer.vimeo.com/player/sdk/basics)
-            // ########################## 메인에 <script src="https://player.vimeo.com/api/player.js"></script> 추가가 필요합니다.
+              
+            /*
+            * VIMEO 연동 시작입니다. (https://developer.vimeo.com/player/sdk/basics)
+            * 메인에 <script src="https://player.vimeo.com/api/player.js"></script> 추가가 필요합니다.
+            */
             var vodPlayerDefaultOption = {
               /*
               width: '100%',
@@ -204,7 +206,6 @@ var mainEvent = {
             $(
               '[data-event-handler-id="swiperWrap"] [data-event-handler-id="swiperList"]'
             ).each(function (idx) {
-              // ########################## swiper에 동영상이 존재하는지에 따라 객체를 생성해줍니다
               var $swiperList = $(this);
               var isFirst = ~~$(this).hasClass("swiper-slide-active")
                 ? true
@@ -212,8 +213,9 @@ var mainEvent = {
 
               $vodWraper = $(this).find(
                 '[data-event-handler-id="swiperListVod"]'
-              ); // ##### 변수 앞에 $를 붙이는 경우는 그냥 제 개인적인 네이밍 슥봔 이구요. jquery select dom이 들어있는 경우 사용합니다.
+              );
               if ($vodWraper.length > 0) {
+                /*
                 // ########################## 썸네일 BG 처리
                 $.ajax({
                   url:
@@ -228,7 +230,6 @@ var mainEvent = {
                         data.thumbnail_url.replace("295x166", "1920") +
                         ")"
                     );
-
                     $swiperList.css("background-size", "cover");
                     $swiperList.css("background-repeat", "no-repeat");
                   },
@@ -236,10 +237,11 @@ var mainEvent = {
                     //console.log('실패 - ', xhr);
                   },
                 });
+                */
 
                 // ########################## 플레이어 생성
                 var vodId = "mainVisualVod_" + idx;
-                var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption); // ##### 기존 변수를 복사합니다 vodPlayerOption = vodPlayerDefaultOption로 정의하면 값 저장시 원본 값이 같이 변경되기 때문에 사용하지 않습니다.
+                var vodPlayerOption = Object.assign({}, vodPlayerDefaultOption);
 
                 // 첫슬라이드에 영상만 자동 재생 시켜주세요
                 if (isFirst == true) {
@@ -272,7 +274,6 @@ var mainEvent = {
 
                 arrVods.push(objVod);
               } else {
-                // ########################## Swiper 숫자와 맞추는게 개발에 편하기 때문에 vod가 없을 경우애도 배열은 채워줍니다.
                 arrVods.push(null);
               }
             });

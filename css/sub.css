@@ -730,16 +730,30 @@ body#brandstory.typeB { color: #222; }
 
 /* 마이위브(계약) - 권리의무승계 - 방문예약신청 */
 .my_contract .contract_info .succession .reservation_apply .sec_tit { font-weight: 400; margin-bottom: 15px; }
-.my_contract .contract_info .succession .reservation_apply .cont { display: flex; }
+.my_contract .contract_info .succession .reservation_apply .cont { display: flex; flex-wrap: wrap; }
 .my_contract .contract_info .succession .reservation_apply .cont ul:first-child { width: 61%; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li { display: flex; align-items: center; font-size: 18px; height: 60px; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li+li { margin-top: 20px; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li .tit { color: #222; font-weight: 400; width: 115px; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li p { color: #555; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row { max-width: 520px; }
-.my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input { height: 60px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input { height: 60px; padding-left: 40px; }
 .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input+label { display: block; width: 24px; height: 19px; background: url(../images/myweve/icon_cal_b.png); position: absolute; right: 40px; top: 20px; cursor: pointer; }
-.my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 80px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child { width: 100%; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:first-child { width: 61%; margin-top: 20px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row { max-width: 520px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row::after { right: 40px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row label,
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row select { padding: 0 40px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child { background: #f2f7fb; padding: 30px; display: block; height: auto; margin-top: 30px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .tit { width: 100%; margin-bottom: 15px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .tit i { color: #005eb8; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info { display: flex; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info:last-of-type { margin-top: 9px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info span { display: block; font-size: 13px; font-weight: 300; color: #fff; width: 70px; height: 26px; border-radius: 13px; background: #005eb8; line-height: 26px; text-align: center; flex-shrink: 0; margin-right: 13px; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info:last-of-type span { background: #00a5d7; }
+.my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info p { font-size: 14px; line-height: 26px; letter-spacing: -.35px; }
+.my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 60px; }
 .my_contract .contract_info .succession .reservation_apply .cont_box+ul li { font-size: 14px; color: #777; position: relative; padding-left: 15px; line-height: 1.71; }
 .my_contract .contract_info .succession .reservation_apply .cont_box+ul li span { position: absolute; top: 0; left: 0; }
 .my_contract .contract_info .succession .reservation_apply .checkbox_row { margin: 35px 0 0; }

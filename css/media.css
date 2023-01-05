@@ -760,14 +760,28 @@
 	#mobile .my_contract .contract_info .succession .reservation_list table tbody tr td a { display: block; width: 75px; height: 28px; margin: 10px auto 0; }
 
 	/* 마이위브(계약) - 권리의무승계 - 방문예약신청 */
+	#mobile .my_contract .contract_info .succession .reservation_apply .sec_tit { margin-bottom: 30px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont { flex-direction: column; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:first-child { width: 100%; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li { font-size: 14px; height: 40px; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li+li { margin-top: 10px; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .tit { width: 72px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul+ul { margin-top: 30px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li { font-size: 14px; height: auto; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li+li { margin-top: 30px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .tit { width: 72px; flex-shrink: 0; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row { max-width: 263px; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input { height: 40px; padding: 0 42px 0 25px; font-size: 13px; padding: 0 27px 0 10px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input { height: 40px; padding: 0 42px 0 25px; font-size: 13px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul li .input_row input+label { width: 17px; height: 15px; right: 25px; top: 12px; background-size: contain; background-repeat: no-repeat; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:first-child { width: 100%; margin-top: 0; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row { max-width: 100%; height: 45px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row::after { right: 32px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row label,
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row select { height: 45px; line-height: 45px; padding: 0 25px; font-size: 13px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child { padding: 25px 20px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .tit { width: 100%; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info { flex-direction: column; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info:last-of-type { margin-top: 12px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info span { font-size: 11px; width: 45px; height: 18px; border-radius: 9px; line-height: 18px; margin-right: 0; margin-bottom: 5px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info p { font-size: 12px; line-height: 1.58; }	
+	
 	#mobile .my_contract .contract_info .succession .reservation_apply .btn_line a { margin: 55px auto 0; }
 
 	#mobile .my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 40px; }

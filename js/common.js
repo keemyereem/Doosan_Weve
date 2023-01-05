@@ -1300,6 +1300,7 @@ var myWeveEvent = {
     this.subTab();
     this.const_popup();
     this.modEmail();
+    this.selLabelColor();
   },
   loginbtn: () => {
     $(".get_authenNumber").click(function () {
@@ -1491,6 +1492,12 @@ var myWeveEvent = {
         }
       });
     }
+  },
+
+  selLabelColor: () => {
+    $('.reservation_apply .cont > ul:last-child select').on('change', function() {      
+      $(this).siblings('label').css('color','#555');
+    });
   },
 };
 

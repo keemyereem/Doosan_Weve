@@ -362,9 +362,9 @@ var mainEvent = {
       let _bg;
       $("#pc .es_slider .swiper-slide").hover(
         function () {
-          _bg = $(this).attr("bg-type");
+          _bg = $(this).index() + 1;
           $(".es_slider").attr("class", "es_slider");
-          $(".es_slider").addClass(_bg);
+          $(".es_slider").addClass('bg' + _bg);
         },
         function () {
           $(".es_slider").attr("class", "es_slider");

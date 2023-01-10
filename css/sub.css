@@ -131,9 +131,12 @@ body#brandstory.typeB { color: #222; }
 .container { width: 100%; height: auto; }
 
 /* 리스트 & 상세페이지 */
-.total {font-size: 16px;color: #666;font-weight: 200;max-width: 1200px;margin: 0 auto;}
+.detail_pg,
+.weve_news { max-width: 1440px; }
+.total {font-size: 16px;color: #666;font-weight: 200;/* max-width: 1200px; */margin: 0 auto;}
 .total b {font-size: 18px;color: #000;font-weight: 300;font-family: 'Poppins';}
 .tb_box {position: relative;border-top: 2px solid #000;max-width: 1200px;margin: 20px auto 0;}
+.weve_news .tb_box { max-width: 100%; }
 .tb_box .tb_row {display: table;table-layout: fixed;width: 100%;}
 .tb_box .tb_row.row_body {border-bottom: 1px solid #e8e8e8;}
 .tb_box .tb_row>div {display: table-cell;height: 100px;line-height: 100px;vertical-align: middle;text-align: center;}
@@ -142,7 +145,7 @@ body#brandstory.typeB { color: #222; }
 .tb_box .tb_row.row_body .date {font-size: 16px;color: #666;}
 .tb_box .tb_row.none {display: none;}
 .tb_box .tb_row.null {font-size: 16px;color: #222;text-align: center;padding: 240px 0;}
-.tb_view {position: relative;margin-top: 10px;max-width: 1200px;margin: 0 auto;}
+.tb_view {position: relative;margin-top: 10px;/* max-width: 1200px; */margin: 0 auto;}
 .tb_view .tb_row.row_head {width: 100%;border-bottom: 1px solid #e8e8e8;}
 .tb_view .tb_row.row_head .tit {font-size: 40px;font-weight: 400;color: #222;}
 .tb_view .tb_row.row_head .date {font-size: 16px;font-weight: 200;color: #777;padding: 30px 0;}

@@ -850,13 +850,12 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .const_status .swiper-button-next.swiper-button-disabled, 
 .my_contract .contract_info .const_status .swiper-button-prev.swiper-button-disabled { opacity: 1; }
 
-.my_contract .contract_info .const_status .tab_con .progress_bar { width: 100%; max-width: 820px; height: 45px; background: #f0f0f0; margin: 0 auto 40px; }
+.my_contract .contract_info .const_status .tab_con .progress_bar { width: 100%; max-width: 820px; height: 45px; margin: 0 auto 40px; position: relative; }
 .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; width: 0; height: 100%; color: #fff; border-radius: 0 22.5px 22.5px 0; background: linear-gradient(90deg, #005eb8 0%, #00a5d7 50%, #00ad83 100%); transition: width .5s .5s ease-in-out; }
 .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .date { font-size: 15px; opacity: 0; }
 .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .num { font-family: 'Poppins'; font-size: 20px; font-weight: 400; opacity: 0; }
 /* .my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar { width: 72%; } */
-.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar .date,
-.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar .num { opacity: 1; transition: opacity .3s 1s ease-in-out; }
+.my_contract .contract_info .popup.on .const_status .tab_con .progress_bar .current_bar .num { opacity: 1; transition: opacity .3s 1s ease-in-out; position: absolute; right: 10px; color: #222222; }
 
 .my_contract .contract_info .const_status .tab_contents { position: relative; }
 .my_contract .contract_info .const_status .imgswiper_wrap { width: 100%; position: relative; }

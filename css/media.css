@@ -777,11 +777,12 @@
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child .select_row select { height: 45px; line-height: 45px; padding: 0 25px; font-size: 13px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child { padding: 25px 20px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .tit { width: 100%; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .tit span { font-size: 12px; display: block; padding-left: 0px; padding-top: 5px; line-height: 1.4; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info { flex-direction: column; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info:last-of-type { margin-top: 12px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info span { font-size: 11px; width: 45px; height: 18px; border-radius: 9px; line-height: 18px; margin-right: 0; margin-bottom: 5px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info p { font-size: 12px; line-height: 1.58; }	
-	
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_caution { font-size: 11px; padding-top: 10px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .btn_line a { margin: 55px auto 0; }
 
 	#mobile .my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 40px; }

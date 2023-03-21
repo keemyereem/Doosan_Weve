@@ -1047,6 +1047,7 @@ var estateEvent = {
       spaceBetween: 0,
       speed: 500,
       observer: true,
+      touchRatio: 0,
       observeParents: true,
       centeredSlides: true,
       navigation: {

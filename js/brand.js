@@ -49,6 +49,7 @@ var commonEvent = {
     this.subUI();
     this.gsap();
     this.section3();
+    this.carousel();
   },
 
   headerEvent: () => {
@@ -391,6 +392,99 @@ var commonEvent = {
             $(".section3").find("img").eq(i).css({ "z-index": "-1" });
           }
         );
+    });
+  },
+
+
+  carousel: () => {
+    //Mouse-drag
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+    
+      // when the mouse is clicked
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        cancelMomentumTracking();
+      });
+    
+      // if the mouse cursor goes off the slide
+      carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+    
+      // after mouse click is released
+      carousel.addEventListener('mouseup', (e) => {
+        isDown = false;
+        beginMomentumTracking();
+
+        // ***드래그가 끝난 후 마우스를 떼면 클릭방지 클래스를 삭제.
+        $('.carousel-item').removeClass('preventClick');
+      });
+    
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - carousel.offsetLeft;
+          const walk = (x - startX) * 1;
+          var prevScrollLeft = carousel.scrollLeft;
+          carousel.scrollLeft = scrollLeft - walk;
+          velX = carousel.scrollLeft - prevScrollLeft;
+
+          // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
+          $('.carousel-item').addClass('preventClick');
+      });
+    
+      // Momentum
+      let velX = 0;
+      let momentumID;
+    
+      // disable mouse wheel
+      carousel.addEventListener('wheel', (e) => {
+        cancelMomentumTracking();
+      });
+    
+      function beginMomentumTracking() {
+        cancelMomentumTracking();
+        momentumID = requestAnimationFrame(momentumLoop);
+      }
+    
+      function cancelMomentumTracking() {
+        cancelAnimationFrame(momentumID);
+      }
+    
+      function momentumLoop() {
+        carousel.scrollLeft += velX;
+        velX *= 0.94;
+        if (Math.abs(velX) > 0.5) {
+          momentumID = requestAnimationFrame(momentumLoop);
+        }
+      }
+    
+      let carouselChildren = document.querySelectorAll('.carousel-item');
+      carouselChildren.forEach(carouselChild => {
+        // add the condition to check if the carousel is being dragged
+        carouselChild.addEventListener('click', function(event) {
+          event.stopPropagation();
+          event.preventDefault();
+    
+          let lateTransition = $(this).find('li').length;
+          if (!$(this).hasClass('on')) {
+            for (var i = 1; i <= lateTransition; i++) {
+              $(this).find('li').eq(i).css('transition-delay', i * 0.06 + 's');
+            }
+          } else {
+            for (var i = lateTransition; i >= 1; i--) {
+              $(this).find('li').eq(i).css('transition-delay', 0.3 / i + 's');
+            }
+          }
+          $(this).toggleClass('on');
+          $('.carousel-item').not($(this)).removeClass('on');
+        });
+      });
     });
   },
 };

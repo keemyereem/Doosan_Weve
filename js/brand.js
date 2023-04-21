@@ -49,7 +49,6 @@ var commonEvent = {
     this.subUI();
     this.gsap();
     this.section3();
-    this.carousel();
   },
 
   headerEvent: () => {
@@ -247,7 +246,7 @@ var commonEvent = {
   gsap: () => {
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
-      $(".section2").css("left", 0 - $(this).scrollLeft());
+      $("#brandstory .section2").css("left", 0 - $(this).scrollLeft());
     });
 
     // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
@@ -273,7 +272,7 @@ var commonEvent = {
 
     ScrollTrigger.create({
       animation: tl1,
-      trigger: ".section2",
+      trigger: "#brandstory .section2",
       pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
       pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
       start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
@@ -395,96 +394,4 @@ var commonEvent = {
     });
   },
 
-
-  carousel: () => {
-    //Mouse-drag
-    document.querySelectorAll('.carousel').forEach(carousel => {
-      let isDown = false;
-      let startX;
-      let scrollLeft;
-    
-      // when the mouse is clicked
-      carousel.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
-        cancelMomentumTracking();
-      });
-    
-      // if the mouse cursor goes off the slide
-      carousel.addEventListener('mouseleave', () => {
-        isDown = false;
-      });
-    
-      // after mouse click is released
-      carousel.addEventListener('mouseup', (e) => {
-        isDown = false;
-        beginMomentumTracking();
-
-        // ***드래그가 끝난 후 마우스를 떼면 클릭방지 클래스를 삭제.
-        $('.carousel-item').removeClass('preventClick');
-      });
-    
-      carousel.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - carousel.offsetLeft;
-          const walk = (x - startX) * 1;
-          var prevScrollLeft = carousel.scrollLeft;
-          carousel.scrollLeft = scrollLeft - walk;
-          velX = carousel.scrollLeft - prevScrollLeft;
-
-          // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
-          $('.carousel-item').addClass('preventClick');
-      });
-    
-      // Momentum
-      let velX = 0;
-      let momentumID;
-    
-      // disable mouse wheel
-      carousel.addEventListener('wheel', (e) => {
-        cancelMomentumTracking();
-      });
-    
-      function beginMomentumTracking() {
-        cancelMomentumTracking();
-        momentumID = requestAnimationFrame(momentumLoop);
-      }
-    
-      function cancelMomentumTracking() {
-        cancelAnimationFrame(momentumID);
-      }
-    
-      function momentumLoop() {
-        carousel.scrollLeft += velX;
-        velX *= 0.94;
-        if (Math.abs(velX) > 0.5) {
-          momentumID = requestAnimationFrame(momentumLoop);
-        }
-      }
-    
-      let carouselChildren = document.querySelectorAll('.carousel-item');
-      carouselChildren.forEach(carouselChild => {
-        // add the condition to check if the carousel is being dragged
-        carouselChild.addEventListener('click', function(event) {
-          event.stopPropagation();
-          event.preventDefault();
-    
-          let lateTransition = $(this).find('li').length;
-          if (!$(this).hasClass('on')) {
-            for (var i = 1; i <= lateTransition; i++) {
-              $(this).find('li').eq(i).css('transition-delay', i * 0.06 + 's');
-            }
-          } else {
-            for (var i = lateTransition; i >= 1; i--) {
-              $(this).find('li').eq(i).css('transition-delay', 0.3 / i + 's');
-            }
-          }
-          $(this).toggleClass('on');
-          $('.carousel-item').not($(this)).removeClass('on');
-        });
-      });
-    });
-  },
 };

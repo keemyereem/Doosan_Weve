@@ -42,3 +42,8 @@
         transform: scale(1);
     }
 }
+
+@keyframes fadeUp {
+    0% { transform: translateY(5rem); opacity: 0;}
+    100% { transform: translateY(0); opacity: 1; }
+}

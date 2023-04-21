@@ -47,7 +47,7 @@
 	.img_m {display: block;}
 	.indentUp { transform: translateY(-55px); }
 	#mobile select { background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13' height='7'%3e%3cpath fill-rule='evenodd' fill='%23FFF' d='M0 6.999V6h.999V4.999h1v-1h1V3h1V2h1V.999h1V0H7v.999h1V2h1v1h1v.999h1v1h1V6h1v.999H0Z'/%3e%3c/svg%3e") calc(100% - 20px) 50% no-repeat; }
-
+  #mobile body{ -webkit-text-size-adjust: 100%; }
 
 	#mobile .contents { margin: 100px auto 150px; }
 
@@ -453,12 +453,15 @@
 	#mobile .concept5 .section2>h2 { font-size: 31px; letter-spacing: -2.325px; transform: translateY(0); opacity: 1; }
 	#mobile .concept5 .section2.active>p,
 	#mobile .concept5 .section2.active>h2 { animation: none; }
-	#mobile .concept5 .section2>h2>span { border-radius: 5px; font-size: 21px; padding: 2px 8px 4px 6px; margin-top: 5px; }
+	#mobile .concept5 .section2>h2>span { border-radius: 5px; font-size: 21px; padding: 2px 8px 3px 6px; margin-top: 5px; }
 	#mobile .concept5 .section2 .wrap { margin-top: 60px; }
 	#mobile .concept5 .section2 img { box-shadow: 1px 3px 9.8px 0.2px rgba(33, 44, 55, 0.4); opacity: 1; transition: none; } 
-	#mobile .concept5 .section3 { height: 418px; background: url(../images/brand/5con_s3_bg_m.jpg); background-size: contain; margin-top: -80px; padding-top: 210px; }
-	#mobile .concept5 .section3>h2 { font-size: 35px; letter-spacing: 3.5px; }
-	#mobile .concept5 .section3>p { font-size: 14px; line-height: 1.78; letter-spacing: -0.35px; margin-top: 15px; }
+	#mobile .concept5 .section3 { height: 418px; background: url(../images/brand/5con_s3_bg_m.jpg); background-size: contain; margin-top: -80px; }
+	#mobile .concept5 .section3 .wrap { border: 0; padding-top: 210px; }
+	#mobile .concept5 .section3 .wrap .scroll { height: 80px; top: 80px; }
+	#mobile .concept5 .section3 .wrap .scroll .bar { height: 30px; }
+	#mobile .concept5 .section3 .wrap>h2 { font-size: 35px; letter-spacing: 3.5px; }
+	#mobile .concept5 .section3 .wrap>p { font-size: 14px; line-height: 1.78; letter-spacing: -0.35px; margin-top: 15px; }
 
 	#mobile .concept5 .section4 { padding: 40px 20px 60px; height: auto; }
 	#mobile .concept5 .section4 .wrap { display: block; }
@@ -481,6 +484,7 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .txt { font-size: 13px; letter-spacing: -0.65px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .mob_icon_tab { display: block; height: 74px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .mob_icon_tab>ul { width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; }
+	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .mob_icon_tab>ul>li { background-repeat: no-repeat; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont01 .mob_icon_tab>ul>li:nth-child(1) { width: 20px; height: 32.5px; background-image: url(../images/brand/5con_have_icon01.png); background-size: contain; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont01 .mob_icon_tab>ul>li:nth-child(2) { width: 28px; height: 19px; background-image: url(../images/brand/5con_have_icon02.png); background-size: contain; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont01 .mob_icon_tab>ul>li:nth-child(3) { width: 27px; height: 27px; background-image: url(../images/brand/5con_have_icon03.png); background-size: contain; }
@@ -558,17 +562,18 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont_wrap { width: 100%; height: auto; margin-top: 20px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont { position: relative; border-radius: 2.6px; }
 	
-	#mobile .concept5 .section5 { background: #f7f6f2 url(../images/brand/5con_s5_bg_m.png); background-size: contain; padding: 60px 0 100px; }
-	#mobile .concept5 .section5>h2 { font-size: 35px; letter-spacing: 3.5px; }
-	#mobile .concept5 .section5>p { font-size: 14px; line-height: 1.78; letter-spacing: -0.35px; margin-top: 20px; }
-	#mobile .concept5 .section5 .carousel { background: #c8bfad url(../images/brand/5con_s5_bg02_m.png) repeat; background-size: contain; margin-top: 70px; box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
+	#mobile .concept5 .section5 { background: #f7f6f2 url(../images/brand/5con_s5_bg_m.png); background-size: contain; padding-bottom: 100px; }
+	#mobile .concept5 .section5>.wrap { border: 0; padding: 60px 0 55px; }
+	#mobile .concept5 .section5>.wrap>h2 { font-size: 35px; letter-spacing: 3.5px; }
+	#mobile .concept5 .section5>.wrap>.txt { font-size: 14px; line-height: 1.78; letter-spacing: -0.35px; margin-top: 20px; }
+	#mobile .concept5 .section5 .carousel { background: #c8bfad url(../images/brand/5con_s5_bg02_m.png) repeat; background-size: contain;box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
 	#mobile .concept5 .section5 .carousel::-webkit-scrollbar { height: 4px; }
 	#mobile .concept5 .section5 .carousel::-webkit-scrollbar-thumb { border-radius: 2px; }
-	#mobile .concept5 .section5 .carousel .carousel-item { width: 180px; margin: 0 12.5px; }
+	#mobile .concept5 .section5 .carousel .carousel-item { max-width: 180px; margin: 0 12.5px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul { padding: 30px 0; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li { width: 182px; height: 312px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li + li { margin-left: 10px; }
-	#mobile .concept5 .section5 .carousel .carousel-item.on { padding: 0 25px; width: auto; }
+	#mobile .concept5 .section5 .carousel .carousel-item.on { max-width: 9000px; padding: 0 25px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .sub { font-size: 11px; letter-spacing: -0.825px; padding-top: 43px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit { margin: 15px auto 20px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit span { font-size: 22px; line-height: 1.5; }

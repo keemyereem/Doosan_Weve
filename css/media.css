@@ -18,7 +18,7 @@
 	#mobile .contBox03.motion3 .house_slider .swiper-slide:nth-child(3) .default {animation:mc1 1s ease .6s forwards;}
 	#mobile .contBox03.motion3 .house_slider .swiper-slide:nth-child(4) .default {animation:mc1 1s ease .9s forwards;}
 
-    #mobile .contBox04 .noti_list li:before,
+  #mobile .contBox04 .noti_list li:before,
 	#mobile .contBox04 .noti_list li:after {content:""; position:absolute; background:#005eb8; width:0; height:1px; transition:all .5s;}
 	#mobile .contBox04 .noti_list li:before {top:-1px; left:0;}
 	#mobile .contBox04 .noti_list li:after {bottom:-1px; right:0;}

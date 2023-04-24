@@ -1799,7 +1799,7 @@ var weve5Concept = {
   textAnimate: () => {
     $(window).scroll(function(){
       const ss2 = $(".concept5 .section2").offset().top - 500,
-      ss3 = $(".concept5 .section3").offset().top - 100,
+      ss3 = $(".concept5 .section3").offset().top - 300,
       ss4 = $(".concept5 .section4").offset().top - 500,
       ss5 = $(".concept5 .section5").offset().top - 500,
       st = $(window).scrollTop();

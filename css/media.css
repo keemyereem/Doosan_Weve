@@ -566,7 +566,7 @@
 	#mobile .concept5 .section5>.wrap { border: 0; padding: 60px 0 55px; }
 	#mobile .concept5 .section5>.wrap>h2 { font-size: 35px; letter-spacing: 3.5px; }
 	#mobile .concept5 .section5>.wrap>.txt { font-size: 14px; line-height: 1.78; letter-spacing: -0.35px; margin-top: 20px; }
-	#mobile .concept5 .section5 .carousel { background: #c8bfad url(../images/brand/5con_s5_bg02_m.png) repeat; background-size: contain;box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
+	#mobile .concept5 .section5 .carousel { justify-content: flex-start; background: #c8bfad url(../images/brand/5con_s5_bg02_m.png) repeat; background-size: contain;box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
 	#mobile .concept5 .section5 .carousel::-webkit-scrollbar { height: 4px; }
 	#mobile .concept5 .section5 .carousel::-webkit-scrollbar-thumb { border-radius: 2px; }
 	#mobile .concept5 .section5 .carousel .carousel-item { max-width: 180px; margin: 0 12.5px; }

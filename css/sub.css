@@ -478,9 +478,9 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section2.active>.txt { animation: .3s fadeUp ease; animation-fill-mode: forwards; }
 .concept5 .section2.active>h2 { animation: .3s fadeUp .3s ease; animation-fill-mode: forwards; }
 .concept5 .section2>h2>span { display: inline-block; background: #0c0662; text-align: center; letter-spacing: 0; border-radius: 10px; font-size: 42px; color: #fff; vertical-align: top; padding: 3px 15px 7px; margin-top: 8px; }
-.concept5 .section2 .wrap { margin-top: 95px; max-width: 1760px; }
-.concept5 .section2 img { box-shadow: 1px 2px 7.84px 0.16px rgba(33, 44, 55, 0.4); opacity: 0; transition: opacity .5s .6s; position: relative; z-index: 1; } 
-.concept5 .section2.active img { opacity: 1; }
+.concept5 .section2 .wrap { margin-top: 95px; max-width: 1760px; overflow: hidden; }
+.concept5 .section2 img { box-shadow: 1px 2px 7.84px 0.16px rgba(33, 44, 55, 0.4); transform: scale(1.2); transition: transform 1.5s; position: relative; z-index: 1; } 
+.concept5 .section2.active img { transform: scale(1); }
 .concept5 .section3 { height: 763px; background: url(../images/brand/5con_s3_bg.png); margin-top: -225px; }
 .concept5 .section3 .wrap { height: 100%; border-left: 1px solid #337ec6; border-right: 1px solid #337ec6; padding-top: 440px; position: relative; }
 .concept5 .section3 .wrap .scroll { width: 1px; height: 160px; background: rgba(255,255,255,.5); position: absolute; top: 225px; left: 50%; overflow: hidden; }
@@ -570,34 +570,39 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section5>.wrap>h2 span { color: #826b3f; }
 .concept5 .section5>.wrap>.txt { font-size: 22px; color: #3a3632; line-height: 1.81; text-align: center; letter-spacing: -0.55px; margin-top: 30px; transform: translateY(5rem); opacity: 0; }
 .concept5 .section5.active>.wrap>.txt { animation: .3s fadeUp .3s ease; animation-fill-mode: forwards; }
-.concept5 .section5 .carousel { display: flex; /* justify-content: center; */ overflow-x: auto; cursor: grab; /* width: 100%; */ background: #c8bfad url(../images/brand/5con_s5_bg02.png) repeat 0 0; box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
+.concept5 .section5 .carousel { display: flex; justify-content: center; overflow-x: auto; cursor: grab; /* width: 100%; */ background: #c8bfad url(../images/brand/5con_s5_bg02.png) repeat 0 0; box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
 .concept5 .section5 .carousel:active { cursor: grabbing; }
 .concept5 .section5 .carousel::-webkit-scrollbar { width: 100%; height: 8px; }
 .concept5 .section5 .carousel::-webkit-scrollbar-thumb { background: #3a3632; border-radius: 3px; }
 .concept5 .section5 .carousel::-webkit-scrollbar-track { background: #fff; }
-.concept5 .section5 .carousel .carousel-item { width:auto; max-width: 270px; transition: all cubic-bezier(0.3, 0.01, 0.64, 0.99) 0.6s; overflow: hidden; flex-shrink: 0; margin: 0 25px; }
+.concept5 .section5 .carousel .carousel-item { width:auto; max-width: 280px; transition: all cubic-bezier(0.3, 0.01, 0.64, 0.99) 0.6s; overflow: hidden; flex-shrink: 0; margin: 0 25px; }
 .concept5 .section5 .carousel .carousel-item>ul { display: flex; position: relative; padding: 60px 0 68px; }
 .concept5 .section5 .carousel .carousel-item>ul>li { flex-basis: auto; flex-shrink: 0; width: 280px; height: 480px; }
 .concept5 .section5 .carousel .carousel-item>ul>li + li { margin-left: 20px; transform: scaleX(0); transform-origin: left; transition: all cubic-bezier(0.3, 0.01, 0.64, 0.99) 0.3s; opacity: 0; }
 .concept5 .section5 .carousel .carousel-item.on { max-width: 9000px; background: #fcfcfa; border: 1px solid #3a3632; width: auto; padding: 0 40px; }
 .concept5 .section5 .carousel .carousel-item.on>ul>li { transform: scaleX(1); opacity: 1; }
 .concept5 .section5 .carousel .carousel-item.preventClick { pointer-events: none; }
-.concept5 .section5 .carousel .carousel-item>ul>li.desc { background: #3a3632; }
+.concept5 .section5 .carousel .carousel-item>ul>li.desc { background: #3a3632; position: relative; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .sub { font-size: 18px; color: #fff; text-align: center; letter-spacing: -1.35px; padding-top: 70px; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit { text-align: center; margin: 30px auto; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit span { display: inline-block; font-family: 'Poppins'; font-size: 34px; font-weight: 500; line-height: 1.5; color: #e9d5b1; position: relative; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit span::after { content:''; display: inline-block; width: 100%; height: 2px; background: #e9d5b1; position: absolute; left: 0; bottom: 0; transition: width .3s; }
-.concept5 .section5 .carousel .carousel-item.on>ul>li.desc { position: relative; }
-.concept5 .section5 .carousel .carousel-item.on>ul>li.desc .bd { position: absolute; background: #e9d5b1; }
-.concept5 .section5 .carousel .carousel-item:nth-of-type(2n-1).on>ul>li.desc .bd { background: #c3e1ed; }
+.concept5 .section5 .carousel .carousel-item>ul>li.desc .bd { position: absolute; background: #e9d5b1; }
+.concept5 .section5 .carousel .carousel-item:nth-of-type(2n-1)>ul>li.desc .bd { background: #c3e1ed; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdt { width: 0; height: 6px; top: 0; left: 0; transition: width .3s; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdb { width: 0; height: 6px; bottom: 0; right: 0; transition: width .3s; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdl { width: 6px; height: 0; top: 0; left: 0; transition: height .3s; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdr { width: 6px; height: 0; bottom: 0; right: 0; transition: height .3s; }
+
 .concept5 .section5 .carousel .carousel-item.on>ul>li.desc .bdt,
 .concept5 .section5 .carousel .carousel-item.on>ul>li.desc .bdb { width: 100%; }
 .concept5 .section5 .carousel .carousel-item.on>ul>li.desc .bdl,
 .concept5 .section5 .carousel .carousel-item.on>ul>li.desc .bdr { height: 100%; }
+
+.concept5 .section5 .carousel .carousel-item>ul>li.desc:hover .bdt,
+.concept5 .section5 .carousel .carousel-item>ul>li.desc:hover .bdb { width: 100%; }
+.concept5 .section5 .carousel .carousel-item>ul>li.desc:hover .bdl,
+.concept5 .section5 .carousel .carousel-item>ul>li.desc:hover .bdr { height: 100%; }
 
 .concept5 .section5 .carousel .carousel-item.on>ul>li.desc .tit span::after { width: 0; }
 .concept5 .section5 .carousel .carousel-item:nth-of-type(2n-1)>ul>li.desc .tit span { color: #c3e1ed; }

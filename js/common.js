@@ -1701,12 +1701,13 @@ var weve5Concept = {
           $(this).toggleClass('on');
           $('.carousel-item').not($(this)).removeClass('on');
 
-          // if($('.carousel-item').hasClass('on')){
-          //   $('.carousel').css('justify-content','initial');
-          // }else {
-          //   $('.carousel').css('justify-content','center');
-          // }
+          if($('#pc .carousel-item').hasClass('on')){
+            $('#pc .carousel').css('justify-content','initial');
+          }else {
+            $('#pc .carousel').css('justify-content','center');
+          }
         });
+
       });
     });
 
@@ -1740,6 +1741,10 @@ var weve5Concept = {
       //   tsMove = Math.floor(tabButton.eq(tbIndex).next().position().left);
       //   tabContainer.animate({ scrollLeft: tsMove }, 200);
       // }
+    })
+
+    $('.carousel-item>ul>.desc').on('mouseenter', function() {
+      $(this).addClass('on');
     })
 
   },

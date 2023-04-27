@@ -509,12 +509,16 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tit { font-size: 30px; font-weight: 400; color: #000; letter-spacing: -1.5px; margin-top: 20px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .txt { font-size: 20px; font-weight: 100; color: #777; letter-spacing: -1px; margin-top: 10px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .mob_icon_tab { display: none; }
-.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul { display: flex; flex-wrap: wrap; margin-top: 35px; }
+.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination { position: absolute; bottom: -20px; left: 100px; display: flex; z-index: 1; }
+.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination>span { display: block; width: 14px; height: 14px; margin: 0 5px; background: #e8e8e8; border-radius: 50%; box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.15) inset; cursor: pointer; }
+.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination>span.active { background: #005eb8; }
+.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul { display: flex; flex-wrap: wrap; margin-top: 40px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li { width: 300px; height: 136px; border: 1px solid #e8e8e8; border-radius: 14px; display: flex; align-items: center; margin-bottom: 20px; cursor: pointer; transition: box-shadow .2s; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:hover,
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li.on { background: #f5f9fc; box-shadow: 1px 2px 5px 0px rgba(8, 35, 60, 0.4); border: 0; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(2n-1) { margin-right: 20px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(n+5):nth-child(-n+6) { margin-bottom: 0; }
+.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(n+7):nth-child(-n+8) { display: none; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .icon { width: 110px; height: 100%; background-repeat: no-repeat; background-position: 50% 50%; }
 .concept5 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con_have_icon01.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con_have_icon02.png); }
@@ -527,11 +531,15 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con_live_icon04.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con_live_icon05.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con_live_icon06.png); }
+.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(7) .icon { background-image: url(../images/brand/5con_live_icon07.png); }
+.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con_live_icon08.png); }
+.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con_live_icon08.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con_save_icon01.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con_save_icon02.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con_save_icon03.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con_save_icon04.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con_save_icon05.png); }
+.concept5 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con_save_icon06.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con_solve_icon01.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con_solve_icon02.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con_solve_icon03.png); }

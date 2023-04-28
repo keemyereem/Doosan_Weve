@@ -246,7 +246,7 @@ var commonEvent = {
   gsap: () => {
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
-      $(".section2").css("left", 0 - $(this).scrollLeft());
+      $("#brandstory .section2").css("left", 0 - $(this).scrollLeft());
     });
 
     // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
@@ -272,7 +272,7 @@ var commonEvent = {
 
     ScrollTrigger.create({
       animation: tl1,
-      trigger: ".section2",
+      trigger: "#brandstory .section2",
       pin: true, // 특정 element가 고정되도록 만들어조는 속성/ true시 트리거가 고정됨/ '.selector' 입력 시 특정 엘리먼트가 고정됨
       pinSpacing: true, // 고정되는 엘리먼트 아래에 padding을 줘서 스크롤이 끝난 후 다음 엘리먼트가 이어서 보일 수 있도록 만들어줌/ "margin"으로 입력하면 padding대신 margin을 준다.
       start: "0% 0%", // 첫번째 : trigger 지정태그 기준 애니메이션 시작 및 끝 지점/ 두번째 : 스크롤 트리거 위치
@@ -393,4 +393,5 @@ var commonEvent = {
         );
     });
   },
+
 };

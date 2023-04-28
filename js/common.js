@@ -1605,6 +1605,261 @@ var datepicker = {
   },
 };
 
+var weve5Concept = {
+  init: function () {
+    this.carousel();
+    this.tabContent();
+    this.textAnimate();
+  },
+  carousel: () => {
+    //Mouse-drag
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+    
+      // when the mouse is clicked
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        cancelMomentumTracking();
+      });
+    
+      // if the mouse cursor goes off the slide
+      carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+    
+      // after mouse click is released
+      carousel.addEventListener('mouseup', (e) => {
+        isDown = false;
+        beginMomentumTracking();
+
+        // ***드래그가 끝난 후 마우스를 떼면 클릭방지 클래스를 삭제.
+        $('.carousel-item').removeClass('preventClick');
+      });
+    
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - carousel.offsetLeft;
+          const walk = (x - startX) * 1;
+          var prevScrollLeft = carousel.scrollLeft;
+          carousel.scrollLeft = scrollLeft - walk;
+          velX = carousel.scrollLeft - prevScrollLeft;
+          console.log('e.pageX'+x);
+          // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
+          $('.carousel-item').addClass('preventClick');
+      });
+    
+      // Momentum
+      let velX = 0;
+      let momentumID;
+    
+      // disable mouse wheel
+      carousel.addEventListener('wheel', (e) => {
+        cancelMomentumTracking();
+      });
+    
+      function beginMomentumTracking() {
+        cancelMomentumTracking();
+        momentumID = requestAnimationFrame(momentumLoop);
+      }
+    
+      function cancelMomentumTracking() {
+        cancelAnimationFrame(momentumID);
+      }
+    
+      function momentumLoop() {
+        carousel.scrollLeft += velX;
+        velX *= 0.9;
+        
+        if (Math.abs(velX) > 0.5) {
+          momentumID = requestAnimationFrame(momentumLoop);
+        }
+      }
+    
+      let carouselChildren = document.querySelectorAll('.carousel-item');
+      carouselChildren.forEach(carouselChild => {
+        // add the condition to check if the carousel is being dragged
+        carouselChild.addEventListener('click', function(event) {
+          event.stopPropagation();
+          event.preventDefault();
+        
+    
+          let lateTransition = $(this).find('li').length;
+          if (!$(this).hasClass('on')) {
+            for (var i = 1; i <= lateTransition; i++) {
+              $(this).find('li').eq(i).css('transition-delay', i * 0.06 + 's');
+            }
+          } else {
+            for (var i = lateTransition; i >= 1; i--) {
+              $(this).find('li').eq(i).css('transition-delay', 0.3 / i + 's');
+            }
+          }
+          $(this).toggleClass('on');
+          $('.carousel-item').not($(this)).removeClass('on');
+
+          if($('#pc .carousel-item').hasClass('on')){
+            $('#pc .carousel').css('justify-content','initial');
+          }else {
+            $('#pc .carousel').css('justify-content','center');
+          }
+        });
+
+      });
+    });
+
+    $('.carousel-item').on('click', function() {
+      
+      let cWidth = $(this).find('.desc').outerWidth(),
+          cMargin = $(this).css('margin-left').replace(/[^-\d\.]/g, ''),      
+          cIndex = $(this).index() + 1;
+
+      if ($(this).hasClass("on")) {
+        $('.carousel').animate({ scrollLeft: (cWidth + (cMargin * 2)) * cIndex - cWidth}, 500);
+      }
+      
+
+      // if ($(this).hasClass("prev")) {
+      //   tsMove = Math.floor(tabButton.eq(tbIndex).position().left);
+
+      //   tabContainer.animate({ scrollLeft: tsMove }, 200);
+      // } else {
+      //   tsmoveTrigger = Math.abs(tabBox.position().left);
+
+      //   if (
+      //     Math.ceil(tsmoveTrigger) ==
+      //     Math.floor(tabButton.eq(tbIndex).next().position().left)
+      //   ) {
+      //     tbIndex = tbIndex + 1;
+      //   } else {
+      //     tbIndex = tbIndex;
+      //   }
+
+      //   tsMove = Math.floor(tabButton.eq(tbIndex).next().position().left);
+      //   tabContainer.animate({ scrollLeft: tsMove }, 200);
+      // }
+    })
+
+    $('.carousel-item>ul>.desc').on('mouseenter', function() {
+      $(this).addClass('on'); 
+    })
+
+  },
+
+  tabContent: () => {
+    //메인 탭
+    $('.concept5 .s4_tab>ul>li').on('click',function(){
+      $('.concept5 .s4_tab>ul>li').removeClass('active');
+      $(this).addClass('active');
+
+      var idx = $(this).index()+1;
+      $('.s4_cont').removeClass('active');
+      $('.s4_cont0'+idx).addClass('active');
+      $('.img_cont').removeClass('on');
+      $('.img_cont00').addClass('on');
+      $('.sub_tab>ul>li').removeClass('on');
+
+      if($('#pc').length){
+        $('.concept5 .sub_tab_pagination>span').removeClass('active');
+        $('.concept5 .sub_tab_pagination>span').eq(0).addClass('active');
+        $('.s4_cont02 .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
+        $('.s4_cont02 .sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','none');
+      }else {
+        $('.mob_icon_tab>ul>li').removeClass('on');
+      }
+    });
+    //서브 탭
+    $('.concept5 .sub_tab>ul>li').on('mouseover',function(){
+      $(this).addClass('on');
+      $(this).siblings().removeClass('on');
+
+      var idx2 = $(this).index()+1;
+      $('.img_cont').removeClass('on');
+      $('.img_cont0'+idx2).addClass('on');
+      $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+      $(".concept5 .mob_icon_tab>ul>li:nth-child("+idx2+")").addClass('on');
+
+      //모바일 아이콘 해당 아이콘으로 스크롤 이동
+      $('.s4_cont02 .mob_icon_tab>ul').each(function (){
+        var _width = $(this).width(),
+            _length = $(this).children('li').length,
+            _index = $(this).find('.on').index();
+                    
+        $('.mob_icon_tab').scrollLeft((_width/_length) * _index);
+      });
+
+    });
+
+    // $('.concept5 .sub_tab>ul>li').on('mouseleave',function(){
+    //   $('.concept5 .sub_tab>ul>li').removeClass('on');
+    //   $('.img_cont').removeClass('on');
+    //   $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+    //   $('.img_cont00').addClass('on');
+    // });
+
+    $('.mob_icon_tab>ul>li').hover(function() { 
+      var idx3 = $(this).index()+1;
+      $('.mob_icon_tab>ul>li').removeClass('on');
+      $(this).addClass('on');
+      $('.img_cont').removeClass('on');
+      $('.img_cont0'+idx3).addClass('on');
+      $('.concept5 .sub_tab>ul>li').removeClass('on');
+      $(".concept5 .sub_tab>ul>li:nth-child("+idx3+")").addClass('on');
+    }, function() {
+      $('.concept5 .sub_tab>ul>li').removeClass('on');
+      $('.img_cont').removeClass('on');
+      $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+      $('.img_cont00').addClass('on');
+    });
+
+    //서브 탭 pagination
+    $('.concept5 .sub_tab_pagination>span').on('click',function(){
+      $('.concept5 .sub_tab_pagination>span').removeClass('active');
+      $(this).addClass('active');
+
+      var idx = $(this).index()+1;
+      if($('#pc').length){
+        if(idx==1){
+          $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
+          $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','none');
+        }else {
+          $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','flex');
+          $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','none');
+        }
+      }else {
+
+      }
+    });
+    
+  },
+
+  textAnimate: () => {
+    $(window).scroll(function(){
+      const ss2 = $(".concept5 .section2").offset().top - 500,
+      ss3 = $(".concept5 .section3").offset().top - 300,
+      ss4 = $(".concept5 .section4").offset().top - 500,
+      ss5 = $(".concept5 .section5").offset().top - 500,
+      st = $(window).scrollTop();
+
+      if (st > ss2) {
+        $(".concept5 .section2").addClass("active");
+      }
+      if (st > ss3) {
+        $(".concept5 .section3").addClass("active");
+      }
+      if (st > ss4) {
+        $(".concept5 .section4").addClass("active");
+      }
+      if (st > ss5) {
+        $(".concept5 .section5").addClass("active");
+      }
+    });
+  },
+};
+
 function addressKindChange(e) {
   var livingroom = [
     "A/S 대상을 선택해 주세요.",

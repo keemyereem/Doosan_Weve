@@ -26,33 +26,35 @@
 	<meta name="twitter:title" content="We've" >
 	<meta name="twitter:description" content="마음속에 간직해온 나만의 공간. We've" >
 
-	<title>두산위브 - 브랜드스토리 B</title>
+	<title>5컨셉 테스트 B안</title>
 	<link rel="icon" href="images/favicon.png" sizes="32x32">
     <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" >  
 	<link rel="shortcut icon" type="image/x-icon" href="#">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+
 	<!-- Library JS -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
 	<script src="js/lib/swiper-bundle.min.js"></script>
 
-
-	<!-- <script src="js/front.js"></script> -->
     <script src="js/brand.js"></script>
-    
+
 	<script>
         $(document).ready( function() {
             $('header').load("include/header.html");
-            brandstory.init();
+            $("footer").load("include/footer.html");
 
+            commonEvent.init();
         });
     </script>
 </head>
 
-<body id="brandstory" class="typeB">
+<body id="brandstory">
     <div class="scroll-container">
         <header></header>
         <nav>
@@ -61,241 +63,129 @@
                     <a href="javascript:;" title="STORY 페이지 이동">STORY</a>
                     <span></span>
                 </li>
-                <li>
-                    <a href="javascript:;" title="5 Concepts 페이지 이동">5 Concepts</a>
+                <li class="mb">
+                    <a href="javascript:;" title="STORY 페이지 이동">STORY</a>
                     <span></span>
                 </li>
                 <li>
-                    <a href="javascript:;" title="NEWS 페이지 이동">NEWS</a>
+                    <a href="html/FD-01-02.html" title="ESSENTIAL 페이지 이동">ESSENTIAL</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="html/FD-01-03-01.html" title="CHANNEL 페이지 이동">CHANNEL</a>
                     <span></span>
                 </li>
             </ul>
         </nav>
 
         <section class="section1">
-            <h2>
-                <span>brand story</span>
-                Like no other
-            </h2>
+            <h2>5컨셉 테스트 B안</h2>
             <div class="scroll">
                 <i class="bar"></i>
             </div>
         </section>
 
         <section class="section2">
-            <h2>독창적인<br class="br_m"> 주거문화의 완성</h2>
-            <img class="intro" src="images/brandstory/bg_sec01_img_B.png" alt="">
-            <p>
-                <span>집은 삶의 질과 개성을 나타내는 중요한 표현 수단이 되었습니다.</span>
-                <span>We’ve 만의 남다른 감각으로 독창적인 주거문화를 완성합니다.</span>
-            </p>
-        </section>
-
-        <section class="section3">
-            <div class="card01">
-                <h2>
-                    <span>vision</span>
-                    세계적 수준의<br class="br_m"> 주거문화 창조
-                </h2>
-                <div>
-                    <img src="images/brandstory/bs_img02_B.png" alt="">
-                </div>
-                <p>
-                    <span>We’ve 는 남다는 감각과 최고의 기술을 바탕으로 설계에서 시공,</span>
-                    <span>A/S에 이르기까지 세계수준의 주거문화를 선도합니다.</span>
-                </p>
-            </div>
-            <div class="card02">
-                <h2>
-                    <span>essense</span>
-                    남다른 감각이 돋보이는 주거공간
-                </h2>
-                <div>
-                    <img src="images/brandstory/bs_img03_B.png" alt="">
-                </div>
-                <p>
-                    <span>두산위브는 세심한 설계와 시공, 편리한 아름다운 인테리어가 겸비된 주거공간으로,</span>
-                    <span>남다른 미적감각과 실용적 가치를 지향하는 전문가의 안목을 느낄 수 있는 앞선 주거공간을 고객에게 제공합니다.</span>
-                </p>
-            </div>
-
-            <div class="card03">
-                <h2>
-                    <span>meaning</span>
-                    We’ve got everything
-                </h2>
-                <div>
-                    <img src="images/brandstory/bs_img04_B.png" alt="">
-                </div>
-                <p>
-                    <span>[두산위브]는 가지고 싶고,<br class="br_m"> 살고 싶은 모든 것을 다 가진 주거공간 입니다.</span>
-                </p>
-            </div>
-        </section>
-
-        <section class="section4">
-            <h2 class="indent">Specification</h2>
-            <img src="images/brandstory/bs_sec05_bg01.png" alt="Value Offering 이미지">
-            <img src="images/brandstory/bs_sec05_bg02.png" alt="High Quality 이미지">
-            <img src="images/brandstory/bs_sec05_bg03.png" alt="User Centric 이미지">
+            <article class="gsap1">
+                <h2 class="gsap1-1"><span class="gsap1-3" data-fill-text="위브">위브</span>만의 <br class="br_m">남다른 감각으로</h2>
+                <h2 class="gsap1-2"><span class="gsap1-3" data-fill-text="독창적인 주거문화">독창적인 주거문화</span>를 만듭니다.</h2>
+            </article>
             
-            <ul>
-                <li>
-                    <div class="tit">Value Offering</div>
-                    <p>
-                        미적감각과 섬세한 실용성을 <br>
-                        바탕으로 글로벌 주거문화 제공
-                    </p>
-                </li>
-                <li>
-                    <div class="tit">High Quality</div>
-                    <p>
-                        최고의 설계와 시공기술로 완성된 <br>
-                        고품격 주거공간 창조
-                    </p>
-                </li>
-                <li>
-                    <div class="tit">User Centric</div>
-                    <p>
-                        편안하고 행복한 생활공간 제공을 통해 <br>
-                        고객의 삶의 가치
-                    </p>
-                </li>
-            </ul>
+            <article class="gsap2">
+                <div class="gsap2-1">
+                    <ul class="gsap2-2">
+                        <li>ha</li>
+                        <li>li</li>
+                        <li>sa</li>
+                        <li>sol</li>
+                        <li>lo</li>
+                    </ul>
+                    <p class="gsap2-9">ve</p>
+                </div>
+
+                <ul class="gsap2-3">
+                    <li class="gsap2-4">꼭 갖고 싶은 공간</li>
+                    <li class="gsap2-5">기쁨이 있는 공간</li>
+                    <li class="gsap2-6">알뜰한 생활이 있는 공간</li>
+                    <li class="gsap2-7">생활 속의 문제가 해결되는 공간</li>
+                    <li class="gsap2-8">삶에 대한 사랑을 키워가는 공간</li>
+                </ul>
+            </article>
+
+            <article class="gsap3">
+                <h2 class="gsap3-1">We've<span class="gsap3-2"> got <br class="br_m">everything.</span></h2>
+                <img src="images/brandstory/gsap_bi.png" alt="BI로고" class="gsap3-3">
+            </article>
 
         </section>
 
-        <section class="section5">
-            <h2 class="indent">Various Brands</h2>
-            <ul>
-                <li>
-                    <a href="javascript:;" title="We've" onclick="popup('weve');">
-                        We've
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" title="THE ZENITH" onclick="popup('zenith');">
-                        THE ZENITH
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;" title="Centi'um" onclick="popup('centium');">
-                        Centi'um
-                    </a>
-                </li>
-            </ul>
+        <section id="dragCarousel">
+            <div class="carousel">
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=01"/></li>
+                  <li><img src="https://picsum.photos/400?random=02"/></li>
+                  <li><img src="https://picsum.photos/400?random=03"/></li>
+                  <li><img src="https://picsum.photos/400?random=04"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=05"/></li>
+                  <li><img src="https://picsum.photos/400?random=06"/></li>
+                  <li><img src="https://picsum.photos/400?random=07"/></li>
+                  <li><img src="https://picsum.photos/400?random=08"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=09"/></li>
+                  <li><img src="https://picsum.photos/400?random=10"/></li>
+                  <li><img src="https://picsum.photos/400?random=11"/></li>
+                  <li><img src="https://picsum.photos/400?random=12"/></li>
+                  <li><img src="https://picsum.photos/400?random=11"/></li>
+                  <li><img src="https://picsum.photos/400?random=10"/></li>
+                  <li><img src="https://picsum.photos/400?random=09"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=11"/></li>
+                  <li><img src="https://picsum.photos/400?random=10"/></li>
+                  <li><img src="https://picsum.photos/400?random=09"/></li>
+                  <li><img src="https://picsum.photos/400?random=08"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=07"/></li>
+                  <li><img src="https://picsum.photos/400?random=06"/></li>
+                  <li><img src="https://picsum.photos/400?random=05"/></li>
+                  <li><img src="https://picsum.photos/400?random=04"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=03"/></li>
+                  <li><img src="https://picsum.photos/400?random=02"/></li>
+                  <li><img src="https://picsum.photos/400?random=01"/></li>
+                  <li><img src="https://picsum.photos/400?random=02"/></li>
+                </ul>
+              </div>
+              <div class="carousel-item">
+                <ul>
+                  <li><img src="https://picsum.photos/400?random=03"/></li>
+                  <li><img src="https://picsum.photos/400?random=04"/></li>
+                  <li><img src="https://picsum.photos/400?random=05"/></li>
+                  <li><img src="https://picsum.photos/400?random=06"/></li>
+                </ul>
+              </div>
+            </div>
         </section>
 
-        <!-- popup -->
-        <div class="popup bi_popup weve">
-            <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-                <div class="info">
-                    <div class="des">두산건설의 주거브랜드</div>
-                    <div class="name">We've</div>
-                    <p>
-                        위브의 BI (Brand identity)는 두산 로고에서 파생된 파란색 사각형을 사용하여<br>
-                        사는 기쁨이 있는 곳 (Live), 사랑과 행복이 있는 곳 (Love), 꼭 갖고 싶은 공간 (Have), 그러면서도 알뜰한 생활이 있고 (Save),<br>
-                        생활의 모든 문제가 해결되는 곳 (Solve)이라 두산건설의 약속을 형상화한 것입니다.																								
-                    </p>
-                </div>
-                <div class="bi">
-                    <div class="logo">
-                        <img src="images/brandstory/bi01_logo.png" alt="위브 로고">
-                    </div>
-                    <div class="right">
-                        <div class="color">
-                            <ul>
-                                <li><b>PANTONE</b><span>Blue 072 C</span></li>
-                                <li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
-                                <li><b>페인트도료</b><span>KCC VR131</span></li>
-                            </ul>
-                        </div>
-                        <img src="images/brandstory/bi01_grayscale.png" alt="위브 로고 색상">
-                    </div>
-                </div>
-                <div class="btn_download">
-                    <a href="javascript:;" download="">BI 다운받기</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup bi_popup zenith">
-            <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-                <div class="info">
-                    <div class="des">두산건설의 주상복합브랜드</div>
-                    <div class="name">THE ZENITH</div>
-                    <p>
-                        두산건설의 주거브랜드 ‘위브’와 정점, 절정을 뜻하는 ‘제니스’의 합성어로 최고급 주거문화를 의미합니다.<br>
-                        르네상스 건축물을 본뜬 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.<br>
-                        르네상스 건축물을 본뜬 아이콘을 활용한 BI는 모든 사람들이 꿈꾸는 고급 주거문화의 대표 이미지를 형상화 하여 디자인 했습니다.												
-                    </p>
-                </div>
-                <div class="bi">
-                    <div class="logo">
-                        <img src="images/brandstory/bi02_logo.png" alt="제니스 로고">
-                    </div>
-                    <div class="right">
-                        <div class="color">
-                            <ul>
-                                <li><b>PANTONE</b><span>448 C</span></li>
-                                <li><b>CMYK</b><span>C65/M56/Y100/K35</span></li>
-                                <li><b>페인트도료</b><span>KCC HD0036</span></li>
-                            </ul>
-                            <ul>
-                                <li><b>PANTONE</b><span>130 2X C</span></li>
-                                <li><b>CMYK</b><span>C0/M35/Y100/K11</span></li>
-                                <li><b>페인트도료</b><span>KCC HS171</span></li>
-                            </ul>
-                        </div>
-                        <img src="images/brandstory/bi02_grayscale.png" alt="제니스 로고 색상">
-                    </div>
-                </div>
-                <div class="btn_download">
-                    <a href="javascript:;" download="">BI 다운받기</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup bi_popup centium">
-            <div class="popup_inner">
-                <div class="pop_close"><a href="javascript: acceptModal();">닫기</a></div>
-                <div class="info">
-                    <div class="des">두산건설의 오피스텔 브랜드</div>
-                    <div class="name">Centi’um</div>
-                    <p>
-                        세기를 뜻하는 ‘Centi-’와 웅장한 건축물을 뜻하는 ‘-um’의 합성어로<br>
-                        한 세대의 기준이 될 주거공간을 의미합니다.												
-                    </p>
-                </div>
-                <div class="bi">
-                    <div class="logo">
-                        <img src="images/brandstory/bi03_logo.png" alt="위브 센티움 로고">
-                    </div>
-                    <div class="right">
-                        <div class="color">
-                            <ul>
-                                <li><b>PANTONE</b><span>Blue 072 C</span></li>
-                                <li><b>CMYK</b><span>C100/M80/Y0/K0</span></li>
-                                <li><b>페인트도료</b><span>KCC VR131</span></li>
-                            </ul>
-                            <ul>
-                                <li><b>PANTONE</b><span>Cool Gray 10 C</span></li>
-                                <li><b>CMYK</b><span>C0/M1/Y0/K51</span></li>
-                                <li><b>페인트도료</b><span>KCC HS171</span></li>
-                            </ul>
-                        </div>
-                        <img src="images/brandstory/bi03_grayscale.png" alt="위브 센티움 로고 색상">
-                    </div>
-                </div>
-                <div class="btn_download">
-                    <a href="javascript:;" download="">BI 다운받기</a>
-                </div>
-            </div>
-        </div>
-        <!-- .popup -->
-
+        <!-- footer -->
+        <footer></footer>
+        <!-- //footer -->
     </div>
 </body>
 </html>

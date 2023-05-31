@@ -98,6 +98,8 @@
 	#mobile .contents .paging .prev {margin-left: 15px;width: 6px;height: 10px; }
 	#mobile .contents .paging .next {margin-right: 15px;width: 6px;height: 10px;}
 	#mobile .contents .paging .last {width: 9px;height: 10px; }
+	#mobile .contents .paging ul { margin: 0 12px; }
+	#mobile .contents .paging ul li {margin: 0 9px;}
 	#mobile .contents .paging ul li a { height: 18px; line-height: 18px; font-size: 13px; }
 
 	/* button */
@@ -1228,10 +1230,6 @@
 	#mobile .myweve .as_status .section2 a  { float: none; }
 }
 
-@media screen and (max-width:369px) {
-	#mobile .contents .paging ul { margin: 0 12px; }
-	#mobile .contents .paging ul li {margin: 0 9px;}
-}
 
 @media screen and (max-width:1150px) {
 	.my_contract .contract_info .const_status .top .img { width: 47vw; }

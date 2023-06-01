@@ -233,7 +233,7 @@ nav ul li.mb { display: none; }
 
 /* paging */
 .contents .paging {margin-top: 40px;position: relative;text-align: center;}
-.contents .paging>a {display: inline-block;vertical-align: middle;}
+.contents .paging>a {display: inline-block;vertical-align: middle;cursor: pointer;}
 .contents .paging .front {width: 10px;height: 14px;background: url(../images/common/arrow_front.png) 0 0 no-repeat;background-size: 100% 100%;}
 .contents .paging .prev {margin-left: 15px;width: 8px;height: 14px;background: url(../images/common/arrow_prev.png) 0 0 no-repeat;background-size: 100% 100%;}
 .contents .paging .next {margin-right: 15px;width: 8px;height: 14px;background: url(../images/common/arrow_next.png) 0 0 no-repeat;background-size: 100% 100%;}

@@ -1261,3 +1261,26 @@ body#brandstory.typeB { color: #222; }
 .footer_conts .section .terms_site.open .site_list {height: auto;background: #fff;}
 .footer_conts .section .terms_site .site_list li a {display: block;font-size: 16px; color: #222;padding: 10px 20px; }
 .footer_conts .section .terms_site .site_list li a:hover { background: #005eb8; color: #fff; }
+
+/* 일부서비스 중단안내 팝업 */
+.popup_service { max-width: 800px;width: calc(100% - 40px);position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); }
+.popup_service .pop_close { display: block;margin-left: auto;margin-bottom: 18px;transition: transform .2s; }
+.popup_service .pop_close:hover { transform: rotate(90deg); }
+.popup_service .pop_cont { position: relative; }
+.popup_service .pop_text { font-size: 16px;color: #005eb8;font-weight: 400;letter-spacing: -0.4px;font-weight: 400;position: absolute;top: 56.2%;left: 33.875%; }
+.popup_service .checkbox_row { margin-top: 20px; }
+.popup_service .checkbox_row input[type="checkbox"] + label { color: #fff; }
+.popup_service .checkbox_row input[type="checkbox"] + label:before { background: transparent; }
+.popup_service .checkbox_row input[type="checkbox"]:checked + label:before { background: url(../images/common/checked_wht.png) 50% 50% no-repeat; }
+
+@media screen and (max-width:768px) {
+  .popup_service { max-width: 335px; }
+  .popup_service .pop_close { margin-bottom: 16px; }
+  .popup_service .pop_close>img { width: 27px; }
+  .popup_service .pop_text { font-size: 12px;top: 232px;left: 50px; }
+  .popup_service .checkbox_row input[type="checkbox"] + label { font-size: 15px; }
+}
+
+@media screen and (max-width:375px) {
+  .popup_service .pop_text { font-size: 3.2vw;top: 49.8%;left: 14.93%; }
+}

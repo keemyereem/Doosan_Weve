@@ -470,7 +470,15 @@ body#brandstory.typeB { color: #222; }
 .concept5>nav { display: none; }
 .concept5 .contents { max-width: 100%; margin: 0!important; }
 .concept5 .section1::after { background: url(../images/brand/5con_visual.jpg) 50% 50% no-repeat; background-size: cover; }
+.concept5_01 .section1::after { background: url(../images/brand/5con_visual01.jpg) 50% 50% no-repeat; background-size: cover; }
 .concept5 .section1>h2 { display: none; }
+.concept5 .section1 .section1_menu { width: 100%;height: 80px;background: rgba(0, 0, 0, .5);position: absolute;left: 0;bottom: 0; }
+.concept5 .section1 .section1_menu.fixed { position: fixed;top: 0;left: 0;z-index: 99; }
+.concept5 .section1 .section1_menu>ul { display: flex;max-width: 1460px;height: 100%;margin: 0 auto; }
+.concept5 .section1 .section1_menu>ul>li { flex: 1;display: table; }
+.concept5 .section1 .section1_menu>ul>li.on { background: #005eb8; }
+.concept5 .section1 .section1_menu>ul>li>a { display: table-cell;text-align: center;vertical-align: middle;color: #fff;font-weight: 300; }
+
 .concept5 .section2 { padding-top: 135px; }
 .concept5 .section2>.txt { font-size: 32px; font-weight: 300; color: #222; text-align: center; letter-spacing: -1.6px; margin-bottom: 20px; transform: translateY(5rem); opacity: 0; }
 .concept5 .section2>.txt>b { font-weight: 400; color: #0c0662; }
@@ -481,20 +489,25 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section2 .wrap { margin-top: 95px; max-width: 1760px; overflow: hidden; }
 .concept5 .section2 img { box-shadow: 1px 2px 7.84px 0.16px rgba(33, 44, 55, 0.4); transform: scale(1.2); transition: transform 1.5s; position: relative; z-index: 1; } 
 .concept5 .section2.active img { transform: scale(1); }
-.concept5 .section3 { height: 763px; background: url(../images/brand/5con_s3_bg.png); margin-top: -225px; }
+.concept5 .section3 { height: 763px; background:url(../images/brand/5con_s3_bg.png); margin-top: -225px; }
+.concept5_01 .section3 { background: url(../images/brand/5con01_s3_bg.png); }
 .concept5 .section3 .wrap { height: 100%; border-left: 1px solid #337ec6; border-right: 1px solid #337ec6; padding-top: 440px; position: relative; }
+.concept5_01 .section3 .wrap { border-left: 1px solid rgba(255,255,255,.2); border-right: 1px solid rgba(255,255,255,.2); }
 .concept5 .section3 .wrap .scroll { width: 1px; height: 160px; background: rgba(255,255,255,.5); position: absolute; top: 225px; left: 50%; overflow: hidden; }
 .concept5 .section3 .wrap .scroll .bar { position:absolute; top:-100%; left:0; background:#fff; width:1px; height:60px; animation: prg 1.5s ease-in-out .1s infinite; }
 .concept5 .section3 .wrap>h2 { font-family: 'Poppins'; font-size: 60px; font-weight: 500; color: #fff; letter-spacing: 12px; text-align: center; transform: translateY(5rem); opacity: 0; }
-.concept5 .section3.active .wrap>h2 { animation: .3s fadeUp ease; animation-fill-mode: forwards; }
+.concept5 .section3.active .wrap>h2 { animation: .3s fadeUp ease; animation-fill-mode: forwards; text-transform: uppercase; }
 .concept5 .section3 .wrap>p { font-size: 22px; color: #fff; text-align: center; line-height: 1.9; letter-spacing: -0.55px; margin-top: 30px; transform: translateY(5rem); opacity: 0; }
 .concept5 .section3.active .wrap>p { animation: .3s fadeUp .3s ease; animation-fill-mode: forwards; }
 .concept5 .section3 .wrap>p em { font-style: oblique; }
 .concept5 .section4 .wrap { height: 100%; display: flex; }
 .concept5 .section4 .s4_tab { width: 160px; height: 100%; background: #f5f9fc; padding: 60px 0 80px; }
+.concept5_01 .section4 .s4_tab { background: #f5fbfd; }
 .concept5 .section4 .s4_tab>ul>li { height: 160px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-size: 34px; font-weight: 400; color: #222; cursor: pointer; transition: all .2s; }
 .concept5 .section4 .s4_tab>ul>li span { color: #005eb8; }
+.concept5_01 .section4 .s4_tab>ul>li span { color: #00a5d7; }
 .concept5 .section4 .s4_tab>ul>li.active { background: #fff; border: 1px solid #005eb8; box-shadow: 0px 0px 19.6px 0.4px rgba(0, 0, 0, 0.2); }
+.concept5_01 .section4 .s4_tab>ul>li.active { border: 1px solid #00a5d7; }
 .concept5 .section4 .s4_cont_wrap { position: relative; width: calc(100% - 160px); }
 .concept5 .section4 .s4_cont_wrap .s4_cont { position: absolute; display: none; }
 .concept5 .section4 .s4_cont_wrap .s4_cont.active { display: flex; }
@@ -504,21 +517,28 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .tit>span { display: inline-block; color: #fff; letter-spacing: -2.5px; position: relative; z-index: 1; margin-left: 15px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont02 .tit>span { margin-left: 9px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .tit>span::before { content:''; display: block; width: 151px; height: 77px; background: #005eb8; position: absolute; top: 32px; left: -9px; z-index: -1; }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont .tit>span::before { background: #00a5d7; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .pagination { font-family: 'Montserrat'; font-size: 20px; font-weight: 500; color: #999; float: right; margin-top: 75px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .pagination>b { font-size: 30px; font-weight: 700; color: #005eb8; }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont .pagination>b { color: #00a5d7; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tit { font-size: 30px; font-weight: 400; color: #000; letter-spacing: -1.5px; margin-top: 20px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .txt { font-size: 20px; font-weight: 100; color: #777; letter-spacing: -1px; margin-top: 10px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .mob_icon_tab { display: none; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination { position: absolute; bottom: -20px; left: 100px; display: flex; z-index: 1; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination>span { display: block; width: 14px; height: 14px; margin: 0 5px; background: #e8e8e8; border-radius: 50%; box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.15) inset; cursor: pointer; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination>span.active { background: #005eb8; }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont .sub_tab_pagination>span.active { background: #00a5d7; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul { display: flex; flex-wrap: wrap; margin-top: 40px; }
-.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li { width: 300px; height: 136px; border: 1px solid #e8e8e8; border-radius: 14px; display: flex; align-items: center; margin-bottom: 20px; cursor: pointer; transition: box-shadow .2s; }
+.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li { width: 300px; height: 136px; border: 1px solid #e8e8e8; border-radius: 14px; display: flex;/* display: none; */ align-items: center; margin-bottom: 20px; cursor: pointer; transition: box-shadow .2s; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:hover,
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li.on { background: #f5f9fc; box-shadow: 1px 2px 5px 0px rgba(8, 35, 60, 0.4); border: 0; }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li.on { background: #f7fcfe; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(2n-1) { margin-right: 20px; }
-.concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(n+5):nth-child(-n+6) { margin-bottom: 0; }
-.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(n+7):nth-child(-n+8) { display: none; }
+
+/* .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(n+5):nth-child(-n+6) { margin-bottom: 0; }
+.concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(n+7):nth-child(-n+8) { display: none; } */
+
+
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .icon { width: 110px; height: 100%; background-repeat: no-repeat; background-position: 50% 50%; }
 .concept5 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con_have_icon01.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con_have_icon02.png); }
@@ -552,6 +572,62 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con_love_icon05.png); }
 .concept5 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con_love_icon06.png); }
 
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con01_have_icon01.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con01_have_icon02.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con01_have_icon03.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con01_have_icon04.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con01_have_icon05.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con01_have_icon06.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(7) .icon { background-image: url(../images/brand/5con01_have_icon07.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con01_have_icon08.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont01 .sub_tab>ul>li:nth-child(9) .icon { background-image: url(../images/brand/5con01_have_icon09.png); }
+
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con01_live_icon01.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con01_live_icon02.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con01_live_icon03.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con01_live_icon04.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con01_live_icon05.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con01_live_icon06.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(7) .icon { background-image: url(../images/brand/5con01_live_icon07.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con01_live_icon08.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(9) .icon { background-image: url(../images/brand/5con01_live_icon09.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(10) .icon { background-image: url(../images/brand/5con01_live_icon10.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(11) .icon { background-image: url(../images/brand/5con01_live_icon11.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(12) .icon { background-image: url(../images/brand/5con01_live_icon12.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(13) .icon { background-image: url(../images/brand/5con01_live_icon13.png); }
+
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con01_save_icon01.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con01_save_icon02.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con01_save_icon03.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con01_save_icon04.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con01_save_icon05.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con01_save_icon06.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(7) .icon { background-image: url(../images/brand/5con01_save_icon07.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con01_save_icon08.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(9) .icon { background-image: url(../images/brand/5con01_save_icon09.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(10) .icon { background-image: url(../images/brand/5con01_save_icon10.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(11) .icon { background-image: url(../images/brand/5con01_save_icon11.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont03 .sub_tab>ul>li:nth-child(12) .icon { background-image: url(../images/brand/5con01_save_icon12.png); }
+
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con01_solve_icon01.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con01_solve_icon02.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con01_solve_icon03.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con01_solve_icon04.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con01_solve_icon05.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con01_solve_icon06.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(7) .icon { background-image: url(../images/brand/5con01_solve_icon07.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(8) .icon { background-image: url(../images/brand/5con01_solve_icon08.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(9) .icon { background-image: url(../images/brand/5con01_solve_icon09.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(10) .icon { background-image: url(../images/brand/5con01_solve_icon10.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont04 .sub_tab>ul>li:nth-child(11) .icon { background-image: url(../images/brand/5con01_solve_icon11.png); }
+
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(1) .icon { background-image: url(../images/brand/5con01_love_icon01.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(2) .icon { background-image: url(../images/brand/5con01_love_icon02.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(3) .icon { background-image: url(../images/brand/5con01_love_icon03.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(4) .icon { background-image: url(../images/brand/5con01_love_icon04.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(5) .icon { background-image: url(../images/brand/5con01_love_icon05.png); }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont05 .sub_tab>ul>li:nth-child(6) .icon { background-image: url(../images/brand/5con01_love_icon06.png); }
+
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag { font-size: 12px; font-weight: 400; letter-spacing: -0.9px; line-height: 1.5; position: relative; padding-left: 21px; margin-left: 14px; margin-bottom: 8px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag::before { content:''; display: inline-block; position: absolute; top: 0; left: 0; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag::after { content:''; display: block; width: 87px; height: 6px; position: absolute; bottom: 0; left: 0; }
@@ -563,6 +639,7 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag.brw::after { background: rgba(148, 115, 94,.2); }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .blk { font-size: 17px; font-weight: 400; color: #333; letter-spacing: -0.85px; line-height: 1.4; position: relative; padding-left: 14px; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .blk::before { content:''; display: block; width: 5px; height: 5px; background: #005eb8; transform: rotate(15deg); position: absolute; top: 7px; left: 0; }
+.concept5_01 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .blk::before { background: #00a5d7; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .gry { font-size: 14px; color: #999; letter-spacing: -0.35px; padding-left: 14px; margin-top: 3px; }
 
 .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont_wrap { position: relative; width: 500px; height: 700px; margin-top: 127px; }
@@ -570,29 +647,40 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont.on { display: block; }
 .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont img { width: 100%; height: 100%; object-fit: cover; }
 
-.concept5 .section5 { background: #f7f6f2 url(../images/brand/5con_s5_bg.png); padding-bottom: 80px; }
+.concept5 .section5 { background: #f7f6f2 url(../images/brand/5con01_s5_bg.png); padding-bottom: 80px; }
+.concept5_01 .section5 { background-color: #f2f3f5; }
 .concept5 .section5>h1 { display: none; }
 .concept5 .section5>.wrap { border-left: 1px solid #bcb098; border-right: 1px solid #bcb098; padding: 130px 0 70px; }
+.concept5_01 .section5>.wrap { border-left: 1px solid rgba(0, 12, 56,.3); border-right: 1px solid rgba(0, 12, 56,.3); }
 .concept5 .section5>.wrap>h2 { font-family: 'Poppins'; font-size: 60px; font-weight: 500; color: #3a3632; letter-spacing: 12px; text-align: center; text-transform: uppercase; transform: translateY(5rem); opacity: 0; }
+.concept5_01 .section5>.wrap>h2 { color: #000c38; }
 .concept5 .section5.active>.wrap>h2 { animation: .3s fadeUp ease; animation-fill-mode: forwards; }
 .concept5 .section5>.wrap>h2 span { color: #826b3f; }
+.concept5_01 .section5>.wrap>h2 span { color: #b8956b; }
 .concept5 .section5>.wrap>.txt { font-size: 22px; color: #3a3632; line-height: 1.81; text-align: center; letter-spacing: -0.55px; margin-top: 30px; transform: translateY(5rem); opacity: 0; }
+.concept5_01 .section5>.wrap>.txt { color: #000c38; }
 .concept5 .section5.active>.wrap>.txt { animation: .3s fadeUp .3s ease; animation-fill-mode: forwards; }
-.concept5 .section5 .carousel { display: flex; justify-content: center; overflow-x: auto; cursor: grab; /* width: 100%; */ background: #c8bfad url(../images/brand/5con_s5_bg02.png) repeat 0 0; box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
+.concept5 .section5 .carousel { display: flex; justify-content: center; overflow-x: auto; cursor: grab; background-color: rgba(154, 137, 104,.5); box-shadow: 1px 4px 10px 0px rgba(58, 54, 50, 0.1); }
+.concept5_01 .section5 .carousel {background-color: rgba(184, 149, 107,.3);/* background-color: #e0d7cb; */}
 .concept5 .section5 .carousel:active { cursor: grabbing; }
 .concept5 .section5 .carousel::-webkit-scrollbar { width: 100%; height: 8px; }
 .concept5 .section5 .carousel::-webkit-scrollbar-thumb { background: #3a3632; border-radius: 3px; }
+.concept5_01 .section5 .carousel::-webkit-scrollbar-thumb { background: #b8956b; }
 .concept5 .section5 .carousel::-webkit-scrollbar-track { background: #fff; }
 .concept5 .section5 .carousel .carousel-item { width:auto; max-width: 280px; transition: all cubic-bezier(0.3, 0.01, 0.64, 0.99) 0.6s; overflow: hidden; flex-shrink: 0; margin: 0 25px; }
 .concept5 .section5 .carousel .carousel-item>ul { display: flex; position: relative; padding: 60px 0 68px; }
 .concept5 .section5 .carousel .carousel-item>ul>li { flex-basis: auto; flex-shrink: 0; width: 280px; height: 480px; }
 .concept5 .section5 .carousel .carousel-item>ul>li + li { margin-left: 20px; transform: scaleX(0); transform-origin: left; transition: all cubic-bezier(0.3, 0.01, 0.64, 0.99) 0.3s; opacity: 0; }
 .concept5 .section5 .carousel .carousel-item.on { max-width: 9000px; background: #fcfcfa; border: 1px solid #3a3632; width: auto; padding: 0 40px; }
+.concept5_01 .section5 .carousel .carousel-item.on { border: 1px solid #000c38; }
 .concept5 .section5 .carousel .carousel-item.on>ul>li { transform: scaleX(1); opacity: 1; }
 .concept5 .section5 .carousel .carousel-item.preventClick { pointer-events: none; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc { background: #3a3632; position: relative; }
+.concept5_01 .section5 .carousel .carousel-item>ul>li.desc { background: #000c38; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .sub { font-size: 18px; color: #fff; text-align: center; letter-spacing: -1.35px; padding-top: 70px; }
+.concept5_01 .section5 .carousel .carousel-item>ul>li.desc .sub { font-size: 16px; padding-top: 40px; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit { text-align: center; margin: 30px auto; }
+.concept5_01 .section5 .carousel .carousel-item>ul>li.desc .tit { margin: 5px auto 26px; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit span { display: inline-block; font-family: 'Poppins'; font-size: 34px; font-weight: 500; line-height: 1.5; color: #e9d5b1; position: relative; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .tit span::after { content:''; display: inline-block; width: 100%; height: 2px; background: #e9d5b1; position: absolute; left: 0; bottom: 0; transition: width .3s; }
 .concept5 .section5 .carousel .carousel-item>ul>li.desc .bd { position: absolute; background: #e9d5b1; }
@@ -670,9 +758,57 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(4)::before { background-image: url(../images/brand/5con_icon_kitchen04.png); background-size: 34px 36px; }
 .concept5 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(5)::before { background-image: url(../images/brand/5con_icon_kitchen05.png); background-size: 41px 36px; }
 
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li::before { width: 33px; height: 44px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul { padding-left: 50px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li { padding-left: 69px; margin-bottom: 25px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li:nth-of-type(1)::before { background-image: url(../images/brand/5con01_icon_clean01.png); background-size: 33px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li:nth-of-type(2)::before { background-image: url(../images/brand/5con01_icon_clean02.png); background-size: 31px 44px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li,
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(2) { margin-bottom: 15px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(3),
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(4) { margin-bottom: 25px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li::before { width: 43px; height: 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(1)::before { background-image: url(../images/brand/5con01_icon_living01.png); background-size: 43px 27px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(2)::before {  background-image: url(../images/brand/5con01_icon_living02.png); background-size: 35px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(3)::before {  background-image: url(../images/brand/5con01_icon_living03.png); background-size: 34px 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(4)::before {  background-image: url(../images/brand/5con01_icon_living04.png); background-size: 34px 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(5)::before {  background-image: url(../images/brand/5con01_icon_living05.png); background-size: 35px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(6)::before {  background-image: url(../images/brand/5con01_icon_living06.png); background-size: 41px 34px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul { padding-left: 46px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li { padding-left: 74px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li::before { width: 44px; height: 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li:nth-of-type(1)::before { background-image: url(../images/brand/5con01_icon_dress01.png); background-size: 42px 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li:nth-of-type(2)::before { background-image: url(../images/brand/5con01_icon_dress02.png); background-size: 44px 30px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul { padding-left: 42px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li { padding-left: 78px; margin-bottom: 15px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(1),
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(2) { margin-bottom: 15px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(3),
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(5) { margin-bottom: 23px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(4) { margin-bottom: 34px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li::before { width: 51px; height: 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(1)::before { background-image: url(../images/brand/5con01_icon_bath01.png); background-size: 47px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(2)::before { background-image: url(../images/brand/5con01_icon_bath02.png); background-size: 35px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(3)::before { background-image: url(../images/brand/5con01_icon_bath03.png); background-size: 51px 33px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(4)::before { background-image: url(../images/brand/5con01_icon_bath04.png); background-size: 41px 36px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(5)::before { background-image: url(../images/brand/5con01_icon_bath05.png); background-size: 34px 35px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(6)::before { background-image: url(../images/brand/5con01_icon_bath06.png); background-size: 26px 35px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li,
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(1) { margin-bottom: 26px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li::before { width: 39px; height: 39px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(1)::before { background-image: url(../images/brand/5con01_icon_kitchen01.png); background-size: 32px 33px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(2)::before { background-image: url(../images/brand/5con01_icon_kitchen02.png); background-size: 39px 37px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(3)::before { background-image: url(../images/brand/5con01_icon_kitchen03.png); background-size: 39px 39px; }
+
+
 .concept5 .section5 .carousel .carousel-item>ul>li.img { box-shadow: 1px 2px 9.8px 0.2px rgba(0, 0, 0, 0.5); position: relative; }
 .concept5 .section5 .carousel .carousel-item>ul>li.img img { width: 100%; height: 100%; object-fit: contain; }
 .concept5 .section5 .carousel .carousel-item>ul>li.img>div { width: 100%; height: 65px; background-color: rgba(58, 54, 50,.95); background-repeat: no-repeat; background-position: calc(100% - 25px) 50%; position: absolute; bottom: 0; left: 0; display: flex; align-items: center; padding: 0 25px 0 20px; }
+.concept5_01 .section5 .carousel .carousel-item>ul>li.img>div { background-color: rgba(0, 12, 56,.95); }
 .concept5 .section5 .carousel .carousel-item>ul>li.img>div p { font-size: 14px; color: #e6e6e3; letter-spacing: -0.7px; }
 
 .concept5 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(2)>div,
@@ -699,6 +835,31 @@ body#brandstory.typeB { color: #222; }
 .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(4)>div { background-image: url(../images/brand/5con_icon_kitchen03_w.png); background-size: 32px 33px; }
 .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(5)>div { background-image: url(../images/brand/5con_icon_kitchen04_w.png); background-size: 30px 32px; }
 .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(6)>div { background-image: url(../images/brand/5con_icon_kitchen05_w.png); background-size: 37px 32px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(2)>div { background-image: url(../images/brand/5con01_icon_clean01_w.png); background-size: 29px 31px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(3)>div { background-image: url(../images/brand/5con01_icon_clean02_w.png); background-size: 23px 35px; }
+
+
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(2)>div { background-image: url(../images/brand/5con01_icon_living01_w.png); background-size: 48px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(3)>div { background-image: url(../images/brand/5con01_icon_living02_w.png); background-size: 29px 30px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(4)>div { background-image: url(../images/brand/5con01_icon_living03_w.png); background-size: 31px 31px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(5)>div { background-image: url(../images/brand/5con01_icon_living04_w.png); background-size: 31px 31px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(6)>div { background-image: url(../images/brand/5con01_icon_living05_w.png); background-size: 28px 30px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.living>li:nth-of-type(7)>div { background-image: url(../images/brand/5con01_icon_living06_w.png); background-size: 36px 28px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li:nth-of-type(2)>div { background-image: url(../images/brand/5con01_icon_dress01_w.png); background-size: 34px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.dressing>li:nth-of-type(3)>div { background-image: url(../images/brand/5con01_icon_dress02_w.png); background-size: 46px 30px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(2)>div { background-image: url(../images/brand/5con01_icon_bath01_w.png); background-size: 40px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(3)>div { background-image: url(../images/brand/5con01_icon_bath02_w.png); background-size: 28px 28px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(4)>div { background-image: url(../images/brand/5con01_icon_bath03_w.png); background-size: 47px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(5)>div { background-image: url(../images/brand/5con01_icon_bath04_w.png); background-size: 33px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(6)>div { background-image: url(../images/brand/5con01_icon_bath05_w.png); background-size: 27px 29px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(7)>div { background-image: url(../images/brand/5con01_icon_bath06_w.png); background-size: 19px 29px; }
+
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(2)>div { background-image: url(../images/brand/5con01_icon_kitchen01_w.png); background-size: 27px 28px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(3)>div { background-image: url(../images/brand/5con01_icon_kitchen02_w.png); background-size: 29px 28px; }
+.concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(4)>div { background-image: url(../images/brand/5con01_icon_kitchen03_w.png); background-size: 28px 28px; }
 
 /* 고객서비스 - FAQ */
 .cs .section1::after { background: url(../images/cs/cs_visual.png) 50% 50% no-repeat; background-size: cover; }

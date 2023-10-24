@@ -1879,9 +1879,9 @@ var weve5Concept = {
   },
 
   menuTab: () => {
-    const subMenu = document.querySelector(".section1_menu");
+    const subMenu = document.querySelector(".concept5 .section1_menu");
   
-    if ($(".section1_menu").length) {
+    if ($(".concept5 .section1_menu").length) {
       let fixMenu = subMenu.offsetTop;
 
       $(window).on("scroll", function () {
@@ -1896,8 +1896,8 @@ var weve5Concept = {
       });
 
       if ($("#mobile").length) {
-        $(".section1_menu .on").on("click", () => {
-          $(".section1_menu ul").toggleClass("open");
+        $(".concept5 .section1_menu .mb").click(function(){
+          $(this).parent().toggleClass('open');
         });
       }
 

@@ -457,14 +457,13 @@
 	#mobile .concept5 .section1_menu>ul { flex-direction: column; width: calc(100% - 20px); position: absolute; max-height: 50px; height: auto; overflow: hidden; transition: max-height .6s ease; }
 	#mobile .concept5 .section1_menu>ul.open  { max-height: 200px; }
 	#mobile .concept5 .section1_menu>ul>li { width: 100%; height: 50px; background: rgba(34,34,34,.8); }
-	#mobile .concept5 .section1_menu>ul>li.on::after { content:''; display: inline-block; width: 7px; height: 3.5px; background: url(../images/common/select_arrow_w.png) no-repeat 50% 50%; background-size: contain; position: absolute; top: 23px; right: 25px; }
-	#mobile .concept5 .section1_menu>ul.open li.on::after { transform: rotate(180deg); }
-	#mobile .concept5 .section1_menu>ul>li.mb { display: block; }
-	#mobile .concept5 .section1_menu>ul>li.on { background: #005eb8; order: -1; }
-	#mobile .concept5 .section1_menu>ul>li.on::after { content:''; display: block; width: 12.5px; height: 7px; background: url(../images/common/select_arrow_w.png) no-repeat; background-size: contain; }
+	#mobile .concept5 .section1_menu>ul>li.mb { display: block;background: #005eb8; }
+	#mobile .concept5 .section1_menu>ul>li.mb::after { content:''; display: block; width: 12.5px; height: 7px; background: url(../images/common/select_arrow_w.png) no-repeat 50% 50%; background-size: contain; position: absolute; top: 23px; right: 25px; }
+	#mobile .concept5 .section1_menu>ul.open li.mb::after { transform: scaleY(-1); background: url(../images/common/select_arrow_w.png) no-repeat 50% 50%; background-size: contain; }
+	/* #mobile .concept5 .section1_menu>ul>li.on::after { content:''; display: block; width: 12.5px; height: 7px; background: url(../images/common/select_arrow_w.png) no-repeat; background-size: contain; } */
 	#mobile .concept5 .section1_menu>ul>li>a { font-size: 15px; display: flex; align-items: center; height: 50px; text-align: left; padding-left: 20px; opacity: .5; }
-	#mobile .concept5 .section1_menu>ul>li.on>a { opacity: 1; }
-	#mobile .concept5 .section1_menu>ul>li:not(.on)>a { font-weight: 200; }
+	#mobile .concept5 .section1_menu>ul>li.mb>a { opacity: 1; }
+	#mobile .concept5 .section1_menu>ul>li:not(.mb)>a { font-weight: 200; }
 
 	#mobile .concept5 .section2 { padding: 110px 20px 0; }
 	#mobile .concept5 .section2>p { font-size: 16px; margin-bottom: 5px; letter-spacing: -0.8px; transform: translateY(0); opacity: 1; }

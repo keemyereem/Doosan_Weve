@@ -137,9 +137,12 @@ var commonEvent = {
 
   bgAni: function () {
     $(document).ready(function () {
-      setTimeout(function () {
-        $(".section1").addClass("ani");
-      }, 100);
+      if($('#pc').length){
+        setTimeout(function () {
+          $(".section1").addClass("ani");
+        }, 100);
+      }
+
     });
   },
 
@@ -1754,62 +1757,54 @@ var weve5Concept = {
   tabContent: () => {
 
     //list가 6개 이상일 때, pagination
-    
-    let subTabListLength = $('.concept5 .s4_cont.active .sub_tab>ul>li').length;
+    let subTabList = $('.concept5 .s4_cont.active .sub_tab>ul>li');
+    let subTabListLength = $(subTabList).length;
+    // console.log('list length: '+ subTabListLength);
+    // console.log('list pagination length: '+ Math.ceil(subTabListLength / 6));
+    // console.log('list 나머지: '+ subTabListLength % 6);
 
-    if(subTabListLength>6){
-      $('.concept5 .s4_cont.active .sub_tab>ul>li:nth-child(n+7):nth-child(-n+'+subTabListLength+')').hide();
-    }else {
-      
+    if($('#pc').length) {
+      if(subTabListLength>6){
+        $('.concept5 .s4_cont.active .sub_tab>ul>li:nth-child(n+7):nth-child(-n+'+subTabListLength+')').hide();
+      }
     }
-
-
 
     //메인 탭
     $('.concept5 .s4_tab>ul>li').on('click',function(){
       $('.concept5 .s4_tab>ul>li').removeClass('active');
       $(this).addClass('active');
-
+      
       var idx = $(this).index()+1;
       $('.s4_cont').removeClass('active');
       $('.s4_cont0'+idx).addClass('active');
       $('.img_cont').removeClass('on');
       $('.img_cont00').addClass('on');
       $('.sub_tab>ul>li').removeClass('on');
-
-
-
-
-      console.log('this: '+$(this).text());
-      console.log('this index: '+idx);
-      console.log('--------------')
-
-      let subTabList = $('.concept5 .s4_cont.active .sub_tab>ul>li');
-      let subTabListLength = $(subTabList).length;
-      console.log('list length: '+ subTabListLength);
-      console.log('list pagination length: '+ Math.ceil(subTabListLength / 6));
-      console.log('list 나머지: '+ subTabListLength % 6);
-
       
-      if(subTabListLength>6){
-        console.log('greater than 6');
-        $('.concept5 .s4_cont.active .sub_tab>ul>li:nth-child(n+7):nth-child(-n+'+subTabListLength+')').hide();
-      }else {
-        console.log('less than 6');
-      }
-
-
-
-
-
-
       if($('#pc').length){
-        $('.concept5 .sub_tab_pagination>span').removeClass('active');
-        $('.concept5 .sub_tab_pagination>span').eq(0).addClass('active');
-        // $('.s4_cont02 .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
-        // $('.s4_cont02 .sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','none');
+        $('.s4_cont .sub_tab_pagination>span').removeClass('active');
+        $('.s4_cont0'+idx+' .sub_tab_pagination>span').eq(0).addClass('active');
+        $('.s4_cont .sub_tab').find('ul>li').css('display','none');
+        $('.s4_cont .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
       }else {
         $('.mob_icon_tab>ul>li').removeClass('on');
+      }
+    });
+    
+    //서브 탭 pagination
+    $('.concept5 .sub_tab_pagination>span').on('click',function(){
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+
+      var idx = $(this).index()+1,
+          listUl = $(this).parents('.sub_tab_pagination').siblings('.sub_tab'),
+          startN = 6*idx-5,
+          endN = 6*idx;
+      if($('#pc').length){
+        $(listUl).find('li').css('display','none');
+        $(listUl).find('li:nth-child(n+'+startN+'):nth-child(-n+'+endN+')').css('display','flex');
+      }else {
+
       }
     });
 
@@ -1818,23 +1813,31 @@ var weve5Concept = {
       $(this).addClass('on');
       $(this).siblings().removeClass('on');
 
-      var idx2 = $(this).index()+1;
+      var idx = $(this).index()+1;
+      var idx0 = String(idx).padStart(2, '0');
       $('.img_cont').removeClass('on');
-      $('.img_cont0'+idx2).addClass('on');
+      $('.img_cont'+idx0).addClass('on');
       $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
-      $(".concept5 .mob_icon_tab>ul>li:nth-child("+idx2+")").addClass('on');
+      $('.concept5 .mob_icon_tab>ul>li:nth-child('+idx+')').addClass('on');
 
       //모바일 아이콘 해당 아이콘으로 스크롤 이동
-      $('.s4_cont02 .mob_icon_tab>ul').each(function (){
-        var _width = $(this).width(),
-            _length = $(this).children('li').length,
-            _index = $(this).find('.on').index();
-                    
-        $('.mob_icon_tab').scrollLeft((_width/_length) * _index);
-      });
+      var _this = $(this).parents('.sub_tab').siblings('.mob_icon_slide'),
+          _width = $(_this).find('li').width(),
+          _index = $(_this).find('.on').index();
 
+      if(_index>=0 && _index <6){
+        $('.mob_icon_slide').scrollLeft(0);
+      }
+      if(_index>=6 && _index<12){
+        $('.mob_icon_slide').scrollLeft(_width*6);
+      }
+      if(_index>=12 && _index<18){
+        $('.mob_icon_slide').scrollLeft(_width*12);
+      }
+                
     });
 
+    //모바일 아이콘 탭
     $('.mob_icon_tab>ul>li').hover(function() { 
       var idx3 = $(this).index()+1;
       $('.mob_icon_tab>ul>li').removeClass('on');
@@ -1850,27 +1853,6 @@ var weve5Concept = {
       $('.img_cont00').addClass('on');
     });
 
-    
-
-    //서브 탭 pagination
-    $('.concept5 .sub_tab_pagination>span').on('click',function(){
-      $('.concept5 .sub_tab_pagination>span').removeClass('active');
-      $(this).addClass('active');
-
-      var idx = $(this).index()+1;
-      if($('#pc').length){
-        // if(idx==1){
-        //   $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
-        //   $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','none');
-        // }else {
-        //   $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+7):nth-child(-n+8)').css('display','flex');
-        //   $(this).parents('.sub_tab_pagination').siblings('.sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','none');
-        // }
-      }else {
-
-      }
-    });
-    
   },
 
   textAnimate: () => {
@@ -1913,11 +1895,11 @@ var weve5Concept = {
 
       });
 
-      // if ($("#mobile").length) {
-      //   $(".section1_menu .on").on("click", () => {
-      //     $(".section1_menu ul").toggleClass("open");
-      //   });
-      // }
+      if ($("#mobile").length) {
+        $(".section1_menu .on").on("click", () => {
+          $(".section1_menu ul").toggleClass("open");
+        });
+      }
 
       let before = 0;
       window.addEventListener("scroll", (ev) => {

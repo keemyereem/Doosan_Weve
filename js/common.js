@@ -1840,10 +1840,11 @@ var weve5Concept = {
     //모바일 아이콘 탭
     $('.mob_icon_tab>ul>li').hover(function() { 
       var idx3 = $(this).index()+1;
+      var idx03 = String(idx3).padStart(2, '0');
       $('.mob_icon_tab>ul>li').removeClass('on');
       $(this).addClass('on');
       $('.img_cont').removeClass('on');
-      $('.img_cont0'+idx3).addClass('on');
+      $('.img_cont'+idx03).addClass('on');
       $('.concept5 .sub_tab>ul>li').removeClass('on');
       $(".concept5 .sub_tab>ul>li:nth-child("+idx3+")").addClass('on');
     }, function() {

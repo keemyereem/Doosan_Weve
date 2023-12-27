@@ -1784,8 +1784,16 @@ var weve5Concept = {
       if($('#pc').length){
         $('.s4_cont .sub_tab_pagination>span').removeClass('active');
         $('.s4_cont0'+idx+' .sub_tab_pagination>span').eq(0).addClass('active');
-        $('.s4_cont .sub_tab').find('ul>li').css('display','none');
-        $('.s4_cont .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
+
+        
+        if($('.concept5_01 .s4_cont02').hasClass('active')){ //센트럴계양 live 5개만 보이게
+          console.log('cont222');
+          $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li').css('display','none');
+          $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+5)').css('display','flex');
+        }else {
+          $('.s4_cont .sub_tab').find('ul>li').css('display','none');
+          $('.s4_cont .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
+        }
       }else {
         $('.mob_icon_tab>ul>li').removeClass('on');
       }
@@ -1801,8 +1809,19 @@ var weve5Concept = {
           startN = 6*idx-5,
           endN = 6*idx;
       if($('#pc').length){
-        $(listUl).find('li').css('display','none');
-        $(listUl).find('li:nth-child(n+'+startN+'):nth-child(-n+'+endN+')').css('display','flex');
+        
+        if($('.concept5_01 .s4_cont02').hasClass('active')){ //센트럴계양 live 5개 예외
+          if(idx == 1){
+            $(listUl).find('li').css('display','none');
+            $(listUl).find('li:nth-child(n+1):nth-child(-n+5)').css('display','flex');
+          }else {
+            $(listUl).find('li').css('display','none');
+            $(listUl).find('li:nth-child(n+6):nth-child(-n+'+endN+')').css('display','flex');
+          }
+        }else {
+          $(listUl).find('li').css('display','none');
+          $(listUl).find('li:nth-child(n+'+startN+'):nth-child(-n+'+endN+')').css('display','flex');
+        }
       }else {
 
       }

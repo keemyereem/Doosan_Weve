@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>두산건설</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--[if lte IE 8]>
+<script src="../common/js/html5.js"></script>
+<![endif]-->
+<style>
+@charset "utf-8";
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 150;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+    font-weight: 350;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{padding: 0;margin: 0;}
+body {font-family: 'Pretendard';}
+.br_m {display: none;}
+.construction {background: #f2f7fb;text-align: center;position: relative;}
+.const_header {background: #004098;display: flex;justify-content: center;align-items: center;width: 100%;height: 100px;position: fixed;top: 0;left: 0;}
+.const_header img {width: 69px;}
+.construction .contents {height: calc(100vh - 100px);display: flex;flex-direction: column;align-items: center;justify-content: center;margin-top: 100px;overflow-y: auto;}
+.ico_construction {width: 143px;}
+.const_tit {font-size: 40px;font-weight: 400;color: #222;margin: 35px 0 15px;}
+.const_tit>span {color: #0f4b9e;}
+.const_txt {font-size: 20px;color: #333;font-weight: 150;line-height: 1.7;}
+.const_box {width: 630px;background: #fff;border-radius: 20px;padding: 20px 0;margin-top: 35px;box-shadow: 3px 5px 9.5px 0.5px rgba(0, 64, 152, 0.05);}
+.const_box>ul {display: inline-block;}
+.const_box>ul>li {display: flex;align-items: center;margin-bottom: 13px;}
+.const_box-tit {width: 100px;border-radius: 16.5px;line-height: 33px;background: #004098;font-size: 18px;color: #fff;font-weight: 150;margin-right: 20px;}
+.const_box-des {font-size: 20px;color: #222;font-weight: 150;text-align: left;}
+.const_box>p {font-size: 18px;font-weight: 350; color: #004098;padding-top: 7px;}
+
+@media screen and (max-width:767px){
+  .br_m {display: block;}
+  .const_header {height: 60px;}
+  .const_header img {width: 50px;}
+  .construction .contents {padding: 0 20px;height: calc(100vh - 60px);margin-top: 60px;}
+  .ico_construction {width: 90px;}
+  .const_tit {font-size: 25px;}
+  .const_txt {font-size: 13px;line-height: 1.61;}
+  .const_box {width: 100%;border-radius: 12.5px;}
+  .const_box>ul>li {margin-bottom: 10px;}
+  .const_box-tit {width: 62px;line-height: 21px;border-radius: 10px;font-size: 12px;margin-right: 13px;}
+  .const_box-des {font-size: 13px;}
+  .const_box>p {font-size: 12px;padding-top: 5px;}
+}
+</style>
+
+ </head>
+ <body class="uiWeb msg_body">
+  <div class="construction">
+    <div class="const_header"><a href="/" title="홈으로 이동">
+      <img src="../images/footer_logo.png" alt="weve 로고">
+    </a></div>
+    <div class="contents">
+      <img src="../images/common/ico_construction.png" alt="공사중 아이콘" class="ico_construction">
+      <h2 class="const_tit">홈페이지 이용 <span>일시중단</span> 안내</h2>
+      <p class="const_txt">
+        원활한 서비스 제공을 위해 서버 안정화 작업을 진행합니다.<br>
+        해당 작업기간 중 홈페이지 접속 및<br class="br_m"> 사용이 불가하니 이 점 양해 부탁드립니다.<br>
+        자세한 사항은 아래 내용을 참고하여 주시길 바랍니다.<br class="br_m"><br class="br_m"> 감사합니다.
+      </p>
+      <div class="const_box">
+        <ul>
+          <li>
+            <div class="const_box-tit">작업내용</div>
+            <div class="const_box-des">서버 안정화 작업</div>
+          </li>
+          <li>
+            <div class="const_box-tit">작업일시</div>
+            <div class="const_box-des">2월 16일(금) 00:00 ~ 05:00</div>
+          </li>
+        </ul>
+        <p>※ 작업시간 중 사이트 접속 및 이용 불가</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

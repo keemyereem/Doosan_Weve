@@ -4,12 +4,18 @@
 
 @charset "utf-8";
 
+#mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
+#mobile footer .footer_award { position: initial; max-width: 250px; margin: 25px auto 0; }
+#mobile footer .footer_award>img { width: 100%;object-fit: contain; }
+
 @media screen and (max-width:1440px) {
 	#pc {overflow-x: scroll !important; width: 1440px;}
 	#pc header, 
 	#pc footer { width: 1440px; }
 	#pc .scroll-container nav ul { width: 100%; }
 	/* #pc .scroll-container nav ul li { flex: auto 0; } */
+	#pc footer .inner { padding: 50px 0 80px 130px; }
+	#pc footer .footer_award { left: 790px; }
 }
 
 @media screen and (min-width:768px) {
@@ -32,6 +38,14 @@
 	#mobile .contBox04 .noti_list li:hover a:after {height:100%;}
 
 
+}
+
+@media screen and (max-width:1024px) {
+	.my_contract .contract_info .const_status .top .img { width: 47vw; }
+	.my_contract .contract_info .const_status .top>p,
+	.my_contract .contract_info .const_status .top .name,
+	.my_contract .contract_info .const_status .top .progress_wrap,
+	.my_contract .contract_info .const_status .top ul {width: calc(100% - 47vw);}
 }
 
 @media screen and (max-width:768px) {
@@ -147,8 +161,9 @@
 	#mobile header.wht h1 a {background: url(../images/logom_b.png) 50% 50% no-repeat; background-size: contain;}
 	#mobile header .util_wrap .btn_doosanenc {background: url(../images/logo_ds_m.png) 50% 50% no-repeat; background-size: 33px 9px;}
 	#mobile header.wht .util_wrap .btn_doosanenc {background: url(../images/logo_ds_b_m.png) 50% 50% no-repeat; background-size: 33px 9px;}
-    /* footer */
-    #mobile footer {padding:0 20px;}
+
+	/* footer */
+	#mobile footer {padding:0 20px;}
 	#mobile footer .inner {padding:35px 0 100px;}
 	#mobile footer .logo {position:static;}
 	#mobile footer .logo img { width: 62px; }
@@ -162,11 +177,10 @@
 	#mobile footer .addr p.a3 {margin-right: 0;}
 	#mobile footer .addr p span {margin-right:10px;}
 	#mobile footer .copy {font-size:10px;letter-spacing: -.5px;}
-	#mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
 
-	footer .family_site .site_selected { font-size: 13px; line-height: 43px; }
-	footer .family_site .site_list { bottom:45px; }
-	footer .family_site .site_list li a { font-size: 13px; }
+	#mobile footer .family_site .site_selected { font-size: 13px; line-height: 43px; }
+	#mobile footer .family_site .site_list { bottom:45px; }
+	#mobile footer .family_site .site_list li a { font-size: 13px; }
 
 	#mobile #topButton { font-size: 14px; right: 20px; bottom: 35px; }
 	#mobile #topButton::after { width: 18px; height: 23px; }
@@ -1247,6 +1261,10 @@
 	#mobile .my_contract .contract_info .const_status .top ul li:last-child { padding: 0; flex-direction: row; }
 	#mobile .my_contract .contract_info .const_status .top ul li .tit { width: 70px; flex-shrink: 0; }
 	#mobile .my_contract .contract_info .const_status .top .img { position: initial; width: 100%; height: 100%; }
+	#mobile	.my_contract .contract_info .const_status .top>p,
+	#mobile	.my_contract .contract_info .const_status .top .name,
+	#mobile	.my_contract .contract_info .const_status .top .progress_wrap,
+	#mobile	.my_contract .contract_info .const_status .top ul {width: 100%;}
 
 	#mobile .my_contract .contract_info .const_status .pop_tab_wrap { margin: 20px auto 40px; }
 	#mobile .my_contract .contract_info .const_status .pop_tab { width: 100%!important; height: 40px; margin: 0 auto; overflow-x: visible; }
@@ -1404,12 +1422,6 @@
 	#mobile footer .f_menu a:before { margin:0 3vw; }
 	#mobile .myweve .inquiry .section2 a,
 	#mobile .myweve .as_status .section2 a  { float: none; }
-}
-
-
-@media screen and (max-width:1150px) {
-	.my_contract .contract_info .const_status .top .img { width: 47vw; }
-	.my_contract .contract_info .const_status .top > *:not(.img) { width: 50%; }
 }
 
 @media screen and (min-height:1100px) {

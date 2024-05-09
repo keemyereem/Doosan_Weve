@@ -464,6 +464,197 @@ body#brandstory.typeB { color: #222; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li:last-child span:last-child{margin-bottom:0}
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .desc.desc-lg{line-height:30px}.macrogen.macrogen-history .section:last-child{padding-bottom:0}
 
+/* Priviledge */
+.privilege {font-family: 'Poppins', 'NS';overflow-x: hidden;}
+.privilege .section00 {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;flex-direction: column;background: #014099;color: #fff;}
+.privilege .sec0-tit {font-size: 80px;font-weight: 400;letter-spacing: 0.8px;text-align: center;}
+.privilege .sec0-tit01 {transform: translateY(180%);}
+.privilege .sec0-tit02 {letter-spacing: -2px;opacity: 0;}
+.privilege .sec0-list {display: flex;align-items: center;justify-content: space-evenly;position: relative;width: 100%;margin-top: 130px;}
+.privilege .sec0-list::before {content:'';display: block;width: 0;height: 4px;background: #fff;position: absolute;top: 0;left: 50%;transform: translateX(-50%);transition: width .5s;}
+.privilege .sec0-list.open::before {width: 100%;}
+.privilege .sec0-list li {opacity: 0;position: relative;/* width: auto; */padding-top: 105px;padding-left: 15px;}
+.privilege .sec0-list li::before {content:'';display: block;width: 50px;height: 50px;background: url(../images/brand/prev-sec0_list.png) no-repeat;background-size: contain;position: absolute;top: -23px;left: calc(50% - 25px);}
+.privilege .sec0-list li::after {content:'';display: block;width: 14px;height: 14px;border-radius: 100%;position: absolute;top: -5px;left: 50%;transform: translateX(-50%);}
+.privilege .sec0-list .sec0-list01::after {background: #663f99;}
+.privilege .sec0-list .sec0-list02::after {background: #f36e2e;}
+.privilege .sec0-list .sec0-list03::after {background: #f05a90;}
+.privilege .sec0-list .sec0-list04::after {background: #8dc63f;}
+.privilege .sec0-list .sec0-list05::after {background: #0d84c7;}
+.privilege .sec0-list li svg {font-size: 60px;font-weight: 400;letter-spacing: 0;fill: none;max-height: 56px;}
+.privilege .sec0-list li svg text {stroke: #fff;stroke-width:0.5;stroke-dashoffset:0;}
+.privilege .sec0-list li svg text tspan {margin-left: 1px;}
+.privilege .sec0-list .sec0-list01 svg {max-width: 158px;}
+.privilege .sec0-list .sec0-list02 svg {max-width: 114px;}
+.privilege .sec0-list .sec0-list03 svg {max-width: 133px;}
+.privilege .sec0-list .sec0-list04 svg {max-width: 152px;}
+.privilege .sec0-list .sec0-list05 svg {max-width: 166px;}
+
+.privilege .section {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;}
+.privilege .section01,
+.privilege #have .con_list li {background-color: #efebf5;}
+.privilege .section02,
+.privilege #live .con_list li {background-color: #fef3e9;}
+.privilege .section03,
+.privilege #love .con_list li {background-color: #fdf2f6;}
+.privilege .section04,
+.privilege #save .con_list li {background-color: #f6faed;}
+.privilege .section05,
+.privilege #solve .con_list li {background-color: #eef3fa;}
+
+.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;border: 1px solid #000;position: relative;color: #fff;transform: translateY(100%);background-position: 50% 50%;}
+.privilege #have .panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
+.privilege #live .panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
+.privilege #love .panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
+.privilege #save .panel {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
+.privilege #solve .panel {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
+
+.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;}
+.privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;}
+.privilege .anchor::before {content:''; display: block;width: 1px;height: 30px;opacity: 0.3;position: absolute;top: 50%;left: 0;transform: translateY(-50%);}
+.privilege .anchor:first-child::before,
+.privilege .anchor.active + .anchor::before {display: none;}
+.privilege .anchor.active {flex-basis: 100px;font-size: 54px;margin-top: -21px;color: #fff;position: relative;}
+.privilege .anchor.active::before {display: none;}
+.privilege .anchor.active::after {content:'';display: block;width: 250px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat;background-size: contain;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);}
+.privilege .anchor01,
+.privilege #have .panel-con .con_tit01 .highlight {color: #62318e;}
+.privilege .anchor02,
+.privilege #live .panel-con .con_tit01 .highlight {color: #ed7214;}
+.privilege .anchor03,
+.privilege #love .panel-con .con_tit01 .highlight {color: #e9538b;}
+.privilege .anchor04,
+.privilege #save .panel-con .con_tit01 .highlight {color: #8fc31f;}
+.privilege .anchor05,
+.privilege #solve .panel-con .con_tit01 .highlight {color: #007fc5;}
+
+.privilege .panel-con {border: 1px solid red;width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
+.privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
+.privilege #live .panel-con {/* background-color: #ed7214; */background-image: url(../images/brand/priv-bg02_illust.png);background-position: 100% 100%;}
+.privilege #love .panel-con {/* background-color: #e9538b; */background-image: url(../images/brand/priv-bg03_illust.png);background-position: calc(100% - 175px) calc(100% - 60px);}
+.privilege #save .panel-con {/* background-color: #8fc31f; */background-image: url(../images/brand/priv-bg04_illust.png);background-position: calc(100% - 140px) 100%;}
+.privilege #solve .panel-con {/* background-color: #007fc5; */background-image: url(../images/brand/priv-bg05_illust.png);background-position: calc(100% - 133px) 100%;}
+
+.privilege .panel-con .con_tag {opacity: 0;display: none;align-items: center;justify-content: center;font-size: 20px;letter-spacing: -0.6px;padding: 0 30px;height: 50px;border-radius: 24.5px;}
+.privilege .panel-con .con_tag strong {font-family: 'Poppins';position: relative;}
+.privilege .panel-con .con_tag strong::after {content:'';display: inline-block;width: 6px;height: 6px;background: #fff;transform: rotate(15deg);margin: 0 15px;vertical-align: middle;opacity: 0.6;}
+.privilege #have .anchor:not(.active)::before,
+.privilege #have .con_tag {background: #634387;}
+.privilege #live .anchor:not(.active)::before,
+.privilege #live .con_tag {background: #d8641e;}
+.privilege #love .anchor:not(.active)::before,
+.privilege #love .con_tag {background: #c34976;}
+.privilege #save .anchor:not(.active)::before,
+.privilege #save .con_tag {background: #74a032;}
+.privilege #solve .anchor:not(.active)::before,
+.privilege #solve .con_tag {background: #1a70ad;}
+.privilege .panel-con .con_tit01 {display: block;font-size: 64px;font-weight: 400;}
+.privilege .panel-con .con_tit01 .highlight {display: inline-block;background: #fff;}
+.privilege .panel-con .con_tit02 {opacity: 0;display: none;/* display: flex; */align-items: center;font-size: 52px;font-weight: 400;letter-spacing: -1.3px;line-height: 1.34;position: relative;margin-top: 40px;}
+.privilege .panel-con .con_tit02 span {flex-shrink: 0;margin-right: 60px;}
+.privilege .panel-con .con_tit02::after {content:'';display: block;width: 100%;height: 2px;background: rgba(255, 255, 255, .3);}
+.privilege .panel-con .con_txt {display: block;font-size: 26px;font-weight: 150;letter-spacing: -0.65px;line-height: 1.53;margin-top: 50px;}
+.privilege .panel-con .con_list {display: none;opacity: 0;margin-top: 100px;}
+.privilege .panel-con .con_list ul {display: flex;flex-wrap: wrap;gap: 30px;}
+.privilege .panel-con .con_list li {width: calc((100% - 120px) / 5);height: 110px;border-radius: 10px;padding-left: 30px;padding-right: 30px;display: flex;align-items: center;justify-content: space-between;position: relative;opacity: 0;}
+.privilege #have .panel-con .con_list li {border: 1px solid #b098c6;}
+.privilege #live .panel-con .con_list li {border: 1px solid #f6c0a6;}
+.privilege #love .panel-con .con_list li {border: 1px solid #f4b6ca;}
+.privilege #save .panel-con .con_list li {border: 1px solid #cce2a8;}
+.privilege #solve .panel-con .con_list li {border: 1px solid #a8c9e5;}
+.privilege .panel-con .con_list-icon {flex-shrink: 0;}
+
+.privilege .panel-con .con_list li p {font-size: 18px;letter-spacing: -0.45px;line-height: 1.33;width: calc(100% - 90px);}
+.privilege #have .con_list li p {color: #634f82;}
+.privilege #live .con_list li p {color: #c35628;}
+.privilege #love .con_list li p {color: #9e4061;}
+.privilege #save .con_list li p {color: #597d45;}
+.privilege #solve .con_list li p {color: #336196;}
+
+.privilege .section06 {width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;}
+.privilege .section06 .gsap3 {width: 100%;display: flex;justify-content: center;align-items: center;text-align: center;opacity: 0;transform: translateY(100px);}
+.privilege .section06 .gsap3-1 {font-family: 'Poppins';font-size: 120px;color: #005eb8;/* margin-bottom: 10vh;line-height: 1;height: 140px; */}
+.privilege .section06 .gsap3-2 {max-width: 5000px;height: inherit;line-height: 1;overflow: hidden;display: inline-flex;white-space: nowrap;padding-left: 20px;}
+.privilege .section06 .gsap3-3 {position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;transform: translateY(-5vh);opacity: 0;}
+
+/* .privilege #have .con_list li:nth-child(1) {background-image: url(../images/brand/priv-have_icon01@2x.png);}
+.privilege #have .con_list li:nth-child(2) {background-image: url(../images/brand/priv-have_icon02@2x.png);}
+.privilege #have .con_list li:nth-child(3) {background-image: url(../images/brand/priv-have_icon03@2x.png);}
+.privilege #have .con_list li:nth-child(4) {background-image: url(../images/brand/priv-have_icon04@2x.png);}
+.privilege #have .con_list li:nth-child(5) {background-image: url(../images/brand/priv-have_icon05@2x.png);}
+.privilege #have .con_list li:nth-child(6) {background-image: url(../images/brand/priv-have_icon06@2x.png);}
+.privilege #have .con_list li:nth-child(7) {background-image: url(../images/brand/priv-have_icon07@2x.png);}
+.privilege #have .con_list li:nth-child(8) {background-image: url(../images/brand/priv-have_icon08@2x.png);}
+.privilege #have .con_list li:nth-child(9) {background-image: url(../images/brand/priv-have_icon09@2x.png);}
+.privilege #have .con_list li:nth-child(10) {background-image: url(../images/brand/priv-have_icon10@2x.png);}
+.privilege #have .con_list li:nth-child(11) {background-image: url(../images/brand/priv-have_icon11@2x.png);}
+.privilege #have .con_list li:nth-child(12) {background-image: url(../images/brand/priv-have_icon12@2x.png);}
+
+.privilege #live .con_list li:nth-child(1) {background-image: url(../images/brand/priv-live_icon01@2x.png);}
+.privilege #live .con_list li:nth-child(2) {background-image: url(../images/brand/priv-live_icon02@2x.png);}
+.privilege #live .con_list li:nth-child(3) {background-image: url(../images/brand/priv-live_icon03@2x.png);}
+.privilege #live .con_list li:nth-child(4) {background-image: url(../images/brand/priv-live_icon04@2x.png);}
+.privilege #live .con_list li:nth-child(5) {background-image: url(../images/brand/priv-live_icon05@2x.png);}
+.privilege #live .con_list li:nth-child(6) {background-image: url(../images/brand/priv-live_icon06@2x.png);}
+.privilege #live .con_list li:nth-child(7) {background-image: url(../images/brand/priv-live_icon07@2x.png);}
+.privilege #live .con_list li:nth-child(8) {background-image: url(../images/brand/priv-live_icon08@2x.png);}
+.privilege #live .con_list li:nth-child(9) {background-image: url(../images/brand/priv-live_icon09@2x.png);}
+.privilege #live .con_list li:nth-child(10) {background-image: url(../images/brand/priv-live_icon10@2x.png);}
+.privilege #live .con_list li:nth-child(11) {background-image: url(../images/brand/priv-live_icon11@2x.png);}
+.privilege #live .con_list li:nth-child(12) {background-image: url(../images/brand/priv-live_icon12@2x.png);}
+
+.privilege #love .con_list li:nth-child(1) {background-image: url(../images/brand/priv-love_icon01@2x.png);}
+.privilege #love .con_list li:nth-child(2) {background-image: url(../images/brand/priv-love_icon02@2x.png);}
+.privilege #love .con_list li:nth-child(3) {background-image: url(../images/brand/priv-love_icon03@2x.png);}
+.privilege #love .con_list li:nth-child(4) {background-image: url(../images/brand/priv-love_icon04@2x.png);}
+.privilege #love .con_list li:nth-child(5) {background-image: url(../images/brand/priv-love_icon05@2x.png);}
+.privilege #love .con_list li:nth-child(6) {background-image: url(../images/brand/priv-love_icon06@2x.png);}
+.privilege #love .con_list li:nth-child(7) {background-image: url(../images/brand/priv-love_icon07@2x.png);}
+.privilege #love .con_list li:nth-child(8) {background-image: url(../images/brand/priv-love_icon08@2x.png);}
+.privilege #love .con_list li:nth-child(9) {background-image: url(../images/brand/priv-love_icon09@2x.png);}
+.privilege #love .con_list li:nth-child(10) {background-image: url(../images/brand/priv-love_icon10@2x.png);}
+.privilege #love .con_list li:nth-child(11) {background-image: url(../images/brand/priv-love_icon11@2x.png);}
+.privilege #love .con_list li:nth-child(12) {background-image: url(../images/brand/priv-love_icon12@2x.png);}
+
+.privilege #save .con_list li:nth-child(1) {background-image: url(../images/brand/priv-save_icon01@2x.png);}
+.privilege #save .con_list li:nth-child(2) {background-image: url(../images/brand/priv-save_icon02@2x.png);}
+.privilege #save .con_list li:nth-child(3) {background-image: url(../images/brand/priv-save_icon03@2x.png);}
+.privilege #save .con_list li:nth-child(4) {background-image: url(../images/brand/priv-save_icon04@2x.png);}
+.privilege #save .con_list li:nth-child(5) {background-image: url(../images/brand/priv-save_icon05@2x.png);}
+.privilege #save .con_list li:nth-child(6) {background-image: url(../images/brand/priv-save_icon06@2x.png);}
+.privilege #save .con_list li:nth-child(7) {background-image: url(../images/brand/priv-save_icon07@2x.png);}
+.privilege #save .con_list li:nth-child(8) {background-image: url(../images/brand/priv-save_icon08@2x.png);}
+.privilege #save .con_list li:nth-child(9) {background-image: url(../images/brand/priv-save_icon09@2x.png);}
+.privilege #save .con_list li:nth-child(10) {background-image: url(../images/brand/priv-save_icon10@2x.png);}
+.privilege #save .con_list li:nth-child(11) {background-image: url(../images/brand/priv-save_icon11@2x.png);}
+.privilege #save .con_list li:nth-child(12) {background-image: url(../images/brand/priv-save_icon12@2x.png);}
+.privilege #save .con_list li:nth-child(13) {background-image: url(../images/brand/priv-save_icon13@2x.png);}
+
+.privilege #save .con_list li:nth-child(1) {background-image: url(../images/brand/priv-save_icon01@2x.png);}
+.privilege #save .con_list li:nth-child(2) {background-image: url(../images/brand/priv-save_icon02@2x.png);}
+.privilege #save .con_list li:nth-child(3) {background-image: url(../images/brand/priv-save_icon03@2x.png);}
+.privilege #save .con_list li:nth-child(4) {background-image: url(../images/brand/priv-save_icon04@2x.png);}
+.privilege #save .con_list li:nth-child(5) {background-image: url(../images/brand/priv-save_icon05@2x.png);}
+.privilege #save .con_list li:nth-child(6) {background-image: url(../images/brand/priv-save_icon06@2x.png);}
+.privilege #save .con_list li:nth-child(7) {background-image: url(../images/brand/priv-save_icon07@2x.png);}
+.privilege #save .con_list li:nth-child(8) {background-image: url(../images/brand/priv-save_icon08@2x.png);}
+.privilege #save .con_list li:nth-child(9) {background-image: url(../images/brand/priv-save_icon09@2x.png);}
+.privilege #save .con_list li:nth-child(10) {background-image: url(../images/brand/priv-save_icon10@2x.png);}
+.privilege #save .con_list li:nth-child(11) {background-image: url(../images/brand/priv-save_icon11@2x.png);}
+.privilege #save .con_list li:nth-child(12) {background-image: url(../images/brand/priv-save_icon12@2x.png);}
+.privilege #save .con_list li:nth-child(13) {background-image: url(../images/brand/priv-save_icon13@2x.png);} */
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 5concept */
 .concept5 { min-width: 1440px; overflow: hidden; }

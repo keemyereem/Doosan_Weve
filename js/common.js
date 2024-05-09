@@ -137,9 +137,12 @@ var commonEvent = {
 
   bgAni: function () {
     $(document).ready(function () {
-      setTimeout(function () {
-        $(".section1").addClass("ani");
-      }, 100);
+      if($('#pc').length){
+        setTimeout(function () {
+          $(".section1").addClass("ani");
+        }, 100);
+      }
+
     });
   },
 
@@ -307,15 +310,15 @@ var commonEvent = {
     
     // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 290~304과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
     $(document).on('click','.list > ul > li a', function(){
-	  const li = $(this).parents('li');
-        let data = li.children("p").attr("data-process"),
-        title = li.find("dl dt").text();
-              
-        locate = li.find("dl dd:first-of-type").text();
-        locate = locate.replace("위치", "");
+	    const li = $(this).parents('li');
+      let data = li.children("p").attr("data-process"),
+      title = li.find("dl dt").text();
+            
+      locate = li.find("dl dd:first-of-type").text();
+      locate = locate.replace("위치", "");
 
-        popupUI.find("dl dt").text(title);
-        popupUI.find("dl dd").text(locate);
+      popupUI.find("dl dt").text(title);
+      popupUI.find("dl dd").text(locate);
 
         if (data >= 0 && data <= 2) {
           return;
@@ -380,6 +383,66 @@ var commonEvent = {
            console.log('kakao map',error.responseText);
          }
        });
+    });
+
+    // 카카오 지도 연동
+    $(document).on('click','.list > ul > li a', function(){
+      var searchKey = $(this).data('addr');
+      var markerTit = $(this).data('tit');
+      // 페이지 초기화
+      $('#kakaoMap').html('loading...');
+      $('[data-handler="btn-map-detail"]').attr('href','javascript:alert("잠시만 기다려주세요.")');
+      
+      $.ajax({
+        type : "get",
+        url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(searchKey),
+        headers: {'Authorization' : 'KakaoAK e907ed20e50441767ce164877793fe6d'},
+        success : function(data) {
+          if( data !=null ){
+            if( data.meta.total_count > 0 ){
+              addr_y = data.documents[0].y;
+              addr_x = data.documents[0].x;
+              
+              // randering map
+                var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div 
+                    var coords = new kakao.maps.LatLng(addr_y, addr_x);
+                  mapOption = {
+                      center: coords,
+                      level: 3
+                  };
+                  
+                // 지도를 생성합니다    
+                var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    /*  221222: 기획팀 요청으로 장소설명 삭제
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: '<div style="min-width:150px;text-align:center;padding:6px 2px;">'+markerTit+'</div>'
+                        });
+                        infowindow.open(map, marker);
+                    */
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
+                  $('[data-handler="btn-map-detail"]').attr('href','https://map.kakao.com/?map_type=TYPE_MAP&q='+ encodeURIComponent(searchKey) + '&urlLevel=2');
+            } else {
+              console.log(searchKey +"..............no data...............");	
+            }
+          } else {
+            console.log("..............no data...............");
+          }
+          
+        },
+        error : function(error) {
+          console.log('kakao map',error.responseText);
+        }
+      });
     });
 
     popupUI.children("a").hover(
@@ -508,6 +571,7 @@ var commonEvent = {
           $("header").removeClass("indentUp").removeClass("wht");
         }
       }
+
     });
   },
 
@@ -987,6 +1051,7 @@ var estateEvent = {
       spaceBetween: 0,
       speed: 500,
       observer: true,
+      touchRatio: 0,
       observeParents: true,
       centeredSlides: true,
       navigation: {
@@ -1176,7 +1241,7 @@ var estateEvent = {
   },
 
   estTab: () => {
-    $(".estate nav li a").on("click", function () {
+    $("#pc .estate nav li a").on("click", function () {
       $("header").addClass("indent");
     });
   },
@@ -1240,6 +1305,7 @@ var myWeveEvent = {
     this.subTab();
     this.const_popup();
     this.modEmail();
+    this.selLabelColor();
   },
   loginbtn: () => {
     $(".get_authenNumber").click(function () {
@@ -1432,6 +1498,12 @@ var myWeveEvent = {
       });
     }
   },
+
+  selLabelColor: () => {
+    $('.reservation_apply .cont > ul:last-child select').on('change', function() {      
+      $(this).siblings('label').css('color','#555');
+    });
+  },
 };
 
 var datepicker = {
@@ -1462,14 +1534,13 @@ var datepicker = {
         "14:00",
         "15:00",
         "16:00",
-        "17:00",
       ],
     });
 
     $(document).ready(() => {
       // 기존 datepikcer 삭제 (중복 방지)
 	    $('.popup .xdsoft_datetimepicker').remove();
-	    
+
       // jquery.datetimepicker.full.js 파일 1948줄 .book_tag 추가
       const dateSheet = $(".xdsoft_datetimepicker"),
         dateChildren = dateSheet.children("div"),
@@ -1535,6 +1606,549 @@ var datepicker = {
         $("header").show();
       }
     });
+  },
+};
+
+var weve5Concept = {
+  init: function () {
+    this.carousel();
+    this.tabContent();
+    this.textAnimate();
+    this.menuTab();
+  },
+  carousel: () => {
+    //Mouse-drag
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+    
+      // when the mouse is clicked
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        cancelMomentumTracking();
+      });
+    
+      // if the mouse cursor goes off the slide
+      carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+    
+      // after mouse click is released
+      carousel.addEventListener('mouseup', (e) => {
+        isDown = false;
+        beginMomentumTracking();
+
+        // ***드래그가 끝난 후 마우스를 떼면 클릭방지 클래스를 삭제.
+        $('.carousel-item').removeClass('preventClick');
+      });
+    
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - carousel.offsetLeft;
+          const walk = (x - startX) * 1;
+          var prevScrollLeft = carousel.scrollLeft;
+          carousel.scrollLeft = scrollLeft - walk;
+          velX = carousel.scrollLeft - prevScrollLeft;
+          console.log('e.pageX'+x);
+          // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
+          $('.carousel-item').addClass('preventClick');
+      });
+    
+      // Momentum
+      let velX = 0;
+      let momentumID;
+    
+      // disable mouse wheel
+      carousel.addEventListener('wheel', (e) => {
+        cancelMomentumTracking();
+      });
+    
+      function beginMomentumTracking() {
+        cancelMomentumTracking();
+        momentumID = requestAnimationFrame(momentumLoop);
+      }
+    
+      function cancelMomentumTracking() {
+        cancelAnimationFrame(momentumID);
+      }
+    
+      function momentumLoop() {
+        carousel.scrollLeft += velX;
+        velX *= 0.9;
+        
+        if (Math.abs(velX) > 0.5) {
+          momentumID = requestAnimationFrame(momentumLoop);
+        }
+      }
+    
+      let carouselChildren = document.querySelectorAll('.carousel-item');
+      carouselChildren.forEach(carouselChild => {
+        // add the condition to check if the carousel is being dragged
+        carouselChild.addEventListener('click', function(event) {
+          event.stopPropagation();
+          event.preventDefault();
+        
+    
+          let lateTransition = $(this).find('li').length;
+          if (!$(this).hasClass('on')) {
+            for (var i = 1; i <= lateTransition; i++) {
+              $(this).find('li').eq(i).css('transition-delay', i * 0.06 + 's');
+            }
+          } else {
+            for (var i = lateTransition; i >= 1; i--) {
+              $(this).find('li').eq(i).css('transition-delay', 0.3 / i + 's');
+            }
+          }
+          $(this).toggleClass('on');
+          $('.carousel-item').not($(this)).removeClass('on');
+
+          if($('#pc .carousel-item').hasClass('on')){
+            $('#pc .carousel').css('justify-content','initial');
+          }else {
+            $('#pc .carousel').css('justify-content','center');
+          }
+        });
+
+      });
+    });
+
+    $('.carousel-item').on('click', function() {
+      
+      let cWidth = $(this).find('.desc').outerWidth(),
+          cMargin = $(this).css('margin-left').replace(/[^-\d\.]/g, ''),      
+          cIndex = $(this).index() + 1;
+
+      if ($(this).hasClass("on")) {
+        $('.carousel').animate({ scrollLeft: (cWidth + (cMargin * 2)) * cIndex - cWidth}, 500);
+      }
+      
+
+      // if ($(this).hasClass("prev")) {
+      //   tsMove = Math.floor(tabButton.eq(tbIndex).position().left);
+
+      //   tabContainer.animate({ scrollLeft: tsMove }, 200);
+      // } else {
+      //   tsmoveTrigger = Math.abs(tabBox.position().left);
+
+      //   if (
+      //     Math.ceil(tsmoveTrigger) ==
+      //     Math.floor(tabButton.eq(tbIndex).next().position().left)
+      //   ) {
+      //     tbIndex = tbIndex + 1;
+      //   } else {
+      //     tbIndex = tbIndex;
+      //   }
+
+      //   tsMove = Math.floor(tabButton.eq(tbIndex).next().position().left);
+      //   tabContainer.animate({ scrollLeft: tsMove }, 200);
+      // }
+    })
+
+    $('.carousel-item>ul>.desc').on('mouseenter', function() {
+      $(this).addClass('on'); 
+    })
+
+  },
+
+  tabContent: () => {
+
+    //list가 6개 이상일 때, pagination
+    let subTabList = $('.concept5 .s4_cont.active .sub_tab>ul>li');
+    let subTabListLength = $(subTabList).length;
+    // console.log('list length: '+ subTabListLength);
+    // console.log('list pagination length: '+ Math.ceil(subTabListLength / 6));
+    // console.log('list 나머지: '+ subTabListLength % 6);
+
+    if($('#pc').length) {
+      if(subTabListLength>6){
+        $('.concept5 .s4_cont.active .sub_tab>ul>li:nth-child(n+7):nth-child(-n+'+subTabListLength+')').hide();
+      }
+    }
+
+    //메인 탭
+    $('.concept5 .s4_tab>ul>li').on('click',function(){
+      $('.concept5 .s4_tab>ul>li').removeClass('active');
+      $(this).addClass('active');
+      
+      var idx = $(this).index()+1;
+      $('.s4_cont').removeClass('active');
+      $('.s4_cont0'+idx).addClass('active');
+      $('.img_cont').removeClass('on');
+      $('.img_cont00').addClass('on');
+      $('.sub_tab>ul>li').removeClass('on');
+      
+      if($('#pc').length){
+        $('.s4_cont .sub_tab_pagination>span').removeClass('active');
+        $('.s4_cont0'+idx+' .sub_tab_pagination>span').eq(0).addClass('active');
+
+        
+        if($('.concept5_01 .s4_cont02').hasClass('active')){ //센트럴계양 live 5개만 보이게
+          console.log('cont222');
+          $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li').css('display','none');
+          $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+5)').css('display','flex');
+        }else {
+          $('.s4_cont .sub_tab').find('ul>li').css('display','none');
+          $('.s4_cont .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
+        }
+      }else {
+        $('.mob_icon_tab>ul>li').removeClass('on');
+      }
+    });
+    
+    //서브 탭 pagination
+    $('.concept5 .sub_tab_pagination>span').on('click',function(){
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+
+      var idx = $(this).index()+1,
+          listUl = $(this).parents('.sub_tab_pagination').siblings('.sub_tab'),
+          startN = 6*idx-5,
+          endN = 6*idx;
+      if($('#pc').length){
+        
+        if($('.concept5_01 .s4_cont02').hasClass('active')){ //센트럴계양 live 5개 예외
+          if(idx == 1){
+            $(listUl).find('li').css('display','none');
+            $(listUl).find('li:nth-child(n+1):nth-child(-n+5)').css('display','flex');
+          }else {
+            $(listUl).find('li').css('display','none');
+            $(listUl).find('li:nth-child(n+6):nth-child(-n+'+endN+')').css('display','flex');
+          }
+        }else {
+          $(listUl).find('li').css('display','none');
+          $(listUl).find('li:nth-child(n+'+startN+'):nth-child(-n+'+endN+')').css('display','flex');
+        }
+      }else {
+
+      }
+    });
+
+    //서브 탭
+    $('.concept5 .sub_tab>ul>li').on('mouseover',function(){
+      $(this).addClass('on');
+      $(this).siblings().removeClass('on');
+
+      var idx = $(this).index()+1;
+      var idx0 = String(idx).padStart(2, '0');
+      $('.img_cont').removeClass('on');
+      $('.img_cont'+idx0).addClass('on');
+      $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+      $('.concept5 .mob_icon_tab>ul>li:nth-child('+idx+')').addClass('on');
+
+      //모바일 아이콘 해당 아이콘으로 스크롤 이동
+      var _this = $(this).parents('.sub_tab').siblings('.mob_icon_slide'),
+          _width = $(_this).find('li').width(),
+          _index = $(_this).find('.on').index();
+
+      if(_index>=0 && _index <6){
+        $('.mob_icon_slide').scrollLeft(0);
+      }
+      if(_index>=6 && _index<12){
+        $('.mob_icon_slide').scrollLeft(_width*6);
+      }
+      if(_index>=12 && _index<18){
+        $('.mob_icon_slide').scrollLeft(_width*12);
+      }
+                
+    });
+
+    //모바일 아이콘 탭
+    $('.mob_icon_tab>ul>li').hover(function() { 
+      var idx3 = $(this).index()+1;
+      var idx03 = String(idx3).padStart(2, '0');
+      $('.mob_icon_tab>ul>li').removeClass('on');
+      $(this).addClass('on');
+      $('.img_cont').removeClass('on');
+      $('.img_cont'+idx03).addClass('on');
+      $('.concept5 .sub_tab>ul>li').removeClass('on');
+      $(".concept5 .sub_tab>ul>li:nth-child("+idx3+")").addClass('on');
+    }, function() {
+      $('.concept5 .sub_tab>ul>li').removeClass('on');
+      $('.img_cont').removeClass('on');
+      $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+      $('.img_cont00').addClass('on');
+    });
+
+  },
+
+  textAnimate: () => {
+    $(window).scroll(function(){
+      const ss2 = $(".concept5 .section2").offset().top - 500,
+      ss3 = $(".concept5 .section3").offset().top - 300,
+      ss4 = $(".concept5 .section4").offset().top - 500,
+      ss5 = $(".concept5 .section5").offset().top - 500,
+      st = $(window).scrollTop();
+
+      if (st > ss2) {
+        $(".concept5 .section2").addClass("active");
+      }
+      if (st > ss3) {
+        $(".concept5 .section3").addClass("active");
+      }
+      if (st > ss4) {
+        $(".concept5 .section4").addClass("active");
+      }
+      if (st > ss5) {
+        $(".concept5 .section5").addClass("active");
+      }
+    });
+  },
+
+  menuTab: () => {
+    const subMenu = document.querySelector(".concept5 .section1_menu");
+  
+    if ($(".concept5 .section1_menu").length) {
+      let fixMenu = subMenu.offsetTop;
+
+      $(window).on("scroll", function () {
+        let st = $(window).scrollTop();
+
+        if (st >= fixMenu) {
+          subMenu.classList.add("fixed");
+        } else {
+          subMenu.classList.remove("fixed");
+        }
+
+      });
+
+      if ($("#mobile").length) {
+        $(".concept5 .section1_menu .mb").click(function(){
+          $(this).parent().toggleClass('open');
+        });
+      }
+
+      let before = 0;
+      window.addEventListener("scroll", (ev) => {
+        if (before < window.scrollY) { //mouse down
+          $("header").addClass("indentUp");
+          before = window.scrollY;
+        } else if (before > window.scrollY) { //mouse up
+          if(window.scrollY>=fixMenu - 100){
+            $("header").addClass("indentUp");
+          }else {
+            $("header").removeClass("indentUp");
+          }
+          before = window.scrollY;
+        }
+
+      });
+    }
+  },
+};
+
+var privEvent = {
+  init: function () {
+    this.scrollMotion();
+
+    if($(window).width()<=768) {
+      this.privMSwiper();
+    }
+  },
+
+  privMSwiper: () => {
+    var $sections = document.querySelectorAll(".privilege .section");
+    $sections.forEach((item, index)=>{
+      let privSlider = new Swiper(item.querySelector(".con_list"), {
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+        },
+        slidesPerColumn: 2,
+        slidesPerGroup: 3,
+        observer: true,
+        spaceBetween: 20,
+        speed: 1000,
+        allowTouchMove: true,
+        pagination: {
+          el: item.querySelector(".swiper-pagination"),
+          clickable: true,
+        },
+      });
+    });
+  },
+
+  scrollMotion: ()=> {
+    // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
+    $(window).on("scroll", function () {
+      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
+    });
+
+    var tl1 = gsap.timeline({
+      scrollTrigger: {
+        markers: true,
+        trigger: '.section00',
+        pin: '.section00',
+        pinSpacing: true,
+        scrub: true,
+        start: 'top top',
+        end: '+=100%',
+        // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
+        onUpdate: function(scrollTrigger) {
+          var progress = scrollTrigger.progress;
+          
+          // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+          if(progress > 0.4) {
+            $('.sec0-list').addClass('open');
+          } else {
+            $('.sec0-list').removeClass('open');
+          }
+        },
+      }
+      
+    });
+  
+    tl1.to('.sec0-tit01', { y: -40, duration:3, })
+       .to('.sec0-tit02', { y: -10, opacity: '1', duration:3, })
+       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, })
+       .to('.sec0-list01', { opacity: '1', duration:2, },16)
+       .to('.sec0-list02', { opacity: '1', duration:2,})
+       .to('.sec0-list03', { opacity: '1', duration:2,})
+       .to('.sec0-list04', { opacity: '1', duration:2,})
+       .to('.sec0-list05', { opacity: '1', duration:12,})
+  
+       var $sections = document.querySelectorAll(".section");
+       $sections.forEach((item, index)=>{
+         
+         var tl2 = gsap.timeline({
+           scrollTrigger: {
+             markers: true,
+             trigger: item,
+             // pin: true,
+             pinSpacing: false,
+             scrub: 3,
+             start: 'top bottom',
+             end: '20% 100%',
+             ease: 'none',
+           }
+         });
+         tl2_1 = gsap.timeline({
+           scrollTrigger: {
+             markers: true,
+             trigger: item,
+             pin: true,
+             pinSpacing: false,
+             scrub: 3,
+             start: 'top 100%',
+             end: 'bottom 90%',
+             ease: 'none',
+             paused: true,
+           }
+         });
+     
+         var $panels = item.querySelectorAll('.panel'),
+             $panelCon = item.querySelector('.panel-con'),
+             $anchors = item.querySelector('.anchor-nav'),
+             $tag = item.querySelector('.con_tag'),
+             $tit1 = item.querySelector('.con_tit01'),
+             $tit2 = item.querySelector('.con_tit02'),
+             $txt = item.querySelector('.con_txt'),
+             $conList = item.querySelector('.con_list'),
+             $conListBox = item.querySelectorAll('.con_list li'),
+             $page = item.querySelector('.swiper-pagination'),
+             dataColor = item.getAttribute('data-color'),
+             panelPadding = '120px 200px';
+     
+         if($(window).width()<=768){
+           panelPadding = '80px 20px';
+         }else if($(window).width()<=1500 && $(window).width()>768) {
+           panelPadding = '120px 100px';
+         }else {
+           panelPadding = '120px 200px';
+         }
+   
+         tl2
+           .to($sections[index], { yPercent: -100, duration: 0.4, },0)
+           .to($panels, { y: 0, duration: 0.6, delay: 0.2},0)
+   
+         tl2_1
+           .to($tit1, { opacity: 0, duration: 0.2, },2)
+           .to($txt, { opacity: 0, duration: 0.2, },2)
+           .to($tit1, { display: 'none', duration: 0, delay: 0.2 },2)
+           .to($txt, { display: 'none', duration: 0, delay: 0.2 },2)
+           .to($panelCon, { height: '100%', background: dataColor, duration: 0.2, zIndex: 1, },3)
+           .to($panels, { width: '100%', height: '100%', duration: 0.2, },3)
+           .to($sections[index], { padding: '0', duration: 0.2,},3)
+           .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },3)
+   
+           .to($tag, { display: 'inline-flex', duration: 0,},3)
+           .to($tit2, { display: 'flex', duration: 0,},3)
+           .to($conList, { display: 'block', opacity: 1,},3)
+           .to($tag, { opacity: 1, duration: 0.2,},4)
+           .to($tit2, { opacity: 1, duration: 0.2, delay: 0.3,},4)
+           .to($conListBox, { opacity: 1, stagger: 0.2, delay: 0.6,},4)
+           .to($panelCon, { backgroundColor: dataColor, duration: 5, },4)
+           .to($page, { opacity: 1,},7)
+   
+       });
+
+    gsap.registerPlugin(ScrollToPlugin);
+    
+    /* Main navigation */
+    document.querySelectorAll(".anchor").forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute("href");
+        const targetElem = document.getElementById(targetId.slice(1));
+        console.log("targetId",targetId);
+        console.log("targetOffsetTop",targetElem.getBoundingClientRect().top);
+        console.log("scrollTop",window.scrollY);
+
+        gsap.to(window, {
+          scrollTo: {
+            y: targetId,
+            // y: targetElem.getBoundingClientRect().top,
+            onComplete: () => {
+              yourTimelineFunction();
+            }
+          },
+          duration: 1,
+        });
+      });
+    });
+
+    // Your GSAP timeline function
+    function yourTimelineFunction() {
+      tl2_1.play();
+
+    }
+
+
+
+    let maxW = 5000,
+    maxH = 5000;
+
+    if ($('#pc').length) {
+      gsap3_1 = 140,
+      maxW = 0;
+      maxH = 5000;
+    } else if ($('#mobile').length) {
+      gsap3_1 = 85,
+      maxW = 5000;
+      maxH = 0;
+    }
+
+    var tlWeve = gsap.timeline({
+      scrollTrigger: {
+        markers: true,
+        trigger: '.section06',
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+      }
+      
+    });
+    tlWeve
+    .to(".gsap3", { opacity: 1, y: 0, duration: 0.3, })
+    .to(".gsap3-2", { maxWidth: maxW, maxHeight: maxH, duration: 0.6, })
+    .to(".gsap3-1", { height: gsap3_1, duration: 0.2, })
+    .to(".gsap3-1", { opacity: 0, duration: 0.2, })
+    .to(".gsap3-3", { opacity: 1, duration: 0.2, })
+
+    .to(".gsap3", { zIndex: 1, delay: 0.1, });
   },
 };
 

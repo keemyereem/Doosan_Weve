@@ -502,7 +502,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .section05,
 .privilege #solve .con_list li {background-color: #eef3fa;}
 
-.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;border: 1px solid #000;position: relative;color: #fff;transform: translateY(100%);background-position: 50% 50%;}
+.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* border: 1px solid #000; */position: relative;color: #fff;transform: translateY(100%);background-position: 50% 50%;}
 .privilege #have .panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
 .privilege #live .panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
 .privilege #love .panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
@@ -528,7 +528,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .anchor05,
 .privilege #solve .panel-con .con_tit01 .highlight {color: #007fc5;}
 
-.privilege .panel-con {border: 1px solid red;width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
+.privilege .panel-con {/* border: 1px solid red; */width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
 .privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
 .privilege #live .panel-con {/* background-color: #ed7214; */background-image: url(../images/brand/priv-bg02_illust.png);background-position: 100% 100%;}
 .privilege #love .panel-con {/* background-color: #e9538b; */background-image: url(../images/brand/priv-bg03_illust.png);background-position: calc(100% - 175px) calc(100% - 60px);}

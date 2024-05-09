@@ -1956,8 +1956,8 @@ var privEvent = {
         slidesPerView: 3,
         grid: {
           rows: 2,
+          fill: 'row',
         },
-        slidesPerColumn: 2,
         slidesPerGroup: 3,
         observer: true,
         spaceBetween: 20,
@@ -1979,7 +1979,7 @@ var privEvent = {
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: '.section00',
         pin: '.section00',
         pinSpacing: true,
@@ -2010,112 +2010,111 @@ var privEvent = {
        .to('.sec0-list04', { opacity: '1', duration:2,})
        .to('.sec0-list05', { opacity: '1', duration:12,})
   
-       var $sections = document.querySelectorAll(".section");
-       $sections.forEach((item, index)=>{
-         
-         var tl2 = gsap.timeline({
-           scrollTrigger: {
-             markers: true,
-             trigger: item,
-             // pin: true,
-             pinSpacing: false,
-             scrub: 3,
-             start: 'top bottom',
-             end: '20% 100%',
-             ease: 'none',
-           }
-         });
-         tl2_1 = gsap.timeline({
-           scrollTrigger: {
-             markers: true,
-             trigger: item,
-             pin: true,
-             pinSpacing: false,
-             scrub: 3,
-             start: 'top 100%',
-             end: 'bottom 90%',
-             ease: 'none',
-             paused: true,
-           }
-         });
-     
-         var $panels = item.querySelectorAll('.panel'),
-             $panelCon = item.querySelector('.panel-con'),
-             $anchors = item.querySelector('.anchor-nav'),
-             $tag = item.querySelector('.con_tag'),
-             $tit1 = item.querySelector('.con_tit01'),
-             $tit2 = item.querySelector('.con_tit02'),
-             $txt = item.querySelector('.con_txt'),
-             $conList = item.querySelector('.con_list'),
-             $conListBox = item.querySelectorAll('.con_list li'),
-             $page = item.querySelector('.swiper-pagination'),
-             dataColor = item.getAttribute('data-color'),
-             panelPadding = '120px 200px';
-     
-         if($(window).width()<=768){
-           panelPadding = '80px 20px';
-         }else if($(window).width()<=1500 && $(window).width()>768) {
-           panelPadding = '120px 100px';
-         }else {
-           panelPadding = '120px 200px';
-         }
-   
-         tl2
-           .to($sections[index], { yPercent: -100, duration: 0.4, },0)
-           .to($panels, { y: 0, duration: 0.6, delay: 0.2},0)
-   
-         tl2_1
-           .to($tit1, { opacity: 0, duration: 0.2, },2)
-           .to($txt, { opacity: 0, duration: 0.2, },2)
-           .to($tit1, { display: 'none', duration: 0, delay: 0.2 },2)
-           .to($txt, { display: 'none', duration: 0, delay: 0.2 },2)
-           .to($panelCon, { height: '100%', background: dataColor, duration: 0.2, zIndex: 1, },3)
-           .to($panels, { width: '100%', height: '100%', duration: 0.2, },3)
-           .to($sections[index], { padding: '0', duration: 0.2,},3)
-           .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },3)
-   
-           .to($tag, { display: 'inline-flex', duration: 0,},3)
-           .to($tit2, { display: 'flex', duration: 0,},3)
-           .to($conList, { display: 'block', opacity: 1,},3)
-           .to($tag, { opacity: 1, duration: 0.2,},4)
-           .to($tit2, { opacity: 1, duration: 0.2, delay: 0.3,},4)
-           .to($conListBox, { opacity: 1, stagger: 0.2, delay: 0.6,},4)
-           .to($panelCon, { backgroundColor: dataColor, duration: 5, },4)
-           .to($page, { opacity: 1,},7)
-   
-       });
+    var $sections = document.querySelectorAll(".section");
+    $sections.forEach((item, index)=>{
+      
+      tl2 = gsap.timeline({
+        scrollTrigger: {
+          // markers: true,
+          trigger: item,
+          // pin: true,
+          pinSpacing: false,
+          scrub: 3,
+          start: 'top bottom',
+          end: '20% 100%',
+          ease: 'none',
+        }
+      });
+
+      tl2_1 = gsap.timeline({
+        scrollTrigger: {
+          // markers: {
+          // startColor: "blue",
+          // endColor: "yellow"
+          // },
+          trigger: item,
+          pin: true,
+          pinSpacing: false,
+          scrub: 1,
+          start: 'top 100%',
+          end: 'bottom 70%',
+          ease: 'none',
+        }
+      });
+  
+      var $panels = item.querySelectorAll('.panel'),
+          $panelCon = item.querySelector('.panel-con'),
+          $anchors = item.querySelector('.anchor-nav'),
+          $tag = item.querySelector('.con_tag'),
+          $tit1 = item.querySelector('.con_tit01'),
+          $tit2 = item.querySelector('.con_tit02'),
+          $txt = item.querySelector('.con_txt'),
+          $conList = item.querySelector('.con_list'),
+          $conListBox = item.querySelectorAll('.con_list li'),
+          $page = item.querySelector('.swiper-pagination'),
+          $nav = item.querySelector('.anchor-nav'),
+          dataColor = item.getAttribute('data-color'),
+          panelPadding = '120px 200px';
+  
+      if($(window).width()<=768){
+        panelPadding = '80px 20px';
+      }else if($(window).width()<=1500 && $(window).width()>768) {
+        panelPadding = '120px 100px';
+      }else {
+        panelPadding = '120px 200px';
+      }
+
+      tl2
+        .to($sections[index], { yPercent: -100, duration: 0.4,},0)
+        .to($panels, { y: 0, duration: 0.6, delay: 0.2,},0)
+
+      tl2_1
+        .to($tit1, { opacity: 0, duration: 0.2, delay: 1, },4)
+        .to($txt, { opacity: 0, duration: 0.2, delay: 1, },4)
+        .to($tit1, { display: 'none', duration: 0, delay: 1 },4)
+        .to($txt, { display: 'none', duration: 0, delay: 1 },4)
+        .to($panelCon, { zIndex: 1, },4)
+        .to($panelCon, {background: dataColor, duration: 0, },5)
+        .to($panelCon, { height: '100%', duration: 1, },6)
+        .to($panels, { width: '100%', height: '100%', duration: 1, },6)
+        .to($sections[index], { padding: '0', duration: 1,},6)
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },6)
+        .to($nav, { opacity: 0, duration: 0,},6)
+
+        .to($tag, { display: 'inline-flex', duration: 0,},7)
+        .to($tit2, { display: 'flex', duration: 0,},7)
+        .to($conList, { display: 'block', opacity: 1,},7)
+        .to($tag, { opacity: 1, duration: 0.2,},8)
+        .to($tit2, { opacity: 1, duration: 0.2, delay: 0.3,},8)
+        .to($conListBox, { opacity: 1, stagger: 0.2, delay: 0.6,},8)
+        .to($panelCon, { backgroundColor: dataColor, duration: 5, },8)
+        .to($page, { opacity: 1,},10)
+        .to($panelCon, { backgroundColor: dataColor, duration: 5, },12)
+
+    });
 
     gsap.registerPlugin(ScrollToPlugin);
-    
+
     /* Main navigation */
-    document.querySelectorAll(".anchor").forEach(anchor => {
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
         const targetId = e.target.getAttribute("href");
-        const targetElem = document.getElementById(targetId.slice(1));
-        console.log("targetId",targetId);
-        console.log("targetOffsetTop",targetElem.getBoundingClientRect().top);
-        console.log("scrollTop",window.scrollY);
+        let navIndex = (index+1)%5;
+        if(navIndex == 0){
+          navIndex = 5;
+        }
 
         gsap.to(window, {
           scrollTo: {
-            y: targetId,
-            // y: targetElem.getBoundingClientRect().top,
-            onComplete: () => {
-              yourTimelineFunction();
-            }
+            y: (navIndex + 1) * window.innerHeight - window.innerHeight * 0.8,
           },
           duration: 1,
+          ease: 'none',
         });
       });
+
     });
-
-    // Your GSAP timeline function
-    function yourTimelineFunction() {
-      tl2_1.play();
-
-    }
-
 
 
     let maxW = 5000,
@@ -2133,7 +2132,7 @@ var privEvent = {
 
     var tlWeve = gsap.timeline({
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: '.section06',
         pin: true,
         pinSpacing: true,

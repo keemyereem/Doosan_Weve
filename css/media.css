@@ -479,12 +479,12 @@
 	#mobile .privilege .sec0-list .sec0-list05 svg {max-width: 56px;}
 	
 	#mobile .privilege .section {align-items: flex-end;}
-	#mobile .privilege .panel {height: calc(100% - 60px);border: 2px solid green;/* margin-top: 60px; */}
+	#mobile .privilege .panel {height: calc(100% - 60px);/* border: 2px solid green; */}
 	#mobile .privilege .anchor-nav {width: 100%; height: 10vh;padding: 0 9vw 0 3vw;top: 4vw;right: initial;align-items: flex-end;}
-	#mobile .privilege .anchor {font-size: 0;height: 5vh;border: 1px solid #000;}
+	#mobile .privilege .anchor {font-size: 0;height: 5vh;/* border: 1px solid #000; */}
 	#mobile .privilege .anchor::before {display: none;}
 	#mobile .privilege .anchor.active {font-size: 32px;height: 10vh;line-height: 10vh;text-align: left;padding-left: 40px;margin-top: 0;flex-basis: 53%;order: -5;}
-	#mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 1;}
+	#mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;}
 	#mobile .privilege .anchor.active::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;top: 50%;left: initial;right: 20px;transform: translateY(-50%);}
 
 	#mobile .privilege #have .panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}

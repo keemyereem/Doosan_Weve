@@ -2063,7 +2063,8 @@ var privEvent = {
       });
 
       var
-      $panels = sections[i],
+      // $panels = sections[i],
+      $panels = document.querySelector('.panel.active'),
       $panelCon = $panels.querySelector('.panel-con'),
       $anchors = $panels.querySelector('.anchor-nav'),
       $tag = $panels.querySelector('.con_tag'),
@@ -2075,6 +2076,7 @@ var privEvent = {
       $page = $panels.querySelector('.swiper-pagination'),
       $nav = document.querySelector('.anchor-nav'),
       dataColor = $panels.getAttribute('data-color'),
+      dataBg = $panels.getAttribute('data-bg'),
       panelPadding = '120px 200px';
       
       // console.log(sections[i]);
@@ -2086,21 +2088,20 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
 
-      var tl2_1 = gsap.timeline({
+      tl2_1 = gsap.timeline({
         scrollTrigger: {
           markers: {
             startColor: "blue",
             endColor: "yellow"
           },
-          // trigger:  ,
           // pin: true,
           // pinSpacing: false,
           trigger: '.panel.active',
           scrub: 1,
           start: '100% 100%',
-          end: 'bottom 0%',
+          end: 'bottom 100%',
           ease: 'none',
-          toggleActions: "play none none reverse",
+          // toggleActions: "play none none reverse",
         }
       });
 
@@ -2108,14 +2109,15 @@ var privEvent = {
       tl2_1.from($panelCon, {width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px'})
 
       tl2_1
+      .to('.panel_wrap', {backgroundColor: dataBg})
       .to($tit1, { opacity: 0, duration: 0.3, delay: 1, })
       .to($txt, { opacity: 0, duration: 0.3, delay: 1, })
       .to($tit1, { display: 'none', duration: 0, delay: 1 })
       .to($txt, { display: 'none', duration: 0, delay: 1 })
-      .to($panelCon, {background: dataColor, duration: 0, },'<')
+      .to($panelCon, {/* background: dataColor, */ duration: 0, },'<')
       .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
       .to($panels, { width: '100%', height: '100%', padding: '0', duration: 2, delay: 1, },'<')
-      .to($nav, { opacity: 0, duration: 0,},'<')
+      // .to($nav, { opacity: 0, duration: 0,},'<')
 
 
       .to($tag, { display: 'inline-flex', duration: 0,},'+=5')
@@ -2132,15 +2134,14 @@ var privEvent = {
 
     function setSection(newSection) {
       const q = gsap.utils.selector(newSection);
-      // console.log(currentSection);
+      
+      // console.log('currentSection:',currentSection);
 
       if (newSection !== currentSection) {
         var tl = gsap.timeline();
-        var dataBg = newSection.getAttribute('data-color');
 
-        tl.to(currentSection, { autoAlpha: 0, duration: 0.5 })
-        .to(newSection, { autoAlpha: 1, duration: 0.5, })
-        .to(newSection, { backgroundColor: dataBg, duration: 0.5, })
+        tl.to(currentSection, { autoAlpha: 0, duration: 0.2 })
+        .to(newSection, { autoAlpha: 1, duration: 0.2, })
 
         currentSection = newSection;
 
@@ -2161,8 +2162,12 @@ var privEvent = {
     }
 
     let links = gsap.utils.toArray(".anchor");
+    // let sections = gsap.utils.toArray(".panel");
+    
     links.forEach(a => {
       let element = document.querySelector(a.getAttribute("href")),
+          parent = element.parentNode,
+          index = Array.from(parent.children).indexOf(element),
           linkST = ScrollTrigger.create({
                 trigger: element,
                 start: "top top"
@@ -2170,20 +2175,38 @@ var privEvent = {
               
       a.addEventListener("click", e => {
         e.preventDefault();
-        console.log('element:',element);
-        gsap.to(window, {duration: 1, scrollTo: a.getAttribute("href"), overwrite: "auto"});
+        console.log('element.offsetTop:',element.offsetTop);
+        gsap.to(window, {
+          duration: 0, 
+          scrollTo: {
+            y: element.offsetTop,
+            // y: document.querySelector('.gsap_wrap').innerHeight / (index + 1),
+            // offsetY: 20,
+          }, 
+          overwrite: "auto"
+        });
         ScrollTrigger.create({
           trigger: a.getAttribute("href"),
+          markers: true,
           start: "top center",
           end: "bottom center",
           onToggle: self => self.isActive && setActive(a)
-        });
+        })
+
       });
     });
 
     function setActive(link) {
+      let activeSec = document.querySelector(link.getAttribute('href'));
+      sections.forEach(el => el.classList.remove("active"));
       links.forEach(el => el.classList.remove("active"));
+      document.querySelector(link.getAttribute('href')).classList.add("active");
       link.classList.add("active");
+
+      var tl = gsap.timeline();
+
+      tl.to(sections, { autoAlpha: 0, duration: 0.2 })
+      .to(activeSec, { autoAlpha: 1, duration: 0.2, })
     }
 
 

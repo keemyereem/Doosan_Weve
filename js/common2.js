@@ -1972,6 +1972,8 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
       $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -1979,7 +1981,7 @@ var privEvent = {
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: '.section00',
         // pin: '.section00',
         pin: true,
@@ -2012,7 +2014,7 @@ var privEvent = {
   
 
 
-    gsap.registerPlugin(ScrollToPlugin);
+    // gsap.registerPlugin(ScrollToPlugin);
 
     // var tl2 = gsap.timeline({
     //   scrollTrigger: {
@@ -2053,84 +2055,104 @@ var privEvent = {
           // end: () => `+=${section.offsetHeight * 2}`,
           scrub: true,
           pin: true,
-          pinSpacing: false,
-          markers: true,
+          pinSpacing: true,
+          // markers: true,
           onToggle: (self) => {
             self.isActive && setSection(section);
           },
           toggleClass: {targets: section, className: "active"},
-        }
-      });
-
-      var
-      // $panels = sections[i],
-      $panels = document.querySelector('.panel.active'),
-      $panelCon = $panels.querySelector('.panel-con'),
-      $anchors = $panels.querySelector('.anchor-nav'),
-      $tag = $panels.querySelector('.con_tag'),
-      $tit1 = $panels.querySelector('.con_tit01'),
-      $tit2 = $panels.querySelector('.con_tit02'),
-      $txt = $panels.querySelector('.con_txt'),
-      $conList = $panels.querySelector('.con_list'),
-      $conListBox = $panels.querySelectorAll('.con_list li'),
-      $page = $panels.querySelector('.swiper-pagination'),
-      $nav = document.querySelector('.anchor-nav'),
-      dataColor = $panels.getAttribute('data-color'),
-      dataBg = $panels.getAttribute('data-bg'),
-      panelPadding = '120px 200px';
-      
-      // console.log(sections[i]);
-      if($(window).width()<=768){
-        panelPadding = '80px 20px';
-      }else if($(window).width()<=1500 && $(window).width()>768) {
-        panelPadding = '120px 100px';
-      }else {
-        panelPadding = '120px 200px';
-      }
-
-      tl2_1 = gsap.timeline({
-        scrollTrigger: {
-          markers: {
-            startColor: "blue",
-            endColor: "yellow"
+          onUpdate: (self)=> {
+            console.log('progress:', self.progress.toFixed(1)*10);
+            if(self.progress.toFixed(1)*10 > 4) {
+              // tl2_1.play();
+            }
           },
-          // pin: true,
-          // pinSpacing: false,
-          trigger: '.panel.active',
-          scrub: 1,
-          start: '100% 100%',
-          end: 'bottom 100%',
-          ease: 'none',
-          // toggleActions: "play none none reverse",
         }
       });
 
-      tl2_1.from($panels, {height: '851px'})
-      tl2_1.from($panelCon, {width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px'})
-
-      tl2_1
-      .to('.panel_wrap', {backgroundColor: dataBg})
-      .to($tit1, { opacity: 0, duration: 0.3, delay: 1, })
-      .to($txt, { opacity: 0, duration: 0.3, delay: 1, })
-      .to($tit1, { display: 'none', duration: 0, delay: 1 })
-      .to($txt, { display: 'none', duration: 0, delay: 1 })
-      .to($panelCon, {/* background: dataColor, */ duration: 0, },'<')
-      .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
-      .to($panels, { width: '100%', height: '100%', padding: '0', duration: 2, delay: 1, },'<')
-      // .to($nav, { opacity: 0, duration: 0,},'<')
-
-
-      .to($tag, { display: 'inline-flex', duration: 0,},'+=5')
-      .to($tit2, { display: 'flex', duration: 0,},'<')
-      .to($conList, { display: 'block', opacity: 1,},'<')
-      .to($tag, { opacity: 1, duration: 0.3,},'+=5')
-      .to($tit2, { opacity: 1, duration: 0.3,},'+=0.5')
-      .to($conListBox, { opacity: 1, stagger: 1, },'+=10')
-      .to($panelCon, { backgroundColor: dataColor, duration: 5, },'<')
-      .to($page, { opacity: 1,},'+=5')
-      .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
     });
+
+    let tween = gsap.to('.gsap_wrap',{y: -window.innerHeight,duration: 2,markers: true,}),
+        st = ScrollTrigger.create({
+          trigger : '.section00',
+          animation: tween,
+          markers: true,
+          start: '50% 100%',
+          end: '90% bottom'
+        });
+    console.log(st.animation);
+
     
+    var
+    // $panels = sections[i],
+    $panels = document.querySelector('.panel.active'),
+    $panelCon = $panels.querySelector('.panel-con'),
+    $anchors = $panels.querySelector('.anchor-nav'),
+    $tag = $panels.querySelector('.con_tag'),
+    $tit1 = $panels.querySelector('.con_tit01'),
+    $tit2 = $panels.querySelector('.con_tit02'),
+    $txt = $panels.querySelector('.con_txt'),
+    $conList = $panels.querySelector('.con_list'),
+    $conListBox = $panels.querySelectorAll('.con_list li'),
+    $page = $panels.querySelector('.swiper-pagination'),
+    $nav = document.querySelector('.anchor-nav'),
+    dataColor = $panels.getAttribute('data-color'),
+    dataBg = $panels.getAttribute('data-bg'),
+    panelPadding = '120px 200px';
+    
+    // console.log(sections[i]);
+    if($(window).width()<=768){
+      panelPadding = '80px 20px';
+    }else if($(window).width()<=1500 && $(window).width()>768) {
+      panelPadding = '120px 100px';
+    }else {
+      panelPadding = '120px 200px';
+    }
+
+    var tl2_1 = gsap.timeline({
+      scrollTrigger: {
+        // markers: {
+        //   startColor: "blue",
+        //   endColor: "yellow"
+        // },
+        // pin: true,
+        // pinSpacing: false,
+        trigger: '.panel.active',
+        scrub: 1,
+        start: '100% 60%',
+        end: '100% 0%',
+        ease: 'none',
+        // toggleActions: "play reverse none none",
+      }
+    });
+
+    tl2_1
+    .from($panels, {height: '851px'})
+    .from($panelCon, {width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px'})
+
+    
+    tl2_1
+    .to('.panel_wrap', {backgroundColor: dataBg},'<')
+    .to($tit1, { opacity: 0, duration: 0.3, delay: 1, },'<')
+    .to($txt, { opacity: 0, duration: 0.3, delay: 1, },'<')
+    .to($tit1, { display: 'none', duration: 0, delay: 1 },'<')
+    .to($txt, { display: 'none', duration: 0, delay: 1 },'<')
+    .to($panelCon, {background: dataColor, duration: 0, },'<')
+    .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
+    .to($panels, { width: '100%', height: '100%', /* padding: '0', */ duration: 2, delay: 1, },'<')
+    // .to($nav, { opacity: 0, duration: 0,},'<')
+
+
+    .to($tag, { display: 'inline-flex', duration: 0,},'+=5')
+    .to($tit2, { display: 'flex', duration: 0,},'<')
+    .to($conList, { display: 'block', opacity: 1,},'<')
+    .to($tag, { opacity: 1, duration: 0.3,},'+=5')
+    .to($tit2, { opacity: 1, duration: 0.3,},'+=0.5')
+    .to($conListBox, { opacity: 1, stagger: 0.5, },'+=10')
+    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'<')
+    .to($page, { opacity: 1,},'+=5')
+    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+    .reverse();
 
     function setSection(newSection) {
       const q = gsap.utils.selector(newSection);
@@ -2179,7 +2201,7 @@ var privEvent = {
         gsap.to(window, {
           duration: 0, 
           scrollTo: {
-            y: element.offsetTop,
+            y: (index + 2) * window.innerHeight,
             // y: document.querySelector('.gsap_wrap').innerHeight / (index + 1),
             // offsetY: 20,
           }, 
@@ -2187,7 +2209,7 @@ var privEvent = {
         });
         ScrollTrigger.create({
           trigger: a.getAttribute("href"),
-          markers: true,
+          // markers: true,
           start: "top center",
           end: "bottom center",
           onToggle: self => self.isActive && setActive(a)

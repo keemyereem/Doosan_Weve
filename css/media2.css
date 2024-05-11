@@ -4,9 +4,13 @@
 
 @charset "utf-8";
 
+#mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
+#mobile footer .footer_award { position: initial; max-width: 250px; margin: 25px auto 0; }
+#mobile footer .footer_award>img { width: 100%;object-fit: contain; }
+
 @media screen and (max-width:1440px) {
 	#pc {overflow-x: scroll !important; width: 1440px;}
-	#pc header,
+	#pc header, 
 	#pc footer { width: 1440px; }
 	#pc .scroll-container nav ul { width: 100%; }
 	/* #pc .scroll-container nav ul li { flex: auto 0; } */
@@ -40,10 +44,18 @@
 
 }
 
+@media screen and (max-width:1024px) {
+	.my_contract .contract_info .const_status .top .img { width: 47vw; }
+	.my_contract .contract_info .const_status .top>p,
+	.my_contract .contract_info .const_status .top .name,
+	.my_contract .contract_info .const_status .top .progress_wrap,
+	.my_contract .contract_info .const_status .top ul {width: calc(100% - 47vw);}
+}
+
 @media screen and (max-width:768px) {
     /* common */
   #mobile { width: 100%;}
-	#mobile header,
+	#mobile header, 
 	#mobile footer { width: 100%; }
 	#mobile header #gnb { display: none; }
 	select {background-position:calc(100% - 10px) 50%; padding-right:30px;}
@@ -153,8 +165,9 @@
 	#mobile header.wht h1 a {background: url(../images/logom_b.png) 50% 50% no-repeat; background-size: contain;}
 	#mobile header .util_wrap .btn_doosanenc {background: url(../images/logo_ds_m.png) 50% 50% no-repeat; background-size: 33px 9px;}
 	#mobile header.wht .util_wrap .btn_doosanenc {background: url(../images/logo_ds_b_m.png) 50% 50% no-repeat; background-size: 33px 9px;}
-    /* footer */
-    #mobile footer {padding:0 20px;}
+
+	/* footer */
+	#mobile footer {padding:0 20px;}
 	#mobile footer .inner {padding:35px 0 100px;}
 	#mobile footer .logo {position:static;}
 	#mobile footer .logo img { width: 62px; }
@@ -168,11 +181,10 @@
 	#mobile footer .addr p.a3 {margin-right: 0;}
 	#mobile footer .addr p span {margin-right:10px;}
 	#mobile footer .copy {font-size:10px;letter-spacing: -.5px;}
-	#mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
 
-	footer .family_site .site_selected { font-size: 13px; line-height: 43px; }
-	footer .family_site .site_list { bottom:45px; }
-	footer .family_site .site_list li a { font-size: 13px; }
+	#mobile footer .family_site .site_selected { font-size: 13px; line-height: 43px; }
+	#mobile footer .family_site .site_list { bottom:45px; }
+	#mobile footer .family_site .site_list li a { font-size: 13px; }
 
 	#mobile #topButton { font-size: 14px; right: 20px; bottom: 35px; }
 	#mobile #topButton::after { width: 18px; height: 23px; }
@@ -181,7 +193,7 @@
 	#mobile .section1 { height: 275px; }
 	#mobile .section1 h2 { font-size: 35px; }
 	#mobile .section1 .scroll { display: none; }
-
+	
 	#mobile nav ul { width: 100%; flex-direction: column; max-height: 50px; overflow: hidden; transition: max-height .3s ease; position: absolute; z-index: 30; }
 	#mobile nav ul.open { max-height: 500px; transition: max-height .6s ease; }
 	#mobile nav ul li { height: 50px; line-height: 50px; text-align: left; padding-left: 20px; border-bottom: 1px solid rgba(255, 255, 255,.2); }
@@ -213,7 +225,7 @@
 	#mobile .popup ul li:first-child { top: -40px; width: 27px; height: 27px; }
 	#mobile .popup.search ul li:nth-child(2) { padding-bottom: 34px; }
 	#mobile .popup.search ul li:nth-child(2) .input_search { max-width: 252px; }
-	#mobile .popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }
+	#mobile .popup.search ul li:nth-child(2) .input_search input { padding-right: 50px; }	
 	#mobile .popup.search ul li:nth-child(2) p { font-size: 13px; margin-top: 19px; }
 	#mobile .popup.search ul li:last-child { height: 30vh; }
 	#mobile .popup.search ul li:last-child a:hover { box-shadow: none; color: unset; }
@@ -221,7 +233,7 @@
 	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }
 	#mobile .popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
 
-
+	
 	/* brandstory */
 	#mobile .scroll-container nav { border-bottom: 0; top: 276px; }
 	#mobile .scroll-container nav.fixed { top: 0; }
@@ -229,7 +241,7 @@
 	#mobile .scroll-container nav ul li { height: 50px; line-height: 50px; }
 	#mobile .scroll-container nav ul li > a { font-size: 15px; }
 	#mobile #brandstory .scroll-container nav ul li:last-child { display: block; }
-
+	
 	#mobile .scroll-container .section2 { height: calc(var(--vh, 1vh) * 110); }
 	#mobile .scroll-container .section2 h2 { font-size: 35px; padding: 0 20px; }
 	#mobile .scroll-container .section2 h2 span { margin-bottom: 10px; }
@@ -313,19 +325,19 @@
 	#mobile .essential .section .text { font-size: 15px; line-height: 1.4; }
 	#mobile .essential .section .cont .txt .tit { font-size: 17px; margin-top: 20px; }
 	#mobile .essential .section .cont .txt p { font-size: 14px; line-height: 1.35; margin-top: 10px; letter-spacing: -.7px; }
-
+	
 	#mobile .essential .section.have h3,
 	#mobile .essential .section.have .sub,
 	#mobile .essential .section.have .text { opacity: 1; transform: translateY(0); }
 
 	#mobile .essential .have .inner:first-of-type { padding: 0 20px; }
-	#mobile .essential .have .img { position: initial; right: 0; top: 148px; width: 73vw; margin-left: auto; margin-top: 50px; max-width: 73vw; }
+	#mobile .essential .have .img { position: initial; right: 0; top: 148px; width: 73vw; margin-left: auto; margin-top: 50px; max-width: 73vw; } 
 	#mobile .essential .have .info {margin-top: 50px; max-width: 100%; padding: 50px 20px; }
 	#mobile .essential .have .info dl { flex-direction: column; margin-bottom: 35px; padding: 0; }
 	#mobile .essential .have .info dl dt { font-size: 17px;}
 	#mobile .essential .have .info dl dd { font-size: 14px; margin-left: 0; margin-top: 15px; line-height: 1.35; }
 
-	#mobile .essential .live { flex-direction: column-reverse; align-items: flex-start; padding: 80px 0 110px; }
+	#mobile .essential .live { flex-direction: column-reverse; align-items: flex-start; padding: 80px 0 110px; } 
 	#mobile .essential .live .img { width: 100%; height: 66vw; margin-top: 45px; }
 	#mobile .essential .live .txt { padding: 0 20px; }
 
@@ -440,7 +452,7 @@
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul { padding: 50px 0 50px 22px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child { padding: 200px 0 50px 22px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child::before { top: 205px; }
-	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { height: 55px; }
+	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child::before { height: 55px; } 
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li::before { left: -29px; }
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:first-child li::before,
 	#mobile .channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-child li::before { left: -28px; }
@@ -465,8 +477,12 @@
 	#mobile .privilege .sec0-list .sec0-list03 svg {max-width: 46px;}
 	#mobile .privilege .sec0-list .sec0-list04 svg {max-width: 52px;}
 	#mobile .privilege .sec0-list .sec0-list05 svg {max-width: 56px;}
-
+	
 	#mobile .privilege .section {align-items: flex-end;}
+
+
+  #mobile .privilege .panel_wrap {height: calc(100% - 10vh);}
+
 	#mobile .privilege .panel {height: calc(100% - 60px);/* border: 2px solid green; */}
 	#mobile .privilege .anchor-nav {width: 100%; height: 10vh;padding: 0 9vw 0 3vw;top: 4vw;right: initial;align-items: flex-end;}
 	#mobile .privilege .anchor {font-size: 0;height: 5vh;/* border: 1px solid #000; */}
@@ -475,12 +491,12 @@
 	#mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;}
 	#mobile .privilege .anchor.active::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;top: 50%;left: initial;right: 20px;transform: translateY(-50%);}
 
-	#mobile .privilege #have .panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}
-	#mobile .privilege #live .panel {background: url(../images/brand/priv-bg02_m.png)no-repeat 0 100%;background-size: 100% 100%;}
-	#mobile .privilege #love .panel {background: url(../images/brand/priv-bg03_m.png)no-repeat 0 100%;background-size: 100% 100%;}
-	#mobile .privilege #save .panel {background: url(../images/brand/priv-bg04_m.png)no-repeat 0 100%;background-size: 100% 100%;}
-	#mobile .privilege #solve .panel {background: url(../images/brand/priv-bg05_m.png)no-repeat 0 100%;background-size: 100% 100%;}
-
+	#mobile .privilege #have.panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}
+	#mobile .privilege #live.panel {background: url(../images/brand/priv-bg02_m.png)no-repeat 0 100%;background-size: 100% 100%;}
+	#mobile .privilege #love.panel {background: url(../images/brand/priv-bg03_m.png)no-repeat 0 100%;background-size: 100% 100%;}
+	#mobile .privilege #save.panel {background: url(../images/brand/priv-bg04_m.png)no-repeat 0 100%;background-size: 100% 100%;}
+	#mobile .privilege #solve.panel {background: url(../images/brand/priv-bg05_m.png)no-repeat 0 100%;background-size: 100% 100%;}
+	
 	#mobile .privilege .panel-con {border-radius: 10px;width: 94vw; height: calc(100% - 12vh);padding: 0;bottom: 5px;}
 	#mobile .privilege #have .panel-con {background-size: 277px 252px;background-position: 50% 100%;}
 	#mobile .privilege #live .panel-con {background-image: url(../images/brand/priv-bg02_illust_m.png);background-repeat: no-repeat;background-size: 309px 227px;background-position: 0 100%;}
@@ -513,7 +529,7 @@
 	#mobile .privilege .section06 .gsap3-1 {font-size: 55px;margin-bottom: calc(var(--vh, 1vh) * 10);height: 185px;}
 	#mobile .privilege .section06 .gsap3-2 {display: block;margin: auto;line-height: 1.1; padding-left: 0; max-height: 5000px; }
 	#mobile .privilege .section06 .gsap3-3 {width: 154px;}
-
+	
 	/* 5concept */
 	#mobile .concept5 { min-width: 100%; }
 	/* #mobile .concept5>nav { display: block; } */
@@ -541,7 +557,7 @@
 	#mobile .concept5 .section2.active>h2 { animation: none; }
 	#mobile .concept5 .section2>h2>span { border-radius: 5px; font-size: 21px; padding: 2px 8px 3px 6px; margin-top: 5px; }
 	#mobile .concept5 .section2 .wrap { margin-top: 60px; }
-	#mobile .concept5 .section2 img { box-shadow: 1px 3px 9.8px 0.2px rgba(33, 44, 55, 0.4); opacity: 1; transition: none; }
+	#mobile .concept5 .section2 img { box-shadow: 1px 3px 9.8px 0.2px rgba(33, 44, 55, 0.4); opacity: 1; transition: none; } 
 	#mobile .concept5 .section3 { height: 418px; background: url(../images/brand/5con_s3_bg_m.jpg); background-size: contain; margin-top: -80px; }
 	#mobile .concept5_01 .section3 { background: url(../images/brand/5con01_s3_bg_m.jpg); background-size: contain; }
 	#mobile .concept5 .section3 .wrap { border: 0; padding-top: 210px; }
@@ -676,7 +692,7 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(3).on { background-image: url(../images/brand/5con_solve_icon03_b.png); }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(4).on { background-image: url(../images/brand/5con_solve_icon04_b.png); }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(5).on { background-image: url(../images/brand/5con_solve_icon05_b.png); }
-
+	
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(1) { background-size: 25px 25px; background-image: url(../images/brand/5con_love_icon01.png); }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(2) { background-size: 24px 24px; background-image: url(../images/brand/5con_love_icon02.png); }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(3) { background-size: 30px 25px; background-image: url(../images/brand/5con_love_icon03.png); }
@@ -690,7 +706,7 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(5).on { background-image: url(../images/brand/5con_love_icon05_b.png); }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(6).on { background-image: url(../images/brand/5con_love_icon06_b.png); }
 
-
+	
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(1) { background-image: url(../images/brand/5con01_save_icon01.png); background-size: 29.5px 25.5px; }
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(2) { background-image: url(../images/brand/5con01_save_icon02.png); background-size: 27px 22.5px; }
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(3) { background-image: url(../images/brand/5con01_save_icon03.png); background-size: 17px 21.5px; }
@@ -708,7 +724,7 @@
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(6).on { background-image: url(../images/brand/5con01_save_icon08_b.png);}
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(7).on { background-image: url(../images/brand/5con01_save_icon09_b.png);}
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont04 .mob_icon_tab>ul>li:nth-child(8).on { background-image: url(../images/brand/5con01_save_icon12_b.png);}
-
+	
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(1) { background-image: url(../images/brand/5con01_solve_icon01.png); background-size: 27px 20px; }
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(2) { background-image: url(../images/brand/5con01_solve_icon02.png); background-size: 29.5px 22.5px; }
 	#mobile .concept5_01 .section4 .s4_cont_wrap .s4_cont05 .mob_icon_tab>ul>li:nth-child(3) { background-image: url(../images/brand/5con01_solve_icon04.png); background-size: 23.5px 19px; }
@@ -743,7 +759,7 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li:nth-child(2n-1) { margin-right: 10px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont02 .sub_tab>ul>li:nth-child(n+7):nth-child(-n+8) { display: flex; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .icon { display: none; }
-
+	
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag { font-size: 9px; letter-spacing: -0.675px; line-height: 1; padding-left: 16px; margin-left: 0px; margin-bottom: 5px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag::after { height: 5px; bottom: -4.5px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .tag.org::before { width: 14.5px; height: 13px; background-size: contain; }
@@ -753,10 +769,10 @@
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .blk { font-size: 11px; letter-spacing: -0.55px; line-height: 1.54; padding-left: 0; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .blk::before { display: none; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .sub_tab>ul>li .gry { font-size: 9px; letter-spacing: -0.225px; padding-left: 0; margin-top: 0px; }
-
+	
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont_wrap { width: 100%; height: auto; margin-top: 20px; }
 	#mobile .concept5 .section4 .s4_cont_wrap .s4_cont .img_cont { position: relative; border-radius: 2.6px; }
-
+	
 	#mobile .concept5 .section5 { background: #f7f6f2 url(../images/brand/5con_s5_bg_m.png); background-size: contain; padding-bottom: 100px; }
 	#mobile .concept5_01 .section5 { background-color: #f2f3f5; }
 	#mobile .concept5 .section5>.wrap { border: 0; padding: 60px 0 55px; }
@@ -783,9 +799,9 @@
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdb { height: 4px;}
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdl,
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc .bdr { width: 4px; }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.desc>ul>li { font-size: 9px; line-height: 1.44; }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li::before { width: 23px; height: 24.5px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li.desc>ul { padding-left: 33px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li { padding-left: 45px; margin-bottom: 20px; }
@@ -795,16 +811,16 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li::before { width: 18px; height: 22px; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li:nth-of-type(1)::before { background-size: 18px 20px; background-image: url(../images/brand/5con01_icon_clean01_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.clean>li.desc>ul>li:nth-of-type(2)::before { background-size: 14px 22px; background-image: url(../images/brand/5con01_icon_clean02_m.png); }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li::before { width: 23px; height: 23px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.living>li.desc>ul { padding-left: 33px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li { padding-left: 45px; margin-bottom: 20px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(2) { margin-bottom: 25px; }
-
+	
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li::before { width: 31.5px; height: 24px;; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li { margin-bottom: 8px; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(2) { margin-bottom: 8px; }
-	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(3),
+	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(3), 
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(4) { margin-bottom: 14px; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(1)::before { background-size: 31.5px 20px; background-image: url(../images/brand/5con01_icon_living01_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(2)::before { background-size: 19px 19px; background-image: url(../images/brand/5con01_icon_living02_m.png); }
@@ -812,7 +828,7 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(4)::before { background-size: 23px 22.5px; background-image: url(../images/brand/5con01_icon_living04_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(5)::before { background-size: 23.5px 24px; background-image: url(../images/brand/5con01_icon_living05_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.living>li.desc>ul>li:nth-of-type(6)::before { background-size: 26.5px 21.5px; background-image: url(../images/brand/5con01_icon_living06_m.png); }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li::before { width: 26px; height: 23px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul { padding-left: 30px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li { padding-left: 48px; margin-bottom: 15px; }
@@ -823,7 +839,7 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li::before { width: 30.5px; height: 25.5px; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li:nth-of-type(1)::before { background-size: 30px 25.5px; background-image: url(../images/brand/5con01_icon_dress01_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.dressing>li.desc>ul>li:nth-of-type(2)::before { background-size: 30.5px 20.5px; background-image: url(../images/brand/5con01_icon_dress02_m.png); }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li::before { width: 30px; height: 25.5px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.bath>li.desc>ul { padding-left: 28px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li { padding-left: 47px; }
@@ -847,13 +863,13 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(5) { margin-bottom: 17px; }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(5)::before { background-size: 24px 26.5px; background-image: url(../images/brand/5con01_icon_bath05_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li.desc>ul>li:nth-of-type(6)::before { background-size: 19px 25.5px; background-image: url(../images/brand/5con01_icon_bath06_m.png); }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.ceiling>li.desc>ul>li::before { width: 36.5px; height: 22.5px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.ceiling>li.desc>ul { padding-left: 25px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.ceiling>li.desc>ul>li { padding-left: 50px; margin-bottom: 15px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.ceiling>li.desc>ul>li:nth-of-type(1)::before { background-size: 30px 14px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.ceiling>li.desc>ul>li:nth-of-type(2)::before { background-size: 36.5px 22.5px; }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li::before { width: 27px; height: 24.5px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul { padding-left: 31px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li { padding-left: 45px; margin-bottom: 7.5px; }
@@ -871,11 +887,11 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(1)::before { background-size: 19px 19px; background-image: url(../images/brand/5con01_icon_kitchen01_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(2)::before { background-size: 24px 21.5px; background-image: url(../images/brand/5con01_icon_kitchen02_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li.desc>ul>li:nth-of-type(3)::before { background-size: 24px 24px; background-image: url(../images/brand/5con01_icon_kitchen03_m.png); }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.img { box-shadow: 1px 1px 6.37px 0.13px rgba(0, 0, 0, 0.5); }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.img>div { height: 42px; background-position: calc(100% - 16px) 50%; padding: 0 16px 0 13px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul>li.img>div p { font-size: 9px; font-weight: 150; /* letter-spacing: -0.45px; */ }
-
+	
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(2)>div,
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(3)>div { background-size: 20px 20px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(4)>div { background-size: 18px 21.5px; }
@@ -900,7 +916,7 @@
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(4)>div { background-size: 21px 21.5px;  }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(5)>div { background-size: 19.5px 21px; }
 	#mobile .concept5 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(6)>div { background-size: 24px 21px; }
-
+	
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(2)>div { background-size: 18px 20px; background-image: url(../images/brand/5con01_icon_clean01_w_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.clean>li:nth-of-type(3)>div { background-size: 13px 20px; background-image: url(../images/brand/5con01_icon_clean02_w_m.png); }
 
@@ -920,7 +936,7 @@
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(5)>div { background-size: 27px 24.5px; background-image: url(../images/brand/5con01_icon_bath04_w_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(6)>div { background-size: 21px 23.5px; background-image: url(../images/brand/5con01_icon_bath05_w_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.bath>li:nth-of-type(7)>div { background-size: 16px 22.5px; background-image: url(../images/brand/5con01_icon_bath06_w_m.png); }
-
+	
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(2)>div { background-size: 19px 19px; background-image: url(../images/brand/5con01_icon_kitchen01_w_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(3)>div { background-size: 21px 19px; background-image: url(../images/brand/5con01_icon_kitchen02_w_m.png); }
 	#mobile .concept5_01 .section5 .carousel .carousel-item>ul.kitchen>li:nth-of-type(4)>div { background-size: 19px 19px; background-image: url(../images/brand/5con01_icon_kitchen03_w_m.png); }
@@ -985,7 +1001,7 @@
 	#mobile .estate .contents .estList ul li dl dt { font-size: 19px; padding-bottom: 25px; line-height: 1.26; height: 80px; }
 	#mobile .estate .contents .estList ul li dl dd { font-size: 13px; padding-left: 66px; padding-bottom: 10px; letter-spacing: -.32px; }
 	#mobile .estate .contents .estList ul li a { width: 45px; height: 45px; margin: 0 25px 24px 0; background: #f5f5f5 url(../images/estate/list_map_icon_m.png) no-repeat 50% 50%; background-size: 18px 16px; }
-	#mobile .estate .contents .estList ul li:hover a { background: #005eb8 url(../images/estate/list_map_icon_hover_m.png) no-repeat 50% 50%; background-size: 18px 16px; }
+	#mobile .estate .contents .estList ul li:hover a { background: #005eb8 url(../images/estate/list_map_icon_hover_m.png) no-repeat 50% 50%; background-size: 18px 16px; } 
 	#mobile .estate .contents .estList .view_more { width: 67px; height: 67px; background-size: 25px; margin: 30px auto 0; }
 	#mobile .estate .contents .estList .view_more:hover { background-size: 25px; }
 
@@ -1000,7 +1016,7 @@
 	#mobile .cs .faq { padding: 0 20px; }
 	#mobile .cs .faq .search { width: 100%; height: 50px; }
 	#mobile .cs .faq .search .select_row { width: 118px; flex-shrink: 0; }
-	#mobile .cs .faq .search .input_row input { width: calc(100% - 50px); }
+	#mobile .cs .faq .search .input_row input { width: calc(100% - 50px); } 
 	#mobile .cs .faq .faq_box > div > p { padding-left: 22px; }
 	#mobile .cs .faq .faq_box > div > p::before { font-size: 15px; }
 	#mobile .cs .faq .faq_box .que { padding: 30px 35px 30px 0; font-size: 15px; display: flex; /* align-items: center; */ justify-content: left; }
@@ -1230,7 +1246,7 @@
 	#mobile .my_contract .contract_info .air_test table tbody tr td a { width: 60px; height: 28px; line-height: 26px; }
 	#mobile .my_contract .contract_info .air_test table tbody tr td a:first-child { margin-right: 0; }
 	#mobile .my_contract .contract_info .air_test table tbody tr td a:last-child { margin-top: 10px; }
-
+	
 
 	/* 마이위브(계약) - 권리의무승계 - 방문예약목록 */
 	#mobile .my_contract .contract_info .succession .reservation_list .reservation { width: 143px; height: 38px; border-radius: 19px; font-size: 13px; margin-bottom: 13px; }
@@ -1263,7 +1279,7 @@
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info { flex-direction: column; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info:last-of-type { margin-top: 12px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info span { font-size: 11px; width: 45px; height: 18px; border-radius: 9px; line-height: 18px; margin-right: 0; margin-bottom: 5px; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info p { font-size: 12px; line-height: 1.58; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_info p { font-size: 12px; line-height: 1.58; }	
 	#mobile .my_contract .contract_info .succession .reservation_apply .cont ul:last-child li:last-child .doc_caution { font-size: 11px; padding-top: 10px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .btn_line a { margin: 55px auto 0; }
 
@@ -1285,7 +1301,7 @@
 	#mobile .xdsoft_datetimepicker .datepicker_wrap { width: 100%; }
 	#mobile .xdsoft_datetimepicker .xdsoft_datepicker { width: 100%; padding: 15px 20px; }
 	#mobile .xdsoft_datetimepicker .xdsoft_calendar td { height: 25px; }
-
+	
 	/* 시간선택 */
 	#mobile .xdsoft_datetimepicker .timepicker_wrap { float: left; width: 100%; margin-top: 50px; }
 	#mobile .xdsoft_datetimepicker .xdsoft_timepicker { width:100%; }
@@ -1316,6 +1332,10 @@
 	#mobile .my_contract .contract_info .const_status .top ul li:last-child { padding: 0; flex-direction: row; }
 	#mobile .my_contract .contract_info .const_status .top ul li .tit { width: 70px; flex-shrink: 0; }
 	#mobile .my_contract .contract_info .const_status .top .img { position: initial; width: 100%; height: 100%; }
+	#mobile	.my_contract .contract_info .const_status .top>p,
+	#mobile	.my_contract .contract_info .const_status .top .name,
+	#mobile	.my_contract .contract_info .const_status .top .progress_wrap,
+	#mobile	.my_contract .contract_info .const_status .top ul {width: 100%;}
 
 	#mobile .my_contract .contract_info .const_status .pop_tab_wrap { margin: 20px auto 40px; }
 	#mobile .my_contract .contract_info .const_status .pop_tab { width: 100%!important; height: 40px; margin: 0 auto; overflow-x: visible; }
@@ -1330,7 +1350,7 @@
 	#mobile .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar {  padding: 0 15px; border-radius: 0 16px 16px 0; }
 	#mobile .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .date { font-size: 12px; }
 	#mobile .my_contract .contract_info .const_status .tab_con .progress_bar .current_bar .num { font-size: 15px; }
-
+	 
 	#mobile .my_contract .contract_info .const_status .img_slide { width: 100%; overflow: hidden; margin: 0 auto; margin-bottom: 25px; }
 	#mobile .my_contract .contract_info .const_status .img_slide .swiper-wrapper,
 	#mobile .my_contract .contract_info .const_status .img_slide .swiper-slide { width: 100%; height: fit-content; }
@@ -1401,7 +1421,7 @@
 	#mobile .my_general .join .section p { font-size: 13px; margin: 22px 0 35px; }
 	#mobile .my_general .join .section .btn_wrap { width: 100%; }
 	#mobile .my_general .join .section .btn_wrap a { height: 45px; line-height: 45px; font-size: 14px; }
-	#mobile .my_general .join .section .btn_wrap .naver_join { margin-bottom: 15px; }
+	#mobile .my_general .join .section .btn_wrap .naver_join { margin-bottom: 15px; } 
 	#mobile .my_general .join .section .btn_wrap .naver_join::before { width: 15px; height: 13px; left: 18px; background-size: contain; }
 	#mobile .my_general .join .section .btn_wrap .kakao_join::before { width: 17px; height: 15px; left: 16px; background-size: contain; }
 
@@ -1475,18 +1495,14 @@
 	#mobile .myweve .as_status .section2 a  { float: none; }
 }
 
-
-@media screen and (max-width:1150px) {
-	.my_contract .contract_info .const_status .top .img { width: 47vw; }
-	.my_contract .contract_info .const_status .top > *:not(.img) { width: 50%; }
-}
-
 @media screen and (min-height:1100px) {
 	.container { min-height: calc(100vh - 233px); }
-
+	
 }
 
 @media screen and (max-height:1000px) {
 	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-of-type li span:nth-last-child(n+1):nth-last-child(-n+7) { display: none; }
-
+	
 }
+
+

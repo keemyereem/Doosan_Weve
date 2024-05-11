@@ -1945,14 +1945,14 @@ var privEvent = {
     this.scrollMotion();
 
     if($(window).width()<=768) {
-      this.privMSwiper();
+      this.privConMSwiper();
     }
   },
 
-  privMSwiper: () => {
-    var $sections = document.querySelectorAll(".privilege .section");
+  privConMSwiper: () => {
+    var $sections = document.querySelectorAll(".privilege .panel");
     $sections.forEach((item, index)=>{
-      let privSlider = new Swiper(item.querySelector(".con_list"), {
+      let privConSlider = new Swiper(item.querySelector(".con_list"), {
         slidesPerView: 3,
         grid: {
           rows: 2,
@@ -1972,6 +1972,8 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
       $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -1981,16 +1983,16 @@ var privEvent = {
       scrollTrigger: {
         // markers: true,
         trigger: '.section00',
-        pin: '.section00',
+        // pin: '.section00',
+        pin: true,
         pinSpacing: true,
         scrub: true,
         start: 'top top',
-        end: '+=100%',
-        // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
+        // end: '+=100%',
+        end: () => `+=${document.querySelector('.section00').offsetHeight * 2}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
           
-          // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
           if(progress > 0.4) {
             $('.sec0-list').addClass('open');
           } else {
@@ -2010,113 +2012,228 @@ var privEvent = {
        .to('.sec0-list04', { opacity: '1', duration:2,})
        .to('.sec0-list05', { opacity: '1', duration:12,})
   
-    var $sections = document.querySelectorAll(".section");
-    $sections.forEach((item, index)=>{
+
+
+    // gsap.registerPlugin(ScrollToPlugin);
+
+    // var tl2 = gsap.timeline({
+    //   scrollTrigger: {
+    //     markers: true,
+    //     // trigger: '.gsap_wrap',
+    //     // pin: '.gsap_wrap',
+    //     // pinSpacing: false,
+    //     scrub: true,
+    //     start: '0% 0%',
+    //     end: '100% 100%',
+    //   }
       
-      tl2 = gsap.timeline({
-        scrollTrigger: {
-          // markers: true,
-          trigger: item,
-          // pin: true,
-          pinSpacing: false,
-          scrub: 3,
-          start: 'top bottom',
-          end: '20% 100%',
-          ease: 'none',
-        }
-      });
+    // });
+    // tl2
+    // .to('.panel_wrap', { yPercent: -100, duration: 0.4,},0)
+    // .to($panels, { y: 0, duration: 0.6, delay: 0.2,},0)
 
-      tl2_1 = gsap.timeline({
+    /* ======================================================================= */
+    /* ======================================================================= */
+
+
+    let sections = gsap.utils.toArray(".panel"),
+        currentSection = sections[0];
+
+        gsap.defaults({ overwrite: "auto", duration: 1 });
+        gsap.set(".gsap_wrap", { height: sections.length * 100 + "vh" });
+        console.log('gsap height:',$('.gsap_wrap').height());
+
+      
+    sections.forEach((section, i) => {
+      var tl = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
-          trigger: item,
+          trigger: '.gsap_wrap',
+          // start: () => `+=${document.querySelector('.gsap_wrap').offsetHeight}`,
+          start: () => (i + 3) * innerHeight,
+          end: () => (i + 4) * innerHeight,
+          // start: 'top, top',
+          // end: () => `+=${section.offsetHeight * 2}`,
+          scrub: true,
           pin: true,
-          pinSpacing: false,
-          scrub: 1,
-          start: 'top 100%',
-          end: 'bottom 70%',
-          ease: 'none',
-        }
-      });
-  
-      var $panels = item.querySelectorAll('.panel'),
-          $panelCon = item.querySelector('.panel-con'),
-          $anchors = item.querySelector('.anchor-nav'),
-          $tag = item.querySelector('.con_tag'),
-          $tit1 = item.querySelector('.con_tit01'),
-          $tit2 = item.querySelector('.con_tit02'),
-          $txt = item.querySelector('.con_txt'),
-          $conList = item.querySelector('.con_list'),
-          $conListBox = item.querySelectorAll('.con_list li'),
-          $page = item.querySelector('.swiper-pagination'),
-          $nav = item.querySelector('.anchor-nav'),
-          dataColor = item.getAttribute('data-color'),
-          panelPadding = '120px 200px';
-  
-      if($(window).width()<=768){
-        panelPadding = '80px 20px';
-      }else if($(window).width()<=1500 && $(window).width()>768) {
-        panelPadding = '120px 100px';
-      }else {
-        panelPadding = '120px 200px';
-      }
-
-      tl2
-        .to($sections[index], { yPercent: -100, duration: 0.4,},0)
-        .to($panels, { y: 0, duration: 0.6, delay: 0.2,},0)
-
-      tl2_1
-        .to($tit1, { opacity: 0, duration: 0.2, delay: 1, },4)
-        .to($txt, { opacity: 0, duration: 0.2, delay: 1, },4)
-        .to($tit1, { display: 'none', duration: 0, delay: 1 },4)
-        .to($txt, { display: 'none', duration: 0, delay: 1 },4)
-        .to($panelCon, { zIndex: 1, },4)
-        .to($panelCon, {background: dataColor, duration: 0, },5)
-        .to($panelCon, { height: '100%', duration: 1, },6)
-        .to($panels, { width: '100%', height: '100%', duration: 1, },6)
-        .to($sections[index], { padding: '0', duration: 1,},6)
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },6)
-        .to($nav, { opacity: 0, duration: 0,},6)
-
-        .to($tag, { display: 'inline-flex', duration: 0,},7)
-        .to($tit2, { display: 'flex', duration: 0,},7)
-        .to($conList, { display: 'block', opacity: 1,},7)
-        .to($tag, { opacity: 1, duration: 0.2,},8)
-        .to($tit2, { opacity: 1, duration: 0.2, delay: 0.3,},8)
-        .to($conListBox, { opacity: 1, stagger: 0.2, delay: 0.6,},8)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },8)
-        .to($page, { opacity: 1,},10)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },12)
-
-    });
-
-    gsap.registerPlugin(ScrollToPlugin);
-
-    /* Main navigation */
-    document.querySelectorAll(".anchor").forEach((anchor, index) => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute("href");
-        let navIndex = (index+1)%5;
-        if(navIndex == 0){
-          navIndex = 5;
-        }
-
-        gsap.to(window, {
-          scrollTo: {
-            y: (navIndex + 1) * window.innerHeight - window.innerHeight * 0.8,
+          pinSpacing: true,
+          // markers: true,
+          onToggle: (self) => {
+            self.isActive && setSection(section);
           },
-          duration: 1,
-          ease: 'none',
-        });
+          toggleClass: {targets: section, className: "active"},
+          onUpdate: (self)=> {
+            console.log('progress:', self.progress.toFixed(1)*10);
+            if(self.progress.toFixed(1)*10 > 4) {
+              // tl2_1.play();
+            }
+          },
+        }
       });
 
     });
 
+    let tween = gsap.to('.gsap_wrap',{y: -window.innerHeight,duration: 2,markers: true,}),
+        st = ScrollTrigger.create({
+          trigger : '.section00',
+          animation: tween,
+          markers: true,
+          start: '50% 100%',
+          end: '90% bottom'
+        });
+    console.log(st.animation);
 
+    
+    var
+    // $panels = sections[i],
+    $panels = document.querySelector('.panel.active'),
+    $panelCon = $panels.querySelector('.panel-con'),
+    $anchors = $panels.querySelector('.anchor-nav'),
+    $tag = $panels.querySelector('.con_tag'),
+    $tit1 = $panels.querySelector('.con_tit01'),
+    $tit2 = $panels.querySelector('.con_tit02'),
+    $txt = $panels.querySelector('.con_txt'),
+    $conList = $panels.querySelector('.con_list'),
+    $conListBox = $panels.querySelectorAll('.con_list li'),
+    $page = $panels.querySelector('.swiper-pagination'),
+    $nav = document.querySelector('.anchor-nav'),
+    dataColor = $panels.getAttribute('data-color'),
+    dataBg = $panels.getAttribute('data-bg'),
+    panelPadding = '120px 200px';
+    
+    // console.log(sections[i]);
+    if($(window).width()<=768){
+      panelPadding = '80px 20px';
+    }else if($(window).width()<=1500 && $(window).width()>768) {
+      panelPadding = '120px 100px';
+    }else {
+      panelPadding = '120px 200px';
+    }
+
+    var tl2_1 = gsap.timeline({
+      scrollTrigger: {
+        // markers: {
+        //   startColor: "blue",
+        //   endColor: "yellow"
+        // },
+        // pin: true,
+        // pinSpacing: false,
+        trigger: '.panel.active',
+        scrub: 1,
+        start: '100% 60%',
+        end: '100% 0%',
+        ease: 'none',
+        // toggleActions: "play reverse none none",
+      }
+    });
+
+    tl2_1
+    .from($panels, {height: '851px'})
+    .from($panelCon, {width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px'})
+
+    
+    tl2_1
+    .to('.panel_wrap', {backgroundColor: dataBg},'<')
+    .to($tit1, { opacity: 0, duration: 0.3, delay: 1, },'<')
+    .to($txt, { opacity: 0, duration: 0.3, delay: 1, },'<')
+    .to($tit1, { display: 'none', duration: 0, delay: 1 },'<')
+    .to($txt, { display: 'none', duration: 0, delay: 1 },'<')
+    .to($panelCon, {background: dataColor, duration: 0, },'<')
+    .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
+    .to($panels, { width: '100%', height: '100%', /* padding: '0', */ duration: 2, delay: 1, },'<')
+    // .to($nav, { opacity: 0, duration: 0,},'<')
+
+
+    .to($tag, { display: 'inline-flex', duration: 0,},'+=5')
+    .to($tit2, { display: 'flex', duration: 0,},'<')
+    .to($conList, { display: 'block', opacity: 1,},'<')
+    .to($tag, { opacity: 1, duration: 0.3,},'+=5')
+    .to($tit2, { opacity: 1, duration: 0.3,},'+=0.5')
+    .to($conListBox, { opacity: 1, stagger: 0.5, },'+=10')
+    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'<')
+    .to($page, { opacity: 1,},'+=5')
+    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+    .reverse();
+
+    function setSection(newSection) {
+      const q = gsap.utils.selector(newSection);
+      
+      // console.log('currentSection:',currentSection);
+
+      if (newSection !== currentSection) {
+        var tl = gsap.timeline();
+
+        tl.to(currentSection, { autoAlpha: 0, duration: 0.2 })
+        .to(newSection, { autoAlpha: 1, duration: 0.2, })
+
+        currentSection = newSection;
+
+        const activeId = newSection.getAttribute('id');
+        const anchor = document.querySelector(`.anchor[href="#${activeId}"]`);
+
+        if (anchor) {
+          const currentActiveAnchor = document.querySelector('.anchor.active');
+          if (currentActiveAnchor) {
+            currentActiveAnchor.classList.remove('active');
+          }
+          anchor.classList.add('active');
+        }
+
+
+
+      }
+    }
+
+    let links = gsap.utils.toArray(".anchor");
+    // let sections = gsap.utils.toArray(".panel");
+    
+    links.forEach(a => {
+      let element = document.querySelector(a.getAttribute("href")),
+          parent = element.parentNode,
+          index = Array.from(parent.children).indexOf(element),
+          linkST = ScrollTrigger.create({
+                trigger: element,
+                start: "top top"
+              });
+              
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        console.log('element.offsetTop:',element.offsetTop);
+        gsap.to(window, {
+          duration: 0, 
+          scrollTo: {
+            y: (index + 2) * window.innerHeight,
+            // y: document.querySelector('.gsap_wrap').innerHeight / (index + 1),
+            // offsetY: 20,
+          }, 
+          overwrite: "auto"
+        });
+        ScrollTrigger.create({
+          trigger: a.getAttribute("href"),
+          // markers: true,
+          start: "top center",
+          end: "bottom center",
+          onToggle: self => self.isActive && setActive(a)
+        })
+
+      });
+    });
+
+    function setActive(link) {
+      let activeSec = document.querySelector(link.getAttribute('href'));
+      sections.forEach(el => el.classList.remove("active"));
+      links.forEach(el => el.classList.remove("active"));
+      document.querySelector(link.getAttribute('href')).classList.add("active");
+      link.classList.add("active");
+
+      var tl = gsap.timeline();
+
+      tl.to(sections, { autoAlpha: 0, duration: 0.2 })
+      .to(activeSec, { autoAlpha: 1, duration: 0.2, })
+    }
+
+
+
+    /* ======================================================================================== */
     let maxW = 5000,
     maxH = 5000;
 
@@ -2148,6 +2265,8 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
+
+
   },
 };
 

@@ -81,7 +81,7 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .bi_popup .popup_inner .btn_download > a { display: block; width: 220px; height: 50px; line-height: 50px; border-radius: 25px; background: #005eb8; text-align: center; margin: 70px auto 0; color: #fff; }
 
 /* 리스트팝업 */
-.popup { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .8); z-index: 1000; opacity: 0; visibility: hidden; transition:all ease .6s; }
+.popup { width: 100%; height: 100vh; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .4); z-index: 1000; opacity: 0; visibility: hidden; transition:all ease .6s; }
 .popup.on { opacity: 1; visibility: visible; }
 .popup>ul { width: 900px; height: fit-content; background: #fff; position: fixed; top: 0; bottom: 0; right: 0; left: 0; margin: auto; }
 .popup>ul li:first-child { position: absolute; width: 40px; height: 40px; right: 0; top: -60px; transition: transform ease .3s; cursor: pointer; }
@@ -490,8 +490,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .sec0-list .sec0-list04 svg {max-width: 152px;}
 .privilege .sec0-list .sec0-list05 svg {max-width: 166px;}
 
-.privilege .gsap_wrap {position: relative;border: 5px solid #000;/* background: rgba(0, 0, 255, 0.5); */width: 100%;height: 100vh;}
-.privilege .section {width: 100%;height: 100vh;/* position: relative; */box-sizing: border-box;display: flex;align-items: center;justify-content: center;position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
+.privilege .section {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;}
 .privilege .section01,
 .privilege #have .con_list li {background-color: #efebf5;}
 .privilege .section02,
@@ -503,19 +502,26 @@ body#brandstory.typeB { color: #222; }
 .privilege .section05,
 .privilege #solve .con_list li {background-color: #eef3fa;}
 
-.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* border: 1px solid #000; */position: relative;color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;}
-.privilege #have .panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
-.privilege #live .panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
-.privilege #love .panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
-.privilege #save .panel {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
-.privilege #solve .panel {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
+.privilege .gsap_wrap {position: relative;width: 100%;/* height: 500vh; */border: 5px solid #000;background: #eee;}
+.privilege .panel_wrap {position: relative;border: 1px solid red;height: calc(100% - 84px);background: #efebf5;}
+.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* position: relative; */color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;position: absolute;border: 1px solid green;}
+.privilege .panel:not(:first-child) {
+  opacity: 0;
+  visibility: hidden;
+} 
 
-.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;}
-.privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;}
+.privilege #have.panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
+.privilege #live.panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
+.privilege #love.panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
+.privilege #save.panel {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
+.privilege #solve.panel {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
+
+.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;border: 1px solid #000;z-index: 10;}
+.privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;border: 1px solid #000;}
 .privilege .anchor::before {content:''; display: block;width: 1px;height: 30px;opacity: 0.3;position: absolute;top: 50%;left: 0;transform: translateY(-50%);}
 .privilege .anchor:first-child::before,
 .privilege .anchor.active + .anchor::before {display: none;}
-.privilege .anchor.active {flex-basis: 100px;font-size: 54px;margin-top: -21px;color: #fff;position: relative;}
+.privilege .anchor.active {flex-basis: 100px;font-size: 54px;margin-top: -21px;color: #000;position: relative;}
 .privilege .anchor.active::before {display: none;}
 .privilege .anchor.active::after {content:'';display: block;width: 250px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat;background-size: contain;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);}
 .privilege .anchor01,
@@ -529,7 +535,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .anchor05,
 .privilege #solve .panel-con .con_tit01 .highlight {color: #007fc5;}
 
-.privilege .panel-con {/* border: 1px solid red; */width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
+.privilege .panel-con {border: 3px solid pink;width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
 .privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
 .privilege #live .panel-con {/* background-color: #ed7214; */background-image: url(../images/brand/priv-bg02_illust.png);background-position: 100% 100%;}
 .privilege #love .panel-con {/* background-color: #e9538b; */background-image: url(../images/brand/priv-bg03_illust.png);background-position: calc(100% - 175px) calc(100% - 60px);}
@@ -563,6 +569,11 @@ body#brandstory.typeB { color: #222; }
 .privilege #love .panel-con .con_list li {border: 1px solid #f4b6ca;}
 .privilege #save .panel-con .con_list li {border: 1px solid #cce2a8;}
 .privilege #solve .panel-con .con_list li {border: 1px solid #a8c9e5;}
+.privilege #have .panel-con .con_list li:hover {box-shadow: 7px 7px 24px 0 rgba(44, 21, 65,0.32);}
+.privilege #live .panel-con .con_list li:hover {box-shadow: 7px 7px 24px 0 rgba(117, 55, 7,0.32);}
+.privilege #love .panel-con .con_list li:hover {box-shadow: 7px 7px 24px 0 rgba(106, 35, 61,0.32);}
+.privilege #save .panel-con .con_list li:hover {box-shadow: 7px 7px 24px 0 rgba(60, 82, 13,0.32);}
+.privilege #solve .panel-con .con_list li:hover {box-shadow: 7px 7px 24px 0 rgba(0, 44, 69,0.32);}
 .privilege .panel-con .con_list-icon {flex-shrink: 0;}
 
 .privilege .panel-con .con_list li p {font-size: 18px;letter-spacing: -0.45px;line-height: 1.33;width: calc(100% - 90px);}
@@ -1423,6 +1434,11 @@ body#brandstory.typeB { color: #222; }
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div:hover { background: #005eb8!important; }
 
 .my_contract .contract_info .const_status .top { width: 100%; }
+.my_contract .contract_info .const_status .top>p,
+.my_contract .contract_info .const_status .top .name,
+.my_contract .contract_info .const_status .top .progress_wrap,
+.my_contract .contract_info .const_status .top ul {width: calc(100% - 540px);}
+
 .my_contract .contract_info .const_status .top p { font-size: 18px; letter-spacing: -.45px; }
 .my_contract .contract_info .const_status .top p b { font-weight: 400; color: #005eb8; }
 .my_contract .contract_info .const_status .top .name { font-size: 34px; font-weight: 400; margin-top: 10px; }
@@ -1626,6 +1642,15 @@ body#brandstory.typeB { color: #222; }
 .footer_conts .section .terms_site .site_list li a {display: block;font-size: 16px; color: #222;padding: 10px 20px; }
 .footer_conts .section .terms_site .site_list li a:hover { background: #005eb8; color: #fff; }
 
+.pop_overlay {background: rgba(0, 0, 0, .4);position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 100%;height: 100%;z-index: 99;}
+.popNoti {position: fixed;right: 12.5vw;top: 50%;transform: translateY(-50%);display: none;}
+.popNoti.on {display: block;}
+.popNoti .pop_cont {display: flex;}
+.popNoti .pop_close_wrap {display: flex;height: 50px;}
+.popNoti .pop_close_wrap>button {flex:1;font-size: 16px;color: #fff;}
+.popNoti .pop_close_wrap>.btn_closeForToday {background: #35383d;}
+.popNoti .pop_close_wrap>.btn_close {background: #000;}
+
 /* 일부서비스 중단안내 팝업 */
 .popup_service { max-width: 800px;width: calc(100% - 40px);position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); }
 .popup_service .pop_close { display: block;margin-left: auto;margin-bottom: 18px;transition: transform .2s; }
@@ -1637,7 +1662,13 @@ body#brandstory.typeB { color: #222; }
 .popup_service .checkbox_row input[type="checkbox"] + label:before { background: transparent; }
 .popup_service .checkbox_row input[type="checkbox"]:checked + label:before { background: url(../images/common/checked_wht.png) 50% 50% no-repeat; }
 
+/* 홈페이지 일시중단 안내 팝업 */
+.popup_tempStop { max-width: 570px;width: calc(100% - 70px); }
+
 @media screen and (max-width:768px) {
+  .popNoti { right: initial;left: 50%;transform: translate(-50%,-50%); }
+  .popNoti .pop_close_wrap { height: 35px; }
+  .popNoti .pop_close_wrap>button { font-size: 11px; }
   .popup_service { max-width: 335px; }
   .popup_service .pop_close { margin-bottom: 16px; }
   .popup_service .pop_close>img { width: 27px; }

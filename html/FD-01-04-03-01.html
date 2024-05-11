@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<!-- SET FILE PATH :: compatibility ie9 code -->
+	<base href="../">
+	<!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="author" content="Doosan We've">
+	<meta name="robots" content="index, follow">
+	<meta name="title" content="We've">
+	<meta name="description" content="두산건설 브랜드 홈페이지, 위브/위브더제니스 소개, 분양/공사/입주정보 등 제공">
+	<meta name="keywords" content="We've, 위브, 위브더제니스, 위브센티움">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="We've">
+	<meta property="og:image" content="http://dev.doosan.4-m.co.kr/DoosanWeve/images/og_Weve.jpg">
+	<meta property="og:description" content="남다른 감각으로 독창적인 주거문화를 완성합니다.">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="We've">
+	<meta name="twitter:image" content="http://dev.doosan.4-m.co.kr/DoosanWeve/images/og_Weve.jpg">
+	<meta name="twitter:description" content="남다른 감각으로 독창적인 주거문화를 완성합니다.">
+
+	<title>We've</title>
+	<link rel="icon" href="images/favicon.png" sizes="32x32">
+  <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" >  
+	<link rel="shortcut icon" type="image/x-icon" href="#">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+
+	<!-- Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js"></script>
+    <script src="js/lib/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
+
+    <script src="js/common2.js"></script>
+
+	<script>
+        $(document).ready( function() {
+            $('header').load("include/header.html");
+            $("footer").load("include/footer.html");
+
+            commonEvent.init();
+            privEvent.init();
+        });
+    </script>
+</head>
+<body>
+  <!-- wrap -->
+  <div id="wrap">
+
+      <!-- header -->
+      <header></header>
+      <!-- //header -->
+
+      <!-- sitemap -->
+      <div class="sitemap"></div>
+      <!-- //sitemap -->
+
+			<div class="container privilege">
+        <div class="section00">
+          <h1 class="sec0-tit sec0-tit01">Privilege</h1>
+          <p class="sec0-tit sec0-tit02">
+            기술의 차이로<br class="br_m"> 누리는 특별함
+          </p>
+          <ul class="sec0-list">
+            <li class="sec0-list01">
+              <svg>
+                <text><tspan class="tspan" x="0" y="49">have</tspan></text>
+              </svg>
+            </li>
+            <li class="sec0-list02">
+              <svg>
+                <text><tspan class="tspan" x="0" y="49">live</tspan></text>
+              </svg>
+            </li>
+            <li class="sec0-list03">
+              <svg>
+                <text><tspan class="tspan" x="0" y="49">love</tspan></text>
+              </svg>
+            </li>
+            <li class="sec0-list04">
+              <svg>
+                <text><tspan class="tspan" x="0" y="49">save</tspan></text>
+              </svg>
+            </li>
+            <li class="sec0-list05">
+              <svg>
+                <text><tspan class="tspan" x="0" y="49">solve</tspan></text>
+              </svg>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="gsap_wrap">
+          <div class="anchor-nav">
+            <a class="anchor anchor01 active" href="#have">have</a>
+            <a class="anchor anchor02" href="#live">live</a>
+            <a class="anchor anchor03" href="#love">love</a>
+            <a class="anchor anchor04" href="#save">save</a>
+            <a class="anchor anchor05" href="#solve">solve</a>
+          </div>
+          <div class="panel_wrap">
+            <div class="panel active" id="have" data-color="#62318e" data-bg="#efebf5">
+              <div class="panel-con">
+                <div class="con_tag">
+                  <strong>have</strong> 꼭 갖고싶은 공간
+                </div>
+                <div class="con_tit01">
+                  꼭 갖고 싶은 <div class="highlight">공간</div>
+                </div>
+                <div class="con_tit02">
+                  <span>
+                    첨단기술을 활용한<br>
+                    스마트 홈
+                  </span>
+                </div>
+                <p class="con_txt">
+                  <strong>독보적인 기술로</strong> 우리가 꿈꾸고<br class="br_m"> 갖고싶었던<br class="br_pc">
+                  주거환경을 만들어 갑니다.
+                </p>
+                <div class="con_list swiper">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon01.png" alt="아이콘">
+                      </div>
+                      <p>대형 미러<br>
+                        월패드</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon02.png" alt="아이콘">
+                      </div>
+                      <p>주방 액정<br>
+                        TV</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon03.png" alt="아이콘">
+                      </div>
+                      <p class="line1">홈 IOT</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon04.png" alt="아이콘">
+                      </div>
+                      <p class="line1">원격 검침</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon05.png" alt="아이콘">
+                      </div>
+                      <p>부부욕실<br> 스피커폰</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon06.png" alt="아이콘">
+                      </div>
+                      <p>지문인식<br>
+                        디지털 도어록</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon07.png" alt="아이콘">
+                      </div>
+                      <p>주차 관제<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon08.png" alt="아이콘">
+                      </div>
+                      <p>주차 유도<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon09.png" alt="아이콘">
+                      </div>
+                      <p>무인 택배<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon10.png" alt="아이콘">
+                      </div>
+                      <p>원패스<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon11.png" alt="아이콘">
+                      </div>
+                      <p class="line1">스마트홈</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-have_icon12.png" alt="아이콘">
+                      </div>
+                      <p>커뮤니티 무인<br>
+                        시스템</p>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="panel" id="live" data-color="#ed7214" data-bg="#fef3e9">
+              <div class="panel-con">
+                <div class="con_tag">
+                  <strong>live</strong> 꼭 갖고싶은 공간
+                </div>
+                <div class="con_tit01">
+                  기쁨이 있는 <div class="highlight">공간</div>
+                </div>
+                <div class="con_tit02">
+                  <span>
+                    세대 및 공용시설의 차별화된 시공으로<br class="br_pc">
+                    자부심과 기쁨 제공
+                  </span>
+                </div>
+                <p class="con_txt">
+                  <strong>보다 안락한 생활 환경</strong> 을 창조해<br>
+                  쾌적하고 편안한 삶을 누립니다.
+                </p>
+                <div class="con_list swiper">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon01.png" alt="아이콘">
+                      </div>
+                      <p>주방<br class="br_m"> 우물천장</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon02.png" alt="아이콘">
+                      </div>
+                      <p class="line1">KITCHEN UP</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon03.png" alt="아이콘">
+                      </div>
+                      <p class="line1">LIVING UP</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon04.png" alt="아이콘">
+                      </div>
+                      <p class="line1">CLEAN UP</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon05.png" alt="아이콘">
+                      </div>
+                      <p class="line1">BATH UP</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon06.png" alt="아이콘">
+                      </div>
+                      <p class="line1">DRESS UP</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon07.png" alt="아이콘">
+                      </div>
+                      <p class="line1">세대 창고</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon08.png" alt="아이콘">
+                      </div>
+                      <p class="line1">차별화 문주</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon09.png" alt="아이콘">
+                      </div>
+                      <p class="line1">측벽 특화</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon10.png" alt="아이콘">
+                      </div>
+                      <p>프리미엄<br>
+                        경관 조명</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon11.png" alt="아이콘">
+                      </div>
+                      <p>커뮤니티 무인<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon12.png" alt="아이콘">
+                      </div>
+                      <p>시스템<br>
+                        유리난간</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-live_icon13.png" alt="아이콘">
+                      </div>
+                      <p class="line1">옥탑 구조물</p>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="panel" id="love" data-color="#e9538b" data-bg="#fdf2f6">
+              <div class="panel-con">
+                <div class="con_tag">
+                  <strong>love</strong> 사랑과 행복이 있는 공간
+                </div>
+                <div class="con_tit01">
+                  사랑과 행복이<br class="br_m"> 있는 <div class="highlight">공간</div>
+                </div>
+                <div class="con_tit02">
+                  <span>
+                    공용시설, 커뮤니티에서<br class="br_pc">
+                    함께 누리는 행복
+                  </span>
+                </div>
+                <p class="con_txt con_txt_m">
+                  <strong>첨단기술과 편안한 생활</strong>이 깃든 세상을 실현해<br class="br_pc">
+                  궁극의 목표인 고객의 행복을 추구합니다.
+                </p>
+                <div class="con_list swiper">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon01.png" alt="아이콘">
+                      </div>
+                      <p class="line1">맘스테이션</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon02.png" alt="아이콘">
+                      </div>
+                      <p class="line1"> 필로티</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon03.png" alt="아이콘">
+                      </div>
+                      <p class="line1">테마정원</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon04.png" alt="아이콘">
+                      </div>
+                      <p class="line1">갤러리 라운지</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon05.png" alt="아이콘">
+                      </div>
+                      <p class="line1">도서관</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon06.png" alt="아이콘">
+                      </div>
+                      <p class="line1">골프시설</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon07.png" alt="아이콘">
+                      </div>
+                      <p class="line1">휘트니스</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon08.png" alt="아이콘">
+                      </div>
+                      <p class="line1">수영장</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon09.png" alt="아이콘">
+                      </div>
+                      <p class="line1">클라이밍</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon10.png" alt="아이콘">
+                      </div>
+                      <p class="line1">농구</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon11.png" alt="아이콘">
+                      </div>
+                      <p class="line1">웰빙 산책로 </p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon12.png" alt="아이콘">
+                      </div>
+                      <p class="line1">어린이 놀이터</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon13.png" alt="아이콘">
+                      </div>
+                      <p class="line1">티하우스</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-love_icon01.png" alt="아이콘">
+                      </div>
+                      <p class="line1">코인세탁실</p>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="panel" id="save" data-color="#8fc31f" data-bg="#f6faed">
+              <div class="panel-con">
+                <div class="con_tag">
+                  <strong>save</strong> 알뜰한 생활이 있는 공간
+                </div>
+                <div class="con_tit01">
+                  알뜰한 생활이<br class="br_m"> 있는 공간 <div class="highlight">공간</div>
+                </div>
+                <div class="con_tit02">
+                  <span>
+                    에너지 및 비용<br class="br_pc">
+                    절감을 통한 알뜰함
+                  </span>
+                </div>
+                <p class="con_txt con_txt_m">
+                  <strong>지속가능환경에 대한 고민</strong>으로 에너지 소비를 줄이고 <br class="br_pc">
+                  비용을 절감하여 고객에게 알뜰함을 선사합니다.
+                </p>
+                <div class="con_list swiper">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon01.png" alt="아이콘">
+                      </div>
+                      <p class="line1">LED 조명</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon02.png" alt="아이콘">
+                      </div>
+                      <p>전력회생형<br>
+                        인버터 승강기</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon03.png" alt="아이콘">
+                      </div>
+                      <p>일괄소등<br>
+                        스위치</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon04.png" alt="아이콘">
+                      </div>
+                      <p>대기전력<br>
+                        차단 장치</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon05.png" alt="아이콘">
+                      </div>
+                      <p>친환경<br>
+                        보일러</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon06.png" alt="아이콘">
+                      </div>
+                      <p>친환경<br>
+                        자재활용</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon07.png" alt="아이콘">
+                      </div>
+                      <p>지하주차장<br>
+                        LED 디밍</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon08.png" alt="아이콘">
+                      </div>
+                      <p>전기자동차<br>
+                        충전시설</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon09.png" alt="아이콘">
+                      </div>
+                      <p>친환경<br>
+                        인증</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon10.png" alt="아이콘">
+                      </div>
+                      <p>센서형<br>
+                        절수 수전</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon11.png" alt="아이콘">
+                      </div>
+                      <p>태양광
+                        에너지</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon12.png" alt="아이콘">
+                      </div>
+                      <p>지열<br>
+                        에너지</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-save_icon13.png" alt="아이콘">
+                      </div>
+                      <p class="line1">연료 전지</p>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="panel" id="solve" data-color="#007fc5" data-bg="#eef3fa">
+              <div class="panel-con">
+                <div class="con_tag">
+                  <strong>solve</strong> 생활의 모든 문제가 해결되는 공간
+                </div>
+                <div class="con_tit01">
+                  생활의 모든 문제가<br class="br_pc">
+                  해결되는 <div class="highlight">공간</div>
+                </div>
+                <div class="con_tit02">
+                  <span>
+                    하자보수, 위험요소 대비,<br class="br_pc">
+                    층간소음 등 고객불편 해소
+                  </span>
+                </div>
+                <p class="con_txt con_txt_m">
+                  <strong>품질시공과 세심한 시공</strong>으로 <br>
+                  생활의 불편을 해소합니다.
+                </p>
+                <div class="con_list swiper">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon01.png" alt="아이콘">
+                      </div>
+                      <p>살균 조명<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon02.png" alt="아이콘">
+                      </div>
+                      <p>수전 살균<br>
+                        욕실 플랩장</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon03.png" alt="아이콘">
+                      </div>
+                      <p>경보 알람<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon04.png" alt="아이콘">
+                      </div>
+                      <p class="line1">동체감지기</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon05.png" alt="아이콘">
+                      </div>
+                      <p>기계환기<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon06.png" alt="아이콘">
+                      </div>
+                      <p>중앙 정수<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon07.png" alt="아이콘">
+                      </div>
+                      <p>청정 환기<br>
+                        시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon08.png" alt="아이콘">
+                      </div>
+                      <p class="line1">CCTV</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon09.png" alt="아이콘">
+                      </div>
+                      <p>지하 주차장<br>
+                        비상벨 시스템</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon10.png" alt="아이콘">
+                      </div>
+                      <p>기능성 마감재<br>
+                        커뮤니티 시설</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon11.png" alt="아이콘">
+                      </div>
+                      <p>범죄 예방<br>
+                        환결 설계</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon12.png" alt="아이콘">
+                      </div>
+                      <p>친환경<br>
+                        스톤 플로링</p>
+                    </li>
+                    <li class="swiper-slide">
+                      <div class="con_list-icon">
+                        <img src="../images/brand/priv-solve_icon13.png" alt="아이콘">
+                      </div>
+                      <p>메세먼지 저감<br>
+                        시스템</p>
+                    </li>
+                  </ul>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section06">
+          <article class="gsap3">
+            <h2 class="gsap3-1">We've<span class="gsap3-2"> got <br class="br_m">everything.</span></h2>
+            <img src="images/brandstory/gsap_bi.png" alt="BI로고" class="gsap3-3">
+          </article>
+        </div>
+ 
+
+
+			</div>
+      <!-- footer -->
+      <footer></footer>
+      <!-- //footer -->
+  </div>
+</body>
+</html>

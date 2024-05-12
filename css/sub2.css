@@ -505,11 +505,12 @@ body#brandstory.typeB { color: #222; }
 .privilege .gsap_wrap {position: relative;width: 100%;/* height: 500vh; */border: 5px solid #000;background: #eee;}
 .privilege .panel_wrap {position: relative;border: 1px solid red;height: calc(100% - 84px);background: #efebf5;}
 .privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* position: relative; */color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;position: absolute;border: 1px solid green;}
+/*
 .privilege .panel:not(:first-child) {
   opacity: 0;
   visibility: hidden;
 } 
-
+*/
 .privilege #have.panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
 .privilege #live.panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
 .privilege #love.panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
@@ -535,7 +536,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .anchor05,
 .privilege #solve .panel-con .con_tit01 .highlight {color: #007fc5;}
 
-.privilege .panel-con {border: 3px solid pink;width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
+.privilege .panel-con {width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
 .privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
 .privilege #live .panel-con {/* background-color: #ed7214; */background-image: url(../images/brand/priv-bg02_illust.png);background-position: 100% 100%;}
 .privilege #love .panel-con {/* background-color: #e9538b; */background-image: url(../images/brand/priv-bg03_illust.png);background-position: calc(100% - 175px) calc(100% - 60px);}

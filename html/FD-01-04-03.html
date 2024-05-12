@@ -68,10 +68,18 @@
   <style>
     header {display:none;}
 
-    body.privilege {height: 100vh; height:100vh;}
-    .privilege .gsap_wrap {width: 100%; height: 100vh; border: 5px solid #000; background: #eee;}
-    .privilege .section06 {position: relative; width: 100%; height: 100vh; border: 5px solid #000;background: #eee;}
-
+    body.privilege {height: 100vh;}
+    .privilege #wrap {
+    position: absolute; left: 0; top: 0;  width: 100%; height: 100%;  /*overflow: hidden;*/  z-index: 10;      
+    }
+    .privilege .gsap_wrap {border: 0; background: #eee; }
+    .privilege .panel_wrap {position: relative; height: 100vh; padding-top:20px;}
+    .privilege .panel {position: relative; width: 100%; height: 100vh; border: 0;background: #eee;}
+    .privilege .section06 {position: relative; width: 100%; height: 100vh; border: 5px solid #0000ff;background: #eee;}
+    .privilege .anchor-nav{top:40px; position:absolute;}
+    .privilege .anchor-nav, .privilege .anchor{border:0;}
+    .privilege .panel-con {top:140px;} 
+    .privilege .panel{background-size:100% !important; }
   </style>
 </head>
 <body class="privilege">
@@ -120,8 +128,11 @@
             </li>
           </ul>
         </div>
-    
-        <div class="gsap_wrap" gsap-motion-scene="body">
+        <!--
+        <div class="gsap_wrap" gsap-motion-scene-no="body">
+          <div class="panel_wrap">
+            -->
+        <div class="gsap_wrap" gsap-motion-scene-no="body">
           <div class="anchor-nav">
             <a class="anchor anchor01 active" href="#have">have</a>
             <a class="anchor anchor02" href="#live">live</a>
@@ -129,8 +140,8 @@
             <a class="anchor anchor04" href="#save">save</a>
             <a class="anchor anchor05" href="#solve">solve</a>
           </div>
-          <div class="panel_wrap">
-            <div class="panel active" id="have" data-color="#62318e" data-bg="#efebf5">
+        </div>
+            <div class="panel active" id="have" data-color="#62318e" data-bg="#efebf5" gsap-motion-panel="have">
               <div class="panel-con">
                 <div class="con_tag">
                   <strong>have</strong> 꼭 갖고싶은 공간
@@ -236,7 +247,7 @@
               </div>
             </div>
       
-            <div class="panel js-scene" id="live" data-color="#ed7214" data-bg="#fef3e9">
+            <div class="panel" id="live" data-color="#ed7214" data-bg="#fef3e9" gsap-motion-panel="live">
               <div class="panel-con">
                 <div class="con_tag">
                   <strong>live</strong> 꼭 갖고싶은 공간
@@ -343,7 +354,7 @@
               </div>
             </div>
       
-            <div class="panel" id="love" data-color="#e9538b" data-bg="#fdf2f6">
+            <div class="panel" id="love" data-color="#e9538b" data-bg="#fdf2f6" gsap-motion-panel="love">
               <div class="panel-con">
                 <div class="con_tag">
                   <strong>love</strong> 사랑과 행복이 있는 공간
@@ -453,7 +464,7 @@
               </div>
             </div>
       
-            <div class="panel" id="save" data-color="#8fc31f" data-bg="#f6faed">
+            <div class="panel" id="save" data-color="#8fc31f" data-bg="#f6faed" gsap-motion-panel="save">
               <div class="panel-con">
                 <div class="con_tag">
                   <strong>save</strong> 알뜰한 생활이 있는 공간
@@ -568,7 +579,7 @@
               </div>
             </div>
       
-            <div class="panel" id="solve" data-color="#007fc5" data-bg="#eef3fa">
+            <div class="panel" id="solve" data-color="#007fc5" data-bg="#eef3fa" gsap-motion-panel="solve">
               <div class="panel-con">
                 <div class="con_tag">
                   <strong>solve</strong> 생활의 모든 문제가 해결되는 공간
@@ -683,8 +694,11 @@
                 </div>
               </div>
             </div>
+            <!--
+
           </div>
         </div>
+        -->
 
         <div class="section06" gsap-motion-scene="bottom">
           <article class="gsap3">

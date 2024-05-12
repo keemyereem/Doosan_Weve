@@ -19,7 +19,7 @@
 	#pc .privilege {overflow-x: scroll;}
 	#pc .privilege .section {width: 100%;border: 3px solid #000;}
 	#pc .privilege .panel {width: 1440px;}
-	#pc .privilege .panel-con {left: 0;right: 0;transform: translateX(0);}
+	/* #pc .privilege .panel-con {left: 0;right: 0;transform: translateX(0);} */
 }
 
 @media screen and (min-width:768px) {
@@ -484,8 +484,12 @@
 	#mobile .privilege .anchor {font-size: 0;height: 5vh;/* border: 1px solid #000; */}
 	#mobile .privilege .anchor::before {display: none;}
 	#mobile .privilege .anchor.active {font-size: 32px;height: 10vh;line-height: 10vh;text-align: left;padding-left: 40px;margin-top: 0;flex-basis: 53%;order: -5;}
-	#mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;}
 	#mobile .privilege .anchor.active::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;top: 50%;left: initial;right: 20px;transform: translateY(-50%);}
+	/* #mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;} */
+	#mobile .privilege .anchor.active .deco {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;;}
+	#mobile .privilege .anchor.active .deco .shape {width: 15px;height: 15px;}
+	#mobile .privilege .anchor.active .deco .line {left: 15px;}
+	#mobile .privilege .anchor.active .deco .line.open {width: calc(100% - 15px);}
 
 	#mobile .privilege #have .panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}
 	#mobile .privilege #live .panel {background: url(../images/brand/priv-bg02_m.png)no-repeat 0 100%;background-size: 100% 100%;}

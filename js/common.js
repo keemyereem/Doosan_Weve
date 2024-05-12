@@ -1979,66 +1979,84 @@ var privEvent = {
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        // markers: true,
+        //markers: true,
         trigger: '.section00',
-        pin: '.section00',
+        pin: true,
         pinSpacing: true,
-        scrub: true,
+        scrub: 3,
         start: 'top top',
-        end: '+=100%',
+        end: '+=600%',
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
           
           // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-          if(progress > 0.4) {
+          if(progress > 0.3) {
             $('.sec0-list').addClass('open');
           } else {
             $('.sec0-list').removeClass('open');
           }
+
         },
       }
       
     });
   
-    tl1.to('.sec0-tit01', { y: -40, duration:3, })
-       .to('.sec0-tit02', { y: -10, opacity: '1', duration:3, })
-       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, })
-       .to('.sec0-list01', { opacity: '1', duration:2, },16)
-       .to('.sec0-list02', { opacity: '1', duration:2,})
-       .to('.sec0-list03', { opacity: '1', duration:2,})
-       .to('.sec0-list04', { opacity: '1', duration:2,})
-       .to('.sec0-list05', { opacity: '1', duration:12,})
+    tl1.to('.sec0-tit01', { y: -40, duration:2, })
+       .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
+       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
+       .to('.sec0-list01', { opacity: '1', duration:2, },'+=1')
+       .to('.sec0-list02', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list03', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list04', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list05', { opacity: '1', duration:2,},'+=1')
+      //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
+      //  .to('.bg-mask', { opacity: 1, },'+=5')
+       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=10')
   
     var $sections = document.querySelectorAll(".section");
     $sections.forEach((item, index)=>{
       
-      tl2 = gsap.timeline({
-        scrollTrigger: {
-          // markers: true,
-          trigger: item,
-          // pin: true,
-          pinSpacing: false,
-          scrub: 3,
-          start: 'top bottom',
-          end: '20% 100%',
-          ease: 'none',
-        }
-      });
+      // tl2 = gsap.timeline({
+      //   scrollTrigger: {
+      //     markers: true,
+      //     trigger: item,
+      //     // pin: true,
+      //     pinSpacing: false,
+      //     scrub: 1,
+      //     start: 'top 100%',
+      //     end: '20% 100%',
+      //     ease: 'none',
+      //   }
+      // });
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
           trigger: item,
           pin: true,
-          pinSpacing: false,
-          scrub: 1,
-          start: 'top 100%',
-          end: 'bottom 70%',
+          // pinSpacing: false,
+          scrub: 2,
+          start: 'top 0%',
+          end: '+=600%',
           ease: 'none',
+          onUpdate: function(scrollTrigger) {
+            var progress = scrollTrigger.progress.toFixed(1)*10;
+            var $activeSection = $(scrollTrigger.trigger);
+            
+            // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+            if(progress == 1) {
+              $activeSection.find('.anchor .line').addClass('open');
+              $activeSection.find('.anchor .shape').css('opacity','1');
+            }
+            if(progress == 10) {
+              $activeSection.find('.anchor .line').removeClass('open');
+              $activeSection.find('.anchor .shape').css('opacity','0');
+            }
+          },
         }
       });
   
@@ -2064,32 +2082,32 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
 
-      tl2
-        .to($sections[index], { yPercent: -100, duration: 0.4,},0)
-        .to($panels, { y: 0, duration: 0.6, delay: 0.2,},0)
+      // tl2
+      //   .to($sections[index], { yPercent: -100, duration: 2,})
+      //   .to($panels, { y: 0, duration: 2,},'<')
 
       tl2_1
-        .to($tit1, { opacity: 0, duration: 0.2, delay: 1, },4)
-        .to($txt, { opacity: 0, duration: 0.2, delay: 1, },4)
-        .to($tit1, { display: 'none', duration: 0, delay: 1 },4)
-        .to($txt, { display: 'none', duration: 0, delay: 1 },4)
-        .to($panelCon, { zIndex: 1, },4)
-        .to($panelCon, {background: dataColor, duration: 0, },5)
-        .to($panelCon, { height: '100%', duration: 1, },6)
-        .to($panels, { width: '100%', height: '100%', duration: 1, },6)
-        .to($sections[index], { padding: '0', duration: 1,},6)
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },6)
-        .to($nav, { opacity: 0, duration: 0,},6)
+        .to($tit1, { opacity: 0, duration: 0.3, delay: 5, },'+=10')
+        .to($txt, { opacity: 0, duration: 0.3, },'<')
+        .to($tit1, { display: 'none', duration: 0, },'<')
+        .to($txt, { display: 'none', duration: 0, },'<')
+        .to($panelCon, { zIndex: 1, },'<')
+        .to($panelCon, {background: dataColor, duration: 0, },'<')
+        .to($panelCon, { height: '100%', duration: 1, },'+=1')
+        .to($panels, { width: '100%', height: '100%', duration: 2, },'<')
+        .to($sections[index], { padding: '0', duration: 1,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },'<')
+        .to($nav, { opacity: 0, duration: 0,},'<')
 
-        .to($tag, { display: 'inline-flex', duration: 0,},7)
-        .to($tit2, { display: 'flex', duration: 0,},7)
-        .to($conList, { display: 'block', opacity: 1,},7)
-        .to($tag, { opacity: 1, duration: 0.2,},8)
-        .to($tit2, { opacity: 1, duration: 0.2, delay: 0.3,},8)
-        .to($conListBox, { opacity: 1, stagger: 0.2, delay: 0.6,},8)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },8)
-        .to($page, { opacity: 1,},10)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },12)
+        .to($tag, { display: 'inline-flex', duration: 0,},'+=1')
+        .to($tit2, { display: 'flex', duration: 0,},'<')
+        .to($conList, { display: 'block', opacity: 1,},'<')
+        .to($tag, { opacity: 1, duration: 0.3,},'+=1')
+        .to($tit2, { opacity: 1, duration: 0.3,},'+=1')
+        .to($conListBox, { opacity: 1, stagger: 0.5,},'+=1')
+        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+        .to($page, { opacity: 1,},)
+        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
 
     });
 
@@ -2104,10 +2122,15 @@ var privEvent = {
         if(navIndex == 0){
           navIndex = 5;
         }
-
+        console.log('navIndex:',navIndex);
+        console.log('have:',$('.section01').offset().top);
+        console.log('live:',$('.section02').offset().top);
+        console.log('love:',$('.section03').offset().top);
+        console.log('save:',$('.section04').offset().top);
+        console.log('solve:',$('.section05').offset().top);
         gsap.to(window, {
           scrollTo: {
-            y: (navIndex + 1) * window.innerHeight - window.innerHeight * 0.8,
+            y: (navIndex) * window.innerHeight * 7,
           },
           duration: 1,
           ease: 'none',

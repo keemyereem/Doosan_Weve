@@ -519,8 +519,8 @@ body#brandstory.typeB { color: #222; }
 .privilege .anchor.active::before {display: none;}
 /* .privilege .anchor.active::after {content:'';display: block;width: 250px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat;background-size: contain;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);} */
 .privilege .anchor.active .deco {width: 250px;height: 28px;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);}
-.privilege .anchor.active .deco .shape {display: block;width: 28px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat 0 1px;}
-.privilege .anchor.active .deco .line {width: 0;height: 1px;background: #fff;position: absolute;top: 50%;left: 28px;transition: width .3s;}
+.privilege .anchor.active .deco .shape {display: block;width: 28px;height: 28px;background: url(../images/brand/priv-anchor_active.png) no-repeat 0 0;background-size: contain;}
+.privilege .anchor.active .deco .line {width: 0;height: 2px;background: #fff;opacity: 0.7; position: absolute;top: calc(50% - 1px);left: 28px;transition: width .3s;}
 .privilege .anchor.active .deco .line.open {width: calc(100% - 28px);}
 .privilege .anchor01,
 .privilege #have .panel-con .con_tit01 .highlight {color: #62318e;}

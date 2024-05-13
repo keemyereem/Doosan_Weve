@@ -466,6 +466,7 @@ body#brandstory.typeB { color: #222; }
 
 /* Priviledge */
 .privilege {font-family: 'Poppins', 'NS';overflow-x: hidden;}
+.privilege .container {position: relative;}
 .privilege .section00 {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;flex-direction: column;background: #014099;color: #fff;}
 .privilege .sec0-tit {font-size: 80px;font-weight: 400;letter-spacing: 0.8px;text-align: center;}
 .privilege .sec0-tit01 {transform: translateY(180%);}
@@ -504,20 +505,21 @@ body#brandstory.typeB { color: #222; }
 
 .privilege .gsap_wrap {position: relative;width: 100%;/* height: 500vh; */border: 5px solid #000;background: #eee;}
 .privilege .panel_wrap {position: relative;border: 1px solid red;height: calc(100% - 84px);background: #efebf5;}
-.privilege .panel {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* position: relative; */color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;position: absolute;border: 1px solid green;}
+.privilege .panel {border: 1px solid #000;display: flex;align-items: center;}
+.privilege .panel-bg {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* position: relative; */color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;position: absolute;/* border: 1px solid green; */}
 /*
 .privilege .panel:not(:first-child) {
   opacity: 0;
   visibility: hidden;
 } 
 */
-.privilege #have.panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
-.privilege #live.panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
-.privilege #love.panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
-.privilege #save.panel {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
-.privilege #solve.panel {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
+.privilege #have .panel-bg {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
+.privilege #live .panel-bg {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
+.privilege #love .panel-bg {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
+.privilege #save .panel-bg {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
+.privilege #solve .panel-bg {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
 
-.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;border: 1px solid #000;z-index: 10;}
+.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;border: 1px solid #000;z-index: 100;background: #000; }
 .privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;border: 1px solid #000;}
 .privilege .anchor::before {content:''; display: block;width: 1px;height: 30px;opacity: 0.3;position: absolute;top: 50%;left: 0;transform: translateY(-50%);}
 .privilege .anchor:first-child::before,

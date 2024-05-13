@@ -206,6 +206,7 @@ var privEvent = {
     };
     const getPanelTimeline = ($panels) => {
       const $panelCon = $panels.querySelector('.panel-con'),
+        $panelBg = $panels.querySelector('.panel-bg'),
         $tag = $panels.querySelector('.con_tag'),
         $tit1 = $panels.querySelector('.con_tit01'),
         $tit2 = $panels.querySelector('.con_tit02'),
@@ -213,6 +214,7 @@ var privEvent = {
         $conList = $panels.querySelector('.con_list'),
         $conListBox = $panels.querySelectorAll('.con_list li'),
         $page = $panels.querySelector('.swiper-pagination'),
+        $nav = document.querySelector('.anchor-nav'),
         dataColor = $panels.getAttribute('data-color'),
         dataBg = $panels.getAttribute('data-bg');
 
@@ -240,15 +242,20 @@ var privEvent = {
           width: '100vw',
           height: '100vh',
           top: 0,
-          background: dataColor,
+          // background: dataColor,
           borderRadius: 0,
           duration: 3,
         })
+        .to($nav, { opacity: 1, duration: 0.2,},'<')
         .to($tit1, { opacity: 0, duration: 1 })
         .to($txt, { opacity: 0, duration: 1 })
         .to($panelCon, { background: 'none', duration: 1 })
         .to($tit1, { display: 'none', duration: 2 })
         .to($txt, { display: 'none', duration: 2 })
+        .to($panelBg, { width: '100%', height: '100%', /* padding: '0', */ duration: 2, delay: 1, },'<')
+        .to($panelBg, {background: dataColor, duration: 0, },'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
+        .to($panelCon, {top: 0, duration: 0, },'<')
         // card 1 노출
         .to($tag, { display: 'inline-flex', duration: 1 })
         .to($tit2, { display: 'flex', duration: 0 })

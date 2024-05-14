@@ -2002,7 +2002,8 @@ var privEvent = {
       
     });
   
-    tl1.to('.sec0-tit01', { y: -40, duration:2, })
+    tl1.to('.scroll', { opacity: 0, duration: 0.3, })
+       .to('.sec0-tit01', { y: -40, duration:2, })
        .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
        .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
        .to('.sec0-list01', { opacity: '1', duration:1, },'+=5')
@@ -2026,7 +2027,6 @@ var privEvent = {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
         anchorMov = true;
-
         let navIndex = (index)%5;
         if(navIndex == 5){
           navIndex = 0;
@@ -2038,10 +2038,10 @@ var privEvent = {
         e.stopPropagation();
         gsap.to(window, {
           scrollTo: {
-            y: document.querySelector(targetId).parentNode.offsetTop + 1,
+            y: document.querySelector(targetId).parentNode.offsetTop,
           },
           duration: 1,
-          ease: "power2",
+          ease: "none",
         });
       });
 
@@ -2063,83 +2063,92 @@ var privEvent = {
           pin: item,
           // pinSpacing: false,
           scrub: 3,
-          start: 'top top',
-          // end: '+=400% bottom',
+          start: 'top 1px',
+          end: '+=300%',
           ease: 'none',
-          onToggle: (self) => {
-            var $activeSection = $(self.trigger);
-            $(self.trigger).addClass('active');
-            console.log(self);
-          },
-          onUpdate: function(scrollTrigger) {
-            var progress = scrollTrigger.progress.toFixed(1)*10;
-            var $activeSection = $(scrollTrigger.trigger);
+          // onToggle: (self) => {
+          //   var $activeSection = $(self.trigger);
+          //   $(self.trigger).addClass('active');
+          //   console.log(self);
+          // },
+          // onUpdate: function(scrollTrigger) {
+          //   var progress = scrollTrigger.progress.toFixed(1)*10;
+          //   var $activeSection = $(scrollTrigger.trigger);
             
-            // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-            if(progress == 1) {
-              $activeSection.find('.anchor .line').addClass('open');
-              $activeSection.find('.anchor .shape').css('opacity','1');
-              $('.highlight::before').css('width','100%');
-            }
-            if(progress == 10) {
-              $activeSection.find('.anchor .line').removeClass('open');
-              $activeSection.find('.anchor .shape').css('opacity','0');
-            }
+          //   // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+          //   // if(progress == 1) {
+          //   //   $activeSection.find('.anchor .line').addClass('open');
+          //   //   $activeSection.find('.anchor .shape').css('opacity','1');
+          //   //   $('.highlight::before').css('width','100%');
+          //   // }
+          //   // if(progress == 10) {
+          //   //   $activeSection.find('.anchor .line').removeClass('open');
+          //   //   $activeSection.find('.anchor .shape').css('opacity','0');
+          //   // }
 
-          },
+          // },
           onEnter: (self) => {
+            // console.log('enter');
+            // console.log(index,goIndex,anchorMov);
+            // console.log($(self.trigger));
             $(self.trigger).addClass('active');
-            console.log($(self.trigger));
-            // console.log('start');
             $('.anchor .line').addClass('open');
             $('.anchor .shape').css('opacity','1');
             // $('.highlight::before').css('width','100%');
 
-            console.log(index,goIndex,anchorMov);
             if(goIndex==index){
               anchorMov = false;
             }
           },
           onLeave: (self) => {
-            $(self.trigger).removeClass('active');
-            console.log('end',self.trigger);
+            console.log('leave',self.trigger);
             console.log(index,goIndex,anchorMov);
+            $(self.trigger).removeClass('active');
             $('.anchor .line').removeClass('open');
             $('.anchor .shape').css('opacity','0');
             // $('.highlight').removeClass('open');
-            if(index !== 4 && !anchorMov) {
-              gsap.to(window, {
-                scrollTo:  {
-                  y: $sections[index + 1].parentNode.offsetTop + 1,
-                },
-                duration: 0.5, 
-                ease: "none"
-              });
-            }
+            // if($('#pc').length){
+              if(index !== 4 && !anchorMov) {
+                gsap.to(window, {
+                  scrollTo:  {
+                    y: $sections[index + 1].parentNode.offsetTop + 1,
+                  },
+                  duration: 0.8, 
+                  ease: "none"
+                });
+              }
+            // }
+
           },
           onEnterBack: () => {
-            console.log('enterback');
-            tl2_1.play("testingLabel") 
-            console.log(index,goIndex,anchorMov);
+            // console.log('enterback');
+            // console.log(index,goIndex,anchorMov);
+            
             $(self.trigger).addClass('active');
             if(goIndex==index){
               anchorMov = false;
             }
           },
-          onLeaveBack: () => {
+          onLeaveBack: (self) => {
             console.log('leaveback');
-            // console.log(index,goIndex,anchorMov);
+            console.log(index,goIndex,anchorMov);
+            // tl2_1.play("testingLabel") 
             $(self.trigger).removeClass('active');
-            if(index !== 0 && !anchorMov) {
-              console.log('if:',$(item.trigger));
-              gsap.to(window, {
-                scrollTo:  {
-                  y: $sections[index].parentNode.offsetTop - window.innerHeight,
-                },
-                duration: 0.5, 
-                ease: "none"
-              });
-            }
+            // if($('#pc').length){
+              if(index !== 0 && !anchorMov) {
+                // console.log('if:',$(item.trigger));
+                gsap.to(window, {
+                  scrollTo:  {
+                    // y: $sections[index].parentNode.offsetTop - window.innerHeight + 1,
+                    y: self.previous().end - 100,
+                  },
+                  duration: 0, 
+                  ease: "none"
+                });
+                self.previous().labelToScroll('testingLabel');
+              }
+            // }
+
           },
         }
       });

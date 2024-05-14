@@ -1985,7 +1985,7 @@ var privEvent = {
         pinSpacing: true,
         scrub: 3,
         start: 'top top',
-        end: '+=600%',
+        end: '+=500%',
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
@@ -2014,9 +2014,9 @@ var privEvent = {
       //  .to('.bg-mask', { opacity: 1, },'+=5')
        .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=10')
   
-    var $sections = document.querySelectorAll(".section");
+    var $sections = document.querySelectorAll(".panel");
     $sections.forEach((item, index)=>{
-      
+      console.log('index:', index);
       // tl2 = gsap.timeline({
       //   scrollTrigger: {
       //     markers: true,
@@ -2037,9 +2037,9 @@ var privEvent = {
           endColor: "yellow"
           },
           trigger: item,
-          pin: true,
-          // pinSpacing: false,
-          scrub: 2,
+          pin: '.section',
+          pinSpacing: true,
+          scrub: 3,
           start: 'top 0%',
           end: '+=600%',
           ease: 'none',
@@ -2048,19 +2048,23 @@ var privEvent = {
             var $activeSection = $(scrollTrigger.trigger);
             
             // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-            if(progress == 1) {
-              $activeSection.find('.anchor .line').addClass('open');
-              $activeSection.find('.anchor .shape').css('opacity','1');
-            }
-            if(progress == 10) {
-              $activeSection.find('.anchor .line').removeClass('open');
-              $activeSection.find('.anchor .shape').css('opacity','0');
-            }
+            // if(progress == 1) {
+            //   $activeSection.find('.anchor .line').addClass('open');
+            //   $activeSection.find('.anchor .shape').css('opacity','1');
+            // }
+            // if(progress == 10) {
+            //   $activeSection.find('.anchor .line').removeClass('open');
+            //   $activeSection.find('.anchor .shape').css('opacity','0');
+            // }
+          },
+          onToggle: (self) => {
+            console.log("onToggle", self.isActive);
           },
         }
       });
   
-      var $panels = item.querySelectorAll('.panel'),
+      var 
+          $panels = item,
           $panelCon = item.querySelector('.panel-con'),
           $anchors = item.querySelector('.anchor-nav'),
           $tag = item.querySelector('.con_tag'),
@@ -2070,9 +2074,12 @@ var privEvent = {
           $conList = item.querySelector('.con_list'),
           $conListBox = item.querySelectorAll('.con_list li'),
           $page = item.querySelector('.swiper-pagination'),
-          $nav = item.querySelector('.anchor-nav'),
+          $nav = document.querySelector('.anchor-nav'),
+          $navLine = document.querySelector('.anchor .line'),
           dataColor = item.getAttribute('data-color'),
+          dataBg = item.getAttribute('data-bg'),
           panelPadding = '120px 200px';
+
   
       if($(window).width()<=768){
         panelPadding = '80px 20px';
@@ -2087,17 +2094,20 @@ var privEvent = {
       //   .to($panels, { y: 0, duration: 2,},'<')
 
       tl2_1
-        .to($tit1, { opacity: 0, duration: 0.3, delay: 5, },'+=10')
+        .to($navLine, { width: 'calc(100% - 28px)', duration: 0.3,},)
+        .to($tit1, { opacity: 0, duration: 0.3, delay: 5, },'+=5')
         .to($txt, { opacity: 0, duration: 0.3, },'<')
         .to($tit1, { display: 'none', duration: 0, },'<')
         .to($txt, { display: 'none', duration: 0, },'<')
         .to($panelCon, { zIndex: 1, },'<')
-        .to($panelCon, {background: dataColor, duration: 0, },'<')
-        .to($panelCon, { height: '100%', duration: 1, },'+=1')
-        .to($panels, { width: '100%', height: '100%', duration: 2, },'<')
-        .to($sections[index], { padding: '0', duration: 1,},'<')
+        .to($nav, { display: 'none',},'<')
+        .to($nav, { opacity: 0, duration: 0,},)
+        .to($navLine, { width: 0, duration: 0,},)
+        .to($panelCon, {backgroundImage: 'none', backgroundColor: dataColor, duration: 0, },'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },'<')
-        .to($nav, { opacity: 0, duration: 0,},'<')
+        .to(item, { top: 0, width: '100%', height: '100%', duration: 2, },'<')
+        // .to($panelCon, { height: '100%', duration: 1, },'+=1')
+        // .to($sections[index], { padding: '0', duration: 1,},'<')
 
         .to($tag, { display: 'inline-flex', duration: 0,},'+=1')
         .to($tit2, { display: 'flex', duration: 0,},'<')
@@ -2105,9 +2115,32 @@ var privEvent = {
         .to($tag, { opacity: 1, duration: 0.3,},'+=1')
         .to($tit2, { opacity: 1, duration: 0.3,},'+=1')
         .to($conListBox, { opacity: 1, stagger: 0.5,},'+=1')
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
-        .to($page, { opacity: 1,},)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+        // .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=3')
+        .to($page, { opacity: 1,},'+=1')
+        // .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+
+        // .add(() => {
+
+        //   tl2_1.reverse();
+        // }, );
+        .to($tag, { opacity: 0, duration: 0.3,},'+=1')
+        .to($tit2, { opacity: 0, duration: 0.3,},'<')
+        .to($conList, { opacity: 0, duration: 0.3,},'<')
+        .to($tag, { display: 'none', duration: 0,},'+=1')
+        .to($tit2, { display: 'none', duration: 0,},'<')
+        .to($conList, { display: 'none', duration: 0,},'<')
+
+        .to($nav, { display: 'flex',},'<')
+        .to($nav, { opacity: 1, duration: 0.3,},'<')
+        .to($navLine, { width: 'calc(100% - 28px)', duration: 0.3,},)
+        // .to(item, {height: '851px', duration: 0, },'<')
+
+        .to($tit1, { display: 'block', duration: 0, },'+=1')
+        .to($txt, { display: 'block', duration: 0, },'<')
+        .to($panelCon, { width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px', bottom: '11px', padding: panelPadding, /* backgroundImage: 'url(../images/brand/priv-bg0'+Number(index+1)+'_illust.png)', */ backgroundColor: 'transparent', duration: 1.2, },'<')
+        .to(item, { top: '100px', width: '100%', height: '851px',/*  background: 'url(../images/brand/priv-bg0'+Number(index+1)+'.png) no-repeat', */ backgroundSize: '100% 100%', duration: 0, },'<')
+        .to($tit1, { opacity: 1, duration: 0.3, },'+=1')
+        .to($txt, { opacity: 1, duration: 0.3, },'+=1')
 
     });
 
@@ -2118,23 +2151,27 @@ var privEvent = {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
         const targetId = e.target.getAttribute("href");
-        let navIndex = (index+1)%5;
-        if(navIndex == 0){
-          navIndex = 5;
-        }
-        console.log('navIndex:',navIndex);
-        console.log('have:',$('.section01').offset().top);
-        console.log('live:',$('.section02').offset().top);
-        console.log('love:',$('.section03').offset().top);
-        console.log('save:',$('.section04').offset().top);
-        console.log('solve:',$('.section05').offset().top);
+
+        document.querySelectorAll('.anchor').forEach(anchor => {
+          anchor.classList.remove('active');
+        });
+        anchor.classList.add('active');
+
+        document.querySelectorAll('.panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        document.querySelector(targetId).classList.add('active');
+
         gsap.to(window, {
           scrollTo: {
-            y: (navIndex) * window.innerHeight * 7,
+            y: window.innerHeight * 5,
           },
           duration: 1,
           ease: 'none',
         });
+
+        tl2_1.restart();
+
       });
 
     });

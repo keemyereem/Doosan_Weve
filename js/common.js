@@ -1985,7 +1985,7 @@ var privEvent = {
         pinSpacing: true,
         scrub: 3,
         start: 'top top',
-        end: '+=600%',
+        end: '+=400%',
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
@@ -2005,30 +2005,53 @@ var privEvent = {
     tl1.to('.sec0-tit01', { y: -40, duration:2, })
        .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
        .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
-       .to('.sec0-list01', { opacity: '1', duration:2, },'+=1')
-       .to('.sec0-list02', { opacity: '1', duration:2,},'+=1')
-       .to('.sec0-list03', { opacity: '1', duration:2,},'+=1')
-       .to('.sec0-list04', { opacity: '1', duration:2,},'+=1')
-       .to('.sec0-list05', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list01', { opacity: '1', duration:1, },'+=5')
+       .to('.sec0-list02', { opacity: '1', duration:1,},'+=1')
+       .to('.sec0-list03', { opacity: '1', duration:1,},'+=1')
+       .to('.sec0-list04', { opacity: '1', duration:1,},'+=1')
+       .to('.sec0-list05', { opacity: '1', duration:1,},'+=1')
       //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
       //  .to('.bg-mask', { opacity: 1, },'+=5')
-       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=10')
+       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=1')
+      //  .to('.section01', { y: -100, duration: 2,},'<')
+
+    gsap.registerPlugin(ScrollToPlugin);
+
+    var anchorMov = false;
+    var goIndex = 0;
+
+
+    /* Main navigation */
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        anchorMov = true;
+
+        let navIndex = (index)%5;
+        if(navIndex == 5){
+          navIndex = 0;
+        }
+        goIndex = navIndex;
+        const targetId = e.target.getAttribute("href");
+
+        // console.log('goIndex:',goIndex);
+        e.stopPropagation();
+        gsap.to(window, {
+          scrollTo: {
+            y: document.querySelector(targetId).parentNode.offsetTop + 1,
+          },
+          duration: 1,
+          ease: "power2",
+        });
+      });
+
+    });
+
   
     var $sections = document.querySelectorAll(".section");
     $sections.forEach((item, index)=>{
-      
-      // tl2 = gsap.timeline({
-      //   scrollTrigger: {
-      //     markers: true,
-      //     trigger: item,
-      //     // pin: true,
-      //     pinSpacing: false,
-      //     scrub: 1,
-      //     start: 'top 100%',
-      //     end: '20% 100%',
-      //     ease: 'none',
-      //   }
-      // });
+      var sectionHeight = item.clientHeight;
+      var nextSectionPosition = (index + 1) * sectionHeight;
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
@@ -2037,12 +2060,17 @@ var privEvent = {
           endColor: "yellow"
           },
           trigger: item,
-          pin: true,
+          pin: item,
           // pinSpacing: false,
-          scrub: 2,
-          start: 'top 0%',
-          end: '+=600%',
+          scrub: 3,
+          start: 'top top',
+          // end: '+=400% bottom',
           ease: 'none',
+          onToggle: (self) => {
+            var $activeSection = $(self.trigger);
+            $(self.trigger).addClass('active');
+            console.log(self);
+          },
           onUpdate: function(scrollTrigger) {
             var progress = scrollTrigger.progress.toFixed(1)*10;
             var $activeSection = $(scrollTrigger.trigger);
@@ -2051,10 +2079,66 @@ var privEvent = {
             if(progress == 1) {
               $activeSection.find('.anchor .line').addClass('open');
               $activeSection.find('.anchor .shape').css('opacity','1');
+              $('.highlight::before').css('width','100%');
             }
             if(progress == 10) {
               $activeSection.find('.anchor .line').removeClass('open');
               $activeSection.find('.anchor .shape').css('opacity','0');
+            }
+
+          },
+          onEnter: (self) => {
+            $(self.trigger).addClass('active');
+            console.log($(self.trigger));
+            // console.log('start');
+            $('.anchor .line').addClass('open');
+            $('.anchor .shape').css('opacity','1');
+            // $('.highlight::before').css('width','100%');
+
+            console.log(index,goIndex,anchorMov);
+            if(goIndex==index){
+              anchorMov = false;
+            }
+          },
+          onLeave: (self) => {
+            $(self.trigger).removeClass('active');
+            console.log('end',self.trigger);
+            console.log(index,goIndex,anchorMov);
+            $('.anchor .line').removeClass('open');
+            $('.anchor .shape').css('opacity','0');
+            // $('.highlight').removeClass('open');
+            if(index !== 4 && !anchorMov) {
+              gsap.to(window, {
+                scrollTo:  {
+                  y: $sections[index + 1].parentNode.offsetTop + 1,
+                },
+                duration: 0.5, 
+                ease: "none"
+              });
+            }
+          },
+          onEnterBack: () => {
+            console.log('enterback');
+            tl2_1.play("testingLabel") 
+            console.log(index,goIndex,anchorMov);
+            $(self.trigger).addClass('active');
+            if(goIndex==index){
+              anchorMov = false;
+            }
+          },
+          onLeaveBack: () => {
+            console.log('leaveback');
+            // console.log(index,goIndex,anchorMov);
+            $(self.trigger).removeClass('active');
+            if(index !== 0 && !anchorMov) {
+              console.log('if:',$(item.trigger));
+              gsap.to(window, {
+                scrollTo:  {
+                  y: $sections[index].parentNode.offsetTop - window.innerHeight,
+                },
+                duration: 0.5, 
+                ease: "none"
+              });
             }
           },
         }
@@ -2087,57 +2171,33 @@ var privEvent = {
       //   .to($panels, { y: 0, duration: 2,},'<')
 
       tl2_1
-        .to($tit1, { opacity: 0, duration: 0.3, delay: 5, },'+=10')
+        .to($tit1, { opacity: 0, duration: 0.3, },'+=3')
         .to($txt, { opacity: 0, duration: 0.3, },'<')
-        .to($tit1, { display: 'none', duration: 0, },'<')
+        .to($tit1, { display: 'none', duration: 0, },'+=0.1')
         .to($txt, { display: 'none', duration: 0, },'<')
-        .to($panelCon, { zIndex: 1, },'<')
         .to($panelCon, {background: dataColor, duration: 0, },'<')
-        .to($panelCon, { height: '100%', duration: 1, },'+=1')
-        .to($panels, { width: '100%', height: '100%', duration: 2, },'<')
-        .to($sections[index], { padding: '0', duration: 1,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },'<')
+        // .to($nav, { opacity: 1, duration: 3,},'+=1')
+        .to($panelCon, { height: '100%', duration: 0.5, },'+=0.5')
+        .to($panels, { width: '100%', height: '100%', duration: 0.5, },'<')
+        .to($sections[index], { padding: '0', duration: 0.5,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
 
-        .to($tag, { display: 'inline-flex', duration: 0,},'+=1')
+        .to($tag, { display: 'inline-flex', duration: 0,},'+=0.5')
         .to($tit2, { display: 'flex', duration: 0,},'<')
         .to($conList, { display: 'block', opacity: 1,},'<')
-        .to($tag, { opacity: 1, duration: 0.3,},'+=1')
-        .to($tit2, { opacity: 1, duration: 0.3,},'+=1')
-        .to($conListBox, { opacity: 1, stagger: 0.5,},'+=1')
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
-        .to($page, { opacity: 1,},)
-        .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+        .to($tag, { opacity: 1, duration: 0.3,},'+=0.3')
+        .to($tit2, { opacity: 1, duration: 0.3,},'+=0.3')
+        .to($conListBox, { opacity: 1, stagger: 0.1,},'+=0.3')
+        .to($page, { opacity: 1,},'<')
+        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
+        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
+        .add("testingLabel")
+
 
     });
 
-    gsap.registerPlugin(ScrollToPlugin);
 
-    /* Main navigation */
-    document.querySelectorAll(".anchor").forEach((anchor, index) => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute("href");
-        let navIndex = (index+1)%5;
-        if(navIndex == 0){
-          navIndex = 5;
-        }
-        console.log('navIndex:',navIndex);
-        console.log('have:',$('.section01').offset().top);
-        console.log('live:',$('.section02').offset().top);
-        console.log('love:',$('.section03').offset().top);
-        console.log('save:',$('.section04').offset().top);
-        console.log('solve:',$('.section05').offset().top);
-        gsap.to(window, {
-          scrollTo: {
-            y: (navIndex) * window.innerHeight * 7,
-          },
-          duration: 1,
-          ease: 'none',
-        });
-      });
-
-    });
 
 
     let maxW = 5000,

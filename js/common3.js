@@ -1942,16 +1942,22 @@ var weve5Concept = {
 
 var privEvent = {
   init: function () {
+    // this.privGsap();
     this.scrollMotion();
+    // this.scrollMotion2();
+    // this.fullpage();
+    // this.scroller();
+    // this.mousewheel();
 
     if($(window).width()<=768) {
+      console.log('mb');
       this.privMSwiper();
     }
   },
 
   privMSwiper: () => {
-    var $sections = document.querySelectorAll(".privilege .section");
-    $sections.forEach((item, index)=>{
+    var $panels2 = document.querySelectorAll(".privilege .panel-2");
+    $panels2.forEach((item, index)=>{
       let privSlider = new Swiper(item.querySelector(".con_list"), {
         slidesPerView: 3,
         grid: {
@@ -1971,21 +1977,18 @@ var privEvent = {
     });
   },
 
-  scrollMotion: ()=> {
-    // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
-    $(window).on("scroll", function () {
-      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
-    });
+  privGsap: ()=> {
 
+    gsap.registerPlugin(ScrollTrigger);
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        //markers: true,
+        markers: true,
         trigger: '.section00',
         pin: true,
         pinSpacing: true,
         scrub: 3,
         start: 'top top',
-        end: '+=400%',
+        end: '+=500%',
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
@@ -2002,213 +2005,20 @@ var privEvent = {
       
     });
   
-    tl1.to('.scroll', { opacity: 0, duration: 0.3, })
-       .to('.sec0-tit01', { y: -40, duration:2, })
+    tl1.to('.sec0-tit01', { y: -40, duration:2, })
        .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
        .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
-       .to('.sec0-list01', { opacity: '1', duration:1, },'+=5')
-       .to('.sec0-list02', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list03', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list04', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list05', { opacity: '1', duration:1,},'+=1')
+       .to('.sec0-list01', { opacity: '1', duration:2, },'+=1')
+       .to('.sec0-list02', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list03', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list04', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list05', { opacity: '1', duration:2,},'+=1')
       //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
       //  .to('.bg-mask', { opacity: 1, },'+=5')
-       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=1')
-      //  .to('.section01', { y: -100, duration: 2,},'<')
-
-    gsap.registerPlugin(ScrollToPlugin);
-
-    var anchorMov = false;
-    var goIndex = 0;
-
-
-    /* Main navigation */
-    document.querySelectorAll(".anchor").forEach((anchor, index) => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        anchorMov = true;
-        let navIndex = (index)%5;
-        if(navIndex == 5){
-          navIndex = 0;
-        }
-        goIndex = navIndex;
-        const targetId = e.target.getAttribute("href");
-
-        // console.log('goIndex:',goIndex);
-        e.stopPropagation();
-        gsap.to(window, {
-          scrollTo: {
-            y: document.querySelector(targetId).parentNode.offsetTop,
-          },
-          duration: 1,
-          ease: "none",
-        });
-      });
-
-    });
-
+       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 5,},'+=5')
+      //  .to('#scroll-sections', {/*  top: '-80vh', */yPercent: -100, duration: 3,},'+=1')
   
-    var $sections = document.querySelectorAll(".section");
-    $sections.forEach((item, index)=>{
-      var sectionHeight = item.clientHeight;
-      var nextSectionPosition = (index + 1) * sectionHeight;
-
-      tl2_1 = gsap.timeline({
-        scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
-          trigger: item,
-          pin: item,
-          // pinSpacing: false,
-          scrub: 3,
-          start: 'top 1px',
-          end: '+=300%',
-          ease: 'none',
-          // onToggle: (self) => {
-          //   var $activeSection = $(self.trigger);
-          //   $(self.trigger).addClass('active');
-          //   console.log(self);
-          // },
-          // onUpdate: function(scrollTrigger) {
-          //   var progress = scrollTrigger.progress.toFixed(1)*10;
-          //   var $activeSection = $(scrollTrigger.trigger);
-            
-          //   // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-          //   // if(progress == 1) {
-          //   //   $activeSection.find('.anchor .line').addClass('open');
-          //   //   $activeSection.find('.anchor .shape').css('opacity','1');
-          //   //   $('.highlight::before').css('width','100%');
-          //   // }
-          //   // if(progress == 10) {
-          //   //   $activeSection.find('.anchor .line').removeClass('open');
-          //   //   $activeSection.find('.anchor .shape').css('opacity','0');
-          //   // }
-
-          // },
-          onEnter: (self) => {
-            // console.log('enter');
-            // console.log(index,goIndex,anchorMov);
-            // console.log($(self.trigger));
-            $(self.trigger).addClass('active');
-            $('.anchor .line').addClass('open');
-            $('.anchor .shape').css('opacity','1');
-            // $('.highlight::before').css('width','100%');
-
-            if(goIndex==index){
-              anchorMov = false;
-            }
-          },
-          onLeave: (self) => {
-            // console.log('leave',self.trigger);
-            // console.log(index,goIndex,anchorMov);
-            $(self.trigger).removeClass('active');
-            $('.anchor .line').removeClass('open');
-            $('.anchor .shape').css('opacity','0');
-            // $('.highlight').removeClass('open');
-            // if($('#pc').length){
-              if(index !== 4 && !anchorMov) {
-                gsap.to(window, {
-                  scrollTo:  {
-                    y: $sections[index + 1].parentNode.offsetTop + 1,
-                  },
-                  duration: 0.8, 
-                  ease: "none"
-                });
-              }
-            // }
-
-          },
-          onEnterBack: () => {
-            // console.log('enterback');
-            // console.log(index,goIndex,anchorMov);
-            
-            $(self.trigger).addClass('active');
-            if(goIndex==index){
-              anchorMov = false;
-            }
-          },
-          onLeaveBack: (self) => {
-            // console.log('leaveback');
-            // console.log(index,goIndex,anchorMov);
-            // tl2_1.play("testingLabel") 
-            $(self.trigger).removeClass('active');
-            // if($('#pc').length){
-              if(index !== 0 && !anchorMov) {
-                // console.log('if:',$(item.trigger));
-                gsap.to(window, {
-                  scrollTo:  {
-                    // y: $sections[index].parentNode.offsetTop - window.innerHeight + 1,
-                    y: self.previous().end - 100,
-                  },
-                  duration: 0, 
-                  ease: "none"
-                });
-                self.previous().labelToScroll('testingLabel');
-              }
-            // }
-
-          },
-        }
-      });
-  
-      var $panels = item.querySelectorAll('.panel'),
-          $panelCon = item.querySelector('.panel-con'),
-          $anchors = item.querySelector('.anchor-nav'),
-          $tag = item.querySelector('.con_tag'),
-          $tit1 = item.querySelector('.con_tit01'),
-          $tit2 = item.querySelector('.con_tit02'),
-          $txt = item.querySelector('.con_txt'),
-          $conList = item.querySelector('.con_list'),
-          $conListBox = item.querySelectorAll('.con_list li'),
-          $page = item.querySelector('.swiper-pagination'),
-          $nav = item.querySelector('.anchor-nav'),
-          dataColor = item.getAttribute('data-color'),
-          panelPadding = '120px 200px';
-  
-      if($(window).width()<=768){
-        panelPadding = '80px 20px';
-      }else if($(window).width()<=1500 && $(window).width()>768) {
-        panelPadding = '120px 100px';
-      }else {
-        panelPadding = '120px 200px';
-      }
-
-      // tl2
-      //   .to($sections[index], { yPercent: -100, duration: 2,})
-      //   .to($panels, { y: 0, duration: 2,},'<')
-
-      tl2_1
-        .to($tit1, { opacity: 0, duration: 0.3, },'+=3')
-        .to($txt, { opacity: 0, duration: 0.3, },'<')
-        .to($tit1, { display: 'none', duration: 0, },'+=0.1')
-        .to($txt, { display: 'none', duration: 0, },'<')
-        .to($panelCon, {background: dataColor, duration: 0, },'<')
-        // .to($nav, { opacity: 1, duration: 3,},'+=1')
-        .to($panelCon, { height: '100%', duration: 0.5, },'+=0.5')
-        .to($panels, { width: '100%', height: '100%', duration: 0.5, },'<')
-        .to($sections[index], { padding: '0', duration: 0.5,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },'<')
-        .to($nav, { opacity: 0, duration: 0,},'<')
-
-        .to($tag, { display: 'inline-flex', duration: 0,},'+=0.5')
-        .to($tit2, { display: 'flex', duration: 0,},'<')
-        .to($conList, { display: 'block', opacity: 1,},'<')
-        .to($tag, { opacity: 1, duration: 0.3,},'+=0.3')
-        .to($tit2, { opacity: 1, duration: 0.3,},'+=0.3')
-        .to($conListBox, { opacity: 1, stagger: 0.1,},'+=0.3')
-        .to($page, { opacity: 1,},'<')
-        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
-        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
-        .add("testingLabel")
-
-
-    });
-
-
-
-
+       
     let maxW = 5000,
     maxH = 5000;
 
@@ -2240,6 +2050,245 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
+
+  },
+
+  scrollMotion: ()=> {
+    // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
+    $(window).on("scroll", function () {
+      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
+    });
+
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray(".privilege .section");
+    let sec0Height = document.querySelector('.section00').clientHeight * 6;
+    
+    // GSAP 타임라인 설정
+    let timelines = [];
+    
+    function createTimelineForSection(sectionIndex) {
+      // 각 섹션에 대한 타임라인 생성
+      let timeline = gsap.timeline();
+      // console.log('timelines:',timelines);
+      let $sections = sections[sectionIndex],
+      $tit1 = $sections.querySelector('.con_tit01'),
+      $txt = $sections.querySelector('.con_txt'),
+      $tag = $sections.querySelector('.con_tag'),
+      $tit2 = $sections.querySelector('.con_tit02'),
+      $conList = $sections.querySelector('.con_list'),
+      $conListBox = $sections.querySelectorAll('.con_list li'),
+      $page = $sections.querySelector('.swiper-pagination'),
+
+      $navLine = document.querySelector('.anchor .line'),
+      dataColor = $sections.getAttribute('data-color');
+
+      timeline
+      .to($tit1, { opacity: 1, duration: 0.5 })
+      .to($txt, { opacity: 1, duration: 0.5 },'+=0.5')
+
+      return timeline;
+    }
+    
+    function activateSection(sectionIndex) {
+      sections.forEach((section, index) => {
+        if (index === sectionIndex) {
+          section.classList.add('active');
+          // 활성 섹션에 해당하는 타임라인 실행
+          timelines[sectionIndex].play();
+        } else {
+          section.classList.remove('active');
+          // 비활성 섹션에 해당하는 타임라인 일시 중지
+          timelines[index].pause();
+        }
+      });
+    }
+    
+    function goToSection(i) {
+      gsap.to(window, {
+        scrollTo: { y: i * innerHeight + sec0Height, ease: "Power3.easeInOut" },
+        duration: 0.85
+      });
+    }
+    
+    ScrollTrigger.defaults({
+      markers: true
+    });
+    
+    // 각 섹션에 대한 스크롤 트리거 생성
+    sections.forEach((eachPanel, i) => {
+      let timeline = createTimelineForSection(i); // 섹션에 대한 타임라인 생성
+      timelines.push(timeline); // 생성된 타임라인을 배열에 추가
+    
+      ScrollTrigger.create({
+        trigger: eachPanel,
+        onEnter: () => {
+          goToSection(i);
+          // activateSection(i);
+        }
+      });
+    
+      ScrollTrigger.create({
+        trigger: eachPanel,
+        start: "bottom bottom",
+        onEnterBack: () => {
+          goToSection(i);
+          // activateSection(i);
+        }
+      });
+    });
+  
+    /* Main navigation */
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute("href");
+        let navIndex = (index+1)%5;
+        if(navIndex == 0){
+          navIndex = 5;
+        }
+        console.log('targetId:',targetId);
+        // e.stopPropagation();
+        // 해당 섹션으로 스크롤
+        let targetSection = document.querySelector(targetId);
+        console.log('targetSection offsetTop:',targetSection.offsetTop);
+        if (targetSection) {
+          gsap.to(window, {
+            scrollTo: {
+              y: targetSection.offsetTop,
+            },
+            duration: 1,
+            ease: 'none',
+          });
+        }
+      });
+
+    });
+
+
+  },
+
+  scrollMotion2: ()=> {
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.defaults({
+      toggleActions: "restart pause resume pause",
+      scroller: "#scroll-sections",
+      duration: 1,
+    });
+  },
+
+
+  fullpage: ()=> {
+    
+    $("#scroll-sections").fullpage({
+      anchors: ['section01', 'section02', 'section03', 'section04', 'section05', 'footer'],
+      // responsiveWidth:1200,
+      fitToSection: true,
+      fitToSectionDelay: 0,
+      scrollOverflow: true,
+      animateAnchor: true,
+      scrollBar: false,
+    });
+
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute("href");
+        console.log('targetId:',targetId);
+        e.stopPropagation();
+        // 해당 섹션으로 스크롤
+        let targetSection = document.querySelector(targetId);
+        console.log('targetSection offsetTop:',targetSection.offsetTop);
+
+      });
+    });
+  },
+
+  scroller: ()=> {
+    let pinnedSection = document.getElementById("pinned-section");
+    let scroller = document.getElementById("scroll-sections");
+    
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // ScrollTrigger.normalizeScroll({allowNestedScroll: true});
+    
+    gsap.to(".section", {
+      ease: "none",
+      y: "-100%",
+      scrollTrigger: {
+        trigger: "#pinned-section",
+        pin: true,
+        start: "top-=1px",
+        markers: true,
+        end: "+=300%",
+        scrub: true,
+        pinSpacing: true,
+        scroller: "#scroll-sections",
+        onToggle: (self) => {
+          console.log("toggle");
+          self.isActive
+            ? scroller.classList.add("disabled")
+            : scroller.classList.remove("disabled");
+        }
+      }
+    });
+    
+  },
+
+  mousewheel: ()=> {
+
+      let sections = document.querySelectorAll('.section');
+      let index = 0;
+    
+      function scrollToSection(event) {
+        event.preventDefault();
+        console.log('wheel');
+    
+        if (event.deltaY < 0 && index > 0) {
+          index--;
+        } else if (event.deltaY > 0 && index < sections.length - 1) {
+          index++;
+        }
+    
+        sections[index].scrollIntoView({ behavior: 'smooth' });
+      }
+    
+      window.addEventListener('wheel', scrollToSection, {passive: false});
+
+      // window.addEventListener('wheel', function(event) {
+
+      //   if (sections[index].classList.contains('section00')) {
+      //     event.preventDefault();
+      //   } else {
+      //     scrollToSection(event);
+      //   }
+      // }, {passive: false});
+
+    /* Main navigation */
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute("href");
+        let navIndex = (index+1)%5;
+        if(navIndex == 0){
+          navIndex = 5;
+        }
+        console.log('targetId:',targetId);
+        // e.stopPropagation();
+        // 해당 섹션으로 스크롤
+        let targetSection = document.querySelector(targetId);
+        console.log('targetSection offsetTop:',targetSection.offsetTop);
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop,
+            behavior: 'auto',
+          });
+        }
+      });
+
+    });
   },
 };
 

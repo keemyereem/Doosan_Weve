@@ -33,7 +33,7 @@
   <link rel="canonical" href="http://dev.doosan.4-m.co.kr/" >  
 	<link rel="shortcut icon" type="image/x-icon" href="#">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style3.css">
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -46,8 +46,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollToPlugin.min.js"></script>
     <script src="js/lib/swiper-bundle.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> -->
+    <script src="js/lib/scrolloverflow.js"></script>
+    <script src="js/lib/fullpage.js"></script>
 
-    <script src="js/common.js"></script>
+    <script src="js/common3.js"></script>
 
 	<script>
         $(document).ready( function() {
@@ -73,7 +75,6 @@
 
 			<div class="container privilege">
         <div class="section00">
-          <div class="scroll"><i class="bar"></i></div>
           <h1 class="sec0-tit sec0-tit01">Privilege</h1>
           <p class="sec0-tit sec0-tit02">
             기술의 차이로<br class="br_m"> 누리는 특별함
@@ -106,22 +107,38 @@
             </li>
           </ul>
         </div>
-        <div class="section section01" id="have" data-color="#62318e">
-          <div class="bg-mask" style="background-color: #efebf5;width: 100%;height: 100vh;position: absolute;top: 0;"></div>
-          <div class="panel">
-            <div class="anchor-nav">
-              <a class="anchor anchor01 active" href="#have">have <div class="deco"><span class="shape"></span><div class="line"></div></div></a>
-              <a class="anchor anchor02" href="#live">live</a>
-              <a class="anchor anchor03" href="#love">love</a>
-              <a class="anchor anchor04" href="#save">save</a>
-              <a class="anchor anchor05" href="#solve">solve</a>
+
+        <div id="scroll-sections">
+          <div class="section section01" id="have" data-color="#62318e">
+            <div class="bg-mask" style="background-color: #efebf5;width: 100%;height: 100vh;position: absolute;top: 0;"></div>
+  
+            <div class="panel">
+              <div class="anchor-nav">
+                <a class="anchor anchor01 active" href="#have">have <div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+                <a class="anchor anchor02" href="#live">live</a>
+                <a class="anchor anchor03" href="#love">love</a>
+                <a class="anchor anchor04" href="#save">save</a>
+                <a class="anchor anchor05" href="#solve">solve</a>
+              </div>
+              <div class="panel-con">
+  
+                <div class="con_tit01">
+                  꼭 갖고 싶은 <div class="highlight">공간</div>
+                </div>
+  
+                <p class="con_txt">
+                  <strong>독보적인 기술로</strong> 우리가 꿈꾸고<br class="br_m"> 갖고싶었던<br class="br_pc">
+                  주거환경을 만들어 갑니다.
+                </p>
+  
+              </div>
             </div>
-            <div class="panel-con">
+  
+          </div>
+          <div class="section section01-2">
+            <div class="panel-2">
               <div class="con_tag">
                 <strong>have</strong> 꼭 갖고싶은 공간
-              </div>
-              <div class="con_tit01">
-                꼭 갖고 싶은 <div class="highlight">공간</div>
               </div>
               <div class="con_tit02">
                 <span>
@@ -129,10 +146,6 @@
                   스마트 홈
                 </span>
               </div>
-              <p class="con_txt">
-                <strong>독보적인 기술로</strong> 우리가 꿈꾸고<br class="br_m"> 갖고싶었던<br class="br_pc">
-                주거환경을 만들어 갑니다.
-              </p>
               <div class="con_list swiper">
                 <ul class="swiper-wrapper">
                   <li class="swiper-slide">
@@ -220,23 +233,36 @@
               </div>
             </div>
           </div>
-        </div>
-    
-        <div class="section section02" id="live" data-color="#ed7214">
-          <div class="panel">
-            <div class="anchor-nav">
-              <a class="anchor anchor01" href="#have">have</a>
-              <a class="anchor anchor02 active" href="#live">live<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
-              <a class="anchor anchor03" href="#love">love</a>
-              <a class="anchor anchor04" href="#save">save</a>
-              <a class="anchor anchor05" href="#solve">solve</a>
-            </div>
-            <div class="panel-con">
-              <div class="con_tag">
-                <strong>live</strong> 기쁨이 있는 공간
+      
+          <div class="section section02" id="live" data-color="#ed7214">
+  
+            <div class="panel">
+              <div class="anchor-nav">
+                <a class="anchor anchor01" href="#have">have</a>
+                <a class="anchor anchor02 active" href="#live">live<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+                <a class="anchor anchor03" href="#love">love</a>
+                <a class="anchor anchor04" href="#save">save</a>
+                <a class="anchor anchor05" href="#solve">solve</a>
               </div>
-              <div class="con_tit01">
-                기쁨이 있는 <div class="highlight">공간</div>
+              <div class="panel-con">
+  
+                <div class="con_tit01">
+                  기쁨이 있는 <div class="highlight">공간</div>
+                </div>
+  
+                <p class="con_txt">
+                  <strong>보다 안락한 생활 환경</strong> 을 창조해<br>
+                  쾌적하고 편안한 삶을 누립니다.
+                </p>
+  
+              </div>
+            </div>
+  
+          </div>
+          <div class="section section02-2">
+            <div class="panel-2">
+              <div class="con_tag">
+                <strong>live</strong> 꼭 갖고싶은 공간
               </div>
               <div class="con_tit02">
                 <span>
@@ -244,10 +270,6 @@
                   자부심과 기쁨 제공
                 </span>
               </div>
-              <p class="con_txt">
-                <strong>보다 안락한 생활 환경</strong>을 창조해<br>
-                쾌적하고 편안한 삶을 누립니다.
-              </p>
               <div class="con_list swiper">
                 <ul class="swiper-wrapper">
                   <li class="swiper-slide">
@@ -336,23 +358,36 @@
               </div>
             </div>
           </div>
-        </div>
-    
-        <div class="section section03" id="love" data-color="#e9538b">
-          <div class="panel">
-            <div class="anchor-nav">
-              <a class="anchor anchor01" href="#have">have</a>
-              <a class="anchor anchor02" href="#live">live</a>
-              <a class="anchor anchor03 active" href="#love">love<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
-              <a class="anchor anchor04" href="#save">save</a>
-              <a class="anchor anchor05" href="#solve">solve</a>
+      
+          <div class="section section03" id="love" data-color="#e9538b">
+  
+            <div class="panel">
+              <div class="anchor-nav">
+                <a class="anchor anchor01" href="#have">have</a>
+                <a class="anchor anchor02" href="#live">live</a>
+                <a class="anchor anchor03 active" href="#love">love<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+                <a class="anchor anchor04" href="#save">save</a>
+                <a class="anchor anchor05" href="#solve">solve</a>
+              </div>
+              <div class="panel-con">
+  
+                <div class="con_tit01">
+                  사랑과 행복이<br class="br_m"> 있는 <div class="highlight">공간</div>
+                </div>
+  
+                <p class="con_txt con_txt_m">
+                  <strong>첨단기술과 편안한 생활</strong>이 깃든 세상을 실현해<br class="br_pc">
+                  궁극의 목표인 고객의 행복을 추구합니다.
+                </p>
+  
+              </div>
             </div>
-            <div class="panel-con">
+  
+          </div>
+          <div class="section section03-2">
+            <div class="panel-2">
               <div class="con_tag">
                 <strong>love</strong> 사랑과 행복이 있는 공간
-              </div>
-              <div class="con_tit01">
-                사랑과 행복이<br class="br_m"> 있는 <div class="highlight">공간</div>
               </div>
               <div class="con_tit02">
                 <span>
@@ -360,10 +395,6 @@
                   함께 누리는 행복
                 </span>
               </div>
-              <p class="con_txt con_txt_m">
-                <strong>첨단기술과 편안한 생활</strong>이 깃든 세상을 실현해<br class="br_pc">
-                궁극의 목표인 고객의 행복을 추구합니다.
-              </p>
               <div class="con_list swiper">
                 <ul class="swiper-wrapper">
                   <li class="swiper-slide">
@@ -455,23 +486,36 @@
               </div>
             </div>
           </div>
-        </div>
-    
-        <div class="section section04" id="save" data-color="#8fc31f">
-          <div class="panel">
-            <div class="anchor-nav">
-              <a class="anchor anchor01" href="#have">have</a>
-              <a class="anchor anchor02" href="#live">live</a>
-              <a class="anchor anchor03" href="#love">love</a>
-              <a class="anchor anchor04 active" href="#save">save<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
-              <a class="anchor anchor05" href="#solve">solve</a>
+      
+          <div class="section section04" id="save" data-color="#8fc31f">
+  
+            <div class="panel">
+              <div class="anchor-nav">
+                <a class="anchor anchor01" href="#have">have</a>
+                <a class="anchor anchor02" href="#live">live</a>
+                <a class="anchor anchor03" href="#love">love</a>
+                <a class="anchor anchor04 active" href="#save">save<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+                <a class="anchor anchor05" href="#solve">solve</a>
+              </div>
+              <div class="panel-con">
+  
+                <div class="con_tit01">
+                  알뜰한 생활이<br class="br_m"> 있는 공간 <div class="highlight">공간</div>
+                </div>
+  
+                <p class="con_txt con_txt_m">
+                  <strong>지속가능환경에 대한 고민</strong>으로 에너지 소비를 줄이고 <br class="br_pc">
+                  비용을 절감하여 고객에게 알뜰함을 선사합니다.
+                </p>
+  
+              </div>
             </div>
-            <div class="panel-con">
+  
+          </div>
+          <div class="section section04-2">
+            <div class="panel-2">
               <div class="con_tag">
                 <strong>save</strong> 알뜰한 생활이 있는 공간
-              </div>
-              <div class="con_tit01">
-                알뜰한 생활이<br class="br_m"> 있는 <div class="highlight">공간</div>
               </div>
               <div class="con_tit02">
                 <span>
@@ -479,10 +523,6 @@
                   절감을 통한 알뜰함
                 </span>
               </div>
-              <p class="con_txt con_txt_m">
-                <strong>지속가능환경에 대한 고민</strong>으로 에너지 소비를 줄이고 <br class="br_pc">
-                비용을 절감하여 고객에게 알뜰함을 선사합니다.
-              </p>
               <div class="con_list swiper">
                 <ul class="swiper-wrapper">
                   <li class="swiper-slide">
@@ -579,24 +619,36 @@
               </div>
             </div>
           </div>
-        </div>
-    
-        <div class="section section05" id="solve" data-color="#007fc5">
-          <div class="panel">
-            <div class="anchor-nav">
-              <a class="anchor anchor01" href="#have">have</a>
-              <a class="anchor anchor02" href="#live">live</a>
-              <a class="anchor anchor03" href="#love">love</a>
-              <a class="anchor anchor04" href="#save">save</a>
-              <a class="anchor anchor05 active" href="#solve">solve<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+      
+          <div class="section section05" id="solve" data-color="#007fc5">
+  
+            <div class="panel">
+              <div class="anchor-nav">
+                <a class="anchor anchor01" href="#have">have</a>
+                <a class="anchor anchor02" href="#live">live</a>
+                <a class="anchor anchor03" href="#love">love</a>
+                <a class="anchor anchor04" href="#save">save</a>
+                <a class="anchor anchor05 active" href="#solve">solve<div class="deco"><span class="shape"></span><div class="line"></div></div></a>
+              </div>
+              <div class="panel-con">
+  
+                <div class="con_tit01">
+                  생활의 모든 문제가<br class="br_pc">
+                  해결되는 <div class="highlight">공간</div>
+                </div>
+  
+                <p class="con_txt con_txt_m">
+                  <strong>품질시공과 세심한 시공</strong>으로 <br>
+                  생활의 불편을 해소합니다.
+                </p>
+  
+              </div>
             </div>
-            <div class="panel-con">
+          </div>
+          <div class="section section05-2">
+            <div class="panel-2">
               <div class="con_tag">
                 <strong>solve</strong> 생활의 모든 문제가 해결되는 공간
-              </div>
-              <div class="con_tit01">
-                생활의 모든 문제가<br class="br_pc">
-                해결되는 <div class="highlight">공간</div>
               </div>
               <div class="con_tit02">
                 <span>
@@ -604,10 +656,6 @@
                   층간소음 등 고객불편 해소
                 </span>
               </div>
-              <p class="con_txt con_txt_m">
-                <strong>품질시공과 세심한 시공</strong>으로 <br>
-                생활의 불편을 해소합니다.
-              </p>
               <div class="con_list swiper">
                 <ul class="swiper-wrapper">
                   <li class="swiper-slide">

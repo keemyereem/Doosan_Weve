@@ -465,7 +465,6 @@
 
 
 	/* Privilege */
-	#mobile .privilege .scroll {display: none;}
 	#mobile .privilege .sec0-tit {font-size: 50px;}
 	#mobile .privilege .sec0-list {}
 	#mobile .privilege .sec0-list::before {height: 2px;}
@@ -489,7 +488,7 @@
 	/* #mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;} */
 	#mobile .privilege .anchor.active .deco {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;;}
 	#mobile .privilege .anchor.active .deco .shape {width: 15px;height: 15px;}
-	#mobile .privilege .anchor.active .deco .line {height: 1px;left: 15px;top: calc(50% - 0.5px);}
+	#mobile .privilege .anchor.active .deco .line {left: 15px;}
 	#mobile .privilege .anchor.active .deco .line.open {width: calc(100% - 15px);}
 
 	#mobile .privilege #have .panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}

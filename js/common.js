@@ -2055,10 +2055,10 @@ var privEvent = {
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: "blue",
+          // endColor: "yellow"
+          // },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2101,8 +2101,8 @@ var privEvent = {
             }
           },
           onLeave: (self) => {
-            console.log('leave',self.trigger);
-            console.log(index,goIndex,anchorMov);
+            // console.log('leave',self.trigger);
+            // console.log(index,goIndex,anchorMov);
             $(self.trigger).removeClass('active');
             $('.anchor .line').removeClass('open');
             $('.anchor .shape').css('opacity','0');
@@ -2130,8 +2130,8 @@ var privEvent = {
             }
           },
           onLeaveBack: (self) => {
-            console.log('leaveback');
-            console.log(index,goIndex,anchorMov);
+            // console.log('leaveback');
+            // console.log(index,goIndex,anchorMov);
             // tl2_1.play("testingLabel") 
             $(self.trigger).removeClass('active');
             // if($('#pc').length){

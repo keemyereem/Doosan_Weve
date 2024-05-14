@@ -530,9 +530,11 @@ var commonEvent = {
       }
     });
 
-    $(document).on("click", "#topButton", function () {
-      $("html, body").animate({ scrollTop: 0 }, "300");
-    });
+    if(!$('.privilege').length){
+      $(document).on("click", "#topButton", function () {
+        $("html, body").animate({ scrollTop: 0 }, "300");
+      });
+    }
   },
 
   checkAll: () => {
@@ -2022,7 +2024,41 @@ var privEvent = {
     var goIndex = 0;
 
 
+    
+
+    /* top button */
+    window.onload = function() {
+      var topBtn = document.querySelector('#topButton');
+      topBtn.addEventListener('click', function() {
+        console.log('top click');
+        anchorMov = true;
+        gsap.to(window, {
+          scrollTo: {
+            y: 0,
+          },
+          duration: 1,
+          ease: "none",
+        });
+      });
+    };
+
     /* Main navigation */
+    if($(window).width()<768){
+      $(".mb-anchor").click(function(e){
+        e.preventDefault();
+        $(this).find('.deco').css('opacity','1');
+        if($(this).siblings('.anchor-nav').hasClass('open')){
+          $(this).siblings('.anchor-nav').removeClass('open');
+          $(this).find('.deco').css('opacity','1');
+        }else {
+          $(this).siblings('.anchor-nav').addClass('open');
+          $(this).find('.deco').css('opacity','0');
+          
+        }
+
+      });
+    }
+
     document.querySelectorAll(".anchor").forEach((anchor, index) => {
       anchor.addEventListener("click", function(e) {
         e.preventDefault();
@@ -2033,16 +2069,24 @@ var privEvent = {
         }
         goIndex = navIndex;
         const targetId = e.target.getAttribute("href");
+        document.querySelector(targetId).classList.add('active');
+        if(window.innerWidth<768){
+          var anchorNav = document.querySelector(targetId + ' .anchor-nav');
+          if (anchorNav) {
+              anchorNav.classList.remove('open');
+          }
+        }
 
         // console.log('goIndex:',goIndex);
         e.stopPropagation();
         gsap.to(window, {
           scrollTo: {
-            y: document.querySelector(targetId).parentNode.offsetTop,
+            y: document.querySelector(targetId).parentNode.offsetTop + 1,
           },
           duration: 1,
           ease: "none",
         });
+        tl2_1.tweenTo('tabStart');
       });
 
     });
@@ -2071,29 +2115,14 @@ var privEvent = {
           //   $(self.trigger).addClass('active');
           //   console.log(self);
           // },
-          // onUpdate: function(scrollTrigger) {
-          //   var progress = scrollTrigger.progress.toFixed(1)*10;
-          //   var $activeSection = $(scrollTrigger.trigger);
-            
-          //   // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-          //   // if(progress == 1) {
-          //   //   $activeSection.find('.anchor .line').addClass('open');
-          //   //   $activeSection.find('.anchor .shape').css('opacity','1');
-          //   //   $('.highlight::before').css('width','100%');
-          //   // }
-          //   // if(progress == 10) {
-          //   //   $activeSection.find('.anchor .line').removeClass('open');
-          //   //   $activeSection.find('.anchor .shape').css('opacity','0');
-          //   // }
 
-          // },
           onEnter: (self) => {
             // console.log('enter');
             // console.log(index,goIndex,anchorMov);
             // console.log($(self.trigger));
-            $(self.trigger).addClass('active');
-            $('.anchor .line').addClass('open');
-            $('.anchor .shape').css('opacity','1');
+            // $(self.trigger).addClass('active');
+            $('.deco .line').addClass('open');
+            $('.deco').css('opacity','1');
             // $('.highlight::before').css('width','100%');
 
             if(goIndex==index){
@@ -2103,11 +2132,12 @@ var privEvent = {
           onLeave: (self) => {
             // console.log('leave',self.trigger);
             // console.log(index,goIndex,anchorMov);
-            $(self.trigger).removeClass('active');
-            $('.anchor .line').removeClass('open');
-            $('.anchor .shape').css('opacity','0');
+            // $(self.trigger).removeClass('active');
+            $('.deco .line').removeClass('open');
+            $('.deco').css('opacity','0');
             // $('.highlight').removeClass('open');
-            // if($('#pc').length){
+            if(window.innerWidth>=768){
+              console.log('mb');
               if(index !== 4 && !anchorMov) {
                 gsap.to(window, {
                   scrollTo:  {
@@ -2117,14 +2147,16 @@ var privEvent = {
                   ease: "none"
                 });
               }
-            // }
+            }
 
           },
           onEnterBack: () => {
             // console.log('enterback');
             // console.log(index,goIndex,anchorMov);
             
-            $(self.trigger).addClass('active');
+            // $(self.trigger).addClass('active');
+            $('.deco .line').addClass('open');
+            $('.deco').css('opacity','1');
             if(goIndex==index){
               anchorMov = false;
             }
@@ -2133,13 +2165,13 @@ var privEvent = {
             // console.log('leaveback');
             // console.log(index,goIndex,anchorMov);
             // tl2_1.play("testingLabel") 
-            $(self.trigger).removeClass('active');
-            // if($('#pc').length){
+            // $(self.trigger).removeClass('active');
+            $('.deco .line').removeClass('open');
+            $('.deco').css('opacity','0');
+            if(window.innerWidth>=768){
               if(index !== 0 && !anchorMov) {
-                // console.log('if:',$(item.trigger));
                 gsap.to(window, {
                   scrollTo:  {
-                    // y: $sections[index].parentNode.offsetTop - window.innerHeight + 1,
                     y: self.previous().end - 100,
                   },
                   duration: 0, 
@@ -2147,7 +2179,7 @@ var privEvent = {
                 });
                 self.previous().labelToScroll('testingLabel');
               }
-            // }
+            }
 
           },
         }
@@ -2163,7 +2195,7 @@ var privEvent = {
           $conList = item.querySelector('.con_list'),
           $conListBox = item.querySelectorAll('.con_list li'),
           $page = item.querySelector('.swiper-pagination'),
-          $nav = item.querySelector('.anchor-nav'),
+          $nav = item.querySelector('.anchor_wrap'),
           dataColor = item.getAttribute('data-color'),
           panelPadding = '120px 200px';
   
@@ -2179,7 +2211,8 @@ var privEvent = {
       //   .to($sections[index], { yPercent: -100, duration: 2,})
       //   .to($panels, { y: 0, duration: 2,},'<')
 
-      tl2_1
+      tl2_1.addLabel('tabStart')
+        // .to($tit1, { border: '1px solid red', },'<')
         .to($tit1, { opacity: 0, duration: 0.3, },'+=3')
         .to($txt, { opacity: 0, duration: 0.3, },'<')
         .to($tit1, { display: 'none', duration: 0, },'+=0.1')

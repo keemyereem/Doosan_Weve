@@ -480,17 +480,27 @@
 	#mobile .privilege .sec0-list .sec0-list05 svg {max-width: 56px;}
 	
 	#mobile .privilege .section {align-items: flex-end;}
-	#mobile .privilege .panel {height: calc(100% - 60px);/* border: 2px solid green; */}
-	#mobile .privilege .anchor-nav {width: 100%; height: 10vh;padding: 0 9vw 0 3vw;top: 4vw;right: initial;align-items: flex-end;}
-	#mobile .privilege .anchor {font-size: 0;height: 5vh;/* border: 1px solid #000; */}
+	#mobile .privilege .panel {height: calc(100% - 60px);}
+
+	#mobile .privilege .anchor_wrap {width: 170px;height: auto; position: absolute;top: 10px;left: 25px;}
+
+
+	#mobile .privilege .anchor_wrap .mb-anchor {display: block;font-weight: 400;font-size: 32px;height: 70px;line-height: 70px;margin-top: 0;padding-bottom: 7px;order: -5;background: transparent;color: #fff;padding-left: 15px;position: relative;}
+	#mobile .privilege .anchor_wrap .mb-anchor::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;right: 10px;top: 50%;transform: translateY(-50%);}
+	#mobile .privilege .anchor_wrap .mb-anchor .deco {width: 136px;height: 15px;position: absolute;top: 63px;left: 15px; z-index: 2;display: flex;align-items: center;opacity: 0;}
+	#mobile .privilege .anchor_wrap .mb-anchor .deco .shape {display: block;width: 15px;height: 15px;background: url(../images/brand/priv-anchor_active.png);background-size: contain;}
+	#mobile .privilege .anchor_wrap .mb-anchor .deco .line {width: 0;height: 1px;left: 15px;background: #fff;opacity: 0.7;}
+	#mobile .privilege .anchor_wrap .mb-anchor .deco .line.open {width: calc(100% - 15px);transition: width .3s;}
+	#mobile .privilege .anchor-nav {width: 150px;height: auto;max-height: 0;display: flex;align-items: flex-start;justify-content: initial;flex-direction: column;right: initial;left: 10px;top: 0; overflow: hidden;transition: max-height .3s ease;position: relative;z-index: 10;background: #fff;border-radius: 5px;overflow: hidden;box-shadow: rgba(0, 0, 0, 0.43) 0px 10px 22px 0px;}
+	/* #mobile .privilege .anchor_wrap.open {height: 230px;} */
+	#mobile .privilege .anchor-nav.open {max-height: 160px;}
+	#mobile .privilege .anchor {display: block;width: 100%;font-size: 15px;height: 40px;line-height: 40px; text-align: left;color: #666;font-weight: 200;padding-left: 15px;}
+	#mobile .privilege .anchor:hover {background: #005eb8;color: #fff;}
+	#mobile .privilege .anchor.active {display: none;}
 	#mobile .privilege .anchor::before {display: none;}
-	#mobile .privilege .anchor.active {font-size: 32px;height: 10vh;line-height: 10vh;text-align: left;padding-left: 40px;margin-top: 0;flex-basis: 53%;order: -5;}
 	#mobile .privilege .anchor.active::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;top: 50%;left: initial;right: 20px;transform: translateY(-50%);}
-	/* #mobile .privilege .anchor.active::after {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;} */
-	#mobile .privilege .anchor.active .deco {width: 136px;height: 15px;left: 40px;transform: translateX(0);bottom: -7px;z-index: 2;;}
-	#mobile .privilege .anchor.active .deco .shape {width: 15px;height: 15px;}
-	#mobile .privilege .anchor.active .deco .line {height: 1px;left: 15px;top: calc(50% - 0.5px);}
-	#mobile .privilege .anchor.active .deco .line.open {width: calc(100% - 15px);}
+
+
 
 	#mobile .privilege #have .panel {background: url(../images/brand/priv-bg01_m.png)no-repeat 0 100%;background-size: 100% 100%;}
 	#mobile .privilege #live .panel {background: url(../images/brand/priv-bg02_m.png)no-repeat 0 100%;background-size: 100% 100%;}

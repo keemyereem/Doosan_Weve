@@ -2098,10 +2098,10 @@ var privEvent = {
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: "blue",
+          // endColor: "yellow"
+          // },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2116,7 +2116,7 @@ var privEvent = {
 
           onEnter: (self) => {
             // console.log('enter',$(self.trigger));
-            console.log('st:', window.pageYOffset);
+            // console.log('st:', window.pageYOffset);
 
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
@@ -2166,7 +2166,7 @@ var privEvent = {
                   duration: 0, 
                   ease: "none"
                 });
-                console.log('st:', window.pageYOffset);
+                // console.log('st:', window.pageYOffset);
               }
             }
 

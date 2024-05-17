@@ -1964,7 +1964,7 @@ var privEvent = {
         observer: true,
         spaceBetween: 20,
         speed: 1000,
-        allowTouchMove: true,
+        // allowTouchMove: true,
         pagination: {
           el: item.querySelector(".swiper-pagination"),
           clickable: true,
@@ -1975,9 +1975,9 @@ var privEvent = {
 
   scrollMotion: ()=> {
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
-    $(window).on("scroll", function () {
-      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
-    });
+    // $(window).on("scroll", function () {
+    //   $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
+    // });
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
@@ -1988,6 +1988,8 @@ var privEvent = {
         scrub: 3,
         start: 'top top',
         end: '+=400%',
+        fastScrollEnd: true,
+        preventOverlaps: true,
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
@@ -2030,11 +2032,11 @@ var privEvent = {
     window.onload = function() {
       var topBtn = document.querySelector('#topButton');
       topBtn.addEventListener('click', function() {
-        console.log('top click');
         anchorMov = true;
+        console.log('top click');
         gsap.to(window, {
           scrollTo: {
-            y: 0,
+            y: document.querySelector('.section00').parentNode.offsetTop,
           },
           duration: 1,
           ease: "none",
@@ -2043,7 +2045,7 @@ var privEvent = {
     };
 
     /* Main navigation */
-    if($(window).width()<768){
+    if($(window).width()<=768){
       $(".mb-anchor").click(function(e){
         e.preventDefault();
         $(this).find('.deco').css('opacity','1');
@@ -2055,7 +2057,6 @@ var privEvent = {
           $(this).find('.deco').css('opacity','0');
           
         }
-
       });
     }
 
@@ -2077,16 +2078,14 @@ var privEvent = {
           }
         }
 
-        // console.log('goIndex:',goIndex);
         e.stopPropagation();
         gsap.to(window, {
           scrollTo: {
             y: document.querySelector(targetId).parentNode.offsetTop + 1,
           },
-          duration: 1,
-          ease: "none",
+          duration: 0.5,
+          ease: 'none',
         });
-        tl2_1.tweenTo('tabStart');
       });
 
     });
@@ -2106,55 +2105,53 @@ var privEvent = {
           trigger: item,
           pin: item,
           // pinSpacing: false,
-          scrub: 3,
+          // anticipatePin: 1,
+          scrub: 1,
           start: 'top 1px',
           end: '+=300%',
           ease: 'none',
-          // onToggle: (self) => {
-          //   var $activeSection = $(self.trigger);
-          //   $(self.trigger).addClass('active');
-          //   console.log(self);
-          // },
+          // fastScrollEnd: true,
+          // preventOverlaps: true,
 
           onEnter: (self) => {
-            // console.log('enter');
-            // console.log(index,goIndex,anchorMov);
-            // console.log($(self.trigger));
-            // $(self.trigger).addClass('active');
+            // console.log('enter',$(self.trigger));
+
+            $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity','1');
-            // $('.highlight::before').css('width','100%');
 
             if(goIndex==index){
               anchorMov = false;
             }
           },
           onLeave: (self) => {
-            // console.log('leave',self.trigger);
-            // console.log(index,goIndex,anchorMov);
-            // $(self.trigger).removeClass('active');
+            // console.log('leave',$(self.trigger));
+
+            $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity','0');
-            // $('.highlight').removeClass('open');
-            if(window.innerWidth>=768){
-              console.log('mb');
+            $('.anchor-nav').removeClass('open');
+
+            if(window.innerWidth>768){
+              console.log('pc leave');
               if(index !== 4 && !anchorMov) {
                 gsap.to(window, {
                   scrollTo:  {
                     y: $sections[index + 1].parentNode.offsetTop + 1,
                   },
                   duration: 0.8, 
-                  ease: "none"
+                  ease: "none",
                 });
               }
+            }else {
+              console.log('mb leave');
             }
 
           },
-          onEnterBack: () => {
-            // console.log('enterback');
-            // console.log(index,goIndex,anchorMov);
-            
-            // $(self.trigger).addClass('active');
+          onEnterBack: (self) => {
+            // console.log('enterback',self);
+
+            $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity','1');
             if(goIndex==index){
@@ -2162,22 +2159,23 @@ var privEvent = {
             }
           },
           onLeaveBack: (self) => {
-            // console.log('leaveback');
-            // console.log(index,goIndex,anchorMov);
-            // tl2_1.play("testingLabel") 
-            // $(self.trigger).removeClass('active');
+            // console.log('leaveback',self.previous().end);
+
+            $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity','0');
-            if(window.innerWidth>=768){
+            $('.anchor-nav').removeClass('open');
+
+            if(window.innerWidth>768){
               if(index !== 0 && !anchorMov) {
                 gsap.to(window, {
                   scrollTo:  {
-                    y: self.previous().end - 100,
+                    y: self.previous().end - 10,
                   },
                   duration: 0, 
                   ease: "none"
                 });
-                self.previous().labelToScroll('testingLabel');
+
               }
             }
 
@@ -2198,7 +2196,8 @@ var privEvent = {
           $nav = item.querySelector('.anchor_wrap'),
           dataColor = item.getAttribute('data-color'),
           panelPadding = '120px 200px';
-  
+
+
       if($(window).width()<=768){
         panelPadding = '80px 20px';
       }else if($(window).width()<=1500 && $(window).width()>768) {
@@ -2207,40 +2206,33 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
 
-      // tl2
-      //   .to($sections[index], { yPercent: -100, duration: 2,})
-      //   .to($panels, { y: 0, duration: 2,},'<')
 
-      tl2_1.addLabel('tabStart')
-        // .to($tit1, { border: '1px solid red', },'<')
-        .to($tit1, { opacity: 0, duration: 0.3, },'+=3')
-        .to($txt, { opacity: 0, duration: 0.3, },'<')
+      tl2_1
+
+      .to($tit1, { opacity: 0, duration: 0.2, },'+=1')
+        .to($txt, { opacity: 0, duration: 0.2, },'<')
         .to($tit1, { display: 'none', duration: 0, },'+=0.1')
         .to($txt, { display: 'none', duration: 0, },'<')
+        // .addLabel('tabStart3')
         .to($panelCon, {background: dataColor, duration: 0, },'<')
-        // .to($nav, { opacity: 1, duration: 3,},'+=1')
-        .to($panelCon, { height: '100%', duration: 0.5, },'+=0.5')
+        .to($panelCon, { height: '100%', duration: 0.5, },)
         .to($panels, { width: '100%', height: '100%', duration: 0.5, },'<')
         .to($sections[index], { padding: '0', duration: 0.5,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
 
-        .to($tag, { display: 'inline-flex', duration: 0,},'+=0.5')
+        .to($tag, { display: 'inline-flex', duration: 0,},'+=0.1')
         .to($tit2, { display: 'flex', duration: 0,},'<')
         .to($conList, { display: 'block', opacity: 1,},'<')
-        .to($tag, { opacity: 1, duration: 0.3,},'+=0.3')
-        .to($tit2, { opacity: 1, duration: 0.3,},'+=0.3')
-        .to($conListBox, { opacity: 1, stagger: 0.1,},'+=0.3')
-        .to($page, { opacity: 1,},'<')
-        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
-        .to($panelCon, { backgroundColor: dataColor, duration: 2, },'+=2')
-        .add("testingLabel")
+        .to($tag, { opacity: 1, duration: 0.2,},)
+        .to($tit2, { opacity: 1, duration: 0.2,},)
+        .to($conListBox, { opacity: 1, stagger: 0.1,},)
+        .to($page, { opacity: 1, duration: 0,},)
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5, },'+=0.5')
+        // .add("tabEnd")
 
 
     });
-
-
-
 
     let maxW = 5000,
     maxH = 5000;

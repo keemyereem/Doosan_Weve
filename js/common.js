@@ -1988,8 +1988,8 @@ var privEvent = {
         scrub: 3,
         start: 'top top',
         end: '+=400%',
-        fastScrollEnd: true,
-        preventOverlaps: true,
+        // fastScrollEnd: true,
+        // preventOverlaps: true,
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
@@ -2033,7 +2033,6 @@ var privEvent = {
       var topBtn = document.querySelector('#topButton');
       topBtn.addEventListener('click', function() {
         anchorMov = true;
-        console.log('top click');
         gsap.to(window, {
           scrollTo: {
             y: document.querySelector('.section00').parentNode.offsetTop,
@@ -2071,7 +2070,7 @@ var privEvent = {
         goIndex = navIndex;
         const targetId = e.target.getAttribute("href");
         document.querySelector(targetId).classList.add('active');
-        if(window.innerWidth<768){
+        if(window.innerWidth<=768){
           var anchorNav = document.querySelector(targetId + ' .anchor-nav');
           if (anchorNav) {
               anchorNav.classList.remove('open');
@@ -2083,7 +2082,7 @@ var privEvent = {
           scrollTo: {
             y: document.querySelector(targetId).parentNode.offsetTop + 1,
           },
-          duration: 0.5,
+          duration: 0.8,
           ease: 'none',
         });
       });
@@ -2106,7 +2105,7 @@ var privEvent = {
           pin: item,
           // pinSpacing: false,
           // anticipatePin: 1,
-          scrub: 1,
+          scrub: 3,
           start: 'top 1px',
           end: '+=300%',
           ease: 'none',
@@ -2143,8 +2142,6 @@ var privEvent = {
                   ease: "none",
                 });
               }
-            }else {
-              console.log('mb leave');
             }
 
           },

@@ -1974,6 +1974,7 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
+    window.onload = function() {
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     // $(window).on("scroll", function () {
     //   $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -2029,19 +2030,19 @@ var privEvent = {
     
 
     /* top button */
-    window.onload = function() {
-      var topBtn = document.querySelector('#topButton');
-      topBtn.addEventListener('click', function() {
-        anchorMov = true;
-        gsap.to(window, {
-          scrollTo: {
-            y: document.querySelector('.section00').parentNode.offsetTop,
-          },
-          duration: 1,
-          ease: "none",
-        });
+    // window.onload = function() {
+    $(document).on('click', '#topButton', function(){
+      anchorMov = true;
+      gsap.to(window, {
+        scrollTo: {
+          y: document.querySelector('.section00').parentNode.offsetTop,
+        },
+        duration: 1,
+        ease: "none",
       });
-    };
+    });
+
+    // };
 
     /* Main navigation */
     if($(window).width()<=768){
@@ -2097,23 +2098,25 @@ var privEvent = {
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
           trigger: item,
           pin: item,
           // pinSpacing: false,
-          // anticipatePin: 1,
+          anticipatePin: 1,
           scrub: 3,
           start: 'top 1px',
           end: '+=300%',
           ease: 'none',
-          // fastScrollEnd: true,
-          // preventOverlaps: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          // toggleActions: 'play none none none',
 
           onEnter: (self) => {
             // console.log('enter',$(self.trigger));
+            console.log('st:', window.pageYOffset);
 
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
@@ -2121,6 +2124,7 @@ var privEvent = {
 
             if(goIndex==index){
               anchorMov = false;
+              
             }
           },
           onLeave: (self) => {
@@ -2132,7 +2136,6 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
 
             if(window.innerWidth>768){
-              console.log('pc leave');
               if(index !== 4 && !anchorMov) {
                 gsap.to(window, {
                   scrollTo:  {
@@ -2141,19 +2144,10 @@ var privEvent = {
                   duration: 0.8, 
                   ease: "none",
                 });
+                
               }
             }
 
-          },
-          onEnterBack: (self) => {
-            // console.log('enterback',self);
-
-            $(self.trigger).addClass('active');
-            $('.deco .line').addClass('open');
-            $('.deco').css('opacity','1');
-            if(goIndex==index){
-              anchorMov = false;
-            }
           },
           onLeaveBack: (self) => {
             // console.log('leaveback',self.previous().end);
@@ -2172,10 +2166,20 @@ var privEvent = {
                   duration: 0, 
                   ease: "none"
                 });
-
+                console.log('st:', window.pageYOffset);
               }
             }
 
+          },
+          onEnterBack: (self) => {
+            // console.log('enterback',self);
+            
+            $(self.trigger).addClass('active');
+            $('.deco .line').addClass('open');
+            $('.deco').css('opacity','1');
+            if(goIndex==index){
+              anchorMov = false;
+            }
           },
         }
       });
@@ -2208,14 +2212,14 @@ var privEvent = {
 
       .to($tit1, { opacity: 0, duration: 0.2, },'+=1')
         .to($txt, { opacity: 0, duration: 0.2, },'<')
-        .to($tit1, { display: 'none', duration: 0, },'+=0.1')
+        .to($tit1, { display: 'none', duration: 0, },)
         .to($txt, { display: 'none', duration: 0, },'<')
         // .addLabel('tabStart3')
         .to($panelCon, {background: dataColor, duration: 0, },'<')
-        .to($panelCon, { height: '100%', duration: 0.5, },)
-        .to($panels, { width: '100%', height: '100%', duration: 0.5, },'<')
-        .to($sections[index], { padding: '0', duration: 0.5,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.5, },'<')
+        .to($panelCon, { height: '100%', duration: 0.3, },)
+        .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
+        .to($sections[index], { padding: '0', duration: 0.3,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
 
         .to($tag, { display: 'inline-flex', duration: 0,},'+=0.1')
@@ -2262,6 +2266,7 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
+  };
   },
 };
 

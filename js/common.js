@@ -1974,7 +1974,7 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
-    window.onload = function() {
+
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     // $(window).on("scroll", function () {
     //   $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -2098,10 +2098,10 @@ var privEvent = {
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: "blue",
+          // endColor: "yellow"
+          // },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2116,7 +2116,7 @@ var privEvent = {
 
           onEnter: (self) => {
             // console.log('enter',$(self.trigger));
-            console.log('st:', window.pageYOffset);
+            // console.log('st:', window.pageYOffset);
 
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
@@ -2166,7 +2166,7 @@ var privEvent = {
                   duration: 0, 
                   ease: "none"
                 });
-                console.log('st:', window.pageYOffset);
+                // console.log('st:', window.pageYOffset);
               }
             }
 
@@ -2266,7 +2266,7 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
-  };
+
   },
 };
 

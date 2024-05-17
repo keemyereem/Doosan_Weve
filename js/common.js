@@ -1974,7 +1974,7 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
-    window.onload = function() {
+
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     // $(window).on("scroll", function () {
     //   $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -2266,7 +2266,7 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
-  };
+
   },
 };
 

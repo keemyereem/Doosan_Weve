@@ -542,6 +542,7 @@ body#brandstory.typeB { color: #222; }
 .privilege #solve.active .panel-con .con_tit01 .highlight,
 .privilege .anchor05
 {color: #007fc5;}
+.privilege .active .panel-con .con_tit01 .highlight {transition: color .5s .3s;}
 
 .privilege .panel-con {width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
 .privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
@@ -566,7 +567,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .panel-con .con_tit01 {display: block;font-size: 64px;font-weight: 400;}
 .privilege .panel-con .con_tit01 .highlight {display: inline-block;/* background: #fff; */position: relative;color: #fff;padding: 0 5px;}
 .privilege .panel-con .con_tit01 .highlight::before {content:'';display: block;width: 0;height: 100%;background: #fff;z-index: -1;position: absolute;bottom: 0;left: 0;}
-.privilege .active .panel-con .con_tit01 .highlight::before {width: 100%;transition: width .5s;}
+.privilege .active .panel-con .con_tit01 .highlight::before {width: 100%;transition: width .5s .3s;}
 .privilege .panel-con .con_tit02 {opacity: 0;display: none;/* display: flex; */align-items: center;font-size: 52px;font-weight: 400;letter-spacing: -1.3px;line-height: 1.34;position: relative;margin-top: 40px;}
 .privilege .panel-con .con_tit02 span {flex-shrink: 0;margin-right: 60px;}
 .privilege .panel-con .con_tit02::after {content:'';display: block;width: 100%;height: 2px;background: rgba(255, 255, 255, .3);}

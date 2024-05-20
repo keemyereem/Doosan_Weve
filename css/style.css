@@ -6,7 +6,7 @@
 
 /* library */
 /* @import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css"); */
-/* @import url("https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"); */
+@import url("https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css");
 
 @import url("./lib/fullpage.css");
 @import url("lib/aos.css");

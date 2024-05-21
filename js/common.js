@@ -2090,13 +2090,13 @@ var privEvent = {
 
     });
 
+    ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
   
     var $sections = document.querySelectorAll(".section");
     $sections.forEach((item, index)=>{
       var sectionHeight = item.clientHeight;
       var nextSectionPosition = (index + 1) * sectionHeight;
-
-      tl2_1 = gsap.timeline({
+      let tl2_1 = gsap.timeline({
         scrollTrigger: {
           // markers: {
           // startColor: "blue",
@@ -2166,7 +2166,7 @@ var privEvent = {
                   duration: 0, 
                   ease: "none"
                 });
-                // console.log('st:', window.pageYOffset);
+                
               }
             }
 
@@ -2230,9 +2230,6 @@ var privEvent = {
         .to($conListBox, { opacity: 1, stagger: 0.1,},)
         .to($page, { opacity: 1, duration: 0,},)
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5, },'+=0.5')
-        // .add("tabEnd")
-
-
     });
 
     let maxW = 5000,

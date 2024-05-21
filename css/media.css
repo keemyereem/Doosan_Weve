@@ -533,8 +533,8 @@
 	#mobile .privilege .panel-con .con_list li .line1 {padding-top: 68px;}
 	#mobile .privilege .panel-con .con_list-icon {display: flex;align-items: center;justify-content: center;height: 33px;position: absolute;top: 15px;}
 	#mobile .privilege .panel-con .con_list-icon img {width: 50%;vertical-align: middle;}
-	#mobile .privilege .panel-con .con_list .swiper-pagination {display: flex;justify-content: center;margin-top: 40px;opacity: 0;}
-	#mobile .privilege .panel-con .con_list .swiper-pagination-bullet {display: block;width: 10px;height: 10px;border-radius: 100%;border: 1px solid #fff;opacity: 0.3;margin: 0 5px;}
+	#mobile .privilege .panel-con .con_list .swiper-pagination {position: initial;display: flex;justify-content: center;margin-top: 40px;opacity: 0;}
+	#mobile .privilege .panel-con .con_list .swiper-pagination-bullet {display: block;width: 10px;height: 10px;border-radius: 100%;border: 1px solid #fff;opacity: 0.3;margin: 0 5px;background: transparent;}
 	#mobile .privilege .panel-con .con_list .swiper-pagination-bullet-active {background: #fff;opacity: 1;}
 
 	#mobile .privilege .section06 .gsap3-1 {font-size: 55px;margin-bottom: calc(var(--vh, 1vh) * 10);height: 185px;}

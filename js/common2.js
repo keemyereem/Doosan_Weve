@@ -1945,14 +1945,14 @@ var privEvent = {
     this.scrollMotion();
 
     if($(window).width()<=768) {
-      this.privConMSwiper();
+      this.privMSwiper();
     }
   },
 
-  privConMSwiper: () => {
-    var $sections = document.querySelectorAll(".privilege .panel");
+  privMSwiper: () => {
+    var $sections = document.querySelectorAll(".privilege .section");
     $sections.forEach((item, index)=>{
-      let privConSlider = new Swiper(item.querySelector(".con_list"), {
+      let privSlider = new Swiper(item.querySelector(".con_list"), {
         slidesPerView: 3,
         grid: {
           rows: 2,
@@ -1972,8 +1972,6 @@ var privEvent = {
   },
 
   scrollMotion: ()=> {
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
       $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
@@ -1981,259 +1979,204 @@ var privEvent = {
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        // markers: true,
+        //markers: true,
         trigger: '.section00',
-        // pin: '.section00',
         pin: true,
         pinSpacing: true,
-        scrub: true,
+        scrub: 3,
         start: 'top top',
-        // end: '+=100%',
-        end: () => `+=${document.querySelector('.section00').offsetHeight * 2}`,
+        end: '+=500%',
+        // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onUpdate: function(scrollTrigger) {
           var progress = scrollTrigger.progress;
           
-          if(progress > 0.4) {
+          // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+          if(progress > 0.3) {
             $('.sec0-list').addClass('open');
           } else {
             $('.sec0-list').removeClass('open');
           }
+
         },
       }
       
     });
   
-    tl1.to('.sec0-tit01', { y: -40, duration:3, })
-       .to('.sec0-tit02', { y: -10, opacity: '1', duration:3, })
-       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, })
-       .to('.sec0-list01', { opacity: '1', duration:2, },16)
-       .to('.sec0-list02', { opacity: '1', duration:2,})
-       .to('.sec0-list03', { opacity: '1', duration:2,})
-       .to('.sec0-list04', { opacity: '1', duration:2,})
-       .to('.sec0-list05', { opacity: '1', duration:12,})
+    tl1.to('.sec0-tit01', { y: -40, duration:2, })
+       .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
+       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
+       .to('.sec0-list01', { opacity: '1', duration:2, },'+=1')
+       .to('.sec0-list02', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list03', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list04', { opacity: '1', duration:2,},'+=1')
+       .to('.sec0-list05', { opacity: '1', duration:2,},'+=1')
+      //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
+      //  .to('.bg-mask', { opacity: 1, },'+=5')
+       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=10')
   
+    var $sections = document.querySelectorAll(".panel");
+    $sections.forEach((item, index)=>{
+      console.log('index:', index);
+      // tl2 = gsap.timeline({
+      //   scrollTrigger: {
+      //     markers: true,
+      //     trigger: item,
+      //     // pin: true,
+      //     pinSpacing: false,
+      //     scrub: 1,
+      //     start: 'top 100%',
+      //     end: '20% 100%',
+      //     ease: 'none',
+      //   }
+      // });
 
-
-    // gsap.registerPlugin(ScrollToPlugin);
-
-    // var tl2 = gsap.timeline({
-    //   scrollTrigger: {
-    //     markers: true,
-    //     // trigger: '.gsap_wrap',
-    //     // pin: '.gsap_wrap',
-    //     // pinSpacing: false,
-    //     scrub: true,
-    //     start: '0% 0%',
-    //     end: '100% 100%',
-    //   }
-      
-    // });
-    // tl2
-    // .to('.panel_wrap', { yPercent: -100, duration: 0.4,},0)
-    // .to($panels, { y: 0, duration: 0.6, delay: 0.2,},0)
-
-    /* ======================================================================= */
-    /* ======================================================================= */
-
-
-    let sections = gsap.utils.toArray(".panel"),
-        currentSection = sections[0];
-
-        gsap.defaults({ overwrite: "auto", duration: 1 });
-        gsap.set(".gsap_wrap", { height: sections.length * 100 + "vh" });
-        console.log('gsap height:',$('.gsap_wrap').height());
-
-      
-    sections.forEach((section, i) => {
-      var tl = gsap.timeline({
+      tl2_1 = gsap.timeline({
         scrollTrigger: {
-          trigger: '.gsap_wrap',
-          // start: () => `+=${document.querySelector('.gsap_wrap').offsetHeight}`,
-          start: () => (i + 3) * innerHeight,
-          end: () => (i + 4) * innerHeight,
-          // start: 'top, top',
-          // end: () => `+=${section.offsetHeight * 2}`,
-          scrub: true,
-          pin: true,
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
+          trigger: item,
+          pin: '.section',
           pinSpacing: true,
-          // markers: true,
+          scrub: 3,
+          start: 'top 0%',
+          end: '+=600%',
+          ease: 'none',
+          onUpdate: function(scrollTrigger) {
+            var progress = scrollTrigger.progress.toFixed(1)*10;
+            var $activeSection = $(scrollTrigger.trigger);
+            
+            // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+            // if(progress == 1) {
+            //   $activeSection.find('.anchor .line').addClass('open');
+            //   $activeSection.find('.anchor .shape').css('opacity','1');
+            // }
+            // if(progress == 10) {
+            //   $activeSection.find('.anchor .line').removeClass('open');
+            //   $activeSection.find('.anchor .shape').css('opacity','0');
+            // }
+          },
           onToggle: (self) => {
-            self.isActive && setSection(section);
-          },
-          toggleClass: {targets: section, className: "active"},
-          onUpdate: (self)=> {
-            console.log('progress:', self.progress.toFixed(1)*10);
-            if(self.progress.toFixed(1)*10 > 4) {
-              // tl2_1.play();
-            }
+            console.log("onToggle", self.isActive);
           },
         }
       });
+  
+      var 
+          $panels = item,
+          $panelCon = item.querySelector('.panel-con'),
+          $anchors = item.querySelector('.anchor-nav'),
+          $tag = item.querySelector('.con_tag'),
+          $tit1 = item.querySelector('.con_tit01'),
+          $tit2 = item.querySelector('.con_tit02'),
+          $txt = item.querySelector('.con_txt'),
+          $conList = item.querySelector('.con_list'),
+          $conListBox = item.querySelectorAll('.con_list li'),
+          $page = item.querySelector('.swiper-pagination'),
+          $nav = document.querySelector('.anchor-nav'),
+          $navLine = document.querySelector('.anchor .line'),
+          dataColor = item.getAttribute('data-color'),
+          dataBg = item.getAttribute('data-bg'),
+          panelPadding = '120px 200px';
+
+  
+      if($(window).width()<=768){
+        panelPadding = '80px 20px';
+      }else if($(window).width()<=1500 && $(window).width()>768) {
+        panelPadding = '120px 100px';
+      }else {
+        panelPadding = '120px 200px';
+      }
+
+      // tl2
+      //   .to($sections[index], { yPercent: -100, duration: 2,})
+      //   .to($panels, { y: 0, duration: 2,},'<')
+
+      tl2_1
+        .to($navLine, { width: 'calc(100% - 28px)', duration: 0.3,},)
+        .to($tit1, { opacity: 0, duration: 0.3, delay: 5, },'+=5')
+        .to($txt, { opacity: 0, duration: 0.3, },'<')
+        .to($tit1, { display: 'none', duration: 0, },'<')
+        .to($txt, { display: 'none', duration: 0, },'<')
+        .to($panelCon, { zIndex: 1, },'<')
+        .to($nav, { display: 'none',},'<')
+        .to($nav, { opacity: 0, duration: 0,},)
+        .to($navLine, { width: 0, duration: 0,},)
+        .to($panelCon, {backgroundImage: 'none', backgroundColor: dataColor, duration: 0, },'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1.2, },'<')
+        .to(item, { top: 0, width: '100%', height: '100%', duration: 2, },'<')
+        // .to($panelCon, { height: '100%', duration: 1, },'+=1')
+        // .to($sections[index], { padding: '0', duration: 1,},'<')
+
+        .to($tag, { display: 'inline-flex', duration: 0,},'+=1')
+        .to($tit2, { display: 'flex', duration: 0,},'<')
+        .to($conList, { display: 'block', opacity: 1,},'<')
+        .to($tag, { opacity: 1, duration: 0.3,},'+=1')
+        .to($tit2, { opacity: 1, duration: 0.3,},'+=1')
+        .to($conListBox, { opacity: 1, stagger: 0.5,},'+=1')
+        // .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=3')
+        .to($page, { opacity: 1,},'+=1')
+        // .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
+
+        // .add(() => {
+
+        //   tl2_1.reverse();
+        // }, );
+        .to($tag, { opacity: 0, duration: 0.3,},'+=1')
+        .to($tit2, { opacity: 0, duration: 0.3,},'<')
+        .to($conList, { opacity: 0, duration: 0.3,},'<')
+        .to($tag, { display: 'none', duration: 0,},'+=1')
+        .to($tit2, { display: 'none', duration: 0,},'<')
+        .to($conList, { display: 'none', duration: 0,},'<')
+
+        .to($nav, { display: 'flex',},'<')
+        .to($nav, { opacity: 1, duration: 0.3,},'<')
+        .to($navLine, { width: 'calc(100% - 28px)', duration: 0.3,},)
+        // .to(item, {height: '851px', duration: 0, },'<')
+
+        .to($tit1, { display: 'block', duration: 0, },'+=1')
+        .to($txt, { display: 'block', duration: 0, },'<')
+        .to($panelCon, { width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px', bottom: '11px', padding: panelPadding, /* backgroundImage: 'url(../images/brand/priv-bg0'+Number(index+1)+'_illust.png)', */ backgroundColor: 'transparent', duration: 1.2, },'<')
+        .to(item, { top: '100px', width: '100%', height: '851px',/*  background: 'url(../images/brand/priv-bg0'+Number(index+1)+'.png) no-repeat', */ backgroundSize: '100% 100%', duration: 0, },'<')
+        .to($tit1, { opacity: 1, duration: 0.3, },'+=1')
+        .to($txt, { opacity: 1, duration: 0.3, },'+=1')
 
     });
 
-    let tween = gsap.to('.gsap_wrap',{y: -window.innerHeight,duration: 2,markers: true,}),
-        st = ScrollTrigger.create({
-          trigger : '.section00',
-          animation: tween,
-          markers: true,
-          start: '50% 100%',
-          end: '90% bottom'
-        });
-    console.log(st.animation);
+    gsap.registerPlugin(ScrollToPlugin);
 
-    
-    var
-    // $panels = sections[i],
-    $panels = document.querySelector('.panel.active'),
-    $panelCon = $panels.querySelector('.panel-con'),
-    $anchors = $panels.querySelector('.anchor-nav'),
-    $tag = $panels.querySelector('.con_tag'),
-    $tit1 = $panels.querySelector('.con_tit01'),
-    $tit2 = $panels.querySelector('.con_tit02'),
-    $txt = $panels.querySelector('.con_txt'),
-    $conList = $panels.querySelector('.con_list'),
-    $conListBox = $panels.querySelectorAll('.con_list li'),
-    $page = $panels.querySelector('.swiper-pagination'),
-    $nav = document.querySelector('.anchor-nav'),
-    dataColor = $panels.getAttribute('data-color'),
-    dataBg = $panels.getAttribute('data-bg'),
-    panelPadding = '120px 200px';
-    
-    // console.log(sections[i]);
-    if($(window).width()<=768){
-      panelPadding = '80px 20px';
-    }else if($(window).width()<=1500 && $(window).width()>768) {
-      panelPadding = '120px 100px';
-    }else {
-      panelPadding = '120px 200px';
-    }
-
-    var tl2_1 = gsap.timeline({
-      scrollTrigger: {
-        // markers: {
-        //   startColor: "blue",
-        //   endColor: "yellow"
-        // },
-        // pin: true,
-        // pinSpacing: false,
-        trigger: '.panel.active',
-        scrub: 1,
-        start: '100% 60%',
-        end: '100% 0%',
-        ease: 'none',
-        // toggleActions: "play reverse none none",
-      }
-    });
-
-    tl2_1
-    .from($panels, {height: '851px'})
-    .from($panelCon, {width: 'calc(100% - 34px)', height: '688px', borderRadius: '20px'})
-
-    
-    tl2_1
-    .to('.panel_wrap', {backgroundColor: dataBg},'<')
-    .to($tit1, { opacity: 0, duration: 0.3, delay: 1, },'<')
-    .to($txt, { opacity: 0, duration: 0.3, delay: 1, },'<')
-    .to($tit1, { display: 'none', duration: 0, delay: 1 },'<')
-    .to($txt, { display: 'none', duration: 0, delay: 1 },'<')
-    .to($panelCon, {background: dataColor, duration: 0, },'<')
-    .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, delay: 1, },'+=5')
-    .to($panels, { width: '100%', height: '100%', /* padding: '0', */ duration: 2, delay: 1, },'<')
-    // .to($nav, { opacity: 0, duration: 0,},'<')
-
-
-    .to($tag, { display: 'inline-flex', duration: 0,},'+=5')
-    .to($tit2, { display: 'flex', duration: 0,},'<')
-    .to($conList, { display: 'block', opacity: 1,},'<')
-    .to($tag, { opacity: 1, duration: 0.3,},'+=5')
-    .to($tit2, { opacity: 1, duration: 0.3,},'+=0.5')
-    .to($conListBox, { opacity: 1, stagger: 0.5, },'+=10')
-    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'<')
-    .to($page, { opacity: 1,},'+=5')
-    .to($panelCon, { backgroundColor: dataColor, duration: 5, },'+=5')
-    .reverse();
-
-    function setSection(newSection) {
-      const q = gsap.utils.selector(newSection);
-      
-      // console.log('currentSection:',currentSection);
-
-      if (newSection !== currentSection) {
-        var tl = gsap.timeline();
-
-        tl.to(currentSection, { autoAlpha: 0, duration: 0.2 })
-        .to(newSection, { autoAlpha: 1, duration: 0.2, })
-
-        currentSection = newSection;
-
-        const activeId = newSection.getAttribute('id');
-        const anchor = document.querySelector(`.anchor[href="#${activeId}"]`);
-
-        if (anchor) {
-          const currentActiveAnchor = document.querySelector('.anchor.active');
-          if (currentActiveAnchor) {
-            currentActiveAnchor.classList.remove('active');
-          }
-          anchor.classList.add('active');
-        }
-
-
-
-      }
-    }
-
-    let links = gsap.utils.toArray(".anchor");
-    // let sections = gsap.utils.toArray(".panel");
-    
-    links.forEach(a => {
-      let element = document.querySelector(a.getAttribute("href")),
-          parent = element.parentNode,
-          index = Array.from(parent.children).indexOf(element),
-          linkST = ScrollTrigger.create({
-                trigger: element,
-                start: "top top"
-              });
-              
-      a.addEventListener("click", e => {
+    /* Main navigation */
+    document.querySelectorAll(".anchor").forEach((anchor, index) => {
+      anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        console.log('element.offsetTop:',element.offsetTop);
-        gsap.to(window, {
-          duration: 0, 
-          scrollTo: {
-            y: (index + 2) * window.innerHeight,
-            // y: document.querySelector('.gsap_wrap').innerHeight / (index + 1),
-            // offsetY: 20,
-          }, 
-          overwrite: "auto"
+        const targetId = e.target.getAttribute("href");
+
+        document.querySelectorAll('.anchor').forEach(anchor => {
+          anchor.classList.remove('active');
         });
-        ScrollTrigger.create({
-          trigger: a.getAttribute("href"),
-          // markers: true,
-          start: "top center",
-          end: "bottom center",
-          onToggle: self => self.isActive && setActive(a)
-        })
+        anchor.classList.add('active');
+
+        document.querySelectorAll('.panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        document.querySelector(targetId).classList.add('active');
+
+        gsap.to(window, {
+          scrollTo: {
+            y: window.innerHeight * 5,
+          },
+          duration: 1,
+          ease: 'none',
+        });
+
+        tl2_1.restart();
 
       });
+
     });
 
-    function setActive(link) {
-      let activeSec = document.querySelector(link.getAttribute('href'));
-      sections.forEach(el => el.classList.remove("active"));
-      links.forEach(el => el.classList.remove("active"));
-      document.querySelector(link.getAttribute('href')).classList.add("active");
-      link.classList.add("active");
 
-      var tl = gsap.timeline();
-
-      tl.to(sections, { autoAlpha: 0, duration: 0.2 })
-      .to(activeSec, { autoAlpha: 1, duration: 0.2, })
-    }
-
-
-
-    /* ======================================================================================== */
     let maxW = 5000,
     maxH = 5000;
 
@@ -2265,8 +2208,6 @@ var privEvent = {
     .to(".gsap3-3", { opacity: 1, duration: 0.2, })
 
     .to(".gsap3", { zIndex: 1, delay: 0.1, });
-
-
   },
 };
 

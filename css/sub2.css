@@ -466,8 +466,7 @@ body#brandstory.typeB { color: #222; }
 
 /* Priviledge */
 .privilege {font-family: 'Poppins', 'NS';overflow-x: hidden;}
-.privilege .container {position: relative;}
-.privilege .section00 {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;flex-direction: column;background: #014099;color: #fff;}
+.privilege .section00 {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;flex-direction: column;background: #014099;background-attachment: fixed; color: #fff;}
 .privilege .sec0-tit {font-size: 80px;font-weight: 400;letter-spacing: 0.8px;text-align: center;}
 .privilege .sec0-tit01 {transform: translateY(180%);}
 .privilege .sec0-tit02 {letter-spacing: -2px;opacity: 0;}
@@ -491,42 +490,39 @@ body#brandstory.typeB { color: #222; }
 .privilege .sec0-list .sec0-list04 svg {max-width: 152px;}
 .privilege .sec0-list .sec0-list05 svg {max-width: 166px;}
 
-.privilege .section {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;}
-.privilege .section01,
+.privilege .gsap_wrap {position: relative;border: 5px solid #000;/* background: rgba(0, 0, 255, 0.5); */width: 100%;height: 100vh;}
+.privilege .section {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;/* position: absolute;top: 0;bottom: 0;left: 0;right: 0; */ border: 3px solid #000;background: #efebf5;}
+/* .privilege #have, */
 .privilege #have .con_list li {background-color: #efebf5;}
-.privilege .section02,
+/* .privilege #live, */
 .privilege #live .con_list li {background-color: #fef3e9;}
-.privilege .section03,
+/* .privilege #love, */
 .privilege #love .con_list li {background-color: #fdf2f6;}
-.privilege .section04,
+/* .privilege #save, */
 .privilege #save .con_list li {background-color: #f6faed;}
-.privilege .section05,
+/* .privilege #solve, */
 .privilege #solve .con_list li {background-color: #eef3fa;}
 
-.privilege .gsap_wrap {position: relative;width: 100%;/* height: 500vh; */border: 5px solid #000;background: #eee;}
-.privilege .panel_wrap {position: relative;border: 1px solid red;height: calc(100% - 84px);background: #efebf5;}
-.privilege .panel {border: 1px solid #000;display: flex;align-items: center;}
-.privilege .panel-bg {width: 100%;/* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* position: relative; */color: #fff;/* transform: translateY(100%); */background-position: 50% 50%;position: absolute;/* border: 1px solid green; */}
-/*
-.privilege .panel:not(:first-child) {
-  opacity: 0;
-  visibility: hidden;
-} 
-*/
-.privilege #have .panel-bg {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
-.privilege #live .panel-bg {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
-.privilege #love .panel-bg {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%}
-.privilege #save .panel-bg {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%}
-.privilege #solve .panel-bg {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%}
+.privilege .panel {width: 100%; /* width: calc(100% - 86px); */height: 851px;margin: 0 auto;/* border: 1px solid #000; */position: relative;color: #fff;/* transform: translateY(100%); */background-position: 50% 50%; border: 1px solid red;position: absolute;top: 100px;left: 0;display: none;}
+.privilege .panel.active {display: block;}
+.privilege #have.panel {background: url(../images/brand/priv-bg01.png) no-repeat;background-size: 100% 100%;}
+.privilege #live.panel {background: url(../images/brand/priv-bg02.png) no-repeat;background-size: 100% 100%;}
+.privilege #love.panel {background: url(../images/brand/priv-bg03.png) no-repeat;background-size: 100% 100%;}
+.privilege #save.panel {background: url(../images/brand/priv-bg04.png) no-repeat;background-size: 100% 100%;}
+.privilege #solve.panel {background: url(../images/brand/priv-bg05.png) no-repeat;background-size: 100% 100%;}
 
-.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute;top: 68px;right: 17px;border-bottom: 0;border: 1px solid #000;z-index: 100;background: #000; }
-.privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;border: 1px solid #000;}
-.privilege .anchor::before {content:''; display: block;width: 1px;height: 30px;opacity: 0.3;position: absolute;top: 50%;left: 0;transform: translateY(-50%);}
+.privilege .anchor-nav {width: calc(100% - 34px);height: 84px;display: flex;position: absolute; /* transform: translateY(-27vh); */ top: 168px;right: 17px;border-bottom: 0;z-index: 10;border: 1px solid #000;}
+.privilege .anchor {display: block;flex: 1;height: 84px;text-align: center; position: relative;font-size: 36px;font-weight: 700;line-height: 84px;color: #fff;}
+.privilege .anchor::before {content:''; display: block;width: 1px;height: 30px;opacity: 0.3;position: absolute;top: 0;left: 0;/* transform: translateY(-50%); */}
 .privilege .anchor:first-child::before,
 .privilege .anchor.active + .anchor::before {display: none;}
-.privilege .anchor.active {flex-basis: 100px;font-size: 54px;margin-top: -21px;color: #000;position: relative;}
+.privilege .anchor.active {flex-basis: 100px;font-size: 54px;margin-top: -21px;color: #fff;position: relative;}
 .privilege .anchor.active::before {display: none;}
-.privilege .anchor.active::after {content:'';display: block;width: 250px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat;background-size: contain;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);}
+/* .privilege .anchor.active::after {content:'';display: block;width: 250px;height: 28px;background: url(../images/brand/priv-anchor_on.png) no-repeat;background-size: contain;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);} */
+.privilege .anchor.active .deco {width: 250px;height: 28px;position: absolute;bottom: -14px;left: 50%;transform: translateX(-50%);}
+.privilege .anchor.active .deco .shape {display: block;width: 28px;height: 28px;background: url(../images/brand/priv-anchor_active.png) no-repeat 0 0;background-size: contain;}
+.privilege .anchor.active .deco .line {width: 0;height: 2px;background: #fff;opacity: 0.7; position: absolute;top: calc(50% - 1px);left: 28px;transition: width .3s;}
+.privilege .anchor.active .deco .line.open {width: calc(100% - 28px);}
 .privilege .anchor01,
 .privilege #have .panel-con .con_tit01 .highlight {color: #62318e;}
 .privilege .anchor02,
@@ -538,7 +534,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .anchor05,
 .privilege #solve .panel-con .con_tit01 .highlight {color: #007fc5;}
 
-.privilege .panel-con {width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
+.privilege .panel-con {border: 1px solid yellow;width: calc(100% - 34px);height: 688px;box-sizing: border-box;border-radius: 20px;position: absolute;left: 50%;transform: translateX(-50%);bottom: 11px;padding: 120px 200px;background-repeat: no-repeat;}
 .privilege #have .panel-con {/* background-color: #62318e; */background-image: url(../images/brand/priv-bg01_illust.png);background-position: calc(100% - 220px) 100%;}
 .privilege #live .panel-con {/* background-color: #ed7214; */background-image: url(../images/brand/priv-bg02_illust.png);background-position: 100% 100%;}
 .privilege #love .panel-con {/* background-color: #e9538b; */background-image: url(../images/brand/priv-bg03_illust.png);background-position: calc(100% - 175px) calc(100% - 60px);}

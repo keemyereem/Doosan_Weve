@@ -1,0 +1,24 @@
+
+/* --------------------- DoosanWeve Released 2022.08.24 --------------------- */
+/* ----------------------- Published by 4m Creative ------------------------ */
+
+@charset "utf-8";
+
+/* library */
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css"); */
+/* @import url("https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"); */
+
+@import url("./lib/fullpage.css");
+@import url("lib/aos.css");
+/* @import url("./lib/jquery.mCustomScrollbar.css"); */
+
+/* custom */
+@import url("./font.css");
+@import url("./common.css");
+@import url("./main.css");
+@import url("./animation.css");
+@import url("./sub3.css");
+@import url("./media3.css");
+
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap')

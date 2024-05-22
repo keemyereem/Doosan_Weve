@@ -2017,13 +2017,19 @@ var privEvent = {
   },
 
   scrollMotion: () => {
+    let scrollLeft = 0;
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on('scroll', function () {
-      var scrollLeft = $(this).scrollLeft();
+      scrollLeft = $(this).scrollLeft();
+      gsap.set('.section.active, .section00.active, .section06', {
+        left: '-' + scrollLeft + 'px',
+      });
+      /*
       $(
         '.privilege, .privilege .section00, .privilege .section, .privilege .section.active'
       ).css('left', -scrollLeft);
       $('.privilege .pin-spacer').css('left', scrollLeft);
+      */
     });
 
     gsap.registerPlugin(ScrollToPlugin);
@@ -2040,6 +2046,18 @@ var privEvent = {
         // fastScrollEnd: true,
         // preventOverlaps: true,
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
+        onEnter: (self) => {
+          $(self.trigger).addClass('active');
+        },
+        onEnterBack: (self) => {
+          $(self.trigger).addClass('active');
+        },
+        onLeave: function (self) {
+          $(self.trigger).removeClass('active');
+        },
+        onLeaveBack: function (self) {
+          $(self.trigger).removeClass('active');
+        },
         onUpdate: function (scrollTrigger) {
           var progress = scrollTrigger.progress;
 
@@ -2164,23 +2182,25 @@ var privEvent = {
             if (goIndex == index) {
               anchorMov = false;
             }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-
             if (window.innerWidth > 768) {
               if (index !== 4 && !anchorMov) {
+                //tl2_1.pause();
                 gsap.to(window, {
                   scrollTo: {
                     y: $sections[index + 1].parentNode.offsetTop + 1,
-                    x: window.pageXOffset,
+                    //                    x: window.pageXOffset,
                   },
                   duration: 0.8,
                   ease: 'none',
                 });
+                //tl2_1.play();
               }
             }
           },
@@ -2192,6 +2212,7 @@ var privEvent = {
 
             if (window.innerWidth > 768) {
               if (index !== 0 && !anchorMov) {
+                //tl2_1.pause();
                 gsap.to(window, {
                   scrollTo: {
                     y: self.previous().end - 10,
@@ -2200,6 +2221,7 @@ var privEvent = {
                   duration: 0,
                   ease: 'none',
                 });
+                //tl2_1.play();
               }
             }
           },
@@ -2210,6 +2232,7 @@ var privEvent = {
             if (goIndex == index) {
               anchorMov = false;
             }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
         },
       });
@@ -2235,7 +2258,6 @@ var privEvent = {
       } else {
         panelPadding = '120px 200px';
       }
-
       tl2_1
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')

@@ -70,7 +70,9 @@ var commonEvent = {
 
     $(window).on("scroll", function () {
       scrollPosition = window.pageYOffset;
+      $("header").css("left", 0 - $(this).scrollLeft());
     });
+    
 
     if ($("#mobile").length) {
       // 모바일 메뉴
@@ -1976,9 +1978,9 @@ var privEvent = {
   scrollMotion: ()=> {
 
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
-    // $(window).on("scroll", function () {
-    //   $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
-    // });
+    $(window).on("scroll", function () {
+      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
+    });
 
     var tl1 = gsap.timeline({
       scrollTrigger: {

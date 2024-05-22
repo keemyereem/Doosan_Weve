@@ -13,13 +13,8 @@
 	#pc header, 
 	#pc footer { width: 1440px; }
 	#pc .scroll-container nav ul { width: 100%; }
-	/* #pc .scroll-container nav ul li { flex: auto 0; } */
 	#pc footer .inner { padding: 50px 0 80px 130px; }
 	#pc footer .footer_award { left: 790px; }
-	#pc .privilege {overflow-x: scroll;}
-	#pc .privilege .section {width: 100%;border: 3px solid #000;}
-	#pc .privilege .panel {width: 1440px;}
-	/* #pc .privilege .panel-con {left: 0;right: 0;transform: translateX(0);} */
 }
 
 @media screen and (min-width:768px) {

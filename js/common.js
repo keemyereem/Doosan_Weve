@@ -1979,8 +1979,12 @@ var privEvent = {
 
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
     $(window).on("scroll", function () {
-      $(".privilege .section00, .privilege .section, .privilege .section06").css("left", 0 - $(this).scrollLeft());
+      var scrollLeft = $(this).scrollLeft();
+      $(".privilege, .privilege .section00, .privilege .section, .privilege .section.active").css("left", -scrollLeft);
+      $(".privilege .pin-spacer").css("left", scrollLeft);
     });
+
+    gsap.registerPlugin(ScrollToPlugin);
 
     var tl1 = gsap.timeline({
       scrollTrigger: {
@@ -2020,19 +2024,13 @@ var privEvent = {
        .to('.sec0-list05', { opacity: '1', duration:1,},'+=1')
       //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
       //  .to('.bg-mask', { opacity: 1, },'+=5')
-       .to('.bg-mask', { top: '-80vh',/* yPercent: -100, */ duration: 10,},'+=1')
+       .to('.bg-mask', { top: '-80vh', duration: 10,},'+=1')
       //  .to('.section01', { y: -100, duration: 2,},'<')
-
-    gsap.registerPlugin(ScrollToPlugin);
 
     var anchorMov = false;
     var goIndex = 0;
 
-
-    
-
     /* top button */
-    // window.onload = function() {
     $(document).on('click', '#topButton', function(){
       anchorMov = true;
       gsap.to(window, {
@@ -2043,8 +2041,6 @@ var privEvent = {
         ease: "none",
       });
     });
-
-    // };
 
     /* Main navigation */
     if($(window).width()<=768){
@@ -2060,6 +2056,7 @@ var privEvent = {
           
         }
       });
+      ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
     }
 
     document.querySelectorAll(".anchor").forEach((anchor, index) => {
@@ -2092,7 +2089,7 @@ var privEvent = {
 
     });
 
-    ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
+    
   
     var $sections = document.querySelectorAll(".section");
     $sections.forEach((item, index)=>{
@@ -2117,21 +2114,15 @@ var privEvent = {
           // toggleActions: 'play none none none',
 
           onEnter: (self) => {
-            // console.log('enter',$(self.trigger));
-            // console.log('st:', window.pageYOffset);
-
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity','1');
 
             if(goIndex==index){
               anchorMov = false;
-              
             }
           },
           onLeave: (self) => {
-            // console.log('leave',$(self.trigger));
-
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity','0');
@@ -2142,6 +2133,7 @@ var privEvent = {
                 gsap.to(window, {
                   scrollTo:  {
                     y: $sections[index + 1].parentNode.offsetTop + 1,
+                    x: window.pageXOffset,
                   },
                   duration: 0.8, 
                   ease: "none",
@@ -2152,8 +2144,6 @@ var privEvent = {
 
           },
           onLeaveBack: (self) => {
-            // console.log('leaveback',self.previous().end);
-
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity','0');
@@ -2164,6 +2154,7 @@ var privEvent = {
                 gsap.to(window, {
                   scrollTo:  {
                     y: self.previous().end - 10,
+                    x: window.pageXOffset,
                   },
                   duration: 0, 
                   ease: "none"
@@ -2174,8 +2165,6 @@ var privEvent = {
 
           },
           onEnterBack: (self) => {
-            // console.log('enterback',self);
-            
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity','1');
@@ -2211,7 +2200,6 @@ var privEvent = {
 
 
       tl2_1
-
       .to($tit1, { opacity: 0, duration: 0.2, },'+=1')
         .to($txt, { opacity: 0, duration: 0.2, },'<')
         .to($tit1, { display: 'none', duration: 0, },)

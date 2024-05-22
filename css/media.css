@@ -15,6 +15,7 @@
 	#pc .scroll-container nav ul { width: 100%; }
 	#pc footer .inner { padding: 50px 0 80px 130px; }
 	#pc footer .footer_award { left: 790px; }
+	#pc .privilege {overflow-x: scroll;width: 1440px;}
 }
 
 @media screen and (min-width:768px) {

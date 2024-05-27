@@ -4,43 +4,43 @@
 $(function () {
   $(function () {
     let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 
     //resize
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
   });
 
   const isMobile = () => {
     const user = navigator.userAgent;
     let isCheck = false;
-    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+    if (user.indexOf('iPhone') > -1 || user.indexOf('Android') > -1) {
       isCheck = true;
     }
     return isCheck;
   };
 
   if (isMobile() == false) {
-    console.log("*PC environment");
-    $("html").attr("id", "pc");
+    console.log('*PC environment');
+    $('html').attr('id', 'pc');
   } else {
-    console.log("*Mobile environment");
-    $("html").attr("id", "mobile");
+    console.log('*Mobile environment');
+    $('html').attr('id', 'mobile');
   }
 
   // 팝업 데이터 가져오기 [ 미완성 코드 :: 팝업 내부 검색기능도 value값 인식하게 해야 함 ]
   getVal = () => {
-    let name = document.getElementById("searchComplex"),
-      count = $(".result_box").length;
+    let name = document.getElementById('searchComplex'),
+      count = $('.result_box').length;
 
     if (name != null) {
-      $(".popup.search > ul > li")
+      $('.popup.search > ul > li')
         .eq(1)
-        .find("p .result")
-        .text("‘" + name.value + "’");
-      $(".popup.search > ul > li").eq(1).find("p .num").text(count);
+        .find('p .result')
+        .text('‘' + name.value + '’');
+      $('.popup.search > ul > li').eq(1).find('p .num').text(count);
     }
   };
 });
@@ -65,73 +65,72 @@ var commonEvent = {
   },
 
   headerEvent: () => {
-    const body = $("body");
+    const body = $('body');
     let scrollPosition = 0;
 
-    $(window).on("scroll", function () {
+    $(window).on('scroll', function () {
       scrollPosition = window.pageYOffset;
-      $("header").css("left", 0 - $(this).scrollLeft());
+      $('header').css('left', 0 - $(this).scrollLeft());
     });
-    
 
-    if ($("#mobile").length) {
+    if ($('#mobile').length) {
       // 모바일 메뉴
-      $(".allMenu").on("click", function () {
-        if (!$("body").hasClass("menuOn")) {
-          $("body").addClass("menuOn");
+      $('.allMenu').on('click', function () {
+        if (!$('body').hasClass('menuOn')) {
+          $('body').addClass('menuOn');
           openProcessor();
         } else {
-          $("body").removeClass("menuOn");
-          $("#gnb ul, #siteMap .dep1").removeClass("on");
+          $('body').removeClass('menuOn');
+          $('#gnb ul, #siteMap .dep1').removeClass('on');
           closeProcessor();
         }
       });
 
-      $("#gnb ul, #siteMap .dep1 a").on("click", function () {
-        $(this).parents(".dep1").toggleClass("on");
-        $(this).parents(".dep1").siblings(".dep1").removeClass("on");
+      $('#gnb ul, #siteMap .dep1 a').on('click', function () {
+        $(this).parents('.dep1').toggleClass('on');
+        $(this).parents('.dep1').siblings('.dep1').removeClass('on');
       });
     } else {
       // PC 메뉴
-      $("#gnb ul, #siteMap").hover(
+      $('#gnb ul, #siteMap').hover(
         function () {
-          $("body").addClass("menuOn");
+          $('body').addClass('menuOn');
         },
         function () {
-          $("body").removeClass("menuOn");
+          $('body').removeClass('menuOn');
         }
       );
     }
 
-    $(".btn_doosanenc").hover(
+    $('.btn_doosanenc').hover(
       function () {
-        $(this).addClass("hover");
+        $(this).addClass('hover');
       },
       function () {
-        $(this).removeClass("hover");
+        $(this).removeClass('hover');
       }
     );
 
     // 팝업 열기 function
     function openProcessor() {
       scrollPosition = window.pageYOffset;
-      $("html").addClass("blockScroll");
-      console.log("open : " + scrollPosition);
-      if ($("#mobile").length) {
-        body.css("top", `-${scrollPosition}px`);
+      $('html').addClass('blockScroll');
+      console.log('open : ' + scrollPosition);
+      if ($('#mobile').length) {
+        body.css('top', `-${scrollPosition}px`);
       }
     }
 
     // 팝업 닫기 function
     function closeProcessor() {
-      $("html").removeClass("blockScroll");
-      $(".popup").removeClass("on");
+      $('html').removeClass('blockScroll');
+      $('.popup').removeClass('on');
 
-      if ($("#mobile").length) {
-        scrollPosition = body.css("top");
-        scrollPosition = scrollPosition.replace("px", "");
+      if ($('#mobile').length) {
+        scrollPosition = body.css('top');
+        scrollPosition = scrollPosition.replace('px', '');
 
-        body.removeProp("top");
+        body.removeProp('top');
         window.scrollTo(0, -scrollPosition);
       }
     }
@@ -139,55 +138,54 @@ var commonEvent = {
 
   bgAni: function () {
     $(document).ready(function () {
-      if($('#pc').length){
+      if ($('#pc').length) {
         setTimeout(function () {
-          $(".section1").addClass("ani");
+          $('.section1').addClass('ani');
         }, 100);
       }
-
     });
   },
 
   subUI: () => {
-    if ($("nav").length) {
-      const subMenu = document.querySelector("nav"),
+    if ($('nav').length) {
+      const subMenu = document.querySelector('nav'),
         fixMenu = subMenu.offsetTop,
-        navHeight = Math.abs($("nav").height()),
+        navHeight = Math.abs($('nav').height()),
         awardMarginTop = Math.abs(
-          $(".contents").css("margin-top").replace("px", "")
+          $('.contents').css('margin-top').replace('px', '')
         );
 
-      $(window).on("scroll", function () {
+      $(window).on('scroll', function () {
         let st = $(window).scrollTop();
 
         if (st > fixMenu - 200) {
-          $("header").addClass("indentUp");
+          $('header').addClass('indentUp');
         } else {
-          $("header").removeClass("indentUp");
+          $('header').removeClass('indentUp');
         }
 
         if (st >= fixMenu) {
-          $("nav").addClass("fixed");
+          $('nav').addClass('fixed');
         } else {
-          $("nav").removeClass("fixed");
+          $('nav').removeClass('fixed');
         }
       });
 
-      if ($("#mobile").length) {
-        $("nav .on").on("click", () => {
-          $("nav ul").toggleClass("open");
+      if ($('#mobile').length) {
+        $('nav .on').on('click', () => {
+          $('nav ul').toggleClass('open');
         });
       }
 
       // nav바 스크롤 고정시 contents박스 높이값 조절 및 뒤틀림 방지
-      $(window).on("load resize scroll", () => {
-        if ($("nav").hasClass("fixed")) {
-          $(".contents").css(
-            "margin-top",
-            "" + (awardMarginTop + navHeight) + "px"
+      $(window).on('load resize scroll', () => {
+        if ($('nav').hasClass('fixed')) {
+          $('.contents').css(
+            'margin-top',
+            '' + (awardMarginTop + navHeight) + 'px'
           );
         } else {
-          $(".contents").css("margin-top", "" + awardMarginTop + "px");
+          $('.contents').css('margin-top', '' + awardMarginTop + 'px');
         }
       });
     }
@@ -195,41 +193,41 @@ var commonEvent = {
 
   iptEvent: () => {
     // selectbox
-    var selectType = $(".select_row>select");
-    selectType.addClass("selectBox");
+    var selectType = $('.select_row>select');
+    selectType.addClass('selectBox');
     selectChange(selectType);
     function selectChange(type) {
       type.change(function () {
-        var select_name = $(this).children("option:selected").text();
-        $(this).siblings("label").text(select_name);
+        var select_name = $(this).children('option:selected').text();
+        $(this).siblings('label').text(select_name);
       });
     }
 
     //file
-    var fileTarget = $("#upload_file");
-    fileTarget.on("change", function () {
+    var fileTarget = $('#upload_file');
+    fileTarget.on('change', function () {
       var cur = $(".file_row input[type='file']").val();
-      $(".upload_name").val(cur);
+      $('.upload_name').val(cur);
     });
   },
 
   tabEvent: () => {
     if ($(window).width() < 768) {
-      const tabContainer = $(".tab_box > .inner");
-      const tabBox = tabContainer.find("> .tab_slide");
-      const tabButton = tabBox.find("> li");
+      const tabContainer = $('.tab_box > .inner');
+      const tabBox = tabContainer.find('> .tab_slide');
+      const tabButton = tabBox.find('> li');
       let size = tabButton.length;
       let tbIndex = 0;
 
       if (tabBox.length) {
         $(document).ready(function () {
-          let tbOn = Math.floor(tabBox.find("> li.on").position().left);
+          let tbOn = Math.floor(tabBox.find('> li.on').position().left);
           let tbWidth = tabButton.width();
 
           tabContainer.animate({ scrollLeft: tbOn - tbWidth }, 0);
         });
 
-        tabContainer.on("load resize scroll", () => {
+        tabContainer.on('load resize scroll', () => {
           tabBoxPosition = Math.abs(tabBox.position().left);
 
           tabButton.each((index) => {
@@ -250,8 +248,8 @@ var commonEvent = {
           });
         });
 
-        $(".control").on("click", function () {
-          if ($(this).hasClass("prev")) {
+        $('.control').on('click', function () {
+          if ($(this).hasClass('prev')) {
             tsMove = Math.floor(tabButton.eq(tbIndex).position().left);
 
             tabContainer.animate({ scrollLeft: tsMove }, 200);
@@ -278,15 +276,15 @@ var commonEvent = {
   popup: () => {
     // 스크롤 값 추적
     let scrollPosition = 0;
-    $(window).on("scroll", () => {
+    $(window).on('scroll', () => {
       scrollPosition = window.pageYOffset;
     });
 
     // 분양안내용 팝업코드
-    const list = $(".list").find("> ul > li"),
-      popupUI = $(".popup > ul > li:last-child"),
-      popupClose = $(".pop_close"),
-      body = document.querySelector("body");
+    const list = $('.list').find('> ul > li'),
+      popupUI = $('.popup > ul > li:last-child'),
+      popupClose = $('.pop_close'),
+      body = document.querySelector('body');
 
     // list.each((index) => {
     //   list
@@ -309,92 +307,91 @@ var commonEvent = {
     //       }
     //     });
     // });
-    
+
     // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 290~304과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
-    $(document).on('click','.list > ul > li a', function(){
-	    const li = $(this).parents('li');
-      let data = li.children("p").attr("data-process"),
-      title = li.find("dl dt").text();
-            
-      locate = li.find("dl dd:first-of-type").text();
-      locate = locate.replace("위치", "");
+    $(document).on('click', '.list > ul > li a', function () {
+      const li = $(this).parents('li');
+      let data = li.children('p').attr('data-process'),
+        title = li.find('dl dt').text();
 
-      popupUI.find("dl dt").text(title);
-      popupUI.find("dl dd").text(locate);
+      locate = li.find('dl dd:first-of-type').text();
+      locate = locate.replace('위치', '');
 
-        if (data >= 0 && data <= 2) {
-          return;
-        } else {
-          openProcessor();
-        }
+      popupUI.find('dl dt').text(title);
+      popupUI.find('dl dd').text(locate);
 
-        // var searchKey = $(this).data('addr');
-        // var markerTit = $(this).data('tit');
-        // 페이지 초기화
-        $('#kakaoMap').html('loading...');
+      if (data >= 0 && data <= 2) {
+        return;
+      } else {
+        openProcessor();
+      }
+
+      // var searchKey = $(this).data('addr');
+      // var markerTit = $(this).data('tit');
+      // 페이지 초기화
+      $('#kakaoMap').html('loading...');
         $('[data-handler="btn-map-detail"]').attr('href','javascript:alert("잠시만 기다려주세요.")');
-        
-         $.ajax({
+
+      $.ajax({
          type : "get",
          url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(locate),
          headers: {'Authorization' : 'KakaoAK e907ed20e50441767ce164877793fe6d'},
          success : function(data) {
            if( data !=null ){
              if( data.meta.total_count > 0 ){
-               addr_y = data.documents[0].y;
-               addr_x = data.documents[0].x;
-               
-               // randering map
-                 var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div 
-                     var coords = new kakao.maps.LatLng(addr_y, addr_x);
-                   mapOption = {
-                       center: coords,
-                       level: 3
-                   };
-                   
-                 // 지도를 생성합니다    
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
+              addr_y = data.documents[0].y;
+              addr_x = data.documents[0].x;
 
-                // 결과값으로 받은 위치를 마커로 표시합니다
-                var marker = new kakao.maps.Marker({
-                    map: map,
-                    position: coords
-                });
+              // randering map
+              var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div
+              var coords = new kakao.maps.LatLng(addr_y, addr_x);
+              mapOption = {
+                center: coords,
+                level: 3,
+              };
 
-                // 인포윈도우로 장소에 대한 설명을 표시합니다
-                  /* 221222: 기획팀 요청으로 장소설명 삭제
+              // 지도를 생성합니다
+              var map = new kakao.maps.Map(mapContainer, mapOption);
+
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+
+              // 인포윈도우로 장소에 대한 설명을 표시합니다
+              /* 221222: 기획팀 요청으로 장소설명 삭제
                 var infowindow = new kakao.maps.InfoWindow({
                     content: '<div style="min-width:150px;text-align:center;padding:6px 2px;">'+markerTit+'</div>'
                 });
                 infowindow.open(map, marker);
                 */
 
-                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                map.setCenter(coords);
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
               $('[data-handler="btn-map-detail"]').attr('href','https://map.kakao.com/?map_type=TYPE_MAP&q='+ encodeURIComponent(locate) + '&urlLevel=2');
-             } else {
-               console.log(locate +"..............no data...............");	
-             }
-           } else {
+            } else {
+              console.log(locate + '..............no data...............');
+            }
+          } else {
             // mapContainer.html();
-             console.log("..............no data...............");
-           }
-           
-         },
-         error : function(error) {
-           console.log('kakao map',error.responseText);
-         }
-       });
+            console.log('..............no data...............');
+          }
+        },
+        error: function (error) {
+          console.log('kakao map', error.responseText);
+        },
+      });
     });
 
     // 카카오 지도 연동
-    $(document).on('click','.list > ul > li a', function(){
+    $(document).on('click', '.list > ul > li a', function () {
       var searchKey = $(this).data('addr');
       var markerTit = $(this).data('tit');
       // 페이지 초기화
       $('#kakaoMap').html('loading...');
       $('[data-handler="btn-map-detail"]').attr('href','javascript:alert("잠시만 기다려주세요.")');
-      
+
       $.ajax({
         type : "get",
         url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(searchKey),
@@ -404,57 +401,56 @@ var commonEvent = {
             if( data.meta.total_count > 0 ){
               addr_y = data.documents[0].y;
               addr_x = data.documents[0].x;
-              
+
               // randering map
-                var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div 
-                    var coords = new kakao.maps.LatLng(addr_y, addr_x);
-                  mapOption = {
-                      center: coords,
-                      level: 3
-                  };
-                  
-                // 지도를 생성합니다    
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
+              var mapContainer = document.getElementById('kakaoMap'); // 지도를 표시할 div
+              var coords = new kakao.maps.LatLng(addr_y, addr_x);
+              mapOption = {
+                center: coords,
+                level: 3,
+              };
 
-                    // 결과값으로 받은 위치를 마커로 표시합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
-                    });
+              // 지도를 생성합니다
+              var map = new kakao.maps.Map(mapContainer, mapOption);
 
-                    // 인포윈도우로 장소에 대한 설명을 표시합니다
-                    /*  221222: 기획팀 요청으로 장소설명 삭제
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+
+              // 인포윈도우로 장소에 대한 설명을 표시합니다
+              /*  221222: 기획팀 요청으로 장소설명 삭제
                         var infowindow = new kakao.maps.InfoWindow({
                             content: '<div style="min-width:150px;text-align:center;padding:6px 2px;">'+markerTit+'</div>'
                         });
                         infowindow.open(map, marker);
                     */
 
-                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                    map.setCenter(coords);
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
                   $('[data-handler="btn-map-detail"]').attr('href','https://map.kakao.com/?map_type=TYPE_MAP&q='+ encodeURIComponent(searchKey) + '&urlLevel=2');
             } else {
-              console.log(searchKey +"..............no data...............");	
+              console.log(searchKey + '..............no data...............');
             }
           } else {
-            console.log("..............no data...............");
+            console.log('..............no data...............');
           }
-          
         },
-        error : function(error) {
-          console.log('kakao map',error.responseText);
-        }
+        error: function (error) {
+          console.log('kakao map', error.responseText);
+        },
       });
     });
 
-    popupUI.children("a").hover(
+    popupUI.children('a').hover(
       function () {
-        $(this).find("img:first-child").removeClass("on");
-        $(this).find("img:last-child").addClass("on");
+        $(this).find('img:first-child').removeClass('on');
+        $(this).find('img:last-child').addClass('on');
       },
       function () {
-        $(this).find("img:last-child").removeClass("on");
-        $(this).find("img:first-child").addClass("on");
+        $(this).find('img:last-child').removeClass('on');
+        $(this).find('img:first-child').addClass('on');
       }
     );
 
@@ -462,14 +458,14 @@ var commonEvent = {
     // $(".openPopup").on("click", () => {
     //   openProcessor();
     // });
-    
+
     // ajax 페이지에서도 이벤트가 적용되도록 작업. 위에 339~341과 동일한 역할을 합니다. 위에 코드 삭제 여부는 검토 부탁드려요
-    $(document).on("click",".openPopup", () => {
+    $(document).on('click', '.openPopup', () => {
       openProcessor();
     });
 
     // 팝업 닫기
-    popupClose.on("click", () => {
+    popupClose.on('click', () => {
       closeProcessor();
     });
 
@@ -477,31 +473,31 @@ var commonEvent = {
     function openProcessor() {
       scrollPosition = window.pageYOffset;
 
-      $(".popup").addClass("on");
-      $("html").addClass("blockScroll");
+      $('.popup').addClass('on');
+      $('html').addClass('blockScroll');
 
       body.style.top = `-${scrollPosition}px`;
       console.log(scrollPosition);
-      $("header").hide();
+      $('header').hide();
     }
 
     // 팝업 닫기 function
     function closeProcessor() {
-      if ($(".gallery_swiper").length) {
+      if ($('.gallery_swiper').length) {
         channelEvent.gallerySwiper();
       }
 
-      $("html").removeClass("blockScroll");
-      $(".popup").removeClass("on");
+      $('html').removeClass('blockScroll');
+      $('.popup').removeClass('on');
 
       scrollPosition = body.style.top;
-      scrollPosition = scrollPosition.replace("px", "");
+      scrollPosition = scrollPosition.replace('px', '');
 
       window.scrollTo(0, -scrollPosition);
       setTimeout(() => {
-        body.style.removeProperty("top");
+        body.style.removeProperty('top');
       }, 300);
-      $("header").show();
+      $('header').show();
     }
   },
 
@@ -509,48 +505,48 @@ var commonEvent = {
     $(window).scroll(function () {
       // top button controll
       if ($(this).scrollTop() > 400) {
-        $("#topButton").fadeIn();
+        $('#topButton').fadeIn();
       } else {
-        $("#topButton").fadeOut();
+        $('#topButton').fadeOut();
       }
-      var footerTop = $("footer").offset().top - $(window).outerHeight();
-      var pos = $("footer").outerHeight() + Number(80);
-      var pos_m = $("footer").outerHeight() + Number(35);
+      var footerTop = $('footer').offset().top - $(window).outerHeight();
+      var pos = $('footer').outerHeight() + Number(80);
+      var pos_m = $('footer').outerHeight() + Number(35);
 
       if ($(this).scrollTop() > footerTop) {
-        if ($("#pc").length) {
-          $("#topButton").addClass("on").css({ bottom: pos });
+        if ($('#pc').length) {
+          $('#topButton').addClass('on').css({ bottom: pos });
         } else {
-          $("#topButton").addClass("on").css({ bottom: pos_m });
+          $('#topButton').addClass('on').css({ bottom: pos_m });
         }
       } else {
-        if ($("#pc").length) {
-          $("#topButton").removeClass("on").css({ bottom: "80px" });
+        if ($('#pc').length) {
+          $('#topButton').removeClass('on').css({ bottom: '80px' });
         } else {
-          $("#topButton").removeClass("on").css({ bottom: "35px" });
+          $('#topButton').removeClass('on').css({ bottom: '35px' });
         }
       }
     });
 
-    if(!$('.privilege').length){
-      $(document).on("click", "#topButton", function () {
-        $("html, body").animate({ scrollTop: 0 }, "300");
+    if (!$('.privilege').length) {
+      $(document).on('click', '#topButton', function () {
+        $('html, body').animate({ scrollTop: 0 }, '300');
       });
     }
   },
 
   checkAll: () => {
-    $("#chkAll").click(function () {
-      if ($("#chkAll").is(":checked")) {
-        $('input[class="agree"]').prop("checked", true);
+    $('#chkAll').click(function () {
+      if ($('#chkAll').is(':checked')) {
+        $('input[class="agree"]').prop('checked', true);
       } else {
-        $('input[class="agree"]').prop("checked", false);
+        $('input[class="agree"]').prop('checked', false);
       }
     });
 
     $('input[type="radio"]').click(function () {
-      if ($('input[class="disagree"]').is(":checked")) {
-        $("#chkAll").prop("checked", false);
+      if ($('input[class="disagree"]').is(':checked')) {
+        $('#chkAll').prop('checked', false);
       } else {
       }
     });
@@ -559,63 +555,62 @@ var commonEvent = {
   headerScroll: () => {
     let before = 0;
 
-    window.addEventListener("scroll", (ev) => {
+    window.addEventListener('scroll', (ev) => {
       if (before < window.scrollY) {
-        $("header").addClass("indentUp");
+        $('header').addClass('indentUp');
         before = window.scrollY;
       } else if (before > window.scrollY) {
-        $("header").removeClass("indentUp").addClass("wht");
+        $('header').removeClass('indentUp').addClass('wht');
         before = window.scrollY;
       }
 
       if (window.scrollY == 0) {
-        if ($(".container").hasClass("graybg")) {
-          $("header").removeClass("indentUp").addClass("wht");
+        if ($('.container').hasClass('graybg')) {
+          $('header').removeClass('indentUp').addClass('wht');
         } else {
-          $("header").removeClass("indentUp").removeClass("wht");
+          $('header').removeClass('indentUp').removeClass('wht');
         }
       }
-
     });
   },
 
   footerEvent: () => {
-    $(document).on("click", ".family_site .site_selected", function () {
+    $(document).on('click', '.family_site .site_selected', function () {
       var selElm = $(this).parent();
-      if (!selElm.hasClass("open")) {
-        selElm.addClass("open");
+      if (!selElm.hasClass('open')) {
+        selElm.addClass('open');
       } else {
-        selElm.removeClass("open");
+        selElm.removeClass('open');
       }
     });
 
-    $(document).on("click", ".family_site .site_list li a", function () {
+    $(document).on('click', '.family_site .site_list li a', function () {
       var selected = this.innerText,
-        siteName = document.getElementsByClassName("site_selected")[0],
+        siteName = document.getElementsByClassName('site_selected')[0],
         familySite = this.parentNode.parentNode.parentNode;
 
       siteName.innerText = selected;
-      familySite.classList.remove("open");
+      familySite.classList.remove('open');
     });
   },
 
   policyEvent: () => {
-    $(document).on("click", ".terms_site .site_selected", function () {
+    $(document).on('click', '.terms_site .site_selected', function () {
       var selElm = $(this).parent();
-      if (!selElm.hasClass("open")) {
-        selElm.addClass("open");
+      if (!selElm.hasClass('open')) {
+        selElm.addClass('open');
       } else {
-        selElm.removeClass("open");
+        selElm.removeClass('open');
       }
     });
 
-    $(document).on("click", ".terms_site .site_list li a", function () {
+    $(document).on('click', '.terms_site .site_list li a', function () {
       var selected = this.innerText,
-        siteName = document.getElementsByClassName("site_selected")[0],
+        siteName = document.getElementsByClassName('site_selected')[0],
         familySite = this.parentNode.parentNode.parentNode;
 
       siteName.innerText = selected;
-      familySite.classList.remove("open");
+      familySite.classList.remove('open');
     });
   },
 };
@@ -640,8 +635,8 @@ var essentialEvent = {
   },
 
   saveSwiper: () => {
-    if ($("#mobile").length) {
-      let saveSlider = new Swiper(".save_swiper", {
+    if ($('#mobile').length) {
+      let saveSlider = new Swiper('.save_swiper', {
         slidesPerView: 1,
         slidesPerGroup: 1,
         spaceBetween: 25,
@@ -654,7 +649,7 @@ var essentialEvent = {
   },
 
   solveSwiper: () => {
-    let solveSlider = new Swiper(".solve_swiper", {
+    let solveSlider = new Swiper('.solve_swiper', {
       // width: 600,
       slidesPerView: 3,
       slidesPerGroup: 1,
@@ -683,7 +678,7 @@ var essentialEvent = {
 
     // ************************************************** 초기 시작 값
 
-    gsap.to(".scroll-container", {
+    gsap.to('.scroll-container', {
       opacity: 1,
       duration: 1,
       delay: 1,
@@ -694,104 +689,104 @@ var essentialEvent = {
 
     ScrollTrigger.create({
       animation: tl1,
-      trigger: ".live",
+      trigger: '.live',
       pin: true,
       pinSpacing: true,
-      start: "0% 0%",
-      end: "+=110%",
+      start: '0% 0%',
+      end: '+=110%',
       scrub: true,
     });
 
     tl1
-      .to(".live .img01", {
-        top: "-100%",
-        opacity: "0",
+      .to('.live .img01', {
+        top: '-100%',
+        opacity: '0',
         duration: 35,
         delay: 50,
       })
-      .to(".live .img01", { /*  display: 'none', */ duration: 20, delay: 20 });
+      .to('.live .img01', { /*  display: 'none', */ duration: 20, delay: 20 });
 
     // ************************************************** love
     const tl2 = gsap.timeline();
 
     ScrollTrigger.create({
       animation: tl2,
-      trigger: ".love",
+      trigger: '.love',
       pin: true,
       pinSpacing: true,
-      start: "100% 100%",
-      end: "+=300%",
+      start: '100% 100%',
+      end: '+=300%',
       scrub: true,
     });
 
     tl2
-      .to("#pc .love h3", {
-        transform: "scale(10)",
-        opacity: ".1",
+      .to('#pc .love h3', {
+        transform: 'scale(10)',
+        opacity: '.1',
         duration: 2,
       })
-      .to("#mobile .love h3", {
-        transform: "scale(4)",
-        opacity: ".1",
+      .to('#mobile .love h3', {
+        transform: 'scale(4)',
+        opacity: '.1',
         duration: 2,
       })
-      .to(".love h3", { transform: "scale(1)", opacity: ".1", duration: 2 })
-      .to(".love h3", { opacity: "1", duration: 2, delay: 2 })
-      .to(".love .sub", {
-        opacity: "1",
-        transform: "translateY(0)",
+      .to('.love h3', { transform: 'scale(1)', opacity: '.1', duration: 2 })
+      .to('.love h3', { opacity: '1', duration: 2, delay: 2 })
+      .to('.love .sub', {
+        opacity: '1',
+        transform: 'translateY(0)',
         duration: 2,
         delay: 1,
       })
-      .to(".love .intro", {
-        transform: "scale(1)",
-        top: "0",
+      .to('.love .intro', {
+        transform: 'scale(1)',
+        top: '0',
         duration: 3,
         delay: 3,
       })
-      .to(".love h3", {
-        opacity: "0",
-        transform: "translateY(-50px)",
+      .to('.love h3', {
+        opacity: '0',
+        transform: 'translateY(-50px)',
         duration: 2,
         delay: 2,
       })
-      .to(".love .sub", {
-        opacity: "0",
-        transform: "translateY(-50px)",
+      .to('.love .sub', {
+        opacity: '0',
+        transform: 'translateY(-50px)',
         duration: 2,
         delay: 1,
       })
-      .to(".love h3, .love .sub", { display: "none", duration: 1 })
+      .to('.love h3, .love .sub', { display: 'none', duration: 1 })
 
-      .to(".love .weve_tit, .love .weve_sub", { display: "block", duration: 1 })
+      .to('.love .weve_tit, .love .weve_sub', { display: 'block', duration: 1 })
 
-      .to(".love .weve_tit, .love .weve_sub", {
-        opacity: "1",
-        transform: "translateY(0)",
+      .to('.love .weve_tit, .love .weve_sub', {
+        opacity: '1',
+        transform: 'translateY(0)',
         duration: 2,
       })
-      .to(".love .intro", { opacity: "1", delay: 3 });
+      .to('.love .intro', { opacity: '1', delay: 3 });
   },
 
   sectionOffset: () => {
-    $(window).on("scroll", () => {
-      const have = $(".have").offset().top - 500,
-        live = $(".live").offset().top,
-        save = $(".save").offset().top - 500,
-        solve = $(".solve").offset().top - 500,
+    $(window).on('scroll', () => {
+      const have = $('.have').offset().top - 500,
+        live = $('.live').offset().top,
+        save = $('.save').offset().top - 500,
+        solve = $('.solve').offset().top - 500,
         st = $(window).scrollTop();
 
       if (st > have) {
-        $(".have").addClass("active");
+        $('.have').addClass('active');
       }
       if (st > live) {
-        $(".live").addClass("active");
+        $('.live').addClass('active');
       }
       if (st > save) {
-        $(".save").addClass("active");
+        $('.save').addClass('active');
       }
       if (st > solve) {
-        $(".solve").addClass("active");
+        $('.solve').addClass('active');
       }
     });
   },
@@ -805,7 +800,7 @@ var channelEvent = {
   },
 
   gallerySwiper: () => {
-    let gallSlider = new Swiper(".gallery_swiper", {
+    let gallSlider = new Swiper('.gallery_swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
       initialSlide: 0,
@@ -814,24 +809,24 @@ var channelEvent = {
       observeParents: true,
       centeredSlides: true,
       navigation: {
-        nextEl: ".gallery_swiper .swiper-button-next",
-        prevEl: ".gallery_swiper .swiper-button-prev",
+        nextEl: '.gallery_swiper .swiper-button-next',
+        prevEl: '.gallery_swiper .swiper-button-prev',
       },
       pagination: {
-        el: ".gallery_swiper .swiper-pagination",
-        type: "fraction",
+        el: '.gallery_swiper .swiper-pagination',
+        type: 'fraction',
         formatFractionCurrent: function (number) {
-          return ("0" + number).slice(-2);
+          return ('0' + number).slice(-2);
         },
         formatFractionTotal: function (number) {
-          return ("0" + number).slice(-2);
+          return ('0' + number).slice(-2);
         },
         renderFraction: function (currentClass, totalClass) {
           return (
             '<span class="' +
             currentClass +
             '"></span>' +
-            " / " +
+            ' / ' +
             '<span class="' +
             totalClass +
             '"></span>'
@@ -842,12 +837,12 @@ var channelEvent = {
   },
 
   adVideo: () => {
-    $(".ad .youtube a").click(function () {
-      $(".ad .video_modal_popup .video-wrapper").remove(),
-        $(".ad .big_video img").hide(),
-        $(".ad .video_modal_popup").append(
+    $('.ad .youtube a').click(function () {
+      $('.ad .video_modal_popup .video-wrapper').remove(),
+        $('.ad .big_video img').hide(),
+        $('.ad .video_modal_popup').append(
           "<div class='video-wrapper'><iframe max-width='900' width='100%' height='506' src='https://youtube.com/embed/" +
-            $(this).data("video") +
+            $(this).data('video') +
             "?rel=0&playsinline=1&autoplay=1$mute=1' allow='autoplay; encrypted-media' allowfullscreen></iframe></div>"
         );
     });
@@ -856,20 +851,20 @@ var channelEvent = {
   awardScroll: () => {
     // 연혁 인터랙션
     $(document).ready(function () {
-      var section = $("._historySection");
-      var sectionOn = $("._historySection.on");
+      var section = $('._historySection');
+      var sectionOn = $('._historySection.on');
       let sectionLength = section.length;
 
       // 연도와 내용 높이값 맞추기
-      section.find(".desc-info").each(function (idx) {
-        let sectionHeight = section.eq(idx).find(".desc-info").height();
+      section.find('.desc-info').each(function (idx) {
+        let sectionHeight = section.eq(idx).find('.desc-info').height();
         section
           .eq(idx)
-          .find(".year-info")
-          .css("height", sectionHeight / 10 + "rem");
+          .find('.year-info')
+          .css('height', sectionHeight / 10 + 'rem');
       });
 
-      $(window).on("scroll resize", function () {
+      $(window).on('scroll resize', function () {
         var currentPosition = $(window).scrollTop();
         var scrollEnd = $(document).height() - $(window).height();
 
@@ -879,40 +874,40 @@ var channelEvent = {
 
         // 연혁 연도 마지막 active일 때, 내용 마지막 active 또는 스크롤 맨 끝 도달 시
         if (
-          $(".tab_contents.on .year-info")
-            .find("li:last-child")
-            .hasClass("active") ||
+          $('.tab_contents.on .year-info')
+            .find('li:last-child')
+            .hasClass('active') ||
           $(window).scrollTop() >= scrollEnd
         ) {
-          $(".tab_contents.on .year-info")
-            .find("li:last-child")
-            .addClass("active");
-          $(".tab_contents.on .year-info")
-            .find("li:not(:last-child)")
-            .removeClass("active");
-          $(".tab_contents.on .desc-info")
-            .find("ul:last-child")
-            .addClass("active");
-          $(".tab_contents.on .desc-info")
-            .find("ul:not(:last-child)")
-            .removeClass("active");
+          $('.tab_contents.on .year-info')
+            .find('li:last-child')
+            .addClass('active');
+          $('.tab_contents.on .year-info')
+            .find('li:not(:last-child)')
+            .removeClass('active');
+          $('.tab_contents.on .desc-info')
+            .find('ul:last-child')
+            .addClass('active');
+          $('.tab_contents.on .desc-info')
+            .find('ul:not(:last-child)')
+            .removeClass('active');
         }
       });
 
       function setHistoryScroll($information) {
         var sectionOffset = $information
-          .find(".desc-info ul")
+          .find('.desc-info ul')
           .eq(0)
           .offset().top;
-        var size = $information.find(".year-info li").length;
+        var size = $information.find('.year-info li').length;
         let gap = 20;
         let gapYear = 120;
         let currentPosition = $(window).scrollTop() + 175;
         let getFixedMargin = 180;
-        let lastUl = $information.find(".desc-info ul").last(); // 연혁 마지막 내용 위치값
+        let lastUl = $information.find('.desc-info ul').last(); // 연혁 마지막 내용 위치값
         let lastBottom = lastUl.offset().top + lastUl.height(); // 연혁 마지막 내용 끝 지점
 
-        $information.find(".year-info li").each(function (index) {
+        $information.find('.year-info li').each(function (index) {
           // 반응형 변수값 교체
           if ($(window).width() < 768) {
             gap = 150;
@@ -924,110 +919,110 @@ var channelEvent = {
           if (currentPosition < sectionOffset) {
             //섹션 이전 화면에서는 absolute상태
             $information
-              .find(".year-info")
-              .css({ top: "auto", position: "absolute", "margin-top": "0" });
+              .find('.year-info')
+              .css({ top: 'auto', position: 'absolute', 'margin-top': '0' });
             $information
-              .find(".year-info ul")
-              .css({ position: "relative", "margin-top": "0" });
+              .find('.year-info ul')
+              .css({ position: 'relative', 'margin-top': '0' });
 
             // 반응형 태블릿 연도 좌우 고정풀기
             if ($(window).width() <= 1400 && $(window).width() > 767) {
               $(window).scroll(function () {
-                $(".year-info").css("left", 0 - $(this).scrollLeft());
+                $('.year-info').css('left', 0 - $(this).scrollLeft());
               });
             } else {
               $(window).scroll(function () {
-                $(".year-info").css("left", "initial");
+                $('.year-info').css('left', 'initial');
               });
             }
           } else if (
-            $information.hasClass("on") &&
+            $information.hasClass('on') &&
             currentPosition > lastBottom &&
             $(window).height() < 851
           ) {
             // 연혁 내용 마지막 위치값 이상 넘어갈 경우 연도 고정
-            $information.find(".year-info").css({
-              top: "auto",
-              bottom: "0",
-              position: "absolute",
-              "margin-top": "0",
+            $information.find('.year-info').css({
+              top: 'auto',
+              bottom: '0',
+              position: 'absolute',
+              'margin-top': '0',
             });
             $information
-              .find(".year-info ul")
-              .css({ position: "absolute", bottom: "50px" });
-            $(".tab_contents .year-info")
-              .find("li:last-child")
-              .addClass("active");
+              .find('.year-info ul')
+              .css({ position: 'absolute', bottom: '50px' });
+            $('.tab_contents .year-info')
+              .find('li:last-child')
+              .addClass('active');
             // $('.tab_contents .year-info').find('li:not(:last-child)').removeClass('active');
           } else {
             //섹션 안으로 들어오면 fixed 상태
             if (size !== index + 1) {
               if (
                 currentPosition >
-                  $information.find(".desc-info ul").eq(index).offset().top -
+                  $information.find('.desc-info ul').eq(index).offset().top -
                     gap &&
                 currentPosition <
                   $information
-                    .find(".desc-info ul")
+                    .find('.desc-info ul')
                     .eq(index + 1)
                     .offset().top -
                     gap
               ) {
-                $information.find(".year-info").css({
-                  top: "0px",
-                  bottom: "auto",
-                  position: "fixed",
-                  "margin-top": "" + getFixedMargin + "px",
+                $information.find('.year-info').css({
+                  top: '0px',
+                  bottom: 'auto',
+                  position: 'fixed',
+                  'margin-top': '' + getFixedMargin + 'px',
                 });
-                $information.find(".year-info ul").css({
-                  "margin-top": "-" + gapYear * index + "px",
-                  position: "relative",
-                  bottom: "unset",
+                $information.find('.year-info ul').css({
+                  'margin-top': '-' + gapYear * index + 'px',
+                  position: 'relative',
+                  bottom: 'unset',
                 });
                 $information
-                  .find(".year-info li")
+                  .find('.year-info li')
                   .eq(index)
-                  .addClass("active")
+                  .addClass('active')
                   .siblings()
-                  .removeClass("active");
+                  .removeClass('active');
                 $information
-                  .find(".desc-info ul")
+                  .find('.desc-info ul')
                   .eq(index)
-                  .addClass("active")
+                  .addClass('active')
                   .siblings()
-                  .removeClass("active");
+                  .removeClass('active');
               }
             } else {
               if (
                 currentPosition >
-                $information.find(".desc-info ul").eq(index).offset().top - gap
+                $information.find('.desc-info ul').eq(index).offset().top - gap
               ) {
                 // 연혁 내용 마지막 위치값 안으로 진입할 경우 연도 fixed
                 if (currentPosition < lastBottom) {
-                  $information.find(".year-info").css({
-                    top: "0",
-                    bottom: "auto",
-                    position: "fixed",
-                    "margin-top": "" + getFixedMargin + "px",
+                  $information.find('.year-info').css({
+                    top: '0',
+                    bottom: 'auto',
+                    position: 'fixed',
+                    'margin-top': '' + getFixedMargin + 'px',
                   });
-                  $information.find(".year-info ul").css({
-                    "margin-top": "-" + gapYear * index + "px",
-                    position: "relative",
-                    bottom: "unset",
+                  $information.find('.year-info ul').css({
+                    'margin-top': '-' + gapYear * index + 'px',
+                    position: 'relative',
+                    bottom: 'unset',
                   });
                 }
                 $information
-                  .find(".desc-info ul")
+                  .find('.desc-info ul')
                   .eq(index)
-                  .addClass("active")
+                  .addClass('active')
                   .siblings()
-                  .removeClass("active");
+                  .removeClass('active');
                 $information
-                  .find(".year-info li")
+                  .find('.year-info li')
                   .eq(index)
-                  .addClass("active")
+                  .addClass('active')
                   .siblings()
-                  .removeClass("active");
+                  .removeClass('active');
               }
             }
           }
@@ -1045,11 +1040,11 @@ var estateEvent = {
   },
 
   historySlider: () => {
-    const board = $(".estBoard").children("li"),
-      estAlert01 = board.find(".block_2depth li:first-child"),
-      estButton = board.find(".block_2depth li:last-child a");
+    const board = $('.estBoard').children('li'),
+      estAlert01 = board.find('.block_2depth li:first-child'),
+      estButton = board.find('.block_2depth li:last-child a');
 
-    var estSlider = new Swiper(".estSlider", {
+    var estSlider = new Swiper('.estSlider', {
       slidesPerView: 3,
       initialSlide: 1,
       spaceBetween: 0,
@@ -1059,106 +1054,106 @@ var estateEvent = {
       observeParents: true,
       centeredSlides: true,
       navigation: {
-        nextEl: ".estNav.swiper-button-next",
-        prevEl: ".estNav.swiper-button-prev",
+        nextEl: '.estNav.swiper-button-next',
+        prevEl: '.estNav.swiper-button-prev',
       },
 
       on: {
         init: function () {
-          board.eq(this.activeIndex).addClass("active");
+          board.eq(this.activeIndex).addClass('active');
         },
         activeIndexChange: function () {
           let idx = this.activeIndex;
-          board.not(":eq(" + idx + ")").removeClass("active");
-          board.eq(idx).addClass("active");
+          board.not(':eq(' + idx + ')').removeClass('active');
+          board.eq(idx).addClass('active');
         },
       },
     });
 
     estAlert01.each((index) => {
-      let data = estAlert01.eq(index).attr("data-process");
+      let data = estAlert01.eq(index).attr('data-process');
 
       if (data == 0) {
-        estAlert01.eq(index).css({ background: "#005eb8" }).text("분양중");
+        estAlert01.eq(index).css({ background: '#005eb8' }).text('분양중');
       } else if (data == 1) {
-        estAlert01.eq(index).css({ background: "#888888" }).text("분양완료");
+        estAlert01.eq(index).css({ background: '#888888' }).text('분양완료');
       } else if (data == 2) {
         estAlert01
           .eq(index)
           .css({
-            background: "#fff",
-            border: "1px solid #005eb8",
-            color: "#005eb8",
+            background: '#fff',
+            border: '1px solid #005eb8',
+            color: '#005eb8',
           })
-          .text("분양예정");
+          .text('분양예정');
       }
     });
 
     estButton.hover(
       function () {
-        $(this).find("img:first-child").removeClass("on");
-        $(this).find("img:last-child").addClass("on");
+        $(this).find('img:first-child').removeClass('on');
+        $(this).find('img:last-child').addClass('on');
       },
       function () {
-        $(this).find("img:last-child").removeClass("on");
-        $(this).find("img:first-child").addClass("on");
+        $(this).find('img:last-child').removeClass('on');
+        $(this).find('img:first-child').addClass('on');
       }
     );
   },
 
   estList: () => {
-    const estlist = $(".estList").find("> ul > li"),
-      estAlert02 = estlist.children("p"),
-      estSearchBar = $(".estSearch").children("ul"),
-      personalColor = ["#005eb8", "#888888", "#f5f5f5", "#005eb8"];
+    const estlist = $('.estList').find('> ul > li'),
+      estAlert02 = estlist.children('p'),
+      estSearchBar = $('.estSearch').children('ul'),
+      personalColor = ['#005eb8', '#888888', '#f5f5f5', '#005eb8'];
     //   icon = [/* 'list_homepage_icon.png', 'list_homepage_icon_hover.png',  */'list_map_icon.png', 'list_map_icon_hover.png'];
 
     estAlert02.each((index) => {
-      data = estAlert02.eq(index).attr("data-process");
-      let dataButton = estAlert02.eq(index).siblings("a");
+      data = estAlert02.eq(index).attr('data-process');
+      let dataButton = estAlert02.eq(index).siblings('a');
 
       // set process
       if (data == 0) {
         estAlert02
           .eq(index)
-          .css({ background: +"" + personalColor[0] + "", color: "#fff" })
-          .text("분양중");
+          .css({ background: +'' + personalColor[0] + '', color: '#fff' })
+          .text('분양중');
       } else if (data == 1) {
         estAlert02
           .eq(index)
           .css({
-            border: "1px solid " + personalColor[1] + "",
+            border: '1px solid ' + personalColor[1] + '',
             color: personalColor[1],
           })
-          .text("분양완료");
+          .text('분양완료');
       } else if (data == 2) {
         estAlert02
           .eq(index)
           .css({
-            background: "#fff",
-            border: "1px solid " + personalColor[0] + "",
+            background: '#fff',
+            border: '1px solid ' + personalColor[0] + '',
             color: personalColor[0],
           })
-          .text("분양예정");
+          .text('분양예정');
       } else if (data == 3) {
         estAlert02
           .eq(index)
-          .css({ background: +"" + personalColor[1] + "", color: "#fff" })
-          .text("공사중");
+          .css({ background: +'' + personalColor[1] + '', color: '#fff' })
+          .text('공사중');
       } else if (data == 4) {
         estAlert02
           .eq(index)
-          .css({ background: +"" + personalColor[0] + "", color: "#fff" })
-          .text("입주중");
+          .css({ background: +'' + personalColor[0] + '', color: '#fff' })
+          .text('입주중');
       } else if (data == 5) {
         estAlert02
           .eq(index)
           .css({
-            background: "#fff",
-            border: "1px solid " + personalColor[0] + "",
+            background: '#fff',
+            border: '1px solid ' + personalColor[0] + '',
             color: personalColor[0],
           })
-          .text("입주예정");
+          .text('입주예정');
       }
 
       // // set icon
@@ -1179,38 +1174,38 @@ var estateEvent = {
     });
 
     // option spread
-    if ($("#pc").length) {
-      estSearchBar.find("> li p").click(() => {
-        estSearchBar.toggleClass("active");
+    if ($('#pc').length) {
+      estSearchBar.find('> li p').click(() => {
+        estSearchBar.toggleClass('active');
       });
     } else {
-      if (estSearchBar.hasClass(".active")) {
-        $(this).css("transition-duration", ".5s").addClass("dd");
+      if (estSearchBar.hasClass('.active')) {
+        $(this).css('transition-duration', '.5s').addClass('dd');
       } else {
       }
-      if ($("#mobile .mob_select").length) {
-        estSearchBar.find(".mob_select").click(() => {
-          estSearchBar.toggleClass("active");
+      if ($('#mobile .mob_select').length) {
+        estSearchBar.find('.mob_select').click(() => {
+          estSearchBar.toggleClass('active');
 
-          if (estSearchBar.hasClass("active")) {
-            $(".mob_select").text("상세검색 닫기");
+          if (estSearchBar.hasClass('active')) {
+            $('.mob_select').text('상세검색 닫기');
           } else {
-            $(".mob_select").text("상세검색 열기");
+            $('.mob_select').text('상세검색 열기');
           }
         });
       } else {
-        estSearchBar.find("> li p").click(() => {
-          estSearchBar.toggleClass("active");
+        estSearchBar.find('> li p').click(() => {
+          estSearchBar.toggleClass('active');
         });
       }
     }
 
     // option data getter
-    $(".estSearch .block_2depth > li").on("click", function () {
-      $(this).toggleClass("on");
+    $('.estSearch .block_2depth > li').on('click', function () {
+      $(this).toggleClass('on');
 
-      let data = $(this).attr("data-process");
-      console.log("data control | " + data);
+      let data = $(this).attr('data-process');
+      console.log('data control | ' + data);
     });
 
     // effect chenge icon when each list hovering
@@ -1245,8 +1240,8 @@ var estateEvent = {
   },
 
   estTab: () => {
-    $("#pc .estate nav li a").on("click", function () {
-      $("header").addClass("indent");
+    $('#pc .estate nav li a').on('click', function () {
+      $('header').addClass('indent');
     });
   },
 };
@@ -1259,42 +1254,42 @@ var csEvent = {
   },
 
   faqToggle: function () {
-    $(".que").click(function () {
-      $(this).next(".ans").stop().slideToggle(300);
-      $(this).toggleClass("on").siblings().removeClass("on");
-      $(this).next(".ans").siblings(".ans").slideUp(300);
+    $('.que').click(function () {
+      $(this).next('.ans').stop().slideToggle(300);
+      $(this).toggleClass('on').siblings().removeClass('on');
+      $(this).next('.ans').siblings('.ans').slideUp(300);
     });
   },
 
   inqEmail: function () {
     //selectbox
-    var selectType = $(".select_row>select");
-    selectType.addClass("selectBox");
+    var selectType = $('.select_row>select');
+    selectType.addClass('selectBox');
     selectChange(selectType);
     function selectChange(type) {
       type.change(function () {
-        var select_name = $(this).children("option:selected").text();
-        $(this).siblings("label").text(select_name);
+        var select_name = $(this).children('option:selected').text();
+        $(this).siblings('label').text(select_name);
 
-        if (select_name === "직접입력") {
-          $(this).parent().siblings($("#selboxDirect")).show();
+        if (select_name === '직접입력') {
+          $(this).parent().siblings($('#selboxDirect')).show();
         } else {
-          $(this).parent().siblings($("#selboxDirect")).hide();
+          $(this).parent().siblings($('#selboxDirect')).hide();
         }
       });
     }
   },
 
   DirectSelect: function () {
-    var selectType = $("#find_complex");
+    var selectType = $('#find_complex');
     selectChange(selectType);
     function selectChange(type) {
       type.change(function () {
-        var select_name = $(this).siblings("label").text();
-        if (select_name === "직접입력") {
-          $(this).parent().siblings($("#selboxDirect")).show();
+        var select_name = $(this).siblings('label').text();
+        if (select_name === '직접입력') {
+          $(this).parent().siblings($('#selboxDirect')).show();
         } else {
-          $(this).parent().siblings($("#selboxDirect")).hide();
+          $(this).parent().siblings($('#selboxDirect')).hide();
         }
       });
     }
@@ -1312,57 +1307,57 @@ var myWeveEvent = {
     this.selLabelColor();
   },
   loginbtn: () => {
-    $(".get_authenNumber").click(function () {
-      $(this).addClass("active");
-      $(".login_area").show(200);
+    $('.get_authenNumber').click(function () {
+      $(this).addClass('active');
+      $('.login_area').show(200);
     });
   },
 
   listNoData: () => {
-    const contWrap = $(".cont_wrap").find("ol");
+    const contWrap = $('.cont_wrap').find('ol');
 
     contWrap.each((index) => {
-      let contData = contWrap.eq(index).find("li a");
+      let contData = contWrap.eq(index).find('li a');
 
       contData.each((index) => {
-        if (contData.eq(index).html() == "") {
-          contData.eq(index).addClass("empty");
+        if (contData.eq(index).html() == '') {
+          contData.eq(index).addClass('empty');
         }
       });
 
-      if (contWrap.eq(index).find("li a:not(.empty)").length === 0) {
-        contData.not(":eq(0)").parent().remove();
-        contData.eq(0).toggleClass("empty no_data");
+      if (contWrap.eq(index).find('li a:not(.empty)').length === 0) {
+        contData.not(':eq(0)').parent().remove();
+        contData.eq(0).toggleClass('empty no_data');
 
-        contWrap.eq(index).find(".no_data").text("예약하신 내역이 없습니다.");
+        contWrap.eq(index).find('.no_data').text('예약하신 내역이 없습니다.');
       }
     });
   },
 
   checkbox: () => {
-    $(".contract_info .checkbox input").change(function () {
-      $(this).closest("tr").siblings("tr").removeClass("on");
-      $(this).closest("tr").addClass("on");
+    $('.contract_info .checkbox input').change(function () {
+      $(this).closest('tr').siblings('tr').removeClass('on');
+      $(this).closest('tr').addClass('on');
     });
   },
 
   subTab: () => {
-    const tabContainer = $("#mobile .tab_box > .inner"),
-      tabBox = tabContainer.find("> .tab_slide"),
-      tabButton = tabBox.find("> li");
+    const tabContainer = $('#mobile .tab_box > .inner'),
+      tabBox = tabContainer.find('> .tab_slide'),
+      tabButton = tabBox.find('> li');
 
     let size = tabButton.length,
       tbIndex = 0;
 
     if (tabBox.length) {
       $(document).ready(function () {
-        let tbOn = Math.floor(tabBox.find("> li.on").position().left),
+        let tbOn = Math.floor(tabBox.find('> li.on').position().left),
           tbWidth = tabButton.width();
 
         tabContainer.animate({ scrollLeft: tbOn - tbWidth }, 1000);
       });
 
-      tabContainer.on("load resize scroll", () => {
+      tabContainer.on('load resize scroll', () => {
         tabBoxPosition = Math.abs(tabBox.position().left);
 
         tabButton.each((index) => {
@@ -1387,7 +1382,7 @@ var myWeveEvent = {
 
   const_popup: () => {
     if ($(window).width() > 768) {
-      var popTab = new Swiper(".const_status .pop_tab", {
+      var popTab = new Swiper('.const_status .pop_tab', {
         slidesPerView: 6,
         slidesPerGroup: 6,
         spaceBetween: 0,
@@ -1396,8 +1391,8 @@ var myWeveEvent = {
         observer: true,
         observeParents: true,
         navigation: {
-          nextEl: ".pop_tab_wrap .swiper-button-next",
-          prevEl: ".pop_tab_wrap .swiper-button-prev",
+          nextEl: '.pop_tab_wrap .swiper-button-next',
+          prevEl: '.pop_tab_wrap .swiper-button-prev',
         },
         breakpoints: {
           768: {
@@ -1412,31 +1407,31 @@ var myWeveEvent = {
     } else {
     }
 
-    var popSwiper = new Swiper(".const_status .tab_contents .img_slide", {
+    var popSwiper = new Swiper('.const_status .tab_contents .img_slide', {
       slidesPerView: 1,
       spaceBetween: 0,
       speed: 500,
       observer: true,
       observeParents: true,
       navigation: {
-        nextEl: ".imgswiper_wrap .swiper-button-next",
-        prevEl: ".imgswiper_wrap .swiper-button-prev",
+        nextEl: '.imgswiper_wrap .swiper-button-next',
+        prevEl: '.imgswiper_wrap .swiper-button-prev',
       },
       pagination: {
-        el: ".imgswiper_wrap .swiper-pagination",
-        type: "fraction",
+        el: '.imgswiper_wrap .swiper-pagination',
+        type: 'fraction',
         formatFractionCurrent: function (number) {
-          return ("0" + number).slice(-2);
+          return ('0' + number).slice(-2);
         },
         formatFractionTotal: function (number) {
-          return ("0" + number).slice(-2);
+          return ('0' + number).slice(-2);
         },
         renderFraction: function (currentClass, totalClass) {
           return (
             '<span class="' +
             currentClass +
             '"></span>' +
-            " / " +
+            ' / ' +
             '<span class="' +
             totalClass +
             '"></span>'
@@ -1445,59 +1440,59 @@ var myWeveEvent = {
       },
     });
 
-    $(".pop_tab ul li").on("click", function () {
-      $(".pop_tab ul li").removeClass("on");
-      $(this).addClass("on");
+    $('.pop_tab ul li').on('click', function () {
+      $('.pop_tab ul li').removeClass('on');
+      $(this).addClass('on');
       popSwiper.slideTo(0);
     });
 
-    $(".contract_info .openPopup ").on("click", function () {
-      $(".contract_info .const_status").show();
-      let totalPercent = $(".top .progress_wrap p b").text(),
-        currPercent = $(".tab_con .progress_bar .current_bar .num").text();
+    $('.contract_info .openPopup ').on('click', function () {
+      $('.contract_info .const_status').show();
+      let totalPercent = $('.top .progress_wrap p b').text(),
+        currPercent = $('.tab_con .progress_bar .current_bar .num').text();
       console.log();
 
-      $(".popup .const_status .top .progress_wrap .progress_bar span").css(
-        "width",
+      $('.popup .const_status .top .progress_wrap .progress_bar span').css(
+        'width',
         totalPercent
       );
-      $(".popup .const_status .tab_con .progress_bar .current_bar").css(
-        "width",
+      $('.popup .const_status .tab_con .progress_bar .current_bar').css(
+        'width',
         currPercent
       );
     });
 
-    $(".contract_info .pop_close ").on("click", function () {
-      $(".popup .const_status .top .progress_wrap .progress_bar span").css(
-        "width",
-        "0"
+    $('.contract_info .pop_close ').on('click', function () {
+      $('.popup .const_status .top .progress_wrap .progress_bar span').css(
+        'width',
+        '0'
       );
-      $(".popup .const_status .tab_con .progress_bar .current_bar").css(
-        "width",
-        "0"
+      $('.popup .const_status .tab_con .progress_bar .current_bar').css(
+        'width',
+        '0'
       );
     });
   },
 
   modEmail: () => {
     //selectbox
-    var selectType = $("#email_self");
+    var selectType = $('#email_self');
     // selectType.addClass("selectBox");
     selectChange(selectType);
     function selectChange(type) {
       type.change(function () {
-        var select_name = selectType.children("option:selected").text();
-        console.log("select_name" + $(select_name));
-        $(this).siblings("label").text(select_name);
+        var select_name = selectType.children('option:selected').text();
+        console.log('select_name' + $(select_name));
+        $(this).siblings('label').text(select_name);
 
-        if (select_name === "직접입력") {
-          $("#selboxDirect").show();
-          $(".email_cell").addClass("has_sel");
-          $("#email_self").siblings("label").css("color", "#b2b2b2");
+        if (select_name === '직접입력') {
+          $('#selboxDirect').show();
+          $('.email_cell').addClass('has_sel');
+          $('#email_self').siblings('label').css('color', '#b2b2b2');
         } else {
-          $("#selboxDirect").hide();
-          $(".email_cell").removeClass("has_sel");
-          $("#email_self").siblings("label").css("color", "#555");
+          $('#selboxDirect').hide();
+          $('.email_cell').removeClass('has_sel');
+          $('#email_self').siblings('label').css('color', '#555');
         }
       });
     }
@@ -1515,14 +1510,14 @@ var datepicker = {
     this.reservation();
   },
   reservation: () => {
-    "use strict";
+    'use strict';
     // 팝업 스크롤 블록 개별 제어
     let scrollPosition = 0;
-    $(window).on("scroll", () => {
+    $(window).on('scroll', () => {
       scrollPosition = window.pageYOffset;
     });
 
-    $("#datepicker").datetimepicker({
+    $('#datepicker').datetimepicker({
       // **jquery.datetimepicker.full.js 파일
 
       // 팝업영역 외부 클릭시 꺼지는 현상 2319줄 주석처리
@@ -1531,26 +1526,26 @@ var datepicker = {
       // 모바일일 경우 팝업 박스 "position: relative" 2214~ 2216 줄 코드 추가
 
       allowTimes: [
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
+        '10:00',
+        '11:00',
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
       ],
     });
 
     $(document).ready(() => {
       // 기존 datepikcer 삭제 (중복 방지)
-	    $('.popup .xdsoft_datetimepicker').remove();
+      $('.popup .xdsoft_datetimepicker').remove();
 
       // jquery.datetimepicker.full.js 파일 1948줄 .book_tag 추가
-      const dateSheet = $(".xdsoft_datetimepicker"),
-        dateChildren = dateSheet.children("div"),
-        booktag = $(".xdsoft_time_box .xdsoft_time .book_tag");
+      const dateSheet = $('.xdsoft_datetimepicker'),
+        dateChildren = dateSheet.children('div'),
+        booktag = $('.xdsoft_time_box .xdsoft_time .book_tag');
 
-      dateSheet.appendTo(".popup");
+      dateSheet.appendTo('.popup');
       dateChildren.eq(0).wrap("<div class='datepicker_wrap'></div>");
       dateChildren.eq(1).wrap("<div class='timepicker_wrap'></div>");
       dateChildren.parent().prepend("<div class='picker_tit'></div>");
@@ -1559,17 +1554,17 @@ var datepicker = {
         '<div class="btn_line"><a href="javascript:;">예약일시 선택하기</a></div>'
       );
 
-      let selection = $(".picker_tit");
+      let selection = $('.picker_tit');
 
-      selection.eq(0).html("<b>01.</b> 방문 희망일자 선택");
-      selection.eq(1).html("<b>02.</b> 방문 희망시간 선택");
+      selection.eq(0).html('<b>01.</b> 방문 희망일자 선택');
+      selection.eq(1).html('<b>02.</b> 방문 희망시간 선택');
 
-      $("#datepicker").on("click", function () {
+      $('#datepicker').on('click', function () {
         openProcessor();
       });
 
-      $(".pop_close, .xdsoft_datetimepicker .btn_line > a").on(
-        "click",
+      $('.pop_close, .xdsoft_datetimepicker .btn_line > a').on(
+        'click',
         function () {
           closeProcessor();
         }
@@ -1580,34 +1575,34 @@ var datepicker = {
         scrollPosition = window.pageYOffset;
 
         dateSheet.fadeIn(300);
-        $(".pop_close").prependTo(dateSheet);
-        $(".pop_close").addClass("mov_datepicker");
-        $(".const_status").hide();
+        $('.pop_close').prependTo(dateSheet);
+        $('.pop_close').addClass('mov_datepicker');
+        $('.const_status').hide();
 
-        $(".popup").addClass("on");
-        $("html").addClass("blockScroll");
+        $('.popup').addClass('on');
+        $('html').addClass('blockScroll');
 
-        $("body").css({ top: `-${scrollPosition}px` });
-        $("header").hide();
+        $('body').css({ top: `-${scrollPosition}px` });
+        $('header').hide();
       }
 
       // 팝업 닫기 function
       function closeProcessor() {
         dateSheet.fadeOut(300);
-        $(".pop_close").prependTo($(".const_status"));
-        $(".pop_close").removeClass("mov_datepicker");
+        $('.pop_close').prependTo($('.const_status'));
+        $('.pop_close').removeClass('mov_datepicker');
 
-        $("html").removeClass("blockScroll");
-        $(".popup").removeClass("on");
+        $('html').removeClass('blockScroll');
+        $('.popup').removeClass('on');
 
-        scrollPosition = $("body").css("top");
-        scrollPosition = scrollPosition.replace("px", "");
+        scrollPosition = $('body').css('top');
+        scrollPosition = scrollPosition.replace('px', '');
 
         window.scrollTo(0, -scrollPosition);
         setTimeout(() => {
-          $("body").removeProp("top");
+          $('body').removeProp('top');
         }, 300);
-        $("header").show();
+        $('header').show();
       }
     });
   },
@@ -1622,11 +1617,11 @@ var weve5Concept = {
   },
   carousel: () => {
     //Mouse-drag
-    document.querySelectorAll('.carousel').forEach(carousel => {
+    document.querySelectorAll('.carousel').forEach((carousel) => {
       let isDown = false;
       let startX;
       let scrollLeft;
-    
+
       // when the mouse is clicked
       carousel.addEventListener('mousedown', (e) => {
         isDown = true;
@@ -1634,12 +1629,12 @@ var weve5Concept = {
         scrollLeft = carousel.scrollLeft;
         cancelMomentumTracking();
       });
-    
+
       // if the mouse cursor goes off the slide
       carousel.addEventListener('mouseleave', () => {
         isDown = false;
       });
-    
+
       // after mouse click is released
       carousel.addEventListener('mouseup', (e) => {
         isDown = false;
@@ -1648,55 +1643,54 @@ var weve5Concept = {
         // ***드래그가 끝난 후 마우스를 떼면 클릭방지 클래스를 삭제.
         $('.carousel-item').removeClass('preventClick');
       });
-    
+
       carousel.addEventListener('mousemove', (e) => {
         if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - carousel.offsetLeft;
-          const walk = (x - startX) * 1;
-          var prevScrollLeft = carousel.scrollLeft;
-          carousel.scrollLeft = scrollLeft - walk;
-          velX = carousel.scrollLeft - prevScrollLeft;
-          console.log('e.pageX'+x);
-          // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
-          $('.carousel-item').addClass('preventClick');
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1;
+        var prevScrollLeft = carousel.scrollLeft;
+        carousel.scrollLeft = scrollLeft - walk;
+        velX = carousel.scrollLeft - prevScrollLeft;
+        console.log('e.pageX' + x);
+        // ***스크롤 드래그할 경우 자식요소에 전부 클릭 방지 css를 담은 클래스를 넣는다.
+        $('.carousel-item').addClass('preventClick');
       });
-    
+
       // Momentum
       let velX = 0;
       let momentumID;
-    
+
       // disable mouse wheel
       carousel.addEventListener('wheel', (e) => {
         cancelMomentumTracking();
       });
-    
+
       function beginMomentumTracking() {
         cancelMomentumTracking();
         momentumID = requestAnimationFrame(momentumLoop);
       }
-    
+
       function cancelMomentumTracking() {
         cancelAnimationFrame(momentumID);
       }
-    
+
       function momentumLoop() {
         carousel.scrollLeft += velX;
         velX *= 0.9;
-        
+
         if (Math.abs(velX) > 0.5) {
           momentumID = requestAnimationFrame(momentumLoop);
         }
       }
-    
+
       let carouselChildren = document.querySelectorAll('.carousel-item');
-      carouselChildren.forEach(carouselChild => {
+      carouselChildren.forEach((carouselChild) => {
         // add the condition to check if the carousel is being dragged
-        carouselChild.addEventListener('click', function(event) {
+        carouselChild.addEventListener('click', function (event) {
           event.stopPropagation();
           event.preventDefault();
-        
-    
+
           let lateTransition = $(this).find('li').length;
           if (!$(this).hasClass('on')) {
             for (var i = 1; i <= lateTransition; i++) {
@@ -1710,26 +1704,23 @@ var weve5Concept = {
           $(this).toggleClass('on');
           $('.carousel-item').not($(this)).removeClass('on');
 
-          if($('#pc .carousel-item').hasClass('on')){
-            $('#pc .carousel').css('justify-content','initial');
-          }else {
-            $('#pc .carousel').css('justify-content','center');
+          if ($('#pc .carousel-item').hasClass('on')) {
+            $('#pc .carousel').css('justify-content', 'initial');
+          } else {
+            $('#pc .carousel').css('justify-content', 'center');
           }
         });
-
       });
     });
 
-    $('.carousel-item').on('click', function() {
-      
+    $('.carousel-item').on('click', function () {
       let cWidth = $(this).find('.desc').outerWidth(),
           cMargin = $(this).css('margin-left').replace(/[^-\d\.]/g, ''),      
-          cIndex = $(this).index() + 1;
+        cIndex = $(this).index() + 1;
 
       if ($(this).hasClass("on")) {
         $('.carousel').animate({ scrollLeft: (cWidth + (cMargin * 2)) * cIndex - cWidth}, 500);
       }
-      
 
       // if ($(this).hasClass("prev")) {
       //   tsMove = Math.floor(tabButton.eq(tbIndex).position().left);
@@ -1750,16 +1741,14 @@ var weve5Concept = {
       //   tsMove = Math.floor(tabButton.eq(tbIndex).next().position().left);
       //   tabContainer.animate({ scrollLeft: tsMove }, 200);
       // }
-    })
+    });
 
-    $('.carousel-item>ul>.desc').on('mouseenter', function() {
-      $(this).addClass('on'); 
-    })
-
+    $('.carousel-item>ul>.desc').on('mouseenter', function () {
+      $(this).addClass('on');
+    });
   },
 
   tabContent: () => {
-
     //list가 6개 이상일 때, pagination
     let subTabList = $('.concept5 .s4_cont.active .sub_tab>ul>li');
     let subTabListLength = $(subTabList).length;
@@ -1774,23 +1763,23 @@ var weve5Concept = {
     }
 
     //메인 탭
-    $('.concept5 .s4_tab>ul>li').on('click',function(){
+    $('.concept5 .s4_tab>ul>li').on('click', function () {
       $('.concept5 .s4_tab>ul>li').removeClass('active');
       $(this).addClass('active');
-      
-      var idx = $(this).index()+1;
+
+      var idx = $(this).index() + 1;
       $('.s4_cont').removeClass('active');
-      $('.s4_cont0'+idx).addClass('active');
+      $('.s4_cont0' + idx).addClass('active');
       $('.img_cont').removeClass('on');
       $('.img_cont00').addClass('on');
       $('.sub_tab>ul>li').removeClass('on');
-      
-      if($('#pc').length){
+
+      if ($('#pc').length) {
         $('.s4_cont .sub_tab_pagination>span').removeClass('active');
         $('.s4_cont0'+idx+' .sub_tab_pagination>span').eq(0).addClass('active');
 
-        
-        if($('.concept5_01 .s4_cont02').hasClass('active')){ //센트럴계양 live 5개만 보이게
+        if ($('.concept5_01 .s4_cont02').hasClass('active')) {
+          //센트럴계양 live 5개만 보이게
           console.log('cont222');
           $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li').css('display','none');
           $('.concept5_01 .s4_cont02 .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+5)').css('display','flex');
@@ -1798,18 +1787,18 @@ var weve5Concept = {
           $('.s4_cont .sub_tab').find('ul>li').css('display','none');
           $('.s4_cont .sub_tab').find('ul>li:nth-child(n+1):nth-child(-n+6)').css('display','flex');
         }
-      }else {
+      } else {
         $('.mob_icon_tab>ul>li').removeClass('on');
       }
     });
-    
+
     //서브 탭 pagination
-    $('.concept5 .sub_tab_pagination>span').on('click',function(){
+    $('.concept5 .sub_tab_pagination>span').on('click', function () {
       $(this).addClass('active');
       $(this).siblings().removeClass('active');
 
-      var idx = $(this).index()+1,
-          listUl = $(this).parents('.sub_tab_pagination').siblings('.sub_tab'),
+      var idx = $(this).index() + 1,
+        listUl = $(this).parents('.sub_tab_pagination').siblings('.sub_tab'),
           startN = 6*idx-5,
           endN = 6*idx;
       if($('#pc').length){
@@ -1826,119 +1815,119 @@ var weve5Concept = {
           $(listUl).find('li').css('display','none');
           $(listUl).find('li:nth-child(n+'+startN+'):nth-child(-n+'+endN+')').css('display','flex');
         }
-      }else {
-
+      } else {
       }
     });
 
     //서브 탭
-    $('.concept5 .sub_tab>ul>li').on('mouseover',function(){
+    $('.concept5 .sub_tab>ul>li').on('mouseover', function () {
       $(this).addClass('on');
       $(this).siblings().removeClass('on');
 
-      var idx = $(this).index()+1;
+      var idx = $(this).index() + 1;
       var idx0 = String(idx).padStart(2, '0');
       $('.img_cont').removeClass('on');
-      $('.img_cont'+idx0).addClass('on');
+      $('.img_cont' + idx0).addClass('on');
       $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
-      $('.concept5 .mob_icon_tab>ul>li:nth-child('+idx+')').addClass('on');
+      $('.concept5 .mob_icon_tab>ul>li:nth-child(' + idx + ')').addClass('on');
 
       //모바일 아이콘 해당 아이콘으로 스크롤 이동
       var _this = $(this).parents('.sub_tab').siblings('.mob_icon_slide'),
-          _width = $(_this).find('li').width(),
-          _index = $(_this).find('.on').index();
+        _width = $(_this).find('li').width(),
+        _index = $(_this).find('.on').index();
 
-      if(_index>=0 && _index <6){
+      if (_index >= 0 && _index < 6) {
         $('.mob_icon_slide').scrollLeft(0);
       }
-      if(_index>=6 && _index<12){
-        $('.mob_icon_slide').scrollLeft(_width*6);
+      if (_index >= 6 && _index < 12) {
+        $('.mob_icon_slide').scrollLeft(_width * 6);
       }
-      if(_index>=12 && _index<18){
-        $('.mob_icon_slide').scrollLeft(_width*12);
+      if (_index >= 12 && _index < 18) {
+        $('.mob_icon_slide').scrollLeft(_width * 12);
       }
-                
     });
 
     //모바일 아이콘 탭
-    $('.mob_icon_tab>ul>li').hover(function() { 
-      var idx3 = $(this).index()+1;
-      var idx03 = String(idx3).padStart(2, '0');
-      $('.mob_icon_tab>ul>li').removeClass('on');
-      $(this).addClass('on');
-      $('.img_cont').removeClass('on');
-      $('.img_cont'+idx03).addClass('on');
-      $('.concept5 .sub_tab>ul>li').removeClass('on');
-      $(".concept5 .sub_tab>ul>li:nth-child("+idx3+")").addClass('on');
-    }, function() {
-      $('.concept5 .sub_tab>ul>li').removeClass('on');
-      $('.img_cont').removeClass('on');
-      $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
-      $('.img_cont00').addClass('on');
-    });
-
+    $('.mob_icon_tab>ul>li').hover(
+      function () {
+        var idx3 = $(this).index() + 1;
+        var idx03 = String(idx3).padStart(2, '0');
+        $('.mob_icon_tab>ul>li').removeClass('on');
+        $(this).addClass('on');
+        $('.img_cont').removeClass('on');
+        $('.img_cont' + idx03).addClass('on');
+        $('.concept5 .sub_tab>ul>li').removeClass('on');
+        $('.concept5 .sub_tab>ul>li:nth-child(' + idx3 + ')').addClass('on');
+      },
+      function () {
+        $('.concept5 .sub_tab>ul>li').removeClass('on');
+        $('.img_cont').removeClass('on');
+        $('.concept5 .mob_icon_tab>ul>li').removeClass('on');
+        $('.img_cont00').addClass('on');
+      }
+    );
   },
 
   textAnimate: () => {
-    $(window).scroll(function(){
-      const ss2 = $(".concept5 .section2").offset().top - 500,
-      ss3 = $(".concept5 .section3").offset().top - 300,
-      ss4 = $(".concept5 .section4").offset().top - 500,
-      ss5 = $(".concept5 .section5").offset().top - 500,
-      st = $(window).scrollTop();
+    $(window).scroll(function () {
+      const ss2 = $('.concept5 .section2').offset().top - 500,
+        ss3 = $('.concept5 .section3').offset().top - 300,
+        ss4 = $('.concept5 .section4').offset().top - 500,
+        ss5 = $('.concept5 .section5').offset().top - 500,
+        st = $(window).scrollTop();
 
       if (st > ss2) {
-        $(".concept5 .section2").addClass("active");
+        $('.concept5 .section2').addClass('active');
       }
       if (st > ss3) {
-        $(".concept5 .section3").addClass("active");
+        $('.concept5 .section3').addClass('active');
       }
       if (st > ss4) {
-        $(".concept5 .section4").addClass("active");
+        $('.concept5 .section4').addClass('active');
       }
       if (st > ss5) {
-        $(".concept5 .section5").addClass("active");
+        $('.concept5 .section5').addClass('active');
       }
     });
   },
 
   menuTab: () => {
-    const subMenu = document.querySelector(".concept5 .section1_menu");
-  
-    if ($(".concept5 .section1_menu").length) {
+    const subMenu = document.querySelector('.concept5 .section1_menu');
+
+    if ($('.concept5 .section1_menu').length) {
       let fixMenu = subMenu.offsetTop;
 
-      $(window).on("scroll", function () {
+      $(window).on('scroll', function () {
         let st = $(window).scrollTop();
 
         if (st >= fixMenu) {
-          subMenu.classList.add("fixed");
+          subMenu.classList.add('fixed');
         } else {
-          subMenu.classList.remove("fixed");
+          subMenu.classList.remove('fixed');
         }
-
       });
 
-      if ($("#mobile").length) {
-        $(".concept5 .section1_menu .mb").click(function(){
+      if ($('#mobile').length) {
+        $('.concept5 .section1_menu .mb').click(function () {
           $(this).parent().toggleClass('open');
         });
       }
 
       let before = 0;
-      window.addEventListener("scroll", (ev) => {
-        if (before < window.scrollY) { //mouse down
-          $("header").addClass("indentUp");
+      window.addEventListener('scroll', (ev) => {
+        if (before < window.scrollY) {
+          //mouse down
+          $('header').addClass('indentUp');
           before = window.scrollY;
-        } else if (before > window.scrollY) { //mouse up
-          if(window.scrollY>=fixMenu - 100){
-            $("header").addClass("indentUp");
-          }else {
-            $("header").removeClass("indentUp");
+        } else if (before > window.scrollY) {
+          //mouse up
+          if (window.scrollY >= fixMenu - 100) {
+            $('header').addClass('indentUp');
+          } else {
+            $('header').removeClass('indentUp');
           }
           before = window.scrollY;
         }
-
       });
     }
   },
@@ -1948,15 +1937,18 @@ var privEvent = {
   init: function () {
     this.scrollMotion();
 
-    if($(window).width()<=768) {
+    if ($(window).width() <= 768) {
       this.privMSwiper();
+      ScrollTrigger.config({
+        autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
+      });
     }
   },
 
   privMSwiper: () => {
-    var $sections = document.querySelectorAll(".privilege .section");
-    $sections.forEach((item, index)=>{
-      let privSlider = new Swiper(item.querySelector(".con_list"), {
+    var $sections = document.querySelectorAll('.privilege .section');
+    $sections.forEach((item, index) => {
+      let privSlider = new Swiper(item.querySelector('.con_list'), {
         slidesPerView: 3,
         grid: {
           rows: 2,
@@ -1968,20 +1960,32 @@ var privEvent = {
         speed: 1000,
         // allowTouchMove: true,
         pagination: {
-          el: item.querySelector(".swiper-pagination"),
+          el: item.querySelector('.swiper-pagination'),
           clickable: true,
         },
       });
     });
   },
 
-  scrollMotion: ()=> {
-
+  scrollMotion: () => {
+    let scrollLeft = 0;
+    let lastScrollPosition = window.pageYOffset;
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
-    $(window).on("scroll", function () {
-      var scrollLeft = $(this).scrollLeft();
-      $(".privilege, .privilege .section00, .privilege .section, .privilege .section.active").css("left", -scrollLeft);
-      $(".privilege .pin-spacer").css("left", scrollLeft);
+    $(window).on('scroll', function () {
+      scrollLeft = $(this).scrollLeft();
+      lastScrollPosition = window.pageYOffset;
+      gsap.set('.section.active, .section00.active, .section06', {
+        left: '-' + scrollLeft + 'px',
+      });
+    });
+
+    // 리사이즈 이벤트 핸들러 추가
+    window.addEventListener("resize", function() {
+      gsap.to(window, {
+        scrollTo: {
+          y: lastScrollPosition,
+        },
+      });
     });
 
     gsap.registerPlugin(ScrollToPlugin);
@@ -1998,82 +2002,95 @@ var privEvent = {
         // fastScrollEnd: true,
         // preventOverlaps: true,
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
-        onUpdate: function(scrollTrigger) {
+        onEnter: (self) => {
+          $(self.trigger).addClass('active');
+        },
+        onEnterBack: (self) => {
+          $(self.trigger).addClass('active');
+        },
+        onLeave: function (self) {
+          $(self.trigger).removeClass('active');
+        },
+        onLeaveBack: function (self) {
+          $(self.trigger).removeClass('active');
+        },
+        onUpdate: function (scrollTrigger) {
           var progress = scrollTrigger.progress;
-          
+
           // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-          if(progress > 0.3) {
+          if (progress > 0.3) {
             $('.sec0-list').addClass('open');
           } else {
             $('.sec0-list').removeClass('open');
           }
-
         },
-      }
-      
+      },
     });
-  
-    tl1.to('.scroll', { opacity: 0, duration: 0.3, })
-       .to('.sec0-tit01', { y: -40, duration:2, })
-       .to('.sec0-tit02', { y: -10, opacity: '1', duration:2, },'+=1')
-       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',/* fontSize: '60px', */ duration:2, },'+=1')
-       .to('.sec0-list01', { opacity: '1', duration:1, },'+=5')
-       .to('.sec0-list02', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list03', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list04', { opacity: '1', duration:1,},'+=1')
-       .to('.sec0-list05', { opacity: '1', duration:1,},'+=1')
+
+    tl1
+      .to('.scroll', { opacity: 0, duration: 0.3 })
+      .to('.sec0-tit01', { y: -40, duration: 2 })
+      .to('.sec0-tit02', { y: -10, opacity: '1', duration: 2 }, '+=1')
+      .to(
+        '.sec0-tit01, .sec0-tit02',
+        { transform: 'scale(0.8)', /* fontSize: '60px', */ duration: 2 },
+        '+=1'
+      )
+      .to('.sec0-list01', { opacity: '1', duration: 1 }, '+=5')
+      .to('.sec0-list02', { opacity: '1', duration: 1 }, '+=1')
+      .to('.sec0-list03', { opacity: '1', duration: 1 }, '+=1')
+      .to('.sec0-list04', { opacity: '1', duration: 1 }, '+=1')
+      .to('.sec0-list05', { opacity: '1', duration: 1 }, '+=1')
       //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
       //  .to('.bg-mask', { opacity: 1, },'+=5')
-       .to('.bg-mask', { top: '-80vh', duration: 10,},'+=1')
-      //  .to('.section01', { y: -100, duration: 2,},'<')
+      .to('.bg-mask', { top: '-80vh', duration: 10 }, '+=1');
+    //  .to('.section01', { y: -100, duration: 2,},'<')
 
     var anchorMov = false;
     var goIndex = 0;
 
     /* top button */
-    $(document).on('click', '#topButton', function(){
+    $(document).on('click', '#topButton', function () {
       anchorMov = true;
       gsap.to(window, {
         scrollTo: {
           y: document.querySelector('.section00').parentNode.offsetTop,
         },
         duration: 1,
-        ease: "none",
+        ease: 'none',
       });
     });
 
     /* Main navigation */
-    if($(window).width()<=768){
-      $(".mb-anchor").click(function(e){
+    if ($(window).width() <= 768) {
+      $('.mb-anchor').click(function (e) {
         e.preventDefault();
-        $(this).find('.deco').css('opacity','1');
-        if($(this).siblings('.anchor-nav').hasClass('open')){
+        $(this).find('.deco').css('opacity', '1');
+        if ($(this).siblings('.anchor-nav').hasClass('open')) {
           $(this).siblings('.anchor-nav').removeClass('open');
-          $(this).find('.deco').css('opacity','1');
-        }else {
+          $(this).find('.deco').css('opacity', '1');
+        } else {
           $(this).siblings('.anchor-nav').addClass('open');
-          $(this).find('.deco').css('opacity','0');
-          
+          $(this).find('.deco').css('opacity', '0');
         }
       });
-      ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
     }
 
-    document.querySelectorAll(".anchor").forEach((anchor, index) => {
-      anchor.addEventListener("click", function(e) {
+    document.querySelectorAll('.anchor').forEach((anchor, index) => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         anchorMov = true;
-        let navIndex = (index)%5;
-        if(navIndex == 5){
+        let navIndex = index % 5;
+        if (navIndex == 5) {
           navIndex = 0;
         }
         goIndex = navIndex;
-        const targetId = e.target.getAttribute("href");
+        const targetId = e.target.getAttribute('href');
         document.querySelector(targetId).classList.add('active');
-        if(window.innerWidth<=768){
+        if (window.innerWidth <= 768) {
           var anchorNav = document.querySelector(targetId + ' .anchor-nav');
           if (anchorNav) {
-              anchorNav.classList.remove('open');
+            anchorNav.classList.remove('open');
           }
         }
 
@@ -2086,13 +2103,10 @@ var privEvent = {
           ease: 'none',
         });
       });
-
     });
 
-    
-  
-    var $sections = document.querySelectorAll(".section");
-    $sections.forEach((item, index)=>{
+    var $sections = document.querySelectorAll('.section');
+    $sections.forEach((item, index) => {
       var sectionHeight = item.clientHeight;
       var nextSectionPosition = (index + 1) * sectionHeight;
       let tl2_1 = gsap.timeline({
@@ -2116,122 +2130,118 @@ var privEvent = {
           onEnter: (self) => {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
-            $('.deco').css('opacity','1');
+            $('.deco').css('opacity', '1');
 
-            if(goIndex==index){
+            if (goIndex == index) {
               anchorMov = false;
             }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
-            $('.deco').css('opacity','0');
+            $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-
-            if(window.innerWidth>768){
-              if(index !== 4 && !anchorMov) {
+            if (window.innerWidth > 768) {
+              if (index !== 4 && !anchorMov) {
+                //tl2_1.pause();
                 gsap.to(window, {
-                  scrollTo:  {
+                  scrollTo: {
                     y: $sections[index + 1].parentNode.offsetTop + 1,
-                    x: window.pageXOffset,
+                    //                    x: window.pageXOffset,
                   },
-                  duration: 0.8, 
-                  ease: "none",
+                  duration: 0.8,
+                  ease: 'none',
                 });
-                
+                //tl2_1.play();
               }
             }
-
           },
           onLeaveBack: (self) => {
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
-            $('.deco').css('opacity','0');
+            $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
 
-            if(window.innerWidth>768){
-              if(index !== 0 && !anchorMov) {
+            if (window.innerWidth > 768) {
+              if (index !== 0 && !anchorMov) {
+                //tl2_1.pause();
                 gsap.to(window, {
-                  scrollTo:  {
+                  scrollTo: {
                     y: self.previous().end - 10,
                     x: window.pageXOffset,
                   },
-                  duration: 0, 
-                  ease: "none"
+                  duration: 0,
+                  ease: 'none',
                 });
-                
+                //tl2_1.play();
               }
             }
-
           },
           onEnterBack: (self) => {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
-            $('.deco').css('opacity','1');
-            if(goIndex==index){
+            $('.deco').css('opacity', '1');
+            if (goIndex == index) {
               anchorMov = false;
             }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
-        }
+        },
       });
-  
+
       var $panels = item.querySelectorAll('.panel'),
-          $panelCon = item.querySelector('.panel-con'),
-          $anchors = item.querySelector('.anchor-nav'),
-          $tag = item.querySelector('.con_tag'),
-          $tit1 = item.querySelector('.con_tit01'),
-          $tit2 = item.querySelector('.con_tit02'),
-          $txt = item.querySelector('.con_txt'),
-          $conList = item.querySelector('.con_list'),
-          $conListBox = item.querySelectorAll('.con_list li'),
-          $page = item.querySelector('.swiper-pagination'),
-          $nav = item.querySelector('.anchor_wrap'),
-          dataColor = item.getAttribute('data-color'),
-          panelPadding = '120px 200px';
+        $panelCon = item.querySelector('.panel-con'),
+        $anchors = item.querySelector('.anchor-nav'),
+        $tag = item.querySelector('.con_tag'),
+        $tit1 = item.querySelector('.con_tit01'),
+        $tit2 = item.querySelector('.con_tit02'),
+        $txt = item.querySelector('.con_txt'),
+        $conList = item.querySelector('.con_list'),
+        $conListBox = item.querySelectorAll('.con_list li'),
+        $page = item.querySelector('.swiper-pagination'),
+        $nav = item.querySelector('.anchor_wrap'),
+        dataColor = item.getAttribute('data-color'),
+        panelPadding = '120px 200px';
 
-
-      if($(window).width()<=768){
+      if ($(window).width() <= 768) {
         panelPadding = '80px 20px';
-      }else if($(window).width()<=1500 && $(window).width()>768) {
+      } else if ($(window).width() <= 1500 && $(window).width() > 768) {
         panelPadding = '120px 100px';
-      }else {
+      } else {
         panelPadding = '120px 200px';
       }
-
-
       tl2_1
-      .to($tit1, { opacity: 0, duration: 0.2, },'+=1')
-        .to($txt, { opacity: 0, duration: 0.2, },'<')
-        .to($tit1, { display: 'none', duration: 0, },)
-        .to($txt, { display: 'none', duration: 0, },'<')
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
+        .to($txt, { opacity: 0, duration: 0.2 }, '<')
+        .to($tit1, { display: 'none', duration: 0 })
+        .to($txt, { display: 'none', duration: 0 }, '<')
         // .addLabel('tabStart3')
-        .to($panelCon, {background: dataColor, duration: 0, },'<')
+        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
         .to($panelCon, { height: '100%', duration: 0.3, },)
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
 
-        .to($tag, { display: 'inline-flex', duration: 0,},'+=0.1')
-        .to($tit2, { display: 'flex', duration: 0,},'<')
-        .to($conList, { display: 'block', opacity: 1,},'<')
-        .to($tag, { opacity: 1, duration: 0.2,},)
-        .to($tit2, { opacity: 1, duration: 0.2,},)
-        .to($conListBox, { opacity: 1, stagger: 0.1,},)
-        .to($page, { opacity: 1, duration: 0,},)
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5, },'+=0.5')
+        .to($tag, { display: 'inline-flex', duration: 0 }, '+=0.1')
+        .to($tit2, { display: 'flex', duration: 0 }, '<')
+        .to($conList, { display: 'block', opacity: 1 }, '<')
+        .to($tag, { opacity: 1, duration: 0.2 })
+        .to($tit2, { opacity: 1, duration: 0.2 })
+        .to($conListBox, { opacity: 1, stagger: 0.1 })
+        .to($page, { opacity: 1, duration: 0 })
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5');
     });
 
     let maxW = 5000,
-    maxH = 5000;
+      maxH = 5000;
 
     if ($('#pc').length) {
-      gsap3_1 = 140,
-      maxW = 0;
+      (gsap3_1 = 140), (maxW = 0);
       maxH = 5000;
     } else if ($('#mobile').length) {
-      gsap3_1 = 85,
-      maxW = 5000;
+      (gsap3_1 = 85), (maxW = 5000);
       maxH = 0;
     }
 
@@ -2242,248 +2252,246 @@ var privEvent = {
         pin: true,
         pinSpacing: true,
         scrub: true,
-      }
-      
+      },
     });
     tlWeve
-    .to(".gsap3", { opacity: 1, y: 0, duration: 0.3, })
-    .to(".gsap3-2", { maxWidth: maxW, maxHeight: maxH, duration: 0.6, })
-    .to(".gsap3-1", { height: gsap3_1, duration: 0.2, })
-    .to(".gsap3-1", { opacity: 0, duration: 0.2, })
-    .to(".gsap3-3", { opacity: 1, duration: 0.2, })
+      .to('.gsap3', { opacity: 1, y: 0, duration: 0.3 })
+      .to('.gsap3-2', { maxWidth: maxW, maxHeight: maxH, duration: 0.6 })
+      .to('.gsap3-1', { height: gsap3_1, duration: 0.2 })
+      .to('.gsap3-1', { opacity: 0, duration: 0.2 })
+      .to('.gsap3-3', { opacity: 1, duration: 0.2 })
 
-    .to(".gsap3", { zIndex: 1, delay: 0.1, });
-
+      .to('.gsap3', { zIndex: 1, delay: 0.1 });
   },
 };
 
 function addressKindChange(e) {
   var livingroom = [
-    "A/S 대상을 선택해 주세요.",
-    "걸레받이",
-    "공청TV",
-    "도배",
-    "목재문(틀)",
-    "몰딩",
-    "홈네트워크(비디오폰)",
-    "아트월",
-    "유리",
-    "전등",
-    "전화",
-    "콘센트,스위치",
-    "화재감지기",
-    "PL창(틀)",
-    "스피커",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '걸레받이',
+    '공청TV',
+    '도배',
+    '목재문(틀)',
+    '몰딩',
+    '홈네트워크(비디오폰)',
+    '아트월',
+    '유리',
+    '전등',
+    '전화',
+    '콘센트,스위치',
+    '화재감지기',
+    'PL창(틀)',
+    '스피커',
+    '기타',
   ];
   var bedroom = [
-    "A/S 대상을 선택해 주세요.",
-    "가구(붙박이장)",
-    "걸레받이",
-    "공청TV",
-    "도배",
-    "목재문(틀)",
-    "몰딩",
-    "바닥재(마루)",
-    "아트월",
-    "유리",
-    "전등",
-    "전화",
-    "콘센트,스위치",
-    "화재감지기",
-    "AL창(틀)",
-    "PL창(틀)",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '가구(붙박이장)',
+    '걸레받이',
+    '공청TV',
+    '도배',
+    '목재문(틀)',
+    '몰딩',
+    '바닥재(마루)',
+    '아트월',
+    '유리',
+    '전등',
+    '전화',
+    '콘센트,스위치',
+    '화재감지기',
+    'AL창(틀)',
+    'PL창(틀)',
+    '기타',
   ];
   var kitchen = [
-    "A/S 대상을 선택해 주세요.",
-    "가스감지기",
-    "걸레받이",
-    "도배",
-    "라디오/액정 TV",
-    "렌지후드",
-    "목재문(틀)",
-    "몰딩",
-    "바닥재(마루)",
-    "수전류",
-    "유리",
-    "전등",
-    "주방가구",
-    "콘센트,스위치",
-    "타일",
-    "화재감지기",
-    "AL창(틀)",
-    "PL창(틀)",
-    "빌트인 가스레인지",
-    "빌트인 냉장고",
-    "빌트인 세탁기",
-    "빌트인 식기세척기",
-    "빌트인 오븐렌지",
-    "빌트인 잔반탈수기",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '가스감지기',
+    '걸레받이',
+    '도배',
+    '라디오/액정 TV',
+    '렌지후드',
+    '목재문(틀)',
+    '몰딩',
+    '바닥재(마루)',
+    '수전류',
+    '유리',
+    '전등',
+    '주방가구',
+    '콘센트,스위치',
+    '타일',
+    '화재감지기',
+    'AL창(틀)',
+    'PL창(틀)',
+    '빌트인 가스레인지',
+    '빌트인 냉장고',
+    '빌트인 세탁기',
+    '빌트인 식기세척기',
+    '빌트인 오븐렌지',
+    '빌트인 잔반탈수기',
+    '기타',
   ];
   var entrance = [
-    "A/S 대상을 선택해 주세요.",
-    "가구(신발장)",
-    "걸레받이",
-    "도배",
-    "디지털 도아록",
-    "몰딩",
-    "바닥재(석재)",
-    "바닥재(타일)",
-    "실리콘(코킹)",
-    "아트월",
-    "유리",
-    "일괄소등스위치",
-    "전등",
-    "철재문(틀)",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '가구(신발장)',
+    '걸레받이',
+    '도배',
+    '디지털 도아록',
+    '몰딩',
+    '바닥재(석재)',
+    '바닥재(타일)',
+    '실리콘(코킹)',
+    '아트월',
+    '유리',
+    '일괄소등스위치',
+    '전등',
+    '철재문(틀)',
+    '기타',
   ];
   var sharedBathroom = [
-    "A/S 대상을 선택해 주세요.",
-    "욕실장",
-    "누수",
-    "도배",
-    "욕실문(틀)",
-    "몰딩",
-    "바닥 배수구",
-    "비데",
-    "샤워부스",
-    "세면기",
-    "수전류(샤워기 포함)",
-    "실리콘(코킹)",
-    "액세서리류",
-    "양변기",
-    "욕실폰",
-    "욕조",
-    "월풀욕조",
-    "전등",
-    "점검구",
-    "콘센트,스위치",
-    "타일",
-    "천장 배기휀",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '욕실장',
+    '누수',
+    '도배',
+    '욕실문(틀)',
+    '몰딩',
+    '바닥 배수구',
+    '비데',
+    '샤워부스',
+    '세면기',
+    '수전류(샤워기 포함)',
+    '실리콘(코킹)',
+    '액세서리류',
+    '양변기',
+    '욕실폰',
+    '욕조',
+    '월풀욕조',
+    '전등',
+    '점검구',
+    '콘센트,스위치',
+    '타일',
+    '천장 배기휀',
+    '기타',
   ];
   var coupleBathroom = [
-    "A/S 대상을 선택해 주세요.",
-    "욕실장",
-    "누수",
-    "도배",
-    "욕실문(틀)",
-    "몰딩",
-    "바닥 배수구",
-    "비데",
-    "샤워부스",
-    "세면기",
-    "수전류(샤워기 포함)",
-    "실리콘(코킹)",
-    "액세서리류",
-    "양변기",
-    "욕실폰",
-    "욕조",
-    "월풀욕조",
-    "전등",
-    "점검구",
-    "콘센트,스위치",
-    "타일",
-    "천장 배기휀",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '욕실장',
+    '누수',
+    '도배',
+    '욕실문(틀)',
+    '몰딩',
+    '바닥 배수구',
+    '비데',
+    '샤워부스',
+    '세면기',
+    '수전류(샤워기 포함)',
+    '실리콘(코킹)',
+    '액세서리류',
+    '양변기',
+    '욕실폰',
+    '욕조',
+    '월풀욕조',
+    '전등',
+    '점검구',
+    '콘센트,스위치',
+    '타일',
+    '천장 배기휀',
+    '기타',
   ];
   var balcony = [
-    "A/S 대상을 선택해 주세요.",
-    "세탁선반",
-    "난간대",
-    "누수",
-    "도장",
-    "바닥 배수구",
-    "선홈통",
-    "수전류",
-    "실리콘(코킹)",
-    "전등",
-    "콘센트,스위치",
-    "타일",
-    "균열",
-    "PL창(틀)",
-    "유리",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '세탁선반',
+    '난간대',
+    '누수',
+    '도장',
+    '바닥 배수구',
+    '선홈통',
+    '수전류',
+    '실리콘(코킹)',
+    '전등',
+    '콘센트,스위치',
+    '타일',
+    '균열',
+    'PL창(틀)',
+    '유리',
+    '기타',
   ];
   var dressroom = [
-    "A/S 대상을 선택해 주세요.",
-    "문짝 및 문틀",
-    "시스템 선반",
-    "가구(화장대)",
-    "도배",
-    "목재문(틀)",
-    "몰딩",
-    "바닥재(마루)",
-    "PL창(틀)",
-    "유리",
-    "전등",
-    "콘센트,스위치",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '문짝 및 문틀',
+    '시스템 선반',
+    '가구(화장대)',
+    '도배',
+    '목재문(틀)',
+    '몰딩',
+    '바닥재(마루)',
+    'PL창(틀)',
+    '유리',
+    '전등',
+    '콘센트,스위치',
+    '기타',
   ];
   var outdoorroom = [
-    "A/S 대상을 선택해 주세요.",
-    "도장",
-    "보일러",
-    "실리콘(코킹)",
-    "전등",
-    "철재문(틀)",
-    "콘센트,스위치",
-    "AL창(틀)",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '도장',
+    '보일러',
+    '실리콘(코킹)',
+    '전등',
+    '철재문(틀)',
+    '콘센트,스위치',
+    'AL창(틀)',
+    '기타',
   ];
   var laundryroom = [
-    "A/S 대상을 선택해 주세요.",
-    "도장",
-    "보일러",
-    "실리콘(코킹)",
-    "전등",
-    "PL창(틀)",
-    "유리",
-    "콘센트,스위치",
-    "기타",
+    'A/S 대상을 선택해 주세요.',
+    '도장',
+    '보일러',
+    '실리콘(코킹)',
+    '전등',
+    'PL창(틀)',
+    '유리',
+    '콘센트,스위치',
+    '기타',
   ];
-  var direct = ["A/S 대상을 선택해 주세요.", "직접입력"];
+  var direct = ['A/S 대상을 선택해 주세요.', '직접입력'];
 
-  var target = document.getElementById("sel03");
-  var selDirect = document.getElementById("selboxDirect");
-  selDirect.style.display = "none";
+  var target = document.getElementById('sel03');
+  var selDirect = document.getElementById('selboxDirect');
+  selDirect.style.display = 'none';
 
-  if (e.value == "1") var d = livingroom;
-  else if (e.value == "2") var d = bedroom;
-  else if (e.value == "3") var d = kitchen;
-  else if (e.value == "4") var d = entrance;
-  else if (e.value == "5") var d = sharedBathroom;
-  else if (e.value == "6") var d = coupleBathroom;
-  else if (e.value == "7") var d = balcony;
-  else if (e.value == "8") var d = dressroom;
-  else if (e.value == "9") var d = outdoorroom;
-  else if (e.value == "10") var d = laundryroom;
-  if (e.value == "direct") {
+  if (e.value == '1') var d = livingroom;
+  else if (e.value == '2') var d = bedroom;
+  else if (e.value == '3') var d = kitchen;
+  else if (e.value == '4') var d = entrance;
+  else if (e.value == '5') var d = sharedBathroom;
+  else if (e.value == '6') var d = coupleBathroom;
+  else if (e.value == '7') var d = balcony;
+  else if (e.value == '8') var d = dressroom;
+  else if (e.value == '9') var d = outdoorroom;
+  else if (e.value == '10') var d = laundryroom;
+  if (e.value == 'direct') {
     var d = direct;
-    selDirect.style.display = "block";
+    selDirect.style.display = 'block';
   } else {
-    selDirect.style.display = "none";
+    selDirect.style.display = 'none';
   }
 
   target.options.length = 0;
 
   for (x in d) {
-    var opt = document.createElement("option");
+    var opt = document.createElement('option');
     opt.value = d[x];
     opt.innerHTML = d[x];
     target.appendChild(opt);
   }
-  var sel03Direct = $("#sel03Direct");
+  var sel03Direct = $('#sel03Direct');
   $(sel03Direct).hide();
-  $("#sel03").on("change", function () {
+  $('#sel03').on('change', function () {
     if (
-      $("#sel03").siblings("label").text() == "직접입력" ||
-      $("#sel03").siblings("label").text() == "기타"
+      $('#sel03').siblings('label').text() == '직접입력' ||
+      $('#sel03').siblings('label').text() == '기타'
     ) {
       $(sel03Direct).show();
-      console.log("sel03Direct : " + sel03Direct);
+      console.log('sel03Direct : ' + sel03Direct);
     } else {
       $(sel03Direct).hide();
     }
@@ -2496,13 +2504,13 @@ var filesArr = new Array();
 /* 첨부파일 추가 */
 function addFile(obj) {
   var maxFileCnt = 5; // 첨부파일 최대 개수
-  var attFileCnt = document.querySelectorAll(".filebox").length; // 기존 추가된 첨부파일 개수
+  var attFileCnt = document.querySelectorAll('.filebox').length; // 기존 추가된 첨부파일 개수
   var remainFileCnt = maxFileCnt - attFileCnt; // 추가로 첨부가능한 개수
   var curFileCnt = obj.files.length; // 현재 선택된 첨부파일 개수
 
   // 첨부파일 개수 확인
   if (curFileCnt > remainFileCnt) {
-    alert("첨부파일은 최대 " + maxFileCnt + "개 까지 첨부 가능합니다.");
+    alert('첨부파일은 최대 ' + maxFileCnt + '개 까지 첨부 가능합니다.');
   }
 
   for (var i = 0; i < Math.min(curFileCnt, remainFileCnt); i++) {
@@ -2518,20 +2526,20 @@ function addFile(obj) {
       reader.readAsDataURL(file);
 
       // 목록 추가
-      let htmlData = "";
+      let htmlData = '';
       htmlData += '<div id="file' + fileNo + '" class="filebox">';
-      htmlData += '   <p class="name">' + file.name + "</p>";
+      htmlData += '   <p class="name">' + file.name + '</p>';
       htmlData +=
         '   <a class="delete" onclick="deleteFile(' + fileNo + ');"></a>';
-      htmlData += "</div>";
-      $(".file-list").append(htmlData);
+      htmlData += '</div>';
+      $('.file-list').append(htmlData);
       fileNo++;
     } else {
       continue;
     }
   }
   // 초기화
-  document.querySelector("input[type=file]").value = "";
+  document.querySelector('input[type=file]').value = '';
 }
 
 /* 첨부파일 검증 */
@@ -2541,18 +2549,18 @@ var maxSize = 10485760; //10MB
 
 function validation(obj) {
   const fileTypes = [
-    "image/gif",
-    "image/jpg",
-    "image/jpeg",
-    "image/png",
-    "image/bmp",
-    "image/tif",
+    'image/gif',
+    'image/jpg',
+    'image/jpeg',
+    'image/png',
+    'image/bmp',
+    'image/tif',
   ];
   if (obj.size > maxSize) {
-    alert("최대 파일 용량인 10MB를 초과한 파일은 제외되었습니다.");
+    alert('최대 파일 용량인 10MB를 초과한 파일은 제외되었습니다.');
     return false;
   } else if (!fileTypes.includes(obj.type)) {
-    alert("첨부가 불가능한 파일은 제외되었습니다.");
+    alert('첨부가 불가능한 파일은 제외되었습니다.');
     return false;
   } else {
     return true;
@@ -2561,19 +2569,19 @@ function validation(obj) {
 
 /* 첨부파일 삭제 */
 function deleteFile(num) {
-  document.querySelector("#file" + num).remove();
+  document.querySelector('#file' + num).remove();
   filesArr[num].is_delete = true;
 }
 
 /* 폼 전송 */
 function submitForm() {
   // 폼데이터 담기
-  var form = document.querySelector("form");
+  var form = document.querySelector('form');
   var formData = new FormData(form);
   for (var i = 0; i < filesArr.length; i++) {
     // 삭제되지 않은 파일만 폼데이터에 담기
     if (!filesArr[i].is_delete) {
-      formData.append("attach_file", filesArr[i]);
+      formData.append('attach_file', filesArr[i]);
     }
   }
 }

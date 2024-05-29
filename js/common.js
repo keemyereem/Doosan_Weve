@@ -1980,13 +1980,13 @@ var privEvent = {
     });
 
     // 리사이즈 이벤트 핸들러 추가
-    window.addEventListener("resize", function() {
-      gsap.to(window, {
-        scrollTo: {
-          y: lastScrollPosition,
-        },
-      });
-    });
+    // window.addEventListener("resize", function() {
+    //   gsap.to(window, {
+    //     scrollTo: {
+    //       y: lastScrollPosition,
+    //     },
+    //   });
+    // });
 
     gsap.registerPlugin(ScrollToPlugin);
 
@@ -2029,22 +2029,15 @@ var privEvent = {
 
     tl1
       .to('.scroll', { opacity: 0, duration: 0.3 })
-      .to('.sec0-tit01', { y: -40, duration: 2 })
-      .to('.sec0-tit02', { y: -10, opacity: '1', duration: 2 }, '+=1')
-      .to(
-        '.sec0-tit01, .sec0-tit02',
-        { transform: 'scale(0.8)', /* fontSize: '60px', */ duration: 2 },
-        '+=1'
-      )
-      .to('.sec0-list01', { opacity: '1', duration: 1 }, '+=5')
-      .to('.sec0-list02', { opacity: '1', duration: 1 }, '+=1')
-      .to('.sec0-list03', { opacity: '1', duration: 1 }, '+=1')
-      .to('.sec0-list04', { opacity: '1', duration: 1 }, '+=1')
-      .to('.sec0-list05', { opacity: '1', duration: 1 }, '+=1')
-      //  .to('.sec0-tit', { opacity: '1', duration:10,},'+=10')
-      //  .to('.bg-mask', { opacity: 1, },'+=5')
-      .to('.bg-mask', { top: '-80vh', duration: 10 }, '+=1');
-    //  .to('.section01', { y: -100, duration: 2,},'<')
+      .to('.sec0-tit01', { y: -40, duration: 1 })
+      .to('.sec0-tit02', { y: -10, opacity: '1', duration: 1 })
+      .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)', /* fontSize: '60px', */ duration: 1 })
+      .to('.sec0-list01', { opacity: '1', duration: 0.3 }, '+=5')
+      .to('.sec0-list02', { opacity: '1', duration: 0.3 })
+      .to('.sec0-list03', { opacity: '1', duration: 0.3 })
+      .to('.sec0-list04', { opacity: '1', duration: 0.3 })
+      .to('.sec0-list05', { opacity: '1', duration: 0.3 })
+      .to('.bg-mask', { top: '-80vh', duration: 8 });
 
     var anchorMov = false;
     var goIndex = 0;
@@ -2105,16 +2098,15 @@ var privEvent = {
       });
     });
 
-    var $sections = document.querySelectorAll('.section');
+    var $sections = gsap.utils.toArray('.section');
     $sections.forEach((item, index) => {
       var sectionHeight = item.clientHeight;
-      var nextSectionPosition = (index + 1) * sectionHeight;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2144,16 +2136,15 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
             if (window.innerWidth > 768) {
               if (index !== 4 && !anchorMov) {
-                //tl2_1.pause();
                 gsap.to(window, {
                   scrollTo: {
-                    y: $sections[index + 1].parentNode.offsetTop + 1,
-                    //                    x: window.pageXOffset,
+                    y: window.pageYOffset + window.innerHeight,
+                    // y: $sections[index + 1].parentNode.offsetTop + 1,
+                    //x: window.pageXOffset,
                   },
                   duration: 0.8,
                   ease: 'none',
                 });
-                //tl2_1.play();
               }
             }
           },
@@ -2165,16 +2156,14 @@ var privEvent = {
 
             if (window.innerWidth > 768) {
               if (index !== 0 && !anchorMov) {
-                //tl2_1.pause();
                 gsap.to(window, {
                   scrollTo: {
-                    y: self.previous().end - 10,
+                    y: self.previous().end - 100,
                     x: window.pageXOffset,
                   },
                   duration: 0,
                   ease: 'none',
                 });
-                //tl2_1.play();
               }
             }
           },
@@ -2218,13 +2207,13 @@ var privEvent = {
         .to($txt, { display: 'none', duration: 0 }, '<')
         // .addLabel('tabStart3')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
-        .to($panelCon, { height: '100%', duration: 0.3, },)
+        .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
 
-        .to($tag, { display: 'inline-flex', duration: 0 }, '+=0.1')
+        .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')
         .to($tag, { opacity: 1, duration: 0.2 })
@@ -2251,7 +2240,10 @@ var privEvent = {
         trigger: '.section06',
         pin: true,
         pinSpacing: true,
-        scrub: true,
+        scrub: 3,
+        end: '+=200%',
+        fastScrollEnd: false,
+        preventOverlaps: false,
       },
     });
     tlWeve
@@ -2260,7 +2252,6 @@ var privEvent = {
       .to('.gsap3-1', { height: gsap3_1, duration: 0.2 })
       .to('.gsap3-1', { opacity: 0, duration: 0.2 })
       .to('.gsap3-3', { opacity: 1, duration: 0.2 })
-
       .to('.gsap3', { zIndex: 1, delay: 0.1 });
   },
 };

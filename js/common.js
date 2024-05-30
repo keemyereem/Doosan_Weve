@@ -2105,30 +2105,35 @@ var privEvent = {
     });
 
     var $sections = gsap.utils.toArray('.section');
+    var direction = 0;
+    var startColor = ['red', 'orange', 'green', 'blue', 'purple'];
+    var endColor = ['black', 'yellow', 'lightgreen', 'skyblue', 'violet'];
     $sections.forEach((item, index) => {
-      var sectionHeight = item.clientHeight;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
           markers: {
-          startColor: "blue",
-          endColor: "yellow"
+          startColor: startColor[index],
+          endColor: endColor[index]
           },
           trigger: item,
           pin: item,
           // pinSpacing: false,
           anticipatePin: 1,
           scrub: 3,
-          start: 'top top',
+          start: 'top top+=5px',
           end: '+=300%',
+          // end: () => `+=${document.querySelector(item).offsetHeight} - 10px`,
           ease: 'none',
           fastScrollEnd: true,
           preventOverlaps: true,
-          // toggleActions: 'play none none none',
+           toggleActions: 'play reverse play reverse',
 
           onEnter: (self) => {
+            console.log('onEnter',direction);
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
+
 
             // if (goIndex == index) {
             //   anchorMov = false;
@@ -2136,57 +2141,81 @@ var privEvent = {
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
+            console.log('onLeave',direction);
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
             if (window.innerWidth > 768) {
-              if (index !== 4 && !anchorMov) {
-                gsap.to(window, {
-                  scrollTo: {
-                    // y: window.pageYOffset + window.innerHeight,
-                    y: $sections[index + 1].parentNode.offsetTop + 1,
-                    //x: window.pageXOffset,
-                  },
-                  duration: 0.8,
-                  ease: 'none',
-                });
+              // if (index !== 4 && !anchorMov) {
+              //   gsap.to(window, {
+              //     scrollTo: {
+              //       // y: window.pageYOffset + window.innerHeight,
+              //       y: $sections[index + 1].parentNode.offsetTop + 1,
+              //       //x: window.pageXOffset,
+              //     },
+              //     duration: 0.8,
+              //     ease: 'none',
+              //   });
+              // }
+              // console.log('onLeave');
+
+              if (window.innerWidth > 768) {
+                if (index < $sections.length - 1 && direction == 1 && !anchorMov) {
+                  gsap.to(window, { scrollTo: $sections[index + 1], duration: 1 });
+                }
               }
+
             }
           },
           onLeaveBack: (self) => {
+            console.log('onLeaveBack',direction);
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
 
             if (window.innerWidth > 768) {
-              if (index !== 0 && !anchorMov) {
-                gsap.to(window, {
-                  scrollTo: {
-                    y: self.previous().end - 100,
-                    x: window.pageXOffset,
-                  },
-                  duration: 0,
-                  ease: 'none',
-                });
+              // if (index !== 0 && !anchorMov) {
+              //   gsap.to(window, {
+              //     scrollTo: {
+              //       y: self.previous().end - 100,
+              //       x: window.pageXOffset,
+              //     },
+              //     duration: 0,
+              //     ease: 'none',
+              //   });
+              // }
+
+              if (index > 0 && direction == -1 && !anchorMov) {
+                gsap.to(window, { scrollTo: $sections[index - 1], duration: 1 });
               }
             }
           },
           onEnterBack: (self) => {
+            console.log('onEnterBack',direction);
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
             // if (goIndex == index) {
             //   anchorMov = false;
             // }
+ 
+            if (window.innerWidth > 768) {
+              if (index < $sections.length - 1 && direction == 1 && !anchorMov) {
+                gsap.to(window, { scrollTo: $sections[index + 1], duration: 1 });
+              }
+            }
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onScrubComplete: () => {
             if (goIndex == index) {
               anchorMov = false;
             }
-            console.log('onScrubComplete', goIndex, index,anchorMov);
+            // console.log('onScrubComplete', goIndex, index,anchorMov);
+          },
+          onUpdate: (self)=> {
+            direction = self.direction;
           },
         },
       });

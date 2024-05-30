@@ -528,7 +528,7 @@ var commonEvent = {
       }
     });
 
-    if (!$('.privilege').length) {
+    if (!$('.privilege').length == 0) {
       $(document).on('click', '#topButton', function () {
         $('html, body').animate({ scrollTop: 0 }, '300');
       });
@@ -2024,6 +2024,11 @@ var privEvent = {
             $('.sec0-list').removeClass('open');
           }
         },
+        onScrubComplete: () => {
+          if(goIndex == 10) {
+            anchorMov = false;
+          }
+        },
       },
     });
 
@@ -2045,9 +2050,10 @@ var privEvent = {
     /* top button */
     $(document).on('click', '#topButton', function () {
       anchorMov = true;
+      goIndex = 10;
       gsap.to(window, {
         scrollTo: {
-          y: document.querySelector('.section00').parentNode.offsetTop,
+          y: 0,
         },
         duration: 1,
         ease: 'none',
@@ -2124,9 +2130,9 @@ var privEvent = {
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
 
-            if (goIndex == index) {
-              anchorMov = false;
-            }
+            // if (goIndex == index) {
+            //   anchorMov = false;
+            // }
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
@@ -2138,8 +2144,8 @@ var privEvent = {
               if (index !== 4 && !anchorMov) {
                 gsap.to(window, {
                   scrollTo: {
-                    y: window.pageYOffset + window.innerHeight,
-                    // y: $sections[index + 1].parentNode.offsetTop + 1,
+                    // y: window.pageYOffset + window.innerHeight,
+                    y: $sections[index + 1].parentNode.offsetTop + 1,
                     //x: window.pageXOffset,
                   },
                   duration: 0.8,
@@ -2171,10 +2177,16 @@ var privEvent = {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
+            // if (goIndex == index) {
+            //   anchorMov = false;
+            // }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
+          },
+          onScrubComplete: () => {
             if (goIndex == index) {
               anchorMov = false;
             }
-            gsap.set(item, { left: '-' + scrollLeft + 'px' });
+            console.log('onScrubComplete', goIndex, index,anchorMov);
           },
         },
       });

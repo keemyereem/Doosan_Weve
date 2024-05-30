@@ -2118,7 +2118,7 @@ var privEvent = {
           // pinSpacing: false,
           anticipatePin: 1,
           scrub: 3,
-          start: 'top 1px',
+          start: 'top top',
           end: '+=300%',
           ease: 'none',
           fastScrollEnd: true,

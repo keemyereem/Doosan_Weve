@@ -1990,6 +1990,7 @@ var privEvent = {
 
     gsap.registerPlugin(ScrollToPlugin);
 
+    const index = 10;
     var tl1 = gsap.timeline({
       scrollTrigger: {
         //markers: true,
@@ -2024,11 +2025,21 @@ var privEvent = {
             $('.sec0-list').removeClass('open');
           }
         },
-        onScrubComplete: () => {
-          if(goIndex == 10) {
+        onToggle: () => {
+          if(goIndex == index) {
             anchorMov = false;
+            console.log('onToggle', goIndex, index, anchorMov);
+          }
+          curIndex = index;
+        },
+        /*
+        onScrubComplete: () => {
+          if(goIndex == index) {
+            anchorMov = false;
+            console.log('onScrubComplete', goIndex, index, anchorMov);
           }
         },
+        */
       },
     });
 
@@ -2046,11 +2057,13 @@ var privEvent = {
 
     var anchorMov = false;
     var goIndex = 0;
+    var curIndex = 0;
 
     /* top button */
     $(document).on('click', '#topButton', function () {
       anchorMov = true;
       goIndex = 10;
+      console.log('#topButton.click', goIndex, anchorMov);
       gsap.to(window, {
         scrollTo: {
           y: 0,
@@ -2084,6 +2097,7 @@ var privEvent = {
           navIndex = 0;
         }
         goIndex = navIndex;
+      console.log('.anchor.click', curIndex, goIndex, anchorMov);
         const targetId = e.target.getAttribute('href');
         document.querySelector(targetId).classList.add('active');
         if (window.innerWidth <= 768) {
@@ -2094,9 +2108,12 @@ var privEvent = {
         }
 
         e.stopPropagation();
+        const gotoTop = document.querySelector(targetId).parentNode.offsetTop;
+        const gnbHeight = 100; //document.querySelector('#gnb').height;
+        console.log('.anchor.click','gotoTop', gotoTop);
         gsap.to(window, {
           scrollTo: {
-            y: document.querySelector(targetId).parentNode.offsetTop + 1,
+            y: curIndex < goIndex ? gotoTop + 1 : gotoTop + 1, // down : +1 / up : - 100 (= gnb height)
           },
           duration: 0.8,
           ease: 'none',
@@ -2105,8 +2122,11 @@ var privEvent = {
     });
 
     var $sections = gsap.utils.toArray('.section');
+    var sectionsTrigger = []; //section당 top값 저장
     $sections.forEach((item, index) => {
       var sectionHeight = item.clientHeight;
+      var autoScroll = 0;
+      var preUpdateDirection = 0;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
           markers: {
@@ -2119,29 +2139,34 @@ var privEvent = {
           anticipatePin: 1,
           scrub: 3,
           start: 'top top',
-          end: '+=300%',
+          //end: '+=300%',
+          end: 'bottom top',
           ease: 'none',
           fastScrollEnd: true,
           preventOverlaps: true,
           // toggleActions: 'play none none none',
-
+ 
           onEnter: (self) => {
+            console.log('onEnter', index);
+            autoScroll = 0;
+
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-
             // if (goIndex == index) {
             //   anchorMov = false;
             // }
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
+            console.log('onLeave', index);
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
             if (window.innerWidth > 768) {
               if (index !== 4 && !anchorMov) {
+                /*
                 gsap.to(window, {
                   scrollTo: {
                     // y: window.pageYOffset + window.innerHeight,
@@ -2151,10 +2176,12 @@ var privEvent = {
                   duration: 0.8,
                   ease: 'none',
                 });
+                */
               }
             }
           },
           onLeaveBack: (self) => {
+            console.log('onLeaveBack', index);
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
@@ -2162,6 +2189,7 @@ var privEvent = {
 
             if (window.innerWidth > 768) {
               if (index !== 0 && !anchorMov) {
+                /*
                 gsap.to(window, {
                   scrollTo: {
                     y: self.previous().end - 100,
@@ -2170,10 +2198,13 @@ var privEvent = {
                   duration: 0,
                   ease: 'none',
                 });
+                */
               }
             }
           },
           onEnterBack: (self) => {
+            console.log('onEnterBack', index);
+            autoScroll = 0;
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
@@ -2182,11 +2213,54 @@ var privEvent = {
             // }
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
-          onScrubComplete: () => {
+          onScrubComplete: (self) => {
             if (goIndex == index) {
               anchorMov = false;
+              console.log('onScrubComplete', goIndex, index, anchorMov);
             }
-            console.log('onScrubComplete', goIndex, index,anchorMov);
+          },
+          onRefresh: () => { 
+            console.log('onRefresh', index);
+          },
+          onUpdate: (self) => { 
+            const progress = self.progress.toFixed(2);
+            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
+            // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
+            if (preUpdateDirection != self.direction) { 
+              console.log('onUpdate', 'autoScroll reset');
+              autoScroll = 0;
+            }
+            // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
+            if (progress > 0.26 && progress < 1) {
+              autoScroll++;
+            } else {
+              autoScroll = 0;
+            }
+            console.log('onUpdate', 'state', index, progress, autoScroll, preUpdateDirection, self.direction);
+            if (!anchorMov) { 
+              if (window.innerWidth > 768) { // PC 환경에서 수행
+                if (self.direction == 1 && autoScroll == directionInterval) {
+                  // 정방향
+                  console.log('onUpdate', '>>>>>>>>>>> auto play', autoScroll);
+                  gsap.to(window,
+                    {
+                      scrollTo: tl2_1.scrollTrigger.labelToScroll("end"),
+                      duration: 0,
+                    },
+                  );
+                } else if (self.direction == -1 && autoScroll == directionInterval) { 
+                  // 역방향
+                  console.log('onUpdate', '<<<<<<<<<<< auto reverse', autoScroll);
+                  gsap.to(window,
+                    {
+                      scrollTo: tl2_1.scrollTrigger.labelToScroll("start"),
+                      duration: 0,
+                    },
+                  );
+                }
+              }
+            }
+            preUpdateDirection = self.direction;
           },
         },
       });
@@ -2213,11 +2287,13 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
+        .addLabel('start')
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
         // .addLabel('tabStart3')
+        .addLabel('part2')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
         .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
@@ -2232,7 +2308,9 @@ var privEvent = {
         .to($tit2, { opacity: 1, duration: 0.2 })
         .to($conListBox, { opacity: 1, stagger: 0.1 })
         .to($page, { opacity: 1, duration: 0 })
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5');
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
+        .addLabel('end');
+      sectionsTrigger.push(tl2_1.scrollTrigger);
     });
 
     let maxW = 5000,

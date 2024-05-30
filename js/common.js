@@ -1935,7 +1935,8 @@ var weve5Concept = {
 
 var privEvent = {
   init: function () {
-    this.scrollMotion();
+    //this.scrollMotion();
+    this.scrollMotionWithFullPage();
 
     if ($(window).width() <= 768) {
       this.privMSwiper();
@@ -2234,6 +2235,478 @@ var privEvent = {
       maxH = 0;
     }
 
+    var tlWeve = gsap.timeline({
+      scrollTrigger: {
+        // markers: true,
+        trigger: '.section06',
+        pin: true,
+        pinSpacing: true,
+        scrub: 3,
+        end: '+=200%',
+        fastScrollEnd: false,
+        preventOverlaps: false,
+      },
+    });
+    tlWeve
+      .to('.gsap3', { opacity: 1, y: 0, duration: 0.3 })
+      .to('.gsap3-2', { maxWidth: maxW, maxHeight: maxH, duration: 0.6 })
+      .to('.gsap3-1', { height: gsap3_1, duration: 0.2 })
+      .to('.gsap3-1', { opacity: 0, duration: 0.2 })
+      .to('.gsap3-3', { opacity: 1, duration: 0.2 })
+      .to('.gsap3', { zIndex: 1, delay: 0.1 });
+  },
+  scrollMotionWithFullPage: () => {
+      /*
+    let scrollLeft = 0;
+    let lastScrollPosition = window.pageYOffset;
+    // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
+    $(window).on('scroll', function () {
+      scrollLeft = $(this).scrollLeft();
+      lastScrollPosition = window.pageYOffset;
+      gsap.set('.section.active, .section00.active, .section06', {
+        left: '-' + scrollLeft + 'px',
+      });
+    });
+
+    */
+    gsap.registerPlugin(ScrollToPlugin);
+    const privTopMotion = () => { 
+
+      var tl1 = gsap.timeline({
+        scrollTrigger: {
+          markers: true,
+          trigger: '.section00',
+//          pin: true,
+//          pinSpacing: true,
+          scrub: 3,
+          start: 'top top',
+          end: 'bottom 0',
+          // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
+          onEnter: (self) => {
+            console.log('gsap >> onEnter')
+//            $(self.trigger).addClass('active');
+          },
+          onEnterBack: (self) => {
+            console.log('gsap >> onEnterBack')
+//            $(self.trigger).addClass('active');
+          },
+          onLeave: function (self) {
+            console.log('gsap >> onLeave')
+  //          $(self.trigger).removeClass('active');
+          },
+          onLeaveBack: function (self) {
+            console.log('gsap >> onLeaveBack')
+    //        $(self.trigger).removeClass('active');
+          },
+          onUpdate: function (scrollTrigger) {
+            console.log('gsap >> onUpdate', scrollTrigger.progress);
+            var progress = scrollTrigger.progress;
+            // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+            if (progress > 0.3) {
+              $('.sec0-list').addClass('open');
+            } else {
+              $('.sec0-list').removeClass('open');
+            }
+          },
+        },
+      });
+      tl1
+        .to('.scroll', { opacity: 0, duration: 0.3 })
+        .to('.sec0-tit01', { y: -40, duration: 1 })
+        .to('.sec0-tit02', { y: -10, opacity: '1', duration: 1 })
+        .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)',  duration: 1 })
+        .to('.sec0-list01', { opacity: '1', duration: 0.3 }, '+=5')
+        .to('.sec0-list02', { opacity: '1', duration: 0.3 })
+        .to('.sec0-list03', { opacity: '1', duration: 0.3 })
+        .to('.sec0-list04', { opacity: '1', duration: 0.3 })
+        .to('.sec0-list05', { opacity: '1', duration: 0.3 })
+        /*
+        .to('.bg-mask', { top: '-80vh', duration: 8 })
+        */
+        ;
+        console.log('timeline end');
+
+    } // end privTopMotion
+    privTopMotion();
+
+    // 리사이즈 이벤트 핸들러 추가
+    // window.addEventListener("resize", function() {
+    //   gsap.to(window, {
+    //     scrollTo: {
+    //       y: lastScrollPosition,
+    //     },
+    //   });
+    // });
+
+/*
+
+    */
+
+    var anchorMov = false;
+    var goIndex = 0;
+
+    /* top button */
+    $(document).on('click', '#topButton', function () {
+      anchorMov = true;
+      gsap.to(window, {
+        scrollTo: {
+          y: document.querySelector('.section00').parentNode.offsetTop,
+        },
+        duration: 1,
+        ease: 'none',
+      });
+    });
+
+    /* Main navigation */
+    if ($(window).width() <= 768) {
+      $('.mb-anchor').click(function (e) {
+        e.preventDefault();
+        $(this).find('.deco').css('opacity', '1');
+        if ($(this).siblings('.anchor-nav').hasClass('open')) {
+          $(this).siblings('.anchor-nav').removeClass('open');
+          $(this).find('.deco').css('opacity', '1');
+        } else {
+          $(this).siblings('.anchor-nav').addClass('open');
+          $(this).find('.deco').css('opacity', '0');
+        }
+      });
+    }
+
+    document.querySelectorAll('.anchor').forEach((anchor, index) => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        anchorMov = true;
+        let navIndex = index % 5;
+        if (navIndex == 5) {
+          navIndex = 0;
+        }
+        goIndex = navIndex;
+        const targetId = e.target.getAttribute('href');
+        document.querySelector(targetId).classList.add('active');
+        if (window.innerWidth <= 768) {
+          var anchorNav = document.querySelector(targetId + ' .anchor-nav');
+          if (anchorNav) {
+            anchorNav.classList.remove('open');
+          }
+        }
+
+        e.stopPropagation();
+        gsap.to(window, {
+          scrollTo: {
+            y: document.querySelector(targetId).parentNode.offsetTop + 1,
+          },
+          duration: 0.8,
+          ease: 'none',
+        });
+      });
+    });
+    $('#fullpage').fullpage({
+      // gsap 호환 (section00, section06)
+      scrollOverflow: true,
+  		//scrollOverflowReset: true, // true일 경우 scroll up시 섹션 처음으로 이동
+      scrollOverflowOptions: { // iScroll.js 옵션 사용 (https://github.com/cubiq/iscroll/)
+        probeType:3,
+        useTransition: true,
+        preventDefault: false,
+//        bindToWrapper: true,
+      },
+      
+      /*
+      //Navigation
+      menu: '#menu',
+      lockAnchors: false,
+      anchors:['firstPage', 'secondPage'],
+      navigation: false,
+      navigationPosition: 'right',
+      navigationTooltips: ['firstSlide', 'secondSlide'],
+      showActiveTooltip: false,
+      slidesNavigation: false,
+      slidesNavPosition: 'bottom',
+      */
+
+   		//Scrolling
+      /*
+      css3: true,
+      scrollingSpeed: 700,
+      autoScrolling: true,
+      fitToSection: true,
+      fitToSectionDelay: 1000,
+      scrollBar: false,
+      easing: 'easeInOutCubic',
+      easingcss3: 'ease',
+      loopBottom: false,
+      loopTop: false,
+      loopHorizontal: true,
+      continuousVertical: false,
+      continuousHorizontal: false,
+      scrollHorizontally: false,
+      interlockedSlides: false,
+      dragAndMove: false,
+      offsetSections: false,
+      resetSliders: false,
+      fadingEffect: false,
+      normalScrollElements: '#element1, .element2',
+      touchSensitivity: 15,
+      normalScrollElementTouchThreshold: 5,
+      bigSectionsDestination: null,
+      */
+
+   		//Accessibility
+      keyboardScrolling: true,
+      animateAnchor: true,
+      recordHistory: true,
+
+      //Design
+      /*
+      controlArrows: true,
+      verticalCentered: true,
+      */
+      sectionsColor : ['#005eb8', '#fff'],
+      /*
+      paddingTop: '3em',
+      paddingBottom: '10px',
+      fixedElements: '.section00, .section06',
+      responsiveWidth: 0,
+      responsiveHeight: 0,
+      responsiveSlides: false,
+      parallax: false,
+      parallaxOptions: {type: 'reveal', percentage: 62, property: 'translate'},
+      */
+
+   		lazyLoading: true,
+
+      //events
+      onLeave: function (index, nextIndex, direction) {
+        console.log('fullpage >> onLeave', index);
+      },
+      afterLoad: function (anchorLink, index) {
+        // 섹션이 활성화 된 후
+        console.log('fullpage >> afterload', index);
+        if (index == 1) { 
+          // top
+//          privTopMotion();
+        }
+        // Set elements to 0 opacity at first
+        /*
+        TweenMax.set(".yellow", {autoAlpha:0});
+        TweenMax.set(".motionPath", {autoAlpha:0});
+        TweenMax.set(".dot", {css: {visibility:"hidden"}});
+        TweenMax.set(".text", {autoAlpha:0, x:-50});
+        */
+      },
+      afterRender: function () {
+        console.log('fullpage >> afterRender');
+      },
+      afterResize: function () {
+        console.log('fullpage >> afterResize');
+      },
+      afterResponsive: function (isResponsive) {
+        console.log('fullpage >> afterResponsive');
+      },
+      afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
+        console.log('fullpage >> afterSlideLoad', index);
+        //find svg classes in slide
+        /*
+        var line = $(this).find(".motionPath");
+        var line2 = $(this).find(".motionPath2");
+        var lineYellow = $(this).find(".yellow");
+        var lineYellow2 = $(this).find(".yellow2");
+        var dot = $(this).find(".dot");
+        var dot2 = $(this).find(".dot2");
+        var text = $(this).find(".text");
+        
+        // timeline animation for the lines
+        var tl = new TimelineMax();
+          tl.fromTo([line,lineYellow], 2, {drawSVG:"0"}, {autoAlpha:1,drawSVG:"100%"})
+          tl.to(text, 1, {autoAlpha:1,x:50},"-=1")
+          tl.to(line,2.4, {morphSVG:line2, repeat:-1, yoyo:true, repeatDelay:0.1, ease:Sine.easeInOut },"-=1")
+          tl.to(lineYellow,2.4, {morphSVG:lineYellow2, repeat:-1, yoyo:true, repeatDelay:0.1, ease:Sine.easeInOut },"-=1");
+        
+        // timeline animation for the dot
+        var tlDot = new TimelineMax();	 
+        var motionPath = MorphSVGPlugin.pathDataToBezier(line, {align:dot});
+          tlDot.set(dot, {xPercent:-50, yPercent:-50});			
+          tlDot.to(dot, 2, {autoAlpha:1,bezier:{values:motionPath,type:"cubic"}});
+
+          tlDot.timeScale(1).pause();
+
+          if (slideIndex == 1 ) {				
+            TweenLite.to(tlDot, 1, {progress:0.35});
+          } else {				
+            TweenLite.to(tlDot, 1, {progress:0.35});
+          }
+
+        // timeline animation for the dot2
+        var tlDot2 = new TimelineMax();	 
+        var motionPath2 = MorphSVGPlugin.pathDataToBezier(line, {align:dot2});
+          tlDot2.set(dot2, {xPercent:-50, yPercent:-50});
+          tlDot2.to(dot2, 2, {autoAlpha:1,bezier:{values:motionPath2,type:"cubic"}});
+
+          tlDot2.timeScale(1).pause();
+
+          if (slideIndex == 1 ) {				
+            TweenLite.to(tlDot2, 1, {progress:0.13});
+          } else {				
+            TweenLite.to(tlDot2, 1, {progress:0.1});
+          }
+          */
+      },
+      onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
+        console.log('fullpage >> onSlideLeave', index);
+        /*
+        //find svg classes in slide
+        var lineLeave = $(this).find(".motionPath");
+        var lineLeaveYellow = $(this).find(".yellow");
+        var dotLeave = $(this).find(".dot");
+        var textLeave = $(this).find(".text");
+
+        // timeline animation for elements when the slide is exiting
+        var tlOut = new TimelineMax();
+          tlOut.fromTo([lineLeave,lineLeaveYellow], 1, {drawSVG:"0% 100%"}, {drawSVG:"100% 100%"})				
+          tlOut.to(dotLeave,1, {autoAlpha:0})
+          tlOut.to(textLeave,1, {autoAlpha:0, x:-50});
+      */
+
+      }
+  	}); //end fullpage
+
+    /*
+    var $sections = gsap.utils.toArray('.section');
+    $sections.forEach((item, index) => {
+      var sectionHeight = item.clientHeight;
+      let tl2_1 = gsap.timeline({
+        scrollTrigger: {
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
+          trigger: item,
+          pin: item,
+          // pinSpacing: false,
+          anticipatePin: 1,
+          scrub: 3,
+          start: 'top 1px',
+          end: '+=300%',
+          ease: 'none',
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          // toggleActions: 'play none none none',
+
+          onEnter: (self) => {
+            $(self.trigger).addClass('active');
+            $('.deco .line').addClass('open');
+            $('.deco').css('opacity', '1');
+
+            if (goIndex == index) {
+              anchorMov = false;
+            }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
+          },
+          onLeave: (self) => {
+            $(self.trigger).removeClass('active');
+            $('.deco .line').removeClass('open');
+            $('.deco').css('opacity', '0');
+            $('.anchor-nav').removeClass('open');
+            if (window.innerWidth > 768) {
+              if (index !== 4 && !anchorMov) {
+                gsap.to(window, {
+                  scrollTo: {
+                    y: window.pageYOffset + window.innerHeight,
+                    // y: $sections[index + 1].parentNode.offsetTop + 1,
+                    //x: window.pageXOffset,
+                  },
+                  duration: 0.8,
+                  ease: 'none',
+                });
+              }
+            }
+          },
+          onLeaveBack: (self) => {
+            $(self.trigger).removeClass('active');
+            $('.deco .line').removeClass('open');
+            $('.deco').css('opacity', '0');
+            $('.anchor-nav').removeClass('open');
+
+            if (window.innerWidth > 768) {
+              if (index !== 0 && !anchorMov) {
+                gsap.to(window, {
+                  scrollTo: {
+                    y: self.previous().end - 100,
+                    x: window.pageXOffset,
+                  },
+                  duration: 0,
+                  ease: 'none',
+                });
+              }
+            }
+          },
+          onEnterBack: (self) => {
+            $(self.trigger).addClass('active');
+            $('.deco .line').addClass('open');
+            $('.deco').css('opacity', '1');
+            if (goIndex == index) {
+              anchorMov = false;
+            }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
+          },
+        },
+      });
+
+      var $panels = item.querySelectorAll('.panel'),
+        $panelCon = item.querySelector('.panel-con'),
+        $anchors = item.querySelector('.anchor-nav'),
+        $tag = item.querySelector('.con_tag'),
+        $tit1 = item.querySelector('.con_tit01'),
+        $tit2 = item.querySelector('.con_tit02'),
+        $txt = item.querySelector('.con_txt'),
+        $conList = item.querySelector('.con_list'),
+        $conListBox = item.querySelectorAll('.con_list li'),
+        $page = item.querySelector('.swiper-pagination'),
+        $nav = item.querySelector('.anchor_wrap'),
+        dataColor = item.getAttribute('data-color'),
+        panelPadding = '120px 200px';
+
+      if ($(window).width() <= 768) {
+        panelPadding = '80px 20px';
+      } else if ($(window).width() <= 1500 && $(window).width() > 768) {
+        panelPadding = '120px 100px';
+      } else {
+        panelPadding = '120px 200px';
+      }
+      tl2_1
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
+        .to($txt, { opacity: 0, duration: 0.2 }, '<')
+        .to($tit1, { display: 'none', duration: 0 })
+        .to($txt, { display: 'none', duration: 0 }, '<')
+        // .addLabel('tabStart3')
+        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
+        .to($panelCon, { height: '100%', duration: 0.3, })
+        .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
+        .to($sections[index], { padding: '0', duration: 0.3,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
+        .to($nav, { opacity: 0, duration: 0,},'<')
+
+        .to($tag, { display: 'inline-flex', duration: 0 })
+        .to($tit2, { display: 'flex', duration: 0 }, '<')
+        .to($conList, { display: 'block', opacity: 1 }, '<')
+        .to($tag, { opacity: 1, duration: 0.2 })
+        .to($tit2, { opacity: 1, duration: 0.2 })
+        .to($conListBox, { opacity: 1, stagger: 0.1 })
+        .to($page, { opacity: 1, duration: 0 })
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5');
+    });
+    */
+      
+    let maxW = 5000,
+      maxH = 5000;
+
+    if ($('#pc').length) {
+      (gsap3_1 = 140), (maxW = 0);
+      maxH = 5000;
+    } else if ($('#mobile').length) {
+      (gsap3_1 = 85), (maxW = 5000);
+      maxH = 0;
+    }
     var tlWeve = gsap.timeline({
       scrollTrigger: {
         // markers: true,

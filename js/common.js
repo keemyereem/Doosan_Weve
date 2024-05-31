@@ -2011,7 +2011,7 @@ var privEvent = {
         pinSpacing: true,
         scrub: 3,
         start: 'top top',
-        end: '+=400%',
+        end: '+=200%',
         // fastScrollEnd: true,
         // preventOverlaps: true,
         // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
@@ -2023,6 +2023,12 @@ var privEvent = {
         },
         onLeave: function (self) {
           $(self.trigger).removeClass('active');
+          gsap.to(window,
+            {
+              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
+              duration: 0,
+            },
+          );
         },
         onLeaveBack: function (self) {
           $(self.trigger).removeClass('active');
@@ -2031,7 +2037,7 @@ var privEvent = {
           var progress = scrollTrigger.progress;
 
           // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
-          if (progress > 0.3) {
+          if (progress > 0.4) {
             $('.sec0-list').addClass('open');
           } else {
             $('.sec0-list').removeClass('open');
@@ -2059,12 +2065,12 @@ var privEvent = {
       .to('.sec0-tit01', { y: -40, duration: 1 })
       .to('.sec0-tit02', { y: -10, opacity: '1', duration: 1 })
       .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)', /* fontSize: '60px', */ duration: 1 })
-      .to('.sec0-list01', { opacity: '1', duration: 0.3 }, '+=5')
+      .to('.sec0-list01', { opacity: '1', duration: 0.3 }, '+=2')
       .to('.sec0-list02', { opacity: '1', duration: 0.3 })
       .to('.sec0-list03', { opacity: '1', duration: 0.3 })
       .to('.sec0-list04', { opacity: '1', duration: 0.3 })
       .to('.sec0-list05', { opacity: '1', duration: 0.3 })
-      .to('.bg-mask', { top: '-80vh', duration: 8 });
+      .to('.bg-mask', { top: '-80vh', duration: 2 }, '+=1');
 
     var anchorMov = false;
     var goIndex = 0;
@@ -2122,7 +2128,7 @@ var privEvent = {
         const gnbHeight = 100; //document.querySelector('#gnb').height;
         gsap.to(window,
           {
-            scrollTo: sectionsTrigger[navIndex].labelToScroll("start"),
+            scrollTo: sectionsTrigger[navIndex].labelToScroll("cardStart1"),
             duration: 0,
           },
         );
@@ -2155,8 +2161,8 @@ var privEvent = {
           anticipatePin: 1,
           scrub: 3,
           start: 'top top',
-          //end: '+=300%',
-          end: 'bottom top',
+          end: '+=300%',
+          // end: 'bottom top',
           ease: 'none',
           fastScrollEnd: true,
           preventOverlaps: true,
@@ -2186,7 +2192,7 @@ var privEvent = {
               // autoScroll = 0;
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index + 1].labelToScroll("start"),
+                  scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
                   duration: 0,
                 },
               );
@@ -2202,7 +2208,7 @@ var privEvent = {
             if (window.innerWidth > 768 && index !== 0 && !anchorMov) {
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index - 1].labelToScroll("part2"),
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
                   duration: 0,
                 },
               );
@@ -2237,7 +2243,7 @@ var privEvent = {
                   // 정방향
                   gsap.to(window,
                     {
-                      scrollTo: tl2_1.scrollTrigger.labelToScroll("end"),
+                      scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
                       duration: 0,
                     },
                   );
@@ -2246,7 +2252,7 @@ var privEvent = {
                   if(!leaveBack) {
                     gsap.to(window,
                       {
-                        scrollTo: tl2_1.scrollTrigger.labelToScroll("start"),
+                        scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
                         duration: 0,
                       },
                     );
@@ -2284,19 +2290,19 @@ var privEvent = {
       }
       tl2_1
         .to($tit1, { color: '#fff' }, 3)
-        .addLabel('start',3)
+        .addLabel('cardStart1',3)
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
-        .addLabel('part2')
+        .addLabel('cardStart2')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
         .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
-        .addLabel('part3', 3)
+        .addLabel('cardStart3', 3)
         .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')
@@ -2305,10 +2311,10 @@ var privEvent = {
         .to($conListBox, { opacity: 1, stagger: 0.1 })
         .to($page, { opacity: 1, duration: 0 })
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
-        .addLabel('end')
+        .addLabel('cardEnd1')
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
         .to($tit2, { color: '#fff' }, 1)
-        .addLabel('leaveBack', 5);
+        .addLabel('cardEnd2', 5);
       sectionsTrigger.push(tl2_1.scrollTrigger);
     });
 

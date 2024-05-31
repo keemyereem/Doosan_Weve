@@ -2028,7 +2028,6 @@ var privEvent = {
         onToggle: () => {
           if(goIndex == index) {
             anchorMov = false;
-            console.log('onToggle', goIndex, index, anchorMov);
           }
           curIndex = index;
         },
@@ -2063,7 +2062,6 @@ var privEvent = {
     $(document).on('click', '#topButton', function () {
       anchorMov = true;
       goIndex = 10;
-      console.log('#topButton.click', goIndex, anchorMov);
       gsap.to(window, {
         scrollTo: {
           y: 0,
@@ -2098,7 +2096,6 @@ var privEvent = {
           navIndex = 0;
         }
         goIndex = navIndex;
-      console.log('.anchor.click', curIndex, goIndex, anchorMov);
         const targetId = e.target.getAttribute('href');
         document.querySelector(targetId).classList.add('active');
         if (window.innerWidth <= 768) {
@@ -2111,7 +2108,6 @@ var privEvent = {
         e.stopPropagation();
         const gotoTop = document.querySelector(targetId).parentNode.offsetTop;
         const gnbHeight = 100; //document.querySelector('#gnb').height;
-        console.log('.anchor.click','sectionsTrigger', sectionsTrigger[navIndex]);
         gsap.to(window,
           {
             scrollTo: sectionsTrigger[navIndex].labelToScroll("start"),

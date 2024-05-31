@@ -1,4 +1,14 @@
 {
   "liveServer.settings.port": 5504,
-  "svn.ignoreMissingSvnWarning": true
+  "svn.ignoreMissingSvnWarning": true,
+  "prettier.withNodeModules": false,
+  "[javascript]": {
+    "editor.defaultFormatter": null
+  },
+  "prettier.singleAttributePerLine": false,
+  "prettier.enableDebugLogs": false,
+  "prettier.bracketSameLine": false,
+  "vs-code-prettier-eslint.prettierLast": false,
+  "prettier.jsxSingleQuote": false,
+  "prettier.singleQuote": true,
 }

@@ -555,23 +555,35 @@ var commonEvent = {
   headerScroll: () => {
     let before = 0;
 
-    window.addEventListener('scroll', (ev) => {
-      if (before < window.scrollY) {
-        $('header').addClass('indentUp');
-        before = window.scrollY;
-      } else if (before > window.scrollY) {
-        $('header').removeClass('indentUp').addClass('wht');
-        before = window.scrollY;
-      }
-
-      if (window.scrollY == 0) {
-        if ($('.container').hasClass('graybg')) {
+    if($('.privilege').length == 0) {
+      window.addEventListener('scroll', (ev) => {
+        if (before < window.scrollY) {
+          $('header').addClass('indentUp');
+          before = window.scrollY;
+        } else if (before > window.scrollY) {
           $('header').removeClass('indentUp').addClass('wht');
-        } else {
-          $('header').removeClass('indentUp').removeClass('wht');
+          before = window.scrollY;
         }
-      }
-    });
+  
+        if (window.scrollY == 0) {
+          if ($('.container').hasClass('graybg')) {
+            $('header').removeClass('indentUp').addClass('wht');
+          } else {
+            $('header').removeClass('indentUp').removeClass('wht');
+          }
+        }
+      });
+    }else {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+          $('header').fadeOut();
+        }else {
+          $('header').fadeIn();
+        }
+      });
+
+    }
+
   },
 
   footerEvent: () => {
@@ -2126,16 +2138,17 @@ var privEvent = {
 
     var $sections = gsap.utils.toArray('.section');
     var sectionsTrigger = []; //section당 top값 저장
+    var leaveBack = false;
     $sections.forEach((item, index) => {
       var sectionHeight = item.clientHeight;
       var autoScroll = 0;
       var preUpdateDirection = 0;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: "blue",
-          // endColor: "yellow"
-          // },
+          markers: {
+          startColor: "blue",
+          endColor: "yellow"
+          },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2150,6 +2163,9 @@ var privEvent = {
  
           onEnter: (self) => {
             autoScroll = 0;
+            if(leaveBack == true) {
+              leaveBack = false;
+            }
 
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
@@ -2167,8 +2183,7 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
  
             if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
-              autoScroll = 0;
-              sectionsTrigger[index].labelToScroll("start")
+              // autoScroll = 0;
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index + 1].labelToScroll("start"),
@@ -2182,6 +2197,7 @@ var privEvent = {
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
+            leaveBack = true;
 
             if (window.innerWidth > 768 && index !== 0 && !anchorMov) {
               gsap.to(window,
@@ -2199,15 +2215,9 @@ var privEvent = {
             $('.deco').css('opacity', '1');
             if (goIndex == index) {
               anchorMov = false;
+              console.log('onScrubComplete', goIndex, index, anchorMov);
             }
-            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
-          // onScrubComplete: (self) => {
-          //   if (goIndex == index) {
-          //     anchorMov = false;
-          //     console.log('onScrubComplete', goIndex, index, anchorMov);
-          //   }
-          // },
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
             const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
@@ -2233,12 +2243,15 @@ var privEvent = {
                   );
                 } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
                   // 역방향
-                  gsap.to(window,
-                    {
-                      scrollTo: tl2_1.scrollTrigger.labelToScroll("start"),
-                      duration: 0,
-                    },
-                  );
+                  if(!leaveBack) {
+                    gsap.to(window,
+                      {
+                        scrollTo: tl2_1.scrollTrigger.labelToScroll("start"),
+                        duration: 0,
+                      },
+                    );
+                  }
+
                 }
               }
             }

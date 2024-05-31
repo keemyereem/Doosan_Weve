@@ -2025,7 +2025,7 @@ var privEvent = {
           $(self.trigger).removeClass('active');
           gsap.to(window,
             {
-              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
+              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1_tab0"),
               duration: 0,
             },
           );
@@ -2128,7 +2128,7 @@ var privEvent = {
         const gnbHeight = 100; //document.querySelector('#gnb').height;
         gsap.to(window,
           {
-            scrollTo: sectionsTrigger[navIndex].labelToScroll("cardStart1"),
+            scrollTo: sectionsTrigger[navIndex].labelToScroll("cardStart1_tab" + navIndex),
             duration: 0,
           },
         );
@@ -2191,12 +2191,21 @@ var privEvent = {
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
  
+            onSectionLeave(1);
+            return;
             if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
               // autoScroll = 0;
+//              tl2_1.pause();
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
-                  duration: 0,
+                  scrollTo: {
+                    y: sectionsTrigger[index + 1].labelToScroll('cardStart1'),
+                    autoKill: false,
+                    onAutoKill: () => { 
+                      console.log('11');
+                  } },
+                  duration: 3,
+                  ease: "power2",
                 },
               );
             }
@@ -2209,7 +2218,10 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
             leaveBack = true;
 
+            onSectionLeave(-1);
+            return;
             if (window.innerWidth > 768 && index > 0 && !anchorMov) {
+              //tl2_1.pause();
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
@@ -2272,6 +2284,42 @@ var privEvent = {
           },
         },
       });
+      const onSectionLeave = (cursor) => { 
+        console.log('>>>> onSectionLeave', cursor, window.innerWidth, index, anchorMov);
+        if (window.innerWidth > 768 && !anchorMov) {
+          let target = null;
+          let targetLbl = '';
+          let ease = '';
+          if ((cursor == 1 && index < $sections.length - 1)) { 
+            // 정방향
+            targetLbl = 'cardStart1_tab' + (index + 1);
+            target = sectionsTrigger[index + 1].labelToScroll(targetLbl);
+            //ease = 'power4.out';
+            ease = 'none';
+          } else if ((cursor != 1 && index > 0)) { 
+            // 역방향
+            targetLbl = 'cardStart2_tab' + (index - 1);
+            target = sectionsTrigger[index - 1].labelToScroll(targetLbl);
+            //ease = 'elastic.out(1,0.5)';
+            ease = 'none';
+          }
+          if (target != null) {
+            console.log($(this).scrollTop(),target);
+            gsap.to(window, {
+              scrollTo: target,
+              duration: 0,
+              ease: ease,
+              onComplete: () => { 
+                console.log('!!!!!b', targetLbl); 
+                //tl2_1.play(targetLbl);
+                //tl2_1.seek(targetLbl);
+                tl2_1.pause(targetLbl);
+              }
+            });
+            tl2_1.eventCallback();
+          }
+        }
+      }
       
 
       var $panels = item.querySelectorAll('.panel'),
@@ -2296,20 +2344,36 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .to($tit1, { color: '#fff' }, '+=3')
-        .addLabel('cardStart1')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
+        .to($tit1, {
+          color: '#fff',
+          onComplete: () => { 
+            console.log('!!!!! timeline', index,'cardStart1 before'); 
+        } }, '+=3')
+        .addLabel('cardStart1_tab' + index, '<')
+        .to($tit1, {
+          opacity: 0, duration: 0.2,
+          onComplete: () => { 
+            console.log('!!!!! timeline', index,'cardStart1 after'); 
+        }}, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
-        .to($txt, { display: 'none', duration: 0 }, '<')
-        .addLabel('cardStart2')
-        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
+        .to($txt, {
+          display: 'none',
+          duration: 0,
+          onComplete: () => { 
+            console.log('!!!!! timeline', index,'cardStart2 before'); 
+        }}, '<')
+        .addLabel('cardStart2_tab' + index, '<')
+        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0,
+          onComplete: () => { 
+            console.log('!!!!! timeline', index,'cardStart2 after'); 
+        } })
         .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
-        .addLabel('cardStart3', 3)
+        .addLabel('cardStart3_tab' + index, 3)
         .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')
@@ -2318,10 +2382,11 @@ var privEvent = {
         .to($conListBox, { opacity: 1, stagger: 0.1 })
         .to($page, { opacity: 1, duration: 0 })
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
-        .addLabel('cardEnd1')
+        .addLabel('cardEnd1_tab' + index)
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
         .to($tit2, { color: '#fff' }, 1)
-        .addLabel('cardEnd2', 5);
+        .addLabel('cardEnd2_tab' + index, 5);
+
       sectionsTrigger.push(tl2_1.scrollTrigger);
     });
 

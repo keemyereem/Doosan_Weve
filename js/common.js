@@ -2111,13 +2111,19 @@ var privEvent = {
         const gotoTop = document.querySelector(targetId).parentNode.offsetTop;
         const gnbHeight = 100; //document.querySelector('#gnb').height;
         console.log('.anchor.click','gotoTop', gotoTop);
-        gsap.to(window, {
-          scrollTo: {
-            y: curIndex < goIndex ? gotoTop + 1 : gotoTop + 1, // down : +1 / up : - 100 (= gnb height)
+        gsap.to(window,
+          {
+            scrollTo: sectionsTrigger[navIndex].labelToScroll("start"),
+            duration: 0,
           },
-          duration: 0.8,
-          ease: 'none',
-        });
+        );
+        // gsap.to(window, {
+        //   scrollTo: {
+        //     y: curIndex < goIndex ? gotoTop + 1 : gotoTop + 1, // down : +1 / up : - 100 (= gnb height)
+        //   },
+        //   duration: 0.8,
+        //   ease: 'none',
+        // });
       });
     });
 
@@ -2153,31 +2159,27 @@ var privEvent = {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-            // if (goIndex == index) {
-            //   anchorMov = false;
-            // }
+            if (goIndex == index) {
+              anchorMov = false;
+            }
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
-            console.log('onLeave', index);
+            
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-            if (window.innerWidth > 768) {
-              if (index !== 4 && !anchorMov) {
-                /*
-                gsap.to(window, {
-                  scrollTo: {
-                    // y: window.pageYOffset + window.innerHeight,
-                    y: $sections[index + 1].parentNode.offsetTop + 1,
-                    //x: window.pageXOffset,
-                  },
-                  duration: 0.8,
-                  ease: 'none',
-                });
-                */
-              }
+ 
+            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
+              autoScroll = 10;
+              gsap.to(window,
+                {
+                  scrollTo: sectionsTrigger[index + 1].labelToScroll("start"),
+                  duration: 0,
+                },
+              );
+              console.log('onLeave', index, autoScroll);
             }
           },
           onLeaveBack: (self) => {
@@ -2187,19 +2189,14 @@ var privEvent = {
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
 
-            if (window.innerWidth > 768) {
-              if (index !== 0 && !anchorMov) {
-                /*
-                gsap.to(window, {
-                  scrollTo: {
-                    y: self.previous().end - 100,
-                    x: window.pageXOffset,
-                  },
+            if (window.innerWidth > 768 && index !== 0 && !anchorMov) {
+              // autoScroll = 10;
+              gsap.to(window,
+                {
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll("part2"),
                   duration: 0,
-                  ease: 'none',
-                });
-                */
-              }
+                },
+              );
             }
           },
           onEnterBack: (self) => {
@@ -2208,17 +2205,17 @@ var privEvent = {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-            // if (goIndex == index) {
-            //   anchorMov = false;
-            // }
-            gsap.set(item, { left: '-' + scrollLeft + 'px' });
-          },
-          onScrubComplete: (self) => {
             if (goIndex == index) {
               anchorMov = false;
-              console.log('onScrubComplete', goIndex, index, anchorMov);
             }
+            gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
+          // onScrubComplete: (self) => {
+          //   if (goIndex == index) {
+          //     anchorMov = false;
+          //     console.log('onScrubComplete', goIndex, index, anchorMov);
+          //   }
+          // },
           onRefresh: () => { 
             console.log('onRefresh', index);
           },
@@ -2231,7 +2228,7 @@ var privEvent = {
               autoScroll = 0;
             }
             // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
-            if (progress > 0.26 && progress < 1) {
+            if (progress > 0.31 && progress < 1) {
               autoScroll++;
             } else {
               autoScroll = 0;
@@ -2239,7 +2236,7 @@ var privEvent = {
             console.log('onUpdate', 'state', index, progress, autoScroll, preUpdateDirection, self.direction);
             if (!anchorMov) { 
               if (window.innerWidth > 768) { // PC 환경에서 수행
-                if (self.direction == 1 && autoScroll == directionInterval) {
+                if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
                   // 정방향
                   console.log('onUpdate', '>>>>>>>>>>> auto play', autoScroll);
                   gsap.to(window,
@@ -2248,7 +2245,7 @@ var privEvent = {
                       duration: 0,
                     },
                   );
-                } else if (self.direction == -1 && autoScroll == directionInterval) { 
+                } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
                   // 역방향
                   console.log('onUpdate', '<<<<<<<<<<< auto reverse', autoScroll);
                   gsap.to(window,
@@ -2264,6 +2261,7 @@ var privEvent = {
           },
         },
       });
+      
 
       var $panels = item.querySelectorAll('.panel'),
         $panelCon = item.querySelector('.panel-con'),
@@ -2287,20 +2285,19 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .addLabel('start')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
+        .addLabel('start',3)
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
-        // .addLabel('tabStart3')
         .addLabel('part2')
-        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
+        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
         .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
-
+        .addLabel('part3', 3)
         .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')
@@ -2309,8 +2306,12 @@ var privEvent = {
         .to($conListBox, { opacity: 1, stagger: 0.1 })
         .to($page, { opacity: 1, duration: 0 })
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
-        .addLabel('end');
+        .addLabel('end')
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
+        .to($tit2, { color: '#fff' }, 1)
+        .addLabel('leaveBack', 5);
       sectionsTrigger.push(tl2_1.scrollTrigger);
+      console.log('sectionsTrigger:',sectionsTrigger);
     });
 
     let maxW = 5000,

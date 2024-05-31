@@ -2224,6 +2224,7 @@ var privEvent = {
           },
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
+            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
             // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
             if (preUpdateDirection != self.direction) { 
               console.log('onUpdate', 'autoScroll reset');
@@ -2238,7 +2239,7 @@ var privEvent = {
             console.log('onUpdate', 'state', index, progress, autoScroll, preUpdateDirection, self.direction);
             if (!anchorMov) { 
               if (window.innerWidth > 768) { // PC 환경에서 수행
-                if (self.direction == 1 && autoScroll == 1) {
+                if (self.direction == 1 && autoScroll == directionInterval) {
                   // 정방향
                   console.log('onUpdate', '>>>>>>>>>>> auto play', autoScroll);
                   gsap.to(window,
@@ -2247,7 +2248,7 @@ var privEvent = {
                       duration: 0,
                     },
                   );
-                } else if (self.direction == -1 && autoScroll == 1) { 
+                } else if (self.direction == -1 && autoScroll == directionInterval) { 
                   // 역방향
                   console.log('onUpdate', '<<<<<<<<<<< auto reverse', autoScroll);
                   gsap.to(window,

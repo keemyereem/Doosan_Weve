@@ -2139,6 +2139,7 @@ var privEvent = {
         //   duration: 0.8,
         //   ease: 'none',
         // });
+        console.log('click',goIndex, anchorMov);
       });
     });
 
@@ -2168,27 +2169,29 @@ var privEvent = {
           preventOverlaps: true,
  
           onEnter: (self) => {
-            autoScroll = 0;
             if(leaveBack == true) {
               leaveBack = false;
             }
-
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-            if (goIndex == index) {
-              anchorMov = false;
-            }
+            setTimeout(()=> {
+              if (goIndex == index) {
+                anchorMov = false;
+              }
+            },100);
+
+            console.log('onEnter', goIndex, index ,anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
-            
+            const progress = self.progress;
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
  
-            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
+            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
               // autoScroll = 0;
               gsap.to(window,
                 {
@@ -2197,6 +2200,7 @@ var privEvent = {
                 },
               );
             }
+            console.log('onLeave', goIndex, index ,anchorMov,progress);
           },
           onLeaveBack: (self) => {
             $(self.trigger).removeClass('active');
@@ -2205,7 +2209,7 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
             leaveBack = true;
 
-            if (window.innerWidth > 768 && index !== 0 && !anchorMov) {
+            if (window.innerWidth > 768 && index > 0 && !anchorMov) {
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
@@ -2213,54 +2217,57 @@ var privEvent = {
                 },
               );
             }
+            console.log('onLeaveBack', goIndex, index ,anchorMov);
           },
           onEnterBack: (self) => {
-            autoScroll = 0;
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-            if (goIndex == index) {
-              anchorMov = false;
-              console.log('onScrubComplete', goIndex, index, anchorMov);
-            }
+            setTimeout(()=> {
+              if (goIndex == index) {
+                anchorMov = false;
+              }
+            },100);
+            console.log('onEnterBack', goIndex, index ,anchorMov);
           },
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
             const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
+            console.log('update',goIndex, index, anchorMov, progress);
             // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
-            if (preUpdateDirection != self.direction) { 
-              autoScroll = 0;
-            }
-            // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
-            if (progress > 0.31 && progress < 1) {
-              autoScroll++;
-            } else {
-              autoScroll = 0;
-            }
-            if (!anchorMov) { 
-              if (window.innerWidth > 768) { // PC 환경에서 수행
-                if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
-                  // 정방향
-                  gsap.to(window,
-                    {
-                      scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
-                      duration: 0,
-                    },
-                  );
-                } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
-                  // 역방향
-                  if(!leaveBack) {
-                    gsap.to(window,
-                      {
-                        scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
-                        duration: 0,
-                      },
-                    );
-                  }
+            // if (preUpdateDirection != self.direction) { 
+            //   autoScroll = 0;
+            // }
+            // // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
+            // if (progress > 0.31 && progress < 1) {
+            //   autoScroll++;
+            // } else {
+            //   autoScroll = 0;
+            // }
+            // if (!anchorMov) { 
+            //   if (window.innerWidth > 768) { // PC 환경에서 수행
+            //     if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
+            //       // 정방향
+            //       gsap.to(window,
+            //         {
+            //           scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
+            //           duration: 0,
+            //         },
+            //       );
+            //     } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
+            //       // 역방향
+            //       if(!leaveBack) {
+            //         gsap.to(window,
+            //           {
+            //             scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
+            //             duration: 0,
+            //           },
+            //         );
+            //       }
 
-                }
-              }
-            }
+            //     }
+            //   }
+            // }
             preUpdateDirection = self.direction;
           },
         },
@@ -2289,8 +2296,8 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .to($tit1, { color: '#fff' }, 3)
-        .addLabel('cardStart1',3)
+        .to($tit1, { color: '#fff' }, '+=3')
+        .addLabel('cardStart1')
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })

@@ -2068,7 +2068,7 @@ var privEvent = {
         scrollTo: {
           y: 0,
         },
-        duration: 1,
+        duration: 0,
         ease: 'none',
       });
     });
@@ -2092,6 +2092,7 @@ var privEvent = {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         anchorMov = true;
+        autoScroll = 0;
         let navIndex = index % 5;
         if (navIndex == 5) {
           navIndex = 0;
@@ -2110,7 +2111,7 @@ var privEvent = {
         e.stopPropagation();
         const gotoTop = document.querySelector(targetId).parentNode.offsetTop;
         const gnbHeight = 100; //document.querySelector('#gnb').height;
-        console.log('.anchor.click','gotoTop', gotoTop);
+        console.log('.anchor.click','sectionsTrigger', sectionsTrigger[navIndex]);
         gsap.to(window,
           {
             scrollTo: sectionsTrigger[navIndex].labelToScroll("start"),
@@ -2135,10 +2136,10 @@ var privEvent = {
       var preUpdateDirection = 0;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: "blue",
+          // endColor: "yellow"
+          // },
           trigger: item,
           pin: item,
           // pinSpacing: false,
@@ -2150,10 +2151,8 @@ var privEvent = {
           ease: 'none',
           fastScrollEnd: true,
           preventOverlaps: true,
-          // toggleActions: 'play none none none',
  
           onEnter: (self) => {
-            console.log('onEnter', index);
             autoScroll = 0;
 
             $(self.trigger).addClass('active');
@@ -2172,25 +2171,23 @@ var privEvent = {
             $('.anchor-nav').removeClass('open');
  
             if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
-              autoScroll = 10;
+              autoScroll = 0;
+              sectionsTrigger[index].labelToScroll("start")
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index + 1].labelToScroll("start"),
                   duration: 0,
                 },
               );
-              console.log('onLeave', index, autoScroll);
             }
           },
           onLeaveBack: (self) => {
-            console.log('onLeaveBack', index);
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
 
             if (window.innerWidth > 768 && index !== 0 && !anchorMov) {
-              // autoScroll = 10;
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index - 1].labelToScroll("part2"),
@@ -2200,7 +2197,6 @@ var privEvent = {
             }
           },
           onEnterBack: (self) => {
-            console.log('onEnterBack', index);
             autoScroll = 0;
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
@@ -2216,15 +2212,11 @@ var privEvent = {
           //     console.log('onScrubComplete', goIndex, index, anchorMov);
           //   }
           // },
-          onRefresh: () => { 
-            console.log('onRefresh', index);
-          },
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
             const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
             // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
             if (preUpdateDirection != self.direction) { 
-              console.log('onUpdate', 'autoScroll reset');
               autoScroll = 0;
             }
             // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
@@ -2233,12 +2225,10 @@ var privEvent = {
             } else {
               autoScroll = 0;
             }
-            console.log('onUpdate', 'state', index, progress, autoScroll, preUpdateDirection, self.direction);
             if (!anchorMov) { 
               if (window.innerWidth > 768) { // PC 환경에서 수행
                 if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
                   // 정방향
-                  console.log('onUpdate', '>>>>>>>>>>> auto play', autoScroll);
                   gsap.to(window,
                     {
                       scrollTo: tl2_1.scrollTrigger.labelToScroll("end"),
@@ -2247,7 +2237,6 @@ var privEvent = {
                   );
                 } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
                   // 역방향
-                  console.log('onUpdate', '<<<<<<<<<<< auto reverse', autoScroll);
                   gsap.to(window,
                     {
                       scrollTo: tl2_1.scrollTrigger.labelToScroll("start"),
@@ -2285,6 +2274,7 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
+        .to($tit1, { color: '#fff' }, 3)
         .addLabel('start',3)
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
@@ -2307,11 +2297,10 @@ var privEvent = {
         .to($page, { opacity: 1, duration: 0 })
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
         .addLabel('end')
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
         .to($tit2, { color: '#fff' }, 1)
         .addLabel('leaveBack', 5);
       sectionsTrigger.push(tl2_1.scrollTrigger);
-      console.log('sectionsTrigger:',sectionsTrigger);
     });
 
     let maxW = 5000,

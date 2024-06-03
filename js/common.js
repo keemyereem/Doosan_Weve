@@ -1970,7 +1970,6 @@ var privEvent = {
         observer: true,
         spaceBetween: 20,
         speed: 1000,
-        // allowTouchMove: true,
         pagination: {
           el: item.querySelector('.swiper-pagination'),
           clickable: true,
@@ -1991,15 +1990,6 @@ var privEvent = {
       });
     });
 
-    // 리사이즈 이벤트 핸들러 추가
-    // window.addEventListener("resize", function() {
-    //   gsap.to(window, {
-    //     scrollTo: {
-    //       y: lastScrollPosition,
-    //     },
-    //   });
-    // });
-
     gsap.registerPlugin(ScrollToPlugin);
 
     const index = 10;
@@ -2012,9 +2002,6 @@ var privEvent = {
         scrub: 3,
         start: 'top top',
         end: '+=200%',
-        // fastScrollEnd: true,
-        // preventOverlaps: true,
-        // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onEnter: (self) => {
           $(self.trigger).addClass('active');
         },
@@ -2025,8 +2012,11 @@ var privEvent = {
           $(self.trigger).removeClass('active');
           gsap.to(window,
             {
-              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
-              duration: 0,
+              scrollTo: sectionsTrigger[0].labelToScroll('cardStart1'),
+              duration: 0.8,
+              // overwrite: true,
+              onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+              onComplete: () => { document.getElementsByTagName('html')[0].style = 'smooth' }
             },
           );
         },
@@ -2049,14 +2039,6 @@ var privEvent = {
           }
           curIndex = index;
         },
-        /*
-        onScrubComplete: () => {
-          if(goIndex == index) {
-            anchorMov = false;
-            console.log('onScrubComplete', goIndex, index, anchorMov);
-          }
-        },
-        */
       },
     });
 
@@ -2124,55 +2106,39 @@ var privEvent = {
         }
 
         e.stopPropagation();
-        const gotoTop = document.querySelector(targetId).parentNode.offsetTop;
-        const gnbHeight = 100; //document.querySelector('#gnb').height;
         gsap.to(window,
           {
-            scrollTo: sectionsTrigger[navIndex].labelToScroll("cardStart1"),
+            scrollTo: sectionsTrigger[navIndex].labelToScroll('cardStart1'),
             duration: 0,
             overwrite: false,
           },
         );
-        // gsap.to(window, {
-        //   scrollTo: {
-        //     y: curIndex < goIndex ? gotoTop + 1 : gotoTop + 1, // down : +1 / up : - 100 (= gnb height)
-        //   },
-        //   duration: 0.8,
-        //   ease: 'none',
-        // });
-        console.log('click',goIndex, anchorMov);
       });
     });
 
     var $sections = gsap.utils.toArray('.section');
     var sectionsTrigger = []; //section당 top값 저장
-    var leaveBack = false;
     $sections.forEach((item, index) => {
       var sectionHeight = item.clientHeight;
       var autoScroll = 0;
       var preUpdateDirection = 0;
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: 'blue',
+          // endColor: 'yellow'
+          // },
           trigger: item,
           pin: item,
-          // pinSpacing: false,
-          // anticipatePin: 1,
-          scrub: 3,
+          scrub: 0.3,
           start: 'top top',
-          end: '+=300%',
-          //end: 'bottom top',
+          // end: '+=300%',
+          end: 'bottom top',
           ease: 'none',
           fastScrollEnd: false,
           preventOverlaps: false,
           toggleActions: 'none none none none', // enter leave enterback leaveback
           onEnter: (self) => {
-            if(leaveBack == true) {
-              leaveBack = false;
-            }
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
@@ -2182,7 +2148,6 @@ var privEvent = {
               }
             },100);
 
-            console.log('onEnter', goIndex, index, anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
@@ -2192,39 +2157,36 @@ var privEvent = {
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
             if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
-              // autoScroll = 0;
-              console.log('!!!!!!!!!!!!!!!!!!');
-              console.log(sectionsTrigger[index + 1].labelToScroll('cardStart1'));
-//              self.next().scroll(self.next().labelToScroll("cardStart"));
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
+                  scrollTo: sectionsTrigger[index + 1].labelToScroll('cardStart1'),
                   duration: 0,
                   overwrite: true,
                   ease: 'none',
+                  onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+                  onComplete: () => { document.getElementsByTagName('html')[0].style = 'smooth'}
                  },
               );
             }
-            console.log('onLeave', goIndex, index ,anchorMov,progress);
           },
           onLeaveBack: (self) => {
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-            leaveBack = true;
             if (window.innerWidth > 768 && index > 0 && !anchorMov) {
-              console.log('!!!!!!!!!!!!!!!!!!');
+              document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll('cardEnd2'),
                   duration: 0,
                   overwrite: false,
                   ease: 'none',
+                  onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+                  onComplete: () => { document.getElementsByTagName('html')[0].style = 'smooth' }
                 },
               );
             }
-            console.log('onLeaveBack', goIndex, index ,anchorMov);
           },
           onEnterBack: (self) => {
             $(self.trigger).addClass('active');
@@ -2235,47 +2197,6 @@ var privEvent = {
                 anchorMov = false;
               }
             },100);
-            console.log('onEnterBack', goIndex, index ,anchorMov);
-          },
-          onUpdate: (self) => { 
-            const progress = self.progress.toFixed(2);
-            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
-            //console.log('update',goIndex, index, anchorMov, progress);
-            // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
-            // if (preUpdateDirection != self.direction) { 
-            //   autoScroll = 0;
-            // }
-            // // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
-            // if (progress > 0.31 && progress < 1) {
-            //   autoScroll++;
-            // } else {
-            //   autoScroll = 0;
-            // }
-            // if (!anchorMov) { 
-            //   if (window.innerWidth > 768) { // PC 환경에서 수행
-            //     if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
-            //       // 정방향
-            //       gsap.to(window,
-            //         {
-            //           scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
-            //           duration: 0,
-            //         },
-            //       );
-            //     } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
-            //       // 역방향
-            //       if(!leaveBack) {
-            //         gsap.to(window,
-            //           {
-            //             scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
-            //             duration: 0,
-            //           },
-            //         );
-            //       }
-
-            //     }
-            //   }
-            // }
-            preUpdateDirection = self.direction;
           },
         },
       });
@@ -2302,32 +2223,34 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .to($tit1, { color: '#fff' }, '+=3')
-        .addLabel('cardStart1','=+1')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
+        .to($tit1, { color: '#fff' }, '+=20')
+        .addLabel('cardStart1')
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=20')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
-        .addLabel('cardStart2')
-        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
-        .to($panelCon, { height: '100%', duration: 0.3, })
-        .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
-        .to($sections[index], { padding: '0', duration: 0.3,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
+        .to($tit1, { color: '#fff' }, '+=15')
+        .addLabel('cardStart2',3)
+        .to($tit1, { color: '#fff' }, '+=15')
+        .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'+=10')
+        .to($panelCon, { height: '100%', duration: 5, delay: 3 },'+=3')
+        .to($panels, { width: '100%', height: '100%', duration: 5, delay: 3 },'<')
+        .to($sections[index], { padding: '0', duration: 5, delay: 3},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 5, delay: 3 },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
-        .addLabel('cardStart3', 3)
+        .addLabel('cardStart3',10)
         .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')
-        .to($tag, { opacity: 1, duration: 0.2 })
-        .to($tit2, { opacity: 1, duration: 0.2 })
-        .to($conListBox, { opacity: 1, stagger: 0.1 })
+        .to($tag, { opacity: 1, duration:1 }, '+=5')
+        .to($tit2, { opacity: 1, duration:1 }, '+=5')
+        .to($conListBox, { opacity: 1, duration:1, stagger: 1 }, '+=5')
         .to($page, { opacity: 1, duration: 0 })
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
-        .addLabel('cardEnd1')
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
+        .addLabel('cardEnd1',5)
+        .to($panelCon, { backgroundColor: dataColor, duration: 5 }, '+=10')
         .to($tit2, { color: '#fff' }, 1)
-        .addLabel('cardEnd2', 5);
+        .addLabel('cardEnd2')
+        .to($panelCon, { backgroundColor: dataColor, duration: 5 }, '+=50');
       sectionsTrigger.push(tl2_1.scrollTrigger);
     });
 

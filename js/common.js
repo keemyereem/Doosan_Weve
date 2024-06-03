@@ -1936,12 +1936,25 @@ var weve5Concept = {
 var privEvent = {
   init: function () {
     this.scrollMotion();
+    var $html = document.documentElement;
+    function setScrollBehavior(behavior) {
+      $html.style.scrollBehavior = behavior;
+      console.log('Updated scroll-behavior:', $html.style.scrollBehavior);
+    }
 
     if ($(window).width() <= 768) {
       this.privMSwiper();
       ScrollTrigger.config({
         autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
       });
+      setTimeout(function() {
+        setScrollBehavior('smooth');
+      }, 100);
+    } else {
+      setTimeout(function() {
+        setScrollBehavior('auto');
+      }, 100);
+      
     }
   },
 
@@ -2010,6 +2023,12 @@ var privEvent = {
         },
         onLeave: function (self) {
           $(self.trigger).removeClass('active');
+          gsap.to(window,
+            {
+              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
+              duration: 1,
+            },
+          );
         },
         onLeaveBack: function (self) {
           $(self.trigger).removeClass('active');
@@ -2105,9 +2124,8 @@ var privEvent = {
     });
 
     var $sections = gsap.utils.toArray('.section');
-    var direction = 0;
-    var startColor = ['red', 'orange', 'green', 'blue', 'purple'];
-    var endColor = ['black', 'yellow', 'lightgreen', 'skyblue', 'violet'];
+    var sectionsTrigger = []; //section당 top값 저장
+    var originalBgImages  = []; //section당 top값 저장
     $sections.forEach((item, index) => {
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
@@ -2129,15 +2147,11 @@ var privEvent = {
            toggleActions: 'play reverse play reverse',
 
           onEnter: (self) => {
-            console.log('onEnter',direction);
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
 
-
-            // if (goIndex == index) {
-            //   anchorMov = false;
-            // }
+            // console.log('onEnter', goIndex, index ,anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
@@ -2146,27 +2160,18 @@ var privEvent = {
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-            if (window.innerWidth > 768) {
-              // if (index !== 4 && !anchorMov) {
-              //   gsap.to(window, {
-              //     scrollTo: {
-              //       // y: window.pageYOffset + window.innerHeight,
-              //       y: $sections[index + 1].parentNode.offsetTop + 1,
-              //       //x: window.pageXOffset,
-              //     },
-              //     duration: 0.8,
-              //     ease: 'none',
-              //   });
-              // }
-              // console.log('onLeave');
-
-              if (window.innerWidth > 768) {
-                if (index < $sections.length - 1 && direction == 1 && !anchorMov) {
-                  gsap.to(window, { scrollTo: $sections[index + 1], duration: 1 });
-                }
-              }
-
+ 
+            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
+              // autoScroll = 0;
+              gsap.to(window,
+                {
+                  scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
+                  // scrollTo: self.next().start,
+                  duration: 0,
+                },
+              );
             }
+            console.log('onLeave', /* goIndex, index ,anchorMov,progress */ /* index+1, sectionsTrigger[index + 1].labelToScroll("cardStart1") */);
           },
           onLeaveBack: (self) => {
             console.log('onLeaveBack',direction);
@@ -2175,47 +2180,68 @@ var privEvent = {
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
 
-            if (window.innerWidth > 768) {
-              // if (index !== 0 && !anchorMov) {
-              //   gsap.to(window, {
-              //     scrollTo: {
-              //       y: self.previous().end - 100,
-              //       x: window.pageXOffset,
-              //     },
-              //     duration: 0,
-              //     ease: 'none',
-              //   });
-              // }
-
-              if (index > 0 && direction == -1 && !anchorMov) {
-                gsap.to(window, { scrollTo: $sections[index - 1], duration: 1 });
-              }
+            if (window.innerWidth > 768 && index > 0 && !anchorMov) {
+              gsap.to(window,
+                {
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardEnd1"),
+                  // scrollTo: self.previous().end,
+                  duration: 0,
+                },
+              );
             }
+            console.log('onLeaveBack', /* goIndex, index ,anchorMov */ /* index-1, sectionsTrigger[index - 1].labelToScroll("cardEnd2") */);
           },
           onEnterBack: (self) => {
             console.log('onEnterBack',direction);
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
-            // if (goIndex == index) {
-            //   anchorMov = false;
-            // }
- 
-            if (window.innerWidth > 768) {
-              if (index < $sections.length - 1 && direction == 1 && !anchorMov) {
-                gsap.to(window, { scrollTo: $sections[index + 1], duration: 1 });
+            setTimeout(()=> {
+              if (goIndex == index) {
+                anchorMov = false;
               }
-            }
-            gsap.set(item, { left: '-' + scrollLeft + 'px' });
+            },100);
+            // console.log('onEnterBack', goIndex, index ,anchorMov);
           },
-          onScrubComplete: () => {
-            if (goIndex == index) {
-              anchorMov = false;
-            }
-            // console.log('onScrubComplete', goIndex, index,anchorMov);
-          },
-          onUpdate: (self)=> {
-            direction = self.direction;
+          onUpdate: (self) => { 
+            const progress = self.progress.toFixed(2);
+            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
+            // console.log('update',autoScroll);
+            // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
+            // if (preUpdateDirection != self.direction) { 
+            //   autoScroll = 0;
+            // }
+            // // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
+            // if (progress > 0.31 && progress < 1) {
+            //   autoScroll++;
+            // } else {
+            //   autoScroll = 0;
+            // }
+            // if (!anchorMov) { 
+            //   if (window.innerWidth > 768) { // PC 환경에서 수행
+            //     if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
+            //       // 정방향
+            //       gsap.to(window,
+            //         {
+            //           scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
+            //           duration: 0,
+            //         },
+            //       );
+            //     } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
+            //       // 역방향
+            //       if(!leaveBack) {
+            //         gsap.to(window,
+            //           {
+            //             scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
+            //             duration: 0,
+            //           },
+            //         );
+            //       }
+
+            //     }
+            //   }
+            // }
+            preUpdateDirection = self.direction;
           },
         },
       });
@@ -2233,6 +2259,12 @@ var privEvent = {
         $nav = item.querySelector('.anchor_wrap'),
         dataColor = item.getAttribute('data-color'),
         panelPadding = '120px 200px';
+        
+
+      var originalBgImage = $panelCon.style.backgroundImage;
+      // originalBgImages[index] = originalBgImage;
+      originalBgImages.push(originalBgImage);
+      console.log('originalBgImages:',originalBgImages);
 
       if ($(window).width() <= 768) {
         panelPadding = '80px 20px';
@@ -2261,8 +2293,16 @@ var privEvent = {
         .to($tit2, { opacity: 1, duration: 0.2 })
         .to($conListBox, { opacity: 1, stagger: 0.1 })
         .to($page, { opacity: 1, duration: 0 })
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5');
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
+        .addLabel('cardEnd1')
+
+        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
+        .to($tit2, { color: '#fff' }, 1)
+        .addLabel('cardEnd2', 5);
+      sectionsTrigger.push(tl2_1.scrollTrigger);
+      // console.log(sectionsTrigger);
     });
+
 
     let maxW = 5000,
       maxH = 5000;

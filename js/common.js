@@ -2130,51 +2130,47 @@ var privEvent = {
       let tl2_1 = gsap.timeline({
         scrollTrigger: {
           markers: {
-          startColor: startColor[index],
-          endColor: endColor[index]
+          startColor: 'yellow',
+          endColor: 'red'
           },
           trigger: item,
           pin: item,
           // pinSpacing: false,
           anticipatePin: 1,
           scrub: 3,
-          start: 'top top+=5px',
+          start: 'top top',
           end: '+=300%',
-          // end: () => `+=${document.querySelector(item).offsetHeight} - 10px`,
           ease: 'none',
           fastScrollEnd: true,
           preventOverlaps: true,
-           toggleActions: 'play reverse play reverse',
+          toggleActions: 'play reverse play reverse',
 
           onEnter: (self) => {
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
 
-            // console.log('onEnter', goIndex, index ,anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
-            console.log('onLeave',direction);
+            console.log('onLeave');
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
  
-            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
-              // autoScroll = 0;
+            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
-                  // scrollTo: self.next().start,
                   duration: 0,
                 },
               );
             }
-            console.log('onLeave', /* goIndex, index ,anchorMov,progress */ /* index+1, sectionsTrigger[index + 1].labelToScroll("cardStart1") */);
+            console.log('onLeave');
           },
           onLeaveBack: (self) => {
-            console.log('onLeaveBack',direction);
+            console.log('onLeaveBack');
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
@@ -2184,15 +2180,14 @@ var privEvent = {
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index - 1].labelToScroll("cardEnd1"),
-                  // scrollTo: self.previous().end,
                   duration: 0,
                 },
               );
             }
-            console.log('onLeaveBack', /* goIndex, index ,anchorMov */ /* index-1, sectionsTrigger[index - 1].labelToScroll("cardEnd2") */);
+            console.log('onLeaveBack');
           },
           onEnterBack: (self) => {
-            console.log('onEnterBack',direction);
+            console.log('onEnterBack');
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
@@ -2201,47 +2196,9 @@ var privEvent = {
                 anchorMov = false;
               }
             },100);
-            // console.log('onEnterBack', goIndex, index ,anchorMov);
           },
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
-            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
-            // console.log('update',autoScroll);
-            // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
-            // if (preUpdateDirection != self.direction) { 
-            //   autoScroll = 0;
-            // }
-            // // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
-            // if (progress > 0.31 && progress < 1) {
-            //   autoScroll++;
-            // } else {
-            //   autoScroll = 0;
-            // }
-            // if (!anchorMov) { 
-            //   if (window.innerWidth > 768) { // PC 환경에서 수행
-            //     if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
-            //       // 정방향
-            //       gsap.to(window,
-            //         {
-            //           scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
-            //           duration: 0,
-            //         },
-            //       );
-            //     } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
-            //       // 역방향
-            //       if(!leaveBack) {
-            //         gsap.to(window,
-            //           {
-            //             scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
-            //             duration: 0,
-            //           },
-            //         );
-            //       }
-
-            //     }
-            //   }
-            // }
-            preUpdateDirection = self.direction;
           },
         },
       });
@@ -2274,18 +2231,19 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
+        .addLabel('cardStart1',3)
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
-        // .addLabel('tabStart3')
+        .addLabel('cardStart2')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, },'<')
         .to($panelCon, { height: '100%', duration: 0.3, })
         .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
         .to($sections[index], { padding: '0', duration: 0.3,},'<')
         .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
-
+        .addLabel('cardStart3')
         .to($tag, { display: 'inline-flex', duration: 0 })
         .to($tit2, { display: 'flex', duration: 0 }, '<')
         .to($conList, { display: 'block', opacity: 1 }, '<')

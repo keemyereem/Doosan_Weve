@@ -2130,6 +2130,7 @@ var privEvent = {
           {
             scrollTo: sectionsTrigger[navIndex].labelToScroll("cardStart1"),
             duration: 0,
+            overwrite: false,
           },
         );
         // gsap.to(window, {
@@ -2159,15 +2160,15 @@ var privEvent = {
           trigger: item,
           pin: item,
           // pinSpacing: false,
-          anticipatePin: 1,
+          // anticipatePin: 1,
           scrub: 3,
           start: 'top top',
           end: '+=300%',
-          // end: 'bottom top',
+          //end: 'bottom top',
           ease: 'none',
-          fastScrollEnd: true,
-          preventOverlaps: true,
- 
+          fastScrollEnd: false,
+          preventOverlaps: false,
+          toggleActions: 'none none none none', // enter leave enterback leaveback
           onEnter: (self) => {
             if(leaveBack == true) {
               leaveBack = false;
@@ -2181,7 +2182,7 @@ var privEvent = {
               }
             },100);
 
-            console.log('onEnter', goIndex, index ,anchorMov);
+            console.log('onEnter', goIndex, index, anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
@@ -2190,14 +2191,18 @@ var privEvent = {
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
- 
             if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
               // autoScroll = 0;
+              console.log('!!!!!!!!!!!!!!!!!!');
+              console.log(sectionsTrigger[index + 1].labelToScroll('cardStart1'));
+//              self.next().scroll(self.next().labelToScroll("cardStart"));
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
                   duration: 0,
-                },
+                  overwrite: true,
+                  ease: 'none',
+                 },
               );
             }
             console.log('onLeave', goIndex, index ,anchorMov,progress);
@@ -2208,12 +2213,14 @@ var privEvent = {
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
             leaveBack = true;
-
             if (window.innerWidth > 768 && index > 0 && !anchorMov) {
+              console.log('!!!!!!!!!!!!!!!!!!');
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
                   duration: 0,
+                  overwrite: false,
+                  ease: 'none',
                 },
               );
             }
@@ -2233,7 +2240,7 @@ var privEvent = {
           onUpdate: (self) => { 
             const progress = self.progress.toFixed(2);
             const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
-            console.log('update',goIndex, index, anchorMov, progress);
+            //console.log('update',goIndex, index, anchorMov, progress);
             // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
             // if (preUpdateDirection != self.direction) { 
             //   autoScroll = 0;
@@ -2272,7 +2279,6 @@ var privEvent = {
           },
         },
       });
-      
 
       var $panels = item.querySelectorAll('.panel'),
         $panelCon = item.querySelector('.panel-con'),
@@ -2297,7 +2303,7 @@ var privEvent = {
       }
       tl2_1
         .to($tit1, { color: '#fff' }, '+=3')
-        .addLabel('cardStart1')
+        .addLabel('cardStart1','=+1')
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })

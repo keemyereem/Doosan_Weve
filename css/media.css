@@ -465,6 +465,8 @@
 
 
 	/* Privilege */
+	#mobile #top { font-size: 14px; right: 20px; bottom: 35px; }
+	#mobile #top::after { width: 18px; height: 23px; }
 	#mobile .privilege .scroll {display: none;}
 	#mobile .privilege .sec0-tit {font-size: 50px;}
 	#mobile .privilege .sec0-list {}

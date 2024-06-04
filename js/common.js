@@ -502,36 +502,39 @@ var commonEvent = {
   },
 
   goTopEvent: () => {
-    $(window).scroll(function () {
-      // top button controll
-      if ($(this).scrollTop() > 400) {
-        $('#topButton').fadeIn();
-      } else {
-        $('#topButton').fadeOut();
-      }
-      var footerTop = $('footer').offset().top - $(window).outerHeight();
-      var pos = $('footer').outerHeight() + Number(80);
-      var pos_m = $('footer').outerHeight() + Number(35);
 
-      if ($(this).scrollTop() > footerTop) {
-        if ($('#pc').length) {
-          $('#topButton').addClass('on').css({ bottom: pos });
+    if ($('.privilege').length == 0) {
+      $(window).scroll(function () {
+        // top button controll
+        if ($(this).scrollTop() > 400) {
+          $('#topButton').fadeIn();
         } else {
-          $('#topButton').addClass('on').css({ bottom: pos_m });
+          $('#topButton').fadeOut();
         }
-      } else {
-        if ($('#pc').length) {
-          $('#topButton').removeClass('on').css({ bottom: '80px' });
+        var footerTop = $('footer').offset().top - $(window).outerHeight();
+        var pos = $('footer').outerHeight() + Number(80);
+        var pos_m = $('footer').outerHeight() + Number(35);
+  
+        if ($(this).scrollTop() > footerTop) {
+          if ($('#pc').length) {
+            $('#topButton').addClass('on').css({ bottom: pos });
+          } else {
+            $('#topButton').addClass('on').css({ bottom: pos_m });
+          }
         } else {
-          $('#topButton').removeClass('on').css({ bottom: '35px' });
+          if ($('#pc').length) {
+            $('#topButton').removeClass('on').css({ bottom: '80px' });
+          } else {
+            $('#topButton').removeClass('on').css({ bottom: '35px' });
+          }
         }
-      }
-    });
+      });
 
-    if (!$('.privilege').length == 0) {
       $(document).on('click', '#topButton', function () {
         $('html, body').animate({ scrollTop: 0 }, '300');
       });
+    }else {
+      $('#topButton').fadeOut();
     }
   },
 
@@ -686,7 +689,7 @@ var essentialEvent = {
   },
   gsap: () => {
     // Landing Page ScrollTrigger/ 참고 https://velog.io/@yesslkim94/GSAP-ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     // ************************************************** 초기 시작 값
 
@@ -1949,12 +1952,17 @@ var privEvent = {
   init: function () {
     this.scrollMotion();
 
+    window.addEventListener('load', function() {
+      document.querySelector('#wrap').style.height = '100%';
+      document.querySelector('.privilege').style.height = '100%';
+    });
+    
     if ($(window).width() <= 768) {
       this.privMSwiper();
       ScrollTrigger.config({
         autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load',
       });
-    }
+    };
   },
 
   privMSwiper: () => {
@@ -1989,18 +1997,35 @@ var privEvent = {
       gsap.set('.section.active, .section00.active, .section06', {
         left: '-' + scrollLeft + 'px',
       });
+
+            // top button controll
+            // if ($(this).scrollTop() > 400) {
+            //   $('#top').fadeIn();
+            // } else {
+            //   $('#top').fadeOut();
+            // }
+            // var footerTop = $('footer').offset().top - $(window).outerHeight();
+            // var pos = $('footer').outerHeight() + Number(80);
+            // var pos_m = $('footer').outerHeight() + Number(35);
+
+            // console.log('footerTop:',footerTop);
+      
+            // if ($(this).scrollTop() > footerTop) {
+            //   if ($('#pc').length) {
+            //     $('#top').addClass('on').css({ bottom: pos });
+            //   } else {
+            //     $('#top').addClass('on').css({ bottom: pos_m });
+            //   }
+            // } else {
+            //   if ($('#pc').length) {
+            //     $('#top').removeClass('on').css({ bottom: '80px' });
+            //   } else {
+            //     $('#top').removeClass('on').css({ bottom: '35px' });
+            //   }
+            // }
     });
 
-    // 리사이즈 이벤트 핸들러 추가
-    // window.addEventListener("resize", function() {
-    //   gsap.to(window, {
-    //     scrollTo: {
-    //       y: lastScrollPosition,
-    //     },
-    //   });
-    // });
-
-    gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(ScrollToPlugin, ScrollSmoother);
 
     const index = 10;
     var tl1 = gsap.timeline({
@@ -2012,9 +2037,6 @@ var privEvent = {
         scrub: 3,
         start: 'top top',
         end: '+=200%',
-        // fastScrollEnd: true,
-        // preventOverlaps: true,
-        // end: () => `+=${document.querySelector('.section00').offsetHeight}`,
         onEnter: (self) => {
           $(self.trigger).addClass('active');
         },
@@ -2026,7 +2048,7 @@ var privEvent = {
           gsap.to(window,
             {
               scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
-              duration: 0,
+              duration: 1,
             },
           );
         },
@@ -2049,14 +2071,6 @@ var privEvent = {
           }
           curIndex = index;
         },
-        /*
-        onScrubComplete: () => {
-          if(goIndex == index) {
-            anchorMov = false;
-            console.log('onScrubComplete', goIndex, index, anchorMov);
-          }
-        },
-        */
       },
     });
 
@@ -2077,7 +2091,7 @@ var privEvent = {
     var curIndex = 0;
 
     /* top button */
-    $(document).on('click', '#topButton', function () {
+    $(document).on('click', '#top', function () {
       anchorMov = true;
       goIndex = 10;
       gsap.to(window, {
@@ -2133,46 +2147,37 @@ var privEvent = {
             overwrite: false,
           },
         );
-        // gsap.to(window, {
-        //   scrollTo: {
-        //     y: curIndex < goIndex ? gotoTop + 1 : gotoTop + 1, // down : +1 / up : - 100 (= gnb height)
-        //   },
-        //   duration: 0.8,
-        //   ease: 'none',
-        // });
-        console.log('click',goIndex, anchorMov);
       });
     });
 
     var $sections = gsap.utils.toArray('.section');
     var sectionsTrigger = []; //section당 top값 저장
-    var leaveBack = false;
+    var tl2_1;
+    var Smooth;
     $sections.forEach((item, index) => {
-      var sectionHeight = item.clientHeight;
-      var autoScroll = 0;
-      var preUpdateDirection = 0;
-      let tl2_1 = gsap.timeline({
+      Smooth = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 1,
+        normalizeScroll: true,
+        ignoreMobileResize: true
+      })
+      tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: "blue",
-          endColor: "yellow"
-          },
+          // markers: {
+          // startColor: 'blue',
+          // endColor: 'yellow'
+          // },
           trigger: item,
           pin: item,
-          // pinSpacing: false,
-          // anticipatePin: 1,
           scrub: 3,
           start: 'top top',
           end: '+=300%',
-          //end: 'bottom top',
           ease: 'none',
           fastScrollEnd: false,
           preventOverlaps: false,
           toggleActions: 'none none none none', // enter leave enterback leaveback
           onEnter: (self) => {
-            if(leaveBack == true) {
-              leaveBack = false;
-            }
             $(self.trigger).addClass('active');
             $('.deco .line').addClass('open');
             $('.deco').css('opacity', '1');
@@ -2181,8 +2186,6 @@ var privEvent = {
                 anchorMov = false;
               }
             },100);
-
-            console.log('onEnter', goIndex, index, anchorMov);
             gsap.set(item, { left: '-' + scrollLeft + 'px' });
           },
           onLeave: (self) => {
@@ -2191,40 +2194,32 @@ var privEvent = {
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov && progress > 0) {
-              // autoScroll = 0;
-              console.log('!!!!!!!!!!!!!!!!!!');
-              console.log(sectionsTrigger[index + 1].labelToScroll('cardStart1'));
-//              self.next().scroll(self.next().labelToScroll("cardStart"));
+            if (window.innerWidth > 768 && index < $sections.length - 1 && !anchorMov) {
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
-                  duration: 0,
+                  scrollTo: sectionsTrigger[index + 1].labelToScroll('cardStart1'),
+                  duration: 0.5,
                   overwrite: true,
                   ease: 'none',
-                 },
+                },
               );
             }
-            console.log('onLeave', goIndex, index ,anchorMov,progress);
           },
           onLeaveBack: (self) => {
             $(self.trigger).removeClass('active');
             $('.deco .line').removeClass('open');
             $('.deco').css('opacity', '0');
             $('.anchor-nav').removeClass('open');
-            leaveBack = true;
             if (window.innerWidth > 768 && index > 0 && !anchorMov) {
-              console.log('!!!!!!!!!!!!!!!!!!');
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
-                  duration: 0,
-                  overwrite: false,
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll('cardEnd1'),
+                  duration: 0.5,
+                  overwrite: true,
                   ease: 'none',
                 },
               );
             }
-            console.log('onLeaveBack', goIndex, index ,anchorMov);
           },
           onEnterBack: (self) => {
             $(self.trigger).addClass('active');
@@ -2235,50 +2230,11 @@ var privEvent = {
                 anchorMov = false;
               }
             },100);
-            console.log('onEnterBack', goIndex, index ,anchorMov);
-          },
-          onUpdate: (self) => { 
-            const progress = self.progress.toFixed(2);
-            const directionInterval = 3; // 수치가 적을 수록 방향 전환시 오류 확율이 올라감
-            //console.log('update',goIndex, index, anchorMov, progress);
-            // 이벤트 진행방향이 변경되었을 경우 autoscroll 초기화
-            // if (preUpdateDirection != self.direction) { 
-            //   autoScroll = 0;
-            // }
-            // // part2 시작 시점(소수점이 올라갈수록 정밀도가 올라감)
-            // if (progress > 0.31 && progress < 1) {
-            //   autoScroll++;
-            // } else {
-            //   autoScroll = 0;
-            // }
-            // if (!anchorMov) { 
-            //   if (window.innerWidth > 768) { // PC 환경에서 수행
-            //     if (self.direction == 1 && autoScroll == directionInterval && !anchorMov) {
-            //       // 정방향
-            //       gsap.to(window,
-            //         {
-            //           scrollTo: tl2_1.scrollTrigger.labelToScroll("cardEnd1"),
-            //           duration: 0,
-            //         },
-            //       );
-            //     } else if (self.direction == -1 && autoScroll == directionInterval && !anchorMov) { 
-            //       // 역방향
-            //       if(!leaveBack) {
-            //         gsap.to(window,
-            //           {
-            //             scrollTo: tl2_1.scrollTrigger.labelToScroll("cardStart1"),
-            //             duration: 0,
-            //           },
-            //         );
-            //       }
-
-            //     }
-            //   }
-            // }
-            preUpdateDirection = self.direction;
           },
         },
+        
       });
+
 
       var $panels = item.querySelectorAll('.panel'),
         $panelCon = item.querySelector('.panel-con'),
@@ -2354,6 +2310,7 @@ var privEvent = {
         preventOverlaps: false,
       },
     });
+
     tlWeve
       .to('.gsap3', { opacity: 1, y: 0, duration: 0.3 })
       .to('.gsap3-2', { maxWidth: maxW, maxHeight: maxH, duration: 0.6 })
@@ -2361,6 +2318,43 @@ var privEvent = {
       .to('.gsap3-1', { opacity: 0, duration: 0.2 })
       .to('.gsap3-3', { opacity: 1, duration: 0.2 })
       .to('.gsap3', { zIndex: 1, delay: 0.1 });
+
+
+      function adjustBottomPosition (newPositionValue,newBottomValue) {
+        document.querySelector('#top').style.position = newPositionValue;
+        gsap.to('#top', {
+          bottom: newBottomValue,
+        });
+      };
+
+      $(window).scroll(function () {
+        // top button controll
+        if ($(this).scrollTop() > 400) {
+          $('#top').fadeIn();
+        } else {
+          $('#top').fadeOut();
+        }
+
+        let footerTop = $('footer').offset().top - $(window).outerHeight();
+        let pos = $('footer').outerHeight() + Number(80);
+        let pos_m = $('footer').outerHeight() + Number(35);
+        let footerOffset = Smooth.offset('.section06', 'top top') + (document.querySelector('.section06').offsetHeight * 2);
+  
+        if ($(this).scrollTop() > footerOffset) {
+          if ($('#pc').length) {
+            adjustBottomPosition('absolute',pos);
+          } else {
+            adjustBottomPosition('absolute',pos_m);
+          }
+        } else {
+          
+          if ($('#pc').length) {
+            adjustBottomPosition('fixed','80px');
+          } else {
+            adjustBottomPosition('fixed','35px');
+          }
+        }
+      });
   },
 };
 

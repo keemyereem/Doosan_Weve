@@ -465,7 +465,11 @@ body#brandstory.typeB { color: #222; }
 .channel .awards .section-wrap .tab_contents .history-list .desc-info ul li .desc.desc-lg{line-height:30px}.macrogen.macrogen-history .section:last-child{padding-bottom:0}
 
 /* Priviledge */
-.privilege {font-family: 'Poppins', 'NS';overflow-x: hidden;}
+#top { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 50; writing-mode: vertical-lr; }
+#top::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }
+#top.on { position: absolute;}
+
+.privilege {font-family: 'Poppins', 'NS';overflow-x: hidden;position: relative;}
 .privilege .section00 {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;flex-direction: column;background: #005eb8;background-attachment: fixed; color: #fff;}
 .privilege .scroll {width: 1px;height: 110px;background: rgba(255,255,255,0.2);overflow: hidden;position: absolute;bottom: 67px;left: 50%;transform: translateX(-50%);z-index: 10;}
 .privilege .scroll .bar {position: absolute;top: -100%;left: 0;width: 1px;height: 40px;background: #fff;animation: prg 1.5s ease-in-out 0.1s infinite;}
@@ -486,13 +490,13 @@ body#brandstory.typeB { color: #222; }
 .privilege .sec0-list li svg {font-size: 60px;font-weight: 400;letter-spacing: 0;fill: none;max-height: 56px;}
 .privilege .sec0-list li svg text {stroke: #fff;stroke-width:0.5;stroke-dashoffset:0;}
 .privilege .sec0-list li svg text tspan {margin-left: 1px;}
-.privilege .sec0-list .sec0-list01 svg {max-width: 158px;}
-.privilege .sec0-list .sec0-list02 svg {max-width: 114px;}
-.privilege .sec0-list .sec0-list03 svg {max-width: 133px;}
+.privilege .sec0-list .sec0-list01 svg {max-width: 159px;}
+.privilege .sec0-list .sec0-list02 svg {max-width: 120px;}
+.privilege .sec0-list .sec0-list03 svg {max-width: 141px;}
 .privilege .sec0-list .sec0-list04 svg {max-width: 152px;}
-.privilege .sec0-list .sec0-list05 svg {max-width: 166px;}
+.privilege .sec0-list .sec0-list05 svg {max-width: 167px;}
 
-.privilege .gsap_wrap {position: relative;width: 100%;height: 100vh;}
+
 .privilege .section {width: 100%;height: 100vh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;}
 .privilege .section01,
 .privilege #have .con_list li {background-color: #efebf5;}

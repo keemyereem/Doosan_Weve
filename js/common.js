@@ -2026,7 +2026,9 @@ var privEvent = {
           gsap.to(window,
             {
               scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
-              duration: 0,
+              duration: 1,
+              onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+              onComplete: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'}
             },
           );
         },
@@ -2199,9 +2201,12 @@ var privEvent = {
               gsap.to(window,
                 {
                   scrollTo: sectionsTrigger[index + 1].labelToScroll("cardStart1"),
-                  duration: 0,
+                  duration: 0.5,
+                  delay: 0,
                   overwrite: true,
                   ease: 'none',
+                  onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+                  onComplete: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'}
                  },
               );
             }
@@ -2217,10 +2222,13 @@ var privEvent = {
               console.log('!!!!!!!!!!!!!!!!!!');
               gsap.to(window,
                 {
-                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardStart2"),
-                  duration: 0,
+                  scrollTo: sectionsTrigger[index - 1].labelToScroll("cardEnd1"),
+                  duration: 0.5,
+                  delay: 0,
                   overwrite: false,
                   ease: 'none',
+                  onStart: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto' },
+                  onComplete: () => { document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'}
                 },
               );
             }

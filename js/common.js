@@ -1991,39 +1991,16 @@ var privEvent = {
     let scrollLeft = 0;
     let lastScrollPosition = window.pageYOffset;
     // 1400px 이하 가로스크롤 이동 시 헤더 위치 변경(fixed 속성 대안)
-    $(window).on('scroll', function () {
-      scrollLeft = $(this).scrollLeft();
-      lastScrollPosition = window.pageYOffset;
-      gsap.set('.section.active, .section00.active, .section06', {
-        left: '-' + scrollLeft + 'px',
+    if($(window).width()>768) {
+      $(window).on('scroll', function () {
+        scrollLeft = $(this).scrollLeft();
+        lastScrollPosition = window.pageYOffset;
+        gsap.set('.section.active, .section00.active, .section06', {
+          left: '-' + scrollLeft + 'px',
+        });
       });
+    }
 
-            // top button controll
-            // if ($(this).scrollTop() > 400) {
-            //   $('#top').fadeIn();
-            // } else {
-            //   $('#top').fadeOut();
-            // }
-            // var footerTop = $('footer').offset().top - $(window).outerHeight();
-            // var pos = $('footer').outerHeight() + Number(80);
-            // var pos_m = $('footer').outerHeight() + Number(35);
-
-            // console.log('footerTop:',footerTop);
-      
-            // if ($(this).scrollTop() > footerTop) {
-            //   if ($('#pc').length) {
-            //     $('#top').addClass('on').css({ bottom: pos });
-            //   } else {
-            //     $('#top').addClass('on').css({ bottom: pos_m });
-            //   }
-            // } else {
-            //   if ($('#pc').length) {
-            //     $('#top').removeClass('on').css({ bottom: '80px' });
-            //   } else {
-            //     $('#top').removeClass('on').css({ bottom: '35px' });
-            //   }
-            // }
-    });
 
     gsap.registerPlugin(ScrollToPlugin, ScrollSmoother);
 

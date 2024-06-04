@@ -2005,6 +2005,7 @@ var privEvent = {
         scrub: 3,
         start: 'top top',
         end: '+=200%',
+        toggleActions: 'play pause resume reset',
         onEnter: (self) => {
           $(self.trigger).addClass('active');
         },
@@ -2018,7 +2019,7 @@ var privEvent = {
           gsap.to(window,
             {
               scrollTo: sectionsTrigger[0].labelToScroll('cardStart1'),
-              duration: 2,
+              duration: 2.5,
             },
           );
         },
@@ -2059,6 +2060,7 @@ var privEvent = {
       .to('.sec0-list03', { opacity: '1', duration: 0.3 })
       .to('.sec0-list04', { opacity: '1', duration: 0.3 })
       .to('.sec0-list05', { opacity: '1', duration: 0.3 })
+      .addLabel('tl1End')
       .to('.bg-mask', { top: '-80vh', duration: 2, }, '+=3');
 
 
@@ -2143,15 +2145,15 @@ var privEvent = {
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          // markers: {
-          // startColor: 'blue',
-          // endColor: 'yellow'
-          // },
+          markers: {
+          startColor: 'blue',
+          endColor: 'yellow'
+          },
           trigger: item,
           pin: item,
           scrub: 3,
           start: 'top top',
-          end: '+=300%',
+          end: '+=400%',
           ease: 'none',
           fastScrollEnd: false,
           preventOverlaps: false,
@@ -2198,6 +2200,15 @@ var privEvent = {
                   ease: 'none',
                 },
               );
+            };
+            if(index == 0 && !anchorMov) {
+              console.log('leaveback', index);
+              gsap.to(window,
+                {
+                  scrollTo: tl1.scrollTrigger.labelToScroll('tl1End'),
+                  duration: 1,
+                },
+              );
             }
           },
           onEnterBack: (self) => {
@@ -2238,7 +2249,7 @@ var privEvent = {
       }
       tl2_1
         .to($tit1, { color: '#fff' }, '+=1')
-        .addLabel('cardStart1','=+1')
+        .addLabel('cardStart1')
         .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })

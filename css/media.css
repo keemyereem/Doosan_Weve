@@ -489,8 +489,8 @@
 
 
 	#mobile .privilege .anchor_wrap .mb-anchor {display: block;font-weight: 400;font-size: 32px;height: 70px;line-height: 70px;margin-top: 0;padding-bottom: 7px;order: -5;background: transparent;color: #fff;padding-left: 15px;position: relative;}
-	#mobile .privilege .anchor_wrap .mb-anchor::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;right: 10px;top: 50%;transform: translateY(-50%);}
-	#mobile .privilege .anchor_wrap .mb-anchor .deco {width: 136px;height: 15px;position: absolute;top: 63px;left: 15px; z-index: 2;display: flex;align-items: center;opacity: 0;}
+	#mobile .privilege .anchor_wrap .mb-anchor::before {content:'';display: block;width: 10px;height: 6px;background: url(../images/brand/priv-active_arrow.png)no-repeat;background-size: contain;position: absolute;right: 0;top: 50%;transform: translateY(-50%);}
+	#mobile .privilege .anchor_wrap .mb-anchor .deco {width: 150px;height: 15px;position: absolute;top: 63px;left: 15px; z-index: 2;display: flex;align-items: center;opacity: 0;}
 	#mobile .privilege .anchor_wrap .mb-anchor .deco .shape {display: block;width: 15px;height: 15px;background: url(../images/brand/priv-anchor_active.png);background-size: contain;}
 	#mobile .privilege .anchor_wrap .mb-anchor .deco .line {width: 0;height: 1px;left: 15px;background: #fff;opacity: 0.7;}
 	#mobile .privilege .anchor_wrap .mb-anchor .deco .line.open {width: calc(100% - 15px);transition: width .3s;}
@@ -1517,6 +1517,10 @@
 @media screen and (max-height:1000px) {
 	.channel .awards .section-wrap .tab_contents .history-list .desc-info ul:last-of-type li span:nth-last-child(n+1):nth-last-child(-n+7) { display: none; }
 	
+}
+
+@media screen and (max-height:640px) {
+	#mobile .privilege #solve .panel-con { background-size: 90% auto; }
 }
 
 

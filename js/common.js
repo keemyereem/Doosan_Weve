@@ -576,15 +576,6 @@ var commonEvent = {
           }
         }
       });
-    }else {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 0) {
-          $('header').fadeOut();
-        }else {
-          $('header').fadeIn();
-        }
-      });
-
     }
 
   },
@@ -2007,7 +1998,7 @@ var privEvent = {
     const index = 10;
     var tl1 = gsap.timeline({
       scrollTrigger: {
-        //markers: true,
+        // markers: true,
         trigger: '.section00',
         pin: true,
         pinSpacing: true,
@@ -2019,13 +2010,15 @@ var privEvent = {
         },
         onEnterBack: (self) => {
           $(self.trigger).addClass('active');
+          $('header').fadeIn();
         },
         onLeave: function (self) {
           $(self.trigger).removeClass('active');
+          $('header').fadeOut();
           gsap.to(window,
             {
-              scrollTo: sectionsTrigger[0].labelToScroll("cardStart1"),
-              duration: 1,
+              scrollTo: sectionsTrigger[0].labelToScroll('cardStart1'),
+              duration: 2,
             },
           );
         },
@@ -2035,7 +2028,12 @@ var privEvent = {
         onUpdate: function (scrollTrigger) {
           var progress = scrollTrigger.progress;
 
-          // 스크롤 진행률이 특정 값 이상인 경우 클래스 토글
+          if (progress > 0.1) {
+            $('header').addClass('wht');
+          }else {
+            $('header').removeClass('wht');
+          }
+
           if (progress > 0.4) {
             $('.sec0-list').addClass('open');
           } else {
@@ -2055,13 +2053,15 @@ var privEvent = {
       .to('.scroll', { opacity: 0, duration: 0.3 })
       .to('.sec0-tit01', { y: -40, duration: 1 })
       .to('.sec0-tit02', { y: -10, opacity: '1', duration: 1 })
-      .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)', /* fontSize: '60px', */ duration: 1 })
+      .to('.sec0-tit01, .sec0-tit02', { transform: 'scale(0.8)', duration: 1 })
       .to('.sec0-list01', { opacity: '1', duration: 0.3 }, '+=2')
       .to('.sec0-list02', { opacity: '1', duration: 0.3 })
       .to('.sec0-list03', { opacity: '1', duration: 0.3 })
       .to('.sec0-list04', { opacity: '1', duration: 0.3 })
       .to('.sec0-list05', { opacity: '1', duration: 0.3 })
-      .to('.bg-mask', { top: '-80vh', duration: 2 }, '+=1');
+      .to('.bg-mask', { top: '-80vh', duration: 2, }, '+=3');
+
+
 
     var anchorMov = false;
     var goIndex = 0;
@@ -2132,6 +2132,7 @@ var privEvent = {
     var tl2_1;
     var Smooth;
     $sections.forEach((item, index) => {
+
       Smooth = ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
@@ -2139,6 +2140,7 @@ var privEvent = {
         normalizeScroll: true,
         ignoreMobileResize: true
       })
+
       tl2_1 = gsap.timeline({
         scrollTrigger: {
           // markers: {
@@ -2235,18 +2237,18 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .to($tit1, { color: '#fff' }, '+=3')
+        .to($tit1, { color: '#fff' }, '+=1')
         .addLabel('cardStart1','=+1')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=3')
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
         .addLabel('cardStart2')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
-        .to($panelCon, { height: '100%', duration: 0.3, })
-        .to($panels, { width: '100%', height: '100%', duration: 0.3, },'<')
-        .to($sections[index], { padding: '0', duration: 0.3,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 0.3, },'<')
+        .to($panelCon, { height: '100%', duration: 1, })
+        .to($panels, { width: '100%', height: '100%', duration: 1, },'<')
+        .to($sections[index], { padding: '0', duration: 1,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
         .addLabel('cardStart3', 3)
         .to($tag, { display: 'inline-flex', duration: 0 })
@@ -2296,6 +2298,7 @@ var privEvent = {
       .to('.gsap3-3', { opacity: 1, duration: 0.2 })
       .to('.gsap3', { zIndex: 1, delay: 0.1 });
 
+      ScrollTrigger.refresh(false);
 
       function adjustBottomPosition (newPositionValue,newBottomValue) {
         document.querySelector('#top').style.position = newPositionValue;

@@ -7,7 +7,6 @@
 #mobile footer .family_site {position: relative; top: initial; width: 100%; height: 45px; margin-top: 25px; font-size: 13px;}
 #mobile footer .footer_award { position: initial; max-width: 250px; margin: 25px auto 0; }
 #mobile footer .footer_award>img { width: 100%;object-fit: contain; }
-
 #mobile ::-webkit-scrollbar { width: 0; height: 0; background: transparent; }
 
 @media screen and (max-width:1440px) {
@@ -483,7 +482,7 @@
 	#mobile .privilege .sec0-list .sec0-list04 svg {max-width: 52px;}
 	#mobile .privilege .sec0-list .sec0-list05 svg {max-width: 56px;}
 	
-	#mobile .privilege .section {align-items: flex-end;}
+	/* #mobile .privilege .section {align-items: flex-end;} */
 	#mobile .privilege .panel {height: calc(100% - 60px);}
 
 	#mobile .privilege .anchor_wrap {width: 170px;height: auto; position: absolute;top: 10px;left: 25px;}

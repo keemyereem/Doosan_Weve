@@ -1993,9 +1993,10 @@ var privEvent = {
     }
 
 
-    gsap.registerPlugin(ScrollToPlugin, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     const index = 10;
+    var tl1Progress;
     var tl1 = gsap.timeline({
       scrollTrigger: {
         // markers: true,
@@ -2004,7 +2005,7 @@ var privEvent = {
         pinSpacing: true,
         scrub: 3,
         start: 'top top',
-        end: '+=200%',
+        end: '+=300%',
         toggleActions: 'play pause resume reset',
         onEnter: (self) => {
           $(self.trigger).addClass('active');
@@ -2013,29 +2014,32 @@ var privEvent = {
           $(self.trigger).addClass('active');
           $('header').fadeIn();
         },
-        onLeave: function (self) {
+        onLeave: (self) => {
           $(self.trigger).removeClass('active');
           $('header').fadeOut();
-          gsap.to(window,
-            {
-              scrollTo: sectionsTrigger[0].labelToScroll('cardStart1'),
-              duration: 2.5,
-            },
-          );
+          tl1Progress = 0;
+          if(!anchorMov) {
+            gsap.to(window,
+              {
+                scrollTo: document.querySelector('.section01').parentNode.offsetTop + 100,
+                duration: 1.5,
+              },
+            );
+          }
         },
-        onLeaveBack: function (self) {
+        onLeaveBack: (self) => {
           $(self.trigger).removeClass('active');
         },
-        onUpdate: function (scrollTrigger) {
-          var progress = scrollTrigger.progress;
+        onUpdate: (self) => {
+          tl1Progress = self.progress;
 
-          if (progress > 0.1) {
+          if (tl1Progress > 0.1) {
             $('header').addClass('wht');
           }else {
             $('header').removeClass('wht');
           }
 
-          if (progress > 0.4) {
+          if (tl1Progress > 0.4) {
             $('.sec0-list').addClass('open');
           } else {
             $('.sec0-list').removeClass('open');
@@ -2061,8 +2065,7 @@ var privEvent = {
       .to('.sec0-list04', { opacity: '1', duration: 0.3 })
       .to('.sec0-list05', { opacity: '1', duration: 0.3 })
       .addLabel('tl1End')
-      .to('.bg-mask', { top: '-80vh', duration: 2, }, '+=3');
-
+      .to('.bg-mask', { top: '-80vh', duration: 1, }, '+=1');
 
 
     var anchorMov = false;
@@ -2139,19 +2142,20 @@ var privEvent = {
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
         smooth: 1,
+        smoothTouch: 0.1,
         normalizeScroll: true,
         ignoreMobileResize: true
       })
 
       tl2_1 = gsap.timeline({
         scrollTrigger: {
-          markers: {
-          startColor: 'blue',
-          endColor: 'yellow'
-          },
+          // markers: {
+          // startColor: 'blue',
+          // endColor: 'yellow'
+          // },
           trigger: item,
           pin: item,
-          scrub: 3,
+          scrub: 1,
           start: 'top top',
           end: '+=400%',
           ease: 'none',
@@ -2202,7 +2206,6 @@ var privEvent = {
               );
             };
             if(index == 0 && !anchorMov) {
-              console.log('leaveback', index);
               gsap.to(window,
                 {
                   scrollTo: tl1.scrollTrigger.labelToScroll('tl1End'),
@@ -2250,7 +2253,7 @@ var privEvent = {
       tl2_1
         .to($tit1, { color: '#fff' }, '+=1')
         .addLabel('cardStart1')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=1')
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=2')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
@@ -2272,10 +2275,11 @@ var privEvent = {
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
         .addLabel('cardEnd1')
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=1')
-        .to($tit2, { color: '#fff' }, 1)
+        .to($tit2, { color: '#fff' }, '+=1')
         .addLabel('cardEnd2', 5);
       sectionsTrigger.push(tl2_1.scrollTrigger);
     });
+
 
     let maxW = 5000,
       maxH = 5000;
@@ -2308,8 +2312,6 @@ var privEvent = {
       .to('.gsap3-1', { opacity: 0, duration: 0.2 })
       .to('.gsap3-3', { opacity: 1, duration: 0.2 })
       .to('.gsap3', { zIndex: 1, delay: 0.1 });
-
-      ScrollTrigger.refresh(false);
 
       function adjustBottomPosition (newPositionValue,newBottomValue) {
         document.querySelector('#top').style.position = newPositionValue;

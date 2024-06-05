@@ -495,7 +495,7 @@ body#brandstory.typeB { color: #222; }
 .privilege .sec0-list .sec0-list03 svg {max-width: 141px;}
 .privilege .sec0-list .sec0-list04 svg {max-width: 152px;}
 .privilege .sec0-list .sec0-list05 svg {max-width: 167px;}
-
+.privilege .bg-mask {background-color: #efebf5;width: 100%;height: 100vh;position: absolute;top: 0;}
 
 .privilege .section {width: 100%;height: 100svh;position: relative;box-sizing: border-box;display: flex;align-items: center;justify-content: center;}
 .privilege .section01,

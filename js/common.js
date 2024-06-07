@@ -69,8 +69,11 @@ var commonEvent = {
     let scrollPosition = 0;
 
     $(window).on('scroll', function () {
-      scrollPosition = window.pageYOffset;
-      $('header').css('left', 0 - $(this).scrollLeft());
+      if ($(window).width() > 768) {
+        scrollPosition = window.pageYOffset;
+        $('header').css('left', 0 - $(this).scrollLeft());
+      }
+
     });
 
     if ($('#mobile').length) {

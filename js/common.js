@@ -1946,6 +1946,16 @@ var privEvent = {
     window.addEventListener('load', function() {
       document.querySelector('#wrap').style.height = '100%';
       document.querySelector('.privilege').style.height = '100%';
+
+      if($(window).width() <= 768) {
+        anchorMov = true;
+        gsap.to(window, {
+          scrollTo: 0,
+          duration: 2,
+          ease: 'none',
+        });
+      }
+
     });
     
     if ($(window).width() <= 768) {
@@ -1994,10 +2004,6 @@ var privEvent = {
 
 
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-    
-    window.addEventListener('reload', function() {
-      gsap.to(window,{scrollTo: 0, duration: 0});
-    });
 
     const index = 10;
     var tl1Progress;
@@ -2010,11 +2016,12 @@ var privEvent = {
         scrub: 1,
         start: 'top top',
         end: '+=400%',
-        toggleActions: 'play pause resume reset',
+        toggleActions: 'play none none none',
         fastScrollEnd: false,
         preventOverlaps: false,
         onEnter: (self) => {
           $(self.trigger).addClass('active');
+          $('header').css('display','flex');
         },
         onEnterBack: (self) => {
           $(self.trigger).addClass('active');
@@ -2027,8 +2034,8 @@ var privEvent = {
           if(!anchorMov) {
             gsap.to(window,
               {
-                scrollTo: document.querySelector('.section01').parentNode.offsetTop + 100,
-                duration: 0.8,
+                scrollTo: document.querySelector('.section01').parentNode.offsetTop,
+                duration: 0.3,
               },
             );
           }
@@ -2073,7 +2080,7 @@ var privEvent = {
     .to('.sec0-list04', { opacity: '1', duration: 0.3 })
     .to('.sec0-list05', { opacity: '1', duration: 0.3 })
     .addLabel('tl1End')
-    .to('.bg-mask', { top: '-80vh', duration: 2, }, '+=1')
+    .to('.bg-mask', { top: '-80vh', duration: 1.3, }, '+=5')
     .to('.scroll', { opacity: 0, duration: 0.3 }, '+=2');
 
 
@@ -2239,7 +2246,6 @@ var privEvent = {
             },100);
           },
         },
-        
       });
 
 
@@ -2265,18 +2271,18 @@ var privEvent = {
         panelPadding = '120px 200px';
       }
       tl2_1
-        .to($tit1, { color: '#fff' }, '+=2')
+        .to($tit1, { color: '#fff' }, '+=5')
         .addLabel('cardStart1')
-        .to($tit1, { opacity: 0, duration: 0.2 }, '+=5')
+        .to($tit1, { opacity: 0, duration: 0.2 }, '+=10')
         .to($txt, { opacity: 0, duration: 0.2 }, '<')
         .to($tit1, { display: 'none', duration: 0 })
         .to($txt, { display: 'none', duration: 0 }, '<')
         .addLabel('cardStart2')
         .to($panelCon, {backgroundColor: dataColor, backgroundImage: 'none', duration: 0, })
-        .to($panelCon, { height: '100%', duration: 1, })
-        .to($panels, { width: '100%', height: '100%', duration: 1, },'<')
-        .to($sections[index], { padding: '0', duration: 1,},'<')
-        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 1, },'<')
+        .to($panelCon, { height: '100%', duration: 2, })
+        .to($panels, { width: '100%', height: '100%', duration: 2, },'<')
+        .to($sections[index], { padding: '0', duration: 2,},'<')
+        .to($panelCon, { width: '100%', height: '100%', borderRadius: '0', bottom: 0, padding: panelPadding, duration: 2, },'<')
         .to($nav, { opacity: 0, duration: 0,},'<')
         .addLabel('cardStart3', 3)
         .to($tag, { display: 'inline-flex', duration: 0 }, '+=1')
@@ -2288,8 +2294,7 @@ var privEvent = {
         .to($page, { opacity: 1, duration: 0 })
         .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=0.5')
         .addLabel('cardEnd1')
-        .to($panelCon, { backgroundColor: dataColor, duration: 0.5 }, '+=3')
-        .to($tit2, { color: '#fff' }, '+=3')
+        .to($tit2, { color: '#fff' }, '+=10')
         .addLabel('cardEnd2', 5);
       sectionsTrigger.push(tl2_1.scrollTrigger);
     });
@@ -2362,7 +2367,6 @@ var privEvent = {
         }
       }
     });
-
   },
 };
 

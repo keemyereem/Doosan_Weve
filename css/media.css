@@ -1498,7 +1498,8 @@
 	#mobile .footer_conts .section .terms_site .site_list li { width: 100%; }
 	#mobile .footer_conts .section .terms_site .site_list li a { font-size: 13px; width: 100%; padding: 10px; }
 
-
+	#mobile .footer_conts .section .download {padding: 0 10px 16px 5px; font-size: 13px; width: 175px; margin-top: 25px;}
+	#mobile .footer_conts .section .download i{width: 15px; height: 15px; background-size: contain;}
 
 }
 

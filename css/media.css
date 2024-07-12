@@ -1479,7 +1479,8 @@
 
 	/* 이용약관 / 개인정보처리방침 / 이메일무단수집거부 */
 	#mobile .footer_conts .section {  padding: 59px 0 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
-	#mobile .footer_conts .section .blue_box { width: calc(100% - 40px); font-size: 14px; line-height: 1.5; margin: 0 auto 70px; padding: 37px 20px; }
+	/* #mobile .footer_conts .section .blue_box { width: calc(100% - 40px); font-size: 14px; line-height: 1.5; margin: 0 auto 70px; padding: 37px 20px; } */
+	#mobile .footer_conts .section .cont_wrap ul li.blue_box {padding: 37px 20px; font-size:14px; margin: 0 auto 70px; line-height: 1.5;}
 	#mobile .footer_conts .section .cont_wrap { padding: 0 20px; }
 	#mobile .footer_conts .section .cont_wrap ul li { font-size: 13px; line-height: 1.53; }
 	#mobile .footer_conts .section .cont_wrap ul > li+li { margin-top: 20px; }

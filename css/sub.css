@@ -1559,12 +1559,13 @@ body#brandstory.typeB { color: #222; }
 /* 이용약관 / 개인정보처리방침 / 이메일무단수집거부 */
 .footer_conts .section { max-width: 1460px; margin: 0 auto; padding: 100px 130px 120px; background: #fff; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
 .footer_conts .section .blue_box { background: #f2f7fb; text-align: center; font-size: 18px; line-height: 1.78; margin-bottom: 120px; padding: 40px 0; color: #222; }
+.footer_conts .section .cont_wrap ul li.blue_box { background: #f2f7fb; text-align: center; font-size: 18px; line-height: 1.78; margin-bottom: 120px; padding: 40px 0; color: #222; letter-spacing: 0;}
 .footer_conts .section .cont_wrap ul li { font-size: 16px; letter-spacing: -.45px; line-height: 1.78; color: #555; }
 .footer_conts .section .cont_wrap ul > li+li { margin-top: 30px; }
 .footer_conts .section .cont_wrap ul li .tit { font-weight: 400; color: #222; }
 .footer_conts .section .cont_wrap ul li > p+p { margin-top: 30px; }
 .footer_conts .section .cont_wrap ul li .box { border: 1px solid #e8e8e8; padding: 40px 50px; margin: 23px 0; }
-.footer_conts .section .tab_box + .cont_wrap { padding-top: 10px; }
+/* .footer_conts .section .tab_box + .cont_wrap { padding-top: 10px; } */
 .footer_conts .section ol li { position: relative; padding-left: 15px; }
 .footer_conts .section ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }
 .footer_conts .section .download {display: flex; align-items: center; justify-content: space-between; padding: 0 10px 20px; font-size: 16px; color: #005eb8; width: 232px; height: 40px; position: relative; margin-top: 30px;}

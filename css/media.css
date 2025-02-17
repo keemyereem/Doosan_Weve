@@ -135,7 +135,7 @@
 	#mobile .tab_box ul.tab_slide li { width: 150px; }
 	/* channel sns,갤러리,광고 노출시 삭제 */
 	#mobile .channel .tab_box ul.tab_slide { width: 100%; }
-	#mobile .channel .tab_box ul.tab_slide li { width: 50%; }
+	#mobile .channel .tab_box ul.tab_slide li { width: 33.333%; }
 	/* --channel sns,갤러리,광고 노출시 삭제-- */
 	#mobile .tab_box ul li:not(:last-child) { border-right: 0; }
 	#mobile .tab_box ul li a { font-size: 14px; }
@@ -248,7 +248,7 @@
 	#mobile .scroll-container .section2 h2 span { margin-bottom: 10px; }
 	#mobile .scroll-container .section2 .gsap1 { margin-bottom: calc(var(--vh, 1vh) * 10);; }
 	#mobile .scroll-container .section2 .gsap2 { flex-direction: column; justify-content: center; }
-	#mobile .scroll-container .section2 .gsap2-1 { font-size: 55px; margin-right: 0; height: 50px; width: 100%; justify-content: center; }
+	#mobile .scroll-container .section2 .gsap2-1 { font-size: 55px; margin-right: 0; height: 55px; width: 100%; justify-content: center; }
 	#mobile .scroll-container .section2 .gsap2-2 { display: flex; flex-direction: column; align-items: flex-end; margin-left: 10px; }
 	#mobile .scroll-container .section2 .gsap2-2 li { width: auto; }
 	#mobile .scroll-container .section2 .gsap2-3 { margin-left: 0; font-size: 6.7vw; height: 35px; margin-top: 34px; width: calc(100% - 40px); }
@@ -389,6 +389,19 @@
 	#mobile .channel .channel_lists .txt { font-size: 16px; }
 	#mobile .channel .view_more { display: none; }
 
+	/* 브랜드 - sns vimeo */
+	#mobile .channel>nav>ul>li:last-child { display: block; }
+	#mobile .channel .section1 { background: url(../images/brand/brand_visual_m.png) 50% 50% no-repeat; background-size: cover; }
+	#mobile .channel .sns_lists { display: block; flex-wrap: nowrap; overflow-x: auto; padding: 0 20px 10px; }
+	#mobile .channel .sns_lists li { width: 100%; height: fit-content; margin:0 auto 49px auto; flex-shrink: 0; }
+	#mobile .channel .sns_lists li a { width: 100%; height: 100%; }
+	#mobile .channel .sns_lists .img { width: 100%; height: fit-content; overflow: hidden; }
+	#mobile .channel .sns_lists .img img { width: 100%; object-fit: contain; transition: transform .8s ease-in-out; }
+	#mobile .channel .sns_lists .img .btn_play { width: 2.8125rem; }
+	#mobile .channel .sns_lists:not(.youtube) li:hover .img img { transform: scale(1.1); }
+	#mobile .channel .sns_lists .txt { font-size: 16px; }
+	#mobile .channel .sns_view_more { width: 67.5px; height: 67.5px; margin: 21px auto 0}
+
 	/* 브랜드 - Channel - 위브뉴스 */
 	#mobile .channel .weve_news .search { width: calc(100% - 40px); }
 	#mobile .channel .weve_news .search .input_search input { width: calc(100% - 50px); }
@@ -399,6 +412,7 @@
 	#mobile .channel .sns .sns_wrap:last-of-type { padding-bottom: 50px; }
 	#mobile .channel .sns .sns_wrap+.sns_wrap { margin-top: 0px; }
 	#mobile .channel .sns .sns_tit { font-size: 22px; margin-bottom: 20px; margin-left: 20px; }
+	#mobile .channel .sns .vimeo_tit { font-size: 22px; margin-bottom: 24.5px; margin-left: 20px; }
 	#mobile .channel .sns .go_sns { position: absolute; left: 50%; bottom: 65px; transform: translateX(-50%); margin: 0; height: 37px; border-radius: 18px; padding: 0 25px; line-height: 35px; font-size: 13px; letter-spacing: -.65px; }
 	#mobile .channel .sns .go_yt { width: 210px; }
 	#mobile .channel .sns .go_insta { width: 205px; }
@@ -1138,6 +1152,8 @@
 	#mobile .terms .btn_wrap { margin: 70px auto 0; }
 	#mobile .terms .btn_wrap a { width: 155px; height: 45px; line-height: 45px; border-radius: 22px; font-size: 13px; }
 	#mobile .terms .btn_wrap .cancel { margin-right: 25px; line-height: 43px; }
+	#mobile .terms ul li a.download {padding: 0 10px 16px 5px; font-size: 13px; width: 175px; height: 31.59px; margin-top: 25px;}
+	#mobile .terms ul li a.download i{width: 15px; height: 15px; background-size: contain;}
 
 	/* 로그인 */
 	#mobile .login { box-shadow: none; padding: 55px 20px 120px; flex-direction: column; }
@@ -1253,14 +1269,14 @@
 	#mobile .my_contract .contract_info .air_test table thead tr th:nth-child(2),
 	#mobile .my_contract .contract_info .air_test table tbody tr td:nth-child(2) { display: none; }
 	#mobile .my_contract .contract_info .air_test table thead tr th:nth-child(3) { width: 37%; }
-	#mobile .my_contract .contract_info .air_test table thead tr th:nth-child(4),
-	#mobile .my_contract .contract_info .air_test table tbody tr td:nth-child(4) { display: none; }
+	/* #mobile .my_contract .contract_info .air_test table thead tr th:nth-child(4),
+	#mobile .my_contract .contract_info .air_test table tbody tr td:nth-child(4) { display: none; } */
 	#mobile .my_contract .contract_info .air_test table thead tr th:last-child { width: 25%; }
 	#mobile .my_contract .contract_info .air_test table tbody tr td:last-child { padding: 10px; text-align: center; }
-	#mobile .my_contract .contract_info .air_test table tbody tr td a { width: 60px; height: 28px; line-height: 26px; }
+	#mobile .my_contract .contract_info .air_test table tbody tr td a { width: 60px; height: 28px; line-height: 26px;margin: 2px 0; }
 	#mobile .my_contract .contract_info .air_test table tbody tr td a:first-child { margin-right: 0; }
-	#mobile .my_contract .contract_info .air_test table tbody tr td a:last-child { margin-top: 10px; }
-	
+	/* #mobile .my_contract .contract_info .air_test table tbody tr td a:last-child { margin-top: 10px; } */
+
 
 	/* 마이위브(계약) - 권리의무승계 - 방문예약목록 */
 	#mobile .my_contract .contract_info .succession .reservation_list .reservation { width: 143px; height: 38px; border-radius: 19px; font-size: 13px; margin-bottom: 13px; }

@@ -24,15 +24,15 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .scroll-container .section2 .gsap1-3::before { content: attr(data-fill-text); position: absolute; width: 100%; height: 0%; color: #005eb8; -webkit-text-stroke: 0 #fff; overflow: hidden; transition: height 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
 .scroll-container .section2 .gsap1-3.on::before { height: 100%; }
 .scroll-container .section2 .gsap2 { background: #005eb8; font-weight: 400; position: absolute; top: 110vh; z-index: 1; width: 100%; height: 100vh; display: flex; align-items: center; }
-.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 140px; width: 50%; overflow-y: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
+.scroll-container .section2 .gsap2-1 { display: flex; justify-content: flex-end; height: 160px; width: 50%; overflow-y: hidden; font-size: 160px; line-height: 1; margin-right: 100px; opacity: 0; transform: translateY(20px); }
 .scroll-container .section2 .gsap2-1 p { color: #95b9db; }
 .scroll-container .section2 .gsap2-1 p span { display: inline-block; position: absolute; overflow: hidden; }
 .scroll-container .section2 .gsap2-2 { text-align: right; position: relative; }
 .scroll-container .section2 .gsap2-2 li { width: 240px; }
-.scroll-container .section2 .gsap2-3 { width: 50%; height: 140px; font-size: 42px; display: flex; align-items: flex-end; margin-left: 100px; position: relative; overflow: hidden; }
-.scroll-container .section2 .gsap2-3 li { position: absolute; line-height: 1; bottom: -20px; opacity: 0; }  
+.scroll-container .section2 .gsap2-3 { width: 50%; height: 160px; font-size: 42px; display: flex; align-items: flex-end; margin-left: 100px; position: relative; overflow: hidden; }
+.scroll-container .section2 .gsap2-3 li { position: absolute; line-height: 1.5; bottom: -20px; opacity: 0; }  
 .scroll-container .section2 .gsap3 { width: 100%; height: 110vh; position: absolute; top: 0; z-index: -1; display: flex; justify-content: center; align-items: center; }
-.scroll-container .section2 .gsap3-1 { font-family: 'Poppins'; font-size: 120px; color: #005eb8; margin-bottom: 10vh; line-height: 1; height: 140px; }
+.scroll-container .section2 .gsap3-1 { font-family: 'Poppins'; font-size: 120px; color: #005eb8; margin-bottom: 10vh; line-height: 1; height: 160px; }
 .scroll-container .section2 .gsap3-2 { max-width: 5000px; height: inherit; line-height: 1; overflow: hidden; display: inline-flex; white-space: nowrap; padding-left: 20px; }
 .scroll-container .section2 .gsap3-3 { position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto; transform: translateY(-5vh); opacity: 0; }
 
@@ -373,6 +373,34 @@ body#brandstory.typeB { color: #222; }
 .channel .view_more { display: block; width: 90px; height: 90px; margin: 75px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
 .channel .view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
 
+/* 브랜드 - sns vimeo */
+.channel .sns_lists { width: 100%; display: flex; flex-wrap: wrap; }
+.channel .sns_lists li { width: calc((100% - 167px) / 3); margin-bottom: 78px; margin-right: 83px; }
+.channel .sns_lists li:nth-child(3n) { margin-right: 0; }
+.channel .sns_lists li:nth-last-child(n+1):nth-last-child(-n+3) { margin-bottom: 0; }
+.channel .sns_lists .img { position: relative; }
+.channel .sns_lists .border { position: absolute; z-index: 1; }
+.channel .sns_lists .border.bdt,
+.channel .sns_lists .border.bdb { width: 0; height: 5px; transition: width .3s; }
+.channel .sns_lists .border.bdl,
+.channel .sns_lists .border.bdr { height: 0; width: 5px; transition: height .3s; }
+.channel .sns_lists li:hover .border.bdt,
+.channel .sns_lists li:hover .border.bdb { width: 100%; height: 5px; }
+.channel .sns_lists li:hover .border.bdl,
+.channel .sns_lists li:hover .border.bdr { height: 100%; width: 5px; }
+.channel .sns_lists .border.bdt { background: linear-gradient(to right, #005eb8 ,#00acc6); top:0; left:0; }
+.channel .sns_lists .border.bdr { background: linear-gradient(to bottom, #00acc6 ,#00ad83); bottom:0; right:0; }
+.channel .sns_lists .border.bdb { background: linear-gradient(to left, #00ad83 ,#0094d6); bottom:0; right:0; }
+.channel .sns_lists .border.bdl { background: linear-gradient(to top, #0094d6 ,#005eb8); top:0; left:0; }
+.channel .sns_lists .img { overflow: hidden; height: 280px; }
+.channel .sns_lists.youtube .img { height: 243px; }
+.channel .sns_lists .img img { width: 100%; height: 100%; object-fit: cover; object-position: 50%; transition: transform .8s ease-in-out; }
+.channel .sns_lists .img .btn_play { width: fit-content; height: fit-content; object-fit: contain; transition: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.channel .sns_lists:not(.youtube) li:hover .img img { transform: scale(1.1); }
+.channel .sns_lists .txt { font-size: 22px; color: #222; font-weight: 300; letter-spacing: -.55px; margin-top: 20px; overflow: hidden; text-overflow: ellipsis; word-break: break-all; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.channel .sns_view_more { display: block; width: 90px; height: 90px; margin: 75px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
+.channel .sns_view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }
+
 /* 브랜드 - Channel - 위브뉴스 */
 .channel .section1::after { background: url(../images/brand/brand_visual.png) 50% 50% no-repeat; background-size: cover; }
 .channel .weve_news .tb_box .tb_row.row_body .date {width: 14%;}
@@ -380,6 +408,7 @@ body#brandstory.typeB { color: #222; }
 /* 브랜드 - Channel - sns */
 .channel .sns .sns_wrap+.sns_wrap { margin-top: 120px; }
 .channel .sns .sns_tit { font-family: 'Poppins'; font-size: 34px; font-weight: 400; color: #222; letter-spacing: -.85px; /* margin-bottom: 30px; */ }
+.channel .sns .vimeo_tit { font-family: 'Poppins'; font-size: 34px; font-weight: 400; color: #222; letter-spacing: -.85px; margin-bottom: 40px; }
 .channel .sns .go_sns { float: right; margin-top: -40px; margin-bottom: 40px; display: flex; align-items: center; width: fit-content; height: 50px; border: 1px solid #005eb8; border-radius: 25px; padding: 0 40px; line-height: 48px; font-size: 16px; color: #005eb8; transition: all .5s; }
 .channel .sns .go_sns:hover { box-shadow: 290px 0 0 0 #005eb8 inset, -290px 0 0 0 #005eb8 inset; color: #fff; }
 .channel .sns .go_sns::before { content:''; display: inline-block; margin-right: 10px; }
@@ -1144,6 +1173,10 @@ body#brandstory.typeB { color: #222; }
 .terms .btn_wrap .cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
 .terms .btn_wrap .signin { background: #005eb8; color: #fff; }
 .terms .btn_wrap .signin:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
+.terms ul li a.download { display: flex; align-items: center; justify-content: space-between; padding: 0 10px 20px; font-size: 16px; color:#005eb8; width:232px; height: 40px; position: relative; margin-top:30px;  }
+.terms ul li a.download i{display: inline-block; width: 19px; height: 20px; background: url(../images/common/icon_download_b.png) no-repeat 50% 50%; background-size: contain;}
+.terms ul li a.download:after{content: ''; display: block; width: 100%; height: 1px; background: #005eb8; position: absolute; bottom: 0; left: 0; transition: width .3s;}
+.terms ul li a.download:hover:after{width:0;}
 
 /* 로그인 */
 .login { display: flex; background: #fff; max-width: 1200px; margin: 0 auto; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); padding: 100px 0 120px; }
@@ -1267,12 +1300,11 @@ body#brandstory.typeB { color: #222; }
 
 /* 마이위브(계약) - 공기질테스트 */
 .my_contract .contract_info .air_test table thead tr th:first-child { width: 30%; }
-.my_contract .contract_info .air_test table thead tr th:nth-child(2) { width: 22%; }
-.my_contract .contract_info .air_test table thead tr th:nth-child(3) { width: 15%; }
-.my_contract .contract_info .air_test table thead tr th:nth-child(4) { width: 19%; }
-.my_contract .contract_info .air_test table thead tr th:last-child { width: 17%; }
+.my_contract .contract_info .air_test table thead tr th:nth-child(2) { width: 25%; }
+.my_contract .contract_info .air_test table thead tr th:nth-child(3) { width: 25%; }
+.my_contract .contract_info .air_test table thead tr th:last-child { width: 20%; }
 .my_contract .contract_info .air_test table tbody tr td:last-child { padding: 0 14px; text-align: left; }
-.my_contract .contract_info .air_test table tbody tr td a { width: 80px; }
+.my_contract .contract_info .air_test table tbody tr td a { width: 80px;margin: 0 2px; }
 /* .my_contract .contract_info .air_test table tbody tr td a:first-child { margin-right: 10px; } */
 
 /* 마이위브(계약) - 권리의무승계 - 방문예약목록 */

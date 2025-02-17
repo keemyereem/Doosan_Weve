@@ -178,6 +178,7 @@ nav ul li.mb { display: none; }
 .tab_box ul li { flex: 1; height: 80px; display: table; background: #fff; border: 1px solid #e5e5e5; }
 .tab_box ul li:not(:first-child) { margin-left: -1px; }
 .tab_box ul li a { font-size: 18px; font-weight: 300; color: #222; display: table-cell; vertical-align: middle; text-align: center; transition: color .2s; }
+.tab_box ul li a.poppins {font-family: 'Poppins';}
 .tab_box ul li.on { background: #005eb8; border-color: #005eb8;/*  box-shadow: 0px 0px 32px 8px rgba(34, 34, 34, 0.2); */ }
 .tab_box ul li.on a { color: #fff; }
 .tab_box .control { display: none; }

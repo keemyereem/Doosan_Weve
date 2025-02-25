@@ -396,7 +396,7 @@ body#brandstory.typeB { color: #222; }
 .channel .sns_lists.youtube .img { height: 243px; }
 .channel .sns_lists .img img { width: 100%; height: 100%; object-fit: cover; object-position: 50%; transition: transform .8s ease-in-out; }
 .channel .sns_lists .img .btn_play { width: fit-content; height: fit-content; object-fit: contain; transition: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.channel .sns_lists:not(.youtube) li:hover .img img { transform: scale(1.1); }
+.channel .sns_lists:not(.youtube) li:hover .img img:not(.btn_play) { transform: scale(1.1); }
 .channel .sns_lists .txt { font-size: 22px; color: #222; font-weight: 300; letter-spacing: -.55px; margin-top: 20px; overflow: hidden; text-overflow: ellipsis; word-break: break-all; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .channel .sns_view_more { display: block; width: 90px; height: 90px; margin: 75px auto 0; border-radius: 50%; border: 1px solid #005eb8; background: url(../images/common/plus_33x33_b.png) no-repeat 50% 50%; background-size: 33px; transition: all .3s; }
 .channel .sns_view_more:hover {  background: #005eb8 url(../images/common/plus_33x33_w.png) no-repeat 50% 50%; transform: rotate(180deg); }

@@ -1348,6 +1348,67 @@ var myWeveEvent = {
       $(this).closest('tr').siblings('tr').removeClass('on');
       $(this).closest('tr').addClass('on');
     });
+
+  const modifyBox = $('.modify01');
+  let lastCheckedId = null;
+
+  // 클릭 전 현재 체크 상태를 저장
+  modifyBox.find('#chk01, #chk02').on('mousedown', function () {
+    const chk01 = modifyBox.find('#chk01');
+    const chk02 = modifyBox.find('#chk02');
+
+    if (chk01.is(':checked')) lastCheckedId = 'chk01';
+    else if (chk02.is(':checked')) lastCheckedId = 'chk02';
+    else lastCheckedId = null;
+  });
+
+  // 클릭 이벤트 처리
+  modifyBox.find('#chk01, #chk02').on('click', function (e) {
+    const $clicked = $(this);
+    const clickedId = $clicked.attr('id');
+    const chk01 = modifyBox.find('#chk01');
+    const chk02 = modifyBox.find('#chk02');
+    const phoneWrap = modifyBox.find('.phone_wrap');
+    const emailWrap = modifyBox.find('.email_wrap');
+
+    // 같은 걸 다시 누르면 막기
+    if (lastCheckedId === clickedId) {
+      e.preventDefault();
+      return;
+    }
+
+    // 전환 허용
+    chk01.prop('checked', false);
+    chk02.prop('checked', false);
+    $clicked.prop('checked', true);
+
+    if (clickedId === 'chk01') {
+      phoneWrap.css('display', 'flex');
+      emailWrap.hide();
+    } else {
+      phoneWrap.hide();
+      emailWrap.css('display', 'flex');
+    }
+
+    lastCheckedId = clickedId;
+  });
+
+  // 초기 상태 세팅
+  $(document).ready(function () {
+    const chk01 = modifyBox.find('#chk01');
+    const phoneWrap = modifyBox.find('.phone_wrap');
+    const emailWrap = modifyBox.find('.email_wrap');
+
+    if (chk01.is(':checked')) {
+      phoneWrap.css('display', 'flex');
+      emailWrap.hide();
+    } else {
+      phoneWrap.hide();
+      emailWrap.css('display', 'flex');
+    }
+
+    lastCheckedId = chk01.is(':checked') ? 'chk01' : 'chk02';
+  });
   },
 
   subTab: () => {

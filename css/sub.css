@@ -1551,7 +1551,8 @@ body#brandstory.typeB { color: #222; }
 /* 마이위브(일반) - 회원가입 */
 .my_general .withdraw .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 0 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); text-align: center; }
 .my_general .withdraw .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; }
-.my_general .withdraw .section p { max-width: 1200px; height: auto; margin: 60px auto 120px; padding: 60px 0; background: #f2f7fb; font-size: 20px; line-height: 1.7; color: #222; }
+.my_general .withdraw .section p { max-width: 1200px; height: auto; margin: 60px auto 40px auto; font-size: 20px; line-height: 34px; color: #222; }
+.my_general .withdraw .section p.contents { max-width: 1200px; height: auto; margin: 40px auto 120px; padding: 44px 60px; background: #f2f7fb; font-size: 16px; line-height: 30px; color: #222; text-align:left;}
 .my_general .withdraw .section p b { font-weight: 400; color: #005eb8; }
 .my_general .withdraw .section .btn_wrap { display: flex; justify-content: center; align-items: center; }
 .my_general .withdraw .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
@@ -1560,6 +1561,32 @@ body#brandstory.typeB { color: #222; }
 .my_general .withdraw .section .btn_wrap .btn_cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
 .my_general .withdraw .section .btn_wrap .btn_withdraw:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
 
+/* 마이위브(일반) - 내 정보 수정 핸드폰 이메일 인증 */
+.my_general .modify01 .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 130px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
+.my_general .modify01 .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; margin-bottom: 25px; text-align: center; }
+.my_general .modify01 .section .sec_sub_tit { font-size: 16px; font-weight: 300; color: #555; margin-bottom: 25px; text-align: center; margin-bottom: 60px; line-height: 26px;}
+.my_general .modify01 .section .check_wrap { display: flex; align-items: center; justify-content: center; gap: 80px; margin-bottom: 40px;}
+.my_general .modify01 .section .check_wrap .checkbox_row { display: block; }
+.my_general .modify01 .section .check_wrap .checkbox_row input[type="checkbox"]:checked + label:before { background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat; }
+
+.my_general .modify01 .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
+.my_general .modify01 .section .btn_wrap {display:flex; gap:41px; align-items: center; justify-content: center;}
+.my_general .modify01 .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
+.my_general .modify01 .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888;  }
+.my_general .modify01 .section .btn_wrap .btn_save { background: #005eb8; color: #fff; }
+.my_general .modify01 .section .btn_wrap .btn_withdraw:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #b2b2b2; border: 1px solid #b2b2b2; }
+.my_general .modify01 .section .btn_wrap .btn_cancel:hover { box-shadow: 240px 0 0 0 #888 inset, -240px 0 0 0 #888 inset; color: #fff; }
+.my_general .modify01 .section .btn_wrap .btn_save:hover { box-shadow: 240px 0 0 0 #fff inset, -240px 0 0 0 #fff inset; color: #005eb8; border: 1px solid #005eb8; }
+.my_general .modify01 .section .phone_wrap, .my_general .modify01 .section .email_wrap { display: flex; align-items: center; justify-content: center; background: #fafafa; padding: 61px 0; margin-bottom: 120px;}
+.my_general .modify01 .section .phone_wrap .phone_cell {display: flex; gap: 32px; align-items: center; width: 744px;}
+.my_general .modify01 .section .input_row {background: #fff;}
+.my_general .modify01 .section .select_row {background: #fff;}
+.my_general .modify01 .section .phone_wrap .phone_cell span { font-size: 20px; font-family: 'Poppins'; font-weight: 300;}
+.my_general .modify01 .section .email_wrap {display:none; justify-content: center;}
+.my_general .modify01 .section .email_wrap .email_cell {display: flex; align-items: center; gap:22px; max-width: 1080px;}
+.my_general .modify01 .section .email_wrap .email_cell span {font-size: 20px; font-family: 'Poppins'; font-weight: 300; color:#222; margin: 0 8px;}
+
+ 
 /* 마이위브(일반) - 내 정보 수정 */
 .my_general .modify .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 130px 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); }
 .my_general .modify .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; margin-bottom: 110px; text-align: center; }

@@ -72,7 +72,7 @@
 
 	/* selectbox */
 	#mobile .select_row { height: 50px; }
-	#mobile .select_row:after { right: 20px; width: 9px; height: 5px; }
+	#mobile .select_row:after { right: 11px; width: 9px; height: 5px; }
 	#mobile .select_row label { height: 50px;line-height: 50px;padding: 0 20px;font-size: 14px;color: #222; }
 	#mobile .select_row select { height: 50px;line-height: 50px;padding: 0 0 0 10px;opacity: 0; }
 	#mobile .select_row select option { font-size: 14px;font-weight: 200; }
@@ -132,8 +132,9 @@
 	#mobile .tab_box > .inner { overflow-x: auto; height: 100%; position: relative; transition: all ease 1s; }
 	#mobile .tab_box ul { width: fit-content; position: absolute; left: 0; top: 0; transition: left .5s ease-out; margin-bottom: 0; padding-right: 20px; }
 	#mobile .tab_box ul li { flex: initial; flex-shrink: 0!important; width: calc(100% / 3); height: 50px; display: table; }
-	#mobile .tab_box ul.tab_slide li { width: 150px; }
-	/* channel sns,갤러리,광고 노출시 삭제 */
+	#mobile .tab_box ul.tab_slide li { width: 160px; }
+	#mobile .tab_box ul.tab_slide li:nth-child(3){ width: 180px; }
+ 	/* channel sns,갤러리,광고 노출시 삭제 */
 	#mobile .channel .tab_box ul.tab_slide { width: 100%; }
 	#mobile .channel .tab_box ul.tab_slide li { width: 33.333%; }
 	/* --channel sns,갤러리,광고 노출시 삭제-- */
@@ -1059,10 +1060,13 @@
 	#mobile .cs .inquiry .top { height: 140px; background: url(../images/cs/inquiry_banner_m.png) no-repeat 50% 50%; background-size: cover; margin-bottom: 50px; }
 	#mobile .cs .inquiry .top h3 { font-size: 17px; }
 	#mobile .cs .inquiry .top .btn_line a { width: 158px; height: 38px; line-height: 36px; border-radius: 18px; margin: 15px auto 0; }
-	#mobile .cs .inquiry .sec_tit { font-size: 22px; margin-bottom: 30px; }
-	#mobile .cs .inquiry .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
+	#mobile .cs .inquiry .sec_tit { font-size: 22px; margin-bottom: 17px; }
+	#mobile .cs .inquiry .cont_box { height: 435px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
+	#mobile .cs .inquiry .cont_box b+.table_wrap { margin-top: 12px; margin-bottom: 20px;}
+	#mobile .cs .inquiry .cont_box .table_wrap table{ font-size: 13px; line-height: 18px;}
+	#mobile .cs .inquiry .ci_wrap {padding: 60px 0; margin-bottom: 73px;}
 
-	#mobile .cs .inquiry .red { margin-bottom: 15px; margin-top: 0; }
+	#mobile .cs .inquiry .red { margin-bottom: 35px; margin-top: 0; font-size: 12px;}
 	#mobile .cs .inquiry ul li { font-size: 12px; line-height: 1.41; }
 	#mobile .cs .inquiry .checkbox_row { margin: 27px 0 70px; width: 100%; }
 	#mobile .cs .inquiry .checkbox_row p { font-size: 16px; margin-bottom: 15px; }
@@ -1071,7 +1075,6 @@
 	#mobile .cs .inquiry .checkbox_row input[type="radio"] + label:last-child { margin-right: 0; flex-shrink: 1; }
 	#mobile .cs .inquiry .checkbox_row input[type="radio"] + label span { display: inline-block; padding-left: 31px; }
 	/* #mobile .cs .inquiry .checkbox_row+.sec_tit { margin-bottom: 30px; } */
-	#mobile .cs .inquiry .applicant_info { margin-bottom: 70px; }
 	#mobile .cs .inquiry .applicant_info li+li { margin-top: 26px; }
 	#mobile .cs .inquiry .applicant_info li dt { font-size: 14px;margin-right: 70px; }
 	#mobile .cs .inquiry .applicant_info li dd { font-size: 14px; }
@@ -1135,14 +1138,14 @@
 	#mobile .terms { box-shadow: none; padding: 60px 20px 150px; }
 	#mobile .terms .sec_tit { font-size: 25px; margin-bottom: 70px; }
 	#mobile .terms .checkbox_row p { font-size: 16px; margin-bottom: 23px; }
-	#mobile .terms .cont_wrap ul li { font-size: 12px; line-height: 1.53; }
+	#mobile .terms .cont_wrap ul li { font-size: 13px; line-height: 18px; }
 	#mobile .terms .cont_wrap ul > li+li { margin-top: 20px; }
 	#mobile .terms .cont_wrap ul li > p+p { margin-top: 20px; }
 	#mobile .terms .tab_box + .cont_wrap { padding-top: 0px; }
 	#mobile .terms ol li { padding-left: 7px; }
 	#mobile .terms ol li::before { top: -1.5px; }
 	#mobile .terms .con_tit { font-size: 22px; padding: 70px 0 25px; }
-	#mobile .terms .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 33px 27px; margin-bottom: 25px; }
+	#mobile .terms .cont_box { height: 435px; font-size: 13px; line-height: 18px; padding: 33px 27px; margin-bottom: 25px; }
 	#mobile .terms .agree_row { display: flex; align-items: flex-start; }
 	#mobile .terms .agree_row label { letter-spacing: -.75px; }
 	#mobile .terms .agree_row label span { color: #888; display: inline-block; padding-left: 30px; }
@@ -1314,13 +1317,15 @@
 	#mobile .my_contract .contract_info .succession .reservation_apply .btn_line a { margin: 55px auto 0; }
 
 	#mobile .my_contract .contract_info .succession .reservation_apply .info_content { margin-top: 40px; }
-	#mobile .my_contract .contract_info .succession .reservation_apply .cont_box { height: 205px; font-size: 13px; line-height: 1.38; padding: 30px 25px; margin: 30px 0 15px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont_box { height: 435px; font-size: 13px; line-height: 13px; padding: 30px 20px; margin: 30px 0 15px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row { margin: 27px 0 0; width: 100%; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row p { font-size: 16px; margin-bottom: 15px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row .agree_row { width: 100%; display: flex; align-items: flex-start; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label { margin-right: 4vw; margin-top: 10px; letter-spacing: -0.375px; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label:last-child { margin-right: 0; flex-shrink: 1; }
 	#mobile .my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label span { display: inline-block; padding-left: 31px; }
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont_box .table_wrap table {font-size: 13px; line-height: 18px;}
+	#mobile .my_contract .contract_info .succession .reservation_apply .cont_box .notice li {font-size: 13px; line-height: 18px;}
 
 	/* 달력 */
 	#mobile .my_contract .contract_info .pop_close.mov_datepicker { float: unset; position: absolute; margin-bottom: unset; top: -40px; right: 0; margin-right: 0; }
@@ -1458,16 +1463,30 @@
 	/* 마이위브(일반) - 회원가입 */
 	#mobile .my_general .withdraw .section { padding: 60px 20px 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
 	#mobile .my_general .withdraw .section .sec_tit { font-size: 22px; }
-	#mobile .my_general .withdraw .section p { margin: 70px auto; padding: 45px 0; font-size: 15px; line-height: 1.46; }
+	#mobile .my_general .withdraw .section p { margin: 0; padding: 39px 0 30px 0; font-size: 15px; line-height: 22px; }
+	#mobile .my_general .withdraw .section div.contents{padding: 30px 20px 30px; margin: 0; margin-bottom: 69px;}
+	#mobile .my_general .withdraw .section div.contents ul li {line-height: 20px; font-size: 13px;}
 	#mobile .my_general .withdraw .section .btn_wrap a { width: calc(100% - 12px); max-width: 155px; height: 45px; line-height: 45px; border-radius: 22px; font-size: 13px; }
 	#mobile .my_general .withdraw .section .btn_wrap .btn_withdraw { margin-left: 24px; }
 
 	/* 마이위브(일반) - 내 정보 수정 핸드폰 이메일 인증 */
-	#mobile .my_general .modify01 .section { padding: 60px 20px 150px; box-shadow: none; }
-	#mobile .my_general .modify01 .section .sec_tit { font-size: 22px; margin-bottom: 70px; }
+	#mobile .my_general .modify01 .section { padding: 60px 0px 150px; box-shadow: none; }
+	#mobile .my_general .modify01 .section .sec_tit { font-size: 22px; margin-bottom: 25px; }
+	#mobile .my_general .modify01 .section .sec_sub_tit {margin-bottom: 40px; padding: 0 20px; font-size: 13px; line-height: 18px;}
+	#mobile .my_general .modify01 .section .check_wrap {padding: 0 20px; margin-bottom: 33px;}
+	#mobile	.my_general .modify01 .section .phone_wrap .phone_cell {max-width: 335px; gap: 10px; padding: 0;}
+	#mobile	.my_general .modify01 .section .email_wrap .email_cell {max-width: 335px; gap: 6px; padding: 0;}
+	#mobile	.my_general .modify01 .section .email_wrap .email_cell span {font-size:15px; margin:0 2px;}
+	#mobile	.my_general .modify01 .section .input_row input,	#mobile .my_general .modify01 .section .input_search input{ height: 45px; padding-left: 13px; padding-right: 13px; font-size: 13px;}
+	#mobile .my_general .modify01 .section .btn_wrap {padding: 0 20px; gap: 25px;}
 	#mobile .my_general .modify01 .section .btn_wrap .btn_cancel { width: calc(50% - 13px); float: none; order: 1; }
 	#mobile .my_general .modify01 .section .btn_wrap .btn_save { width: calc(50% - 13px); float: none; margin-left: 0; order: 2; }
-
+  #mobile .my_general .modify01 .section .phone_wrap, .my_general .modify01 .section .email_wrap{ padding:  40px 0; margin-bottom: 70px;}
+	#mobile	.my_general .modify01 .section .select_row label {padding: 0 11px; font-size: 13px;}
+	#mobile .my_general .modify01 .section .input_row { width: 97%;}
+	#mobile .my_general .modify01 .section .input_row#selboxDirect { width: 132%;}
+	#mobile	.my_general .modify01 .section .select_row {width: 92%;}
+	
 
 	/* 마이위브(일반) - 내 정보 수정 */
 	#mobile .my_general .modify .section { padding: 60px 20px 150px; box-shadow: none; }
@@ -1502,19 +1521,22 @@
 
 	/* 이용약관 / 개인정보처리방침 / 이메일무단수집거부 */
 	#mobile .footer_conts .section {  padding: 59px 0 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
-	/* #mobile .footer_conts .section .blue_box { width: calc(100% - 40px); font-size: 14px; line-height: 1.5; margin: 0 auto 70px; padding: 37px 20px; } */
 	#mobile .footer_conts .section .cont_wrap ul li.blue_box {padding: 37px 20px; font-size:14px; margin: 0 auto 70px; line-height: 1.5;}
 	#mobile .footer_conts .section .cont_wrap { padding: 0 20px; }
 	#mobile .footer_conts .section .cont_wrap ul li { font-size: 13px; line-height: 1.53; }
 	#mobile .footer_conts .section .cont_wrap ul > li+li { margin-top: 20px; }
 	#mobile .footer_conts .section .cont_wrap ul li > p+p { margin-top: 20px; }
 	#mobile .footer_conts .section .cont_wrap ul li .box { padding: 30px 20px; margin: 20px 0; }
+	#mobile .footer_conts .section .cont_wrap ul li .table_wrap table {font-size:13px; line-height: 18px;}
+	#mobile .footer_conts .section .cont_wrap ul li .table_wrap table tr{height: 40px;}
 	#mobile .footer_conts .section .tab_box + .cont_wrap { padding-top: 0px; }
 	#mobile .footer_conts .section ol li { padding-left: 7px; }
 	#mobile .footer_conts .section ol li::before { top: -1.5px; }
-
-	#mobile .footer_conts .section .sel_wrap { height: 45px; margin-bottom: 20px; }
-	#mobile .footer_conts .section .terms_site { width: 200px; right: 20px; border: 1px solid #005eb8; }
+	#mobile .footer_conts .section .numb ol li { padding-left: 0px; }
+	#mobile .footer_conts .section .numb { padding: 30px!important; }
+	
+	#mobile .footer_conts .section .sel_wrap {width: calc(100% - 40px); height: 45px; margin: 0 auto 20px auto; }
+	#mobile .footer_conts .section .terms_site { width: 100%;  border: 1px solid #005eb8;}
 	#mobile .footer_conts .section .terms_site .site_selected { font-size: 13px; padding: 0 10px; line-height: 43px; }
 	#mobile .footer_conts .section .terms_site.open .site_selected::after { right: 10px; }
 	#mobile .footer_conts .section .terms_site.open .site_list { min-width: auto; }

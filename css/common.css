@@ -45,7 +45,7 @@ caption, legend {position:absolute; top:0; left:-9999em;}
 .es {color: #005eb8;}
 img { -webkit-user-drag: none; }
 ::-webkit-scrollbar { width: 5px; height: 5px; background: transparent; }
-::-webkit-scrollbar-track { border:5px solid transparent; background: transparent; }
+::-webkit-scrollbar-track { border:5px solid transparent; background: #eeeeee; }
 ::-webkit-scrollbar-thumb { background: #005eb8; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #014099; }
 
@@ -213,14 +213,14 @@ nav ul li.mb { display: none; }
 .checkbox_row input[type="checkbox"] {display: none;}
 .checkbox_row input[type="checkbox"] + label {display: block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
 .checkbox_row input[type="checkbox"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #e8e8e8;vertical-align: top;box-sizing: border-box;}
-.checkbox_row input[type="checkbox"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+.checkbox_row input[type="checkbox"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
 
 /* radio box type */
 .radio_row {display: inline-block;position: relative;}
 /* .radio_row */ input[type="radio"] {display: none;}
 /* .radio_row */ input[type="radio"] + label {display: inline-block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
-/* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #e8e8e8;vertical-align: top;box-sizing: border-box;margin-top: 1px;}
-/* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #fff url(../images/common/checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+/* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #888;vertical-align: top;box-sizing: border-box;margin-top: 1px;}
+/* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
 
 /* file/ seacrch */
 .file_row, .file_row form, .finder_row {width: 100%;display: flex;align-items: center;}

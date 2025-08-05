@@ -173,7 +173,7 @@
 	#mobile footer .inner {padding:35px 0 100px;}
 	#mobile footer .logo {position:static;}
 	#mobile footer .logo img { width: 62px; }
-	#mobile footer .f_menu {margin-top:25px;}
+	#mobile footer .f_menu {margin-top:25px; flex-wrap: wrap; line-height: 30px;}
 	#mobile footer .f_menu a {font-size:13px;}
 	#mobile footer .f_menu a:before {height:12px; margin:0 5vw;}
 	#mobile footer .addr {margin-top:25px;}

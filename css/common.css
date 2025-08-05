@@ -264,8 +264,13 @@ footer .logo {position:absolute; top:50px; left:0;}
 footer .logo img { width: 80px; }
 footer .f_menu {display:flex;}
 footer .f_menu a {display:flex; align-items:center; color:#fff; font-size:15px; font-weight: 200;}
-footer .f_menu a:before {content:""; display:block; background:#888; width:1px; height:14px; margin:0 40px;}
+footer .f_menu a:before {content:""; display:block; background:#888; width:1px; height:14px; margin:0 16px;}
+footer .f_menu a:after {content:""; display:block; background:#888; width:1px; height:14px; margin:0 16px;}
 footer .f_menu li:first-child a:before {display:none;}
+footer .f_menu li:nth-child(3) a:before {display:none;}
+footer .f_menu li:first-child a:after {display:none;}
+footer .f_menu li:last-child a:before {display:none;}
+footer .f_menu li:last-child a:after {display:none;}
 footer .f_menu li:nth-child(2) a {font-weight: 300;}
 footer .addr {display:flex; flex-wrap:wrap; margin-top:28px;}
 footer .addr .fm {font-family:'Poppins';}
@@ -284,7 +289,7 @@ footer .family_site.open .site_list {height: auto;border: 1px solid #808080;}
 footer .family_site .site_list li a {display: block;font-size: 16px; color: #222;padding: 10px 20px; }
 footer .family_site .site_list li a:hover { background: #030716; color: #fff; }
 
-footer .footer_award {position: absolute;top: 63px;left: 810px;}
+footer .footer_award {position: absolute;top: 50px;left: 830px;}
 
 #topButton { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 50; writing-mode: vertical-lr; }
 #topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }

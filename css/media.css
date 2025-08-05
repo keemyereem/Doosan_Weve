@@ -1459,7 +1459,8 @@
 	#mobile .my_general .join .section .btn_wrap .naver_join { margin-bottom: 15px; } 
 	#mobile .my_general .join .section .btn_wrap .naver_join::before { width: 15px; height: 13px; left: 18px; background-size: contain; }
 	#mobile .my_general .join .section .btn_wrap .kakao_join::before { width: 17px; height: 15px; left: 16px; background-size: contain; }
-
+	#mobile .my_general .join .section .btn_wrap .customer_support {height: 75px; font-size: 13px; line-height: 20px;}
+	#mobile .my_general .join .section .btn_wrap .customer_support::before {width: 44px; height: 34.5px; }
 	/* 마이위브(일반) - 회원가입 */
 	#mobile .my_general .withdraw .section { padding: 60px 20px 150px; box-shadow: 3px 5px 9px 0px rgba(0, 0, 0, 0.07); }
 	#mobile .my_general .withdraw .section .sec_tit { font-size: 22px; }

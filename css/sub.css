@@ -1574,6 +1574,11 @@ body#brandstory.typeB { color: #222; }
 .my_general .join .section .btn_wrap a::before { content:''; display: block; position: absolute; top: 50%; transform: translateY(-50%); }
 .my_general .join .section .btn_wrap .naver_join::before { width: 19px; height: 17px; background: url(../images/common/naver.png) no-repeat; left: 28px; }
 .my_general .join .section .btn_wrap .kakao_join::before { width: 23px; height: 21px; background: url(../images/common/kakao.png) no-repeat; left: 26px; }
+.my_general .join .section .btn_wrap hr {border: none; margin: 0; width: 100%; height: 1px; background: #e8e8e8; margin: 20px 0;}
+.my_general .join .section .btn_wrap .customer_support {height: 80px; background: #f2f7fb; line-height: 25px; padding: 17px 31px; text-align: left; font-size: 16px;}
+.my_general .join .section .btn_wrap .customer_support::before {width: 52px; height: 41px; background: url(../images/common/customer_support_icon.png) no-repeat; right: 30px; background-size: cover;}
+.my_general .join .section .btn_wrap .customer_support .support_box .text {color: #222222;}
+.my_general .join .section .btn_wrap .customer_support .support_box .text strong {color: #005eb8;}
 
 /* 마이위브(일반) - 회원가입 */
 .my_general .withdraw .section { width: 100%; max-width: 1460px; background: #fff; margin: 0 auto; padding: 100px 0 120px; box-shadow: 7px 10px 18px 0px rgba(0, 0, 0, 0.07); text-align: center; }

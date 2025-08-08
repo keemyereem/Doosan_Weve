@@ -1303,6 +1303,7 @@ var csEvent = {
       });
     }
   },
+
 };
 
 var myWeveEvent = {
@@ -1314,6 +1315,7 @@ var myWeveEvent = {
     this.const_popup();
     this.modEmail();
     this.selLabelColor();
+    this.agreeToggle();
   },
   loginbtn: () => {
     $('.get_authenNumber').click(function () {
@@ -1573,6 +1575,32 @@ var myWeveEvent = {
       $(this).siblings('label').css('color','#555');
     });
   },
+
+  agreeToggle: function () {
+    $('.agree_row').each(function () {
+      var $row = $(this);
+      var $agree = $row.find('.agree');
+      var $disagree = $row.find('.disagree');
+      var $alert = $row.find('.agree_alert');
+
+      function toggleAlert() {
+        if (!$alert.length) return;
+
+        if ($disagree.is(':checked')) {
+          $alert.show();
+        } else {
+          $alert.hide();
+        }
+      }
+
+      // 이벤트 바인딩
+      $agree.on('change', toggleAlert);
+      $disagree.on('change', toggleAlert);
+
+      // 초기 상태 체크
+      toggleAlert();
+    });
+  }
 };
 
 var datepicker = {

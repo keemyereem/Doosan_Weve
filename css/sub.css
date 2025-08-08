@@ -1060,6 +1060,7 @@ body#brandstory.typeB { color: #222; }
 .cs .faq .faq_box .ans p { word-wrap: break-word; }
 
 /* 고객서비스 - 문의하기 & A/S 신청 */
+.contents.inquiry {max-width: 100%;}
 .cs .inquiry .inner { max-width: 1200px; margin: 0 auto; }
 .cs .inquiry .top { width: 100%; height: 201px; background: url(../images/cs/inquiry_banner.png) no-repeat 50% 50%; background-size: contain; text-align: center; margin-bottom: 75px; display: flex; flex-direction: column; justify-content: center; }
 .cs .inquiry .top h3 { font-size: 24px; font-weight: 400; color: #fff; }
@@ -1177,6 +1178,7 @@ body#brandstory.typeB { color: #222; }
 .terms .cont_box ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }
 
 .terms .agree_row label span { color: #888; }
+.terms .agree_row .agree_alert { display: none; }
 .terms input[type="radio"] + label:first-of-type { margin-right: 30px; }
 .terms .btn_wrap { display: flex; justify-content: center; margin: 120px auto 0; }
 .terms .btn_wrap a { display: block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; text-align: center; font-size: 18px; letter-spacing: -.45px; transition: all .5s; }
@@ -1362,7 +1364,7 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label { margin-right: 34px; }
 .my_contract .contract_info .succession .reservation_apply .checkbox_row input[type="radio"] + label span { color: #888; }
 .my_contract .contract_info .succession .reservation_apply .cont_box { height: 435px; padding: 40px 50px; margin: 40px 0 20px; border: 1px solid #e8e8e8; font-size: 16px; line-height: 23px; overflow-y: auto; color: #222; }
-.my_contract .contract_info .succession .reservation_apply input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+.my_contract .contract_info .succession .reservation_apply input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;border-color: #005eb8;}
 .my_contract .contract_info .succession .reservation_apply .cont_box b {font-weight: 500;}
 .my_contract .contract_info .succession .reservation_apply .cont_box b+.table_wrap { margin-top: 12px; margin-bottom: 20px;}
 .my_contract .contract_info .succession .reservation_apply .cont_box .table_wrap table { width: 100%; border-collapse: collapse; font-size: 16px; color: #555; line-height: 26px; letter-spacing: -0.04rem; border-top: 1px solid #555!important; border-bottom: 1px solid #e8e8e8 !important;}

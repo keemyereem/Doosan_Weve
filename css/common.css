@@ -217,9 +217,13 @@ nav ul li.mb { display: none; }
 
 /* radio box type */
 .radio_row {display: inline-block;position: relative;}
+.radio_row.type01 {display: flex; align-items: center;}
+.radio_row.type01 input[type="radio"] {display: block; width: 24px; height: 24px; margin: 0; margin-right: 16px; cursor: pointer;}
+.radio_row.type01 input[type="radio"]:checked + label:before {display: none;}
+.radio_row.type01 input[type="radio"] + label:before {display: none;}
 /* .radio_row */ input[type="radio"] {display: none;}
 /* .radio_row */ input[type="radio"] + label {display: inline-block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
-/* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #888;vertical-align: top;box-sizing: border-box;margin-top: 1px;}
+/* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #888;vertical-align: top;box-sizing: border-box;}
 /* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
 
 /* file/ seacrch */

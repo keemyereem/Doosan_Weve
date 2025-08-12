@@ -1071,7 +1071,7 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .checkbox_row { margin: 35px 0 120px; }
 .cs .inquiry .checkbox_row p { font-size: 22px; font-weight: 400; color: #222; margin-bottom: 25px; }
 .cs .inquiry .checkbox_row input[type="radio"] + label { margin-right: 34px; }
-.cs .inquiry .checkbox_row input[type="radio"] + label span { color: #888; }
+.cs .inquiry .checkbox_row input[type="radio"] + label span { color: #888; display: none;}
 /* .cs .inquiry .checkbox_row+.sec_tit { margin-bottom: 40px; } */
 .cs .inquiry .cont_box { height: 435px; padding: 40px 50px; margin: 40px 0 20px; border: 1px solid #e8e8e8; font-size: 16px; line-height: 23px; overflow-y: auto; color: #222; }
 
@@ -1115,7 +1115,8 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .red { font-size: 14px; color: #f00; margin-top: -20px; margin-bottom: 35px; }
 .cs .inquiry .cont_box b {font-weight: 500;}
 .cs .inquiry .cont_box b+.table_wrap { margin-top: 12px; margin-bottom: 10px;}
-.cs .inquiry .cont_box .table_wrap table { width: 100%; border-collapse: collapse; font-size: 16px; color: #555; line-height: 26px; letter-spacing: -0.04rem; border-top: 1px solid #555!important; border-bottom: 1px solid #e8e8e8 !important;}
+.cs .inquiry .cont_box .table_wrap {border-top: 1px solid #555 !important;}
+.cs .inquiry .cont_box .table_wrap table { width: 100%; border-collapse: collapse; font-size: 16px; color: #555; line-height: 26px; letter-spacing: -0.04rem; border-bottom: 1px solid #e8e8e8 !important;}
 .cs .inquiry .cont_box .table_wrap table thead th {  background-color: #f5f5f5; font-weight: 400; color: #222; text-align: center; border: 1px solid #e8e8e8; border-top: none;}
 .cs .inquiry .cont_box .table_wrap table thead th:first-child{border-left:none;}
 .cs .inquiry .cont_box .table_wrap table thead th:last-child{border-right:none;}
@@ -1124,7 +1125,7 @@ body#brandstory.typeB { color: #222; }
 .cs .inquiry .cont_box .table_wrap table tr td.blue-color {  color: #005eb8; font-weight: 500;}
 .cs .inquiry .cont_box .table_wrap table tr td:first-child{border-left:none;}
 .cs .inquiry .cont_box .table_wrap table tr td:last-child{border-right:none;}
-.cs .inquiry .cont_box .notice > li{ font-size: 16px; color: #555; position: relative; padding-left: 15px; line-height: 26px;}
+.cs .inquiry .cont_box .notice > li{ font-size: 16px; color: #555; position: relative; padding-left: 21px; line-height: 26px;}
 .cs .inquiry .cont_box .notice > li > ol li{ font-size: 16px; color: #555; position: relative; padding-left: 8px; line-height: 26px;}
 .cs .inquiry .cont_box .notice li span{ position: absolute; top: 0; left: 0;}
 
@@ -1376,8 +1377,8 @@ body#brandstory.typeB { color: #222; }
 .my_contract .contract_info .succession .reservation_apply .table_wrap table tr td:first-child{border-left:none;}
 .my_contract .contract_info .succession .reservation_apply .table_wrap table tr td:last-child{border-right:none;}
 .my_contract .contract_info .succession .reservation_apply .table_wrap table tr td,
-.my_contract .contract_info .succession .reservation_apply .cont_box .table_wrap table thead th {height: 50px;}
-.my_contract .contract_info .succession .reservation_apply .cont_box .notice li{ font-size: 16px; color: #555; position: relative; padding-left: 15px; line-height: 1.71;}
+.my_contract .contract_info .succession .reservation_apply .cont_box .table_wrap table thead th {height: 50px; font-family: 'NS', "HelveticaNeue-Light", "AppleSDGothicNeo-Medium", "Malgun Gothic", "맑은 고딕", "AppleGothic", "Sans-serif", "Dotum", "Verdana", sans-serif;}
+.my_contract .contract_info .succession .reservation_apply .cont_box .notice li{ font-size: 16px; color: #555; position: relative; padding-left: 21px; line-height: 1.71;}
 .my_contract .contract_info .succession .reservation_apply .cont_box .notice li span{ position: absolute; top: 0; left: 0;}
 
 
@@ -1618,7 +1619,7 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify01 .section .select_row {background: #fff;}
 .my_general .modify01 .section .phone_wrap .phone_cell span { font-size: 20px; font-family: 'Poppins'; font-weight: 300;}
 .my_general .modify01 .section .email_wrap {display:none; justify-content: center;}
-.my_general .modify01 .section .email_wrap .email_cell {display: flex; align-items: center; gap:22px; max-width: 1080px; padding: 0 20px;}
+.my_general .modify01 .section .email_wrap .email_cell {display: flex; align-items: center; gap:22px; max-width: 1080px; padding: 0 20px; min-width:623px;}
 .my_general .modify01 .section .email_wrap .email_cell span {font-size: 20px; font-family: 'Poppins'; font-weight: 300; color:#222; margin: 0 8px;}
 
  
@@ -1637,9 +1638,11 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify .section > ul li .email_cell .select_row  { max-width: 320px; height: 70px; }
 .my_general .modify .section > ul li .ipt_cell #selboxDirect { margin-right: 20px; }
 .my_general .modify .section > ul li .ipt_cell .select_row label { color: #b2b2b2; }
+.my_general .modify .section hr {margin-top: 60px; border: none; height: 1px; background-color: #e8e8e8;}
 .my_general .modify .section .check_wrap { padding: 60px 0 118px; margin-top: 60px; border-top: 1px solid #e8e8e8; }
 .my_general .modify .section .check_wrap .checkbox_row { display: block; }
 .my_general .modify .section .check_wrap .checkbox_row + .checkbox_row { margin-top: 20px; }
+.my_general .modify .section .btn_wrap {margin-top: 123px;}
 .my_general .modify .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
 .my_general .modify .section .btn_wrap .btn_withdraw { background: #b2b2b2; color: #fff; }
 .my_general .modify .section .btn_wrap .btn_cancel { border: 1px solid #888; color: #888; float: right; }
@@ -1659,7 +1662,8 @@ body#brandstory.typeB { color: #222; }
 .footer_conts .section .cont_wrap ul li .box { border: 1px solid #e8e8e8; padding: 40px 50px; margin: 23px 0; }
 .footer_conts .section .cont_wrap ul li .table_wrap{ margin-top:25px;}
 .footer_conts .section .cont_wrap ul li .table_wrap+ol {margin-top: 20px;}
-.footer_conts .section .cont_wrap ul li .table_wrap table { width: 100%; border-collapse: collapse; font-size: 16px; color: #555; line-height: 26px; letter-spacing: -0.04rem; border-top: 1px solid #555!important; border-bottom: 1px solid #e8e8e8 !important;}
+.footer_conts .section .cont_wrap ul li .table_wrap { border-top: 1px solid #555!important;}
+.footer_conts .section .cont_wrap ul li .table_wrap table { width: 100%; border-collapse: collapse; font-size: 16px; color: #555; line-height: 26px; letter-spacing: -0.04rem; border-bottom: 1px solid #e8e8e8 !important;}
 .footer_conts .section .cont_wrap ul li .table_wrap table thead th {  background-color: #f5f5f5; font-weight: 400; color: #222; text-align: center; border: 1px solid #e8e8e8; border-top: none;}
 .footer_conts .section .cont_wrap ul li .table_wrap table thead th:first-child{border-left:none;}
 .footer_conts .section .cont_wrap ul li .table_wrap table thead th:last-child{border-right:none;}

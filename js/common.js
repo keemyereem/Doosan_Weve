@@ -60,9 +60,47 @@ var commonEvent = {
     this.goTopEvent();
     this.checkAll();
     this.headerScroll();
-    // this.checkDisagree();
+    this.checkDisagree();
     this.policyEvent();
   },
+
+checkDisagree: () => {
+  $('.agree_row label span').hide();
+
+  $('.agree_row').each(function () {
+    const $row = $(this);
+    const $radios = $row.find('input[type="radio"]');
+
+    let $disagree = $row.find('input.disagree');
+    if ($disagree.length === 0) {
+      const $candLabel = $row.find('label').filter(function () {
+        const hasSpan = $(this).find('span').length > 0;
+        const hasText = $(this).text().trim().includes('동의하지 않습니다');
+        return hasSpan || hasText;
+      }).first();
+
+      if ($candLabel.length) {
+        const disagreeId = $candLabel.attr('for');
+        $disagree = $row.find(`input[type="radio"]#${disagreeId}`);
+      }
+    }
+
+    const $hint = ($disagree.length)
+      ? $row.find(`label[for="${$disagree.attr('id')}"] span`)
+      : $();
+
+    function update() {
+      if ($disagree.length && $hint.length && $disagree.is(':checked')) {
+        $hint.show();
+      } else if ($hint.length) {
+        $hint.hide();
+      }
+    }
+
+    update();
+    $radios.on('change', update);
+  });
+},
 
   headerEvent: () => {
     const body = $('body');

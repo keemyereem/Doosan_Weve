@@ -1616,6 +1616,7 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify01 .section .phone_wrap, .my_general .modify01 .section .email_wrap { display: flex; align-items: center; justify-content: center; background: #fafafa; padding: 61px 0; margin-bottom: 120px;}
 .my_general .modify01 .section .phone_wrap .phone_cell {display: flex; gap: 32px; align-items: center; max-width: 744px; padding: 0 20px;}
 .my_general .modify01 .section .input_row {background: #fff;}
+.my_general .modify01 .section .input_row input {padding-right: 0; width:230px;}
 .my_general .modify01 .section .select_row {background: #fff;}
 .my_general .modify01 .section .phone_wrap .phone_cell span { font-size: 20px; font-family: 'Poppins'; font-weight: 300;}
 .my_general .modify01 .section .email_wrap {display:none; justify-content: center;}
@@ -1672,7 +1673,6 @@ body#brandstory.typeB { color: #222; }
 .footer_conts .section .cont_wrap ul li .table_wrap table tr td.blue-color {  color: #005eb8; font-weight: 500;}
 .footer_conts .section .cont_wrap ul li .table_wrap table tr td:first-child{border-left:none;}
 .footer_conts .section .cont_wrap ul li .table_wrap table tr td:last-child{border-right:none;}
-
 .footer_conts .section ol li { position: relative; padding-left: 15px; }
 .footer_conts .section ol li::before { content:'-'; display: inline-block; position: absolute; top: 0; left: 0; }
 .footer_conts .section .numb {margin-left: 10px;}

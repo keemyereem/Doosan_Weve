@@ -1588,7 +1588,7 @@ body#brandstory.typeB { color: #222; }
 .my_general .withdraw .section .sec_tit { font-size: 40px; font-weight: 400; color: #222; }
 .my_general .withdraw .section p { max-width: 1200px; height: auto; margin: 60px auto 40px auto; font-size: 20px; line-height: 34px; color: #222; }
 .my_general .withdraw .section div.contents { max-width: 1200px; height: auto; margin: 40px auto 120px; padding: 44px 60px; background: #f2f7fb; font-size: 16px; line-height: 30px; color: #222; text-align:left;}
-.my_general .withdraw .section div.contents ul li { font-size: 16px; position: relative; padding-left: 15px; line-height: 30px; color: #222;}
+.my_general .withdraw .section div.contents ul li { font-size: 16px; position: relative; padding-left: 21px; line-height: 30px; color: #222;}
 .my_general .withdraw .section div.contents ul li span { position: absolute; top: 0; left: 0;}
 .my_general .withdraw .section p b { font-weight: 400; color: #005eb8; }
 .my_general .withdraw .section .btn_wrap { display: flex; justify-content: center; align-items: center; }
@@ -1640,9 +1640,11 @@ body#brandstory.typeB { color: #222; }
 .my_general .modify .section > ul li .ipt_cell #selboxDirect { margin-right: 20px; }
 .my_general .modify .section > ul li .ipt_cell .select_row label { color: #b2b2b2; }
 .my_general .modify .section hr {margin-top: 60px; border: none; height: 1px; background-color: #e8e8e8;}
-.my_general .modify .section .check_wrap { padding: 60px 0 118px; margin-top: 60px; border-top: 1px solid #e8e8e8; }
-.my_general .modify .section .check_wrap .checkbox_row { display: block; }
-.my_general .modify .section .check_wrap .checkbox_row + .checkbox_row { margin-top: 20px; }
+.my_general .modify .section .checkbox_row { padding: 60px 0 0; margin-top: 60px; border-top: 1px solid #e8e8e8; width: 100%;}
+.my_general .modify .section .checkbox_row p { font-size: 22px; font-weight: 400; color: #222; letter-spacing: -.55px; margin-bottom: 25px;}
+.my_general .modify .section .checkbox_row .agree_row { margin-top: 24px;}
+.my_general .modify .section .checkbox_row .agree_row + .agree_row { margin-top: 20px; }
+.my_general .modify .section .checkbox_row input[type="radio"] + label:first-of-type {margin-right: 30px;}
 .my_general .modify .section .btn_wrap {margin-top: 123px;}
 .my_general .modify .section .btn_wrap a { display: inline-block; width: 240px; height: 60px; line-height: 60px; border-radius: 30px; font-size: 18px; text-align: center; transition: all .5s; }
 .my_general .modify .section .btn_wrap .btn_withdraw { background: #b2b2b2; color: #fff; }

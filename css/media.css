@@ -1471,7 +1471,7 @@
 	#mobile .my_general .withdraw .section .sec_tit { font-size: 22px; }
 	#mobile .my_general .withdraw .section p { margin: 0; padding: 39px 0 30px 0; font-size: 15px; line-height: 22px; }
 	#mobile .my_general .withdraw .section div.contents{padding: 30px 20px 30px; margin: 0; margin-bottom: 69px;}
-	#mobile .my_general .withdraw .section div.contents ul li {line-height: 20px; font-size: 13px;}
+	#mobile .my_general .withdraw .section div.contents ul li {line-height: 20px; font-size: 13px; padding-left: 18px;}
 	#mobile .my_general .withdraw .section .btn_wrap a { width: calc(100% - 12px); max-width: 155px; height: 45px; line-height: 45px; border-radius: 22px; font-size: 13px; }
 	#mobile .my_general .withdraw .section .btn_wrap .btn_withdraw { margin-left: 24px; }
 
@@ -1499,6 +1499,11 @@
 	#mobile .my_general .modify .section .sec_tit { font-size: 22px; margin-bottom: 70px; }
 	#mobile .my_general .modify .section > ul li { flex-wrap: wrap; }
 	#mobile .my_general .modify .section > ul li + li { margin-top: 30px; }
+	#mobile .my_general .modify .section .checkbox_row { padding: 40px 0 0px; margin-top: 40px;}
+	#mobile .my_general .modify .section .checkbox_row .agree_row { display: flex; align-items: flex-start;}
+	#mobile .my_general .modify .section .checkbox_row  p { font-size: 16px; margin-bottom: 23px;}
+	#mobile .my_general .modify .section .checkbox_row .agree_row input[type="radio"] + label:first-of-type {margin-right: 2.8vw;}
+	#mobile .my_general .modify .section .checkbox_row .agree_row .agree_row label { letter-spacing: -.75px;}
 	#mobile .my_general .modify .section > ul li:nth-child(n+3):nth-child(-n+4) .tit_cell { width: 100%; margin-bottom: 10px; }
 	#mobile .my_general .modify .section > ul li:nth-child(n+3):nth-child(-n+4) .ipt_cell { width: 100%; }
 	#mobile .my_general .modify .section > ul li .tit_cell { width: 80px; font-size: 14px; }

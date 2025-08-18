@@ -213,7 +213,7 @@ nav ul li.mb { display: none; }
 .checkbox_row input[type="checkbox"] {display: none;}
 .checkbox_row input[type="checkbox"] + label {display: block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
 .checkbox_row input[type="checkbox"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #e8e8e8;vertical-align: top;box-sizing: border-box;}
-.checkbox_row input[type="checkbox"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+.checkbox_row input[type="checkbox"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px; border:none;}
 
 /* radio box type */
 .radio_row {display: inline-block;position: relative;}
@@ -224,7 +224,7 @@ nav ul li.mb { display: none; }
 /* .radio_row */ input[type="radio"] {display: none;}
 /* .radio_row */ input[type="radio"] + label {display: inline-block;position: relative;font-size: 20px;color: #222;cursor: pointer;}
 /* .radio_row */ input[type="radio"] + label:before {content: "";display: inline-block;margin-right: 16px;width: 24px;height: 24px;background: #fff;border: 1px solid #888;vertical-align: top;box-sizing: border-box;}
-/* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px;}
+/* .radio_row */ input[type="radio"]:checked + label:before {content: "";background: #005eb8 url(../images/common/wh_checked.png) 50% 50% no-repeat;background-size: 13px 10px; border:none;}
 
 /* file/ seacrch */
 .file_row, .file_row form, .finder_row {width: 100%;display: flex;align-items: center;}
@@ -293,7 +293,7 @@ footer .family_site.open .site_list {height: auto;border: 1px solid #808080;}
 footer .family_site .site_list li a {display: block;font-size: 16px; color: #222;padding: 10px 20px; }
 footer .family_site .site_list li a:hover { background: #030716; color: #fff; }
 
-footer .footer_award {position: absolute;top: 50px;left: 830px;}
+footer .footer_award {position: absolute;top: 50px;left: 855px;}
 
 #topButton { font-family: 'Poppins'; font-size: 18px; color: #000; letter-spacing: .8px; position: fixed; right: 80px; bottom: 80px; display: none; z-index: 50; writing-mode: vertical-lr; }
 #topButton::after { content:''; display: block; width: 23px; height: 30px; background: url(../images/common/scrollTop.png) no-repeat; background-size: contain; position: absolute; top: -100%; left: 0; }

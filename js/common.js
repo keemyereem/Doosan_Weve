@@ -324,7 +324,7 @@ checkDisagree: () => {
     // 분양안내용 팝업코드
     const list = $('.list').find('> ul > li'),
       popupUI = $('.popup > ul > li:last-child'),
-      popupClose = $('.pop_close'),
+      popupClose = $('.popup:not(.qr) .pop_close'),
       body = document.querySelector('body');
 
     // list.each((index) => {
@@ -510,11 +510,12 @@ checkDisagree: () => {
       closeProcessor();
     });
 
-    // 팝업 열기 function
+    // 팝업 열기 function (QR 제외)
     function openProcessor() {
       scrollPosition = window.pageYOffset;
 
-      $('.popup').addClass('on');
+      // .popup.qr 은 제외하고 on 적용
+      $('.popup:not(.qr)').addClass('on');
       $('html').addClass('blockScroll');
 
       body.style.top = `-${scrollPosition}px`;
@@ -522,14 +523,16 @@ checkDisagree: () => {
       $('header').hide();
     }
 
-    // 팝업 닫기 function
+    // 팝업 닫기 function (QR 제외)
     function closeProcessor() {
       if ($('.gallery_swiper').length) {
         channelEvent.gallerySwiper();
       }
 
       $('html').removeClass('blockScroll');
-      $('.popup').removeClass('on');
+
+      // .popup.qr 은 제외하고 on 제거
+      $('.popup:not(.qr)').removeClass('on');
 
       scrollPosition = body.style.top;
       scrollPosition = scrollPosition.replace('px', '');
@@ -2820,3 +2823,96 @@ function submitForm() {
     }
   }
 }
+$(function () {
+  // CSS 전환시간(ms)
+  const T = 300;
+
+  // 중복 바인딩 방지
+  $(document).off('.qrFlow');
+
+  function forceReflow($el){ if ($el[0]) $el[0].offsetWidth; }
+
+  function lockScroll () {
+    if ($('html').hasClass('blockScroll')) return;
+    const y = window.pageYOffset;
+    $('html').addClass('blockScroll');
+    $('body').css('top', `-${y}px`);
+    $('header').hide();
+  }
+  function unlockScroll () {
+    if (!$('html').hasClass('blockScroll')) return;
+    $('html').removeClass('blockScroll');
+    const y = parseInt($('body').css('top'), 10) || 0;
+    window.scrollTo(0, -y);
+    $('body').css('top', '');
+    $('header').show();
+  }
+
+  function openQr () {
+    const $qr = $('.popup.qr');
+    const $search = $('.popup.search');
+
+    if (!$qr.length || $qr.hasClass('on')) return;
+
+    lockScroll();
+
+    // search가 있으면 같은 애니메이션으로 닫기
+    if ($search.length) {
+      // 열려있든 아니든 통일된 흐름
+      $search.removeClass('on');
+      // setTimeout(() => { $search.css('display', 'none'); }, T);
+    }
+
+    // QR 열기
+    $qr.css('display', 'block');
+    forceReflow($qr);
+    $qr.addClass('on');
+  }
+
+  function closeQr () {
+    const $qr = $('.popup.qr');
+    const $search = $('.popup.search');
+
+    if (!$qr.length || !$qr.hasClass('on')) return;
+
+    // QR 닫기
+    $qr.removeClass('on');
+    setTimeout(() => {
+      $qr.css('display', 'none');
+    }, T);
+      //     if ($search.length) {
+      //   $search.css('display', 'block');
+      //   forceReflow($search);
+      //   $search.addClass('on');
+      // } else {
+      //   // search 없음 → 스크롤락 해제
+      //   unlockScroll();
+      // }
+        unlockScroll();
+  }
+
+  // 검색팝업 내 op_pop 클릭 QR 열기
+  $(document).on('click.qrFlow', '.popup.search .op_pop', openQr);
+
+  // 닫기 버튼
+  $(document).on('click.qrFlow', '.popup.qr .pop_close_qr', closeQr);
+
+  // ESC
+  $(document).on('keyup.qrFlow', function (e) {
+    if (e.key === 'Escape' && $('.popup.qr').hasClass('on')) closeQr();
+  });
+
+  // select 변경(선택 옵션에 op_pop 있을 때만 열기)
+  $(document).on('change.qrFlow', '#prjctCd', function () {
+    const $opt = $(this).find('option:selected');
+    if ($opt.hasClass('op_pop')) openQr();
+  });
+
+  // 옵션이 1개뿐이라 change가 안 나는 케이스 대비
+  $(document).on('mousedown.qrFlow', '#prjctCd', function () {
+    const $opts = $(this).find('option');
+    if ($opts.length === 1 && $opts.eq(0).hasClass('op_pop')) openQr();
+  });
+});
+
+

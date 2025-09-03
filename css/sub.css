@@ -118,6 +118,14 @@ body#brandstory { /*overflow-x: hidden;*/ color: #fff; }
 .popup.search ul li:last-child a dl dt { font-size: 20px; }
 .popup.search ul li:last-child a dl dd { font-size: 16px; color: #888888; padding-top: 5px; }
 
+.popup.qr ul li {text-align:center; font-family: 'Noto Sans KR'; }
+.popup.qr ul li .complex_name {font-size: 34px; color:#222;}
+.popup.qr ul li p {font-size: 16px; font-weight: 400;  margin: 25px 0; line-height: 26px; color: #555;}
+.popup.qr ul li p span{font-weight: bold; color: #222;}
+.popup.qr ul li .qr_wrap {width:180px; height:180px; padding:10px; border:1px solid #e8e8e8; margin: 0 auto 35px auto;}
+.popup.qr ul li .qr_wrap img {width:100%; display: block;}
+.popup.qr ul li .btn_go { margin: 0 auto; font-size: 16px; font-weight: 400; padding: 0 28px; width: 245px;}
+.popup.qr>ul li:last-child {display: block; padding: 80px 60px;}
 
 /* 시안 B */
 body#brandstory.typeB { color: #222; }

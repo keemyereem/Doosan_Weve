@@ -68,7 +68,27 @@
         <div class="sitemap"></div>
         <!-- //sitemap -->
 
-        <div class="container cs">   
+        <div class="container cs">
+            <!-- QR 팝업 -->
+            <div class="popup qr" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+                <ul>
+                    <li>
+                        <img src="images/estate/popup_close.png" alt="close Popup" class="pop_close_qr">
+                    </li>
+                    <li>
+                        <h3 id="qrTitle"><span class="complex_name">동백호수공원 두산위브더제니스</span></h3>
+                        <p>
+                            본 단지는 2025년 7월 1일 이후 입주 단지로 모바일 AS사이트에서 A/S신청 가능합니다.<br>
+                            <span>다음의 QR코드를 휴대폰 카메라로 스캔하여 이동 후 신청 바랍니다.</span>
+                        </p>
+                        <div class="qr_wrap">
+                            <img class="qr_image" src="/images/common/qr_img.png" alt="QR Code">
+                        </div>
+                        <a class="btn_go" href="#" target="_blank" rel="noopener">모바일 AS 사이트로 이동하기</a>
+                    </li>
+                </ul>
+            </div>
+
             <section class="section1">
                 <h2>
                     고객서비스
@@ -197,9 +217,11 @@
                         <div class="tit_cell">계약단지 <span class="es">*</span></div>
                         <div class="ipt_cell">
                             <div class="select_row">
-                                <label for="sel01">계약단지를 선택해 주세요.</label>
-                                <select id="sel01" class="selectBox">
-                                    <!-- <option value=""></option> -->
+                                <label for="prjctCd">계약단지를 선택해 주세요.</label>
+                                <select id="prjctCd" class="selectBox ">
+                                    <option class="op_pop" value="01">두산 반포 위브01</option>
+                                    <option class="op_pop" value="02">두산 반포 위브02</option>
+                                    <option class="" value="03">두산 반포 위브03(qrX)</option>
                                 </select>
                             </div>
                         </div>

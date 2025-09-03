@@ -236,6 +236,13 @@
 	#mobile .popup.search ul li:last-child a dl dt { font-size: 15px; }
 	#mobile .popup.search ul li:last-child a dl dd { font-size: 13px; padding-top: 5px; }
 
+	/* qr poopup */
+	#mobile .popup.qr ul { width: calc(100% - 40px); }
+	#mobile .popup.qr>ul li:last-child { padding: 40px 30px;}
+	#mobile .popup.qr ul li .complex_name{font-size: 22px;}
+	#mobile .popup.qr ul li p {font-size: 13px; line-height: 18px;}
+	#mobile .popup.qr ul li .qr_wrap {width: 130px; height: 130px; margin: 0 auto 25px auto}
+	#mobile .popup.qr ul li .btn_go {width: 192px; font-size: 13px; padding: 0 20px; height: 38px; line-height: 38px;}
 	
 	/* brandstory */
 	#mobile .scroll-container nav { border-bottom: 0; top: 276px; }
@@ -1485,8 +1492,8 @@
 	#mobile	.my_general .modify01 .section .email_wrap .email_cell span {font-size:15px; margin:0 2px;}
 	#mobile	.my_general .modify01 .section .input_row input,	#mobile .my_general .modify01 .section .input_search input{ height: 45px; padding-left: 13px; padding-right: 13px; font-size: 13px;}
 	#mobile .my_general .modify01 .section .btn_wrap {padding: 0 20px; gap: 25px;}
-	#mobile .my_general .modify01 .section .btn_wrap .btn_cancel { width: calc(50% - 13px); float: none; order: 1; }
-	#mobile .my_general .modify01 .section .btn_wrap .btn_save { width: calc(50% - 13px); float: none; margin-left: 0; order: 2; }
+	#mobile .my_general .modify01 .section .btn_wrap .btn_cancel { width: calc(50% - 13px); float: none; order: 1; height: 45px; line-height: 45px; font-size: 13.5px;}
+	#mobile .my_general .modify01 .section .btn_wrap .btn_save { width: calc(50% - 13px); float: none; margin-left: 0; order: 2; height: 45px; line-height: 45px; font-size: 13.5px;}
   #mobile .my_general .modify01 .section .phone_wrap, .my_general .modify01 .section .email_wrap{ padding:  40px 0; margin-bottom: 70px;}
 	#mobile	.my_general .modify01 .section .select_row label {padding: 0 11px; font-size: 13px;}
 	#mobile .my_general .modify01 .section .input_row { width: 97%;}
